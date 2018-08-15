@@ -2,27 +2,18 @@ import { configure } from "@storybook/vue";
 
 import Vue from "vue";
 
-import lazyLoad from "../helpers/lazy_load.js";
-import { BVComponents, BVDirectives } from "../helpers/load_bootstrap_vue.js";
+// Import your custom components.
+import pagination from '../components/base/pagination.vue';
+import progressBar from '../components/base/progress_bar.vue';
 
-const customComponents = lazyLoad(
-  require.context("../components", true, /\.vue$/)
-);
+// Register custom components.
+Vue.component('gl-pagination', pagination);
+Vue.component('gl-progress-bar', progressBar);
 
-const allComponents = Object.assign({}, BVComponents, customComponents);
-
-// Register all Vue Components
-for (const component in allComponents) {
-  Vue.component(`gl-${component}`, allComponents[component]);
+function loadStories() {
+  // You can require as many stories as you need.
+  require('../stories/pagination.js');
+  require('../stories/progress_bar.js');
 }
 
-for (const directive in BVDirectives) {
-  Vue.directive(`gl-${directive}`, BVDirectives[directive]);
-}
-
-const stories = lazyLoad.bind(
-  null,
-  require.context("../stories", true, /\.js$/)
-);
-
-configure(stories, module);
+configure(loadStories, module);
