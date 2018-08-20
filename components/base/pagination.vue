@@ -6,7 +6,7 @@
  * https://bootstrap-vue.js.org/docs/components/pagination-nav
  */
 import BPaginationNav from "bootstrap-vue/es/components/pagination-nav/pagination-nav";
-import Breakpoints from "../../helpers/breakpoints.js"
+import Breakpoints from "../../helpers/breakpoints.js";
 
 export default {
   components: {
@@ -35,28 +35,28 @@ export default {
     },
     paginationLimit() {
       switch (this.breakpoint) {
-        case 'xs':
-          return 1
-        case 'sm':
-          return 3
-        case 'md':
-          return 5
+        case "xs":
+          return 1;
+        case "sm":
+          return 3;
+        case "md":
+          return 5;
         default:
-          return 11
+          return 11;
       }
     }
   },
   methods: {
     setBreakpoint() {
       this.breakpoint = Breakpoints.getBreakpointSize();
-    },
+    }
   },
   created() {
-    window.addEventListener('resize', this.setBreakpoint);
+    window.addEventListener("resize", this.setBreakpoint);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.setBreakpoint);
-  },
+    window.removeEventListener("resize", this.setBreakpoint);
+  }
 };
 </script>
 
