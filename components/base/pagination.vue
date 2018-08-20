@@ -16,22 +16,8 @@ export default {
     breakpoint: Breakpoints.getBreakpointSize()
   }),
   computed: {
-    defaultAttrs() {
-      return {
-        limit: this.paginationLimit
-      };
-    },
-    mergedAttrs() {
-      for (const attr in this.defaultAttrs) {
-        if (!this.$attrs[attr]) {
-          this.$attrs[attr] = this.defaultAttrs[attr];
-        }
-      }
-      if (!this.$attrs["hide-goto-end-buttons"]) {
-        this.$attrs["hide-goto-end-buttons"] =
-          this.$attrs["number-of-pages"] < this.$attrs.limit;
-      }
-      return this.$attrs;
+    hideGotoEndButtons() {
+      return this.$attrs["number-of-pages"] < this.$attrs.limit;
     },
     paginationLimit() {
       switch (this.breakpoint) {
@@ -61,5 +47,9 @@ export default {
 </script>
 
 <template>
-  <BPaginationNav v-bind="mergedAttrs" />
+  <BPaginationNav
+    v-bind="this.$attrs"
+    :limit="paginationLimit"
+    :hide-goto-end-buttons="hideGotoEndButtons"
+  />
 </template>
