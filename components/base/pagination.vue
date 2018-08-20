@@ -17,7 +17,7 @@ export default {
   }),
   computed: {
     hideGotoEndButtons() {
-      return this.$attrs["number-of-pages"] < this.$attrs.limit;
+      return this.$attrs["number-of-pages"] < this.paginationLimit;
     },
     paginationLimit() {
       switch (this.breakpoint) {
