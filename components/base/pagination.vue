@@ -22,7 +22,8 @@ export default {
   }),
   computed: {
     hideGotoEndButtons() {
-      return this.$attrs["number-of-pages"] < this.paginationLimit;
+      const totalPages = Math.ceil(this.pageInfo.total / this.pageInfo.perPage);
+      return totalPages < this.paginationLimit;
     },
     paginationLimit() {
       switch (this.breakpoint) {
@@ -43,8 +44,8 @@ export default {
     }
   },
   created() {
-    this.currentPage = this.pageInfo.page
-    this.$watch('currentPage', this.change)
+    this.currentPage = this.pageInfo.page;
+    this.$watch('currentPage', this.change);
 
     window.addEventListener("resize", this.setBreakpoint);
   },
