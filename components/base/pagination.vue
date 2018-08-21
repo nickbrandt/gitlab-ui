@@ -1,19 +1,24 @@
 <script>
-/**
- * Based on Bootstrap Vue's Pagination and Pagination Nav components
- * all Bootstrap Vue attributes will work on this component:
- * https://bootstrap-vue.js.org/docs/components/pagination
- * https://bootstrap-vue.js.org/docs/components/pagination-nav
- */
-import BPaginationNav from "bootstrap-vue/es/components/pagination-nav/pagination-nav";
+import BPagination from "bootstrap-vue/es/components/pagination/pagination";
 import Breakpoints from "../../helpers/breakpoints.js";
 
 export default {
   components: {
-    BPaginationNav
+    BPagination
+  },
+  props: {
+    change: {
+      type: Function,
+      required: true,
+    },
+    pageInfo: {
+      type: Object,
+      required: true,
+    }
   },
   data: () => ({
-    breakpoint: Breakpoints.getBreakpointSize()
+    breakpoint: Breakpoints.getBreakpointSize(),
+    currentPage: null,
   }),
   computed: {
     hideGotoEndButtons() {
@@ -38,6 +43,9 @@ export default {
     }
   },
   created() {
+    this.currentPage = this.pageInfo.page
+    this.$watch('currentPage', this.change)
+
     window.addEventListener("resize", this.setBreakpoint);
   },
   beforeDestroy() {
@@ -47,9 +55,12 @@ export default {
 </script>
 
 <template>
-  <BPaginationNav
+  <BPagination
     v-bind="this.$attrs"
     :limit="paginationLimit"
+    :per-page="pageInfo.perPage"
+    :total-rows="pageInfo.total"
     :hide-goto-end-buttons="hideGotoEndButtons"
+    v-model="currentPage"
   />
 </template>
