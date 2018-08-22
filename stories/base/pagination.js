@@ -1,5 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from '@storybook/addon-knobs';
+import { sizeOptions } from '../utils/constants';
 
 function generateProps({
   page = 3,
@@ -28,34 +29,23 @@ function generateProps({
   };
 };
 
-storiesOf("pagination", module)
+function generateTemplate(size) {
+  return `<gl-pagination
+    size="${size}"
+    :change="change"
+    :page="page"
+    :per-page="perPage"
+    :total-items="totalItems"
+  />`
+}
+
+const stories = storiesOf("pagination", module)
   .addDecorator(withKnobs)
-  .add("default", () => ({
-    props: generateProps(),
-    template: `<gl-pagination
-      :change="change"
-      :page="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      />`,
-  }))
-  .add("small", () => ({
-    props: generateProps(),
-    template: `<gl-pagination
-      size="sm"
-      :change="change"
-      :page="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      />`,
-  }))
-  .add("large", () => ({
-    props: generateProps(),
-    template: `<gl-pagination
-      size="lg"
-      :change="change"
-      :page="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      />`,
-  }));
+
+Object.entries(sizeOptions)
+  .forEach(([name, size]) => stories
+    .add(name, () => ({
+      props: generateProps(),
+      template: generateTemplate(size)
+    }))
+  );

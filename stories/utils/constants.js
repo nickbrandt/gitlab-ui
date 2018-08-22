@@ -1,3 +1,9 @@
+export const sizeOptions = {
+  small: 'sm',
+  medium: 'md',
+  large: 'lg',
+};
+
 export const variantOptions = {
   primary: 'primary',
   secondary: 'secondary',
