@@ -11,9 +11,24 @@ export default {
       type: Function,
       required: true,
     },
-    pageInfo: {
-      type: Object,
+    perPage: {
+      type: Number,
       required: true,
+    },
+    totalRows: {
+      type: Number,
+      required: true,
+    },
+    limits: {
+      type: Object,
+      require: false,
+      default: function () {
+        return {
+          xs: 1,
+          sm: 3,
+          md: 5,
+        }
+      },
     }
   },
   data: () => ({
@@ -22,20 +37,11 @@ export default {
   }),
   computed: {
     hideGotoEndButtons() {
-      const totalPages = Math.ceil(this.pageInfo.total / this.pageInfo.perPage);
+      const totalPages = Math.ceil(this.totalRows / this.perPage);
       return totalPages < this.paginationLimit;
     },
     paginationLimit() {
-      switch (this.breakpoint) {
-        case "xs":
-          return 1;
-        case "sm":
-          return 3;
-        case "md":
-          return 5;
-        default:
-          return 11;
-      }
+      return this.limits[this.breakpoint] || this.limits.default || 11;
     }
   },
   methods: {
@@ -44,7 +50,7 @@ export default {
     }
   },
   created() {
-    this.currentPage = this.pageInfo.page;
+    this.currentPage = this.page;
     this.$watch('currentPage', this.change);
 
     window.addEventListener("resize", this.setBreakpoint);
@@ -59,8 +65,8 @@ export default {
   <BPagination
     v-bind="this.$attrs"
     :limit="paginationLimit"
-    :per-page="pageInfo.perPage"
-    :total-rows="pageInfo.total"
+    :per-page="perPage"
+    :total-rows="totalRows"
     :hide-goto-end-buttons="hideGotoEndButtons"
     v-model="currentPage"
   />
