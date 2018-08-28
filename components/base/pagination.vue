@@ -11,6 +11,10 @@ export default {
       type: Function,
       required: true,
     },
+    page: {
+      type: Number,
+      required: true,
+    },
     perPage: {
       type: Number,
       required: true,
