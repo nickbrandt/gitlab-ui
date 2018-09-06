@@ -4,7 +4,7 @@ const data = () => ({
   change: () => {},
   page: 3,
   perPage: 10,
-  totalRows: 200,
+  totalItems: 200,
 });
 
 storiesOf("pagination", module)
@@ -14,7 +14,7 @@ storiesOf("pagination", module)
       :change="change"
       :page="page"
       :per-page="perPage"
-      :total-rows="totalRows"
+      :total-items="totalItems"
       />`,
   }))
   .add("small", () => ({
@@ -24,7 +24,7 @@ storiesOf("pagination", module)
       :change="change"
       :page="page"
       :per-page="perPage"
-      :total-rows="totalRows"
+      :total-items="totalItems"
       />`,
   }))
   .add("large", () => ({
@@ -34,6 +34,6 @@ storiesOf("pagination", module)
       :change="change"
       :page="page"
       :per-page="perPage"
-      :total-rows="totalRows"
+      :total-items="totalItems"
       />`,
   }));
