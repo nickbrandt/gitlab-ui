@@ -1,6 +1,6 @@
 <script>
 import BPagination from "bootstrap-vue/es/components/pagination/pagination";
-import Breakpoints from "../../helpers/breakpoints.js";
+import Breakpoints, { breakpoints } from "../../helpers/breakpoints.js";
 
 export default {
   components: {
@@ -30,8 +30,17 @@ export default {
         xs: 1,
         sm: 3,
         md: 5,
+        default: 11,
       }),
-    }
+      validator: value => {
+        const missingSizes = Object.keys(breakpoints)
+          .filter(size => !value.hasOwnProperty(size))
+          .length
+        return missingSizes === 0
+          ? true
+          : value.hasOwnProperty('default')
+      },
+    },
   },
   data() {
     return {
@@ -45,7 +54,7 @@ export default {
       return totalPages < this.paginationLimit;
     },
     paginationLimit() {
-      return this.limits[this.breakpoint] || this.limits.default || 11;
+      return this.limits[this.breakpoint] || this.limits.default;
     }
   },
   watch: {
