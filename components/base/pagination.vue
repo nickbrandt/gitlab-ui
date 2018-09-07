@@ -35,10 +35,11 @@ export default {
       validator: value => {
         const missingSizes = Object.keys(breakpoints)
           .filter(size => !value.hasOwnProperty(size))
-          .length
+          .length;
+
         return missingSizes === 0
           ? true
-          : value.hasOwnProperty('default')
+          : value.hasOwnProperty('default');
       },
     },
   },
@@ -51,6 +52,7 @@ export default {
   computed: {
     hideGotoEndButtons() {
       const totalPages = Math.ceil(this.totalItems / this.perPage);
+
       return totalPages < this.paginationLimit;
     },
     paginationLimit() {
