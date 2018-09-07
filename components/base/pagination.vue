@@ -67,11 +67,11 @@ export default {
 
 <template>
   <b-pagination
+    v-model="currentPage"
     v-bind="this.$attrs"
     :limit="paginationLimit"
     :per-page="perPage"
     :total-rows="totalItems"
     :hide-goto-end-buttons="hideGotoEndButtons"
-    v-model="currentPage"
   />
 </template>
