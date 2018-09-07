@@ -11,12 +11,7 @@ describe('pagination component', () => {
     perPage: 5,
     totalItems: 30
   };
-
-  let mountWithOptions;
-
-  beforeEach(() => {
-    mountWithOptions = shallowMount.bind(null, Pagination);
-  });
+  const mountWithOptions = shallowMount.bind(null, Pagination);
 
   it('should wrap BPagination', () => {
     const pagination = mountWithOptions({ propsData });
