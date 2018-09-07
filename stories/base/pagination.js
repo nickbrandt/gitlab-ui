@@ -1,15 +1,37 @@
 import { storiesOf } from "@storybook/vue";
+import { withKnobs, number } from '@storybook/addon-knobs';
 
-const data = () => ({
-  change: () => {},
-  page: 3,
-  perPage: 10,
-  totalItems: 200,
-});
+function generateProps({
+  page = 3,
+  perPage = 10,
+  totalItems = 200,
+} = {}) {
+  return {
+    change: {
+      type: Function,
+      default: (current, past) => console.log(
+        `switched from ${past} to ${current}`,
+      ),
+    },
+    page: {
+      type: Number,
+      default: number('current page', page),
+    },
+    perPage: {
+      type: Number,
+      default: number('per page', perPage),
+    },
+    totalItems: {
+      type: Number,
+      default: number('total items', totalItems),
+    },
+  };
+};
 
 storiesOf("pagination", module)
+  .addDecorator(withKnobs)
   .add("default", () => ({
-    data,
+    props: generateProps(),
     template: `<gl-pagination
       :change="change"
       :page="page"
@@ -18,7 +40,7 @@ storiesOf("pagination", module)
       />`,
   }))
   .add("small", () => ({
-    data,
+    props: generateProps(),
     template: `<gl-pagination
       size="sm"
       :change="change"
@@ -28,7 +50,7 @@ storiesOf("pagination", module)
       />`,
   }))
   .add("large", () => ({
-    data,
+    props: generateProps(),
     template: `<gl-pagination
       size="lg"
       :change="change"
