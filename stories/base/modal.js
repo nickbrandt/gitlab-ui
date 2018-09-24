@@ -1,7 +1,8 @@
 import Vue from 'vue';
-import { storiesOf } from '@storybook/vue';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs/vue';
+import documentedStoriesOf from '../utils/documented_stories';
 import { variantOptionsWithNoDefault } from '../utils/constants';
+import readme from '../../documentation/modal.md';
 
 function generateTemplate({ visible = false } = {}) {
   return `
@@ -71,7 +72,7 @@ function generateProps({
   }
 }
 
-storiesOf('modal', module)
+documentedStoriesOf('modal', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
