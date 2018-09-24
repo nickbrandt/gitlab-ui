@@ -1,11 +1,6 @@
 <script>
   export default {
     props: {
-      small: {
-        type: Boolean,
-        required: false,
-        default: false,
-      },
       lines: {
         type: Number,
         required: false,
@@ -24,12 +19,7 @@
 </script>
 
 <template>
-  <div
-    :class="{
-      'animation-container-small': small,
-    }"
-    class="animation-container"
-  >
+  <div class="animation-container">
     <div
       v-for="(css, index) in lineClasses"
       :key="index"

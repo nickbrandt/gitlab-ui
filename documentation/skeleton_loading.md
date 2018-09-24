@@ -10,7 +10,6 @@
 ## Props
 | Property | Type | Default Value | Validation |
 |---|---|---|---|
-| small | Boolean | false | |
 | lines | Number | 3 | 1 to 3 |
 
 

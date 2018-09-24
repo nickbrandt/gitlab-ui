@@ -4,15 +4,11 @@ import documentedStoriesOf from '../utils/documented_stories';
 import { variantOptions } from '../utils/constants';
 import readme from '../../documentation/skeleton_loading.md';
 
-const template = '<gl-skeleton-loading :small="small" :lines="lines" />';
+const template = '<gl-skeleton-loading :lines="lines" />';
 
 function generateProps({
 } = {}) {
   return {
-    small: {
-      type: Boolean,
-      default: boolean('small', false),
-    },
     lines: {
       type: Number,
       default: number('lines', 3, {
