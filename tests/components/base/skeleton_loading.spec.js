@@ -54,5 +54,4 @@ describe('skeleton loading component', () => {
       expectThreeLines(component);
     });
   });
-
 });
