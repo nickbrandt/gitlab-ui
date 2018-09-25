@@ -7,9 +7,10 @@ import Vue from "vue";
 import Pagination from '../components/base/pagination.vue';
 import progressBar from '../components/base/progress_bar.vue';
 import modal from '../components/base/modal.vue';
+import link from '../components/base/link.vue';
 import loadingIcon from '../components/base/loading_icon.vue';
+import skeletonLoading from '../components/base/skeleton_loading.vue';
 import alert from '../components/base/alert.vue';
-
 // Import your custom directives.
 import vModal from '../directives/modal';
 import vTooltip from '../directives/tooltip';
@@ -18,9 +19,10 @@ import vTooltip from '../directives/tooltip';
 Vue.component('gl-pagination', Pagination);
 Vue.component('gl-progress-bar', progressBar);
 Vue.component('gl-modal', modal);
+Vue.component('gl-link', link);
 Vue.component('gl-loading-icon', loadingIcon);
+Vue.component('gl-skeleton-loading', skeletonLoading);
 Vue.component('gl-alert', alert);
-
 // Register custom directives.
 Vue.directive('gl-modal', vModal);
 Vue.directive('gl-tooltip', vTooltip);
@@ -31,8 +33,10 @@ function loadStories() {
   require('../stories/base/progress_bar');
   require('../stories/base/modal');
   require('../stories/base/loading_icon');
+  require('../stories/base/skeleton_loading');
   require('../stories/tooltip');
-  require('../stories/alert')
+  require('../stories/base/link');
+  require("../stories/alert");
 }
 
 setOptions({
