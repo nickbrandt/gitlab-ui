@@ -1,5 +1,6 @@
 import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
+import css from 'rollup-plugin-css-only';
 import glob from 'glob';
 
 export default glob
@@ -15,7 +16,10 @@ export default glob
         file: `dist/${outputFilename}.js`
       },
       plugins: [
-        vue(),
+        css(),
+        vue({
+          css: false
+        }),
         resolve(),
       ]
     };
