@@ -1,6 +1,7 @@
-import { storiesOf } from '@storybook/vue'
-import { withKnobs, select, boolean } from '@storybook/addon-knobs/vue'
-import { variantOptions } from './utils/constants';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs'
+import documentedStoriesOf from "../utils/documented_stories";
+import { variantOptions } from '../utils/constants';
+import readme from '../../documentation/alert.md';
 
 function generateTemplate({ dismissible = false } = {}) {
   return `
@@ -9,7 +10,7 @@ function generateTemplate({ dismissible = false } = {}) {
     :variant="variant"
     :dismissible="${dismissible}"
     :fade="fade">
-      This is my content
+      This is an alert message
   </gl-alert>`;
 }
 
@@ -30,13 +31,13 @@ function generateProps({ variant = variantOptions.primary } = {}) {
   };
 }
 
-storiesOf("alert", module)
+documentedStoriesOf('alert', readme)
   .addDecorator(withKnobs)
-  .add("default alert", () => ({
+  .add('default alert', () => ({
     props: generateProps(),
     template: generateTemplate()
   }))
-  .add("dismissable alert", () => ({
+  .add('dismissable alert', () => ({
     props: generateProps(),
     template: generateTemplate({ dismissible: true })
   }));
