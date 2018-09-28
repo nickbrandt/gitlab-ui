@@ -8,7 +8,6 @@ const components = {
   'gl-alert': Alert,
 };
 
-
 function generateTemplate({ dismissible = false } = {}) {
   return `
   <gl-alert

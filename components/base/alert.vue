@@ -5,12 +5,20 @@ export default {
   components: {
     BAlert
   },
+  props: {
+    show: {
+      type: Boolean,
+      required: false,
+      default: true,
+    }
+  }
 };
 </script>
 <template>
   <b-alert
     v-bind="$attrs"
     v-on="$listeners"
+    :show="show"
   >
     <slot></slot>
   </b-alert>
