@@ -27,9 +27,9 @@
 Make sure these are completed before closing the issue, with a link to the relevant commit,
 if applicable.
 
-1. [ ] Component wrapped, tests added and available in Storybook
-2. [ ] Storybook knobs provided for all parameters
-3. [ ] Related patterns added
-4. [ ] Mentioned new available component in Slack
+1. [ ] Component added (wrapped if applicable), tests added and available in Storybook
+2. [ ] Storybook knobs provided for all relevant UI parameters
+3. [ ] Related patterns documented
+4. [ ] Mentioned new component in Slack (#gitlab-ui and #ux)
 
 /label ~"UI component"
