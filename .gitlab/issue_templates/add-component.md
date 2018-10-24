@@ -27,7 +27,7 @@
 Make sure these are completed before closing the issue, with a link to the relevant commit,
 if applicable.
 
-1. [ ] Component wrapped and available in Storybook
+1. [ ] Component wrapped, tests added and available in Storybook
 2. [ ] Storybook knobs provided for all parameters
 3. [ ] Related patterns added
 4. [ ] Mentioned new available component in Slack
