@@ -4,16 +4,6 @@ import Link from '../../../components/base/link/link.vue';
 describe('link component', () => {
   const mountWithOptions = shallowMount.bind(null, Link);
 
-  it('should have set the rel attribute with "noopener noreferrer" for target="blank"', () => {
-    const link = mountWithOptions({
-      propsData: {
-        target: '_blank',
-      },
-    });
-
-    expect(link.vm.relType).toBe('noopener noreferrer');
-  });
-
   describe('default settings', () => {
     let link;
 

@@ -4,17 +4,6 @@ import Button from '../../../components/base/button/button.vue';
 describe('button component', () => {
   const mountWithOptions = shallowMount.bind(null, Button);
 
-  it('should have set the rel attribute with "noopener noreferrer" for target="blank"', () => {
-    const button = mountWithOptions({
-      propsData: {
-        target: '_blank',
-        href: '#',
-      },
-    });
-
-    expect(button.vm.relType).toBe('noopener noreferrer');
-  });
-
   describe('default settings', () => {
     let button;
 
