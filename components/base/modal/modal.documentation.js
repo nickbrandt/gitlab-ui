@@ -1,4 +1,5 @@
 import * as description from './modal.md';
+import { default as glModalExamples } from './examples';
 
 export default {
   description,
