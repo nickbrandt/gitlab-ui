@@ -15,7 +15,6 @@
       :footer-bg-variant="footerBgVariant"
       :footer-border-variant="footerBorderVariant"
       :footer-text-variant="footerTextVariant"
-      :visible="${visible}"
       modal-id="test-modal-id"
       title="Example title"
       no-fade
