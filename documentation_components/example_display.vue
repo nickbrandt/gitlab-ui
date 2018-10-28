@@ -46,9 +46,11 @@ export default {
       for (let component in Documentation) {
         if (Documentation[component].examples) {
           Documentation[component].examples.forEach(exampleGroup => {
-            foundExample = exampleGroup.examples.find(example => {
-              return example.id === this.exampleName;
-            });
+            if (!foundExample) {
+              foundExample = exampleGroup.examples.find(example => {
+                return example.id === this.exampleName;
+              });
+            }
           });
         }
       }
