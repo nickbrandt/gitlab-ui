@@ -64,7 +64,7 @@
     },
     "transform": {
       "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.vue$": "vue-jest",
       "^.+\\.md?$": "markdown-loader-jest"
     },
     "transformIgnorePatterns": [
