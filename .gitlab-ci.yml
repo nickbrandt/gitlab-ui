@@ -13,7 +13,7 @@ build:
     - yarn storybook-static
     - mkdir public
     - mv storybook/* public
-    - npm team ls
+    - npm unpublish @gitlab-org/gitlab-ui@1.8.0-ie11
   artifacts:
     paths:
       - public
