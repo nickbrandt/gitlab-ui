@@ -9,6 +9,7 @@ export {
 } from './components/base/skeleton_loading/skeleton_loading.vue';
 export { default as GlButton } from './components/base/button/button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
+export { default as GlAreaChart } from './components/charts/area/area.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';

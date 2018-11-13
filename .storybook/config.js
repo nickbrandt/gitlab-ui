@@ -13,6 +13,7 @@ function loadStories() {
   require('../stories/base/tooltip');
   require('../stories/base/link');
   require('../stories/base/button');
+  require('../stories/charts/area.js');
 }
 
 setOptions({

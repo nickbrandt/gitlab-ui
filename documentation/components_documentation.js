@@ -17,3 +17,4 @@ export {
 export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
+export { default as GlAreaChart } from '../components/charts/area/area.documentation';
