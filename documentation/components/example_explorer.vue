@@ -65,6 +65,6 @@ export default {
         </template>
       </template>
     </b-form-select>
-    <gl-example-display :example-name="selectedExampleId" />
+    <gl-example-display v-if="selectedExampleId" :example-name="selectedExampleId" />
   </div>
 </template>

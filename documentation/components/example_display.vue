@@ -25,20 +25,14 @@ Object.keys(gitlabComponents).forEach(comp => {
 function findComponentExample(exampleName) {
   /* eslint-disable no-restricted-syntax */
   // Doing it with a for loop to have an early return/break during iteration
-  console.log('DOC : ', Documentation);
   for (const component of Object.values(Documentation)) {
-    console.log('COMP : ', component);
     if (component.examples) {
       // Looking for an example in the component documentation definition that matches the exampleName
       for (const exampleGroup of component.examples) {
-<<<<<<< master
         const foundExample = exampleGroup.items.find(example => example.id === exampleName);
         if (foundExample) {
           return foundExample;
         }
-=======
-        return exampleGroup.items.find(example => example.id === exampleName);
->>>>>>> First setup of automatic documentation and preview
       }
     }
   }
@@ -68,8 +62,6 @@ export default {
     currentExampleComponent() {
       // Going through all documentation objects of all components
       const foundExample = findComponentExample(this.exampleName);
-
-      console.log('Found Example: ' + this.exampleName + ':', foundExample);
 
       // Live loading of .example.vue files
       // Examples are included with webpack through raw-loader -> Results in a string
