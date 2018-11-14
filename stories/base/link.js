@@ -2,17 +2,17 @@ import { withKnobs, text, select } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../utils/documented_stories';
 import { targetOptions } from '../utils/constants';
 import readme from '../../documentation/link.md';
-import { Link } from '../../index';
+import { GlLink } from '../../index';
 
 const components = {
-  'gl-link': Link,
+  GlLink,
 };
 
 function generateProps({ href = '#' } = {}) {
   return {
     href: {
       type: String,
-      default: text('href', href)
+      default: text('href', href),
     },
     target: {
       type: String,
@@ -32,5 +32,5 @@ documentedStoriesOf('link', readme)
         :target="target"
       >
           This is a link
-      </gl-link>`
+      </gl-link>`,
   }));

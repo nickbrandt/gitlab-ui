@@ -1,9 +1,10 @@
-import { storiesOf } from "@storybook/vue";
 import { withKnobs, number } from '@storybook/addon-knobs';
-import { Pagination } from '../../index';
+import documentedStoriesOf from "../utils/documented_stories";
+import { GlPagination } from '../../index';
+import readme from '../../documentation/pagination.md';
 
 const components = {
-  'gl-pagination': Pagination,
+  GlPagination,
 };
 
 function generateProps({
@@ -14,9 +15,7 @@ function generateProps({
   return {
     change: {
       type: Function,
-      default: (current, past) => console.log(
-        `switched from ${past} to ${current}`,
-      ),
+      default: () => {},
     },
     page: {
       type: Number,
@@ -31,11 +30,11 @@ function generateProps({
       default: number('total items', totalItems),
     },
   };
-};
+}
 
-storiesOf("pagination", module)
+documentedStoriesOf('pagination', readme)
   .addDecorator(withKnobs)
-  .add("default", () => ({
+  .add('default', () => ({
     props: generateProps(),
     components,
     template: `<gl-pagination
@@ -45,7 +44,7 @@ storiesOf("pagination", module)
       :total-items="totalItems"
       />`,
   }))
-  .add("small", () => ({
+  .add('small', () => ({
     props: generateProps(),
     components,
     template: `<gl-pagination
@@ -56,7 +55,7 @@ storiesOf("pagination", module)
       :total-items="totalItems"
       />`,
   }))
-  .add("large", () => ({
+  .add('large', () => ({
     props: generateProps(),
     components,
     template: `<gl-pagination

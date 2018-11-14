@@ -1,53 +1,57 @@
 import { shallowMount } from '@vue/test-utils';
-import Link from '../../../components/base/link.vue';
+import Button from '../../../components/base/button.vue';
 
-describe('link component', () => {
-  const mountWithOptions = shallowMount.bind(null, Link);
+describe('button component', () => {
+  const mountWithOptions = shallowMount.bind(null, Button);
 
   describe('default settings', () => {
-    let link;
+    let button;
 
     beforeEach(() => {
-      link = mountWithOptions({});
+      button = mountWithOptions({});
     });
 
     it('should not have a set rel attribute', () => {
       expect(
-        link.vm.relType
+        button.vm.relType
       ).toBeUndefined();
     });
 
     it('should not have a target attribute', () => {
       expect(
-        link.vm.$el.getAttribute('target'),
+        button.vm.$el.getAttribute('target'),
+      ).toBe(null);
+    });
+
+    it('should not have a href attribute', () => {
+      expect(
+        button.vm.$el.getAttribute('href'),
       ).toBe(null);
     });
   });
 
   describe('target blank', () => {
-    it('should set noopener and noreferrer for hrefs in a different domain', () => {
+    it('should have set the rel attribute with "noopener noreferrer"', () => {
       const mockedHostFunction = jest.fn(() => 'http://test.com');
 
-      const link = mountWithOptions({
+      const button = mountWithOptions({
         propsData: {
           target: '_blank',
           href: 'http://example.com',
         },
         computed: {
           hostname: mockedHostFunction,
-        }
+        },
       });
 
-      expect(
-        link.vm.relType
-      ).toBe('noopener noreferrer');
+      expect(button.vm.relType).toBe("noopener noreferrer");
     });
 
     it('should keep rel attribute for hrefs in the same domain', () => {
-      const linkWithRel = mountWithOptions({ attrs: { rel: 'noopener' } });
+      const buttonWithRel = mountWithOptions({ attrs: { rel: 'noopener' } });
 
       expect(
-        linkWithRel.vm.relType
+        buttonWithRel.vm.relType
       ).toEqual('noopener');
     });
   });

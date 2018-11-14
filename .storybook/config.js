@@ -13,10 +13,12 @@ function loadStories() {
   require('../stories/tooltip');
   require('../stories/base/link');
   require('../stories/base/alert');
+  require('../stories/base/button');
 }
 
 setOptions({
   name: 'gitlab-ui',
+  url: 'https://gitlab.com/gitlab-org/gitlab-ui',
   addonPanelInRight: true,
 });
 

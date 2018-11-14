@@ -1,15 +1,14 @@
-import Vue from 'vue';
 import { storiesOf } from '@storybook/vue';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs/vue';
+import { withKnobs, select } from '@storybook/addon-knobs/vue';
 import { variantOptionsWithNoDefault } from '../utils/constants';
-import { Modal, ModalDirective } from '../../index';
+import { GlModal, GlModalDirective } from '../../index';
 
 const components = {
-  'gl-modal': Modal,
+  GlModal,
 };
 
 const directives = {
-  'gl-modal': ModalDirective,
+  GlModalDirective,
 };
 
 function generateTemplate({ visible = false } = {}) {
@@ -17,7 +16,7 @@ function generateTemplate({ visible = false } = {}) {
     <div>
       <button
         type="button"
-        v-gl-modal="'test-modal-id'"
+        v-gl-modal-directive="'test-modal-id'"
       >
         Open modal
       </button>
@@ -42,7 +41,7 @@ function generateTemplate({ visible = false } = {}) {
 }
 
 function generateProps({
-  variant = variantOptionsWithNoDefault.default
+  variant = variantOptionsWithNoDefault.default,
 } = {}) {
   return {
     headerBgVariant: {
@@ -77,7 +76,7 @@ function generateProps({
       type: String,
       default: select('footer text', variantOptionsWithNoDefault, variant),
     },
-  }
+  };
 }
 
 storiesOf('modal', module)

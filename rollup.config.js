@@ -1,3 +1,4 @@
+import babel from 'rollup-plugin-babel';
 import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
 import css from 'rollup-plugin-css-porter';
@@ -14,12 +15,17 @@ export default glob
       input,
       output: {
         format: 'esm',
-        file: `dist/${outputFilename}.js`
+        file: `dist/${outputFilename}.js`,
       },
       plugins: [
+        css({
+          dest: 'dist/gitlab_ui.css'
+        }),
         vue(),
-        css({ dest: 'dist/gitlab_ui.css' }),
+        babel({
+          exclude: ['node_modules/**'],
+        }),
         resolve(),
-      ]
+      ],
     };
   });

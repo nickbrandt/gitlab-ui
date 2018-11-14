@@ -1,3 +1,9 @@
+function appendDefaultOption(options) {
+  return Object.assign({}, options, {
+    default: '',
+  });
+}
+
 export const variantOptions = {
   primary: 'primary',
   secondary: 'secondary',
@@ -9,14 +15,39 @@ export const variantOptions = {
   dark: 'dark',
 };
 
-export const variantOptionsWithNoDefault = Object.assign({}, variantOptions, {
-  default: '',
-});
-
 export const targetOptions = {
   self: '_self',
   blank: '_blank',
   parent: '_parent',
   top: '_top',
-  'null': '',
+  null: '',
 };
+
+export const sizeOptions = {
+  sm: 'sm',
+  lg: 'lg',
+};
+
+export const buttonVariantOptions = {
+  primary: 'primary',
+  secondary: 'secondary',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+  link: 'link',
+  'outline-primary': 'outline-primary',
+  'outline-secondary': 'outline-secondary',
+  'outline-success': 'outline-success',
+  'outline-warning': 'outline-warning',
+  'outline-danger': 'outline-danger',
+};
+
+export const tooltipPlacements = {
+  top: 'top',
+  left: 'left',
+  right: 'right',
+  bottom: 'bottom',
+};
+
+export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
+export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
