@@ -2,10 +2,10 @@ import { withKnobs, select, boolean } from '@storybook/addon-knobs'
 import documentedStoriesOf from "../utils/documented_stories";
 import { variantOptions } from '../utils/constants';
 import readme from '../../documentation/alert.md';
-import { Alert } from '../../index';
+import { GlAlert } from '../../index';
 
 const components = {
-  'gl-alert': Alert,
+  GlAlert,
 };
 
 function generateTemplate({ dismissible = false } = {}) {
