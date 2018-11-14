@@ -29,10 +29,14 @@ function findComponentExample(exampleName) {
     if (component.examples) {
       // Looking for an example in the component documentation definition that matches the exampleName
       for (const exampleGroup of component.examples) {
+<<<<<<< master
         const foundExample = exampleGroup.items.find(example => example.id === exampleName);
         if (foundExample) {
           return foundExample;
         }
+=======
+        return exampleGroup.items.find(example => example.id === exampleName);
+>>>>>>> First setup of automatic documentation and preview
       }
     }
   }
