@@ -3,7 +3,7 @@ import PaginationBasicExample from './pagination.basic.example.vue';
 export default [
   {
     name: 'Basic',
-    examples: [
+    items: [
       {
         id: 'pagination-basic',
         name: 'Basic',

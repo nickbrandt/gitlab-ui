@@ -1,8 +1,8 @@
 import * as description from './link.md';
-import { default as glLinkExamples } from './examples';
+import examples from './examples';
 
 export default {
   description,
-  examples: glLinkExamples,
+  examples,
   bootstrapComponent: 'b-link',
 };

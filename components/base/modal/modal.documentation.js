@@ -1,8 +1,9 @@
 import * as description from './modal.md';
-import { default as glModalExamples } from './examples';
+import examples from './examples';
 
 export default {
   description,
+  examples,
   slots: [
     {
       name: 'modal-header',

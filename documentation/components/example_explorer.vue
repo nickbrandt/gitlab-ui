@@ -29,6 +29,7 @@ export default {
       if (
         this.exampleGroups &&
         this.exampleGroups.length > 0 &&
+        this.exampleGroups[0].items &&
         this.exampleGroups[0].items.length > 0
       ) {
         return this.exampleGroups[0].items[0].id;

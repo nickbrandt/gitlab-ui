@@ -3,7 +3,7 @@ import LinkBasicExample from './link.basic.example.vue';
 export default [
   {
     name: 'Basic',
-    examples: [
+    items: [
       {
         id: 'link-basic',
         name: 'Basic',

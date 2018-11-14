@@ -5,7 +5,7 @@ import LoadingIconInlineExample from './loading_icon.inline.example.vue';
 export default [
   {
     name: 'Basic',
-    examples: [
+    items: [
       {
         id: 'loading_icon-basic',
         name: 'Basic',

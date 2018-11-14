@@ -1,5 +1,6 @@
-import { default as ProgressBarExamples } from './examples';
+import examples from './examples';
+
 export default {
-  examples: ProgressBarExamples,
+  examples,
   bootstrapComponent: 'b-progress',
 };

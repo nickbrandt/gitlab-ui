@@ -1,9 +1,9 @@
 import * as description from './loading_icon.md';
-import { default as glLoadingIconExamples } from './examples';
+import examples from './examples';
 
 export default {
   description,
-  examples: glLoadingIconExamples,
+  examples,
   propsInfo: {
     size: {
       validation: {

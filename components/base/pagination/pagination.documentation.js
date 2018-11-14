@@ -1,9 +1,9 @@
 import * as description from './pagination.md';
-import { default as glPaginationExamples } from './examples';
+import examples from './examples';
 
 export default {
   description,
-  examples: glPaginationExamples,
+  examples,
   bootstrapComponent: 'b-pagination',
   propsInfo: {
     limits: {

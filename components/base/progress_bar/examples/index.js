@@ -3,7 +3,7 @@ import ProgressBarBasicExample from './progress_bar.basic.example.vue';
 export default [
   {
     name: 'Basic',
-    examples: [
+    items: [
       {
         id: 'progress-bar-basic',
         name: 'Basic',
