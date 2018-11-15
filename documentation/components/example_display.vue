@@ -19,7 +19,7 @@ import * as Documentation from '../components_documentation.js';
 // This is only for design.gitlab.com and shouldn't be done in our actual application
 Vue.use(BootstrapVue);
 Object.keys(gitlabComponents).forEach(comp => {
-  if (comp.indexOf('Directive') === -1) {
+  if (!comp.includes('Directive')) {
     Vue.component(comp, gitlabComponents[comp]);
   }
 });

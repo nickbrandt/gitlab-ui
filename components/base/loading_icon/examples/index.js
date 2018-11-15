@@ -7,19 +7,19 @@ export default [
     name: 'Basic',
     items: [
       {
-        id: 'loading_icon-basic',
+        id: 'loading-icon-basic',
         name: 'Basic',
         description: 'Basic Loading Icon',
         component: LoadingIconBasicExample,
       },
       {
-        id: 'loading_icon-big',
+        id: 'loading-icon-big',
         name: 'Big',
         description: 'Big Loading Icon',
         component: LoadingIconBigExample,
       },
       {
-        id: 'loading_icon-inline',
+        id: 'loading-icon-inline',
         name: 'Inline',
         description: 'Loading Icon Inline',
         component: LoadingIconInlineExample,

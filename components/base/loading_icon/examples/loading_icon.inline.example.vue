@@ -1,5 +1,5 @@
 <template>
   <div>
-    <gl-loading-icon inline="true" /> Testing Inline Icon
+    <gl-loading-icon inline /> Testing Inline Icon
   </div>
 </template>

@@ -80,7 +80,6 @@
       "^.+\\.js$": "babel-jest",
       ".*\\.example.(vue)$": "vue-jest",
       ".*\\.(vue)$": "vue-jest",
-      ".*\\.example.(vue)$": "vue-jest",
       "^.+\\.md?$": "markdown-loader-jest"
     },
     "transformIgnorePatterns": [
