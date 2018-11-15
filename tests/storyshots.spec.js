@@ -26,11 +26,20 @@ const getGotoOptions = () => ({
   waitUntil: 'networkidle0',
 });
 
+// The following is necessary because of different font rendering
+const failureThreshold = process.env.CI ? 0 : 0.02;
+
+const getMatchOptions = () => ({
+  failureThreshold,
+  failureThresholdType: 'percent',
+});
+
 initStoryshots({
-  suite: 'Image storyshots',
+  suite: `Image storyshots (with ${100 * failureThreshold}% threshold)`,
   test: imageSnapshot({
     storybookUrl: `file:///${__dirname}/../storybook`,
     beforeScreenshot,
     getGotoOptions,
+    getMatchOptions,
   }),
 });
