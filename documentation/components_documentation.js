@@ -28,6 +28,9 @@ export {
 export {
   default as GlFormInputDocumentation,
 } from '../components/base/form/form_input.documentation';
+export {
+  default as GlSearchBoxDocumentation,
+} from '../components/base/search/search_box.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

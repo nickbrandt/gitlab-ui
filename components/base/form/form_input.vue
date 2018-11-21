@@ -10,7 +10,11 @@ export default {
 </script>
 
 <template>
-  <b-form-input v-bind="$attrs">
+  <b-form-input
+    v-bind="$attrs"
+    @change="$emit('change', $event)"
+    @input="$emit('input', $event)"
+  >
     <slot></slot>
   </b-form-input>
 </template>

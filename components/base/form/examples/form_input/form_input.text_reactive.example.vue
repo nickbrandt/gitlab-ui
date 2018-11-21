@@ -10,6 +10,9 @@
 </template>
 
 <script>
+/**
+ * This example ensures that browser native input events lead to updating the component state.
+ */
 export default {
   data() {
     return {
