@@ -25,6 +25,9 @@ export {
 export {
   default as GlEmptyStateDocumentation,
 } from '../components/regions/empty_state/empty_state.documentation';
+export {
+  default as GlFormInputDocumentation,
+} from '../components/base/form/form_input.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
