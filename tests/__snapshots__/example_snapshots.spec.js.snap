@@ -386,6 +386,131 @@ exports[`Snapshots for examples Output Snapshots pagination-basic should match t
 </ul>
 `;
 
+exports[`Snapshots for examples Output Snapshots popover-basic should match the snapshot 1`] = `
+<div>
+  <button
+    class="btn btn-secondary"
+    id="pop-basic"
+    type="button"
+  >
+    Popover Button
+  </button>
+   
+  <div
+    aria-hidden="true"
+    class="d-none"
+    style="display: none;"
+  >
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Snapshots for examples Output Snapshots popover-content should match the snapshot 1`] = `
+<div>
+  <button
+    class="btn btn-secondary"
+    id="pop-basic"
+    type="button"
+  >
+    Popover Button
+  </button>
+   
+  <div
+    aria-hidden="true"
+    class="d-none"
+    style="display: none;"
+  >
+    <div />
+    <div>
+      <p>
+        <strong>
+          This is fully formatted
+        </strong>
+         content, including components
+      </p>
+       
+      <div
+        class="progress"
+        value="75"
+      >
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="75"
+          class="progress-bar"
+          role="progressbar"
+          style="width: 75%;"
+        >
+          <!---->
+        </div>
+      </div>
+       
+      <p>
+        The popover is automatically shown for visual regression testing
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshots for examples Output Snapshots popover-loading should match the snapshot 1`] = `
+<div>
+  <button
+    class="btn btn-secondary"
+    id="pop-basic"
+    type="button"
+  >
+    Popover Button
+  </button>
+   
+  <div
+    aria-hidden="true"
+    class="d-none"
+    style="display: none;"
+  >
+    <div />
+    <div>
+      <div
+        class="animation-container"
+      >
+        <div
+          class="skeleton-line-1"
+        />
+        <div
+          class="skeleton-line-2"
+        />
+        <div
+          class="skeleton-line-3"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshots for examples Output Snapshots popover-notitle should match the snapshot 1`] = `
+<div>
+  <button
+    class="btn btn-secondary"
+    id="pop-basic"
+    type="button"
+  >
+    Popover Button
+  </button>
+   
+  <div
+    aria-hidden="true"
+    class="d-none"
+    style="display: none;"
+  >
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
 exports[`Snapshots for examples Output Snapshots progress-bar-basic should match the snapshot 1`] = `
 <div
   class="progress"
