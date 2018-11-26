@@ -1,21 +1,23 @@
-image: "dev.gitlab.org:5005/gitlab/gitlab-build-images:gitlab-puppeteer"
+image: 'dev.gitlab.org:5005/gitlab/gitlab-build-images:gitlab-puppeteer'
 
 stages:
+    - update_diffs
     - build
     - test
     - deploy
     - release
 
-build:
-  stage: build
+update_snapshots:
+  stage: update_diffs
+  when: manual
   script:
     - yarn install
-    - yarn storybook-static
-    - mkdir public
-    - mv storybook/* public
-  artifacts:
-    paths:
-      - public
+    - yarn test --updateSnapshot
+    - git config --global user.email "gitlab-bot@gitlab.com"
+    - git config --global user.name "GitLab Bot"
+    - git add .
+    - git commit -m "Update snapshots"
+    - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
 
 lint:
   stage: test
@@ -34,17 +36,16 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
-update_snapshots:
+build:
   stage: build
-  when: manual
   script:
     - yarn install
-    - yarn test --updateSnapshot
-    - git config --global user.email "gitlab-bot@gitlab.com"
-    - git config --global user.name "GitLab Bot"
-    - git add .
-    - git commit -m "Update snapshots"
-    - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
+    - yarn storybook-static
+    - mkdir public
+    - mv storybook/* public
+  artifacts:
+    paths:
+      - public
 
 review:
   stage: deploy
@@ -68,6 +69,8 @@ review:
 review_stop:
   stage: deploy
   script:
+    - apt-get update -y
+    - apt-get -y install rsync
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
   when: manual
   environment:

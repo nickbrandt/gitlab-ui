@@ -10,7 +10,7 @@ export default [
     name: 'Directive',
     items: [
       {
-        id: 'tooltip-directive',
+        id: 'tooltip-directive-default',
         name: 'Default',
         description: 'Default Tooltip Directive Use Case',
         component: TooltipDirectiveDefaultExample,
@@ -39,7 +39,7 @@ export default [
     name: 'Component',
     items: [
       {
-        id: 'tooltip-default',
+        id: 'tooltip-component-default',
         name: 'HTML',
         description: 'Default Tooltip Component Use Case',
         component: TooltipComponentDefaultExample,

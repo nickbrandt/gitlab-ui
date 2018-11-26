@@ -40,8 +40,8 @@ To add additional information to our documentation page we are using extra files
 
 ```
 export default {
-  examples: glTestExamples,           // Imported Example File
-  description: doc,                   // Imported Documentation file
+  examples,                           // Imported Example File
+  description,                        // Imported Documentation file
   followsDesignSystem: true,          // If we have already fully styled this component according to design system
   bootstrapComponent: 'b-button',     // Name of the underlying vue-bootstrap component
   propsInfo: {                        // Adds description for props

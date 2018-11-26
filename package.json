@@ -14,6 +14,7 @@
     "storybook-static": "build-storybook -c .storybook -o storybook",
     "test": "NODE_ENV=test yarn run storybook-static && jest",
     "lint": "eslint --ext .js,.vue ."
+    "test-server": "NODE_ENV=test start-storybook -p 9001 -c .storybook -s ./styles",
   },
   "dependencies": {
     "babel-standalone": "^6.26.0",
@@ -47,6 +48,7 @@
     "eslint-plugin-jest": "^21.24.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
+    "jest-image-snapshot": "^2.6.0",
     "jest-serializer-vue": "^2.0.2",
     "markdown-loader-jest": "^0.1.1",
     "moment": "^2.22.2",
@@ -55,6 +57,7 @@
     "prettier": "1.14.3",
     "puppeteer": "^1.5.0",
     "raw-loader": "^0.5.1",
+    "puppeteer": "^1.10.0",
     "rollup": "^0.63.0",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -86,7 +89,7 @@
       "^.+\\.md?$": "markdown-loader-jest"
     },
     "transformIgnorePatterns": [
-      "/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$))/"
+      "/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/vue/dist/.*\\.js$))/"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/jest-serializer-vue"

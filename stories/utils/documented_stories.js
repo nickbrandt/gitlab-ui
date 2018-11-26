@@ -6,7 +6,7 @@ import { withDocs } from 'storybook-readme';
 
 import 'url-search-params-polyfill';
 
-import { GlExampleExplorer, GlComponentDocumentation } from '../../documentation';
+import { GlExampleExplorer, GlExampleDisplay, GlComponentDocumentation } from '../../documentation';
 
 const withCustomPreview = withDocs({
   PreviewComponent: {
@@ -46,11 +46,53 @@ const withCustomPreview = withDocs({
   },
 });
 
+// Setup for test runners
+const withCustomExample = withDocs({
+  PreviewComponent: {
+    data() {
+      return {
+        // Style the preview component container
+        // Default container forcefully centers the preview element
+        styles: {
+          padding: '0',
+          margin: '0',
+        },
+        showStory: true,
+      };
+    },
+    template: '<div v-if="showStory" v-bind:style="styles"><slot></slot></div>',
+    created() {
+      const urlParams = new URLSearchParams(window.location.search);
+      this.showStory = !urlParams.get('exampleName');
+    },
+  },
+  // Disable default footer's dashed bottom border
+  FooterComponent: {
+    data() {
+      return {
+        exampleName: '',
+      };
+    },
+    components: {
+      GlExampleDisplay,
+    },
+    template: `<div>
+                <gl-example-display :exampleName="exampleName" :showControls="false" />
+              </div>`,
+    created() {
+      const urlParams = new URLSearchParams(window.location.search);
+      this.exampleName = urlParams.get('exampleName');
+    },
+  },
+});
+
 function documentedStoriesOf(storyName, readme) {
   const story = storiesOf(storyName, module);
 
   if (process.env.NODE_ENV !== 'test') {
     story.addDecorator(withCustomPreview(readme));
+  } else {
+    story.addDecorator(withCustomExample(''));
   }
 
   return story;

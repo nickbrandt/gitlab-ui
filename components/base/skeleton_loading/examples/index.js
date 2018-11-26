@@ -6,13 +6,13 @@ export default [
     name: 'Basic',
     items: [
       {
-        id: 'skeleton-loader-basic',
+        id: 'skeleton-loading-basic',
         name: 'Basic',
         description: 'Basic Skeleton Loader',
         component: SkeletonLoadingBasicExample,
       },
       {
-        id: 'skeleton-loader-single-line',
+        id: 'skeleton-loading-one-line',
         name: 'One Line',
         description: 'Skeleton Loader with one line',
         component: SkeletonLoadingOneLineExample,

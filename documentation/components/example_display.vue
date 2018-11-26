@@ -61,6 +61,11 @@ export default {
       type: String,
       required: true,
     },
+    showControls: {
+      type: Boolean,
+      default: true,
+      required: false,
+    },
   },
   data() {
     return {
@@ -177,92 +182,95 @@ export default {
 
 <template>
   <div>
-    <div v-if="currentExampleComponent">
-      <b-card no-body>
-        <div slot="header">
-          <b-row>
-            <b-col>
-              <strong>{{ exampleName }}</strong>
-            </b-col>
-            <b-col class="text-right">
-              <b-button-group 
-                size="sm" 
-                class="mx-1"
-              >
-                <b-btn v-b-toggle.collapseSource>Source</b-btn>
-                <b-btn v-b-toggle.collapseHTML>HTML</b-btn>
-                <jsfiddle-button
-                  :example-name="exampleName"
-                  :source="source"
-                />
-              </b-button-group>
-            </b-col>
-          </b-row>
-        </div>
-        <b-card-body>
-          <div 
-            :is="currentExampleComponent" 
-            ref="compiled"
-          />
-        </b-card-body>
-        <b-list-group flush>
-          <b-collapse 
-            id="collapseSource" 
-            class="mt-2"
-          >
-            <b-list-group-item>
-              <b-row>
-                <b-col cols="8"><h6>Source</h6></b-col>
-                <b-col class="text-right">
-                  <template v-if="copiedSource">Copied!</template>
-                  <b-button-group size="sm">
-                    <b-button 
-                      :disabled="copiedSource" 
-                      @click="copySource"
-                    >
-                      Copy
-                    </b-button>
-                  </b-button-group>
-                </b-col>
-              </b-row>
-              <code 
-                class="hljs html" 
-                v-html="sourceFormatted"
-              ></code>
-            </b-list-group-item>
-          </b-collapse>
-          <b-collapse 
-            id="collapseHTML" 
-            class="mt-2"
-          >
-            <b-list-group-item>
-              <b-row>
-                <b-col cols="8"><h6>HTML Output</h6></b-col>
-                <b-col class="text-right">
-                  <template v-if="copiedOutput">Copied!</template>
-                  <b-button-group size="sm">
-                    <b-button 
-                      :disabled="copiedOutput" 
-                      @click="copyHtml"
-                    >
-                      Copy
-                    </b-button>
-                  </b-button-group>
-                </b-col>
-              </b-row>
-              <code 
-                class="hljs html" 
-                v-html="renderedHtmlFormatted"
-              ></code>
-            </b-list-group-item>
-          </b-collapse>
-        </b-list-group>
-      </b-card>
-    </div>    
-    <b-alert 
-      v-else-if="exampleName" 
-      show 
-      variant="warning"
-    >No Example found with the name "{{ exampleName }}"</b-alert>
+    <div v-if="showControls">
+      <div v-if="currentExampleComponent">
+        <b-card no-body>
+          <div slot="header">
+            <b-row>
+              <b-col>
+                <strong>{{ exampleName }}</strong>
+              </b-col>
+              <b-col class="text-right">
+                <b-button-group 
+                  size="sm" 
+                  class="mx-1"
+                >
+                  <b-btn v-b-toggle.collapseSource>Source</b-btn>
+                  <b-btn v-b-toggle.collapseHTML>HTML</b-btn>
+                  <jsfiddle-button
+                    :example-name="exampleName"
+                    :source="source"
+                  />
+                </b-button-group>
+              </b-col>
+            </b-row>
+          </div>
+          <b-card-body>
+            <div 
+              :is="currentExampleComponent" 
+              ref="compiled"
+            />
+          </b-card-body>
+          <b-list-group flush>
+            <b-collapse 
+              id="collapseSource" 
+              class="mt-2"
+            >
+              <b-list-group-item>
+                <b-row>
+                  <b-col cols="8"><h6>Source</h6></b-col>
+                  <b-col class="text-right">
+                    <template v-if="copiedSource">Copied!</template>
+                    <b-button-group size="sm">
+                      <b-button 
+                        :disabled="copiedSource" 
+                        @click="copySource"
+                      >
+                        Copy
+                      </b-button>
+                    </b-button-group>
+                  </b-col>
+                </b-row>
+                <code 
+                  class="hljs html" 
+                  v-html="sourceFormatted"
+                ></code>
+              </b-list-group-item>
+            </b-collapse>
+            <b-collapse 
+              id="collapseHTML" 
+              class="mt-2"
+            >
+              <b-list-group-item>
+                <b-row>
+                  <b-col cols="8"><h6>HTML Output</h6></b-col>
+                  <b-col class="text-right">
+                    <template v-if="copiedOutput">Copied!</template>
+                    <b-button-group size="sm">
+                      <b-button 
+                        :disabled="copiedOutput" 
+                        @click="copyHtml"
+                      >
+                        Copy
+                      </b-button>
+                    </b-button-group>
+                  </b-col>
+                </b-row>
+                <code 
+                  class="hljs html" 
+                  v-html="renderedHtmlFormatted"
+                ></code>
+              </b-list-group-item>
+            </b-collapse>
+          </b-list-group>
+        </b-card>
+      </div>    
+      <b-alert 
+        v-else-if="exampleName" 
+        show 
+        variant="warning"
+      >No Example found with the name "{{ exampleName }}"</b-alert>
+    </div>
+    <div v-else-if="!showControls" id="exampleDisplay" :is="currentExampleComponent"></div>
   </div>
 </template>
