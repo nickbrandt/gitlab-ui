@@ -271,6 +271,10 @@ export default {
         variant="warning"
       >No Example found with the name "{{ exampleName }}"</b-alert>
     </div>
-    <div v-else-if="!showControls" id="exampleDisplay" :is="currentExampleComponent"></div>
+    <div
+      :is="currentExampleComponent"
+      v-else-if="!showControls"
+      id="exampleDisplay"
+    />
   </div>
 </template>
