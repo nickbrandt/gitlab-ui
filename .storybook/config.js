@@ -1,19 +1,19 @@
-import { configure } from '@storybook/vue';
+import { configure, storiesOf } from '@storybook/vue';
 import { setOptions } from '@storybook/addon-options';
 
-import Vue from 'vue';
+const req = require.context('../stories/base', true, /js$/);
+const examples = require.context('../components/base', true, /\/examples\/.*\.vue$/);
+
+function makeStoriesFromExamples(examples) {
+  examples.keys().forEach(filename => {
+    const component = examples(filename);
+    storiesOf(filename, module).add('default', () => component.default);
+  });
+}
 
 function loadStories() {
-  // You can require as many stories as you need.
-  require('../stories/base/pagination.js');
-  require('../stories/base/progress_bar');
-  require('../stories/base/modal');
-  require('../stories/base/loading_icon');
-  require('../stories/base/popover');
-  require('../stories/base/skeleton_loading');
-  require('../stories/base/tooltip');
-  require('../stories/base/link');
-  require('../stories/base/button');
+  makeStoriesFromExamples(examples);
+  req.keys().forEach(filename => req(filename));
 }
 
 setOptions({
