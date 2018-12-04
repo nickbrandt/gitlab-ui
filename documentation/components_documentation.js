@@ -20,3 +20,4 @@ export {
 export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
+export { default as GlAlertDocumentation } from '../components/base/alert/alert.documentation';

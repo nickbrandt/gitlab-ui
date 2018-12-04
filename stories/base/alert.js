@@ -1,7 +1,7 @@
-import { withKnobs, select, boolean } from '@storybook/addon-knobs'
-import documentedStoriesOf from "../utils/documented_stories";
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import documentedStoriesOf from '../utils/documented_stories';
 import { variantOptions } from '../utils/constants';
-import readme from '../../documentation/alert.md';
+import readme from '../../components/base/alert/alert.md';
 import { GlAlert } from '../../index';
 
 const components = {
@@ -27,12 +27,12 @@ function generateProps({ variant = variantOptions.primary } = {}) {
     },
     show: {
       type: Boolean,
-      default: boolean('show', true)
+      default: boolean('show', true),
     },
     fade: {
       type: Boolean,
-      default: boolean('fade', false)
-    }
+      default: boolean('fade', false),
+    },
   };
 }
 
@@ -41,10 +41,10 @@ documentedStoriesOf('alert', readme)
   .add('default alert', () => ({
     props: generateProps(),
     components,
-    template: generateTemplate()
+    template: generateTemplate(),
   }))
   .add('dismissable alert', () => ({
     props: generateProps(),
     components,
-    template: generateTemplate({ dismissible: true })
+    template: generateTemplate({ dismissible: true }),
   }));

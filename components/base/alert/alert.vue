@@ -1,25 +1,21 @@
 <script>
-import BAlert from 'bootstrap-vue/es/components/alert/alert'
+import BAlert from 'bootstrap-vue/es/components/alert/alert';
 
 export default {
   components: {
-    BAlert
+    BAlert,
   },
   props: {
     show: {
       type: Boolean,
       required: false,
       default: true,
-    }
-  }
+    },
+  },
 };
 </script>
 <template>
-  <b-alert
-    v-bind="$attrs"
-    v-on="$listeners"
-    :show="show"
-  >
+  <b-alert v-bind="$attrs" :show="show" v-on="$listeners">
     <slot></slot>
   </b-alert>
 </template>
