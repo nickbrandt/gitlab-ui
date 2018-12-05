@@ -1,4 +1,5 @@
 // Component documentation
+export { default as GlChart } from '../components/charts/chart/chart.documentation';
 export {
   default as GlSkeletonLoadingDocumentation,
 } from '../components/base/skeleton_loading/skeleton_loading.documentation';
@@ -21,3 +22,16 @@ export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
 export { default as GlAlertDocumentation } from '../components/base/alert/alert.documentation';
+
+const componentList = Object.getPrototypeOf(module).exports;
+
+export const getDocumentationFor = componentName => {
+  const documentationKey = `${componentName}Documentation`;
+  const documentationObject = componentList[documentationKey];
+  if (!documentationObject) {
+    throw new Error(
+      `Could not find ${documentationKey} in documentation/components_documentation.js!`
+    );
+  }
+  return documentationObject;
+};
