@@ -47,7 +47,6 @@
     "eslint-plugin-jest": "^21.24.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.2.0",
-    "jest-css-modules": "^1.1.0",
     "jest-serializer-vue": "^2.0.2",
     "markdown-loader-jest": "^0.1.1",
     "moment": "^2.22.2",
@@ -81,7 +80,6 @@
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "transform": {
-      "^.+\\.css$": "jest-css-modules",
       "^.+\\.js$": "babel-jest",
       ".*\\.example.(vue)$": "vue-jest",
       ".*\\.(vue)$": "vue-jest",
