@@ -1,5 +1,6 @@
 // Component documentation
-export { default as GlChart } from '../components/charts/chart/chart.documentation';
+export { default as GlChartDocumentation } from '../components/charts/chart/chart.documentation';
+export { default as GlAreaChartDocumentation } from '../components/charts/area/area.documentation';
 export {
   default as GlSkeletonLoadingDocumentation,
 } from '../components/base/skeleton_loading/skeleton_loading.documentation';
@@ -22,6 +23,9 @@ export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
 export { default as GlAlertDocumentation } from '../components/base/alert/alert.documentation';
+export {
+  default as GlEmptyStateDocumentation,
+} from '../components/regions/empty_state/empty_state.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
