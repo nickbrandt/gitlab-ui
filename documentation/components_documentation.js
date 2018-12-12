@@ -25,6 +25,7 @@ export {
 export {
   default as GlEmptyStateDocumentation,
 } from '../components/regions/empty_state/empty_state.documentation';
+export { default as GlTableDocumentation } from '../components/base/table/table.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
