@@ -25,6 +25,9 @@ export {
 export {
   default as GlEmptyStateDocumentation,
 } from '../components/regions/empty_state/empty_state.documentation';
+export {
+  default as GlErrorListDocumentation,
+} from '../components/base/error_list/error_list.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
