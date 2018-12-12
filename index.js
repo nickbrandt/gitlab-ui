@@ -14,6 +14,7 @@ export { default as GlButton } from './components/base/button/button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
 export { default as GlEmptyState } from './components/regions/empty_state/empty_state.vue';
 export { default as GlTable } from './components/base/table/table.vue';
+export { default as GlErrorList } from './components/base/error_list/error_list.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';
