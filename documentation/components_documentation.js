@@ -5,6 +5,9 @@ export {
   default as GlChartTooltipDocumentation,
 } from '../components/charts/tooltip/tooltip.documentation';
 export {
+  default as GlFrequencyChartDocumentation,
+} from '../components/charts/frequency/frequency.documentation';
+export {
   default as GlSkeletonLoadingDocumentation,
 } from '../components/base/skeleton_loading/skeleton_loading.documentation';
 export { default as GlButtonDocumentation } from '../components/base/button/button.documentation';
