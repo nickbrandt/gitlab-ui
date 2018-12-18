@@ -36,6 +36,7 @@ export { default as GlTable } from './components/base/table/table.vue';
 export { default as GlBreadcrumb } from './components/base/breadcrumb/breadcrumb.vue';
 export { default as GlTabs } from './components/base/tabs/tabs/tabs.vue';
 export { default as GlTab } from './components/base/tabs/tab/tab.vue';
+export { default as GlButtonGroup } from './components/base/button_group/button_group.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';
