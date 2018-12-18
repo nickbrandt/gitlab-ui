@@ -36,7 +36,7 @@ function generateProps({ variant = variantOptions.primary } = {}) {
   };
 }
 
-documentedStoriesOf('alert', readme)
+documentedStoriesOf('base|alert', readme)
   .addDecorator(withKnobs)
   .add('default alert', () => ({
     props: generateProps(),
