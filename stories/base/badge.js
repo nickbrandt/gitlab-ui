@@ -3,7 +3,7 @@ import documentedStoriesOf from '../utils/documented_stories';
 
 const template = `
   <div>
-    <gl-badge/>
+    <gl-badge variant="primary">Testbadge</gl-badge>
   </div>
   `;
 
