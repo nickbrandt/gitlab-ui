@@ -12,6 +12,6 @@ export default {
     :rows="3"
     :max-rows="6"
   />
-  <pre>{{text}}</pre>
+  <pre>{{ text }}</pre>
   </div>
 </template>

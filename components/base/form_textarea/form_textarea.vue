@@ -5,17 +5,23 @@ export default {
   components: {
     BFormTextarea,
   },
-  // This prop is needed to map the v-model correctly
-  // https://alligator.io/vuejs/add-v-model-support/
-  props: ['value'],
   inheritAttrs: false,
+  props: {
+    // This prop is needed to map the v-model correctly
+    // https://alligator.io/vuejs/add-v-model-support/
+    value: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
 };
 </script>
 
 <template>
   <b-form-textarea
     v-bind="$attrs"
-    v-on="$listeners"
     :value="value"
+    v-on="$listeners"
   />
 </template>
