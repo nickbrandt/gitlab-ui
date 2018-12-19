@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../utils/documented_stories';
 import readme from '../../components/base/form_textarea/form_textarea.md';
 import { GlFormTextarea } from '../../index';
@@ -9,25 +8,22 @@ const components = {
 
 const template = `
   <gl-form-textarea
-    :value="value"
+    v-model="model"
     :placeholder="placeholder"
-    :size="size"
+    :rows="5"
   />
 `;
 
 function generateProps() {
   return {
-    value: {
+    model: {
       type: String,
-      default: 'hello',
+      default:
+        'We take inspiration from other companies, and we always go for the boring solutions. Just like the rest of our work, we continually adjust our values and strive always to make them better. We used to have more values, but it was difficult to remember them all, so we condensed them and gave sub-values and created an acronym. Everyone is welcome to suggest improvements.',
     },
     placeholder: {
       type: String,
       default: 'hello',
-    },
-    size: {
-      type: String,
-      default: 140,
     },
   };
 }

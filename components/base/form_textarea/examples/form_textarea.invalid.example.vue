@@ -1,7 +1,7 @@
 <script>
 export default {
   // We need this because without a v-model this input will reset on every keystroke
-  data: () => ({ text: '' }),
+  data: () => ({ text: 'This is invalid' }),
 };
 </script>
 
@@ -9,5 +9,6 @@ export default {
   <gl-form-textarea
     v-model="text"
     placeholder="Enter something"
-   />
+    state="invalid"
+  />
 </template>
