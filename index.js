@@ -19,3 +19,5 @@ export { default as GlSearchBox } from './components/base/search/search_box.vue'
 // Directives
 export { default as GlModalDirective } from './directives/modal';
 export { default as GlTooltipDirective } from './directives/tooltip';
+
+export { default as GlFormTextarea } from './components/base/form_textarea/form_textarea.vue';

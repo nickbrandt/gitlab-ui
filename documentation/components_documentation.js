@@ -29,6 +29,9 @@ export {
   default as GlFormInputDocumentation,
 } from '../components/base/form/form_input.documentation';
 export {
+  default as GlFormTextareaDocumentation,
+} from '../components/base/form_textarea/form_textarea.documentation';
+export {
   default as GlSearchBoxDocumentation,
 } from '../components/base/search/search_box.documentation';
 
