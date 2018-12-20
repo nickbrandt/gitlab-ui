@@ -1,6 +1,6 @@
-import documentedStoriesOf from '../utils/documented_stories';
-import readme from '../../components/base/form_textarea/form_textarea.md';
-import { GlFormTextarea } from '../../index';
+import documentedStoriesOf from '../../utils/documented_stories';
+import readme from '../../../components/base/form/form_textarea/form_textarea.md';
+import { GlFormTextarea } from '../../../index';
 
 const components = {
   GlFormTextarea,
@@ -28,7 +28,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|form-textarea', readme).add('default', () => ({
+documentedStoriesOf('base|form/form-textarea', readme).add('default', () => ({
   components,
   props: generateProps(),
   template,
