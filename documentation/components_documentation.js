@@ -43,6 +43,9 @@ export {
 export {
   default as GlDropdownDocumentation,
 } from '../components/base/dropdown/dropdown.documentation';
+export {
+  default as GlButtonGroupDocumentation,
+} from '../components/base/button_group/button_group.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
