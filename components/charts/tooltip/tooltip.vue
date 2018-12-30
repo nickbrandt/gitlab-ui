@@ -1,46 +1,55 @@
 <script>
+import echarts from 'echarts';
+import Popover from '../../base/popover/popover.vue';
+
 export default {
+  components: {
+    Popover,
+  },
+  inheritAttrs: false,
   props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    info: {
+    chart: {
       type: Object,
       required: true,
-      validator(info) {
-        const invalidValues = Object.values(info).filter(
-          value => !Number.isFinite(value) && typeof value !== 'string'
-        );
-
-        return invalidValues.length === 0;
+      validator(chart) {
+        return Object.is(chart, echarts.getInstanceByDom(chart.getDom()));
       },
+    },
+    position: {
+      type: Object,
+      required: false,
+      default: () => ({
+        top: 0,
+        left: 0,
+      }),
+    },
+  },
+  computed: {
+    containerId() {
+      return `${this.chart.getDom().getAttribute('_echarts_instance_')}-tooltip`;
     },
   },
 };
 </script>
 
 <template>
-  <div
-    class="popover"
-    role="tooltip"
-  >
-    <h3 class="js-header popover-header">
-      {{ title }}
-    </h3>
-    <div class="popover-body">
-      <div
-        v-for="(value, name) in info"
-        :key="name + '-' + value"
-        class="js-body-value"
-      >
-        <span>
-          {{ name }}
-        </span>
-        <span class="ml-1">
-          {{ value }}
-        </span>
-      </div>
-    </div>
+  <div>
+    <div
+      :id="containerId"
+      :style="position"
+      style="width: 1px; height: 1px"
+      class="position-absolute no-pointer-events"
+    ></div>
+    <popover
+      v-bind="$attrs"
+      :target="containerId"
+      :container="containerId"
+      triggers=""
+    >
+      <template slot="title">
+        <slot name="title"></slot>
+      </template>
+      <slot></slot>
+    </popover>
   </div>
 </template>
