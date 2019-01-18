@@ -482,10 +482,9 @@
     "@storybook/addons" "4.0.0-alpha.16"
     babel-runtime "^6.26.0"
 
-"@storybook/addon-storyshots-puppeteer@^4.0.0-alpha.16":
+"@storybook/addon-storyshots-puppeteer@git+https://gitlab.com/ClemMakesApps/addon-storyshots-puppeteer#76a0c98":
   version "4.0.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots-puppeteer/-/addon-storyshots-puppeteer-4.0.0-alpha.16.tgz#caaaf5e017e027c92598e8deece0718d863b5399"
-  integrity sha512-efiZxkTVjymEEzlTOz67byKxQwb5LdPGPlIpDKxREaltWOrdN6KWSNtPFH/Rus308ClOJ9VO7BaJBUMIrkHlcw==
+  resolved "git+https://gitlab.com/ClemMakesApps/addon-storyshots-puppeteer#76a0c981db89e64def4e0bb6449836ba20cf5990"
   dependencies:
     "@storybook/node-logger" "4.0.0-alpha.16"
     babel-runtime "^6.26.0"
