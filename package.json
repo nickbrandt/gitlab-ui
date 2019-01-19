@@ -15,7 +15,7 @@
     "clean": "rm -r dist storybook",
     "storybook": "yarn build-preview-head && start-storybook -p 9001 -c .storybook -s ./styles",
     "storybook-static": "yarn build-preview-head && build-storybook -c .storybook -o storybook  -s ./styles",
-    "test": "NODE_ENV=test yarn run storybook-static && jest",
+    "test": "NODE_ENV=test yarn run storybook-static && jest --detectOpenHandles",
     "lint": "eslint --ext .js,.vue ."
   },
   "dependencies": {
