@@ -21,7 +21,20 @@ module.exports = storybookBaseConfig => {
       test: /\.js$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+	  "presets": [
+	    [
+	      "env",
+	      {
+	        "modules": false,
+	        "targets": {
+	          "ie": "11"
+	        }
+	      }
+	    ]
+	  ],
+        }
       }
     }
   ];
