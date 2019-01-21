@@ -17,6 +17,13 @@ module.exports = storybookBaseConfig => {
       exclude: /\.example\.vue$/,
       loader: 'vue-loader',
     },
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader'
+      }
+    }
   ];
 
   return storybookBaseConfig;
