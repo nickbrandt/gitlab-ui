@@ -13,7 +13,7 @@ export default {
   <gl-form-radio-group
     v-model="selected"
     :options="options"
-    buttons="true"
+    :buttons="true"
     button-variant="primary"
   />
 </template>

@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <template>
-  <b-form-radio-group v-bind="$attrs" v-on="$listeners">
-    <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
+  <b-form-radio-group v-bind="$attrs" v-on="$listeners" @change="$emit('change', $event)">
+    <slot></slot>
   </b-form-radio-group>
 </template>

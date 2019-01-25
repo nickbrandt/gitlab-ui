@@ -69,7 +69,30 @@ documentedStoriesOf('base|form/form-radio', readme)
         :button-variant="buttonVariant"
         :plain="plain"
         :name="name"
+        :checked="selected"
       >
       </gl-form-radio-group>
+    `,
+  }))
+  .add('Radios using sub components', () => ({
+    components,
+    data() {
+      return {
+        selected: 'pizza',
+      };
+    },
+    template: `
+    <gl-form-radio-group
+      id="food-radios-2"
+      v-model="selected"
+      name="subcomponentradio"
+    >
+      <gl-form-radio value="pizza" name="food-radios-2">
+        Pizza
+      </gl-form-radio>
+      <gl-form-radio value="tacos" name="food-radios-2">
+        Tacos
+      </gl-form-radio>
+    </gl-form-radio-group>
     `,
   }));
