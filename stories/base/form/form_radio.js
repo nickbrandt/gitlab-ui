@@ -9,12 +9,7 @@ const components = {
   GlFormRadioGroup,
 };
 
-function generateProps({
-  stacked = false,
-  buttons = false,
-  plain = false,
-  groupName = 'radio-group-name',
-} = {}) {
+function generateProps({ stacked = false, buttons = false, groupName = 'radio-group-name' } = {}) {
   return {
     size: {
       type: String,
@@ -31,10 +26,6 @@ function generateProps({
     buttonVariant: {
       type: String,
       default: select('button-variant', variantOptions, variantOptions.secondary),
-    },
-    plain: {
-      type: Boolean,
-      default: boolean('plain', plain),
     },
     name: {
       type: String,
@@ -67,32 +58,9 @@ documentedStoriesOf('base|form/form-radio', readme)
         :stacked="stacked"
         :buttons="buttons"
         :button-variant="buttonVariant"
-        :plain="plain"
         :name="name"
         :checked="selected"
       >
       </gl-form-radio-group>
-    `,
-  }))
-  .add('Radios using sub components', () => ({
-    components,
-    data() {
-      return {
-        selected: 'pizza',
-      };
-    },
-    template: `
-    <gl-form-radio-group
-      id="food-radios-2"
-      v-model="selected"
-      name="subcomponentradio"
-    >
-      <gl-form-radio value="pizza" name="food-radios-2">
-        Pizza
-      </gl-form-radio>
-      <gl-form-radio value="tacos" name="food-radios-2">
-        Tacos
-      </gl-form-radio>
-    </gl-form-radio-group>
     `,
   }));

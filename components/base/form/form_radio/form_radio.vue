@@ -5,7 +5,6 @@ export default {
   components: {
     BFormRadio,
   },
-  inheritAttrs: false,
 };
 </script>
 
