@@ -1,7 +1,9 @@
 // Component documentation
 export { default as GlChartDocumentation } from '../components/charts/chart/chart.documentation';
 export { default as GlAreaChartDocumentation } from '../components/charts/area/area.documentation';
-export { default as GlCalendarChartDocumentation } from '../components/charts/calendar/calendar.documentation';
+export {
+  default as GlCalendarChartDocumentation,
+} from '../components/charts/calendar/calendar.documentation';
 export {
   default as GlChartTooltipDocumentation,
 } from '../components/charts/tooltip/tooltip.documentation';

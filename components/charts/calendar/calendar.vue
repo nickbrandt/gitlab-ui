@@ -1,9 +1,7 @@
 <script>
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
-import {
-  additiveArrayMerge,
-} from '../../../helpers/chart';
+import { additiveArrayMerge } from '../../../helpers/chart';
 
 export default {
   components: {
@@ -37,37 +35,44 @@ export default {
               fontSize: 12,
               fontWeight: 'normal',
               fontColor: '#212529',
-              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+              fontFamily:
+                '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
             },
             right: 75,
             bottom: 0,
           },
-          tooltip : {},
+          tooltip: {},
           visualMap: {
-            pieces: [{
-              max: 0,
-              color: '#ededed',
-              symbol: 'rect',
-            },{
-              min: 1,
-              max: 9,
-              color: 'rgb(172, 213, 242)',
-              symbol: 'rect',
-            }, {
-              min: 10,
-              max: 19,
-              color: 'rgb(127, 168, 201)',
-              symbol: 'rect',
-            }, {
-              min: 20,
-              max: 29,
-              color: 'rgb(82, 123, 160)',
-              symbol: 'rect',
-            }, {
-              min: 30,
-              color: 'rgb(37, 78, 119)',
-              symbol: 'rect',
-            }],
+            pieces: [
+              {
+                max: 0,
+                color: '#ededed',
+                symbol: 'rect',
+              },
+              {
+                min: 1,
+                max: 9,
+                color: 'rgb(172, 213, 242)',
+                symbol: 'rect',
+              },
+              {
+                min: 10,
+                max: 19,
+                color: 'rgb(127, 168, 201)',
+                symbol: 'rect',
+              },
+              {
+                min: 20,
+                max: 29,
+                color: 'rgb(82, 123, 160)',
+                symbol: 'rect',
+              },
+              {
+                min: 30,
+                color: 'rgb(37, 78, 119)',
+                symbol: 'rect',
+              },
+            ],
             type: 'piecewise',
             orient: 'horizontal',
             showLabel: false,
@@ -86,9 +91,9 @@ export default {
             left: 20,
             cellSize: 17,
             itemStyle: {
-                borderWidth: 2,
-                borderColor: '#FFF',
-                color: '#ededed'
+              borderWidth: 2,
+              borderColor: '#FFF',
+              color: '#ededed',
             },
             splitLine: {
               show: false,
@@ -103,7 +108,7 @@ export default {
             yearLabel: {
               show: false,
             },
-          }
+          },
         },
         this.option,
         additiveArrayMerge
