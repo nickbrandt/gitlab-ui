@@ -9,6 +9,7 @@ const components = {
 
 function generateProps({
   data = [
+    ['2018-12-2', 0],
     ['2018-12-1', 5],
     ['2018-1-1', 20],
     ['2018-2-1', 40],

@@ -31,32 +31,50 @@ export default {
       return mergeWith(
         {},
         {
+          title: {
+            text: 'Issues, merge requests, pushes and comments.',
+            textStyle: {
+              fontSize: 12,
+              fontWeight: 'normal',
+              fontColor: '#212529',
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+            },
+            right: 75,
+            bottom: 0,
+          },
+          tooltip : {},
           visualMap: {
             pieces: [{
               max: 0,
               color: '#ededed',
+              symbol: 'rect',
             },{
               min: 1,
               max: 9,
               color: 'rgb(172, 213, 242)',
+              symbol: 'rect',
             }, {
               min: 10,
               max: 19,
               color: 'rgb(127, 168, 201)',
+              symbol: 'rect',
             }, {
               min: 20,
               max: 29,
               color: 'rgb(82, 123, 160)',
+              symbol: 'rect',
             }, {
               min: 30,
               color: 'rgb(37, 78, 119)',
+              symbol: 'rect',
             }],
             type: 'piecewise',
             orient: 'horizontal',
             showLabel: false,
-            itemSymbol: 'none',
+            itemWidth: 15,
             itemGap: 2,
             bottom: 0,
+            left: 16,
           },
           series: {
             type: 'heatmap',
@@ -109,6 +127,8 @@ export default {
     <chart
       v-bind="$attrs"
       :options="options"
+      :height="180"
+      :width="1000"
       @created="onCreated"
       @updated="onUpdated"
     />
