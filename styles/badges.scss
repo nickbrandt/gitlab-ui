@@ -1,0 +1,99 @@
+// add to gitlab/app/assets/stylesheets/framework/badges.scss
+
+.badge-pipeline {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  height: 24px;
+  padding: 4px 8px 4px 4px;
+  border-radius: 12px;
+
+  span {
+    position: relative;
+    top: -3px;
+  }
+  svg {
+    height: 16px;
+    width: 16px;
+    background: $white;
+    border-radius: 8px;
+  }
+
+  // sizes
+  &[size="sm"] {
+    line-height: 16px;
+    height: 16px;
+    padding: 0 8px 0 0;
+  }
+
+  &[size="lg"] {
+    height: 32px;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  // variants
+  &.primary {
+    background-color: $blue-100;
+    color: $blue-500;
+    svg { border: 1px solid $blue-500 }
+
+    &.active {
+    background-color: $blue-500;
+    color: $white;
+    }
+  }
+
+  &.secondary {
+    background-color: $gray-200;
+    color: $gray-900;
+    svg { border: 1px solid $gray-900 }
+  }
+
+  &.success {
+    background-color: $green-100;
+    color: $green-600;
+    svg { color: $green-500; border: 1px solid $green-500 }
+
+    &.active {
+    background-color: $green-500;
+    color: $white;
+    }
+  }
+
+  &.warning {
+    background-color: $orange-100;
+    color: $orange-700;
+    svg { color: $orange-500; border: 1px solid $orange-500 }
+
+    &.active {
+    background-color: $orange-500;
+    color: $white;
+    }
+  }
+
+  &.danger {
+    background-color: $red-100;
+    color: $red-500;
+    svg { border: 1px solid $red-500 }
+
+    &.active {
+    background-color: $red-500;
+    color: $white;
+    }
+  }
+
+  &.light {
+    background-color: $gray-100;
+    color: $gray-700;
+    svg { color: $gray-400; border: 1px solid $gray-400 }
+  }
+
+  &.dark {
+    background-color: $gray-700;
+    color: $white;
+    svg { color: $gray-900; border: 1px solid $gray-900 }
+  }
+
+}

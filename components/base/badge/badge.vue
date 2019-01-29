@@ -6,11 +6,21 @@ export default {
     BBadge,
   },
   inheritAttrs: false,
+  props: {
+    pipeline: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  }
 };
 </script>
 
 <template>
   <b-badge v-bind="$attrs">
-    <slot></slot>
+    <svg v-if="pipeline"></svg>
+    <span>
+      <slot></slot>
+    </span>
   </b-badge>
 </template>

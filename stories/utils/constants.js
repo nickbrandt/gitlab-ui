@@ -42,6 +42,16 @@ export const buttonVariantOptions = {
   'outline-danger': 'outline-danger',
 };
 
+export const badgeVariantOptions = {
+  'pipeline primary': 'pipeline primary',
+  'pipeline secondary': 'pipeline secondary',
+  'pipeline success': 'pipeline success',
+  'pipeline warning': 'pipeline warning',
+  'pipeline danger': 'pipeline danger',
+  'pipeline light': 'pipeline light',
+  'pipeline dark': 'pipeline dark'
+};
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',

@@ -1,5 +1,6 @@
 import BadgeBasicExample from './badge.basic.example.vue';
 import BadgeVariantsExample from './badge.variants.example.vue';
+import BadgePipelinesExample from './badge.pipeline.example.vue';
 import BadgeScalingExample from './badge.scaling.example.vue';
 import BadgeActionableExample from './badge.action.example.vue';
 import BadgeButtonExample from './badge.button.example.vue';
@@ -19,6 +20,12 @@ export default [
         name: 'Variants',
         description: 'Different Badge Variants',
         component: BadgeVariantsExample,
+      },
+      {
+        id: 'badge-pipelines',
+        name: 'Pipeline Variants',
+        description: 'Pipeline Badge Variants',
+        component: BadgePipelinesExample,
       },
       {
         id: 'badge-scaling',
