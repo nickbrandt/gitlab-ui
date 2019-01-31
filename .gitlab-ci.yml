@@ -4,8 +4,7 @@ variables:
 
 stages:
     - pre-build
-    - build
-    - test
+    - build-and-check
     - deploy
     - release
 
@@ -32,7 +31,7 @@ build_docker_image:
 
 build:
   extends: .yarn_install
-  stage: build
+  stage: build-and-check
   script:
     - yarn storybook-static
     - mkdir public
@@ -43,14 +42,16 @@ build:
 
 lint:
   extends: .yarn_install
-  stage: test
+  dependencies: []
+  stage: build-and-check
   script:
     - yarn lint
     - yarn prettier --list-different '**/*.{js,vue}'
 
 visual:
   extends: .yarn_install
-  stage: test
+  dependencies: []
+  stage: build-and-check
   script:
     - yarn test
   artifacts:
@@ -60,7 +61,7 @@ visual:
 
 update_snapshots:
   extends: .yarn_install
-  stage: build
+  stage: pre-build
   when: manual
   script:
     - yarn test --updateSnapshot
@@ -90,6 +91,7 @@ review:
     - deploy
 
 review_stop:
+  dependencies: []
   stage: deploy
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
@@ -121,8 +123,7 @@ pages:
 upload_artifacts:
   extends: .yarn_install
   stage: release
-  dependencies:
-    - build
+  dependencies: []
   script:
     - yarn build
     - yarn pack --filename gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
@@ -135,6 +136,7 @@ upload_artifacts:
 publish:
   extends: .yarn_install
   stage: release
+  dependencies: []
   script:
     - yarn build
     - $(yarn bin)/semantic-release
