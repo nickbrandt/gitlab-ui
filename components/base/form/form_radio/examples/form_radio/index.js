@@ -1,19 +1,19 @@
-import FormRadioBasicExample from './form_radio.basic.example.vue';
-import FormRadioButtonExample from './form_radio.button.example.vue';
+import FormRadioGroupBasicExample from './form_radio_group.basic.example.vue';
+import FormRadioGroupButtonExample from './form_radio_group.button.example.vue';
 
 export default [
   {
     name: 'Form Radio',
     items: [
       {
-        id: 'form-radio',
+        id: 'form-group-radio',
         name: 'Form radio group with code',
-        component: FormRadioBasicExample,
+        component: FormRadioGroupBasicExample,
       },
       {
-        id: 'form-radio-buttons',
+        id: 'form-radio-group-buttons',
         name: 'Form radio group with buttons',
-        component: FormRadioButtonExample,
+        component: FormRadioGroupButtonExample,
       },
     ],
   },
