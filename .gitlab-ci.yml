@@ -1,15 +1,39 @@
-image: "dev.gitlab.org:5005/gitlab/gitlab-build-images:gitlab-puppeteer"
+variables:
+  PUPPETEER_VERSION: "1.11.0"
+  PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
 
 stages:
+    - pre-build
     - build
     - test
     - deploy
     - release
 
+.yarn_install:
+  image: $PUPPETEER_IMAGE
+  before_script:
+    - yarn install
+
+build_docker_image:
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+  services:
+    - docker:stable-dind
+  image: docker:stable
+  stage: pre-build
+  script:
+    - "mkdir -p ~/.docker"
+    - >
+      echo '{"experimental": "enabled"}' > ~/.docker/config.json
+    - docker info
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - ./build-docker.sh
+
 build:
+  extends: .yarn_install
   stage: build
   script:
-    - yarn install
     - yarn storybook-static
     - mkdir public
     - mv storybook/* public
@@ -18,16 +42,16 @@ build:
       - public
 
 lint:
+  extends: .yarn_install
   stage: test
   script:
-    - yarn install
     - yarn lint
     - yarn prettier --list-different '**/*.{js,vue}'
 
 visual:
+  extends: .yarn_install
   stage: test
   script:
-    - yarn install
     - yarn test
   artifacts:
     when: always
@@ -35,10 +59,10 @@ visual:
       - tests/__image_snapshots__/
 
 update_snapshots:
+  extends: .yarn_install
   stage: build
   when: manual
   script:
-    - yarn install
     - yarn test --updateSnapshot
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
@@ -95,11 +119,11 @@ pages:
     - master
 
 upload_artifacts:
+  extends: .yarn_install
   stage: release
   dependencies:
     - build
   script:
-    - yarn install
     - yarn build
     - yarn pack --filename gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
     - echo "The package.json dependency URL is https://gitlab.com/gitlab-org/gitlab-ui/-/jobs/$CI_JOB_ID/artifacts/raw/gitlab-ui.$CI_COMMIT_REF_SLUG.tgz"
@@ -109,9 +133,9 @@ upload_artifacts:
       - gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
 
 publish:
+  extends: .yarn_install
   stage: release
   script:
-    - yarn install
     - yarn build
     - $(yarn bin)/semantic-release
   only:
