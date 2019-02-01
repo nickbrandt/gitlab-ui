@@ -9,36 +9,38 @@ stages:
 build:
   stage: build
   script:
-    - yarn install --verbose
+    - yarn install --verbose > yarn.log
     - yarn storybook-static
     - mkdir public
     - mv storybook/* public
   artifacts:
     paths:
       - public
+      - yarn.log
 
 lint:
   stage: test
   script:
-    - yarn install --verbose
+    - yarn install --verbose > yarn.log
     - yarn lint
     - yarn prettier --list-different '**/*.{js,vue}'
 
 visual:
   stage: test
   script:
-    - yarn install --verbose
+    - yarn install --verbose > yarn.log
     - yarn test
   artifacts:
     when: always
     paths:
       - tests/__image_snapshots__/
+      - yarn.log
 
 update_snapshots:
   stage: build
   when: manual
   script:
-    - yarn install --verbose
+    - yarn install --verbose > yarn.log
     - yarn test --updateSnapshot
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
@@ -99,7 +101,7 @@ upload_artifacts:
   dependencies:
     - build
   script:
-    - yarn install --verbose
+    - yarn install --verbose > yarn.log
     - yarn build
     - yarn pack --filename gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
     - echo "The package.json dependency URL is https://gitlab.com/gitlab-org/gitlab-ui/-/jobs/$CI_JOB_ID/artifacts/raw/gitlab-ui.$CI_COMMIT_REF_SLUG.tgz"
@@ -111,7 +113,7 @@ upload_artifacts:
 publish:
   stage: release
   script:
-    - yarn install --verbose
+    - yarn install --verbose > yarn.log
     - yarn build
     - $(yarn bin)/semantic-release
   only:
