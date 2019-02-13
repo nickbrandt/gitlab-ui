@@ -14,5 +14,7 @@
     xAxis: {
       type: 'category',
     },
-  }" />
+  }"
+  y-axis-title="Pushes by day"
+  x-axis-title="Username" />
 </template>

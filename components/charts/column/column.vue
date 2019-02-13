@@ -3,6 +3,7 @@ import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import { colors, yAxis, additiveArrayMerge } from '../../../helpers/chart';
+import { colors, yAxis, additiveArrayMerge, grid, axes } from '../../../helpers/chart';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
 
 export default {
@@ -20,6 +21,14 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    yAxisTitle: {
+      type: String,
+      required: true,
+    },
+    xAxisTitle: {
+      type: String,
+      required: true,
     },
   },
   data() {
@@ -64,10 +73,10 @@ export default {
       return mergeWith(
         {},
         {
-          xAxis: {},
+          xAxis: axes,
           yAxis,
           legend: {},
-          grid: {},
+          grid,
           colors: {},
         },
         {
@@ -75,7 +84,7 @@ export default {
             axisLabel: {
               margin: 20,
               verticalAlign: 'bottom',
-              rotate: 70, // TODO: Check point 10 from the sketch spec measure preview
+              color: colors.textTertiary,
             },
             axisLine: {
               show: false,
@@ -96,6 +105,16 @@ export default {
                 formatter: this.onLabelChange,
               },
             },
+            nameTextStyle: {
+              padding: [16, 0, 0, 0],
+            },
+            splitLine: {
+              show: false,
+            },
+            name: this.xAxisTitle,
+          },
+          yAxis: {
+            name: this.yAxisTitle,
           },
           series: this.series,
           legend: {
@@ -129,9 +148,9 @@ export default {
     },
     onLabelChange(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, line) => {
-          const [title, value] = line.value;
-          acc.tooltipContent[line.seriesName] = value;
+        (acc, bar) => {
+          const [title, value] = bar.value;
+          acc.tooltipContent[bar.seriesName] = value;
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
           }

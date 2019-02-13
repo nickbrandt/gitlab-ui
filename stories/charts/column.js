@@ -1,4 +1,4 @@
-import { withKnobs, object } from '@storybook/addon-knobs';
+import { withKnobs, object, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
 import { GlColumnChart } from '../../charts';
 import readme from '../../components/charts/column/column.md';
@@ -24,6 +24,8 @@ function generateProps({
       type: 'category',
     },
   },
+  yAxisTitle = 'Pushes per day',
+  xAxisTitle = 'Username',
 } = {}) {
   return {
     data: {
@@ -34,6 +36,13 @@ function generateProps({
       type: Object,
       default: () => object('Echart Options', option),
     },
+    yAxisTitle: {
+      type: String,
+      default: text('Y Axis Title', yAxisTitle),
+    },
+    xAxisTitle: {
+      default: text('X Axis Title', xAxisTitle),
+    },
   };
 }
 
@@ -43,6 +52,6 @@ documentedStoriesOf('charts|column-chart', readme)
     props: generateProps(),
     components,
     template: `
-      <gl-column-chart :data="data" :option="option" />
+      <gl-column-chart :data="data" :option="option" :y-axis-title="yAxisTitle" :x-axis-title="xAxisTitle" />
     `,
   }));
