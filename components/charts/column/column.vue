@@ -1,0 +1,180 @@
+<script>
+import mergeWith from 'lodash/mergeWith';
+import Chart from '../chart/chart.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
+import { colors, yAxis, additiveArrayMerge } from '../../../helpers/chart';
+import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
+
+export default {
+  components: {
+    Chart,
+    ChartTooltip,
+  },
+  inheritAttrs: false,
+  props: {
+    data: {
+      type: Object,
+      required: true,
+    },
+    option: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+  },
+  data() {
+    return {
+      chart: null,
+      showTooltip: false,
+      tooltipTitle: '',
+      tooltipContent: {},
+      tooltipPosition: {
+        left: '0',
+        top: '0',
+      },
+      debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
+    };
+  },
+  computed: {
+    series() {
+      return Object.keys(this.data).map((key, index) => {
+        let colorIndex = index;
+        const barColorsCount = colors.lines.length;
+        while (colorIndex >= barColorsCount) {
+          colorIndex -= barColorsCount;
+        }
+        const barColor = colors.lines[colorIndex];
+
+        return {
+          name: key,
+          data: this.data[key],
+          type: 'bar',
+          itemStyle: {
+            color: hexToRgba(barColor, 0.2),
+            barBorderColor: barColor,
+            barBorderWidth: 1,
+          },
+          large: true,
+          largeThreshold: 300,
+          barMaxWidth: '50%',
+        };
+      });
+    },
+    options() {
+      return mergeWith(
+        {},
+        {
+          xAxis: {},
+          yAxis,
+          legend: {},
+          grid: {},
+          colors: {},
+        },
+        {
+          xAxis: {
+            axisLabel: {
+              margin: 20,
+              verticalAlign: 'bottom',
+              rotate: 70, // TODO: Check point 10 from the sketch spec measure preview
+            },
+            axisLine: {
+              show: false,
+            },
+            axisTick: {
+              alignWithLabel: true,
+              lineStyle: {
+                color: colors.splitLine,
+              },
+            },
+            axisPointer: {
+              show: true,
+              lineStyle: {
+                color: colors.textTertiary,
+              },
+              label: {
+                show: false,
+                formatter: this.onLabelChange,
+              },
+            },
+          },
+          series: this.series,
+          legend: {
+            show: false,
+          },
+        },
+        this.option,
+        additiveArrayMerge
+      );
+    },
+  },
+  beforeDestroy() {
+    this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
+    this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
+  },
+  methods: {
+    moveShowTooltip(mouseEvent) {
+      const [left, top] = [mouseEvent.clientX, mouseEvent.clientY];
+
+      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
+      this.tooltipPosition = {
+        left: `${left}px`,
+        top: `${top}px`,
+      };
+    },
+    onCreated(chart) {
+      chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
+      chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
+      this.chart = chart;
+      this.$emit('created', chart);
+    },
+    onLabelChange(params) {
+      const { xLabels, tooltipContent } = params.seriesData.reduce(
+        (acc, line) => {
+          const [title, value] = line.value;
+          acc.tooltipContent[line.seriesName] = value;
+          if (!acc.xLabels.includes(title)) {
+            acc.xLabels.push(title);
+          }
+          return acc;
+        },
+        {
+          xLabels: [],
+          tooltipContent: {},
+        }
+      );
+      this.$set(this, 'tooltipContent', tooltipContent);
+      this.tooltipTitle = xLabels.join(', ');
+    },
+    onUpdated(chart) {
+      this.$emit('updated', chart);
+    },
+  },
+};
+</script>
+<template>
+  <div>
+    <chart
+      v-bind="$attrs"
+      :options="options"
+      @created="onCreated"
+      @updated="onUpdated"
+    />
+    <chart-tooltip
+      v-if="chart"
+      :show="showTooltip"
+      :chart="chart"
+      :top="tooltipPosition.top"
+      :left="tooltipPosition.left"
+    >
+      <div slot="title">
+        {{ tooltipTitle }}
+      </div>
+      <div
+        v-for="(value, label) in tooltipContent"
+        :key="label + value"
+      >
+        {{ value }}
+      </div>
+    </chart-tooltip>
+  </div>
+</template>
