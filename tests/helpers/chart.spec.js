@@ -1,4 +1,8 @@
-import defaultConfig, { additiveArrayMerge, getThresholdConfig } from '../../helpers/chart';
+import defaultConfig, {
+  additiveArrayMerge,
+  getThresholdConfig,
+  getDataZoomConfig,
+} from '../../helpers/chart';
 
 describe('chart helpers', () => {
   describe('default chart configuration', () => {
@@ -14,6 +18,14 @@ describe('chart helpers', () => {
 
     it('returns undefined when first value is not an array', () => {
       expect(additiveArrayMerge(1, [])).toEqual(undefined);
+    });
+  });
+
+  describe('getDataZoomConfig', () => {
+    it('uses the user specified start value if provided', () => {
+      const startValue = new Date(2018, 10, 1);
+
+      expect(getDataZoomConfig(startValue).startValue).toBe(startValue);
     });
   });
 

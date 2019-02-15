@@ -10,6 +10,12 @@ export const colors = {
   splitLine: '#dfdfdf',
   lines: ['#1F78D1', '#1aaa55', '#fc9403', '#6666c4'],
   threshold: '#db3b21',
+  '$gray-100': '#f2f2f2',
+  '$gray-300': '#cccccc',
+  '$gray-400': '#bababa',
+  get '$gray-300-a-02'() {
+    return hexToRgba(this['$gray-300'], 0.2);
+  },
 };
 
 export const axes = {
@@ -83,6 +89,27 @@ export const grid = {
 export function additiveArrayMerge(objValue, srcValue) {
   return Array.isArray(objValue) ? objValue.concat(srcValue) : undefined;
 }
+
+export const getDataZoomConfig = (startValue = null) => ({
+  type: 'slider',
+  startValue,
+  borderColor: 'transparent',
+  dataBackground: {
+    lineStyle: {
+      color: 'transparent',
+      width: 2,
+    },
+    areaStyle: {
+      color: 'rgb(215,215,215)',
+    },
+  },
+  fillerColor: colors['$gray-300-a-02'],
+  handleSize: '50%',
+  handleStyle: {
+    color: colors['$gray-400'],
+  },
+  labelFormatter: () => '',
+});
 
 export function getThresholdConfig(thresholds) {
   const keys = Object.keys(thresholds);

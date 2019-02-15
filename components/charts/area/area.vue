@@ -5,6 +5,7 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, {
   colors,
   getThresholdConfig,
+  getDataZoomConfig,
   additiveArrayMerge,
 } from '../../../helpers/chart';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
@@ -107,9 +108,17 @@ export default {
             itemWidth: 16,
           },
         },
+        this.useSlider
+          ? {
+              dataZoom: getDataZoomConfig(),
+            }
+          : {},
         this.option,
         additiveArrayMerge
       );
+    },
+    useSlider() {
+      return !!this.option.dataZoom;
     },
   },
   beforeDestroy() {
