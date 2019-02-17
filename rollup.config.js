@@ -14,7 +14,17 @@ export default glob
     const outputFilename = input.replace(/\.(vue|js)$/, '');
 
     return {
-      external: ['copy-to-clipboard', 'echarts', 'lodash', 'vue'],
+      external: [
+        '@gitlab/ui',
+        'copy-to-clipboard',
+        'echarts',
+        'lodash/mergeWith',
+        'lodash.get',
+        'lodash.startcase',
+        'popper.js',
+        'vue-functional-data-merge',
+        'vue',
+      ],
       input,
       output: {
         format: 'esm',
