@@ -85,6 +85,7 @@
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/components/$1",
+      "^@gitlab/ui$": "<rootDir>/index.js",
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "transform": {

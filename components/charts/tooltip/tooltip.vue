@@ -1,10 +1,10 @@
 <script>
 import echarts from 'echarts';
-import Popover from '../../base/popover/popover.vue';
+import { GlPopover } from '@gitlab/ui';
 
 export default {
   components: {
-    Popover,
+    GlPopover,
   },
   inheritAttrs: false,
   props: {
@@ -72,7 +72,7 @@ export default {
       Needs to be triggered programatically using `show` property
       This is why `triggers` is currently set to an empty string
     -->
-    <popover
+    <gl-popover
       v-bind="$attrs"
       :target="containerId"
       :container="containerId"
@@ -82,6 +82,6 @@ export default {
         <slot name="title"></slot>
       </template>
       <slot></slot>
-    </popover>
+    </gl-popover>
   </div>
 </template>

@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = ({ config }) => {
   config.module.rules = [
     {
@@ -18,6 +19,8 @@ module.exports = ({ config }) => {
       loader: 'vue-loader',
     },
   ];
+
+  config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
 
   return config;
 };
