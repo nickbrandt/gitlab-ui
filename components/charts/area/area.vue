@@ -3,11 +3,11 @@ import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, {
-  colors,
   getThresholdConfig,
   getDataZoomConfig,
   additiveArrayMerge,
-} from '../../../helpers/chart';
+} from '../../../helpers/charts/config';
+import { colorPalette } from '../../../helpers/charts/theme';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
 
 export default {
@@ -54,11 +54,11 @@ export default {
     series() {
       return Object.keys(this.data).map((key, index) => {
         let colorIndex = index;
-        const lineColorsCount = colors.lines.length;
+        const lineColorsCount = colorPalette.length;
         while (colorIndex >= lineColorsCount) {
           colorIndex -= lineColorsCount;
         }
-        const lineColor = colors.lines[colorIndex];
+        const lineColor = colorPalette[colorIndex];
 
         return Object.assign(
           {
@@ -70,9 +70,6 @@ export default {
             symbolSize: 3,
             lineStyle: {
               width: 1,
-            },
-            itemStyle: {
-              color: lineColor,
             },
             areaStyle: {
               color: hexToRgba(lineColor, 0.2),
@@ -93,12 +90,7 @@ export default {
               verticalAlign: 'bottom',
             },
             axisPointer: {
-              show: true,
-              lineStyle: {
-                color: colors.textTertiary,
-              },
               label: {
-                show: false,
                 formatter: this.onLabelChange,
               },
             },
@@ -106,6 +98,11 @@ export default {
           series: this.series,
           legend: {
             itemWidth: 16,
+          },
+          yAxis: {
+            axisPointer: {
+              show: false,
+            },
           },
         },
         this.useSlider

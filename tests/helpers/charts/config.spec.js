@@ -1,16 +1,10 @@
-import defaultConfig, {
+import {
   additiveArrayMerge,
   getThresholdConfig,
   getDataZoomConfig,
-} from '../../helpers/chart';
+} from '../../../helpers/charts/config';
 
-describe('chart helpers', () => {
-  describe('default chart configuration', () => {
-    it('applies default color scheme', () => {
-      expect(defaultConfig.color).toEqual(['#1F78D1', '#1aaa55', '#fc9403', '#6666c4']);
-    });
-  });
-
+describe('chart config helpers', () => {
   describe('additiveArrayMerge', () => {
     it('concatenates arguments if the first is an array', () => {
       expect(additiveArrayMerge([], 1)).toEqual([1]);

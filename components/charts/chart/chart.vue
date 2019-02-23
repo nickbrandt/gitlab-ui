@@ -1,5 +1,6 @@
 <script>
 import echarts from 'echarts';
+import theme from '../../../helpers/charts/theme';
 
 const validRenderers = ['canvas', 'svg'];
 const defaultHeight = 400;
@@ -50,8 +51,11 @@ export default {
       this.setChartSize();
     },
   },
+  created() {
+    echarts.registerTheme('gitlab', theme);
+  },
   mounted() {
-    this.chart = echarts.init(this.$refs.chart, null, { renderer: this.renderer });
+    this.chart = echarts.init(this.$refs.chart, 'gitlab', { renderer: this.renderer });
     if (this.groupId.length) {
       this.chart.group = this.groupId;
       echarts.connect(this.groupId);

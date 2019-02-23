@@ -1,53 +1,12 @@
 import merge from 'lodash/merge';
-import { hexToRgba } from './utils';
-
-export const colors = {
-  tooltipBackground: '#fff',
-  text: '#2e2e2e',
-  textSecondary: '#707070',
-  textTertiary: '#919191',
-  textQuaternary: '#d6d6d6',
-  splitLine: '#dfdfdf',
-  lines: ['#1F78D1', '#1aaa55', '#fc9403', '#6666c4'],
-  threshold: '#db3b21',
-  '$gray-100': '#f2f2f2',
-  '$gray-300': '#cccccc',
-  '$gray-400': '#bababa',
-  get '$gray-300-a-02'() {
-    return hexToRgba(this['$gray-300'], 0.2);
-  },
-};
 
 export const axes = {
   name: 'Value',
   type: 'value',
   nameLocation: 'center',
-  nameTextStyle: {
-    color: colors.text,
-    fontStyle: 'bold',
-  },
-  axisLabel: {
-    color: colors.textTertiary,
-  },
-  axisLine: {
-    lineStyle: { width: 0 },
-  },
-  axisTick: {
-    show: false,
-    alignWithLabel: true,
-  },
-  splitLine: {
-    show: true,
-    lineStyle: {
-      color: colors.splitLine,
-    },
-  },
 };
 
 export const xAxis = merge({}, axes, {
-  axisLabel: {
-    formatter: name => name,
-  },
   boundaryGap: false,
   nameTextStyle: {
     padding: [16, 0, 0, 0],
@@ -74,13 +33,6 @@ export const legend = {
   },
 };
 
-export const grid = {
-  top: 24,
-  bottom: 72,
-  left: 70,
-  right: 24,
-};
-
 /**
  * Meant to be used with Lodash mergeWith
  * Returning undefined will prompt the default merge strategy
@@ -93,22 +45,6 @@ export function additiveArrayMerge(objValue, srcValue) {
 export const getDataZoomConfig = (startValue = null) => ({
   type: 'slider',
   startValue,
-  borderColor: 'transparent',
-  dataBackground: {
-    lineStyle: {
-      color: 'transparent',
-      width: 2,
-    },
-    areaStyle: {
-      color: 'rgb(215,215,215)',
-    },
-  },
-  fillerColor: colors['$gray-300-a-02'],
-  handleSize: '50%',
-  handleStyle: {
-    color: colors['$gray-400'],
-  },
-  labelFormatter: () => '',
 });
 
 export function getThresholdConfig(thresholds) {
@@ -146,24 +82,10 @@ export function getThresholdConfig(thresholds) {
 
   return {
     markLine: {
-      silent: true,
-      symbol: 'none',
-      label: {
-        show: false,
-      },
-      lineStyle: {
-        color: colors.threshold,
-        width: 1,
-        type: 'dashed',
-      },
       data: lineData,
     },
     markArea: {
-      silent: true,
       data: areaData,
-      itemStyle: {
-        color: hexToRgba(colors.threshold, 0.1),
-      },
       zlevel: -1,
     },
   };
@@ -173,6 +95,4 @@ export default {
   xAxis,
   yAxis,
   legend,
-  grid,
-  color: colors.lines,
 };
