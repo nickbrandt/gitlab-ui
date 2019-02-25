@@ -23,6 +23,21 @@ yarn storybook
 
 Go to http://localhost:9001/
 
+## Testing
+
+Visual difference tests form part of the test suite. Rendered output can vary
+from host to host (e.g., due to available fonts and how each platform renders
+them), so these can fail when run locally. The easiest way to work around this
+is to increase the failure threshold with the `FAILURE_THRESHOLD` environment
+variable:
+
+```sh
+# Sets a 2% threshold
+FAILURE_THRESHOLD=.02 yarn test
+```
+
+If the variable is unset, it defaults to `0`.
+
 ## Installation
 
 ```sh
