@@ -60,6 +60,9 @@ export { default as GlTableDocumentation } from '../components/base/table/table.
 export {
   default as GlBreadcrumbDocumentation,
 } from '../components/base/breadcrumb/breadcrumb.documentation';
+export {
+  default as GlHeatmapDocumentation,
+} from '../components/charts/heatmap/heatmap.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
