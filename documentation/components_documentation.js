@@ -39,8 +39,8 @@ export {
   default as GlFormGroupDocumentation,
 } from '../components/base/form/form_group/form_group.documentation';
 export {
-  default as GlFormRadioDocumentation,
-} from '../components/base/form/form_radio/form_radio.documentation';
+  default as GlFormRadioGroupDocumentation,
+} from '../components/base/form/form_radio/form_radio_group.documentation';
 export {
   default as GlSearchBoxDocumentation,
 } from '../components/base/search/search_box.documentation';

@@ -5,6 +5,14 @@ export default {
   components: {
     BFormRadio,
   },
+  props: {
+    plain: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+  },
+  inheritAttrs: false,
 };
 </script>
 

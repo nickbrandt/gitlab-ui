@@ -1,7 +1,7 @@
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../utils/documented_stories';
 import { sizeOptions, variantOptions } from '../../utils/constants';
-import readme from '../../../components/base/form/form_radio/form_radio.md';
+import readme from '../../../components/base/form/form_radio/form_radio_group.md';
 import { GlFormRadio, GlFormRadioGroup } from '../../../index';
 
 const components = {
@@ -9,7 +9,12 @@ const components = {
   GlFormRadioGroup,
 };
 
-function generateProps({ stacked = false, buttons = false, groupName = 'radio-group-name' } = {}) {
+function generateProps({
+  stacked = false,
+  buttons = false,
+  plain = true,
+  name = 'radio-group-name',
+} = {}) {
   return {
     size: {
       type: String,
@@ -27,40 +32,43 @@ function generateProps({ stacked = false, buttons = false, groupName = 'radio-gr
       type: String,
       default: select('button-variant', variantOptions, variantOptions.secondary),
     },
+    plain: {
+      type: Boolean,
+      default: boolean('plain', plain),
+    },
     name: {
       type: String,
-      default: text('name', groupName),
+      default: text('name', name),
     },
   };
 }
 
-documentedStoriesOf('base|form/form-radio', readme)
+documentedStoriesOf('base|form/form-radio-group', readme)
   .addDecorator(withKnobs)
-  .add('Radios using code', () => ({
+  .add('default', () => ({
     components,
     props: generateProps(),
     data() {
       return {
-        selected: 'Pizza',
+        selected: 'one',
         options: [
-          { value: 'Pizza', text: 'Pizza' },
-          { value: 'Tacos', text: 'Tacos' },
-          { value: 'Burger', text: 'Burguer', disabled: boolean('disabled', false) },
+          { value: 'one', text: 'Option 1' },
+          { value: 'two', text: 'Option 2' },
+          { value: 'three', text: 'Option 3', disabled: boolean('disabled', false) },
         ],
       };
     },
     template: `
       <gl-form-radio-group 
-        id="food-radios"
         v-model="selected"
         :options="options"
         :size="size"
         :stacked="stacked"
         :buttons="buttons"
         :button-variant="buttonVariant"
+        :plain="plain"
         :name="name"
         :checked="selected"
-      >
-      </gl-form-radio-group>
+      />
     `,
   }));

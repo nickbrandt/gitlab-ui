@@ -2,8 +2,8 @@
 export default {
   data() {
     return {
-      selected: 'pizza',
-      options: [{ text: 'Pizza', value: 'pizza' }, { text: 'Tacos', value: 'tacos' }],
+      selected: 'one',
+      options: [{ text: 'Option 1', value: 'one' }, { text: 'Option 2', value: 'two' }],
     };
   },
 };
@@ -15,5 +15,6 @@ export default {
     :options="options"
     :buttons="true"
     button-variant="primary"
+    :checked="selected"
   />
 </template>

@@ -3,11 +3,7 @@ export default {
   data() {
     return {
       selected: 'one',
-      options: [
-        { value: 'one', text: 'Option 1' },
-        { value: 'two', text: 'Option 2' },
-        { value: 'three', text: 'Option 3' },
-      ],
+      options: [{ text: 'Option 1', value: 'one' }, { text: 'Option 2', value: 'two' }],
     };
   },
 };
@@ -18,5 +14,6 @@ export default {
     v-model="selected"
     :options="options"
     :checked="selected"
+    stacked
   />
 </template>

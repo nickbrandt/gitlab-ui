@@ -3,11 +3,6 @@ export default {
   data() {
     return {
       selected: 'one',
-      options: [
-        { value: 'one', text: 'Option 1' },
-        { value: 'two', text: 'Option 2' },
-        { value: 'three', text: 'Option 3' },
-      ],
     };
   },
 };
@@ -16,7 +11,13 @@ export default {
 <template>
   <gl-form-radio-group
     v-model="selected"
-    :options="options"
     :checked="selected"
-  />
+  >
+    <gl-form-radio value="one">
+      Option 1
+    </gl-form-radio>
+    <gl-form-radio value="two">
+      Option 2
+    </gl-form-radio>
+  </gl-form-radio-group>
 </template>
