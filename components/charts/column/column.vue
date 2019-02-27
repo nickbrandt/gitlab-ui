@@ -63,6 +63,11 @@ export default {
             barBorderColor: barColor,
             barBorderWidth: 1,
           },
+          emphasis: {
+            itemStyle: {
+              color: hexToRgba(barColor, 0.4),
+            },
+          },
           large: true,
           largeThreshold: 300,
           barMaxWidth: '50%',
@@ -97,6 +102,7 @@ export default {
             },
             axisPointer: {
               show: true,
+              type: 'none',
               lineStyle: {
                 color: colors.textTertiary,
               },
