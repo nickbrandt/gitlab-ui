@@ -41,6 +41,7 @@ export default {
         top: '0',
       },
       debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
+      debouncedHideTooltip: debounceByAnimationFrame(this.hideTooltip)
     };
   },
   computed: {
@@ -54,6 +55,7 @@ export default {
         const barColor = colors.lines[colorIndex];
 
         return {
+          id: index,
           name: key,
           data: this.data[key],
           type: 'bar',
@@ -61,6 +63,11 @@ export default {
             color: hexToRgba(barColor, 0.2),
             barBorderColor: barColor,
             barBorderWidth: 1,
+          },
+          emphasis: {
+            itemStyle: {
+              color: hexToRgba(barColor, 0.4),
+            }
           },
           large: true,
           largeThreshold: 300,
@@ -96,9 +103,7 @@ export default {
             },
             axisPointer: {
               show: true,
-              lineStyle: {
-                color: colors.textTertiary,
-              },
+              type: 'none',
               label: {
                 show: false,
                 formatter: this.onLabelChange,
@@ -127,25 +132,30 @@ export default {
   },
   beforeDestroy() {
     this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
+    this.chart.getDom().removeEventListener('mouseout', this.hideTooltip);
   },
   methods: {
     moveShowTooltip(mouseEvent) {
       const [left, top] = [mouseEvent.clientX, mouseEvent.clientY];
 
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
+      // this.showTooltip = this.chart.containPixel({ seriesId: '0' }, [mouseEvent.zrX, mouseEvent.zrY]);
+      this.showTooltip = true;
       this.tooltipPosition = {
         left: `${left}px`,
         top: `${top}px`,
       };
     },
+    hideTooltip() {
+      this.showTooltip = false;
+    },
     onCreated(chart) {
       chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
+      chart.getDom().addEventListener('mouseout', this.hideTooltip);
       this.chart = chart;
       this.$emit('created', chart);
     },
     onLabelChange(params) {
+      console.log(params);
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
           const [title, value] = bar.value;
