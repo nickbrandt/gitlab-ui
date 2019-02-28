@@ -75,3 +75,10 @@ export default {
     </slot>
   </b-dropdown>
 </template>
+
+<style>
+/* This is temporary till we can properly support the split dropdown caret */
+.dropdown-toggle-split:after {
+  display: block;
+}
+</style>
