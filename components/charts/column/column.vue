@@ -41,7 +41,7 @@ export default {
         top: '0',
       },
       debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
-      debouncedHideTooltip: debounceByAnimationFrame(this.hideTooltip)
+      debouncedHideTooltip: debounceByAnimationFrame(this.hideTooltip),
     };
   },
   computed: {
@@ -67,7 +67,7 @@ export default {
           emphasis: {
             itemStyle: {
               color: hexToRgba(barColor, 0.4),
-            }
+            },
           },
           large: true,
           largeThreshold: 300,
@@ -131,31 +131,28 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.hideTooltip);
+    this.chart.getDom().removeEventListener('mousemove', this.showHideTooltip);
+    this.chart.getDom().removeEventListener('mouseout', this.showHideTooltip);
   },
   methods: {
-    moveShowTooltip(mouseEvent) {
-      const [left, top] = [mouseEvent.clientX, mouseEvent.clientY];
-
-      // this.showTooltip = this.chart.containPixel({ seriesId: '0' }, [mouseEvent.zrX, mouseEvent.zrY]);
-      this.showTooltip = true;
-      this.tooltipPosition = {
-        left: `${left}px`,
-        top: `${top}px`,
-      };
-    },
-    hideTooltip() {
-      this.showTooltip = false;
+    showHideTooltip(mouseEvent) {
+      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     onCreated(chart) {
-      chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
-      chart.getDom().addEventListener('mouseout', this.hideTooltip);
+      chart.getDom().addEventListener('mousemove', this.showHideTooltip);
+      chart.getDom().addEventListener('mouseout', this.showHideTooltip);
       this.chart = chart;
       this.$emit('created', chart);
     },
     onLabelChange(params) {
-      console.log(params);
+      const [seriesData] = params.seriesData;
+      const { seriesIndex } = seriesData;
+      const [left, top] = this.chart.convertToPixel({ seriesIndex }, seriesData.value);
+      this.tooltipPosition = {
+        left: `${left}px`,
+        top: `${top}px`,
+      };
+
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
           const [title, value] = bar.value;
@@ -180,7 +177,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="position-relative">
     <chart
       v-bind="$attrs"
       :options="options"
