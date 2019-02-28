@@ -138,13 +138,11 @@ export default {
   },
   methods: {
     moveShowTooltip(mouseEvent) {
-      const [left, top] = [mouseEvent.clientX, mouseEvent.clientY];
-
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
       this.tooltipPosition = {
-        left: `${left}px`,
-        top: `${top}px`,
+        left: `${mouseEvent.zrX}px`,
+        top: `${mouseEvent.zrY}px`,
       };
+      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     onCreated(chart) {
       chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
@@ -177,7 +175,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="position-relative">
     <chart
       v-bind="$attrs"
       :options="options"
