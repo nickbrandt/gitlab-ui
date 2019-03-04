@@ -1,7 +1,7 @@
 import FormRadioGroupBasicExample from './form_radio_group.basic.example.vue';
 import FormRadioGroupButtonExample from './form_radio_group.button.example.vue';
 import FormRadioGroupSubcomponents from './form_radio_group.subcomponents.example.vue';
-import FormRadioGroupOptionsSubcomponents from './form_radio_group.options-and-subcomponents.example.vue';
+import FormRadioGroupOptionsSubcomponents from './form_radio_group.options_and_subcomponents.example.vue';
 import FormRadioGroupStackedExample from './form_radio_group.stacked.example.vue';
 
 export default [
