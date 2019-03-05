@@ -43,16 +43,14 @@
     "@storybook/addon-storyshots-puppeteer": "^4.1.13",
     "@storybook/vue": "^4.1.13",
     "@vue/test-utils": "^1.0.0-beta.20",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^9.0.0",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-vue": "^2.0.2",
     "eslint": "^5.6.1",
-    "eslint-plugin-jest": "^21.24.1",
+    "eslint-plugin-jest": "^22.3.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "jest-serializer-vue": "^2.0.2",
     "markdown-loader-jest": "^0.1.1",
     "moment": "^2.22.2",
@@ -72,8 +70,11 @@
     "sass-loader": "^7.1.0",
     "semantic-release": "15",
     "storybook-readme": "^4.0.0-beta1",
-    "vue-jest": "^3.0.2",
+    "vue-jest": "^4.0.0-beta.2",
     "vue-template-compiler": "^2.5.21"
+  },
+  "resolutions": {
+    "vue-jest/ts-jest": "24.0.0"
   },
   "jest": {
     "verbose": true,
