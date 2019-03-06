@@ -30,6 +30,9 @@ export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
 export {
+  default as GlDashboardSkeletonDocumentation,
+} from '../components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
+export {
   default as GlEmptyStateDocumentation,
 } from '../components/regions/empty_state/empty_state.documentation';
 export {

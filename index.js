@@ -11,6 +11,9 @@ export {
 export { default as GlBadge } from './components/base/badge/badge.vue';
 export { default as GlButton } from './components/base/button/button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
+export {
+  default as GlDashboardSkeleton,
+} from './components/regions/dashboard_skeleton/dashboard_skeleton.vue';
 export { default as GlEmptyState } from './components/regions/empty_state/empty_state.vue';
 export { default as GlFormInput } from './components/base/form/form_input/form_input.vue';
 export { default as GlFormRadio } from './components/base/form/form_radio/form_radio.vue';

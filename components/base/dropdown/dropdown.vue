@@ -58,8 +58,8 @@ export default {
 <template>
   <b-dropdown
     v-bind="$attrs"
-    v-on="$listeners"
     :split="split"
+    v-on="$listeners"
   >
     <slot></slot>
     <slot
