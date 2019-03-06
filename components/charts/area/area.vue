@@ -3,11 +3,11 @@ import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, {
-  colors,
+  getDataZoomConfig,
   getThresholdConfig,
   additiveArrayMerge,
-} from '../../../helpers/chart';
-import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
+} from '../../../helpers/charts/config';
+import { debounceByAnimationFrame } from '../../../helpers/utils';
 
 export default {
   components: {
@@ -51,15 +51,8 @@ export default {
   },
   computed: {
     series() {
-      return Object.keys(this.data).map((key, index) => {
-        let colorIndex = index;
-        const lineColorsCount = colors.lines.length;
-        while (colorIndex >= lineColorsCount) {
-          colorIndex -= lineColorsCount;
-        }
-        const lineColor = colors.lines[colorIndex];
-
-        return Object.assign(
+      return Object.keys(this.data).map(key =>
+        Object.assign(
           {
             name: key,
             data: this.data[key],
@@ -70,16 +63,13 @@ export default {
             lineStyle: {
               width: 1,
             },
-            itemStyle: {
-              color: lineColor,
-            },
             areaStyle: {
-              color: hexToRgba(lineColor, 0.2),
+              opacity: 0.2,
             },
           },
           this.thresholds === null ? {} : getThresholdConfig(this.thresholds)
-        );
-      });
+        )
+      );
     },
     options() {
       return mergeWith(
@@ -87,17 +77,9 @@ export default {
         defaultChartOptions,
         {
           xAxis: {
-            axisLabel: {
-              margin: 20,
-              verticalAlign: 'bottom',
-            },
             axisPointer: {
               show: true,
-              lineStyle: {
-                color: colors.textTertiary,
-              },
               label: {
-                show: false,
                 formatter: this.onLabelChange,
               },
             },
@@ -107,9 +89,15 @@ export default {
             itemWidth: 16,
           },
         },
+        this.dataZoomAdjustments,
         this.option,
         additiveArrayMerge
       );
+    },
+    dataZoomAdjustments() {
+      const useSlider = !!this.option.dataZoom;
+
+      return useSlider ? getDataZoomConfig() : {};
     },
   },
   beforeDestroy() {
