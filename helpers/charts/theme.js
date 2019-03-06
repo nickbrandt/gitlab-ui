@@ -1,5 +1,7 @@
 import { hexToRgba } from '../utils';
 
+export const themeName = 'gitlab';
+
 export const colors = {
   glTextColor: '#2e2e2e',
   glTextColorTertiary: '#919191',
@@ -16,6 +18,7 @@ export const colors = {
   red500: '#db3b21',
 };
 export const colorPalette = [colors.blue500, colors.green500, colors.orange500, colors.indigo500];
+export const colorFromPalette = index => colorPalette[index % colorPalette.length];
 
 const axes = {
   axisLabel: {
@@ -27,6 +30,14 @@ const axes = {
   },
   axisLine: {
     show: false,
+  },
+  axisPointer: {
+    lineStyle: {
+      color: colors.glTextColorTertiary,
+    },
+    label: {
+      show: false,
+    },
   },
   axisTick: {
     show: false,
@@ -50,24 +61,10 @@ const axes = {
 };
 
 export default {
-  grid: {
-    top: 16,
-    bottom: 66,
-    left: 64,
-    right: 32,
-  },
   color: colorPalette,
   backgroundColor: 'transparent',
   textStyle: {
     color: colors.glTextColor,
-  },
-  axisPointer: {
-    lineStyle: {
-      color: colors.glTextColorTertiary,
-    },
-    label: {
-      show: false,
-    },
   },
   markLine: {
     silent: true,

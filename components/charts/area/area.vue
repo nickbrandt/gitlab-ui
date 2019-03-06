@@ -1,17 +1,22 @@
 <script>
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
+import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, {
+  grid,
   getDataZoomConfig,
   getThresholdConfig,
   additiveArrayMerge,
+  defaultAreaOpacity,
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
+import { colorFromPalette } from '../../../helpers/charts/theme';
 
 export default {
   components: {
     Chart,
+    ChartLegend,
     ChartTooltip,
   },
   inheritAttrs: false,
@@ -29,6 +34,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    includeLegendAvgMax: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     formatTooltipText: {
       type: Function,
@@ -64,7 +74,7 @@ export default {
               width: 1,
             },
             areaStyle: {
-              opacity: 0.2,
+              opacity: defaultAreaOpacity,
             },
           },
           this.thresholds === null ? {} : getThresholdConfig(this.thresholds)
@@ -86,7 +96,7 @@ export default {
           },
           series: this.series,
           legend: {
-            itemWidth: 16,
+            show: false,
           },
         },
         this.dataZoomAdjustments,
@@ -98,6 +108,25 @@ export default {
       const useSlider = !!this.option.dataZoom;
 
       return useSlider ? getDataZoomConfig() : {};
+    },
+    compiledOptions() {
+      return this.chart ? this.chart.getOption() : null;
+    },
+    legendStyle() {
+      return { paddingLeft: `${grid.left}px` };
+    },
+    seriesInfo() {
+      return this.compiledOptions.series.reduce((acc, series, index) => {
+        if (series.type === 'line') {
+          acc.push({
+            name: series.name,
+            type: series.lineStyle.type,
+            color: series.lineStyle.color || colorFromPalette(index),
+            data: this.includeLegendAvgMax ? series.data.map(data => data[1]) : undefined,
+          });
+        }
+        return acc;
+      }, []);
     },
   },
   beforeDestroy() {
@@ -182,5 +211,11 @@ export default {
         </div>
       </template>
     </chart-tooltip>
+    <chart-legend
+      v-if="compiledOptions"
+      :style="legendStyle"
+      :series-info="seriesInfo"
+      :text-style="compiledOptions.textStyle"
+    />
   </div>
 </template>
