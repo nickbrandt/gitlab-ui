@@ -6,18 +6,20 @@ import readme from '../../components/charts/area/area.md';
 const components = {
   GlAreaChart,
 };
-
-const defaultData = {
-  Full: [
-    ['Mon', 1220],
-    ['Tue', 932],
-    ['Wed', 901],
-    ['Thu', 934],
-    ['Fri', 1290],
-    ['Sat', 1330],
-    ['Sun', 1320],
-  ],
-};
+const defaultData = [
+  {
+    name: 'First Series',
+    data: [
+      ['Mon', 1220],
+      ['Tue', 932],
+      ['Wed', 901],
+      ['Thu', 934],
+      ['Fri', 1290],
+      ['Sat', 1330],
+      ['Sun', 1320],
+    ],
+  },
+];
 const defaultOptions = {
   xAxis: {
     name: 'Time',
@@ -108,9 +110,12 @@ documentedStoriesOf('charts|area-chart', readme)
   .add('with zoom and scroll', () => ({
     data() {
       return generateData({
-        data: {
-          timeSeries: generateTimeSeries(),
-        },
+        data: [
+          {
+            name: 'Time Series',
+            data: generateTimeSeries(),
+          },
+        ],
         option: {
           xAxis: {
             type: 'time',

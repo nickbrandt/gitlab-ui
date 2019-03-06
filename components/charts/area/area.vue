@@ -22,7 +22,7 @@ export default {
   inheritAttrs: false,
   props: {
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
     option: {
@@ -61,11 +61,9 @@ export default {
   },
   computed: {
     series() {
-      return Object.keys(this.data).map(key =>
-        Object.assign(
+      return this.data.map(series =>
+        mergeWith(
           {
-            name: key,
-            data: this.data[key],
             type: 'line',
             showSymbol: false,
             symbol: 'circle',
@@ -77,7 +75,9 @@ export default {
               opacity: defaultAreaOpacity,
             },
           },
-          this.thresholds === null ? {} : getThresholdConfig(this.thresholds)
+          series,
+          this.thresholds === null ? {} : getThresholdConfig(this.thresholds),
+          additiveArrayMerge
         )
       );
     },
