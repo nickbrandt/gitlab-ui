@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import echarts from 'echarts';
 import Chart from '../../../components/charts/chart/chart.vue';
+import theme from '../../../helpers/charts/theme';
 
 const defaultHeight = 400;
 
@@ -9,11 +10,13 @@ jest.mock('echarts', () => ({
     setOption: jest.fn(),
     resize: jest.fn(),
   })),
+  registerTheme: jest.fn(),
 }));
 
 describe('chart component', () => {
   const options = {};
   const mountArgs = [Chart, { propsData: { options: {} } }];
+  const themeName = 'gitlab';
   let wrapper;
 
   beforeEach(() => {
@@ -25,13 +28,17 @@ describe('chart component', () => {
   });
 
   it('initializes chart using $refs.chart', () => {
-    expect(echarts.init).toHaveBeenCalledWith(wrapper.find({ ref: 'chart' }).element, null, {
+    expect(echarts.init).toHaveBeenCalledWith(wrapper.find({ ref: 'chart' }).element, themeName, {
       renderer: wrapper.props().renderer,
     });
   });
 
   it('emits "created" after initializing chart', () => {
     expect(wrapper.emitted('created')).toEqual([[wrapper.vm.chart]]);
+  });
+
+  it('uses GitLab theme', () => {
+    expect(echarts.registerTheme).toHaveBeenCalledWith(themeName, theme);
   });
 
   describe('custom sizing', () => {
