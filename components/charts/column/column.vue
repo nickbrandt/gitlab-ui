@@ -2,9 +2,12 @@
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
-import { colors, yAxis, additiveArrayMerge } from '../../../helpers/chart';
-import { colors, yAxis, additiveArrayMerge, grid, axes } from '../../../helpers/chart';
+import defaultChartOptions, {
+  additiveArrayMerge,
+  getDataZoomConfig,
+} from '../../../helpers/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
+import { colorFromPalette, colors } from '../../../helpers/charts/theme';
 
 export default {
   components: {
@@ -47,12 +50,7 @@ export default {
   computed: {
     series() {
       return Object.keys(this.data).map((key, index) => {
-        let colorIndex = index;
-        const barColorsCount = colors.lines.length;
-        while (colorIndex >= barColorsCount) {
-          colorIndex -= barColorsCount;
-        }
-        const barColor = colors.lines[colorIndex];
+        const barColor = colorFromPalette(index);
 
         return {
           name: key,
@@ -77,45 +75,31 @@ export default {
     options() {
       return mergeWith(
         {},
-        {
-          xAxis: axes,
-          yAxis,
-          legend: {},
-          grid,
-          colors: {},
-        },
+        defaultChartOptions,
         {
           xAxis: {
+            boundaryGap: true,
             axisLabel: {
               margin: 20,
               verticalAlign: 'bottom',
-              color: colors.textTertiary,
+              color: colors.glTextColorTertiary,
             },
             axisLine: {
               show: false,
             },
             axisTick: {
               alignWithLabel: true,
+              show: true,
               lineStyle: {
-                color: colors.splitLine,
+                color: colors.gray200,
               },
             },
             axisPointer: {
               show: true,
               type: 'none',
-              lineStyle: {
-                color: colors.textTertiary,
-              },
               label: {
-                show: false,
                 formatter: this.onLabelChange,
               },
-            },
-            nameTextStyle: {
-              padding: [16, 0, 0, 0],
-            },
-            splitLine: {
-              show: false,
             },
             name: this.xAxisTitle,
           },
@@ -130,6 +114,11 @@ export default {
         this.option,
         additiveArrayMerge
       );
+    },
+    dataZoomAdjustments() {
+      const useSlider = !!this.option.dataZoom;
+
+      return useSlider ? getDataZoomConfig() : {};
     },
   },
   beforeDestroy() {
