@@ -1,5 +1,10 @@
 import merge from 'lodash/merge';
 
+export const defaultAreaOpacity = 0.2;
+export const defaultFontSize = 12;
+export const defaultHeight = 400;
+export const validRenderers = ['canvas', 'svg'];
+
 export const axes = {
   name: 'Value',
   type: 'value',
@@ -17,27 +22,23 @@ export const yAxis = merge({}, axes, {
   nameGap: 50,
 });
 
-export const legend = {
-  icon: 'path://M0,0H16V4H0Z',
-  show: true,
-  align: 'left',
-  bottom: 0,
-  left: 58,
-  textStyle: {
-    fontWeight: 'bold',
-  },
+export const grid = {
+  top: 16,
+  bottom: 44,
+  left: 64,
+  right: 32,
 };
 
 export const getDataZoomConfig = () => ({
   grid: {
-    bottom: 103,
+    bottom: 81,
   },
   xAxis: {
     nameGap: 67,
   },
   dataZoom: {
     type: 'slider',
-    bottom: 44,
+    bottom: 22,
   },
 });
 
@@ -95,7 +96,7 @@ export function getThresholdConfig(thresholds) {
 }
 
 export default {
+  grid,
   xAxis,
   yAxis,
-  legend,
 };

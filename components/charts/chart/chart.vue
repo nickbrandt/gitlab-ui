@@ -1,10 +1,7 @@
 <script>
 import echarts from 'echarts';
-import theme from '../../../helpers/charts/theme';
-
-const validRenderers = ['canvas', 'svg'];
-const defaultHeight = 400;
-const themeName = 'gitlab';
+import theme, { themeName } from '../../../helpers/charts/theme';
+import { defaultHeight, validRenderers } from '../../../helpers/charts/config';
 
 export default {
   props: {
