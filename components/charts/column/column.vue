@@ -111,6 +111,7 @@ export default {
             show: false,
           },
         },
+        this.dataZoomAdjustments,
         this.option,
         additiveArrayMerge
       );
