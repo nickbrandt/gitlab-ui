@@ -51,10 +51,12 @@ export default {
     v-bind="inputAttributes"
     :value="value"
     :is-loading="isLoading"
+    v-on="$listeners"
   />
   <gl-search-box-by-click
     v-else
     v-bind="inputAttributes"
     :value="value"
+    v-on="$listeners"
   />
 </template>
