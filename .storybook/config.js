@@ -1,18 +1,22 @@
-import { configure, addDecorator } from '@storybook/vue';
-import { withOptions } from '@storybook/addon-options';
+import { configure, addParameters } from '@storybook/vue';
+import { create } from '@storybook/theming';
 
 const req = require.context('../stories', true, /js$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
 }
-addDecorator(
-  withOptions({
-    name: 'gitlab-ui',
-    url: 'https://gitlab.com/gitlab-org/gitlab-ui',
-    addonPanelInRight: true,
-    hierarchyRootSeparator: /\|/,
-  })
-);
+
+addParameters({
+  options: {
+    theme: create({
+      base: 'light',
+      brandTitle: 'gitlab-ui',
+      brandUrl: 'https://gitlab.com/gitlab-org/gitlab-ui',
+    }),
+    isFullscreen: false,
+    panelPosition: 'right',
+  },
+});
 
 configure(loadStories, module);
