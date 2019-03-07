@@ -8,6 +8,8 @@ import 'url-search-params-polyfill';
 
 import { GlExampleExplorer, GlComponentDocumentation } from '../../documentation';
 
+import { componentValidator as isValidComponent } from '../../documentation/all_components';
+
 const withCustomPreview = withDocs({
   PreviewComponent: {
     data() {
@@ -28,20 +30,39 @@ const withCustomPreview = withDocs({
     data() {
       return {
         componentName: null,
+        error: '',
       };
     },
     components: {
       GlComponentDocumentation,
       GlExampleExplorer,
     },
-    template: `<div v-if="componentName">
-                <gl-example-explorer :componentName="componentName" /><br/>
-                <gl-component-documentation :componentName="componentName" />
+    template: `<div>
+                {{ error }}
+                <template v-if="componentName">
+                  <gl-example-explorer :componentName="componentName" /><br/>
+                  <gl-component-documentation :componentName="componentName" />
+                </template>
               </div>`,
     mounted() {
       const urlParams = new URLSearchParams(window.location.search);
-      const storyName = urlParams.get('selectedKind').match(/[^/|]*$/);
-      this.componentName = `Gl${upperFirst(camelCase(storyName))}`;
+      const storySlug = urlParams.get('id').split('--')[0];
+      const splitSlug = storySlug.split('-');
+
+      let componentName;
+
+      do {
+        splitSlug.shift();
+        componentName = `Gl${upperFirst(camelCase(splitSlug.join('-')))}`;
+      } while (splitSlug.length > 0 && !isValidComponent(componentName));
+
+      if (isValidComponent(componentName)) {
+        this.error = '';
+        this.componentName = componentName;
+      } else {
+        this.error = 'Could not find a matching component';
+        this.componentName = false;
+      }
     },
   },
 });
