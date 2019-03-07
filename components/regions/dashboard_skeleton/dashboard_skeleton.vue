@@ -17,7 +17,7 @@ export default {
       :key="index"
       class="col-12 col-md-6 col-xl-4 px-2"
     >
-      <div class="card-header py-4 bg-light"></div>
+      <div class="rounded-top py-4 bg-light"></div>
       <div class="dashboard-card-body card-body bg-secondary">
         <div class="row">
           <div class="col-1 align-self-center">
