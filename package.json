@@ -66,7 +66,7 @@
     "rollup-plugin-css-porter": "^0.1.2",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-string": "^2.0.2",
-    "rollup-plugin-vue": "^4.3.1",
+    "rollup-plugin-vue": "^4.7.2",
     "sass-loader": "^7.1.0",
     "semantic-release": "15",
     "storybook-readme": "^4.0.5",
