@@ -62,7 +62,7 @@ export default {
         v-model="content"
         v-bind="$attrs"
         :value="content"
-        :class="{ 'pr-5': !isResetButtonVisible, 'pr-6': isResetButtonVisible }"
+        :class="{ 'pr-5': !isResetButtonVisible, 'pr-9': isResetButtonVisible }"
         v-on="$listeners"
         @input="onInput"
         @keyup.enter.native="onSearch"
