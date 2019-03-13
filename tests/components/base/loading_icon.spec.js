@@ -21,30 +21,43 @@ describe('loading icon component', () => {
   });
 
   describe('css class', () => {
-    it('should render fa-spin css class', () => {
+    it('should render the spinner css class by default', () => {
       const component = mountWithOptions({});
-      expect(component.vm.$el.querySelector('i').classList.contains('fa-spin')).toEqual(true);
+
+      expect(component.vm.$el.querySelector('span').classList.contains('spinner')).toEqual(true);
     });
 
-    it('should render fa-1x css class by default', () => {
-      const component = mountWithOptions({});
-      expect(component.vm.$el.querySelector('i').classList.contains('fa-1x')).toEqual(true);
-    });
-
-    it('should render fa-2x css class', () => {
+    it('should render spinner-lg css class', () => {
       const component = mountWithOptions({
         propsData: {
-          size: 2,
+          size: 'lg',
         },
       });
-      expect(component.vm.$el.querySelector('i').classList.contains('fa-2x')).toEqual(true);
+
+      expect(component.vm.$el.querySelector('span').classList.contains('spinner')).toEqual(true);
+      expect(component.vm.$el.querySelector('span').classList.contains('spinner-lg')).toEqual(true);
+    });
+
+    it('should render spinner-md and dark css class', () => {
+      const component = mountWithOptions({
+        propsData: {
+          size: 'md',
+          color: 'dark',
+        },
+      });
+
+      expect(component.vm.$el.querySelector('span').classList.contains('spinner')).toEqual(true);
+      expect(component.vm.$el.querySelector('span').classList.contains('spinner-md')).toEqual(true);
+      expect(component.vm.$el.querySelector('span').classList.contains('spinner-dark')).toEqual(
+        true
+      );
     });
   });
 
   describe('aria label', () => {
     it('should default to loading', () => {
       const component = mountWithOptions({});
-      expect(component.vm.$el.querySelector('i').getAttribute('aria-label')).toEqual('Loading');
+      expect(component.vm.$el.querySelector('span').getAttribute('aria-label')).toEqual('Loading');
     });
 
     it('should change using prop', () => {
@@ -55,7 +68,7 @@ describe('loading icon component', () => {
         },
       });
 
-      expect(component.vm.$el.querySelector('i').getAttribute('aria-label')).toEqual(label);
+      expect(component.vm.$el.querySelector('span').getAttribute('aria-label')).toEqual(label);
     });
   });
 });
