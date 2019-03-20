@@ -63,7 +63,7 @@ export default {
         </svg>
       </div>
       <span class="bold append-right-8">{{ series.name }}</span>
-      <span v-if="series.data">Avg: {{
+      <span v-if="series.data && series.data.length">Avg: {{
         seriesAverage(series.data)
       }} · Max: {{
         seriesMax(series.data)
