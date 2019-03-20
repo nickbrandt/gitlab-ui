@@ -1,6 +1,6 @@
 <template>
   <gl-dropdown text="Select HTML tag">
-    <gl-search-box
+    <gl-search-box-by-type
       v-model.trim="searchTerm"
       class="m-2"
     />
