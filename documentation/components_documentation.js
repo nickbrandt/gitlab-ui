@@ -5,6 +5,9 @@ export {
   default as GlChartLegendDocumentation,
 } from '../components/charts/legend/legend.documentation';
 export {
+  default as GlStackedColumnChartDocumentation,
+} from '../components/charts/stacked_column/stacked_column.documentation';
+export {
   default as GlChartTooltipDocumentation,
 } from '../components/charts/tooltip/tooltip.documentation';
 export {
