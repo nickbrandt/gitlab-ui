@@ -70,5 +70,10 @@ export const popoverPlacements = {
   leftbottom: 'leftbottom',
 };
 
+export const columnOptions = {
+  stacked: 'stacked',
+  tiled: 'tiled',
+};
+
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
