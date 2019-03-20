@@ -1,4 +1,4 @@
-import * as description from './search_box.md';
+import * as description from './search_box_by_type.md';
 import examples from './examples';
 
 export default {

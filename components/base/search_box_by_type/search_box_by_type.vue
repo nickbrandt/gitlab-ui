@@ -31,6 +31,21 @@ export default {
     };
   },
   computed: {
+    inputAttributes() {
+      const attributes = Object.assign(
+        {
+          type: 'text',
+          placeholder: 'Search',
+        },
+        this.$attrs
+      );
+
+      if (!attributes['aria-label']) {
+        attributes['aria-label'] = attributes.placeholder;
+      }
+
+      return attributes;
+    },
     hasValue() {
       return this.content !== '';
     },
@@ -64,7 +79,7 @@ export default {
     <gl-form-input
       ref="input"
       v-model="content"
-      v-bind="$attrs"
+      v-bind="inputAttributes"
       :value="content"
       class="pl-5"
       :class="{ 'pr-5': isResetButtonVisible }"
