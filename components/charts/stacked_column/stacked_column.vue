@@ -3,7 +3,11 @@ import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
-import defaultChartOptions, { grid, additiveArrayMerge } from '../../../helpers/charts/config';
+import defaultChartOptions, {
+  grid,
+  additiveArrayMerge,
+  getDataZoomConfig,
+} from '../../../helpers/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette, colors } from '../../../helpers/charts/theme';
 
@@ -130,6 +134,7 @@ export default {
             show: false,
           },
         },
+        this.dataZoomAdjustments,
         this.option,
         additiveArrayMerge
       );
@@ -151,6 +156,11 @@ export default {
 
         return acc;
       }, []);
+    },
+    dataZoomAdjustments() {
+      const useSlider = !!this.option.dataZoom;
+
+      return useSlider ? getDataZoomConfig() : {};
     },
   },
   beforeDestroy() {
