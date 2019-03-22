@@ -1,5 +1,5 @@
 <script>
-import BModal from 'bootstrap-vue/es/components/modal/modal';
+import BModal from 'bootstrap-vue/src/components/modal/modal';
 
 export default {
   components: {

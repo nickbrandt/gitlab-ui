@@ -1,6 +1,6 @@
 <script>
-import BDropdownItem from 'bootstrap-vue/es/components/dropdown/dropdown-item';
-import BDropdownItemButton from 'bootstrap-vue/es/components/dropdown/dropdown-item-button';
+import BDropdownItem from 'bootstrap-vue/src/components/dropdown/dropdown-item';
+import BDropdownItemButton from 'bootstrap-vue/src/components/dropdown/dropdown-item-button';
 
 export default {
   inheritAttrs: false,

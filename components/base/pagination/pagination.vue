@@ -1,5 +1,5 @@
 <script>
-import BPagination from 'bootstrap-vue/es/components/pagination/pagination';
+import BPagination from 'bootstrap-vue/src/components/pagination/pagination';
 import Breakpoints, { breakpoints } from '../../../helpers/breakpoints';
 
 export default {

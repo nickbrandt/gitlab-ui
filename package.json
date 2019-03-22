@@ -10,7 +10,7 @@
   "author": "GitLab",
   "private": false,
   "scripts": {
-    "build": "rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "build-preview-head": "node .storybook/generate-preview-head.js",
     "clean": "rm -r dist storybook",
     "storybook": "yarn build-preview-head && start-storybook -p 9001 -c .storybook -s ./styles",
@@ -66,7 +66,7 @@
     "rollup-plugin-css-porter": "^0.1.2",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-string": "^2.0.2",
-    "rollup-plugin-vue": "^4.3.1",
+    "rollup-plugin-vue": "^4.7.2",
     "sass-loader": "^7.1.0",
     "semantic-release": "15",
     "storybook-readme": "^4.0.5",
@@ -85,6 +85,7 @@
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/components/$1",
+      "^@gitlab/ui$": "<rootDir>/index.js",
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "transform": {

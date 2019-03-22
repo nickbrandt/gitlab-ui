@@ -1,5 +1,5 @@
 <script>
-import BFormRadioGroup from 'bootstrap-vue/es/components/form-radio/form-radio-group';
+import BFormRadioGroup from 'bootstrap-vue/src/components/form-radio/form-radio-group';
 
 export default {
   components: {

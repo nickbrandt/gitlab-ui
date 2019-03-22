@@ -1,10 +1,12 @@
-  root: true
-  extends:
-    - '@gitlab'
-  parserOptions:
-    parser: babel-eslint
-  rules:
-    filenames/match-regex:
-    - error
-    - "^[a-z_]+(\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
-    import/no-extraneous-dependencies: off
+root: true
+extends:
+  - '@gitlab'
+parserOptions:
+  parser: babel-eslint
+settings:
+  import/core-modules: [ '@gitlab/ui' ]
+rules:
+  filenames/match-regex:
+  - error
+  - "^[a-z_]+(\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
+  import/no-extraneous-dependencies: off

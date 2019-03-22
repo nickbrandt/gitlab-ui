@@ -1,5 +1,5 @@
 <script>
-import BFormInput from 'bootstrap-vue/es/components/form-input/form-input';
+import BFormInput from 'bootstrap-vue/src/components/form-input/form-input';
 
 export default {
   components: {

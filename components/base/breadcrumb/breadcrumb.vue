@@ -1,5 +1,5 @@
 <script>
-import BBreadcrumb from 'bootstrap-vue/es/components/breadcrumb/breadcrumb';
+import BBreadcrumb from 'bootstrap-vue/src/components/breadcrumb/breadcrumb';
 
 export default {
   components: {

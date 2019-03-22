@@ -1,3 +1,3 @@
-import Modal from 'bootstrap-vue/es/directives/modal/modal';
+import Modal from 'bootstrap-vue/src/directives/modal/modal';
 
 export default Modal;
