@@ -11,6 +11,9 @@ export {
 export { default as GlBadge } from './components/base/badge/badge.vue';
 export { default as GlButton } from './components/base/button/button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
+export {
+  default as GlDashboardSkeleton,
+} from './components/regions/dashboard_skeleton/dashboard_skeleton.vue';
 export { default as GlEmptyState } from './components/regions/empty_state/empty_state.vue';
 export { default as GlFormInput } from './components/base/form/form_input/form_input.vue';
 export { default as GlFormRadio } from './components/base/form/form_radio/form_radio.vue';
@@ -19,13 +22,20 @@ export {
 } from './components/base/form/form_radio/form_radio_group.vue';
 export { default as GlFormTextarea } from './components/base/form/form_textarea/form_textarea.vue';
 export { default as GlFormGroup } from './components/base/form/form_group/form_group.vue';
-export { default as GlSearchBox } from './components/base/search/search_box.vue';
+export {
+  default as GlSearchBoxByType,
+} from './components/base/search_box_by_type/search_box_by_type.vue';
+export {
+  default as GlSearchBoxByClick,
+} from './components/base/search_box_by_click/search_box_by_click.vue';
 export { default as GlDropdownItem } from './components/base/dropdown/dropdown_item.vue';
 export { default as GlDropdownHeader } from './components/base/dropdown/dropdown_header.vue';
 export { default as GlDropdownDivider } from './components/base/dropdown/dropdown_divider.vue';
 export { default as GlDropdown } from './components/base/dropdown/dropdown.vue';
 export { default as GlTable } from './components/base/table/table.vue';
 export { default as GlBreadcrumb } from './components/base/breadcrumb/breadcrumb.vue';
+export { default as GlTabs } from './components/base/tabs/tabs/tabs.vue';
+export { default as GlTab } from './components/base/tabs/tab/tab.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';

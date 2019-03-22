@@ -1,23 +1,28 @@
 <script>
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
+import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, {
-  colors,
+  grid,
+  getDataZoomConfig,
   getThresholdConfig,
   additiveArrayMerge,
-} from '../../../helpers/chart';
-import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
+  defaultAreaOpacity,
+} from '../../../helpers/charts/config';
+import { debounceByAnimationFrame } from '../../../helpers/utils';
+import { colorFromPalette } from '../../../helpers/charts/theme';
 
 export default {
   components: {
     Chart,
+    ChartLegend,
     ChartTooltip,
   },
   inheritAttrs: false,
   props: {
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
     option: {
@@ -29,6 +34,11 @@ export default {
       type: Object,
       required: false,
       default: () => ({}),
+    },
+    includeLegendAvgMax: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     formatTooltipText: {
       type: Function,
@@ -51,18 +61,9 @@ export default {
   },
   computed: {
     series() {
-      return Object.keys(this.data).map((key, index) => {
-        let colorIndex = index;
-        const lineColorsCount = colors.lines.length;
-        while (colorIndex >= lineColorsCount) {
-          colorIndex -= lineColorsCount;
-        }
-        const lineColor = colors.lines[colorIndex];
-
-        return Object.assign(
+      return this.data.map(series =>
+        mergeWith(
           {
-            name: key,
-            data: this.data[key],
             type: 'line',
             showSymbol: false,
             symbol: 'circle',
@@ -70,16 +71,15 @@ export default {
             lineStyle: {
               width: 1,
             },
-            itemStyle: {
-              color: lineColor,
-            },
             areaStyle: {
-              color: hexToRgba(lineColor, 0.2),
+              opacity: defaultAreaOpacity,
             },
           },
-          this.thresholds === null ? {} : getThresholdConfig(this.thresholds)
-        );
-      });
+          series,
+          this.thresholds === null ? {} : getThresholdConfig(this.thresholds),
+          additiveArrayMerge
+        )
+      );
     },
     options() {
       return mergeWith(
@@ -87,29 +87,46 @@ export default {
         defaultChartOptions,
         {
           xAxis: {
-            axisLabel: {
-              margin: 20,
-              verticalAlign: 'bottom',
-            },
             axisPointer: {
               show: true,
-              lineStyle: {
-                color: colors.textTertiary,
-              },
               label: {
-                show: false,
                 formatter: this.onLabelChange,
               },
             },
           },
           series: this.series,
           legend: {
-            itemWidth: 16,
+            show: false,
           },
         },
+        this.dataZoomAdjustments,
         this.option,
         additiveArrayMerge
       );
+    },
+    dataZoomAdjustments() {
+      const useSlider = !!this.option.dataZoom;
+
+      return useSlider ? getDataZoomConfig() : {};
+    },
+    compiledOptions() {
+      return this.chart ? this.chart.getOption() : null;
+    },
+    legendStyle() {
+      return { paddingLeft: `${grid.left}px` };
+    },
+    seriesInfo() {
+      return this.compiledOptions.series.reduce((acc, series, index) => {
+        if (series.type === 'line') {
+          acc.push({
+            name: series.name,
+            type: series.lineStyle.type,
+            color: series.lineStyle.color || colorFromPalette(index),
+            data: this.includeLegendAvgMax ? series.data.map(data => data[1]) : undefined,
+          });
+        }
+        return acc;
+      }, []);
     },
   },
   beforeDestroy() {
@@ -194,5 +211,11 @@ export default {
         </div>
       </template>
     </chart-tooltip>
+    <chart-legend
+      v-if="compiledOptions"
+      :style="legendStyle"
+      :series-info="seriesInfo"
+      :text-style="compiledOptions.textStyle"
+    />
   </div>
 </template>

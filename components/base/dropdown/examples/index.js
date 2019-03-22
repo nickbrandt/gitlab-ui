@@ -3,6 +3,8 @@ import DropdownLinksExample from './dropdown.links.example.vue';
 import DropdownWithDividerExample from './dropdown.with_divider.example.vue';
 import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
 import DropdownWithSearchExample from './dropdown.with_search.example.vue';
+import DropdownNoCaretExample from './dropdown.no_caret.example.vue';
+import DropdownSplitExample from './dropdown.split.example.vue';
 
 export default [
   {
@@ -37,6 +39,18 @@ export default [
         name: 'With Search',
         description: 'Dropdown with search field',
         component: DropdownWithSearchExample,
+      },
+      {
+        id: 'dropdown-no-caret',
+        name: 'No Caret',
+        description: 'Dropdown with no caret',
+        component: DropdownNoCaretExample,
+      },
+      {
+        id: 'dropdown-split',
+        name: 'Split',
+        description: 'Split Dropdown',
+        component: DropdownSplitExample,
       },
     ],
   },

@@ -33,6 +33,24 @@ export default {
       required: false,
       default: '',
     },
+    noCaret: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    split: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  computed: {
+    renderCaret() {
+      if (this.split || this.noCaret) {
+        return false;
+      }
+      return true;
+    },
   },
 };
 </script>
@@ -40,6 +58,7 @@ export default {
 <template>
   <b-dropdown
     v-bind="$attrs"
+    :split="split"
     v-on="$listeners"
   >
     <slot></slot>
@@ -49,9 +68,18 @@ export default {
     >
       {{ text }}
       <i
+        v-if="renderCaret"
         class="fa fa-chevron-down"
         aria-hidden="true"
       ></i>
     </slot>
   </b-dropdown>
 </template>
+
+<style>
+/* This is temporary till we can properly support the split dropdown caret */
+/* https://gitlab.com/gitlab-org/gitlab-ui/issues/185 */
+.dropdown-toggle-split:after {
+  display: block;
+}
+</style>

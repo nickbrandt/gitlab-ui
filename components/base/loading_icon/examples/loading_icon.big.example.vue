@@ -1,3 +1,3 @@
 <template>
-  <gl-loading-icon :size="5" />
+  <gl-loading-icon size='lg'/>
 </template>

@@ -1,14 +1,23 @@
 <script>
 import echarts from 'echarts';
-
-const validRenderers = ['canvas', 'svg'];
-const defaultHeight = 400;
+import theme, { themeName } from '../../../helpers/charts/theme';
+import { defaultHeight, validRenderers } from '../../../helpers/charts/config';
 
 export default {
   props: {
     options: {
       type: Object,
       required: true,
+    },
+    /**
+     * Warning: this prop is deprecated and will soon be removed
+     * Please do not utilize `disableTheme` for formatting
+     * Use the `options` prop to set desired echarts formatting
+     */
+    disableTheme: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     width: {
       type: Number,
@@ -50,8 +59,15 @@ export default {
       this.setChartSize();
     },
   },
+  created() {
+    if (!this.disableTheme) {
+      echarts.registerTheme(themeName, theme);
+    }
+  },
   mounted() {
-    this.chart = echarts.init(this.$refs.chart, null, { renderer: this.renderer });
+    this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
+      renderer: this.renderer,
+    });
     if (this.groupId.length) {
       this.chart.group = this.groupId;
       echarts.connect(this.groupId);

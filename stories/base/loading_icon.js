@@ -1,4 +1,4 @@
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs/vue';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
 import readme from '../../components/base/loading_icon/loading_icon.md';
 import { GlLoadingIcon } from '../../index';
@@ -12,6 +12,7 @@ const template = `
     :label="label"
     :size="size"
     :inline="inline"
+    :color="color"
   />
 `;
 
@@ -22,13 +23,28 @@ function generateProps({ inline } = {}) {
       default: text('aria label'),
     },
     size: {
-      type: Number,
-      default: number('size', 1, {
-        range: true,
-        min: 1,
-        max: 5,
-        step: 1,
-      }),
+      type: String,
+      default: select(
+        'size',
+        {
+          sm: 'sm',
+          md: 'md',
+          lg: 'lg',
+        },
+        'sm'
+      ),
+    },
+    color: {
+      type: String,
+      default: select(
+        'color',
+        {
+          orange: 'orange',
+          dark: 'dark',
+          light: 'light',
+        },
+        'orange'
+      ),
     },
     inline: {
       type: Boolean,

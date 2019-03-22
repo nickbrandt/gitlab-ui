@@ -2,8 +2,17 @@
 export { default as GlChartDocumentation } from '../components/charts/chart/chart.documentation';
 export { default as GlAreaChartDocumentation } from '../components/charts/area/area.documentation';
 export {
+  default as GlChartLegendDocumentation,
+} from '../components/charts/legend/legend.documentation';
+export {
+  default as GlStackedColumnChartDocumentation,
+} from '../components/charts/stacked_column/stacked_column.documentation';
+export {
   default as GlChartTooltipDocumentation,
 } from '../components/charts/tooltip/tooltip.documentation';
+export {
+  default as GlColumnChartDocumentation,
+} from '../components/charts/column/column.documentation';
 export {
   default as GlSkeletonLoadingDocumentation,
 } from '../components/base/skeleton_loading/skeleton_loading.documentation';
@@ -27,6 +36,9 @@ export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
 export {
+  default as GlDashboardSkeletonDocumentation,
+} from '../components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
+export {
   default as GlEmptyStateDocumentation,
 } from '../components/regions/empty_state/empty_state.documentation';
 export {
@@ -42,8 +54,11 @@ export {
   default as GlFormRadioDocumentation,
 } from '../components/base/form/form_radio/form_radio.documentation';
 export {
-  default as GlSearchBoxDocumentation,
-} from '../components/base/search/search_box.documentation';
+  default as GlSearchBoxByTypeDocumentation,
+} from '../components/base/search_box_by_type/search_box_by_type.documentation';
+export {
+  default as GlSearchBoxByClickDocumentation,
+} from '../components/base/search_box_by_click/search_box_by_click.documentation';
 export {
   default as GlDropdownItemDocumentation,
 } from '../components/base/dropdown/dropdown_item.documentation';
@@ -63,6 +78,8 @@ export {
 export {
   default as GlHeatmapDocumentation,
 } from '../components/charts/heatmap/heatmap.documentation';
+export { default as GlTabsDocumentation } from '../components/base/tabs/tabs/tabs.documentation';
+export { default as GlTabDocumentation } from '../components/base/tabs/tab/tab.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

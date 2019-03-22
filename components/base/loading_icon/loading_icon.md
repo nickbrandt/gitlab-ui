@@ -1,8 +1,10 @@
 ## Under the hood
-Loading icon uses [Font Awesome 4.7.0]'s `fa-spinner` to render the spinner.
+Loading icon uses pure css to render a spinner.
 
 ## Additional notes
-There are future plans to remove the Font Awesome dependency, in favor of a custom SVG spinner as detailed in [CE #20084].
+The previous version of this loading icon made use of the size property with a numeric value between 1 and 5. Going forward, the size options are being deprecated and the use of 'sm', 'md' and 'lg' are required. 
 
-[Font Awesome 4.7.0]: https://fontawesome.com/v4.7.0/
-[CE #20084]: https://gitlab.com/gitlab-org/gitlab-ce/issues/20084
+The sizing values have been updated as follows;
+* size of 1 (which was 14px) is converted to sm (which is 16px)
+* size of 2 or 3 (which was 28px or 42px) is converted to md (which is 32px)
+* size of 4 or 5 (which was 56px or 70px) is to converted to lg (which is 64px)

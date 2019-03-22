@@ -4,7 +4,7 @@
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 
-import * as Babel from 'babel-standalone';
+import * as Babel from '@babel/standalone';
 import { parseComponent } from 'vue-template-compiler';
 
 import { html } from 'js-beautify';
@@ -91,7 +91,7 @@ export default {
           if (parsed.script) {
             // We parse the script part with Babel.transform (Line 68 in example_display)
             const { code } = Babel.transform(parsed.script.content, {
-              presets: ['es2015', 'stage-2'],
+              presets: ['es2015', ['stage-2', { decoratorsBeforeExport: false }]],
             });
             compiled = eval(`const exports = {};${code}`); // eslint-disable-line no-eval
           }
