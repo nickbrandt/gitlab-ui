@@ -160,7 +160,7 @@ export default {
     dataZoomAdjustments() {
       const useSlider = !!this.option.dataZoom;
 
-      return useSlider ? getDataZoomConfig() : {};
+      return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : {};
     },
   },
   beforeDestroy() {

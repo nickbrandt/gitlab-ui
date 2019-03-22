@@ -29,7 +29,7 @@ export const grid = {
   right: 32,
 };
 
-export const getDataZoomConfig = () => ({
+export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
   grid: {
     bottom: 81,
   },
@@ -39,6 +39,7 @@ export const getDataZoomConfig = () => ({
   dataZoom: {
     type: 'slider',
     bottom: 22,
+    filterMode,
   },
 });
 
