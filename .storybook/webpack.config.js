@@ -1,5 +1,5 @@
-module.exports = storybookBaseConfig => {
-  storybookBaseConfig.module.rules = [
+module.exports = ({ config }) => {
+  config.module.rules = [
     {
       test: /\.md$/,
       loader: 'raw-loader',
@@ -19,5 +19,5 @@ module.exports = storybookBaseConfig => {
     },
   ];
 
-  return storybookBaseConfig;
+  return config;
 };
