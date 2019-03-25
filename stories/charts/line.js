@@ -1,6 +1,7 @@
 import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
 import { GlLineChart } from '../../charts';
+import { colors } from '../../helpers/charts/theme';
 import readme from '../../components/charts/line/line.md';
 
 const components = {
@@ -10,37 +11,37 @@ const defaultData = [
   {
     name: 'Requested',
     data: [
-      ['Mon', 1220],
-      ['Tue', 932],
-      ['Wed', 901],
-      ['Thu', 934],
-      ['Fri', 1290],
-      ['Sat', 1330],
-      ['Sun', 1320],
+      ['Mon', 1184],
+      ['Tue', 1346],
+      ['Wed', 1035],
+      ['Thu', 1226],
+      ['Fri', 1421],
+      ['Sat', 1347],
+      ['Sun', 1035],
     ],
   },
   {
     name: 'Actual',
     data: [
-      ['Mon', 931],
-      ['Tue', 892],
-      ['Wed', 910],
-      ['Thu', 908],
-      ['Fri', 1133],
-      ['Sat', 909],
-      ['Sun', 979],
+      ['Mon', 1509],
+      ['Tue', 1275],
+      ['Wed', 1187],
+      ['Thu', 1287],
+      ['Fri', 1098],
+      ['Sat', 1457],
+      ['Sun', 1452],
     ],
   },
   {
     name: 'Predicted',
     data: [
-      ['Mon', 1024],
-      ['Tue', 1004],
-      ['Wed', 922],
-      ['Thu', 889],
-      ['Fri', 879],
-      ['Sat', 1055],
-      ['Sun', 891],
+      ['Mon', 1041],
+      ['Tue', 1468],
+      ['Wed', 1273],
+      ['Thu', 1503],
+      ['Fri', 1209],
+      ['Sat', 1416],
+      ['Sun', 1213],
     ],
   },
 ];
@@ -124,7 +125,7 @@ documentedStoriesOf('charts|line-chart', readme)
     data() {
       return generateData({
         thresholds: {
-          'too-high': { threshold: 1200, operator: '>' },
+          'too-low': { threshold: 450, operator: '<' },
         },
       });
     },
@@ -163,8 +164,7 @@ documentedStoriesOf('charts|line-chart', readme)
             dataBackground: {
               lineStyle: {
                 width: 2,
-                opacity: 1,
-                color: '#ccc',
+                color: colors.gray200,
               },
               areaStyle: null,
             },
