@@ -26,7 +26,7 @@ Go to http://localhost:9001/
 ## Installation
 
 ```sh
-npm install @gitlab-org/gitlab-ui
+npm install @gitlab/ui
 ```
 
 ## Configuring application.css
