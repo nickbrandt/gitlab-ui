@@ -4,6 +4,7 @@ export { default as GlAreaChartDocumentation } from '../components/charts/area/a
 export {
   default as GlChartLegendDocumentation,
 } from '../components/charts/legend/legend.documentation';
+export { default as GlLineChartDocumentation } from '../components/charts/line/line.documentation';
 export {
   default as GlStackedColumnChartDocumentation,
 } from '../components/charts/stacked_column/stacked_column.documentation';

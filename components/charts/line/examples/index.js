@@ -1,21 +1,21 @@
-import AreaBasicExample from './area.basic.example.vue';
-import AreaBasicPlusExample from './area.basic_plus.example.vue';
+import LineBasicExample from './line.basic.example.vue';
+import LineBasicPlusExample from './line.basic_plus.example.vue';
 
 export default [
   {
     name: 'Basic',
     items: [
       {
-        id: 'area-basic',
+        id: 'line-basic',
         name: 'Basic',
-        description: 'Basic Area Chart',
-        component: AreaBasicExample,
+        description: 'Basic line chart',
+        component: LineBasicExample,
       },
       {
-        id: 'area-basic-plus',
+        id: 'line-basic-plus',
         name: 'Basic plus custom series',
-        description: 'Basic area chart with custom series added',
-        component: AreaBasicPlusExample,
+        description: 'Basic line chart with custom series added',
+        component: LineBasicPlusExample,
       },
     ],
   },
