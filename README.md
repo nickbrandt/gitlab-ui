@@ -14,6 +14,9 @@ Make sure you have [Node](https://nodejs.org/en/) 8.x (LTS) and [Yarn](https://y
 # Clone the project
 git clone git@gitlab.com:gitlab-org/gitlab-ui.git
 
+# Navigate to the root of the project
+cd gitlab-ui
+
 # Install all the dependencies of the project
 yarn # or yarn install
 
