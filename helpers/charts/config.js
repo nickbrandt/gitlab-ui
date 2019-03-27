@@ -55,6 +55,58 @@ export const dataZoomAdjustments = dataZoom => {
   return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : {};
 };
 
+export const getToolboxConfig = ({
+  restoreIconPath = '',
+  saveImageIconPath = '',
+  zoomIconPath = '',
+  backIconPath = '',
+} = {}) => {
+  let toolboxConfig = {
+    toolbox: {},
+  };
+
+  if (restoreIconPath.length) {
+    toolboxConfig = merge(toolboxConfig, {
+      toolbox: {
+        feature: {
+          restore: {
+            icon: restoreIconPath,
+          },
+        },
+      },
+    });
+  }
+
+  if (saveImageIconPath.length) {
+    toolboxConfig = merge(toolboxConfig, {
+      toolbox: {
+        feature: {
+          saveAsImage: {
+            icon: saveImageIconPath,
+          },
+        },
+      },
+    });
+  }
+
+  if (zoomIconPath.length && backIconPath.length) {
+    toolboxConfig = merge(toolboxConfig, {
+      toolbox: {
+        feature: {
+          dataZoom: {
+            icon: {
+              zoom: zoomIconPath,
+              back: backIconPath,
+            },
+          },
+        },
+      },
+    });
+  }
+
+  return toolboxConfig;
+};
+
 /**
  * Meant to be used with Lodash mergeWith
  * Returning undefined will prompt the default merge strategy

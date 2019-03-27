@@ -9,6 +9,7 @@ import {
   gray100,
   gray200,
   gray400,
+  gray700,
   green500,
   indigo500,
   orange500,
@@ -109,6 +110,35 @@ export default {
     labelFormatter: () => null,
     textStyle: {
       color: glTextColorTertiary,
+    },
+  },
+  toolbox: {
+    top: '-5',
+    left: 'center',
+    itemSize: 14,
+    iconStyle: {
+      color: gray200,
+      borderWidth: 0,
+      emphasis: {
+        borderWidth: 0,
+        color: gray700,
+      },
+    },
+    itemGap: 8,
+    feature: {
+      dataZoom: {
+        title: {
+          zoom: 'Click to zoom in on a portion of the graph',
+          back: 'Remove selection',
+        },
+      },
+      restore: {
+        title: 'Remove all selections and return chart to default state',
+      },
+      saveAsImage: {
+        title: 'Save chart as an image',
+        name: 'graph',
+      },
     },
   },
   markPoint: {
