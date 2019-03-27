@@ -124,9 +124,7 @@ documentedStoriesOf('charts|line-chart', readme)
   .add('with threshold', () => ({
     data() {
       return generateData({
-        thresholds: {
-          'too-low': { threshold: 450, operator: '<' },
-        },
+        thresholds: [{ threshold: 1350, operator: '>' }],
       });
     },
     components,
