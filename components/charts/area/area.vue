@@ -11,7 +11,7 @@ import defaultChartOptions, {
   defaultAreaOpacity,
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
-import { colorFromPalette, colors } from '../../../helpers/charts/theme';
+import { colorFromPalette } from '../../../helpers/charts/theme';
 
 export default {
   components: {
@@ -93,12 +93,10 @@ export default {
                 formatter: this.onLabelChange,
               },
             },
+          },
+          yAxis: {
             axisTick: {
-              alignWithLabel: true,
-              show: true,
-              lineStyle: {
-                color: colors.gray200,
-              },
+              show: false,
             },
           },
           series: this.series,
