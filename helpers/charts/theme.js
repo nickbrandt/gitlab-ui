@@ -1,31 +1,31 @@
 import { hexToRgba } from '../utils';
+import {
+  blue500,
+  glGray200,
+  glTextColor,
+  glTextColorTertiary,
+  gray100,
+  gray200,
+  gray400,
+  green500,
+  indigo500,
+  orange500,
+  red500,
+  whiteNormal,
+} from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export const themeName = 'gitlab';
 
-export const colors = {
-  glTextColor: '#2e2e2e',
-  glTextColorTertiary: '#919191',
-  glGray200: '#cccccc',
-  glGray600: '#919191',
-  whiteNormal: '#f0f0f0',
-  gray100: '#f2f2f2',
-  gray200: '#dfdfdf',
-  gray400: '#bababa',
-  blue500: '#1f78d1',
-  green500: '#1aaa55',
-  indigo500: '#6666c4',
-  orange500: '#fc9403',
-  red500: '#db3b21',
-};
-export const colorPalette = [colors.blue500, colors.green500, colors.orange500, colors.indigo500];
+export const colorPalette = [blue500, green500, orange500, indigo500];
 export const colorFromPalette = index => colorPalette[index % colorPalette.length];
 
 const axes = {
   axisLabel: {
     margin: 8,
     show: true,
+    color: glTextColorTertiary,
     textStyle: {
-      color: colors.glGray600,
+      color: glTextColorTertiary,
     },
   },
   axisLine: {
@@ -33,15 +33,18 @@ const axes = {
   },
   axisPointer: {
     lineStyle: {
-      color: colors.glTextColorTertiary,
+      color: glTextColorTertiary,
     },
     label: {
       show: false,
     },
   },
   axisTick: {
-    show: false,
+    show: true,
     alignWithLabel: true,
+    lineStyle: {
+      color: gray200,
+    },
   },
   nameGap: 30,
   nameTextStyle: {
@@ -49,13 +52,13 @@ const axes = {
   },
   splitLine: {
     lineStyle: {
-      color: [colors.gray200],
+      color: [gray200],
     },
   },
   splitArea: {
     show: false,
     areaStyle: {
-      color: [hexToRgba(colors.whiteNormal, 0.3), hexToRgba(colors.glGray200, 0.3)],
+      color: [hexToRgba(whiteNormal, 0.3), hexToRgba(glGray200, 0.3)],
     },
   },
 };
@@ -64,7 +67,7 @@ export default {
   color: colorPalette,
   backgroundColor: 'transparent',
   textStyle: {
-    color: colors.glTextColor,
+    color: glTextColor,
   },
   markLine: {
     silent: true,
@@ -73,7 +76,7 @@ export default {
       show: false,
     },
     lineStyle: {
-      color: colors.red500,
+      color: red500,
       width: 1,
       type: 'dashed',
     },
@@ -81,7 +84,7 @@ export default {
   markArea: {
     silent: true,
     itemStyle: {
-      color: hexToRgba(colors.red500, 0.1),
+      color: hexToRgba(red500, 0.1),
     },
   },
   dataZoom: {
@@ -89,32 +92,32 @@ export default {
     filterMode: 'none',
     dataBackground: {
       lineStyle: {
-        color: colors.gray100,
+        color: gray100,
         opacity: 1,
       },
       areaStyle: {
-        color: colors.gray100,
+        color: gray100,
         opacity: 1,
       },
     },
-    fillerColor: hexToRgba(colors.glGray200, 0.2),
-    handleColor: colors.gray400,
+    fillerColor: hexToRgba(glGray200, 0.2),
+    handleColor: gray400,
     handleSize: '50%',
     labelFormatter: () => null,
     textStyle: {
-      color: colors.glGray600,
+      color: glTextColorTertiary,
     },
   },
   markPoint: {
     label: {
       normal: {
         textStyle: {
-          color: colors.whiteNormal,
+          color: whiteNormal,
         },
       },
       emphasis: {
         textStyle: {
-          color: colors.whiteNormal,
+          color: whiteNormal,
         },
       },
     },
