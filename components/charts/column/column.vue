@@ -4,7 +4,7 @@ import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, { additiveArrayMerge } from '../../../helpers/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
-import { colorFromPalette, colors } from '../../../helpers/charts/theme';
+import { colorFromPalette } from '../../../helpers/charts/theme';
 
 export default {
   components: {
@@ -84,17 +84,9 @@ export default {
             axisLabel: {
               margin: 20,
               verticalAlign: 'bottom',
-              color: colors.glTextColorTertiary,
             },
             axisLine: {
               show: false,
-            },
-            axisTick: {
-              alignWithLabel: true,
-              show: true,
-              lineStyle: {
-                color: colors.gray200,
-              },
             },
             axisPointer: {
               show: true,
@@ -108,6 +100,9 @@ export default {
           },
           yAxis: {
             name: this.yAxisTitle,
+            axisTick: {
+              show: false,
+            },
           },
           series: this.series,
           legend: {

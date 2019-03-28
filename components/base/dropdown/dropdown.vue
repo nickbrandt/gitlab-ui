@@ -1,6 +1,6 @@
 <script>
-import { isVisible, selectAll } from 'bootstrap-vue/es/utils/dom';
-import BDropdown from 'bootstrap-vue/es/components/dropdown/dropdown';
+import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
+import BDropdown from 'bootstrap-vue/src/components/dropdown/dropdown';
 
 // Return an Array of visible items
 function filterVisible(els) {

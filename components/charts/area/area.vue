@@ -31,9 +31,9 @@ export default {
       default: () => ({}),
     },
     thresholds: {
-      type: Object,
+      type: Array,
       required: false,
-      default: () => ({}),
+      default: () => [],
     },
     includeLegendAvgMax: {
       type: Boolean,
@@ -76,7 +76,7 @@ export default {
             },
           },
           series,
-          this.thresholds === null ? {} : getThresholdConfig(this.thresholds),
+          getThresholdConfig(this.thresholds),
           additiveArrayMerge
         )
       );
@@ -92,6 +92,11 @@ export default {
               label: {
                 formatter: this.onLabelChange,
               },
+            },
+          },
+          yAxis: {
+            axisTick: {
+              show: false,
             },
           },
           series: this.series,

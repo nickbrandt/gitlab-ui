@@ -52,44 +52,45 @@ export function additiveArrayMerge(objValue, srcValue) {
 }
 
 export function getThresholdConfig(thresholds) {
-  const keys = Object.keys(thresholds);
-  if (!keys.length) {
+  if (!thresholds.length) {
     return {};
   }
 
-  const lineData = [];
-  const areaData = [];
-  keys.forEach(key => {
-    const alert = thresholds[key];
-    const { threshold } = alert;
+  const data = thresholds.reduce(
+    (acc, alert) => {
+      const { threshold } = alert;
 
-    switch (alert.operator) {
-      case '>':
-      case '&gt;':
-        areaData.push([{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: Infinity }]);
-        break;
+      switch (alert.operator) {
+        case '>':
+        case '&gt;':
+          acc.areas.push([{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: Infinity }]);
+          break;
 
-      case '<':
-      case '&lt;':
-        areaData.push([
-          { xAxis: 'min', yAxis: Number.NEGATIVE_INFINITY },
-          { xAxis: 'max', yAxis: threshold },
-        ]);
-        break;
+        case '<':
+        case '&lt;':
+          acc.areas.push([
+            { xAxis: 'min', yAxis: Number.NEGATIVE_INFINITY },
+            { xAxis: 'max', yAxis: threshold },
+          ]);
+          break;
 
-      default:
-        break;
-    }
+        default:
+          break;
+      }
 
-    lineData.push([{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }]);
-  });
+      acc.lines.push([{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }]);
+
+      return acc;
+    },
+    { lines: [], areas: [] }
+  );
 
   return {
     markLine: {
-      data: lineData,
+      data: data.lines,
     },
     markArea: {
-      data: areaData,
+      data: data.areas,
       zlevel: -1,
     },
   };

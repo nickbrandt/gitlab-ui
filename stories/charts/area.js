@@ -1,4 +1,4 @@
-import { withKnobs, object, boolean } from '@storybook/addon-knobs';
+import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
 import { GlAreaChart } from '../../charts';
 import readme from '../../components/charts/area/area.md';
@@ -35,12 +35,12 @@ const template = `<gl-area-chart
 function generateData({
   data = defaultData,
   option = defaultOptions,
-  thresholds = {},
+  thresholds = [],
   includeLegendAvgMax = true,
 } = {}) {
   return {
     option: object('EChart Options', option),
-    thresholds: object('Thresholds', thresholds),
+    thresholds: array('Thresholds', thresholds),
     data: object('Chart Data', data),
     includeLegendAvgMax: boolean('Include Legend Avg Max', includeLegendAvgMax),
   };
@@ -99,9 +99,7 @@ documentedStoriesOf('charts|area-chart', readme)
   .add('with threshold', () => ({
     data() {
       return generateData({
-        thresholds: {
-          'too-high': { threshold: 1200, operator: '>' },
-        },
+        thresholds: [{ threshold: 1200, operator: '>' }],
       });
     },
     components,

@@ -12,18 +12,20 @@ describe('chart config helpers', () => {
   });
 
   describe('getThresholdConfig', () => {
+    const makeThreshold = (threshold, operator) => [
+      {
+        threshold,
+        operator,
+      },
+    ];
+
     it('returns empty object for no thresholds', () => {
-      expect(getThresholdConfig({})).toEqual({});
+      expect(getThresholdConfig([])).toEqual({});
     });
 
     it('draws area below line for < threshold', () => {
       const threshold = 3;
-      const thresholds = {
-        1: {
-          operator: '<',
-          threshold,
-        },
-      };
+      const thresholds = makeThreshold(threshold, '<');
       const expectedLineData = [
         [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }],
       ];
@@ -39,12 +41,7 @@ describe('chart config helpers', () => {
 
     it('draws line only for = threshold', () => {
       const threshold = 7;
-      const thresholds = {
-        1: {
-          operator: '=',
-          threshold,
-        },
-      };
+      const thresholds = makeThreshold(threshold, '=');
       const expectedLineData = [
         [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }],
       ];
@@ -58,12 +55,7 @@ describe('chart config helpers', () => {
 
     it('draws area above line for > threshold', () => {
       const threshold = 9000;
-      const thresholds = {
-        1: {
-          operator: '>',
-          threshold,
-        },
-      };
+      const thresholds = makeThreshold(threshold, '>');
       const expectedLineData = [
         [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }],
       ];

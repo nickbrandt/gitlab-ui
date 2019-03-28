@@ -6,7 +6,7 @@ const components = {
   GlBreadcrumb,
 };
 
-const getItems = () => {
+const getProps = () => {
   const breadcrumbItems = [
     {
       text: 'First Item',
@@ -22,17 +22,22 @@ const getItems = () => {
     },
   ];
 
-  return object('items', breadcrumbItems);
+  return {
+    items: {
+      type: Object,
+      default: object('items', breadcrumbItems),
+    },
+  };
 };
 
 documentedStoriesOf('base|breadcrumb', '')
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
+    props: getProps(),
     template: `
       <gl-breadcrumb
-        :items="$options.items"
+        :items="items"
       />
     `,
-    items: getItems(),
   }));

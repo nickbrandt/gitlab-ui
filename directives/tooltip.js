@@ -1,3 +1,3 @@
-import Tooltip from 'bootstrap-vue/es/directives/tooltip/tooltip';
+import Tooltip from 'bootstrap-vue/src/directives/tooltip/tooltip';
 
 export default Tooltip;

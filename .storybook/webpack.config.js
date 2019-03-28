@@ -1,5 +1,6 @@
-module.exports = storybookBaseConfig => {
-  storybookBaseConfig.module.rules = [
+const path = require('path');
+module.exports = ({ config }) => {
+  config.module.rules = [
     {
       test: /\.md$/,
       loader: 'raw-loader',
@@ -19,5 +20,7 @@ module.exports = storybookBaseConfig => {
     },
   ];
 
-  return storybookBaseConfig;
+  config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
+
+  return config;
 };

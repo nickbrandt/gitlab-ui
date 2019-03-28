@@ -1,5 +1,5 @@
 <script>
-import BPopover from 'bootstrap-vue/es/components/popover/popover';
+import BPopover from 'bootstrap-vue/src/components/popover/popover';
 
 export default {
   components: {

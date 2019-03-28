@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import BPagination from 'bootstrap-vue/es/components/pagination/pagination';
+import BPagination from 'bootstrap-vue/src/components/pagination/pagination';
 import Pagination from '../../../components/base/pagination/pagination.vue';
 import { breakpoints } from '../../../helpers/breakpoints';
 

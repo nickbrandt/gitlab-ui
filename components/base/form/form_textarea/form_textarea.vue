@@ -1,5 +1,5 @@
 <script>
-import BFormTextarea from 'bootstrap-vue/es/components/form-textarea/form-textarea';
+import BFormTextarea from 'bootstrap-vue/src/components/form-textarea/form-textarea';
 
 export default {
   components: {
