@@ -34,7 +34,7 @@ export default {
     title: {
       type: String,
       required: false,
-      default : '',
+      default: '',
     },
     dataSeries: {
       type: Array,
@@ -53,33 +53,30 @@ export default {
   },
   computed: {
     options() {
-      return merge(
-        {},
-        defaultOptions,
-        {
-          title: {
-            text: this.title,
-          },
-          series: {
-            data: this.dataSeries,
-          },
-          grid: {
-            height: '30%',
-          },
-          visualMap: {
-            min: 0,
-            // TODO: getrange
-            max: 10,
-          },
-          xAxis: {
-            type: 'category',
-            data: this.xAxisLabels,
-          },
-          yAxis: {
-            type: 'category',
-            data: this.yAxisLabels,
-          },
-        });
+      return merge({}, defaultOptions, {
+        title: {
+          text: this.title,
+        },
+        series: {
+          data: this.dataSeries,
+        },
+        grid: {
+          height: '30%',
+        },
+        visualMap: {
+          min: 0,
+          // TODO: getrange
+          max: 10,
+        },
+        xAxis: {
+          type: 'category',
+          data: this.xAxisLabels,
+        },
+        yAxis: {
+          type: 'category',
+          data: this.yAxisLabels,
+        },
+      });
     },
   },
 };
