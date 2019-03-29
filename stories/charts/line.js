@@ -1,8 +1,8 @@
 import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
 import { GlLineChart } from '../../charts';
-import { colors } from '../../helpers/charts/theme';
 import readme from '../../components/charts/line/line.md';
+import { gray200 } from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const components = {
   GlLineChart,
@@ -60,7 +60,7 @@ const template = `<gl-line-chart
 function generateData({
   data = defaultData,
   option = defaultOptions,
-  thresholds = {},
+  thresholds = [],
   includeLegendAvgMax = true,
 } = {}) {
   return {
@@ -162,7 +162,7 @@ documentedStoriesOf('charts|line-chart', readme)
             dataBackground: {
               lineStyle: {
                 width: 2,
-                color: colors.gray200,
+                color: gray200,
               },
               areaStyle: null,
             },

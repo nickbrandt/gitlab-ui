@@ -10,7 +10,8 @@ import defaultChartOptions, {
   additiveArrayMerge,
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
-import { colorFromPalette, colors } from '../../../helpers/charts/theme';
+import { colorFromPalette } from '../../../helpers/charts/theme';
+import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export default {
   components: {
@@ -30,9 +31,9 @@ export default {
       default: () => ({}),
     },
     thresholds: {
-      type: Object,
+      type: Array,
       required: false,
-      default: () => ({}),
+      default: () => [],
     },
     includeLegendAvgMax: {
       type: Boolean,
@@ -93,7 +94,7 @@ export default {
               alignWithLabel: true,
               show: true,
               lineStyle: {
-                color: colors.gray200,
+                color: gray200,
               },
             },
           },
