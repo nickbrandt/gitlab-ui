@@ -1,7 +1,7 @@
 <template>
   <gl-heatmap
     title="heatmap default"
-    :series-data="dataSeries"
+    :series="dataSeries"
   />
 </template>
 
@@ -19,7 +19,11 @@ export default {
       for (let time = date; time < end; time += dayTime) {
         data.push([echarts.format.formatTime('yyyy-MM-dd', time), Math.floor(Math.random() * 10000)]);
       }
-      return data;
+      return {
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data
+      };
     }
   }
 }

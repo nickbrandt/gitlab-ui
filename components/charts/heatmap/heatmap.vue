@@ -1,6 +1,9 @@
 <script>
 import merge from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
+import { bluesHues } from '../../../helpers/charts/theme';
+
+const [blue50, blue950] = bluesHues;
 
 const defaultOptions = {
   title: {
@@ -19,7 +22,7 @@ const defaultOptions = {
     left: 'center',
     top: 65,
     inRange: {
-      color: ['#acd5f2', '#254e77'], // TODO: these hardcoded vals are copied from activity_calender.js in CE repo
+      color: [blue50, blue950],
     },
   },
   calendar: {
