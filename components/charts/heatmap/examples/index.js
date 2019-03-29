@@ -1,14 +1,14 @@
-import CalendarExample from './heatmap.calendar.example.vue';
+import HourlyExample from './heatmap.hourly.example.vue';
 
 export default [
   {
     name: 'Calendar',
     items: [
       {
-        id: 'heatmap-calendar',
+        id: 'heatmap-hourly',
         name: 'Basic',
-        description: 'CalendarExample',
-        component: CalendarExample,
+        description: 'HourlyExample',
+        component: HourlyExample,
       },
     ],
   },

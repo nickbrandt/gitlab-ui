@@ -7,59 +7,48 @@ const [blue50, blue950] = bluesHues;
 
 const defaultOptions = {
   title: {
-    top: 30,
+    top: 24,
     left: 'center',
-    text: '',
   },
   tooltip: {
     transitionDuration: 0,
   },
   visualMap: {
-    min: 0,
-    max: 1000,
     type: 'piecewise',
     orient: 'horizontal',
     left: 'center',
-    top: 65,
     inRange: {
       color: [blue50, blue950],
     },
   },
-  calendar: {
-    top: 120,
-    left: 30,
-    right: 30,
-    cellSize: [15, 15],
-    itemStyle: {
-    },
-    dayLabel: {
-      firstDay: 0, // TODO: or 1 to start on Monday
-    },
-    yearLabel: { show: false },
-  },
   series: {
     type: 'heatmap',
-    coordinateSystem: 'calendar',
   },
 };
-
-function getRange(series) {
-  const first = series[0];
-  const last = series[series.length - 1];
-  return [
-    first[0],
-    last[0],
-  ];
-}
 
 export default {
   components: {
     Chart,
   },
   props: {
-    seriesData: {
+    title: {
+      type: String,
+      required: false,
+      default : '',
+    },
+    dataSeries: {
       type: Array,
       required: true,
+    },
+    xAxisLabels: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    yAxisLabels: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
   },
   computed: {
@@ -68,11 +57,27 @@ export default {
         {},
         defaultOptions,
         {
-          series: {
-            data: this.seriesData,
+          title: {
+            text: this.title,
           },
-          calendar: {
-            range: getRange(this.seriesData),
+          series: {
+            data: this.dataSeries,
+          },
+          grid: {
+            height: '30%',
+          },
+          visualMap: {
+            min: 0,
+            // TODO: getrange
+            max: 10,
+          },
+          xAxis: {
+            type: 'category',
+            data: this.xAxisLabels,
+          },
+          yAxis: {
+            type: 'category',
+            data: this.yAxisLabels,
           },
         });
     },
