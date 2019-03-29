@@ -8,7 +8,7 @@ const components = {
 };
 
 function generateData() {
-  let data = [[8, 0, 5], [2, 5, 1], [3, 2, 0], [5, 3, 0], [0, 4, 10], [0, 5, 4], [0, 6, 6]];
+  let data = [[5, 0, 5], [2, 5, 1], [3, 2, 0], [5, 3, 4], [0, 4, 10], [0, 5, 4], [0, 6, 6]];
   data = data.map(item => [item[1], item[0], item[2] || '-']);
   return data;
 }

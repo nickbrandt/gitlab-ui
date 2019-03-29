@@ -71,10 +71,16 @@ export default {
         xAxis: {
           type: 'category',
           data: this.xAxisLabels,
+          splitArea: {
+            show: true,
+          },
         },
         yAxis: {
           type: 'category',
           data: this.yAxisLabels,
+          splitArea: {
+            show: true,
+          },
         },
       });
     },
