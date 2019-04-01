@@ -26,6 +26,18 @@ const defaultOptions = {
   },
 };
 
+function getRange(series) {
+  return series.reduce(
+    (acc, curr) => {
+      const val = curr[2] || 0;
+      if (val < acc.min) acc.min = val;
+      if (val > acc.max) acc.max = val;
+      return acc;
+    },
+    { min: 0, max: 0 }
+  );
+}
+
 export default {
   components: {
     Chart,
@@ -53,6 +65,7 @@ export default {
   },
   computed: {
     options() {
+      const { min, max } = getRange(this.dataSeries);
       return merge({}, defaultOptions, {
         title: {
           text: this.title,
@@ -64,9 +77,8 @@ export default {
           height: '30%',
         },
         visualMap: {
-          min: 0,
-          // TODO: getrange
-          max: 10,
+          min,
+          max,
         },
         xAxis: {
           type: 'category',

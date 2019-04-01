@@ -3,7 +3,6 @@
     title="Pageviews per hour"
     :data-series="data"
     :x-axis-labels="xAxisLabels"
-    :y-axis-labels="yAxisLabels"
   />
 </template>
 
