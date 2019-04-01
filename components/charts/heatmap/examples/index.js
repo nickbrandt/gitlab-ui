@@ -7,13 +7,13 @@ export default [
     items: [
       {
         id: 'heatmap-hourly',
-        name: 'Basic',
+        name: 'Hourly breakdown',
         description: 'HourlyExample',
         component: HourlyExample,
       },
       {
         id: 'heatmap-totals',
-        name: 'Basic',
+        name: 'Histograms over time',
         description: 'TotalsExample',
         component: TotalsExample,
       },
