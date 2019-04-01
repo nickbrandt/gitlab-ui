@@ -36,6 +36,9 @@ export {
   default as GlTooltipDocumentation,
 } from '../components/base/tooltip/tooltip.documentation';
 export {
+  default as GlTooltipOnTruncateDocumentation,
+} from '../components/base/tooltip_on_truncate/tooltip_on_truncate.documentation';
+export {
   default as GlDashboardSkeletonDocumentation,
 } from '../components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
 export {
