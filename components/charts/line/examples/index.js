@@ -1,5 +1,5 @@
 import LineBasicExample from './line.basic.example.vue';
-import LineBasicPlusExample from './line.basic_plus.example.vue';
+import LineSeriesExample from './line.series.example.vue';
 
 export default [
   {
@@ -15,7 +15,7 @@ export default [
         id: 'line-basic-plus',
         name: 'Basic plus custom series',
         description: 'Basic line chart with custom series added',
-        component: LineBasicPlusExample,
+        component: LineSeriesExample,
       },
     ],
   },
