@@ -43,7 +43,7 @@ export default {
     formatTooltipText: {
       type: Function,
       required: false,
-      default: this.defaultFormatTooltipText,
+      default: null,
     },
   },
   data() {
@@ -57,6 +57,7 @@ export default {
         top: '0',
       },
       debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
+      selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
   computed: {

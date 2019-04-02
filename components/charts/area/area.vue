@@ -43,7 +43,7 @@ export default {
     formatTooltipText: {
       type: Function,
       required: false,
-      default: this.defaultFormatTooltipText,
+      default: null,
     },
   },
   data() {
@@ -57,6 +57,7 @@ export default {
         top: '0',
       },
       debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
+      selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
   computed: {
@@ -170,7 +171,7 @@ export default {
       this.$emit('updated', chart);
     },
     onLabelChange(params) {
-      this.formatTooltipText(params);
+      this.selectedFormatTooltipText(params);
       if (params.seriesData.length) {
         const [left, top] = this.chart.convertToPixel('grid', params.seriesData[0].data);
         this.tooltipPosition = {
