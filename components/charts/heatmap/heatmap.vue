@@ -26,12 +26,17 @@ const defaultOptions = {
   },
 };
 
+/*
+ * The series is an array of arrays containing [x, y, value]
+ * x and y are position, value determines the color
+ * We want the min and max from value field to make the range of colors
+ */
 function getRange(series) {
   return series.reduce(
     (acc, curr) => {
-      const val = curr[2] || 0;
-      if (val < acc.min) acc.min = val;
-      if (val > acc.max) acc.max = val;
+      const value = curr[2] || 0;
+      if (value < acc.min) acc.min = value;
+      if (value > acc.max) acc.max = value;
       return acc;
     },
     { min: 0, max: 0 }
@@ -43,6 +48,11 @@ export default {
     Chart,
   },
   props: {
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
     title: {
       type: String,
       required: false,
@@ -64,7 +74,7 @@ export default {
     },
   },
   computed: {
-    options() {
+    computedOptions() {
       const { min, max } = getRange(this.dataSeries);
       return merge({}, defaultOptions, {
         title: {
@@ -81,7 +91,6 @@ export default {
           max,
         },
         xAxis: {
-          type: 'category',
           data: this.xAxisLabels,
           splitArea: {
             show: true,
@@ -94,12 +103,12 @@ export default {
             show: true,
           },
         },
-      });
+      }, this.options);
     },
   },
 };
 </script>
 
 <template>
-  <chart :options="options" />
+  <chart :options="computedOptions" />
 </template>
