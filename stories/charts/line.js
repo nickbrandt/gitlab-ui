@@ -3,6 +3,7 @@ import documentedStoriesOf from '../utils/documented_stories';
 import { GlLineChart } from '../../charts';
 import readme from '../../components/charts/line/line.md';
 import { gray200 } from '../../scss_to_js/scss_variables';
+import { generateTimeSeries } from '../utils/data_utils';
 
 const components = {
   GlLineChart,
@@ -69,47 +70,6 @@ function generateData({
     data: object('Chart Data', data),
     includeLegendAvgMax: boolean('Include Legend Avg Max', includeLegendAvgMax),
   };
-}
-
-function getRepeatingValue(index) {
-  const values = [
-    100,
-    500,
-    400,
-    200,
-    100,
-    800,
-    400,
-    500,
-    600,
-    300,
-    800,
-    900,
-    110,
-    700,
-    400,
-    300,
-    500,
-    300,
-    400,
-    600,
-    700,
-  ];
-  let i = index;
-  while (i >= values.length) {
-    i -= values.length;
-  }
-
-  return values[i];
-}
-
-function generateTimeSeries() {
-  const timeSeries = [];
-  for (let i = 0; i < 100; i += 1) {
-    timeSeries.push([new Date(2018, 0, i), getRepeatingValue(i)]);
-  }
-
-  return timeSeries;
 }
 
 documentedStoriesOf('charts|line-chart', readme)
