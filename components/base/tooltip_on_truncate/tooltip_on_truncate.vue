@@ -1,5 +1,5 @@
 <script>
-import _ from 'lodash';
+import isFunction from 'lodash/isFunction';
 import { GlTooltipDirective } from '../../../index';
 
 export default {
