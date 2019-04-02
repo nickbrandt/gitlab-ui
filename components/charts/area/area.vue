@@ -43,7 +43,7 @@ export default {
     formatTooltipText: {
       type: Function,
       required: false,
-      default: null,
+      default: this.defaultFormatTooltipText,
     },
   },
   data() {
@@ -139,6 +139,24 @@ export default {
     this.chart.getDom().removeEventListener('mouseout', this.debouncedShowHideTooltip);
   },
   methods: {
+    defaultFormatTooltipText(params) {
+      const { xLabels, tooltipContent } = params.seriesData.reduce(
+        (acc, line) => {
+          const [title, value] = line.value;
+          acc.tooltipContent[line.seriesName] = value;
+          if (!acc.xLabels.includes(title)) {
+            acc.xLabels.push(title);
+          }
+          return acc;
+        },
+        {
+          xLabels: [],
+          tooltipContent: {},
+        }
+      );
+      this.$set(this, 'tooltipContent', tooltipContent);
+      this.tooltipTitle = xLabels.join(', ');
+    },
     onCreated(chart) {
       chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
       chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
@@ -152,26 +170,7 @@ export default {
       this.$emit('updated', chart);
     },
     onLabelChange(params) {
-      if (this.formatTooltipText) {
-        this.formatTooltipText(params);
-      } else {
-        const { xLabels, tooltipContent } = params.seriesData.reduce(
-          (acc, line) => {
-            const [title, value] = line.value;
-            acc.tooltipContent[line.seriesName] = value;
-            if (!acc.xLabels.includes(title)) {
-              acc.xLabels.push(title);
-            }
-            return acc;
-          },
-          {
-            xLabels: [],
-            tooltipContent: {},
-          }
-        );
-        this.$set(this, 'tooltipContent', tooltipContent);
-        this.tooltipTitle = xLabels.join(', ');
-      }
+      this.formatTooltipText(params);
       if (params.seriesData.length) {
         const [left, top] = this.chart.convertToPixel('grid', params.seriesData[0].data);
         this.tooltipPosition = {
