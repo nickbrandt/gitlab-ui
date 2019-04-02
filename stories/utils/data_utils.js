@@ -1,4 +1,4 @@
-function getRepeatingValue(index) {
+const getRepeatingValue = index => {
   const values = [
     100,
     500,
@@ -22,21 +22,10 @@ function getRepeatingValue(index) {
     600,
     700,
   ];
-  let i = index;
-  while (i >= values.length) {
-    i -= values.length;
-  }
+  return index < values.length ? values[index] : values[index % values.length];
+};
 
-  return values[i];
-}
-
-export function generateTimeSeries() {
-  const timeSeries = [];
-  for (let i = 0; i < 100; i += 1) {
-    timeSeries.push([new Date(2018, 0, i), getRepeatingValue(i)]);
-  }
-
-  return timeSeries;
-}
+export const generateTimeSeries = () =>
+  new Array(100).fill(0).map((el, i) => [new Date(2018, 0, i), getRepeatingValue(i)]);
 
 export default {};
