@@ -76,34 +76,39 @@ export default {
   computed: {
     computedOptions() {
       const { min, max } = getRange(this.dataSeries);
-      return merge({}, defaultOptions, {
-        title: {
-          text: this.title,
-        },
-        series: {
-          data: this.dataSeries,
-        },
-        grid: {
-          height: '30%',
-        },
-        visualMap: {
-          min,
-          max,
-        },
-        xAxis: {
-          data: this.xAxisLabels,
-          splitArea: {
-            show: true,
+      return merge(
+        {},
+        defaultOptions,
+        {
+          title: {
+            text: this.title,
+          },
+          series: {
+            data: this.dataSeries,
+          },
+          grid: {
+            height: '30%',
+          },
+          visualMap: {
+            min,
+            max,
+          },
+          xAxis: {
+            data: this.xAxisLabels,
+            splitArea: {
+              show: true,
+            },
+          },
+          yAxis: {
+            type: 'category',
+            data: this.yAxisLabels,
+            splitArea: {
+              show: true,
+            },
           },
         },
-        yAxis: {
-          type: 'category',
-          data: this.yAxisLabels,
-          splitArea: {
-            show: true,
-          },
-        },
-      }, this.options);
+        this.options
+      );
     },
   },
 };

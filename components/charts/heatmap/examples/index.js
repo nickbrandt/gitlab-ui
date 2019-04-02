@@ -1,5 +1,6 @@
 import HourlyExample from './heatmap.hourly.example.vue';
 import TotalsExample from './heatmap.totals.example.vue';
+import CustomOptionsExample from './heatmap.custom_options.example.vue';
 
 export default [
   {
@@ -16,6 +17,12 @@ export default [
         name: 'Histograms over time',
         description: 'TotalsExample',
         component: TotalsExample,
+      },
+      {
+        id: 'heatmap-custom-options',
+        name: 'Heatmap with no background',
+        description: 'CustomOptionsExample',
+        component: CustomOptionsExample,
       },
     ],
   },

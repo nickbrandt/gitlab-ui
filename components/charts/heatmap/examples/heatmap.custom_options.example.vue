@@ -4,6 +4,18 @@
     :data-series="data"
     :x-axis-labels="xAxisLabels"
     :y-axis-labels="yAxisLabels"
+    :options="{
+      xAxis: {
+        splitArea: {
+          show: false,
+        },
+      },
+      yAxis: {
+        splitArea: {
+          show: false,
+        },
+      },
+    }"
   />
 </template>
 
@@ -15,7 +27,7 @@ function generateData() {
   for (let x = 0; x < hours; x += 1) {
     for (let y = 0; y < days; y += 1) {
       let val = Math.random() * 10;
-      if (Math.random() > 0.7) {
+      if (Math.random() > 0.5) {
         val = '-';
       }
       res.push([x, y, val]);
