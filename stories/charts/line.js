@@ -2,7 +2,7 @@ import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
 import { GlLineChart } from '../../charts';
 import readme from '../../components/charts/line/line.md';
-import { gray200 } from '../../scss_to_js/scss_variables';
+import { gray200 } from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { generateTimeSeries } from '../utils/data_utils';
 
 const components = {

@@ -11,7 +11,7 @@ import defaultChartOptions, {
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette } from '../../../helpers/charts/theme';
-import { gray200 } from '../../../scss_to_js/scss_variables';
+import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export default {
   components: {
