@@ -1,29 +1,27 @@
 <template>
   <gl-heatmap
     title="Pageviews per hour"
-    :data-series="data"
+    :data-series="series"
     :x-axis-labels="xAxisLabels"
   />
 </template>
 
 <script>
-function generateData() {
-  const hours = 12;
-  const days = 20;
-  const res = [];
-  for (let x = 0; x < hours; x += 1) {
-    for (let y = 0; y < days; y += 1) {
-      const val = Math.ceil(Math.random() * (y % 12) - 3);
-      res.push([x, y, val]);
-    }
-  }
-  return res;
-}
-
 export default {
   data() {
     return {
-      data: generateData(),
+      series: (() => {
+        const hours = 12;
+        const days = 20;
+        const res = [];
+        for (let x = 0; x < hours; x += 1) {
+          for (let y = 0; y < days; y += 1) {
+            const val = Math.ceil(Math.random() * (y % 12) - 3);
+            res.push([x, y, val]);
+          }
+        }
+        return res;
+      })(),
       xAxisLabels: [
         '7am',
         '8am',

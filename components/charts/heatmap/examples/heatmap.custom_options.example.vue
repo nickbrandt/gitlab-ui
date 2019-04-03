@@ -1,7 +1,7 @@
 <template>
   <gl-heatmap
     title="Errors per hour"
-    :data-series="data"
+    :data-series="series"
     :x-axis-labels="xAxisLabels"
     :y-axis-labels="yAxisLabels"
     :options="{
@@ -20,26 +20,24 @@
 </template>
 
 <script>
-function generateData() {
-  const hours = 24;
-  const days = 7;
-  const res = [];
-  for (let x = 0; x < hours; x += 1) {
-    for (let y = 0; y < days; y += 1) {
-      let val = Math.random() * 10;
-      if (Math.random() > 0.5) {
-        val = '-';
-      }
-      res.push([x, y, val]);
-    }
-  }
-  return res;
-}
-
 export default {
   data() {
     return {
-      data: generateData(),
+      series: (() => {
+        const hours = 24;
+        const days = 7;
+        const res = [];
+        for (let x = 0; x < hours; x += 1) {
+          for (let y = 0; y < days; y += 1) {
+            let val = Math.random() * 10;
+            if (Math.random() > 0.5) {
+              val = '-';
+            }
+            res.push([x, y, val]);
+          }
+        }
+        return res;
+      })(),
       xAxisLabels: [
         '12a',
         '1a',
