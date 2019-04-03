@@ -29,6 +29,12 @@ export const grid = {
   right: 32,
 };
 
+export const lineStyle = {
+  width: 2,
+};
+
+export const symbolSize = 6;
+
 export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
   grid: {
     bottom: 81,

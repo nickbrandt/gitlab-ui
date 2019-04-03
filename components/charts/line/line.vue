@@ -8,6 +8,8 @@ import defaultChartOptions, {
   getDataZoomConfig,
   getThresholdConfig,
   additiveArrayMerge,
+  symbolSize,
+  lineStyle,
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette } from '../../../helpers/charts/theme';
@@ -68,11 +70,9 @@ export default {
             type: 'line',
             showSymbol: true,
             symbol: 'circle',
-            symbolSize: 6,
-            lineStyle: {
-              width: 2,
-            },
           },
+          symbolSize,
+          lineStyle,
           series,
           this.thresholds === null ? {} : getThresholdConfig(this.thresholds),
           additiveArrayMerge
