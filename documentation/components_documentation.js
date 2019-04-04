@@ -4,6 +4,7 @@ export { default as GlAreaChartDocumentation } from '../components/charts/area/a
 export {
   default as GlChartLegendDocumentation,
 } from '../components/charts/legend/legend.documentation';
+export { default as GlLineChartDocumentation } from '../components/charts/line/line.documentation';
 export {
   default as GlChartSeriesLabelDocumentation,
 } from '../components/charts/series_label/series_label.documentation';

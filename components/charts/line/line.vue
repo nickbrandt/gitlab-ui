@@ -8,10 +8,12 @@ import defaultChartOptions, {
   getDataZoomConfig,
   getThresholdConfig,
   additiveArrayMerge,
-  defaultAreaOpacity,
+  symbolSize,
+  lineStyle,
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette } from '../../../helpers/charts/theme';
+import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export default {
   components: {
@@ -66,18 +68,13 @@ export default {
         mergeWith(
           {
             type: 'line',
-            showSymbol: false,
+            showSymbol: true,
             symbol: 'circle',
-            symbolSize: 3,
-            lineStyle: {
-              width: 1,
-            },
-            areaStyle: {
-              opacity: defaultAreaOpacity,
-            },
           },
+          symbolSize,
+          lineStyle,
           series,
-          getThresholdConfig(this.thresholds),
+          this.thresholds === null ? {} : getThresholdConfig(this.thresholds),
           additiveArrayMerge
         )
       );
@@ -94,10 +91,12 @@ export default {
                 formatter: this.onLabelChange,
               },
             },
-          },
-          yAxis: {
             axisTick: {
-              show: false,
+              alignWithLabel: true,
+              show: true,
+              lineStyle: {
+                color: gray200,
+              },
             },
           },
           series: this.series,

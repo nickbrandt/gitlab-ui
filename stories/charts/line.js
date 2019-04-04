@@ -1,23 +1,48 @@
-import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
+import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../utils/documented_stories';
-import { GlAreaChart } from '../../charts';
-import readme from '../../components/charts/area/area.md';
+import { GlLineChart } from '../../charts';
+import readme from '../../components/charts/line/line.md';
+import { gray200 } from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { generateTimeSeries } from '../utils/data_utils';
 
 const components = {
-  GlAreaChart,
+  GlLineChart,
 };
 const defaultData = [
   {
-    name: 'First Series',
+    name: 'Requested',
     data: [
-      ['Mon', 1220],
-      ['Tue', 932],
-      ['Wed', 901],
-      ['Thu', 934],
-      ['Fri', 1290],
-      ['Sat', 1330],
-      ['Sun', 1320],
+      ['Mon', 1184],
+      ['Tue', 1346],
+      ['Wed', 1035],
+      ['Thu', 1226],
+      ['Fri', 1421],
+      ['Sat', 1347],
+      ['Sun', 1035],
+    ],
+  },
+  {
+    name: 'Actual',
+    data: [
+      ['Mon', 1509],
+      ['Tue', 1275],
+      ['Wed', 1187],
+      ['Thu', 1287],
+      ['Fri', 1098],
+      ['Sat', 1457],
+      ['Sun', 1452],
+    ],
+  },
+  {
+    name: 'Predicted',
+    data: [
+      ['Mon', 1041],
+      ['Tue', 1468],
+      ['Wed', 1273],
+      ['Thu', 1503],
+      ['Fri', 1209],
+      ['Sat', 1416],
+      ['Sun', 1213],
     ],
   },
 ];
@@ -27,7 +52,7 @@ const defaultOptions = {
     type: 'category',
   },
 };
-const template = `<gl-area-chart
+const template = `<gl-line-chart
   :data="data"
   :option="option"
   :thresholds="thresholds"
@@ -41,13 +66,13 @@ function generateData({
 } = {}) {
   return {
     option: object('EChart Options', option),
-    thresholds: array('Thresholds', thresholds),
+    thresholds: object('Thresholds', thresholds),
     data: object('Chart Data', data),
     includeLegendAvgMax: boolean('Include Legend Avg Max', includeLegendAvgMax),
   };
 }
 
-documentedStoriesOf('charts|area-chart', readme)
+documentedStoriesOf('charts|line-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     data() {
@@ -59,7 +84,7 @@ documentedStoriesOf('charts|area-chart', readme)
   .add('with threshold', () => ({
     data() {
       return generateData({
-        thresholds: [{ threshold: 1200, operator: '>' }],
+        thresholds: [{ threshold: 1350, operator: '>' }],
       });
     },
     components,
@@ -94,6 +119,13 @@ documentedStoriesOf('charts|area-chart', readme)
           dataZoom: {
             startValue: '2018-03-01T00:00:00.000',
             handleIcon: `path://m7 14c-3.86599325 0-7-3.1340068-7-7 0-3.86599325 3.13400675-7 7-7 3.8659932 0 7 3.13400675 7 7 0 3.8659932-3.1340068 7-7 7zm-2-11c-.55228475 0-1 .44771525-1 1v6c0 .5522847.44771525 1 1 1s1-.4477153 1-1v-6c0-.55228475-.44771525-1-1-1zm4 0c-.55228475 0-1 .44771525-1 1v6c0 .5522847.44771525 1 1 1s1-.4477153 1-1v-6c0-.55228475-.44771525-1-1-1z`,
+            dataBackground: {
+              lineStyle: {
+                width: 2,
+                color: gray200,
+              },
+              areaStyle: null,
+            },
           },
         },
       });
