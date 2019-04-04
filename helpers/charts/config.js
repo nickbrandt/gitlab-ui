@@ -63,7 +63,7 @@ export const getToolboxConfig = ({
 } = {}) => {
   const toolboxConfig = {
     toolbox: {
-      feature :{},
+      feature: {},
     },
   };
 
