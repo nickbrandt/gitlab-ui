@@ -6,7 +6,7 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 import defaultChartOptions, {
   grid,
   additiveArrayMerge,
-  getDataZoomConfig,
+  dataZoomAdjustments,
 } from '../../../helpers/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette } from '../../../helpers/charts/theme';
@@ -129,7 +129,7 @@ export default {
             show: false,
           },
         },
-        this.dataZoomAdjustments,
+        dataZoomAdjustments(this.option.dataZoom),
         this.option,
         additiveArrayMerge
       );
@@ -151,11 +151,6 @@ export default {
 
         return acc;
       }, []);
-    },
-    dataZoomAdjustments() {
-      const useSlider = !!this.option.dataZoom;
-
-      return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : {};
     },
   },
   beforeDestroy() {

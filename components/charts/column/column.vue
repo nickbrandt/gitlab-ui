@@ -2,7 +2,10 @@
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
-import defaultChartOptions, { additiveArrayMerge } from '../../../helpers/charts/config';
+import defaultChartOptions, {
+  additiveArrayMerge,
+  dataZoomAdjustments,
+} from '../../../helpers/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette } from '../../../helpers/charts/theme';
 
@@ -109,6 +112,7 @@ export default {
             show: false,
           },
         },
+        dataZoomAdjustments(this.option.dataZoom),
         this.option,
         additiveArrayMerge
       );
