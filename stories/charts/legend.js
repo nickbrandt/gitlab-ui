@@ -1,6 +1,7 @@
 import documentedStoriesOf from '../utils/documented_stories';
 import { GlChartLegend } from '../../charts';
 import readme from '../../components/charts/legend/legend.md';
+import { colorPalette } from '../../helpers/charts/theme';
 
 const components = {
   GlChartLegend,
@@ -9,7 +10,7 @@ const seriesInfo = [
   {
     type: 'solid',
     name: 'Example Title',
-    color: '#1F78D1',
+    color: colorPalette[0],
     data: [1, 2, 3, 4, 5],
   },
 ];

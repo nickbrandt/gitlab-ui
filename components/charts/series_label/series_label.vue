@@ -1,0 +1,82 @@
+<script>
+import { makePathRect } from '../../../helpers/svg_utils';
+
+export default {
+  props: {
+    color: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: 'solid',
+    },
+  },
+  data() {
+    return {
+      labelLineHeight: 0,
+    };
+  },
+  computed: {
+    pathContent() {
+      const width = this.$options.svgWidth;
+      const height = this.$options.svgHeight;
+
+      if (this.type === 'dashed') {
+        const dashWidth = Math.ceil(width / 3);
+        const firstDash = makePathRect(0, 0, dashWidth, height);
+        const secondDash = makePathRect(width - dashWidth, 0, dashWidth, height);
+
+        return `${firstDash}${secondDash}`;
+      }
+
+      return makePathRect(0, 0, width, height);
+    },
+    svgStyles() {
+      return {
+        fill: this.color,
+        transform: `translateY(${this.formatPixelDimension(this.svgYTranslationValue)})`,
+      };
+    },
+    svgYTranslationValue() {
+      const value = this.labelLineHeight / 2 - this.$options.svgHeight / 2;
+      return Math.round(value) || 0;
+    },
+  },
+  mounted() {
+    if (getComputedStyle && this.$refs.label) {
+      const computedStyle = getComputedStyle(this.$refs.label);
+      const lineHeight = computedStyle['line-height'].match(/(\d+)px/);
+      if (lineHeight !== null) {
+        this.labelLineHeight = parseFloat(lineHeight[1]);
+      }
+    }
+  },
+  methods: {
+    formatPixelDimension(dimension) {
+      return `${dimension}px`;
+    },
+  },
+  svgWidth: 16,
+  svgHeight: 4,
+};
+</script>
+
+<template>
+  <div class="d-flex">
+    <div v-if="color.length" class="flex-shrink-0 svg-content p-0 append-right-8">
+      <svg
+        class="d-block"
+        :style="svgStyles"
+        :width="formatPixelDimension($options.svgWidth)"
+        :height="formatPixelDimension($options.svgHeight)"
+      >
+        <path :d="pathContent"/>
+      </svg>
+    </div>
+    <div ref="label">
+      <slot></slot>
+    </div>
+  </div>
+</template>

@@ -66,7 +66,7 @@ export default {
       :id="containerId"
       :style="containerPosition"
       style="width: 1px; height: 1px"
-      class="position-absolute no-pointer-events"
+      class="chart-tooltip position-absolute no-pointer-events"
     ></div>
     <!--
       Needs to be triggered programatically using `show` property
@@ -78,9 +78,7 @@ export default {
       :container="containerId"
       triggers=""
     >
-      <template slot="title">
-        <slot name="title"></slot>
-      </template>
+      <slot slot="title" name="title"></slot>
       <slot></slot>
     </gl-popover>
   </div>

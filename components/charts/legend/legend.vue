@@ -1,8 +1,12 @@
 <script>
+import GlChartSeriesLabel from '../series_label/series_label.vue';
 import { average } from '../../../helpers/number_utils';
 import { defaultFontSize } from '../../../helpers/charts/config';
 
 export default {
+  components: {
+    GlChartSeriesLabel,
+  },
   props: {
     seriesInfo: {
       type: Array,
@@ -35,16 +39,6 @@ export default {
     seriesMax(seriesData) {
       return this.formatNumber(Math.max(...seriesData));
     },
-    pathContent(type) {
-      switch (type) {
-        case 'dashed':
-          return 'M0,0H6V4H0V-4 M10,0H16V4H10Z';
-
-        case 'solid':
-        default:
-          return 'M0,0H16V4H0Z';
-      }
-    },
   },
 };
 </script>
@@ -54,15 +48,16 @@ export default {
     <div
       v-for="(series, key) in seriesInfo"
       :key="key"
-      class="d-flex align-items-center flex-shrink-0 append-right-8"
+      class="flex-shrink-0 d-flex append-right-8"
       :style="fontStyle"
     >
-      <div class="d-inline-block svg-content p-0 append-right-8">
-        <svg class="d-block" :style="{fill: series.color}" width="16px" height="4px">
-          <path :d="pathContent(series.type)"/>
-        </svg>
-      </div>
-      <span class="bold append-right-8">{{ series.name }}</span>
+      <gl-chart-series-label
+        :color="series.color"
+        :type="series.type"
+        class="append-right-8"
+      >
+        <strong>{{ series.name }}</strong>
+      </gl-chart-series-label>
       <span v-if="series.data && series.data.length">Avg: {{
         seriesAverage(series.data)
       }} · Max: {{
