@@ -49,6 +49,12 @@ export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
   },
 });
 
+export const dataZoomAdjustments = dataZoom => {
+  const useSlider = !!dataZoom;
+
+  return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : {};
+};
+
 /**
  * Meant to be used with Lodash mergeWith
  * Returning undefined will prompt the default merge strategy
