@@ -61,47 +61,31 @@ export const getToolboxConfig = ({
   zoomIconPath = '',
   backIconPath = '',
 } = {}) => {
-  let toolboxConfig = {
-    toolbox: {},
+  const toolboxConfig = {
+    toolbox: {
+      feature :{},
+    },
   };
 
   if (restoreIconPath.length) {
-    toolboxConfig = merge(toolboxConfig, {
-      toolbox: {
-        feature: {
-          restore: {
-            icon: restoreIconPath,
-          },
-        },
-      },
-    });
+    toolboxConfig.feature.restore = {
+      icon: restoreIconPath,
+    };
   }
 
   if (saveImageIconPath.length) {
-    toolboxConfig = merge(toolboxConfig, {
-      toolbox: {
-        feature: {
-          saveAsImage: {
-            icon: saveImageIconPath,
-          },
-        },
-      },
-    });
+    toolboxConfig.feature.saveAsImage = {
+      icon: saveImageIconPath,
+    };
   }
 
   if (zoomIconPath.length && backIconPath.length) {
-    toolboxConfig = merge(toolboxConfig, {
-      toolbox: {
-        feature: {
-          dataZoom: {
-            icon: {
-              zoom: zoomIconPath,
-              back: backIconPath,
-            },
-          },
-        },
+    toolboxConfig.feature.dataZoom = {
+      icon: {
+        zoom: zoomIconPath,
+        back: backIconPath,
       },
-    });
+    };
   }
 
   return toolboxConfig;
