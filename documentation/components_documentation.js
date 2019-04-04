@@ -78,6 +78,9 @@ export { default as GlTableDocumentation } from '../components/base/table/table.
 export {
   default as GlBreadcrumbDocumentation,
 } from '../components/base/breadcrumb/breadcrumb.documentation';
+export {
+  default as GlHeatmapDocumentation,
+} from '../components/charts/heatmap/heatmap.documentation';
 export { default as GlTabsDocumentation } from '../components/base/tabs/tabs/tabs.documentation';
 export { default as GlTabDocumentation } from '../components/base/tabs/tab/tab.documentation';
 
