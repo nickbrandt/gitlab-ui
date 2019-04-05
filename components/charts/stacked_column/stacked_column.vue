@@ -3,6 +3,7 @@ import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
   additiveArrayMerge,
@@ -17,6 +18,7 @@ export default {
     ChartTooltip,
     ChartLegend,
   },
+  mixins: [ToolboxMixin],
   inheritAttrs: false,
   props: {
     data: {
@@ -130,6 +132,7 @@ export default {
           },
         },
         dataZoomAdjustments(this.option.dataZoom),
+        this.toolboxAdjustments,
         this.option,
         additiveArrayMerge
       );

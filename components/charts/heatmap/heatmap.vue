@@ -1,6 +1,7 @@
 <script>
 import merge from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { bluesHues } from '../../../helpers/charts/theme';
 
 const [blue50, blue950] = bluesHues;
@@ -47,6 +48,7 @@ export default {
   components: {
     Chart,
   },
+  mixins: [ToolboxMixin],
   props: {
     options: {
       type: Object,
@@ -107,6 +109,7 @@ export default {
             },
           },
         },
+        this.toolboxAdjustments,
         this.options
       );
     },
