@@ -217,11 +217,13 @@ export default {
         </div>
       </template>
     </chart-tooltip>
-    <chart-legend
-      v-if="compiledOptions"
-      :style="legendStyle"
-      :series-info="seriesInfo"
-      :text-style="compiledOptions.textStyle"
+    <slot name="legend">
+      <chart-legend
+        v-if="compiledOptions"
+        :style="legendStyle"
+        :series-info="seriesInfo"
+        :text-style="compiledOptions.textStyle"
     />
+    </slot>
   </div>
 </template>

@@ -236,11 +236,13 @@ export default {
         <div class="text-right">{{ value.value }}</div>
       </div>
     </chart-tooltip>
-    <chart-legend
-      v-if="compiledOptions"
-      :style="legendStyle"
-      :series-info="seriesInfo"
-      :text-style="compiledOptions.textStyle"
-    />
+    <slot name="legend">
+      <chart-legend
+        v-if="compiledOptions"
+        :style="legendStyle"
+        :series-info="seriesInfo"
+        :text-style="compiledOptions.textStyle"
+      />
+    </slot>
   </div>
 </template>
