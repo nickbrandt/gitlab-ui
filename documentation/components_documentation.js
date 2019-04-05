@@ -12,6 +12,9 @@ export {
   default as GlStackedColumnChartDocumentation,
 } from '../components/charts/stacked_column/stacked_column.documentation';
 export {
+  default as GlSingleStatDocumentation,
+} from '../components/charts/single_stat/single_stat.documentation';
+export {
   default as GlChartTooltipDocumentation,
 } from '../components/charts/tooltip/tooltip.documentation';
 export {
