@@ -17,7 +17,7 @@ export default {
     disableTheme: {
       type: Boolean,
       required: false,
-      default: false,
+      default: true,
     },
     width: {
       type: Number,
@@ -37,7 +37,7 @@ export default {
     renderer: {
       type: String,
       required: false,
-      default: 'svg',
+      default: 'canvas',
       validator(renderer) {
         return validRenderers.includes(renderer);
       },
@@ -78,7 +78,47 @@ export default {
   },
   methods: {
     draw() {
-      this.chart.setOption(this.options);
+      // this.chart.setOption(this.options);
+      // console.log('OPTIONS:', this.options)
+      const option = {
+    xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        name: 'series1',
+        type: 'line'
+    },{
+        data: [100, 200, 300, 400, 500, 600, 700],
+        name: 'series2',
+        type: 'line'
+    }],
+    legend: {
+        type: "plain",
+        y: "bottom",
+        itemWidth: 8,
+        itemHeight: 8,
+        formatter(name) {
+            return `{name|${name}}  {value|test}`;
+        },
+        textStyle: {
+            width: 40,
+            rich: {
+                name: {
+                    color: "#86919A",
+                },
+                value: {
+                    color: "#EFC044",
+                }
+            }
+        }
+    },
+};
+      this.chart.setOption(option);
       this.$emit('updated', this.chart);
     },
     setChartSize() {
