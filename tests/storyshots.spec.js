@@ -16,11 +16,20 @@ const getGotoOptions = () => ({
   waitUntil: 'networkidle0',
 });
 
+const failureThreshold =
+  'FAILURE_THRESHOLD' in process.env ? parseFloat(process.env.FAILURE_THRESHOLD) : 0;
+
+const getMatchOptions = () => ({
+  failureThreshold,
+  failureThresholdType: 'percent',
+});
+
 initStoryshots({
   suite: 'Image storyshots',
   test: imageSnapshot({
     storybookUrl: `file:///${__dirname}/../storybook`,
     beforeScreenshot,
     getGotoOptions,
+    getMatchOptions,
   }),
 });
