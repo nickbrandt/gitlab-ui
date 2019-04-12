@@ -87,6 +87,9 @@ export {
 } from '../components/charts/heatmap/heatmap.documentation';
 export { default as GlTabsDocumentation } from '../components/base/tabs/tabs/tabs.documentation';
 export { default as GlTabDocumentation } from '../components/base/tabs/tab/tab.documentation';
+export {
+  default as GlButtonGroupDocumentation,
+} from '../components/base/button_group/button_group.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
