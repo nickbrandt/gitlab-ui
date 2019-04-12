@@ -20,6 +20,7 @@ export { default as GlFormRadio } from './components/base/form/form_radio/form_r
 export {
   default as GlFormRadioGroup,
 } from './components/base/form/form_radio/form_radio_group.vue';
+export { default as GlFormSelect } from './components/base/form/form_select/form_select.vue';
 export { default as GlFormTextarea } from './components/base/form/form_textarea/form_textarea.vue';
 export { default as GlFormGroup } from './components/base/form/form_group/form_group.vue';
 export {

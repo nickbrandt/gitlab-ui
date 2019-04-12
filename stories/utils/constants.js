@@ -24,8 +24,15 @@ export const targetOptions = {
 };
 
 export const sizeOptions = {
+  default: null,
   sm: 'sm',
   lg: 'lg',
+};
+
+export const formStateOptions = {
+  default: null,
+  valid: 'valid',
+  invalid: 'invalid',
 };
 
 export const buttonVariantOptions = {

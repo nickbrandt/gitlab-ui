@@ -61,6 +61,9 @@ export {
   default as GlFormRadioDocumentation,
 } from '../components/base/form/form_radio/form_radio.documentation';
 export {
+  default as GlFormSelectDocumentation,
+} from '../components/base/form/form_select/form_select.documentation';
+export {
   default as GlSearchBoxByTypeDocumentation,
 } from '../components/base/search_box_by_type/search_box_by_type.documentation';
 export {
