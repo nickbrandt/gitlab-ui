@@ -1,10 +1,12 @@
 <script>
 import { getDocumentationFor } from '../components_documentation';
 import GlExampleDisplay from './example_display.vue';
+import GlFormSelect from '../../components/base/form/form_select/form_select.vue';
 
 export default {
   components: {
     GlExampleDisplay,
+    GlFormSelect,
   },
   props: {
     componentName: {
@@ -43,7 +45,7 @@ export default {
 
 <template>
   <div>
-    <b-form-select 
+    <gl-form-select
       v-if="exampleGroups && exampleGroups.length>0"
       v-model="selectedExampleId"
       class="mb-3"
@@ -60,9 +62,9 @@ export default {
           >{{ example.name }}</option>
         </template>
       </template>
-    </b-form-select>
-    <gl-example-display 
-      v-if="selectedExampleId" 
+    </gl-form-select>
+    <gl-example-display
+      v-if="selectedExampleId"
       :example-name="selectedExampleId"
     />
   </div>
