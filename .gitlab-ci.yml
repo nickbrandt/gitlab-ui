@@ -136,6 +136,8 @@ upload_artifacts:
     when: always
     paths:
       - gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+  only:
+    - /.+/@gitlab-org/gitlab-ui
 
 publish:
   extends: .yarn_install
@@ -145,4 +147,4 @@ publish:
     - yarn build
     - $(yarn bin)/semantic-release
   only:
-    - master
+    - master@gitlab-org/gitlab-ui
