@@ -2,6 +2,7 @@ import EmptyStateBasicExample from './empty_state.basic.example.vue';
 import EmptyStatePrimaryButtonExample from './empty_state.primary_button.example.vue';
 import EmptyStateMultipleButtonExample from './empty_state.multiple_button.example.vue';
 import EmptyStateNoIllustrationExample from './empty_state.no_illustration.example.vue';
+import EmptyStateNoCustomActions from './empty_state.custom_actions.example.vue';
 
 export default [
   {
@@ -30,6 +31,12 @@ export default [
         name: 'No Illustration',
         description: 'Empty State With No Illustration',
         component: EmptyStateNoIllustrationExample,
+      },
+      {
+        id: 'empty-state-custom-actions',
+        name: 'Custom Actions',
+        description: 'Replace default buttons with custom contents',
+        component: EmptyStateNoCustomActions,
       },
     ],
   },
