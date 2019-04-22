@@ -61,7 +61,10 @@ documentedStoriesOf('base|button', readme)
     `,
   }))
   .add('link button', () => ({
-    props: generateProps({ withLink: true }),
+    props: generateProps({
+      withLink: true,
+      variant: buttonVariantOptions.link,
+    }),
     components,
     template: `
       <gl-button
