@@ -93,4 +93,29 @@ describe('empty state component', () => {
       expect(button.attributes().href).toEqual(props.secondaryButtonLink);
     });
   });
+
+  describe('with custom actions', () => {
+    beforeEach(() => {
+      component = shallowMount(EmptyState, {
+        propsData: {
+          title: props.title,
+          svgPath: props.svgPath,
+          primaryButtonLink: props.primaryButtonLink,
+          primaryButtonText: props.primaryButtonText,
+          secondaryButtonLink: props.secondaryButtonLink,
+          secondaryButtonText: props.secondaryButtonText,
+        },
+        slots: {
+          actions: '<button>Custom button</button>',
+        },
+      });
+    });
+
+    it(`should render slot's contents instead of default buttons`, () => {
+      const defaultButtons = component.findAll(Button);
+      const customButtons = component.find('button');
+      expect(defaultButtons.length).toBe(0);
+      expect(customButtons.exists()).toBe(true);
+    });
+  });
 });

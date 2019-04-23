@@ -103,16 +103,18 @@ export default {
           :class="{center: centerDescription}"
         >{{ description }}</p>
         <div class="text-center">
-          <gl-button
-            v-if="shouldRenderPrimaryButton"
-            variant="success"
-            :href="primaryButtonLink"
-          >{{ primaryButtonText }}</gl-button>
-          <gl-button
-            v-if="shouldRenderSecondaryButton"
-            variant="outline-success"
-            :href="secondaryButtonLink"
-          >{{ secondaryButtonText }}</gl-button>
+          <slot name="actions">
+            <gl-button
+              v-if="shouldRenderPrimaryButton"
+              variant="success"
+              :href="primaryButtonLink"
+            >{{ primaryButtonText }}</gl-button>
+            <gl-button
+              v-if="shouldRenderSecondaryButton"
+              variant="outline-success"
+              :href="secondaryButtonLink"
+            >{{ secondaryButtonText }}</gl-button>
+          </slot>
         </div>
       </div>
     </div>

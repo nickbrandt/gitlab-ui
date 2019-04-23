@@ -87,4 +87,28 @@ documentedStoriesOf('regions|empty-state', readme)
     },
     components,
     template,
+  }))
+  .add('custom actions', () => ({
+    props: {
+      ...generateProps(),
+    },
+    components,
+    template: `
+      <gl-empty-state
+        :title="title"
+        :svgPath="svgPath"
+        :description="description"
+        :primaryButtonText="primaryButtonText"
+        :secondaryButtonText="secondaryButtonText"
+        primaryButtonLink="#"
+        secondaryButtonLink="#"
+      >
+      <template #actions>
+        <gl-button
+          variant="success"
+        >Custom button</gl-button>
+        <a href="#" @click.prevent>Custom link</a>
+      </template>
+      </gl-empty-state>
+    `,
   }));
