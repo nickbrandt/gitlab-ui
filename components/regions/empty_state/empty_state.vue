@@ -54,14 +54,14 @@ export default {
   },
   data: () => ({
     titleBreaks: false,
-    textBreaks: false,
+    descriptionBreaks: false,
   }),
   computed: {
     centerTitle() {
       return !this.titleBreaks;
     },
     centerDescription() {
-      return !this.textBreaks && !this.titleBreaks;
+      return !this.descriptionBreaks && !this.titleBreaks;
     },
     shouldRenderPrimaryButton() {
       return !!(this.primaryButtonLink && this.primaryButtonText);
@@ -75,11 +75,9 @@ export default {
     },
   },
   mounted() {
-    const title = this.$el.querySelector('h4');
-    const text = this.$el.querySelector('p');
-
+    const { title, description } = this.$refs;
     this.titleBreaks = title && textBreaks(title);
-    this.textBreaks = text && textBreaks(text);
+    this.descriptionBreaks = description && textBreaks(description);
   },
 };
 </script>
@@ -97,9 +95,10 @@ export default {
         />
       </div>
       <div class="text-content">
-        <h4 :class="{center: centerTitle}">{{ title }}</h4>
+        <h4 ref="title" :class="{center: centerTitle}">{{ title }}</h4>
         <p
           v-if="description"
+          ref="description"
           :class="{center: centerDescription}"
         >{{ description }}</p>
         <div class="text-center">
