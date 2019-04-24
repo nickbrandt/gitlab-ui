@@ -17,6 +17,7 @@ export {
 export {
   default as GlChartTooltipDocumentation,
 } from '../components/charts/tooltip/tooltip.documentation';
+export { default as GlToastDocumentation } from '../components/base/toast/toast.documentation';
 export {
   default as GlColumnChartDocumentation,
 } from '../components/charts/column/column.documentation';
