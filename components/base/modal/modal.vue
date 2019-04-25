@@ -17,12 +17,24 @@ export default {
       default: 'h4',
     },
   },
+  methods: {
+    show() {
+      this.$refs.modal.show();
+    },
+    hide() {
+      this.$refs.modal.hide();
+    },
+    toggle() {
+      this.$refs.modal.toggle();
+    },
+  },
 };
 </script>
 
 <template>
   <b-modal
     :id="modalId"
+    ref="modal"
     :title-tag="titleTag"
     v-bind="$attrs"
     lazy
