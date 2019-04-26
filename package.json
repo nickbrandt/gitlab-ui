@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
+    "@gitlab/vue-toasted": "^1.2.1",
     "bootstrap-vue": "^2.0.0-rc.11",
     "copy-to-clipboard": "^3.0.8",
     "echarts": "^4.2.0-rc.2",
@@ -30,8 +31,7 @@
     "lodash": "^4.17.11",
     "url-search-params-polyfill": "^5.0.0",
     "vue": "^2.5.21",
-    "vue-loader": "^15.4.2",
-    "vue-toasted": "^1.1.26"
+    "vue-loader": "^15.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

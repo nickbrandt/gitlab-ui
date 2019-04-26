@@ -1,4 +1,4 @@
-import Toasted from 'vue-toasted';
+import Toasted from '@gitlab/vue-toasted';
 
 const DEFAULT_OPTIONS = {
   action: {
@@ -11,6 +11,7 @@ const DEFAULT_OPTIONS = {
   duration: 5000,
   singleton: true,
   className: 'gl-toast',
+  keepOnHover: true,
 };
 
 /**
