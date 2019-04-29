@@ -30,6 +30,8 @@ export const grid = {
 };
 
 export const lineStyle = {
+  symbol: 'circle',
+  type: 'line',
   width: 2,
 };
 
