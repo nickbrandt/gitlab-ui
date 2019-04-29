@@ -2,6 +2,7 @@
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import ChartSeriesLabel from '../series_label/series_label.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
@@ -15,8 +16,9 @@ import { colorFromPalette } from '../../../utils/charts/theme';
 export default {
   components: {
     Chart,
-    ChartTooltip,
     ChartLegend,
+    ChartSeriesLabel,
+    ChartTooltip,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -196,14 +198,7 @@ export default {
       this.$set(this, 'tooltipContent', tooltipContent);
     },
     styleIndicator(index) {
-      const barColor = colorFromPalette(index);
-
-      return {
-        width: '16px',
-        height: '4px',
-        backgroundColor: barColor,
-        marginRight: '4px',
-      };
+      return colorFromPalette(index);
     },
   },
 };
@@ -230,10 +225,12 @@ export default {
         v-for="(value, label) in tooltipContent"
         :key="label + value.value"
         class="d-flex align-items-center"
+        style="min-width: 150px;"
       >
-        <div :style="styleIndicator(value.index)"></div>
-        <div class="flex-grow-1">{{ label }}</div>
-        <div class="text-right">{{ value.value }}</div>
+        <chart-series-label :color="styleIndicator(value.index)" class="">
+          <div>{{label}}</div>
+        </chart-series-label>
+        <div class="flex-grow-1 text-right gl-pl-3">{{ value.value }}</div>
       </div>
     </chart-tooltip>
     <chart-legend
