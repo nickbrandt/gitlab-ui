@@ -10,6 +10,7 @@ import defaultChartOptions, {
   getThresholdConfig,
   additiveArrayMerge,
   defaultAreaOpacity,
+  lineStyle,
 } from '../../../helpers/charts/config';
 import { debounceByAnimationFrame } from '../../../helpers/utils';
 import { colorFromPalette } from '../../../helpers/charts/theme';
@@ -67,17 +68,12 @@ export default {
       return this.data.map(series =>
         mergeWith(
           {
-            type: 'line',
-            showSymbol: false,
-            symbol: 'circle',
-            symbolSize: 3,
-            lineStyle: {
-              width: 1,
-            },
             areaStyle: {
               opacity: defaultAreaOpacity,
             },
+            showSymbol: false,
           },
+          lineStyle,
           series,
           getThresholdConfig(this.thresholds),
           additiveArrayMerge

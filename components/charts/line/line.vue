@@ -69,9 +69,7 @@ export default {
       return this.data.map(series =>
         mergeWith(
           {
-            type: 'line',
             showSymbol: true,
-            symbol: 'circle',
           },
           symbolSize,
           lineStyle,
