@@ -59,6 +59,7 @@ Below are the options you can pass to create a toast
 | theme          | String         | 'toasted-primary' | Theme of the toast you prefer<br> **['toasted-primary', 'outline', 'bubble']**                                                   |
 | onComplete     | Function       | null              | Trigger when toast is completed                                                                                                  |
 | closeOnSwipe   | Boolean        | true              | Closes the toast when the user swipes it                                                                                         |
+| keepOnHover    | Boolean        | true              | Prevents toast from closing on hover                                                                                             |
 | singleton      | Boolean        | true              | Only allows one toast at a time.                                                                                                 |
 
 ## Under the hood
