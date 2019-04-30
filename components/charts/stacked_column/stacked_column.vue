@@ -197,9 +197,6 @@ export default {
       this.tooltipTitle = params.value;
       this.$set(this, 'tooltipContent', tooltipContent);
     },
-    styleIndicator(index) {
-      return colorFromPalette(index);
-    },
   },
 };
 </script>
@@ -221,7 +218,8 @@ export default {
       <div slot="title">
         {{ tooltipTitle }}
       </div>
-      <div
+      <tooltip-content :tooltip-content="tooltipContent"/>
+      <!-- <div
         v-for="(value, label) in tooltipContent"
         :key="label + value.value"
         class="d-flex align-items-center"
@@ -231,7 +229,7 @@ export default {
           <div>{{label}}</div>
         </chart-series-label>
         <div class="flex-grow-1 text-right gl-pl-3">{{ value.value }}</div>
-      </div>
+      </div> -->
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"
