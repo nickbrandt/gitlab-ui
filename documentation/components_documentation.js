@@ -94,6 +94,9 @@ export { default as GlTabDocumentation } from '../components/base/tabs/tab/tab.d
 export {
   default as GlButtonGroupDocumentation,
 } from '../components/base/button_group/button_group.documentation';
+export {
+  default as GlFormCheckboxDocumentation,
+} from '../components/base/form/form_checkbox/form_checkbox.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
