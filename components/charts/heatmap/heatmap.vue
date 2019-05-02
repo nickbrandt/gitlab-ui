@@ -2,7 +2,7 @@
 import merge from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
-import { bluesHues } from '../../../helpers/charts/theme';
+import { bluesHues } from '../../../utils/charts/theme';
 
 const [blue50, blue950] = bluesHues;
 

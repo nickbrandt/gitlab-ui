@@ -1,7 +1,7 @@
 <script>
 import GlChartSeriesLabel from '../series_label/series_label.vue';
-import { average } from '../../../helpers/number_utils';
-import { defaultFontSize } from '../../../helpers/charts/config';
+import { average } from '../../../utils/number_utils';
+import { defaultFontSize } from '../../../utils/charts/config';
 
 export default {
   components: {

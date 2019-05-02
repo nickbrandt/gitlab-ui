@@ -1,5 +1,5 @@
 <script>
-import { makePathRect } from '../../../helpers/svg_utils';
+import { makePathRect } from '../../../utils/svg_utils';
 
 export default {
   props: {

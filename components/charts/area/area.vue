@@ -11,9 +11,9 @@ import defaultChartOptions, {
   additiveArrayMerge,
   defaultAreaOpacity,
   lineStyle,
-} from '../../../helpers/charts/config';
-import { debounceByAnimationFrame } from '../../../helpers/utils';
-import { colorFromPalette } from '../../../helpers/charts/theme';
+} from '../../../utils/charts/config';
+import { debounceByAnimationFrame } from '../../../utils/utils';
+import { colorFromPalette } from '../../../utils/charts/theme';
 
 export default {
   components: {
@@ -185,12 +185,7 @@ export default {
 
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" @created="onCreated" @updated="onUpdated"/>
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -203,13 +198,8 @@ export default {
         <slot name="tooltipContent"></slot>
       </template>
       <template v-else>
-        <div slot="title">
-          {{ tooltipTitle }}
-        </div>
-        <div
-          v-for="(value, label) in tooltipContent"
-          :key="label + value"
-        >
+        <div slot="title">{{ tooltipTitle }}</div>
+        <div v-for="(value, label) in tooltipContent" :key="label + value">
           {{ label }}
           {{ value }}
         </div>

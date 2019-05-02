@@ -5,7 +5,7 @@
  *  toolbox options
  */
 
-import { getToolboxConfig } from '../../helpers/charts/config';
+import { getToolboxConfig } from '../../utils/charts/config';
 
 export default {
   props: {

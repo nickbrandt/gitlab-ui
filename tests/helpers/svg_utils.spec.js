@@ -1,4 +1,4 @@
-import * as svgUtils from '../../helpers/svg_utils';
+import * as svgUtils from '../../utils/svg_utils';
 
 describe('svg utils', () => {
   describe('makePathRect', () => {

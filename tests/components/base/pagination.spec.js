@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import BPagination from 'bootstrap-vue/src/components/pagination/pagination';
 import Pagination from '../../../components/base/pagination/pagination.vue';
-import { breakpoints } from '../../../helpers/breakpoints';
+import { breakpoints } from '../../../utils/breakpoints';
 
 describe('pagination component', () => {
   const change = () => {};

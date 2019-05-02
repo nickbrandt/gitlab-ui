@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import echarts from 'echarts';
 import Chart from '../../../components/charts/chart/chart.vue';
-import theme from '../../../helpers/charts/theme';
+import theme from '../../../utils/charts/theme';
 
 const defaultHeight = 400;
 
