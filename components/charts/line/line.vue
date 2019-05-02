@@ -217,6 +217,7 @@ export default {
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"
+      :chart="chart"
       :style="legendStyle"
       :series-info="seriesInfo"
       :text-style="compiledOptions.textStyle"
