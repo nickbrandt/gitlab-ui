@@ -65,7 +65,7 @@ export default {
   },
   created() {
     if (!this.isSizeString)
-      console.warn("Icon sizes 1 - 5 are deprecated, please use 'sm', 'md' and 'lg' instead.");
+      console.warn("Icon sizes 1 - 5 are deprecated, please use 'sm', 'md' and 'lg' instead."); // eslint-disable-line no-console
   },
 };
 </script>
