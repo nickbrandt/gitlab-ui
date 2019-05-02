@@ -7,7 +7,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import glob from 'glob';
 
 export default glob
-  .sync('+(components|directives)/**/*.+(js|vue)')
+  .sync('+(components|directives)/**/!(*.stories).+(js|vue)')
   .concat('charts.js')
   .concat('index.js')
   .map(input => {

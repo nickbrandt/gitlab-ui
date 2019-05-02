@@ -6,9 +6,9 @@ import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   additiveArrayMerge,
   dataZoomAdjustments,
-} from '../../../helpers/charts/config';
-import { hexToRgba, debounceByAnimationFrame } from '../../../helpers/utils';
-import { colorFromPalette } from '../../../helpers/charts/theme';
+} from '../../../utils/charts/config';
+import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
+import { colorFromPalette } from '../../../utils/charts/theme';
 
 export default {
   components: {

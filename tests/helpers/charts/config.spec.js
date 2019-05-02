@@ -1,4 +1,4 @@
-import { additiveArrayMerge, getThresholdConfig } from '../../../helpers/charts/config';
+import { additiveArrayMerge, getThresholdConfig } from '../../../utils/charts/config';
 
 describe('chart config helpers', () => {
   describe('additiveArrayMerge', () => {

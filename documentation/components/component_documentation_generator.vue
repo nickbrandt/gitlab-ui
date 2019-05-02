@@ -8,8 +8,8 @@ import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 import { isString, isUndefined } from 'lodash';
 
-import * as enumConstants from '../../stories/utils/constants';
-import { getValidationInfoText } from '../../stories/utils/validation_utils';
+import * as enumConstants from '../../utils/constants';
+import { getValidationInfoText } from '../../utils/validation_utils';
 
 import { gitlabComponents, componentValidator } from '../all_components';
 

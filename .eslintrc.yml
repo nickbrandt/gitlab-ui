@@ -8,5 +8,5 @@ settings:
 rules:
   filenames/match-regex:
   - error
-  - "^[a-z_]+(\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
+  - "^[a-z_]+(\\.stories|\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
   import/no-extraneous-dependencies: off

@@ -1,7 +1,7 @@
 <script>
 import echarts from 'echarts';
-import theme, { themeName } from '../../../helpers/charts/theme';
-import { defaultHeight, validRenderers } from '../../../helpers/charts/config';
+import theme, { themeName } from '../../../utils/charts/theme';
+import { defaultHeight, validRenderers } from '../../../utils/charts/config';
 
 export default {
   props: {
