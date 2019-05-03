@@ -17,8 +17,8 @@ export default {
   components: {
     Chart,
     ChartLegend,
-    ContentFromData,
     ChartTooltip,
+    ContentFromData,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,

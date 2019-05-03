@@ -3,6 +3,7 @@ import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
+import ContentFromData from '../tooltip/content_from_data.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
@@ -20,6 +21,7 @@ export default {
     Chart,
     ChartLegend,
     ChartTooltip,
+    ContentFromData,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -141,9 +143,9 @@ export default {
   methods: {
     defaultFormatTooltipText(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, line) => {
+        (acc, line, index) => {
           const [title, value] = line.value;
-          acc.tooltipContent[line.seriesName] = value;
+          acc.tooltipContent[line.seriesName] = { index, value };
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
           }
@@ -199,10 +201,7 @@ export default {
       </template>
       <template v-else>
         <div slot="title">{{ tooltipTitle }}</div>
-        <div v-for="(value, label) in tooltipContent" :key="label + value">
-          {{ label }}
-          {{ value }}
-        </div>
+        <content-from-data :tooltip-content="tooltipContent"/>
       </template>
     </chart-tooltip>
     <chart-legend

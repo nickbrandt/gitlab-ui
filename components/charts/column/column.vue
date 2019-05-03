@@ -2,6 +2,7 @@
 import mergeWith from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
+import ContentFromData from '../tooltip/content_from_data.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   additiveArrayMerge,
@@ -14,6 +15,7 @@ export default {
   components: {
     Chart,
     ChartTooltip,
+    ContentFromData,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -141,9 +143,9 @@ export default {
     },
     onLabelChange(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, bar) => {
+        (acc, bar, index) => {
           const [title, value] = bar.value;
-          acc.tooltipContent[bar.seriesName] = value;
+          acc.tooltipContent[bar.seriesName] = { index, value };
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
           }
@@ -181,12 +183,7 @@ export default {
       <div slot="title">
         {{ tooltipTitle }}
       </div>
-      <div
-        v-for="(value, label) in tooltipContent"
-        :key="label + value"
-      >
-        {{ value }}
-      </div>
+      <content-from-data :tooltip-content="tooltipContent"/>
     </chart-tooltip>
   </div>
 </template>
