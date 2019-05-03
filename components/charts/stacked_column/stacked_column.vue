@@ -196,8 +196,6 @@ export default {
 
       this.tooltipTitle = params.value;
       this.$set(this, 'tooltipContent', tooltipContent);
-
-      console.log(this.tooltipContent);
     },
   },
 };
