@@ -143,9 +143,14 @@ export default {
     },
     onLabelChange(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, bar, index) => {
+        (acc, bar) => {
           const [title, value] = bar.value;
-          acc.tooltipContent[bar.seriesName] = { index, value };
+          const { color, seriesIndex, seriesName } = bar;
+          acc.tooltipContent[seriesName] = {
+            color: color || colorFromPalette(seriesIndex),
+            index: seriesIndex,
+            value,
+          };
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
           }

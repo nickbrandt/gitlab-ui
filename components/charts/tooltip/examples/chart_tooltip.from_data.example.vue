@@ -7,10 +7,12 @@ export default {
         'Series 1': {
           index: 0,
           value: 5,
+          color: '#1f78d1',
         },
         'Series 2': {
           index: 1,
           value: 10,
+          color: '#1aaa55',
         },
       },
     };

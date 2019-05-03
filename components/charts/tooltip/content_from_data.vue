@@ -12,9 +12,10 @@ export default {
       type: Object,
       required: true,
       validator(tooltipContent) {
-        return Object.keys(tooltipContent).every(
-          key => tooltipContent[key].value && Number.isInteger(tooltipContent[key].index)
-        );
+        return Object.keys(tooltipContent).every(key => {
+          const content = tooltipContent[key];
+          return content.value && Number.isInteger(content.index) && content.color;
+        });
       },
     },
   },

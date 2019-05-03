@@ -182,7 +182,9 @@ export default {
     onLabelChange(params) {
       const { tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
+          const { seriesIndex } = bar;
           acc.tooltipContent[bar.seriesName] = {
+            color: bar.color || colorFromPalette(seriesIndex),
             value: bar.value,
             index: bar.seriesIndex,
           };

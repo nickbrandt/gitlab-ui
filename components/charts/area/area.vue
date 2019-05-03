@@ -143,9 +143,14 @@ export default {
   methods: {
     defaultFormatTooltipText(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, line, index) => {
+        (acc, line) => {
           const [title, value] = line.value;
-          acc.tooltipContent[line.seriesName] = { index, value };
+          const { color, seriesIndex, seriesName } = line;
+          acc.tooltipContent[seriesName] = {
+            color: color || colorFromPalette(seriesIndex),
+            index: seriesIndex,
+            value,
+          };
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
           }

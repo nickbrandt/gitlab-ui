@@ -7,10 +7,7 @@ export default {
         'This series has a really long name. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.': {
           index: 0,
           value: 5,
-        },
-        'Series 2': {
-          index: 1,
-          value: 10,
+          color: '#1f78d1',
         },
       },
     };
