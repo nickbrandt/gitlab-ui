@@ -97,6 +97,9 @@ export {
 export {
   default as GlFormCheckboxDocumentation,
 } from '../components/base/form/form_checkbox/form_checkbox.documentation';
+export {
+  default as GlFriendlyWrapDocumentation,
+} from '../components/base/friendly_wrap/friendly_wrap.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
