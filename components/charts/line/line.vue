@@ -55,6 +55,7 @@ export default {
   data() {
     return {
       chart: null,
+      hoveredSeriesIndex: null,
       showTooltip: false,
       tooltipTitle: '',
       tooltipContent: {},
@@ -150,6 +151,7 @@ export default {
             color: color || colorFromPalette(seriesIndex),
             index: seriesIndex,
             value,
+            hovered: this.hoveredSeriesIndex === seriesIndex,
           };
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
@@ -169,6 +171,16 @@ export default {
       chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
       this.chart = chart;
       this.$emit('created', chart);
+      this.$nextTick(() => {
+        this.chart.on('mouseover', params => {
+          this.hoveredSeriesIndex = params.seriesIndex;
+          console.log(this.tooltipContent);
+        });
+        this.chart.on('mouseout', () => {
+          this.hoveredSeriesIndex = null;
+          console.log(this.tooltipContent);
+        });
+      });
     },
     showHideTooltip(mouseEvent) {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
