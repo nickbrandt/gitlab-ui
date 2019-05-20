@@ -20,7 +20,7 @@ describe('pagination component', () => {
     expect(bPagination).not.toBeUndefined();
     expect(bPagination.vm.perPage).toBe(propsData.perPage);
     expect(bPagination.vm.totalRows).toBe(propsData.totalItems);
-    expect(bPagination.vm.$attrs.limit).toBe(pagination.vm.paginationLimit);
+    expect(bPagination.vm.limit).toBe(pagination.vm.paginationLimit);
   });
 
   it('should hide go to end buttons', () => {
