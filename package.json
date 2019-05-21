@@ -33,7 +33,7 @@
     "js-beautify": "^1.8.8",
     "lodash": "^4.17.11",
     "url-search-params-polyfill": "^5.0.0",
-    "vue": "^2.5.21",
+    "vue": "^2.6.10",
     "vue-loader": "^15.4.2"
   },
   "devDependencies": {
