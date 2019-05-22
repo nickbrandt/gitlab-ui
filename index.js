@@ -1,3 +1,5 @@
+import { from } from 'rxjs';
+
 // Components
 export { default as GlLink } from './components/base/link/link.vue';
 export { default as GlLoadingIcon } from './components/base/loading_icon/loading_icon.vue';
@@ -43,6 +45,7 @@ export { default as GlButtonGroup } from './components/base/button_group/button_
 export { default as GlFormCheckbox } from './components/base/form/form_checkbox/form_checkbox.vue';
 export { default as GlFriendlyWrap } from './components/base/friendly_wrap/friendly_wrap.vue';
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
+export { default as GlLabel } from './components/base/label/label.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';
