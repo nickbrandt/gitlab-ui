@@ -3,6 +3,7 @@ import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
 import string from 'rollup-plugin-string';
 import css from 'rollup-plugin-css-porter';
+import svg from 'rollup-plugin-svg';
 import commonjs from 'rollup-plugin-commonjs';
 import glob from 'glob';
 
@@ -34,6 +35,7 @@ export default glob
         css({
           dest: 'dist/gitlab_ui.css',
         }),
+        svg(),
         string({
           include: '**/*.md',
         }),

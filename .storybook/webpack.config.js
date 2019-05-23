@@ -18,6 +18,10 @@ module.exports = ({ config }) => {
       exclude: /\.example\.vue$/,
       loader: 'vue-loader',
     },
+    {
+      test: /@gitlab\/svgs\/dist\/icons\.svg$/,
+      loader: 'raw-loader',
+    },
   ];
 
   config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
