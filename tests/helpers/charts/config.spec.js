@@ -1,4 +1,10 @@
-import { additiveArrayMerge, getThresholdConfig } from '../../../utils/charts/config';
+import mergeWith from 'lodash/mergeWith';
+import {
+  additiveArrayMerge,
+  getDataZoomConfig,
+  getThresholdConfig,
+} from '../../../utils/charts/config';
+import { defaultDataZoomConfig } from './data';
 
 describe('chart config helpers', () => {
   describe('additiveArrayMerge', () => {
@@ -67,6 +73,27 @@ describe('chart config helpers', () => {
 
       expect(markLine.data).toEqual(expectedLineData);
       expect(markArea.data).toEqual(expectedAreaData);
+    });
+  });
+
+  describe('getDataZoomConfig', () => {
+    it('creates a basic dataZoomConfig', () => {
+      const actual = getDataZoomConfig();
+      const expected = defaultDataZoomConfig;
+
+      expect(actual).toEqual(expected);
+    });
+
+    it('allows the filterMode to be set', () => {
+      const actual = getDataZoomConfig({ filterMode: 'filter' });
+      const expected = mergeWith(defaultDataZoomConfig, {
+        dataZoom: {
+          filterMode: 'filter',
+          minSpan: null,
+        },
+      });
+
+      expect(actual).toEqual(expected);
     });
   });
 });
