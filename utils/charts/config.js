@@ -48,6 +48,7 @@ export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
     type: 'slider',
     bottom: 22,
     filterMode,
+    minSpan: filterMode === 'none' ? 0.01 : null,
   },
 });
 
