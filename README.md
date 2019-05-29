@@ -3,7 +3,6 @@
 `gitlab-ui` is a UI component library written in [Vue.js](https://vuejs.org).
 See https://gitlab-org.gitlab.io/gitlab-ui/ for documentation.
 
-
 ## Prerequisites
 
 Make sure you have [Node](https://nodejs.org/en/) 8.x (LTS) and [Yarn](https://yarnpkg.com/) 1.2 or newer.
