@@ -29,6 +29,13 @@ export const sizeOptions = {
   lg: 'lg',
 };
 
+export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
+
+export const avatarShapeOptions = {
+  circle: 'circle',
+  rect: 'rect',
+};
+
 export const formStateOptions = {
   default: null,
   valid: 'valid',
