@@ -8,7 +8,6 @@ import {
   glTextColorTertiary,
   gray100,
   gray200,
-  gray400,
   gray700,
   green500,
   indigo500,
@@ -105,7 +104,7 @@ export default {
       },
     },
     fillerColor: hexToRgba(glGray200, 0.2),
-    handleColor: gray400,
+    handleColor: gray700,
     handleSize: '50%',
     labelFormatter: () => null,
     textStyle: {
