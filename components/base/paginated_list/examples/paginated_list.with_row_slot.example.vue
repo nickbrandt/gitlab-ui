@@ -1,0 +1,29 @@
+<template>
+  <gl-paginated-list
+    :list="[
+      { id: 'foo' },
+      { id: 'bar' },
+      { id: 'baz' },
+      { id: 'qux' },
+      { id: 'quux' },
+      { id: 'corge' },
+      { id: 'grault' },
+      { id: 'garply' },
+      { id: 'waldo' },
+      { id: 'fred' },
+      { id: 'xyzzy' },
+      { id: 'plugh' },
+      { id: 'thud' },
+    ]"
+  >
+    <template slot-scope="{ listItem }"  >
+        <gl-button
+        variant="success"
+        class="order-1"
+        @click="alert"
+        >
+            {{ listItem.id }}
+        </gl-button>
+    </template>
+  </gl-paginated-list>
+</template>
