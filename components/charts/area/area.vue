@@ -65,20 +65,31 @@ export default {
   },
   computed: {
     series() {
-      return this.data.map(series =>
-        mergeWith(
+      return this.data.map((series, index) => {
+        const defaultColor = colorFromPalette(index);
+        const getColor = type =>
+          series[type] && series[type].color ? series[type].color : defaultColor;
+
+        return mergeWith(
           {
             areaStyle: {
               opacity: defaultAreaOpacity,
+              color: getColor('areaStyle'),
             },
             showSymbol: false,
+            lineStyle: {
+              color: getColor('lineStyle'),
+            },
+            itemStyle: {
+              color: getColor('itemStyle'),
+            },
           },
           lineStyle,
           series,
           getThresholdConfig(this.thresholds),
           additiveArrayMerge
-        )
-      );
+        );
+      });
     },
     options() {
       return mergeWith(

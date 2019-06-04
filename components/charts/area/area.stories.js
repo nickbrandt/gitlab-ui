@@ -1,4 +1,5 @@
 import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
+import { times } from 'lodash';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlAreaChart } from '../../../charts';
 import readme from './area.md';
@@ -113,6 +114,20 @@ documentedStoriesOf('charts|area-chart', readme)
           },
           toolbox,
         },
+      });
+    },
+    components,
+    template,
+  }))
+  .add('mult-series', () => ({
+    data() {
+      const { data } = defaultData[0];
+
+      return generateData({
+        data: times(10, index => ({
+          name: index,
+          data: data.map(([label, value]) => [label, value * index]),
+        })),
       });
     },
     components,
