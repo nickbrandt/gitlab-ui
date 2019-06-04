@@ -21,7 +21,9 @@ documentedStoriesOf('charts|heatmap', readme)
       return {
         data: generateData(),
         xAxisLabels: ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
-        yAxisLabels: ['Saturday', 'Friday', 'Thursday', 'Wednesday', 'Tuesday', 'Monday', 'Sunday'],
+        yAxisLabels: ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
+        xAxisName: 'Hour',
+        yAxisName: 'Day',
       };
     },
     components,
@@ -30,6 +32,8 @@ documentedStoriesOf('charts|heatmap', readme)
       :data-series="data"
       :x-axis-labels="xAxisLabels"
       :y-axis-labels="yAxisLabels"
+      :x-axis-name="xAxisName"
+      :y-axis-name="yAxisName"
     />`,
   }))
   .add('with toolbox', () => ({
@@ -37,7 +41,9 @@ documentedStoriesOf('charts|heatmap', readme)
       return {
         data: generateData(),
         xAxisLabels: ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
-        yAxisLabels: ['Saturday', 'Friday', 'Thursday', 'Wednesday', 'Tuesday', 'Monday', 'Sunday'],
+        yAxisLabels: ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
+        xAxisName: 'Hour',
+        yAxisName: 'Day',
         option: {
           toolbox,
         },
@@ -49,6 +55,8 @@ documentedStoriesOf('charts|heatmap', readme)
       :data-series="data"
       :x-axis-labels="xAxisLabels"
       :y-axis-labels="yAxisLabels"
+      :x-axis-name="xAxisName"
+      :y-axis-name="yAxisName"
       :options="option"
     />`,
   }));

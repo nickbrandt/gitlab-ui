@@ -52,7 +52,7 @@ export default {
         '10p',
         '11p',
       ],
-      yAxisLabels: ['Saturday', 'Friday', 'Thursday', 'Wednesday', 'Tuesday', 'Monday', 'Sunday'],
+      yAxisLabels: ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
     };
   },
 };

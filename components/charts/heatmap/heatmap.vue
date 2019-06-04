@@ -7,10 +7,6 @@ import { bluesHues } from '../../../utils/charts/theme';
 const [blue200, blue800] = bluesHues;
 
 const defaultOptions = {
-  title: {
-    top: 24,
-    left: 'center',
-  },
   tooltip: {
     transitionDuration: 0,
   },
@@ -74,6 +70,16 @@ export default {
       required: false,
       default: () => [],
     },
+    xAxisName: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    yAxisName: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     computedOptions() {
@@ -97,13 +103,27 @@ export default {
           },
           xAxis: {
             data: this.xAxisLabels,
+            axisTick: false,
+            offset: 2,
+            name: this.xAxisName,
+            nameTextStyle: {
+              verticalAlign: 'middle',
+            },
             splitArea: {
               show: true,
             },
           },
           yAxis: {
             type: 'category',
+            axisTick: false,
+            axisLabel: {
+              margin: -30, 
+            },
             data: this.yAxisLabels,
+            nameLocation: 'middle',
+            name: this.yAxisName,
+            nameGap: 10,
+            nameRotate: 90,
             splitArea: {
               show: true,
             },
