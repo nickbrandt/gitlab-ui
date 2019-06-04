@@ -37,6 +37,7 @@ export default {
       return {
         fill: this.color,
         transform: `translateY(${this.formatPixelDimension(this.svgYTranslationValue)})`,
+        width: 'auto',
       };
     },
     svgYTranslationValue() {
