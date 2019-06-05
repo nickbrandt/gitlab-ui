@@ -97,8 +97,13 @@ export default {
           },
           xAxis: {
             data: this.xAxisLabels,
-            splitArea: {
+            splitLine: {
               show: true,
+              lineStyle: {
+                color: '#FFF',
+                type: 'solid',
+                width: 2,
+              },
             },
           },
           yAxis: {
@@ -106,6 +111,17 @@ export default {
             data: this.yAxisLabels,
             splitArea: {
               show: true,
+              areaStyle: {
+                color: '#F2F2F2',
+              },
+            },
+            splitLine: {
+              show: true, 
+              lineStyle: {
+                color: '#FFF', 
+                type: 'solid',
+                width: 2,
+              },
             },
           },
         },
