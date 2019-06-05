@@ -18,9 +18,13 @@ export default {
   <b-form-checkbox
     plain
     v-bind="$attrs"
+    class="gl-form-checkbox"
     @change="$emit('change', $event)"
     @input="$emit('input', $event)"
   >
     <slot></slot>
+    <p v-if="Boolean($slots.help)" class="help-text text-secondary mb-0">
+      <slot name="help"></slot>
+    </p>
   </b-form-checkbox>
 </template>

@@ -4,6 +4,7 @@ import FormCheckboxDisabled from './form_checkbox.disabled.example.vue';
 import FormCheckboxCheckedDisabled from './form_checkbox.checked_disabled.example.vue';
 import FormCheckboxValues from './form_checkbox.values.example.vue';
 import FormCheckboxIndeterminate from './form_checkbox.indeterminant.example.vue';
+import FormCheckboxHelp from './form_checkbox.help.example.vue';
 
 export default [
   {
@@ -38,6 +39,11 @@ export default [
         id: 'form-checkbox-indeterminate',
         name: 'Indeterminate State of Form Checkbox',
         component: FormCheckboxIndeterminate,
+      },
+      {
+        id: 'form-checkbox-help',
+        name: 'Form Checkbox with Help Text',
+        component: FormCheckboxHelp,
       },
     ],
   },
