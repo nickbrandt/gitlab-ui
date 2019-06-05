@@ -1,8 +1,11 @@
+<script>
+export default {
+  data: () => ({
+    page: 2,
+  }),
+};
+</script>
+
 <template>
-  <gl-pagination 
-    :change="() => {}" 
-    :page="2" 
-    :per-page="10" 
-    :total-items="100"
-  />
+  <gl-pagination v-model="page" :per-page="10" :total-items="100"/>
 </template>

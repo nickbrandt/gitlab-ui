@@ -18,4 +18,23 @@ describe('number utils', () => {
       expect(numberUtils.average(4, 6, 9, 12)).toBe(7.75);
     });
   });
+
+  describe('isIntGreaterThan (0)', () => {
+    const isIntGreaterThanZero = numberUtils.isIntGreaterThan(0);
+
+    it('returns true if passed number is an integer greater than 0', () => {
+      expect(isIntGreaterThanZero(1)).toBe(true);
+    });
+
+    it('returns false if passed number is an integer but is not greater than 0', () => {
+      expect(isIntGreaterThanZero(0)).toBe(false);
+    });
+
+    it('returns false if passed number is not an integer', () => {
+      expect(isIntGreaterThanZero(2.5)).toBe(false);
+      expect(isIntGreaterThanZero('1')).toBe(false);
+      expect(isIntGreaterThanZero(NaN)).toBe(false);
+      expect(isIntGreaterThanZero(Infinity)).toBe(false);
+    });
+  });
 });
