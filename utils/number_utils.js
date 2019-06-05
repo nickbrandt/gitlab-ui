@@ -16,3 +16,9 @@ export const sum = (...numbers) => numbers.reduce(addition);
  * @param  {...Number} numbers
  */
 export const average = (...numbers) => sum(...numbers) / numbers.length;
+
+/**
+ * Returns a function that checks wether its argument is an integer greater than gt
+ * @param {Number} gt number to be compared against
+ */
+export const isIntGreaterThan = gt => number => Number.isInteger(number) && number > gt;

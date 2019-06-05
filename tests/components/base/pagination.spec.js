@@ -1,93 +1,288 @@
-import { shallowMount } from '@vue/test-utils';
-import BPagination from 'bootstrap-vue/src/components/pagination/pagination';
+import debounce from 'lodash/debounce';
+import { mount, createLocalVue } from '@vue/test-utils';
 import Pagination from '../../../components/base/pagination/pagination.vue';
 import { breakpoints } from '../../../utils/breakpoints';
 
+jest.mock('lodash/debounce', () => jest.fn(fn => fn));
+
+const localVue = createLocalVue();
+
+const expectClassActive = expect.arrayContaining(['active']);
+const mockResizeWidth = width => {
+  window.innerWidth = width;
+  const resizeEvent = document.createEvent('Event');
+  resizeEvent.initEvent('resize', true, true);
+  window.dispatchEvent(resizeEvent);
+};
+
 describe('pagination component', () => {
-  const change = () => {};
+  let wrapper;
+  const findButtons = () => wrapper.findAll('.page-link');
   const propsData = {
-    change,
-    page: 3,
+    value: 3,
     perPage: 5,
     totalItems: 30,
   };
-  const mountWithOptions = shallowMount.bind(null, Pagination);
-
-  it('should wrap BPagination', () => {
-    const pagination = mountWithOptions({ propsData });
-    const bPagination = pagination.find(BPagination);
-
-    expect(bPagination).not.toBeUndefined();
-    expect(bPagination.vm.perPage).toBe(propsData.perPage);
-    expect(bPagination.vm.totalRows).toBe(propsData.totalItems);
-    expect(bPagination.vm.limit).toBe(pagination.vm.paginationLimit);
-  });
-
-  it('should hide go to end buttons', () => {
-    const pagination = mountWithOptions({
+  const createComponent = (props = propsData, options = {}) => {
+    wrapper = mount(Pagination, {
       propsData: {
-        change,
-        page: 1,
-        perPage: 10,
-        totalItems: 20,
+        itemsPerPage: 20,
+        ...props,
       },
+      localVue,
+      ...options,
     });
+  };
 
-    expect(pagination.vm.hideGotoEndButtons).toBe(true);
-  });
-
-  it('should show go to end buttons', () => {
-    const pagination = mountWithOptions({
-      propsData: {
-        change,
-        page: 1,
-        perPage: 2,
-        totalItems: 50,
-      },
-    });
-
-    expect(pagination.vm.hideGotoEndButtons).toBe(false);
+  afterEach(() => {
+    wrapper.destroy();
+    debounce.mockClear();
   });
 
   it('should change pagination limits on resize', () => {
-    const pagination = mountWithOptions({ propsData });
-    const mockResizeWidth = width => {
-      window.innerWidth = width;
-      const resizeEvent = document.createEvent('Event');
-      resizeEvent.initEvent('resize', true, true);
-      window.dispatchEvent(resizeEvent);
-    };
+    createComponent();
 
     mockResizeWidth(breakpoints.sm);
-    expect(pagination.vm.paginationLimit).toBe(1);
+    expect(wrapper.vm.paginationLimit).toBe(0);
+    expect(wrapper.vm.maxAdjacentPages).toBe(0);
 
     mockResizeWidth(breakpoints.md);
-    expect(pagination.vm.paginationLimit).toBe(3);
+    expect(wrapper.vm.paginationLimit).toBe(3);
+    expect(wrapper.vm.maxAdjacentPages).toBe(1);
 
     mockResizeWidth(breakpoints.lg);
-    expect(pagination.vm.paginationLimit).toBe(5);
+    expect(wrapper.vm.paginationLimit).toBe(9);
+    expect(wrapper.vm.maxAdjacentPages).toBe(4);
 
     mockResizeWidth(breakpoints.xl);
-    expect(pagination.vm.paginationLimit).toBe(11);
+    expect(wrapper.vm.paginationLimit).toBe(9);
+    expect(wrapper.vm.maxAdjacentPages).toBe(4);
   });
 
   it('should not render when one page fits all items', () => {
-    const pagination = mountWithOptions({
-      propsData: {
-        change,
-        page: 1,
-        perPage: 10,
-        totalItems: 10,
-      },
+    createComponent({
+      ...propsData,
+      totalItems: 5,
     });
-
-    expect(pagination.html()).toBeUndefined();
+    expect(wrapper.html()).toBeUndefined();
   });
 
-  it('should change currentPage when page prop changes', () => {
-    const pagination = mountWithOptions({ propsData });
-    pagination.setProps({ page: 10 });
+  it('supports slots customization', () => {
+    createComponent(
+      {
+        ...propsData,
+        value: 8,
+        totalItems: 75,
+      },
+      {
+        slots: {
+          previous: '<span>custom_prev_slot</span>',
+          next: '<span>custom_next_slot</span>',
+          'ellipsis-left': '<span>custom_ellipsis_left_slot</span>',
+          'ellipsis-right': '<span>custom_ellipsis_right_slot</span>',
+        },
+        scopedSlots: {
+          'page-number': '<span slot-scope="{ page }">custom_page_number_slot_{{ page }}</span>',
+        },
+      }
+    );
+    const buttons = findButtons();
+    expect(buttons.at(0).text()).toBe('custom_prev_slot');
+    expect(buttons.at(1).text()).toBe('custom_page_number_slot_1');
+    expect(buttons.at(2).text()).toBe('custom_ellipsis_left_slot');
+    expect(buttons.at(7).text()).toBe('custom_page_number_slot_8');
+    expect(buttons.at(buttons.length - 3).text()).toBe('custom_ellipsis_right_slot');
+    expect(buttons.at(buttons.length - 2).text()).toBe('custom_page_number_slot_15');
+    expect(buttons.at(buttons.length - 1).text()).toBe('custom_next_slot');
+  });
 
-    expect(pagination.vm.currentPage).toBe(10);
+  it('sets links href properly in link-based mode', () => {
+    createComponent({
+      ...propsData,
+      linkGen: page => `#page${page}`,
+    });
+    const buttons = findButtons();
+    expect(buttons.at(1).attributes('href')).toBe('#page1');
+  });
+
+  it('emits input event when page changes', () => {
+    createComponent({
+      ...propsData,
+      value: 1,
+      totalItems: 75,
+    });
+    const buttons = findButtons();
+    const nextButton = buttons.at(buttons.length - 1);
+    nextButton.trigger('click');
+
+    expect(wrapper.emitted('input')).toBeTruthy();
+    expect(wrapper.emitted('input')[0]).toEqual([2]);
+  });
+
+  describe('with a total of 4 pages and 3rd page active', () => {
+    beforeEach(() => {
+      mockResizeWidth(breakpoints.lg);
+      createComponent({
+        ...propsData,
+        totalItems: 20,
+      });
+    });
+
+    it('shows 3rd page as active and enables all buttons', () => {
+      const buttons = findButtons();
+      expect(buttons.at(3).classes()).toEqual(expectClassActive);
+      buttons.wrappers.forEach(button => {
+        expect(button.is('span')).toBe(false);
+      });
+    });
+
+    it('shows all pages on desktop', () => {
+      const buttons = findButtons();
+      expect(buttons.length).toBe(6);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe('2');
+      expect(buttons.at(3).text()).toBe('3');
+      expect(buttons.at(4).text()).toBe('4');
+      expect(buttons.at(5).text()).toBe(wrapper.vm.nextText);
+    });
+
+    it('shows all pages mobile', () => {
+      mockResizeWidth(breakpoints.sm);
+      const buttons = findButtons();
+      expect(buttons.length).toBe(6);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe('2');
+      expect(buttons.at(3).text()).toBe('3');
+      expect(buttons.at(4).text()).toBe('4');
+      expect(buttons.at(5).text()).toBe(wrapper.vm.nextText);
+    });
+  });
+
+  describe('with a total of 15 pages and first page active', () => {
+    beforeEach(() => {
+      mockResizeWidth(breakpoints.lg);
+      createComponent({
+        ...propsData,
+        value: 1,
+        totalItems: 75,
+      });
+    });
+
+    it('shows 1st page as active and disables previous button', () => {
+      const buttons = findButtons();
+      expect(buttons.at(0).is('span')).toBe(true);
+      expect(buttons.at(1).classes()).toEqual(expectClassActive);
+      expect(buttons.at(buttons.length - 1).is('span')).toBe(false);
+    });
+
+    it('shows first 5 pages and collapses right side on desktop', () => {
+      const buttons = findButtons();
+      expect(buttons.length).toBe(9);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe('2');
+      expect(buttons.at(3).text()).toBe('3');
+      expect(buttons.at(4).text()).toBe('4');
+      expect(buttons.at(5).text()).toBe('5');
+      expect(buttons.at(6).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(7).text()).toBe('15');
+      expect(buttons.at(8).text()).toBe(wrapper.vm.nextText);
+    });
+
+    it('shows first 2 pages and collapses right side mobile', () => {
+      mockResizeWidth(breakpoints.sm);
+      const buttons = findButtons();
+      expect(buttons.length).toBe(6);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe('2');
+      expect(buttons.at(3).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(4).text()).toBe('15');
+      expect(buttons.at(5).text()).toBe(wrapper.vm.nextText);
+    });
+  });
+
+  describe('with a total of 15 pages and 8th page active', () => {
+    beforeEach(() => {
+      mockResizeWidth(breakpoints.lg);
+      createComponent({
+        ...propsData,
+        value: 8,
+        totalItems: 75,
+      });
+    });
+
+    it('shows pages 4 to 12 and collapses both sides on desktop', () => {
+      const buttons = findButtons();
+      expect(buttons.length).toBe(15);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(3).text()).toBe('4');
+      expect(buttons.at(7).text()).toBe('8');
+      expect(buttons.at(11).text()).toBe('12');
+      expect(buttons.at(12).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(13).text()).toBe('15');
+      expect(buttons.at(14).text()).toBe(wrapper.vm.nextText);
+    });
+
+    it('shows page 8 and collapses both sides on mobile', () => {
+      mockResizeWidth(breakpoints.sm);
+      const buttons = findButtons();
+      expect(buttons.length).toBe(7);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(3).text()).toBe('8');
+      expect(buttons.at(4).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(5).text()).toBe('15');
+      expect(buttons.at(6).text()).toBe(wrapper.vm.nextText);
+    });
+  });
+
+  describe('with a total of 15 pages and 15th page active', () => {
+    beforeEach(() => {
+      mockResizeWidth(breakpoints.lg);
+      createComponent({
+        ...propsData,
+        value: 15,
+        totalItems: 75,
+      });
+    });
+
+    it('shows 15th page as active and disables next button', () => {
+      const buttons = findButtons();
+      expect(buttons.at(0).is('span')).toBe(false);
+      expect(buttons.at(7).classes()).toEqual(expectClassActive);
+      expect(buttons.at(buttons.length - 1).is('span')).toBe(true);
+    });
+
+    it('shows pages 11 to 15 and collapses left side on desktop', () => {
+      const buttons = findButtons();
+      expect(buttons.length).toBe(9);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(3).text()).toBe('11');
+      expect(buttons.at(4).text()).toBe('12');
+      expect(buttons.at(5).text()).toBe('13');
+      expect(buttons.at(6).text()).toBe('14');
+      expect(buttons.at(7).text()).toBe('15');
+      expect(buttons.at(8).text()).toBe(wrapper.vm.nextText);
+    });
+
+    it('shows pages 14 to 15 and collapses left side on mobile', () => {
+      mockResizeWidth(breakpoints.sm);
+      const buttons = findButtons();
+      expect(buttons.length).toBe(6);
+      expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
+      expect(buttons.at(1).text()).toBe('1');
+      expect(buttons.at(2).text()).toBe(wrapper.vm.ellipsisText);
+      expect(buttons.at(3).text()).toBe('14');
+      expect(buttons.at(4).text()).toBe('15');
+      expect(buttons.at(5).text()).toBe(wrapper.vm.nextText);
+    });
   });
 });

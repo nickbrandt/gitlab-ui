@@ -89,5 +89,14 @@ export const columnOptions = {
   tiled: 'tiled',
 };
 
+export const alignOptions = {
+  left: 'left',
+  center: 'center',
+  right: 'right',
+  fill: 'fill',
+};
+
+export const resizeDebounceTime = 200;
+
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
