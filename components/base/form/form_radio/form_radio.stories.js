@@ -36,7 +36,7 @@ function generateProps({ stacked = false, buttons = false, groupName = 'radio-gr
 
 documentedStoriesOf('base|form/form-radio', readme)
   .addDecorator(withKnobs)
-  .add('Radios using code', () => ({
+  .add('default', () => ({
     components,
     props: generateProps(),
     data() {
