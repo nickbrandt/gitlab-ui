@@ -1,7 +1,9 @@
 import { hexToRgba } from '../utils';
 import {
   blue200,
+  blue400,
   blue500,
+  blue600,
   blue800,
   glGray200,
   glTextColor,
@@ -18,7 +20,7 @@ import {
 
 export const themeName = 'gitlab';
 
-export const bluesHues = [blue200, blue800];
+export const bluesHues = [gray100, blue200, blue400, blue600, blue800];
 export const colorPalette = [blue500, green500, orange500, indigo500];
 export const colorFromPalette = index => colorPalette[index % colorPalette.length];
 

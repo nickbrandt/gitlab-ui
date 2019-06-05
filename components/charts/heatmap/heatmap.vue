@@ -4,7 +4,7 @@ import Chart from '../chart/chart.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { bluesHues } from '../../../utils/charts/theme';
 
-const [blue200, blue800] = bluesHues;
+const [gray100, blue200, blue400, blue600, blue800] = bluesHues;
 
 const defaultOptions = {
   title: {
@@ -19,7 +19,7 @@ const defaultOptions = {
     orient: 'horizontal',
     left: 'center',
     inRange: {
-      color: [blue200, blue800],
+      color: [gray100, blue200, blue400, blue600, blue800],
     },
   },
   series: {
