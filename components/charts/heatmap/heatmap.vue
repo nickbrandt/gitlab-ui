@@ -90,6 +90,7 @@ export default {
         {
           title: {
             text: this.title,
+            top: 30,
           },
           series: {
             data: this.dataSeries,
@@ -104,11 +105,12 @@ export default {
           xAxis: {
             data: this.xAxisLabels,
             axisTick: false,
-            offset: 2,
             name: this.xAxisName,
+            nameLocation: 'middle',
             nameTextStyle: {
-              verticalAlign: 'middle',
+              verticalAlign: 'bottom',
             },
+            offset: 6,
             splitArea: {
               show: true,
             },
@@ -117,12 +119,11 @@ export default {
             type: 'category',
             axisTick: false,
             axisLabel: {
-              margin: -30, 
             },
             data: this.yAxisLabels,
             nameLocation: 'middle',
             name: this.yAxisName,
-            nameGap: 10,
+            nameGap: 50,
             nameRotate: 90,
             splitArea: {
               show: true,
