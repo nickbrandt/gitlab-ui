@@ -118,17 +118,20 @@ documentedStoriesOf('charts|line-chart', readme)
               },
             },
           },
-          dataZoom: {
-            startValue: '2018-03-01T00:00:00.000',
-            handleIcon: getSvgEchartsPath('scroll-handle'),
-            dataBackground: {
-              lineStyle: {
-                width: 2,
-                color: gray200,
+          dataZoom: [
+            {
+              type: 'slider',
+              startValue: '2018-03-01T00:00:00.000',
+              handleIcon: getSvgEchartsPath('scroll-handle'),
+              dataBackground: {
+                lineStyle: {
+                  width: 2,
+                  color: gray200,
+                },
+                areaStyle: null,
               },
-              areaStyle: null,
             },
-          },
+          ],
         },
       });
     },

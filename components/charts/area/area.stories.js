@@ -94,10 +94,12 @@ documentedStoriesOf('charts|area-chart', readme)
               },
             },
           },
-          dataZoom: {
-            startValue: '2018-03-01T00:00:00.000',
-            handleIcon: getSvgEchartsPath('scroll-handle'),
-          },
+          dataZoom: [
+            {
+              startValue: '2018-03-01T00:00:00.000',
+              handleIcon: getSvgEchartsPath('scroll-handle'),
+            },
+          ],
         },
       });
     },

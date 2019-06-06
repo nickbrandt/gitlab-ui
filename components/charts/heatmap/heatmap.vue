@@ -1,5 +1,5 @@
 <script>
-import merge from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
@@ -140,5 +140,5 @@ export default {
 </script>
 
 <template>
-  <chart :options="computedOptions" />
+  <chart :options="computedOptions"/>
 </template>
