@@ -7,101 +7,94 @@ const components = {
   GlLabel,
 };
 
-const defaultTemplate = `
-    <gl-label :color="color" :background-color="backgroundColor">{{title}}</gl-label>`;
-const tooltipTemplate = `
-    <gl-label :color="color" :background-color="backgroundColor" :description="description">{{title}}</gl-label>`;
+const generateProps = ({ hasTarget = false, hasDesc = false, isScoped = false } = {}) => {
+  const props = {
+    color: {
+      default: color('Font color', '#fff'),
+    },
+    backgroundColor: {
+      default: color('Bacground color', '#D9C2EE'),
+    },
+  };
 
-const targetTemplate = `
-    <gl-label :target="target" :color="color" :background-color="backgroundColor" :description="description">{{title}}</gl-label>`;
+  if (hasDesc) {
+    props.description = {
+      default: text('Label description', 'Olla amigos! this is a description'),
+    };
+  }
 
-const scopedTemplate = `
-    <gl-label 
-      :target="target"
-      :color="color" 
-      :background-color="backgroundColor"
-      :description="description"
-      :isScoped="isScoped"
-      scoped-labels-documentation-link="https://gitlab.com/help/user/project/labels.md#scoped-labels"
-    >{{title}}</gl-label>`;
+  if (hasTarget) {
+    props.target = {
+      default: text('Link to label target', 'https://gitlab.com/gitlab-org/gitlab-ui'),
+    };
+  }
+
+  if (isScoped) {
+    props.isScoped = {
+      default: boolean('Scope label type', true),
+    };
+  }
+
+  return props;
+};
 
 documentedStoriesOf('base|label', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    props: {
-      title: {
-        default: text('Label title', 'Hello world'),
-      },
-      color: {
-        default: color('Font color', '#fff'),
-      },
-      backgroundColor: {
-        default: color('Bacground color', '#D9C2EE'),
-      },
-    },
+    props: generateProps(),
     components,
-    defaultTemplate,
+    template: `
+      <gl-label
+        :color="color"
+        :background-color="backgroundColor"
+      >
+        Basic Label
+      </gl-label>`,
   }))
   .add('description', () => ({
-    props: {
-      description: {
-        default: text('Label description', 'Olla amigos! this is a description'),
-      },
-      title: {
-        default: text('Label title', 'Hello world'),
-      },
-      color: {
-        default: color('Font color', '#fff'),
-      },
-      backgroundColor: {
-        default: color('Bacground color', '#D9C2EE'),
-      },
-    },
+    props: generateProps({ hasDesc: true }),
     components,
-    tooltipTemplate,
+    template: `
+      <gl-label
+        :color="color"
+        :background-color="backgroundColor"
+        :description="description"
+      >
+        Label with description
+      </gl-label>`,
   }))
   .add('target', () => ({
-    props: {
-      description: {
-        default: text('Label description', 'Olla amigos! this is a description'),
-      },
-      title: {
-        default: text('Label title', 'Hello world'),
-      },
-      color: {
-        default: color('Font color', '#fff'),
-      },
-      backgroundColor: {
-        default: color('Bacground color', '#D9C2EE'),
-      },
-      target: {
-        default: text('Link to label target', 'https://gitlab.com/gitlab-org/gitlab-ui'),
-      },
-    },
+    props: generateProps({
+      hasDesc: true,
+      hasTarget: true,
+    }),
     components,
-    targetTemplate,
+    template: `
+      <gl-label 
+        :target="target" 
+        :color="color" 
+        :background-color="backgroundColor" 
+        :description="description"
+      >
+        Label with target
+      </gl-label>`,
   }))
   .add('scoped', () => ({
-    props: {
-      description: {
-        default: text('Label description', 'Olla amigos! this is a description'),
-      },
-      title: {
-        default: text('Label title', 'Hello world'),
-      },
-      color: {
-        default: color('Font color', '#fff'),
-      },
-      backgroundColor: {
-        default: color('Bacground color', '#D9C2EE'),
-      },
-      target: {
-        default: text('Link to label target', 'https://gitlab.com/gitlab-org/gitlab-ui'),
-      },
-      isScoped: {
-        default: boolean('Scope label type', true),
-      },
-    },
+    props: generateProps({
+      hasDesc: true,
+      hasTarget: true,
+      isScoped: true,
+    }),
     components,
-    scopedTemplate,
+    template: `
+      <gl-label 
+        :target="target"
+        :color="color" 
+        :background-color="backgroundColor"
+        :description="description"
+        :is-scoped="isScoped"
+        scoped-labels-documentation-link="https://gitlab.com/help/user/project/labels.md#scoped-labels"
+      >
+        Scoped Label
+      </gl-label>`,
   }));

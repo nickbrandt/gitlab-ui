@@ -6,5 +6,5 @@
     description="Olla amigos! this is a description"
     :is-scoped="true"
     scoped-labels-documentation-link="https://gitlab.com/help/user/project/labels.md#scoped-labels"
-  >Hello</gl-label>
+  >Scoped Label</gl-label>
 </template>
