@@ -1,6 +1,7 @@
 <script>
 import echarts from 'echarts';
 import { GlPopover } from '@gitlab/ui';
+// Test the line above
 
 export default {
   components: {
