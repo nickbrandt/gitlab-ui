@@ -59,9 +59,9 @@ export default {
     class="d-inline-block position-relative"
     :class="cssClasses"
   >
-    <gl-link :href="target">
+    <gl-link :href="target" class="js-label-wrapper">
       <span :ref="'labelTitleRef'" :style="labelStyle" class="badge label color-label"><slot></slot></span>
-      <gl-tooltip v-if="description" :target="() => $refs.labelTitleRef" placement="top" boundary="viewport">
+      <gl-tooltip v-if="description" :target="() => $refs.labelTitleRef" class="js-label-desc" placement="top" boundary="viewport">
         <span v-if="isScoped" class="font-weight-bold scoped-label-tooltip-title d-block">Scoped label</span>
         {{ description }}
       </gl-tooltip>
