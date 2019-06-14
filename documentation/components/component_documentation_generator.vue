@@ -28,9 +28,11 @@ function getPropDefaultValue(defaultValue) {
   if (!isString(defaultValue) && !isUndefined(defaultValue)) {
     returnValue = JSON.stringify(defaultValue);
   }
-  if (defaultValue === null) {
-    returnValue = 'null';
+
+  if (defaultValue === null || defaultValue === undefined) {
+    returnValue = String(defaultValue);
   }
+
   if (isString(returnValue)) returnValue = returnValue.replace(/"/g, "'");
   return returnValue;
 }
@@ -145,8 +147,13 @@ export default {
         }
 
         // Getting the defaultValue and setting it then also the value
-
-        propsInfo.val = getPropDefaultValue(selProp.default);
+        if (propsInfo.type === 'Function' && isFunction(selProp.default)) {
+          propsInfo.val = selProp.default.toString();
+        } else if ('default' in selProp) {
+          propsInfo.val = getPropDefaultValue(selProp.default);
+        } else {
+          propsInfo.val = '';
+        }
 
         // If we have an enum on this property we assign it and look up its values in the constant file
         if (selProp.enum) {
