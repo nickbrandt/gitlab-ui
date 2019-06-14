@@ -63,7 +63,7 @@
     "jest-serializer-vue": "^2.0.2",
     "markdown-loader-jest": "^0.1.1",
     "moment": "^2.22.2",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.11.0",
     "prettier": "1.14.3",
     "pug": "^2.0.3",
