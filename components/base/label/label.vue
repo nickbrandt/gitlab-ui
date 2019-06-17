@@ -56,11 +56,11 @@ export default {
 
 <template>
   <span
-    class="d-inline-block position-relative"
-    :class="cssClasses"
+    class="d-inline-block badge label color-label"
+    :style="labelStyle"
   >
-    <gl-link :href="target" class="js-label-wrapper">
-      <span :ref="'labelTitleRef'" :style="labelStyle" class="badge label color-label"><slot></slot></span>
+    <gl-link :href="target" :style="labelStyle" class="js-label-wrapper text-decoration-none">
+      <span :ref="'labelTitleRef'"><slot></slot></span>
       <gl-tooltip v-if="description" :target="() => $refs.labelTitleRef" class="js-label-desc" placement="top" boundary="viewport">
         <span v-if="isScoped" class="font-weight-bold scoped-label-tooltip-title d-block">Scoped label</span>
         {{ description }}
@@ -71,7 +71,7 @@ export default {
       v-if="isScoped"
       :href="scopedLabelsDocumentationLink"
       target="_blank"
-      class="label scoped-label"
+      class="scoped-label"
     >
       <i class="fa fa-question-circle" :style="labelStyle"></i>
     </gl-link>
