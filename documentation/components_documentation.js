@@ -36,6 +36,9 @@ export {
   default as GlPaginationDocumentation,
 } from '../components/base/pagination/pagination.documentation';
 export {
+  default as GlPaginatedListDocumentation,
+} from '../components/base/paginated_list/paginated_list.documentation';
+export {
   default as GlPopoverDocumentation,
 } from '../components/base/popover/popover.documentation';
 export {
