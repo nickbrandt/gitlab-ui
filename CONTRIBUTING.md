@@ -30,6 +30,18 @@ During development, you can link your local gitlab-ui changes to gitlab-ce. This
 
 When you are finished, run `yarn unlink` in gitlab-ce directory.
 
+### Edge-case: Importing specific bundles
+
+If you load a gitlab-ce/ee page that imports a specific gitlab-ui bundle (e.g. `import { x } from '@gitlab/ui/dist/charts;'`, you must also link gitlab-ui to itself.
+
+If you don't, you will see an error like this:
+
+```
+Module not found: Error: Can't resolve '@gitlab/ui' in '/<path-to-checked-out-gitlab-ui>/dist'
+```
+
+To fix this, run `yarn link "@gitlab/ui"` within the gitlab-ui folder. See https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/179 for more detail.
+
 ## Automatic documentation
 
 We have automated as much of our documentation as possible (for example props, inherited props, links to underlying documentation, etc.) and kept manual tasks (for example name of vue-bootstrap component, slot descriptions, etc.) to an absolute minimum. The target for our documentation components and exports is to have them automatically integrated into [design.gitlab.com](https://design.gitlab.com). The main component for documentation is called `component_documentation_generator.vue`.
