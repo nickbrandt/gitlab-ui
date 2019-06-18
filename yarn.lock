@@ -800,10 +800,10 @@
     eslint-plugin-promise "^4.1.1"
     eslint-plugin-vue "^5.0.0"
 
-"@gitlab/svgs@^1.63.0":
-  version "1.63.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.63.0.tgz#9dd544026d203e4ce6efed72b05db68f710c4d49"
-  integrity sha512-YztrReFTg31B7v5wtUC5j15KHNcMebtW+kACytEU42XomMaIwk4USIbygqWlq0VRHA2VHJrHApfJHIjxiCCQcA==
+"@gitlab/svgs@^1.65.0":
+  version "1.65.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.65.0.tgz#48a3a64c0b5524de4e57d51b82a71274af17744d"
+  integrity sha512-GC9JgVu4/2Ysc3hKFmX6TQV6tqvHZDcfd/DzBzYjy3rHO9qYMZFnw/CKCGa8LkU9F79vfDo3G8NSja7FDXMccw==
 
 "@gitlab/vue-toasted@^1.2.1":
   version "1.2.1"
