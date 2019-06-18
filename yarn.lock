@@ -787,10 +787,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.2.tgz#63985d3d8b02530e0869962f4da09142ee8e200e"
   integrity sha512-n/VQ4mbfr81aqkx/XmVicOLjviMuy02eenSdJY33SVA7S2J42EU0P1H0mOogfYedb3wXA0d/LVtBrgTSm04WEA==
 
-"@gitlab/eslint-config@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/eslint-config/-/eslint-config-1.5.0.tgz#0c8c3ae74f276eb6671bd7c60f331bc0f2d2e5cf"
-  integrity sha512-KgJgoIZNpGauFpCV1iCptesYN7I8abtYRBLU9xcH0oocC/xp3JmbLfsZ+lEtrk8pl99Q2mKiAuaPpzxjXr6hBw==
+"@gitlab/eslint-config@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/eslint-config/-/eslint-config-1.6.0.tgz#1fd247d6ab477d53d4c330e05f007e3afa303689"
+  integrity sha512-EZffCwsRZmRWPP6N3wp20EJDVGYLG1v43/W7fF/gYQpUjcRclC8ks/jEv8UppasSDlanDmkh1bLWoE9CelSyyw==
   dependencies:
     babel-eslint "^10.0.1"
     eslint-config-airbnb-base "^13.1.0"
@@ -2443,15 +2443,10 @@ bootstrap-vue@^2.0.0-rc.11:
     popper.js "^1.12.9"
     vue-functional-data-merge "^2.0.5"
 
-bootstrap@4.3.1:
+bootstrap@4.3.1, bootstrap@^4.1.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
   integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
-
-bootstrap@^4.1.1:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.2.tgz#aee2a93472e61c471fc79fb475531dcbc87de326"
-  integrity sha512-3bP609EdMc/8EwgGp8KgpN8HwnR4V4lZ9CTi5pImMrXNxpkw7dK1B05aMwQWpG1ZWmTLlBSN/uzkuz5GsmQNFA==
 
 bottleneck@^2.0.1:
   version "2.6.0"
