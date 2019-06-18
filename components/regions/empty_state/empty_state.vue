@@ -64,13 +64,11 @@ export default {
       return !this.descriptionBreaks && !this.titleBreaks;
     },
     shouldRenderPrimaryButton() {
-      return !!(this.primaryButtonLink && this.primaryButtonText);
+      return Boolean(this.primaryButtonLink && this.primaryButtonText);
     },
     shouldRenderSecondaryButton() {
-      return !!(
-        this.shouldRenderPrimaryButton &&
-        this.secondaryButtonLink &&
-        this.secondaryButtonText
+      return Boolean(
+        this.shouldRenderPrimaryButton && this.secondaryButtonLink && this.secondaryButtonText
       );
     },
   },

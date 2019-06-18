@@ -53,7 +53,7 @@ export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
 });
 
 export const dataZoomAdjustments = dataZoom => {
-  const useSlider = !!dataZoom;
+  const useSlider = Boolean(dataZoom);
 
   return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : {};
 };

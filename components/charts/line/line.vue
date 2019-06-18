@@ -110,7 +110,7 @@ export default {
       );
     },
     dataZoomAdjustments() {
-      const useSlider = !!this.option.dataZoom;
+      const useSlider = Boolean(this.option.dataZoom);
 
       return useSlider ? getDataZoomConfig() : {};
     },
