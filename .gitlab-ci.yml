@@ -45,7 +45,7 @@ lint:
   dependencies: []
   stage: build-and-check
   script:
-    - yarn lint
+    - yarn eslint
     - yarn prettier --list-different '**/*.{js,vue}'
 
 visual:
