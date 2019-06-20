@@ -44,6 +44,9 @@ export default {
 
       return ['scoped-label-wrapper'];
     },
+    labelTarget() {
+      return this.target || '#';
+    },
     labelStyle() {
       return {
         backgroundColor: this.backgroundColor,
@@ -58,8 +61,10 @@ export default {
   <span
     class="d-inline-block badge label color-label"
     :style="labelStyle"
+    v-bind="$attrs"
+    @click="$emit('click', $event)"
   >
-    <gl-link :href="target" :style="labelStyle" class="js-label-wrapper text-decoration-none">
+    <gl-link :href="labelTarget" :style="labelStyle" class="js-label-wrapper text-decoration-none">
       <span :ref="'labelTitleRef'"><slot></slot></span>
       <gl-tooltip v-if="description" :target="() => $refs.labelTitleRef" class="js-label-desc" placement="top" boundary="viewport">
         <span v-if="isScoped" class="font-weight-bold scoped-label-tooltip-title d-block">Scoped label</span>
