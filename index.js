@@ -43,6 +43,7 @@ export { default as GlButtonGroup } from './components/base/button_group/button_
 export { default as GlFormCheckbox } from './components/base/form/form_checkbox/form_checkbox.vue';
 export { default as GlFriendlyWrap } from './components/base/friendly_wrap/friendly_wrap.vue';
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
+export { default as GlHello } from './components/base/hello/hello.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';

@@ -104,6 +104,7 @@ export {
 export {
   default as GlFriendlyWrapDocumentation,
 } from '../components/base/friendly_wrap/friendly_wrap.documentation';
+export { default as GlHelloDocumentation } from '../components/base/hello/hello.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
