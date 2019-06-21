@@ -1,17 +1,24 @@
 <template>
   <div id="popovercontainer">
     <gl-button id="pop-basic">Popover Button</gl-button>
-    <gl-popover 
+    <gl-popover
       target="pop-basic"
       container="popovercontainer"
       placement="top"
-      title="User information"
       triggers="hover focus"
       show
     >
-      <p><strong>This is fully formatted</strong> content, including components</p>
-      <gl-progress-bar :value="75" />
-      <p>The popover is automatically shown for visual regression testing</p>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-inline-flex align-items-center">
+          <div class="issuable-status-box status-box status-box-open">Open</div>
+          <span class="text-secondary">
+            Opened
+            <time>2 months ago</time>
+          </span>
+        </div>
+      </div>
+      <h5 class="my-2">Lorem ipsum dolor sit amet consectetur adipiscing elit</h5>
+      <div class="text-secondary">gitlab-org/gitlab-ui!586</div>
     </gl-popover>
   </div>
 </template>
