@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+import { engineeringNotation } from '../number_utils';
 
 export const defaultAreaOpacity = 0.2;
 export const defaultFontSize = 12;
@@ -20,6 +21,9 @@ export const xAxis = merge({}, axes, {
 
 export const yAxis = merge({}, axes, {
   nameGap: 50,
+  axisLabel: {
+    formatter: num => engineeringNotation(num, 2),
+  },
 });
 
 export const grid = {
