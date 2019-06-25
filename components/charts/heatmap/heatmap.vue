@@ -2,9 +2,8 @@
 import merge from 'lodash/mergeWith';
 import Chart from '../chart/chart.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
-import { bluesHues } from '../../../utils/charts/theme';
-
-const [blue200, blue800] = bluesHues;
+import { heatmapHues } from '../../../utils/charts/theme';
+import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const defaultOptions = {
   title: {
@@ -19,7 +18,7 @@ const defaultOptions = {
     orient: 'horizontal',
     left: 'center',
     inRange: {
-      color: [blue200, blue800],
+      color: heatmapHues,
     },
   },
   series: {
@@ -87,9 +86,13 @@ export default {
           },
           series: {
             data: this.dataSeries,
+            z: 2,
           },
           grid: {
             height: '30%',
+            show: true,
+            backgroundColor: gray100,
+            borderWidth: 0,
           },
           visualMap: {
             min,
@@ -97,15 +100,24 @@ export default {
           },
           xAxis: {
             data: this.xAxisLabels,
-            splitArea: {
+            z: 3,
+            splitLine: {
               show: true,
+              lineStyle: {
+                color: whiteLight,
+                width: 2,
+              },
             },
           },
           yAxis: {
-            type: 'category',
             data: this.yAxisLabels,
-            splitArea: {
+            z: 3,
+            splitLine: {
               show: true,
+              lineStyle: {
+                color: whiteLight,
+                width: 2,
+              },
             },
           },
         },
