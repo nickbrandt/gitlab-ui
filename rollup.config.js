@@ -1,8 +1,8 @@
 import babel from 'rollup-plugin-babel';
 import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
-import string from 'rollup-plugin-string';
-import css from 'rollup-plugin-css-porter';
+import { string } from 'rollup-plugin-string';
+import postcss from 'rollup-plugin-postcss';
 import svg from 'rollup-plugin-svg';
 import commonjs from 'rollup-plugin-commonjs';
 import glob from 'glob';
@@ -32,8 +32,10 @@ export default glob
         file: `dist/${outputFilename}.js`,
       },
       plugins: [
-        css({
-          dest: 'dist/gitlab_ui.css',
+        postcss({
+          extract: true,
+          minimize: true,
+          sourceMap: true,
         }),
         svg(),
         string({

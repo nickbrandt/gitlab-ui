@@ -1,0 +1,48 @@
+@import '~bootstrap/scss/popover';
+
+.popover {
+  max-width: $popover-max-width;
+  border: 1px solid $gray-200;
+  box-shadow: 0 2px 3px 1px $gray-200;
+  font-size: $gl-font-size-small;
+
+  /**
+  * Blue popover variation
+  */
+  &.blue {
+    background-color: $blue-600;
+    border-color: $blue-600;
+
+    .popover-body {
+      color: $white-light;
+    }
+
+    &.bs-popover-bottom {
+      .arrow::before,
+      .arrow::after {
+        border-bottom-color: $blue-600;
+      }
+    }
+
+    &.bs-popover-top {
+      .arrow::before,
+      .arrow::after {
+        border-top-color: $blue-600;
+      }
+    }
+
+    &.bs-popover-right {
+      .arrow::after,
+      .arrow::before {
+        border-right-color: $blue-600;
+      }
+    }
+
+    &.bs-popover-left {
+      .arrow::before,
+      .arrow::after {
+        border-left-color: $blue-600;
+      }
+    }
+  }
+}

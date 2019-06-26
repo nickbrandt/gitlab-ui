@@ -1,5 +1,6 @@
 import { configure, addParameters } from '@storybook/vue';
 import { create } from '@storybook/theming';
+import '../scss/gitlab_ui.scss';
 
 const req = require.context('../components', true, /\.stories\.js$/);
 

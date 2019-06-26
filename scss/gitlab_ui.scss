@@ -28,6 +28,14 @@
 @import '../node_modules/bootstrap/scss/close';
 @import '../node_modules/bootstrap/scss/modal';
 @import '../node_modules/bootstrap/scss/tooltip';
-@import '../node_modules/bootstrap/scss/popover';
 @import '../node_modules/bootstrap/scss/utilities';
 @import '../node_modules/bootstrap/scss/print';
+
+// Settings
+@import 'variables';
+@import 'mixins';
+
+// Components
+@import '../components/base/avatar/avatar';
+@import '../components/base/popover/popover';
+@import '../components/base/toast/toast';
