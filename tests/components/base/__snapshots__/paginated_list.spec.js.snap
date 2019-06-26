@@ -251,7 +251,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
    
   <ul
     aria-label="Pagination"
-    class="pagination gl-pagination d-flex justify-content-center prepend-top-default"
+    class="pagination gl-pagination text-nowrap d-flex justify-content-center prepend-top-default"
     role="navigation"
   >
     <li
@@ -506,7 +506,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
    
   <ul
     aria-label="Pagination"
-    class="pagination gl-pagination d-flex justify-content-center prepend-top-default"
+    class="pagination gl-pagination text-nowrap d-flex justify-content-center prepend-top-default"
     role="navigation"
   >
     <li
