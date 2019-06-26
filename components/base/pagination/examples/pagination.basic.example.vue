@@ -7,5 +7,11 @@ export default {
 </script>
 
 <template>
-  <gl-pagination v-model="page" :per-page="10" :total-items="100"/>
+  <gl-pagination
+    v-model="page"
+    :per-page="10"
+    :total-items="100"
+    prev-text="‹ Prev"
+    next-text="Next ›"
+  />
 </template>

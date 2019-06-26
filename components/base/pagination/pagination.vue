@@ -59,12 +59,12 @@ export default {
     prevText: {
       type: String,
       required: false,
-      default: '‹',
+      default: '‹ Prev',
     },
     nextText: {
       type: String,
       required: false,
-      default: '›',
+      default: 'Next ›',
     },
     ellipsisText: {
       type: String,
