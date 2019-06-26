@@ -39,9 +39,9 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
     labelpage="page => \`Go to page \${page}\`"
     labelprevpage="Go to previous page"
     limits="[object Object]"
-    nexttext="›"
+    nexttext="Next ›"
     perpage="2"
-    prevtext="‹"
+    prevtext="‹ Prev"
     totalitems="13"
     value="7"
   />
@@ -115,9 +115,9 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
     labelpage="page => \`Go to page \${page}\`"
     labelprevpage="Go to previous page"
     limits="[object Object]"
-    nexttext="›"
+    nexttext="Next ›"
     perpage="10"
-    prevtext="‹"
+    prevtext="‹ Prev"
     totalitems="13"
     value="2"
   />
@@ -263,7 +263,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
         class="page-link"
         href="#"
       >
-        ‹
+        ‹ Prev
       </span>
     </li>
     <li
@@ -307,7 +307,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
         class="page-link"
         href="#"
       >
-        ›
+        Next ›
       </a>
     </li>
   </ul>
@@ -518,7 +518,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
         class="page-link"
         href="#"
       >
-        ‹
+        ‹ Prev
       </span>
     </li>
     <li
@@ -551,7 +551,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
         class="page-link"
         href="#"
       >
-        ›
+        Next ›
       </a>
     </li>
   </ul>
@@ -1119,9 +1119,9 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
     labelpage="page => \`Go to page \${page}\`"
     labelprevpage="Go to previous page"
     limits="[object Object]"
-    nexttext="›"
+    nexttext="Next ›"
     perpage="10"
-    prevtext="‹"
+    prevtext="‹ Prev"
     totalitems="2"
     value="1"
   />
@@ -1169,9 +1169,9 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
     labelpage="page => \`Go to page \${page}\`"
     labelprevpage="Go to previous page"
     limits="[object Object]"
-    nexttext="›"
+    nexttext="Next ›"
     perpage="10"
-    prevtext="‹"
+    prevtext="‹ Prev"
     totalitems="1"
     value="1"
   />
@@ -1219,9 +1219,9 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
     labelpage="page => \`Go to page \${page}\`"
     labelprevpage="Go to previous page"
     limits="[object Object]"
-    nexttext="›"
+    nexttext="Next ›"
     perpage="10"
-    prevtext="‹"
+    prevtext="‹ Prev"
     totalitems="1"
     value="1"
   />
@@ -1269,9 +1269,9 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
     labelpage="page => \`Go to page \${page}\`"
     labelprevpage="Go to previous page"
     limits="[object Object]"
-    nexttext="›"
+    nexttext="Next ›"
     perpage="10"
-    prevtext="‹"
+    prevtext="‹ Prev"
     totalitems="1"
     value="1"
   />
