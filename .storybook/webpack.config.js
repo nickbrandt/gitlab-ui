@@ -10,12 +10,12 @@ module.exports = ({ config }) => {
       loader: 'raw-loader',
     },
     {
-      test: /\.css$/,
-      loaders: ['style-loader', 'css-loader'],
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader'],
     },
     {
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
+      test: /\.css$/,
+      loaders: ['style-loader', 'css-loader'],
     },
     {
       test: /\.vue$/,
