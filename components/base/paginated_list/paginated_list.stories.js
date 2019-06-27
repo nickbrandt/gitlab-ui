@@ -1,4 +1,4 @@
-import { withKnobs, object, boolean, number, text } from '@storybook/addon-knobs';
+import { withKnobs, object, array, boolean, number, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './paginated_list.md';
 import { GlPaginatedList, GlButton } from '../../../index';
@@ -23,6 +23,8 @@ const list = [
   { id: 'plugh' },
   { id: 'thud' },
 ];
+
+const emptyList = [];
 
 const template = `
   <gl-paginated-list
@@ -151,7 +153,7 @@ documentedStoriesOf('base|paginated-list', readme)
       ...generateProps(),
       filterable: {
         type: Boolean,
-        default: boolean('filterable', false),
+        default: false,
       },
     },
     components,
@@ -162,7 +164,7 @@ documentedStoriesOf('base|paginated-list', readme)
       ...generateProps(),
       list: {
         type: Array,
-        default: object('list', []),
+        default: array('list', emptyList),
       },
     },
     components,
