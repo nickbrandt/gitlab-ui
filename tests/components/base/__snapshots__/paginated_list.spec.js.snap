@@ -138,10 +138,8 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
       <input
         aria-label="Search"
         class="pl-5 form-control"
-        id="__BVID__69"
         placeholder="Search"
         type="text"
-        value=""
       />
        
       <div
@@ -328,10 +326,8 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       <input
         aria-label="Search"
         class="pl-5 form-control"
-        id="__BVID__50"
         placeholder="Search"
         type="text"
-        value=""
       />
        
       <div
@@ -572,10 +568,8 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       <input
         aria-label="Search"
         class="pl-5 form-control"
-        id="__BVID__61"
         placeholder="Search"
         type="text"
-        value=""
       />
        
       <div
@@ -808,7 +802,6 @@ exports[`Paginated List Search states renders the custom empty search message wh
         id="__BVID__42"
         placeholder="Search"
         type="text"
-        value="qux"
       />
        
       <div
@@ -875,7 +868,6 @@ exports[`Paginated List Search states renders the default empty search message w
         id="__BVID__26"
         placeholder="Search"
         type="text"
-        value="qux"
       />
        
       <div
@@ -942,7 +934,6 @@ exports[`Paginated List Search states renders the list flitered by search result
         id="__BVID__18"
         placeholder="Search"
         type="text"
-        value="ba"
       />
        
       <div

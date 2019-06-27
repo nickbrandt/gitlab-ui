@@ -1,6 +1,7 @@
 <script>
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
+import * as vueComponents from 'bootstrap-vue/src/components/index';
 import kebabCase from 'lodash/kebabCase';
 import camelCase from 'lodash/camelCase';
 import merge from 'lodash/merge';
@@ -65,7 +66,11 @@ export default {
       return this.bootstrapComponentName.replace('b-', '').toLowerCase();
     },
     bootstrapComponentOptions() {
-      const bootstrapComponent = Vue.options.components[camelCase(this.bootstrapComponentName)];
+      const bootstrapRegisterName = this.bootstrapComponentName
+        ? this.bootstrapComponentName[0].toUpperCase() +
+          camelCase(this.bootstrapComponentName).substr(1)
+        : '';
+      const bootstrapComponent = vueComponents[bootstrapRegisterName];
       return bootstrapComponent && bootstrapComponent.options ? bootstrapComponent.options : {};
     },
     componentPropertiesFields() {

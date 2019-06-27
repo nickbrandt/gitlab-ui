@@ -1,0 +1,4 @@
+// This is only a momentary fix and not a final decision how to do component styling - https://gitlab.com/gitlab-org/gitlab-ui/issues/293
+@import '../../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
+
+@import './dropdown/gl-dropdown';
