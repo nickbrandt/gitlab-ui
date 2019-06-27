@@ -10,7 +10,7 @@ export default {
     cssClasses: {
       type: Array,
       required: false,
-      default: () => ['gl-popover'],
+      default: () => [],
     },
   },
   methods: {
@@ -19,7 +19,7 @@ export default {
       // see https://github.com/bootstrap-vue/bootstrap-vue/issues/1983
       if (this.cssClasses.length > 0) {
         // eslint-disable-next-line no-underscore-dangle
-        this.$refs.bPopover._toolpop.getTipElement().classList.add(...this.cssClasses);
+        this.$refs.bPopover._toolpop.getTipElement().classList.add('gl-popover', ...this.cssClasses);
       }
     },
   },
