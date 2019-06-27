@@ -1,0 +1,9 @@
+.gl-dropdown {
+  .dropdown-header {
+    font-weight: 600;
+  }
+
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+}

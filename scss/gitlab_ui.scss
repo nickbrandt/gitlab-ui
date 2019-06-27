@@ -31,13 +31,12 @@
 @import '../node_modules/bootstrap/scss/utilities';
 @import '../node_modules/bootstrap/scss/print';
 
-@import './components/gitlab_ui_special';
-
 // Settings
 @import 'variables';
 @import 'mixins';
 
 // Components
 @import '../components/base/avatar/avatar';
+@import '../components/base/dropdown/dropdown';
 @import '../components/base/popover/popover';
 @import '../components/base/toast/toast';
