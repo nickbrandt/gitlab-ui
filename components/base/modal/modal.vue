@@ -35,6 +35,7 @@ export default {
   <b-modal
     :id="modalId"
     ref="modal"
+    class="gl-modal"
     :title-tag="titleTag"
     v-bind="$attrs"
     lazy
