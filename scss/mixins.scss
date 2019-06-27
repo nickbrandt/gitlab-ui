@@ -12,18 +12,14 @@
   max-width: $max-width;
 }
 
-/**
- * Mixin for fixed width container
- */
+// Mixin for fixed width container
 @mixin fixed-width-container {
   max-width: $limited-layout-width - ($gl-padding * 2);
   margin-left: auto;
   margin-right: auto;
 }
 
-/*
- * Base mixin for lists in GitLab
- */
+// Base mixin for lists in GitLab
 @mixin basic-list {
   margin: 5px 0;
   padding: 0;
@@ -99,9 +95,7 @@
   }
 }
 
-/*
- * Mixin for status badges, as used for pipelines and commit signatures
- */
+// Mixin for status badges, as used for pipelines and commit signatures
 @mixin status-color($color-light, $color-main, $color-dark) {
   color: $color-main;
   border-color: $color-main;
@@ -184,11 +178,8 @@
   }
 }
 
-/*
- * Mixin that fixes wrapping issues with long strings (e.g. URLs)
- *
- * Note: the width needs to be set for it to work in Firefox
- */
+// Mixin that fixes wrapping issues with long strings (e.g. URLs)
+// Note: the width needs to be set for it to work in Firefox
 @mixin overflow-break-word {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -196,9 +187,7 @@
   max-width: 100%;
 }
 
-/*
-* Mixin that handles the container for the job logs (CI/CD and kubernetes pod logs)
-*/
+// Mixin that handles the container for the job logs (CI/CD and kubernetes pod logs)
 @mixin build-trace {
   background: $black;
   color: $gray-darkest;
@@ -240,9 +229,7 @@
   }
 }
 
-/*
-* Mixin that handles the position of the controls placed on the top bar
-*/
+// Mixin that handles the position of the controls placed on the top bar
 @mixin build-controllers($control-font-size, $flex-direction, $with-grow, $flex-grow-size, $svg-display: 'block', $svg-top: '2px') {
   display: flex;
   font-size: $control-font-size;
@@ -383,9 +370,7 @@
   }
 }
 
-/*
-* Mixin that handles the size and right margin of avatars.
-*/
+// Mixin that handles the size and right margin of avatars.
 @mixin avatar-size($size, $margin-right) {
   width: $size;
   height: $size;
