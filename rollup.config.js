@@ -5,6 +5,7 @@ import { string } from 'rollup-plugin-string';
 import postcss from 'rollup-plugin-postcss';
 import svg from 'rollup-plugin-svg';
 import commonjs from 'rollup-plugin-commonjs';
+import replace from 'rollup-plugin-replace';
 import glob from 'glob';
 
 export default glob
@@ -32,6 +33,13 @@ export default glob
         file: `dist/${outputFilename}.js`,
       },
       plugins: [
+        replace({
+          delimiters: ['/* ', ' */'],
+          include: 'index.js',
+          values: {
+            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
+          },
+        }),
         postcss({
           extract: true,
           minimize: true,
