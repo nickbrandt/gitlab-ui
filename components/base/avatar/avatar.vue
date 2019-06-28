@@ -42,7 +42,7 @@ export default {
       return `s${this.size}`;
     },
     shapeClass() {
-      return this.shape === avatarShapeOptions.rect ? 'gl-rect-avatar' : '';
+      return this.shape === avatarShapeOptions.rect ? 'rect-avatar' : '';
     },
     identiconBackgroundClass() {
       /*
@@ -60,8 +60,8 @@ export default {
 </script>
 
 <template>
-  <img v-if="src" :src="src" :alt="alt" class="gl-avatar" :class="[sizeClass, shapeClass]"/>
-  <div v-else :class="[sizeClass, shapeClass, identiconBackgroundClass]" class="gl-avatar gl-avatar-identicon d-flex justify-content-center flex-column">
+  <img v-if="src" :src="src" :alt="alt" class="avatar" :class="[sizeClass, shapeClass]"/>
+  <div v-else :class="[sizeClass, shapeClass, identiconBackgroundClass]" class="avatar identicon d-flex justify-content-center flex-column">
     {{ identiconText }}
   </div>
 </template>

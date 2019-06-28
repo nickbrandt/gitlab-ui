@@ -11,7 +11,6 @@ export default {
 
 <template>
   <b-dropdown-header
-    class="gl-dropdown-header"
     v-bind="$attrs"
     v-on="$listeners"
   >

@@ -4,7 +4,6 @@ import { create } from '@storybook/theming';
 const req = require.context('../components', true, /\.stories\.js$/);
 
 import '../scss/storybook.scss';
-import '../scss/components/gitlab_ui_special.scss';
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
