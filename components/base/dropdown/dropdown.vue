@@ -57,6 +57,7 @@ export default {
 
 <template>
   <b-dropdown
+    class="gl-dropdown"
     v-bind="$attrs"
     :split="split"
     v-on="$listeners"
@@ -75,11 +76,3 @@ export default {
     </slot>
   </b-dropdown>
 </template>
-
-<style>
-/* This is temporary till we can properly support the split dropdown caret */
-/* https://gitlab.com/gitlab-org/gitlab-ui/issues/185 */
-.dropdown-toggle-split:after {
-  display: block;
-}
-</style>
