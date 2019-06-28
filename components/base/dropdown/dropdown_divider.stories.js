@@ -12,5 +12,5 @@ documentedStoriesOf('base|dropdown/dropdown-divider', readme)
   .add('default', () => ({
     props: {},
     components,
-    template: '<ul class="list-unstyled"><gl-dropdown-divider /></ul>',
+    template: '<gl-dropdown-divider />',
   }));
