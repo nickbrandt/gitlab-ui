@@ -3,7 +3,6 @@ import { create } from '@storybook/theming';
 
 const req = require.context('../components', true, /\.stories\.js$/);
 
-import '../styles/sb_specifics.css';
 import '../scss/components/gitlab_ui_special.scss';
 
 function loadStories() {
