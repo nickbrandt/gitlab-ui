@@ -9,6 +9,8 @@ jest.mock('echarts', () => ({
     dispatchAction: jest.fn(),
     resize: jest.fn(),
     setOption: jest.fn(),
+    on: jest.fn(),
+    off: jest.fn(),
   })),
   registerTheme: jest.fn(),
 }));
