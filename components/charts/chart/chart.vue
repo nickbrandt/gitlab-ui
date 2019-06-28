@@ -72,9 +72,13 @@ export default {
       this.chart.group = this.groupId;
       echarts.connect(this.groupId);
     }
+    this.chart.on('click', this.clickHandler);
     this.$emit('created', this.chart);
     this.draw();
     this.setChartSize();
+  },
+  beforeDestroy() {
+    this.chart.off('click', this.clickHandler);
   },
   methods: {
     draw() {
@@ -86,6 +90,9 @@ export default {
         width: this.width || 'auto',
         height: this.height || defaultHeight,
       });
+    },
+    clickHandler(params) {
+      this.$emit('chartItemClicked', { chart: this.chart, params });
     },
   },
 };
