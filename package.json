@@ -30,6 +30,7 @@
     "bootstrap": "4.3.1",
     "bootstrap-vue": "^2.0.0-rc.24",
     "copy-to-clipboard": "^3.0.8",
+    "core-js": "^2.6.9",
     "echarts": "^4.2.0-rc.2",
     "highlight.js": "^9.13.1",
     "js-beautify": "^1.8.8",
