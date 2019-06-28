@@ -12,5 +12,5 @@ documentedStoriesOf('base|dropdown/dropdown-header', readme)
   .add('default', () => ({
     props: {},
     components,
-    template: '<gl-dropdown-header>Some header</gl-dropdown-header>',
+    template: '<ul class="list-unstyled"><gl-dropdown-header>Some header</gl-dropdown-header></ul>',
   }));

@@ -1,9 +1,10 @@
 <template>
   <gl-heatmap
-    title="Errors per hour"
     :data-series="series"
     :x-axis-labels="xAxisLabels"
     :y-axis-labels="yAxisLabels"
+    :x-axis-name="xAxisName"
+    :y-axis-name="yAxisName"
   />
 </template>
 
@@ -52,7 +53,9 @@ export default {
         '10',
         '11',
       ],
-      yAxisLabels: ['Saturday', 'Friday', 'Thursday', 'Wednesday', 'Tuesday', 'Monday', 'Sunday'],
+      yAxisLabels: ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
+      xAxisName: 'Hour',
+      yAxisName: 'Day',
     };
   },
 };
