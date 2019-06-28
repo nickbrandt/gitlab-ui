@@ -1,3 +1,4 @@
+import path from 'path';
 import babel from 'rollup-plugin-babel';
 import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
@@ -59,6 +60,7 @@ export default glob
           extract: true,
           minimize: true,
           sourceMap: true,
+          use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
         }),
         svg(),
         string({
