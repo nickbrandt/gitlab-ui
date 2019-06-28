@@ -11,11 +11,34 @@ module.exports = ({ config }) => {
     },
     {
       test: /\.scss$/,
-      loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      loaders: [
+        'vue-style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[local]_[hash:base64:8]'
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            data: `@import "./scss/variables.scss";`
+          }
+        }],
     },
     {
       test: /\.css$/,
-      loaders: ['style-loader', 'css-loader'],
+      loaders: [
+        'vue-style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[local]_[hash:base64:8]'
+          }
+        }
+      ],
     },
     {
       test: /\.vue$/,

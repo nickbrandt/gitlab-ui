@@ -39,10 +39,10 @@ export default {
   },
   computed: {
     sizeClass() {
-      return `s${this.size}`;
+      return this.$style[`s${this.size}`];
     },
     shapeClass() {
-      return this.shape === avatarShapeOptions.rect ? 'rect-avatar' : '';
+      return this.shape === avatarShapeOptions.rect ? this.$style['gl-rect-avatar'] : '';
     },
     identiconBackgroundClass() {
       /*
@@ -50,7 +50,7 @@ export default {
       * Gets the remainder after dividing the 'entityId' by the number of available backgrounds.
       */
       const type = (this.entityId % IDENTICON_BG_COUNT) + 1;
-      return `bg${type}`;
+      return this.$style[`bg${type}`];
     },
     identiconText() {
       return this.entityName ? this.entityName.charAt(0).toUpperCase() : '';
@@ -60,8 +60,12 @@ export default {
 </script>
 
 <template>
-  <img v-if="src" :src="src" :alt="alt" class="avatar" :class="[sizeClass, shapeClass]"/>
-  <div v-else :class="[sizeClass, shapeClass, identiconBackgroundClass]" class="avatar identicon d-flex justify-content-center flex-column">
+  <img v-if="src" :src="src" :alt="alt" class="gl-avatar" :class="[$style['gl-avatar'], sizeClass, shapeClass]"/>
+  <div v-else :class="[sizeClass, shapeClass, identiconBackgroundClass]" class="gl-avatar gl-avatar-identicon d-flex justify-content-center flex-column">
     {{ identiconText }}
   </div>
 </template>
+
+<style lang="scss" module>
+  @import "./avatar.scss";
+</style>
