@@ -1,7 +1,0 @@
-/* Special style needed as the single dropdown items don't add a ul list anymore */
-#base-dropdown-dropdown-item--default li,
-#base-dropdown-dropdown-item--with-href li,
-#base-dropdown-dropdown-header--default li,
-#base-dropdown-dropdown-divider--default li {
-  list-style: none;
-}
