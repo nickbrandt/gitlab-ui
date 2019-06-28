@@ -22,9 +22,7 @@
     "storybook-static": "yarn storybook-prep && build-storybook -c .storybook -o storybook  -s ./styles",
     "test": "NODE_ENV=test yarn run storybook-static && jest --detectOpenHandles",
     "eslint": "eslint --ext .js,.vue .",
-    "eslint:fix": "yarn eslint --fix",
-    "stylelint": "stylelint scss/**/*.scss components/**/*.scss",
-    "stylelint:fix": "yarn stylelint --fix"
+    "eslint:fix": "yarn eslint --fix"
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
@@ -86,8 +84,6 @@
     "sass-loader": "^7.1.0",
     "semantic-release": "15",
     "storybook-readme": "^4.0.5",
-    "stylelint": "^10.1.0",
-    "stylelint-scss": "^3.8.0",
     "vue-jest": "^4.0.0-beta.2",
     "vue-template-compiler": "^2.5.21"
   },

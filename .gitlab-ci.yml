@@ -47,7 +47,6 @@ lint:
   script:
     - yarn eslint
     - yarn prettier --list-different '**/*.{js,vue}'
-    - yarn stylelint
 
 visual:
   extends: .yarn_install
