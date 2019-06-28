@@ -26,7 +26,8 @@ export default {
     Vue.use(Toasted, DEFAULT_OPTIONS);
 
     Vue.prototype.$toast = {
-      show: (message, options = {}) => Vue.toasted.show(message, this.generateOptions(options)),
+      show: (message, options = {}) =>
+        Vue.toasted.show(`<span>${message}</span>`, this.generateOptions(options)),
     };
   },
   generateOptions(options) {

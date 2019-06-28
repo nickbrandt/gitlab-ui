@@ -10,3 +10,10 @@ rules:
   - error
   - "^[a-z_]+(\\.stories|\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
   import/no-extraneous-dependencies: off
+  no-restricted-imports:
+  - error
+  # We only should be consuming bootstrap-vue components from `src/`
+  - patterns:
+      - "bootstrap-vue/*"
+      - "!bootstrap-vue/src"
+      - "!bootstrap-vue/package.json"
