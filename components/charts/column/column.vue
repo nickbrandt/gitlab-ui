@@ -1,12 +1,9 @@
 <script>
-import mergeWith from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
-import defaultChartOptions, {
-  additiveArrayMerge,
-  dataZoomAdjustments,
-} from '../../../utils/charts/config';
+import defaultChartOptions, { dataZoomAdjustments } from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 
@@ -80,7 +77,7 @@ export default {
       });
     },
     options() {
-      return mergeWith(
+      const mergedOptions = merge(
         {},
         defaultChartOptions,
         {
@@ -109,16 +106,20 @@ export default {
               show: false,
             },
           },
-          series: this.series,
           legend: {
             show: false,
           },
         },
-        dataZoomAdjustments(this.option.dataZoom),
-        this.toolboxAdjustments,
         this.option,
-        additiveArrayMerge
+        dataZoomAdjustments(this.option.dataZoom),
+        this.toolboxAdjustments
       );
+      // All chart options can be merged but series
+      // needs to be concatenated.
+      return {
+        ...mergedOptions,
+        series: [...this.series, ...(this.option.series || [])],
+      };
     },
   },
   beforeDestroy() {
@@ -142,7 +143,7 @@ export default {
     onLabelChange(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
-          const [title, value] = bar.value;
+          const [title, value] = bar.value || [];
           acc.tooltipContent[bar.seriesName] = value;
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
@@ -165,12 +166,7 @@ export default {
 </script>
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" @created="onCreated" @updated="onUpdated"/>
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -178,15 +174,8 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <div slot="title">
-        {{ tooltipTitle }}
-      </div>
-      <div
-        v-for="(value, label) in tooltipContent"
-        :key="label + value"
-      >
-        {{ value }}
-      </div>
+      <div slot="title">{{ tooltipTitle }}</div>
+      <div v-for="(value, label) in tooltipContent" :key="label + value">{{ value }}</div>
     </chart-tooltip>
   </div>
 </template>

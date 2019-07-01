@@ -1,10 +1,17 @@
 export const defaultDataZoomConfig = {
-  dataZoom: {
-    bottom: 22,
-    filterMode: 'none',
-    minSpan: 0.01,
-    type: 'slider',
-  },
+  dataZoom: [
+    {
+      bottom: 22,
+      filterMode: 'none',
+      minSpan: 0.01,
+      type: 'slider',
+    },
+    {
+      type: 'inside',
+      filterMode: 'none',
+      minSpan: 0.01,
+    },
+  ],
   grid: {
     bottom: 81,
   },

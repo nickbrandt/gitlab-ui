@@ -1,14 +1,13 @@
 <script>
-import mergeWith from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
-  getDataZoomConfig,
   getThresholdConfig,
-  additiveArrayMerge,
+  dataZoomAdjustments,
   defaultAreaOpacity,
   lineStyle,
 } from '../../../utils/charts/config';
@@ -69,8 +68,7 @@ export default {
         const defaultColor = colorFromPalette(index);
         const getColor = type =>
           series[type] && series[type].color ? series[type].color : defaultColor;
-
-        return mergeWith(
+        return merge(
           {
             areaStyle: {
               opacity: defaultAreaOpacity,
@@ -86,13 +84,12 @@ export default {
           },
           lineStyle,
           series,
-          getThresholdConfig(this.thresholds),
-          additiveArrayMerge
+          getThresholdConfig(this.thresholds)
         );
       });
     },
     options() {
-      return mergeWith(
+      const mergedOpts = merge(
         {},
         defaultChartOptions,
         {
@@ -109,21 +106,20 @@ export default {
               show: false,
             },
           },
-          series: this.series,
           legend: {
             show: false,
           },
         },
-        this.dataZoomAdjustments,
-        this.toolboxAdjustments,
         this.option,
-        additiveArrayMerge
+        dataZoomAdjustments(this.option.dataZoom),
+        this.toolboxAdjustments
       );
-    },
-    dataZoomAdjustments() {
-      const useSlider = Boolean(this.option.dataZoom);
-
-      return useSlider ? getDataZoomConfig() : {};
+      // All chart options can be merged but series
+      // needs to be concatenated.
+      return {
+        ...mergedOpts,
+        series: [...this.series, ...(this.option.series || [])],
+      };
     },
     compiledOptions() {
       return this.chart ? this.chart.getOption() : null;
@@ -153,7 +149,7 @@ export default {
     defaultFormatTooltipText(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, line) => {
-          const [title, value] = line.value;
+          const [title, value] = line.value || [];
           acc.tooltipContent[line.seriesName] = value;
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
@@ -182,8 +178,12 @@ export default {
     },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
-      if (params.seriesData.length) {
-        const [left, top] = this.chart.convertToPixel('grid', params.seriesData[0].data);
+      const { seriesData = [] } = params;
+      // seriesData is an array of nearby data point coordinates
+      // seriesData[0] is the nearest point at which the tooltip is displayed
+      // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
+      if (seriesData.length && seriesData[0].data) {
+        const [left, top] = this.chart.convertToPixel('grid', seriesData[0].data);
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
