@@ -6,6 +6,4 @@ Issue: https://gitlab.com/gitlab-org/gitlab-ui/issues/293
 Please note that we don't import with the css file extension, as sassc-rails
 converts them to CSS native URL imports and doesn't include them into the bundle
 */
-@import 'bootstrap-vue/dist/bootstrap-vue';
-
 @import './dropdown/gl-dropdown';

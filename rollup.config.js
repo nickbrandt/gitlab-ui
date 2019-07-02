@@ -1,10 +1,12 @@
+import path from 'path';
 import babel from 'rollup-plugin-babel';
 import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
 import { string } from 'rollup-plugin-string';
-import css from 'rollup-plugin-css-porter';
+import postcss from 'rollup-plugin-postcss';
 import svg from 'rollup-plugin-svg';
 import commonjs from 'rollup-plugin-commonjs';
+import replace from 'rollup-plugin-replace';
 import glob from 'glob';
 
 import { dependencies as bootstrapVueDependencies } from 'bootstrap-vue/package.json';
@@ -47,8 +49,18 @@ export default glob
         file: `dist/${outputFilename}.js`,
       },
       plugins: [
-        css({
-          dest: 'dist/gitlab_ui.css',
+        replace({
+          delimiters: ['/* ', ' */'],
+          include: 'index.js',
+          values: {
+            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
+          },
+        }),
+        postcss({
+          extract: true,
+          minimize: true,
+          sourceMap: true,
+          use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
         }),
         svg(),
         string({
