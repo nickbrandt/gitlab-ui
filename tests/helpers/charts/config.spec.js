@@ -1,6 +1,10 @@
 import merge from 'lodash/merge';
-import { getDataZoomConfig, getThresholdConfig } from '../../../utils/charts/config';
-import { defaultDataZoomConfig } from './data';
+import {
+  getDataZoomConfig,
+  getThresholdConfig,
+  mergeSeriesToOptions,
+} from '../../../utils/charts/config';
+import { defaultDataZoomConfig, defaultChartOptions } from './data';
 
 describe('chart config helpers', () => {
   describe('getThresholdConfig', () => {
@@ -92,6 +96,47 @@ describe('chart config helpers', () => {
       });
 
       expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('mergeSeriesToOptions', () => {
+    const series = {
+      areaStyle: {
+        opacity: 0.2,
+        color: '#1f78d1',
+      },
+      showSymbol: false,
+      lineStyle: {
+        color: '#1f78d1',
+      },
+      itemStyle: {
+        color: '#1f78d1',
+      },
+      symbol: 'circle',
+      type: 'line',
+      width: 2,
+      name: 'Values',
+      data: [[0, 5], [4, 3], [8, 10]],
+    };
+    it('creates chart options with single series as object', () => {
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, series);
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(1);
+    });
+
+    it('creates chart options with single series as array', () => {
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series]);
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(1);
+    });
+
+    it('creates chart options with multiple series as array', () => {
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series, series]);
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(2);
     });
   });
 });
