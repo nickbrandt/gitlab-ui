@@ -13,6 +13,7 @@ export { default as GlBadge } from './components/base/badge/badge.vue';
 export { default as GlButton } from './components/base/button/button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
 export { default as GlToast } from './components/base/toast/toast';
+export { default as GlCard } from './components/base/card/card.vue';
 export {
   default as GlDashboardSkeleton,
 } from './components/regions/dashboard_skeleton/dashboard_skeleton.vue';
