@@ -6,6 +6,10 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "repository": "git@gitlab.com:gitlab-org/gitlab-ui.git",
   "author": "GitLab",
   "private": false,
@@ -50,7 +54,8 @@
     "resize-observer-polyfill": "^1.5.1",
     "url-search-params-polyfill": "^5.0.0",
     "vue": "^2.6.10",
-    "vue-loader": "^15.4.2"
+    "vue-loader": "^15.4.2",
+    "vue-runtime-helpers": "^1.1.2"
   },
   "peerDependencies": {
     "@gitlab/svgs": "^1.100.0",
