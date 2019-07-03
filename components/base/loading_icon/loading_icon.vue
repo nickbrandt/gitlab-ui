@@ -4,6 +4,13 @@ const sizes = {
   md: 'md',
   lg: 'lg',
 };
+const sizeToStringMap = {
+  1: sizes.sm,
+  2: sizes.md,
+  3: sizes.md,
+  4: sizes.lg,
+  5: sizes.lg,
+};
 const colors = {
   orange: 'orange',
   dark: 'dark',
@@ -54,7 +61,7 @@ export default {
         : this.spinnerColor + this.spinnerSizeCss;
     },
     sizeToString() {
-      return this.size > 3 ? sizes.lg : sizes.md;
+      return sizeToStringMap[this.size] || defaultSize;
     },
     isSizeString() {
       return Number.isNaN(parseInt(this.size, 10));
