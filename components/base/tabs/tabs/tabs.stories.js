@@ -1,18 +1,27 @@
-import { withKnobs } from '@storybook/addon-knobs/vue';
+import { withKnobs, select } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../../../../utils/documented_stories';
 import { GlTabs, GlTab } from '../../../../index';
+import { glThemes } from '../../../../utils/constants';
 
-const components = {
-  GlTabs,
-  GlTab,
-};
+const createBaseStory = () => ({
+  components: {
+    GlTabs,
+    GlTab,
+  },
+  props: {
+    theme: {
+      type: String,
+      default: select('theme', glThemes, 'indigo'),
+    },
+  },
+});
 
 documentedStoriesOf('base|tabs/tabs', '')
   .addDecorator(withKnobs)
   .add('default', () => ({
-    components,
+    ...createBaseStory(),
     template: `
-      <gl-tabs>
+      <gl-tabs :theme="theme">
         <gl-tab title="First">
           first tab content
         </gl-tab>
@@ -23,9 +32,9 @@ documentedStoriesOf('base|tabs/tabs', '')
     `,
   }))
   .add('contentless tab', () => ({
-    components,
+    ...createBaseStory(),
     template: `
-      <gl-tabs>
+      <gl-tabs :theme="theme">
         <gl-tab title="Regular tab">
           <p>Regular tab content.</p>
           <p>The contentless tab is not selectable, as it has no content. This is useful for displaying things that aren't really tabs after the list of tabs.</p>
@@ -42,9 +51,9 @@ documentedStoriesOf('base|tabs/tabs', '')
     `,
   }))
   .add('empty state', () => ({
-    components,
+    ...createBaseStory(),
     template: `
-      <gl-tabs>
+      <gl-tabs :theme="theme">
         <template v-slot:empty>
           This content is only displayed when there are no tabs. Useful for dynamically added/removed tabs.
         </template>

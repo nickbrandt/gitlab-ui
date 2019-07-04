@@ -3,6 +3,7 @@ import DisabledTabExample from './tabs.disabled.example.vue';
 import CustomTitleExample from './tabs.custom_title.example.vue';
 import ContentlessTabExample from './tabs.contentless_tab.example.vue';
 import NoTabsExample from './tabs.no_tabs.example.vue';
+import TabsWithCounterBadges from './tabs.counterbadges.example.vue';
 
 export default [
   {
@@ -37,6 +38,11 @@ export default [
         name: 'Empty state when no tabs',
         description: 'Empty state/content for when there are no tabs',
         component: NoTabsExample,
+      },
+      {
+        id: 'tabs-with-counter-badges',
+        name: 'Tabs with counter badges',
+        component: TabsWithCounterBadges,
       },
     ],
   },
