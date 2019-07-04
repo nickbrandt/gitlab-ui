@@ -1,22 +1,12 @@
-import mergeWith from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import {
-  additiveArrayMerge,
   getDataZoomConfig,
   getThresholdConfig,
+  mergeSeriesToOptions,
 } from '../../../utils/charts/config';
-import { defaultDataZoomConfig } from './data';
+import { defaultDataZoomConfig, defaultChartOptions } from './data';
 
 describe('chart config helpers', () => {
-  describe('additiveArrayMerge', () => {
-    it('concatenates arguments if the first is an array', () => {
-      expect(additiveArrayMerge([], 1)).toEqual([1]);
-    });
-
-    it('returns undefined when first value is not an array', () => {
-      expect(additiveArrayMerge(1, [])).toEqual(undefined);
-    });
-  });
-
   describe('getThresholdConfig', () => {
     const makeThreshold = (threshold, operator) => [
       {
@@ -86,14 +76,67 @@ describe('chart config helpers', () => {
 
     it('allows the filterMode to be set', () => {
       const actual = getDataZoomConfig({ filterMode: 'filter' });
-      const expected = mergeWith(defaultDataZoomConfig, {
-        dataZoom: {
+      // After https://gitlab.com/gitlab-org/gitlab-ui/issues/240
+      // all default dataZoom configs will have slider & inside.
+      // inside is specifically to enable touch zoom for mobile devices
+      const dataZoomWithFilter = [
+        {
+          type: 'slider',
           filterMode: 'filter',
           minSpan: null,
         },
+        {
+          type: 'inside',
+          filterMode: 'filter',
+          minSpan: null,
+        },
+      ];
+      const expected = merge(defaultDataZoomConfig, {
+        dataZoom: dataZoomWithFilter,
       });
 
       expect(actual).toEqual(expected);
+    });
+  });
+
+  describe('mergeSeriesToOptions', () => {
+    const series = {
+      areaStyle: {
+        opacity: 0.2,
+        color: '#1f78d1',
+      },
+      showSymbol: false,
+      lineStyle: {
+        color: '#1f78d1',
+      },
+      itemStyle: {
+        color: '#1f78d1',
+      },
+      symbol: 'circle',
+      type: 'line',
+      width: 2,
+      name: 'Values',
+      data: [[0, 5], [4, 3], [8, 10]],
+    };
+    it('creates chart options with single series as object', () => {
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, series);
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(1);
+    });
+
+    it('creates chart options with single series as array', () => {
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series]);
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(1);
+    });
+
+    it('creates chart options with multiple series as array', () => {
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series, series]);
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(2);
     });
   });
 });

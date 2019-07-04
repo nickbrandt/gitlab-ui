@@ -24,11 +24,11 @@ function generateProps({ page = 3, perPage = 10, totalItems = 200 } = {}) {
     },
     prevText: {
       type: String,
-      default: text('Prev button text', '‹ Prev'),
+      default: text('Prev button text', '‹ Prev'),
     },
     nextText: {
       type: String,
-      default: text('Next button text', 'Next ›'),
+      default: text('Next button text', 'Next ›'),
     },
     size: {
       type: String,

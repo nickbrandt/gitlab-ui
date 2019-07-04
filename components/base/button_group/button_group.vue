@@ -1,5 +1,5 @@
 <script>
-import BButtonGroup from 'bootstrap-vue/es/components/button-group/button-group';
+import BButtonGroup from 'bootstrap-vue/src/components/button-group/button-group';
 
 export default {
   components: {

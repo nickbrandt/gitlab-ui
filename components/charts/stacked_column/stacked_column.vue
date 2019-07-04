@@ -1,13 +1,13 @@
 <script>
-import mergeWith from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
-  additiveArrayMerge,
   dataZoomAdjustments,
+  mergeSeriesToOptions,
 } from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
@@ -96,7 +96,7 @@ export default {
       });
     },
     options() {
-      return mergeWith(
+      const mergedOptions = merge(
         {},
         defaultChartOptions,
         {
@@ -126,16 +126,17 @@ export default {
               show: false,
             },
           },
-          series: this.series,
           legend: {
             show: false,
           },
         },
-        dataZoomAdjustments(this.option.dataZoom),
-        this.toolboxAdjustments,
         this.option,
-        additiveArrayMerge
+        dataZoomAdjustments(this.option.dataZoom),
+        this.toolboxAdjustments
       );
+      // All chart options can be merged but series
+      // needs to be handled specially
+      return mergeSeriesToOptions(mergedOptions, this.series);
     },
     legendStyle() {
       return { paddingLeft: `${grid.left}px` };
@@ -210,12 +211,7 @@ export default {
 </script>
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" @created="onCreated" @updated="onUpdated"/>
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -223,9 +219,7 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <div slot="title">
-        {{ tooltipTitle }}
-      </div>
+      <div slot="title">{{ tooltipTitle }}</div>
       <div
         v-for="(value, label) in tooltipContent"
         :key="label + value.value"

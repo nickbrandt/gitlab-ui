@@ -1,4 +1,7 @@
 import merge from 'lodash/merge';
+import castArray from 'lodash/castArray';
+import isArray from 'lodash/isArray';
+import { engineeringNotation } from '../number_utils';
 
 export const defaultAreaOpacity = 0.2;
 export const defaultFontSize = 12;
@@ -20,6 +23,9 @@ export const xAxis = merge({}, axes, {
 
 export const yAxis = merge({}, axes, {
   nameGap: 50,
+  axisLabel: {
+    formatter: num => engineeringNotation(num, 2),
+  },
 });
 
 export const grid = {
@@ -37,6 +43,9 @@ export const lineStyle = {
 
 export const symbolSize = 6;
 
+// After https://gitlab.com/gitlab-org/gitlab-ui/issues/240
+// all default dataZoom configs will have slider & inside.
+// inside is specifically to enable touch zoom for mobile devices
 export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
   grid: {
     bottom: 81,
@@ -44,18 +53,38 @@ export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
   xAxis: {
     nameGap: 67,
   },
-  dataZoom: {
-    type: 'slider',
-    bottom: 22,
-    filterMode,
-    minSpan: filterMode === 'none' ? 0.01 : null,
-  },
+  dataZoom: [
+    {
+      type: 'slider',
+      bottom: 22,
+      filterMode,
+      minSpan: filterMode === 'none' ? 0.01 : null,
+    },
+    {
+      type: 'inside',
+      filterMode,
+      minSpan: filterMode === 'none' ? 0.01 : null,
+    },
+  ],
 });
 
-export const dataZoomAdjustments = dataZoom => {
-  const useSlider = !!dataZoom;
+// All chart options can be merged but series
+// needs to be concatenated.
+// Series can be an object for single series or
+// an array of objects.
+export const mergeSeriesToOptions = (options, series = []) => {
+  const { series: optSeries = [] } = options;
+  return {
+    ...options,
+    series: [...optSeries, ...castArray(series)],
+  };
+};
 
-  return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : {};
+export const dataZoomAdjustments = dataZoom => {
+  // handle cases where dataZoom is array and object.
+  const useSlider = dataZoom && isArray(dataZoom) ? dataZoom.length : Boolean(dataZoom);
+
+  return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : [];
 };
 
 export const getToolboxConfig = ({
@@ -93,15 +122,6 @@ export const getToolboxConfig = ({
 
   return toolboxConfig;
 };
-
-/**
- * Meant to be used with Lodash mergeWith
- * Returning undefined will prompt the default merge strategy
- * This function concatenates arrays and uses default merge for everything else
- */
-export function additiveArrayMerge(objValue, srcValue) {
-  return Array.isArray(objValue) ? objValue.concat(srcValue) : undefined;
-}
 
 export function getThresholdConfig(thresholds) {
   if (!thresholds.length) {

@@ -1,5 +1,5 @@
 export const getResetAnimationsCSS = () => `
-  * {
+  *, *::after, *::before {
     -webkit-transition: none !important;
     -moz-transition: none !important;
     -ms-transition: none !important;
@@ -11,10 +11,6 @@ export const getResetAnimationsCSS = () => `
     -ms-animation: none !important;
     -o-animation: none !important;
     animation: none !important;
-  }
-
-  .animation-container [class^="skeleton-line-"]::after {
-    display: none;
   }`;
 
 export default getResetAnimationsCSS;

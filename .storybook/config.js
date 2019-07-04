@@ -1,11 +1,21 @@
-import { configure, addParameters } from '@storybook/vue';
+import { configure, addParameters, addDecorator } from '@storybook/vue';
 import { create } from '@storybook/theming';
 
 const req = require.context('../components', true, /\.stories\.js$/);
 
+import '../scss/storybook.scss';
+
 function loadStories() {
   req.keys().forEach(filename => req(filename));
 }
+
+function addSbClass(c, a) {
+  return {
+    template: `<div id="${a.id}" class="sb-story"><story/></div>`,
+  };
+}
+
+addDecorator(addSbClass);
 
 addParameters({
   options: {

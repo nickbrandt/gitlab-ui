@@ -1,15 +1,15 @@
 <script>
-import mergeWith from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
-  getDataZoomConfig,
   getThresholdConfig,
-  additiveArrayMerge,
+  dataZoomAdjustments,
   symbolSize,
+  mergeSeriesToOptions,
   lineStyle,
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
@@ -67,20 +67,19 @@ export default {
   computed: {
     series() {
       return this.data.map(series =>
-        mergeWith(
+        merge(
           {
             showSymbol: true,
           },
           symbolSize,
           lineStyle,
           series,
-          this.thresholds === null ? {} : getThresholdConfig(this.thresholds),
-          additiveArrayMerge
+          this.thresholds === null ? {} : getThresholdConfig(this.thresholds)
         )
       );
     },
     options() {
-      return mergeWith(
+      const mergedOptions = merge(
         {},
         defaultChartOptions,
         {
@@ -99,20 +98,17 @@ export default {
               },
             },
           },
-          series: this.series,
           legend: {
             show: false,
           },
         },
-        this.dataZoomAdjustments,
         this.option,
-        additiveArrayMerge
+        dataZoomAdjustments(this.option.dataZoom),
+        this.toolboxAdjustments
       );
-    },
-    dataZoomAdjustments() {
-      const useSlider = !!this.option.dataZoom;
-
-      return useSlider ? getDataZoomConfig() : {};
+      // All chart options can be merged but series
+      // needs to be handled specially
+      return mergeSeriesToOptions(mergedOptions, this.series);
     },
     compiledOptions() {
       return this.chart ? this.chart.getOption() : null;
@@ -142,7 +138,7 @@ export default {
     defaultFormatTooltipText(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, line) => {
-          const [title, value] = line.value;
+          const [title, value] = line.value || [];
           acc.tooltipContent[line.seriesName] = value;
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
@@ -171,8 +167,12 @@ export default {
     },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
-      if (params.seriesData.length) {
-        const [left, top] = this.chart.convertToPixel('grid', params.seriesData[0].data);
+      const { seriesData = [] } = params;
+      // seriesData is an array of nearby data point coordinates
+      // seriesData[0] is the nearest point at which the tooltip is displayed
+      // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
+      if (seriesData.length && seriesData[0].data) {
+        const [left, top] = this.chart.convertToPixel('grid', seriesData[0].data);
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
@@ -185,12 +185,7 @@ export default {
 
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" @created="onCreated" @updated="onUpdated"/>
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -203,13 +198,8 @@ export default {
         <slot name="tooltipContent"></slot>
       </template>
       <template v-else>
-        <div slot="title">
-          {{ tooltipTitle }}
-        </div>
-        <div
-          v-for="(value, label) in tooltipContent"
-          :key="label + value"
-        >
+        <div slot="title">{{ tooltipTitle }}</div>
+        <div v-for="(value, label) in tooltipContent" :key="label + value">
           {{ label }}
           {{ value }}
         </div>

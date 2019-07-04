@@ -1,12 +1,12 @@
 variables:
-  PUPPETEER_VERSION: "1.13.0"
+  PUPPETEER_VERSION: '1.18.0'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
 
 stages:
-    - pre-build
-    - build-and-check
-    - deploy
-    - release
+  - pre-build
+  - build-and-check
+  - deploy
+  - release
 
 .yarn_install:
   image: $PUPPETEER_IMAGE
@@ -22,7 +22,7 @@ build_docker_image:
   image: docker:stable
   stage: pre-build
   script:
-    - "mkdir -p ~/.docker"
+    - 'mkdir -p ~/.docker'
     - >
       echo '{"experimental": "enabled"}' > ~/.docker/config.json
     - docker info
@@ -45,8 +45,9 @@ lint:
   dependencies: []
   stage: build-and-check
   script:
-    - yarn lint
+    - yarn eslint
     - yarn prettier --list-different '**/*.{js,vue}'
+    - yarn stylelint
 
 visual:
   extends: .yarn_install

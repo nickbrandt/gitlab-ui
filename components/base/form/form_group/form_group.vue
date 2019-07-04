@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <template>
-  <b-form-group v-bind="$attrs">
+  <b-form-group v-bind="$attrs" label-class="col-form-label">
     <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
   </b-form-group>
 </template>

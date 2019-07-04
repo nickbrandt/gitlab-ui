@@ -70,10 +70,12 @@ documentedStoriesOf('charts|stacked-column-chart', readme)
     data() {
       return generateData({
         option: {
-          dataZoom: {
-            startValue: 1,
-            handleIcon: getSvgEchartsPath('scroll-handle'),
-          },
+          dataZoom: [
+            {
+              startValue: 1,
+              handleIcon: getSvgEchartsPath('scroll-handle'),
+            },
+          ],
         },
       });
     },

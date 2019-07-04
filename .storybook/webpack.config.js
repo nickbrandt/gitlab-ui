@@ -10,8 +10,15 @@ module.exports = ({ config }) => {
       loader: 'raw-loader',
     },
     {
-      test: /\.css$/,
-      loaders: ['style-loader', 'css-loader'],
+      test: /\.s?css$/,
+      loaders: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: { includePaths: [require('path').resolve(__dirname, '..', 'node_modules')] },
+        },
+      ],
     },
     {
       test: /\.vue$/,
@@ -23,6 +30,8 @@ module.exports = ({ config }) => {
       loader: 'raw-loader',
     },
   ];
+
+  config.resolve.extensions = ['.css', ...config.resolve.extensions];
 
   config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
 

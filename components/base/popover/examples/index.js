@@ -27,7 +27,7 @@ export default [
       {
         id: 'popover-content',
         name: 'Slot Content',
-        description: 'Popover with HTML and Vue component inside the slot',
+        description: 'Popover with HTML inside the slot',
         component: PopoverContentExample,
       },
       {

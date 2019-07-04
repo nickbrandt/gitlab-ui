@@ -1,6 +1,7 @@
 <script>
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
+import * as vueComponents from 'bootstrap-vue/src/components/index';
 import kebabCase from 'lodash/kebabCase';
 import camelCase from 'lodash/camelCase';
 import merge from 'lodash/merge';
@@ -28,9 +29,11 @@ function getPropDefaultValue(defaultValue) {
   if (!isString(defaultValue) && !isUndefined(defaultValue)) {
     returnValue = JSON.stringify(defaultValue);
   }
-  if (defaultValue === null) {
-    returnValue = 'null';
+
+  if (defaultValue === null || defaultValue === undefined) {
+    returnValue = String(defaultValue);
   }
+
   if (isString(returnValue)) returnValue = returnValue.replace(/"/g, "'");
   return returnValue;
 }
@@ -63,7 +66,11 @@ export default {
       return this.bootstrapComponentName.replace('b-', '').toLowerCase();
     },
     bootstrapComponentOptions() {
-      const bootstrapComponent = Vue.options.components[camelCase(this.bootstrapComponentName)];
+      const bootstrapRegisterName = this.bootstrapComponentName
+        ? this.bootstrapComponentName[0].toUpperCase() +
+          camelCase(this.bootstrapComponentName).substr(1)
+        : '';
+      const bootstrapComponent = vueComponents[bootstrapRegisterName];
       return bootstrapComponent && bootstrapComponent.options ? bootstrapComponent.options : {};
     },
     componentPropertiesFields() {
@@ -145,8 +152,13 @@ export default {
         }
 
         // Getting the defaultValue and setting it then also the value
-
-        propsInfo.val = getPropDefaultValue(selProp.default);
+        if (propsInfo.type === 'Function' && isFunction(selProp.default)) {
+          propsInfo.val = selProp.default.toString();
+        } else if ('default' in selProp) {
+          propsInfo.val = getPropDefaultValue(selProp.default);
+        } else {
+          propsInfo.val = '';
+        }
 
         // If we have an enum on this property we assign it and look up its values in the constant file
         if (selProp.enum) {
@@ -233,7 +245,7 @@ export default {
             :key="`event-${field.item.event}-${argument.arg ? argument.arg : 'none'}`"
           >
             <code v-if="argument.arg">{{ argument.arg }}</code>
-            <span>{{ argument.description }}</span>>
+            <span>{{ argument.description }}</span>
           </div>
         </template>
       </b-table>

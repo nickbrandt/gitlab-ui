@@ -59,12 +59,12 @@ export default {
     prevText: {
       type: String,
       required: false,
-      default: '‹',
+      default: '‹ Prev',
     },
     nextText: {
       type: String,
       required: false,
-      default: '›',
+      default: 'Next ›',
     },
     ellipsisText: {
       type: String,
@@ -268,7 +268,7 @@ export default {
   <ul
     v-if="totalPages > 1"
     role="navigation"
-    class="pagination gl-pagination"
+    class="pagination gl-pagination text-nowrap"
     :class="wrapperClasses"
     aria-label="Pagination"
   >

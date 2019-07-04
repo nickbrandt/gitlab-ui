@@ -1,4 +1,4 @@
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './empty_state.md';
 import { GlEmptyState } from '../../../index';
@@ -14,12 +14,13 @@ const template = `
     :description="description"
     :primaryButtonText="primaryButtonText"
     :secondaryButtonText="secondaryButtonText"
+    :compact="compact"
     primaryButtonLink="#"
     secondaryButtonLink="#"
   />
 `;
 
-function generateProps() {
+function generateProps({ compact = false } = {}) {
   return {
     title: {
       type: String,
@@ -44,6 +45,10 @@ function generateProps() {
     secondaryButtonText: {
       type: String,
       default: text('secondary button', 'Something else'),
+    },
+    compact: {
+      type: Boolean,
+      default: boolean('Compact', compact),
     },
   };
 }
@@ -111,4 +116,19 @@ documentedStoriesOf('regions|empty-state', readme)
       </template>
       </gl-empty-state>
     `,
+  }))
+  .add('not fullscreen', () => ({
+    props: {
+      ...generateProps({
+        compact: true,
+      }),
+      title: {
+        default: 'This is a compact empty state',
+      },
+      description: {
+        default: 'It could be included in a settings page, or a list view',
+      },
+    },
+    components,
+    template,
   }));
