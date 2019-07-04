@@ -51,17 +51,25 @@ export default {
       required: false,
       default: null,
     },
+    compact: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data: () => ({
     titleBreaks: false,
     descriptionBreaks: false,
   }),
   computed: {
+    fullscreen() {
+      return !this.compact;
+    },
     centerTitle() {
-      return !this.titleBreaks;
+      return !this.compact && !this.titleBreaks;
     },
     centerDescription() {
-      return !this.descriptionBreaks && !this.titleBreaks;
+      return this.centerTitle && !this.descriptionBreaks;
     },
     shouldRenderPrimaryButton() {
       return Boolean(this.primaryButtonLink && this.primaryButtonText);
@@ -81,25 +89,29 @@ export default {
 </script>
 
 <template>
-  <div class="empty-state row">
-    <div class="col-12">
+  <div class="row" :class="{ 'empty-state': fullscreen }">
+    <div :class="fullscreen ? 'col-12' : 'col-3 d-none d-sm-block'">
       <div
         v-if="svgPath"
-        class="svg-content svg-250"
+        :class="{ 'svg-content': fullscreen }"
+        class="svg-250"
       >
         <img
           :src="svgPath"
           :alt="title"
+          :class="{ 'mw-100': compact }"
         />
       </div>
+    </div>
+    <div :class="fullscreen ? 'col-12' : 'col-sm-9'">
       <div class="text-content">
-        <h4 ref="title" :class="{center: centerTitle}">{{ title }}</h4>
+        <h4 ref="title" :class="{center: centerTitle, h5: compact}">{{ title }}</h4>
         <p
           v-if="description"
           ref="description"
           :class="{center: centerDescription}"
         >{{ description }}</p>
-        <div class="text-center">
+        <div :class="{ 'text-center': fullscreen }">
           <slot name="actions">
             <gl-button
               v-if="shouldRenderPrimaryButton"
