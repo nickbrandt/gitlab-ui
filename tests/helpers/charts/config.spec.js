@@ -118,21 +118,62 @@ describe('chart config helpers', () => {
       name: 'Values',
       data: [[0, 5], [4, 3], [8, 10]],
     };
-    it('creates chart options with single series as object', () => {
+
+    it('create chart options with invalid series props', () => {
+      const chartOptionsOutput = {
+        ...defaultChartOptions,
+        series: [],
+      };
+      expect(mergeSeriesToOptions(defaultChartOptions)).toEqual(chartOptionsOutput);
+      expect(mergeSeriesToOptions(defaultChartOptions, [])).toEqual(chartOptionsOutput);
+    });
+
+    it('creates chart options with single series object passed as data prop', () => {
+      // data for chart can also be passed as a data prop which is transformed to series
+      const chartOptions = mergeSeriesToOptions({
+        ...defaultChartOptions,
+        series,
+      });
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(1);
+    });
+
+    it('creates chart options with single series array passed as data prop', () => {
+      const chartOptions = mergeSeriesToOptions({
+        ...defaultChartOptions,
+        series: [series],
+      });
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(1);
+    });
+
+    it('creates chart options with multiple series array passed as data prop', () => {
+      const chartOptions = mergeSeriesToOptions({
+        ...defaultChartOptions,
+        series: [series, series],
+      });
+
+      expect(chartOptions.series).toBeInstanceOf(Array);
+      expect(chartOptions.series.length).toBe(2);
+    });
+
+    it('creates chart options with single series object passed as series prop', () => {
       const chartOptions = mergeSeriesToOptions(defaultChartOptions, series);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(1);
     });
 
-    it('creates chart options with single series as array', () => {
+    it('creates chart options with single series array passed as series prop', () => {
       const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series]);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(1);
     });
 
-    it('creates chart options with multiple series as array', () => {
+    it('creates chart options with multiple series array passed as series prop', () => {
       const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series, series]);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
