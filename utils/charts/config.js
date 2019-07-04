@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+import castArray from 'lodash/castArray';
 import isArray from 'lodash/isArray';
 import { engineeringNotation } from '../number_utils';
 
@@ -66,6 +67,18 @@ export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
     },
   ],
 });
+
+// All chart options can be merged but series
+// needs to be concatenated.
+// Series can be an object for single series or
+// an array of objects.
+export const mergeSeriesToOptions = (options, series = []) => {
+  const { series: optSeries = [] } = options;
+  return {
+    ...options,
+    series: [...optSeries, ...castArray(series)],
+  };
+};
 
 export const dataZoomAdjustments = dataZoom => {
   // handle cases where dataZoom is array and object.

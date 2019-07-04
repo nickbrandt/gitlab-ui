@@ -9,6 +9,7 @@ import defaultChartOptions, {
   getThresholdConfig,
   dataZoomAdjustments,
   symbolSize,
+  mergeSeriesToOptions,
   lineStyle,
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
@@ -78,7 +79,7 @@ export default {
       );
     },
     options() {
-      const mergedOpts = merge(
+      const mergedOptions = merge(
         {},
         defaultChartOptions,
         {
@@ -106,11 +107,8 @@ export default {
         this.toolboxAdjustments
       );
       // All chart options can be merged but series
-      // needs to be concatenated.
-      return {
-        ...mergedOpts,
-        series: [...this.series, ...(this.option.series || [])],
-      };
+      // needs to be handled specially
+      return mergeSeriesToOptions(mergedOptions, this.series);
     },
     compiledOptions() {
       return this.chart ? this.chart.getOption() : null;

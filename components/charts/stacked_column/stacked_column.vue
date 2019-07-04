@@ -4,7 +4,11 @@ import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
-import defaultChartOptions, { grid, dataZoomAdjustments } from '../../../utils/charts/config';
+import defaultChartOptions, {
+  grid,
+  dataZoomAdjustments,
+  mergeSeriesToOptions,
+} from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 
@@ -131,11 +135,8 @@ export default {
         this.toolboxAdjustments
       );
       // All chart options can be merged but series
-      // needs to be concatenated.
-      return {
-        ...mergedOptions,
-        series: [...this.series, ...(this.option.series || [])],
-      };
+      // needs to be handled specially
+      return mergeSeriesToOptions(mergedOptions, this.series);
     },
     legendStyle() {
       return { paddingLeft: `${grid.left}px` };
