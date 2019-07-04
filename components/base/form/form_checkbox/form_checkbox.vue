@@ -1,5 +1,5 @@
 <script>
-import BFormCheckbox from 'bootstrap-vue/es/components/form-checkbox/form-checkbox';
+import BFormCheckbox from 'bootstrap-vue/src/components/form-checkbox/form-checkbox';
 
 export default {
   name: 'GlFormCheckbox',
@@ -25,7 +25,7 @@ export default {
    <!-- Setting `d-inline-flex` and `d-flex` should be removed
      when we update to a newer version of bootstrap-vue
      It is due to the fact that bootstrap-vue is making all `plain`
-     checkboxes 'inline' and not allowing users to override it 
+     checkboxes 'inline' and not allowing users to override it
     -->
   <b-form-checkbox
     plain

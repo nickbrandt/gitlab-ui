@@ -245,7 +245,7 @@ export default {
             :key="`event-${field.item.event}-${argument.arg ? argument.arg : 'none'}`"
           >
             <code v-if="argument.arg">{{ argument.arg }}</code>
-            <span>{{ argument.description }}</span>>
+            <span>{{ argument.description }}</span>
           </div>
         </template>
       </b-table>

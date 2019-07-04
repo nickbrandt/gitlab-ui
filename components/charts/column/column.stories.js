@@ -58,10 +58,13 @@ documentedStoriesOf('charts|column-chart', readme)
     data() {
       return generateData({
         option: {
-          dataZoom: {
-            startValue: 1,
-            handleIcon: getSvgEchartsPath('scroll-handle'),
-          },
+          dataZoom: [
+            {
+              type: 'slider',
+              startValue: 1,
+              handleIcon: getSvgEchartsPath('scroll-handle'),
+            },
+          ],
         },
       });
     },

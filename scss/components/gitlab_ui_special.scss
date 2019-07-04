@@ -1,4 +1,9 @@
-// This is only a momentary fix and not a final decision how to do component styling - https://gitlab.com/gitlab-org/gitlab-ui/issues/293
-@import '../../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
+/*
+This is only a momentary fix and not a final decision how to do component styling
 
+Issue: https://gitlab.com/gitlab-org/gitlab-ui/issues/293
+
+Please note that we don't import with the css file extension, as sassc-rails
+converts them to CSS native URL imports and doesn't include them into the bundle
+*/
 @import './dropdown/gl-dropdown';

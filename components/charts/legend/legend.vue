@@ -1,7 +1,7 @@
 <script>
 import echarts from 'echarts';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
-import { average } from '../../../utils/number_utils';
+import { average, engineeringNotation } from '../../../utils/number_utils';
 import { defaultFontSize } from '../../../utils/charts/config';
 import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
@@ -44,14 +44,11 @@ export default {
     },
   },
   methods: {
-    formatNumber(number) {
-      return Number.isInteger(number) ? number : number.toFixed(3);
-    },
     seriesAverage(seriesData) {
-      return this.formatNumber(average(...seriesData));
+      return engineeringNotation(average(...seriesData));
     },
     seriesMax(seriesData) {
-      return this.formatNumber(Math.max(...seriesData));
+      return engineeringNotation(Math.max(...seriesData));
     },
     handleClick(name, key) {
       this.chart.dispatchAction({ type: 'legendToggleSelect', name });

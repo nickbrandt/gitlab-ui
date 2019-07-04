@@ -1,22 +1,8 @@
-import mergeWith from 'lodash/mergeWith';
-import {
-  additiveArrayMerge,
-  getDataZoomConfig,
-  getThresholdConfig,
-} from '../../../utils/charts/config';
+import merge from 'lodash/merge';
+import { getDataZoomConfig, getThresholdConfig } from '../../../utils/charts/config';
 import { defaultDataZoomConfig } from './data';
 
 describe('chart config helpers', () => {
-  describe('additiveArrayMerge', () => {
-    it('concatenates arguments if the first is an array', () => {
-      expect(additiveArrayMerge([], 1)).toEqual([1]);
-    });
-
-    it('returns undefined when first value is not an array', () => {
-      expect(additiveArrayMerge(1, [])).toEqual(undefined);
-    });
-  });
-
   describe('getThresholdConfig', () => {
     const makeThreshold = (threshold, operator) => [
       {
@@ -86,11 +72,23 @@ describe('chart config helpers', () => {
 
     it('allows the filterMode to be set', () => {
       const actual = getDataZoomConfig({ filterMode: 'filter' });
-      const expected = mergeWith(defaultDataZoomConfig, {
-        dataZoom: {
+      // After https://gitlab.com/gitlab-org/gitlab-ui/issues/240
+      // all default dataZoom configs will have slider & inside.
+      // inside is specifically to enable touch zoom for mobile devices
+      const dataZoomWithFilter = [
+        {
+          type: 'slider',
           filterMode: 'filter',
           minSpan: null,
         },
+        {
+          type: 'inside',
+          filterMode: 'filter',
+          minSpan: null,
+        },
+      ];
+      const expected = merge(defaultDataZoomConfig, {
+        dataZoom: dataZoomWithFilter,
       });
 
       expect(actual).toEqual(expected);

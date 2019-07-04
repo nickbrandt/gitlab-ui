@@ -12,10 +12,11 @@ documentedStoriesOf('base|dropdown/dropdown-item', readme)
   .add('default', () => ({
     props: {},
     components,
-    template: '<gl-dropdown-item>Some item</gl-dropdown-item>',
+    template: '<ul class="list-unstyled"><gl-dropdown-item>Some item</gl-dropdown-item></ul>',
   }))
   .add('with href', () => ({
     props: {},
     components,
-    template: '<gl-dropdown-item href="https://about.gitlab.com/">Some link</gl-dropdown-item>',
+    template:
+      '<ul class="list-unstyled"><gl-dropdown-item href="https://about.gitlab.com/">Some link</gl-dropdown-item></ul>',
   }));

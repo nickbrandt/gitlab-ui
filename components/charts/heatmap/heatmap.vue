@@ -1,15 +1,11 @@
 <script>
-import merge from 'lodash/mergeWith';
+import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
-import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { whiteLight } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const defaultOptions = {
-  title: {
-    top: 24,
-    left: 'center',
-  },
   tooltip: {
     transitionDuration: 0,
   },
@@ -54,11 +50,6 @@ export default {
       required: false,
       default: () => ({}),
     },
-    title: {
-      type: String,
-      required: false,
-      default: '',
-    },
     dataSeries: {
       type: Array,
       required: true,
@@ -73,6 +64,16 @@ export default {
       required: false,
       default: () => [],
     },
+    xAxisName: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    yAxisName: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     computedOptions() {
@@ -81,18 +82,13 @@ export default {
         {},
         defaultOptions,
         {
-          title: {
-            text: this.title,
-          },
           series: {
             data: this.dataSeries,
             z: 2,
           },
           grid: {
             height: '30%',
-            show: true,
-            backgroundColor: gray100,
-            borderWidth: 0,
+            left: '8%',
           },
           visualMap: {
             min,
@@ -100,8 +96,14 @@ export default {
           },
           xAxis: {
             data: this.xAxisLabels,
-            z: 3,
-            splitLine: {
+            axisTick: false,
+            name: this.xAxisName,
+            nameLocation: 'middle',
+            nameTextStyle: {
+              verticalAlign: 'middle',
+            },
+            offset: 6,
+            splitArea: {
               show: true,
               lineStyle: {
                 color: whiteLight,
@@ -110,9 +112,17 @@ export default {
             },
           },
           yAxis: {
+            type: 'category',
+            axisLabel: {
+              margin: 8,
+            },
+            axisTick: false,
             data: this.yAxisLabels,
-            z: 3,
-            splitLine: {
+            nameLocation: 'middle',
+            name: this.yAxisName,
+            nameGap: 50,
+            nameRotate: 90,
+            splitArea: {
               show: true,
               lineStyle: {
                 color: whiteLight,
@@ -130,5 +140,5 @@ export default {
 </script>
 
 <template>
-  <chart :options="computedOptions" />
+  <chart :options="computedOptions"/>
 </template>
