@@ -76,7 +76,7 @@ export const mergeSeriesToOptions = (options, series = []) => {
   const { series: optSeries = [] } = options;
   return {
     ...options,
-    series: [...optSeries, ...castArray(series)],
+    series: [...castArray(series), ...castArray(optSeries)],
   };
 };
 
