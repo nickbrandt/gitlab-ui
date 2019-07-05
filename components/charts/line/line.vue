@@ -185,7 +185,7 @@ export default {
 
 <template>
   <div class="position-relative">
-    <chart v-bind="$attrs" :options="options" @created="onCreated" @updated="onUpdated"/>
+    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" @updated="onUpdated"/>
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
