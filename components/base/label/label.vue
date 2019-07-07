@@ -1,10 +1,13 @@
 <script>
-import { GlLink, GlTooltip } from '../../../index';
+import GlLink from '../link/link.vue';
+import GlTooltip from '../tooltip/tooltip.vue';
+import GlBadge from '../badge/badge.vue';
 
 export default {
   components: {
     GlLink,
     GlTooltip,
+    GlBadge,
   },
   props: {
     color: {
@@ -20,17 +23,17 @@ export default {
       required: false,
       default: '',
     },
-    isScoped: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     description: {
       type: String,
       required: false,
       default: '',
     },
-    scopedLabelsDocumentationLink: {
+    size: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    variant: {
       type: String,
       required: false,
       default: '',
@@ -38,47 +41,32 @@ export default {
   },
   computed: {
     cssClasses() {
-      if (!this.isScoped) {
-        return null;
-      }
-
-      return ['scoped-label-wrapper'];
+      return [
+        this.size === 'sm' ? 'gl-label-sm' : '',
+        'gl-label',
+        this.variant ? `gl-label-${this.variant}` : '',
+      ];
     },
     labelTarget() {
       return this.target || '#';
-    },
-    labelStyle() {
-      return {
-        backgroundColor: this.backgroundColor,
-        color: this.color,
-      };
     },
   },
 };
 </script>
 
 <template>
-  <span
-    class="d-inline-block badge label color-label"
-    :style="labelStyle"
+  <gl-badge
+    :class="cssClasses"
+    :style="{backgroundColor}"
+    pill
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
-    <gl-link :href="labelTarget" :style="labelStyle" class="js-label-wrapper text-decoration-none">
+  <gl-link :href="labelTarget" :style="{color}" class="js-label-wrapper text-decoration-none">
       <span :ref="'labelTitleRef'"><slot></slot></span>
       <gl-tooltip v-if="description" :target="() => $refs.labelTitleRef" class="js-label-desc" placement="top" boundary="viewport">
-        <span v-if="isScoped" class="font-weight-bold scoped-label-tooltip-title d-block">Scoped label</span>
         {{ description }}
       </gl-tooltip>
     </gl-link>
-
-    <gl-link
-      v-if="isScoped"
-      :href="scopedLabelsDocumentationLink"
-      target="_blank"
-      class="scoped-label"
-    >
-      <i class="fa fa-question-circle" :style="labelStyle"></i>
-    </gl-link>
-  </span>
+  </gl-badge>
 </template>

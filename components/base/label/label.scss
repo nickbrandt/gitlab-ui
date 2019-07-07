@@ -1,0 +1,19 @@
+.gl-label {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  border: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.gl-label-sm {
+  padding: 0 4px;
+}
+
+.gl-label-secondary {
+  font-weight: 400;
+}

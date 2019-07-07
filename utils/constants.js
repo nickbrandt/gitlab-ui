@@ -29,6 +29,16 @@ export const sizeOptions = {
   lg: 'lg',
 };
 
+export const labelSizeOptions = {
+  default: null,
+  sm: 'sm',
+};
+
+export const labelVariantOptions = {
+  primary: 'primary',
+  secondary: 'secondary',
+};
+
 export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
 
 export const avatarShapeOptions = {
