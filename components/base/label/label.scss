@@ -1,19 +1,30 @@
-.gl-label {
-  padding: 4px 8px;
+.gl-label.badge {
+  padding: 0;
+  overflow: hidden;
   font-size: 12px;
   font-weight: 700;
   line-height: 16px;
-  border: 0;
+  border: 1px solid;
 
   &:hover {
     text-decoration: underline;
   }
+
+  > a {
+    display: flex;
+  }
+}
+
+.gl-label-text {
+  padding: 4px 8px;
 }
 
 .gl-label-sm {
-  padding: 0 4px;
+  .gl-label-text {
+    padding: 0 4px;
+  }
 }
 
-.gl-label-secondary {
+.gl-label-secondary.badge {
   font-weight: 400;
 }

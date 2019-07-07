@@ -9,11 +9,8 @@ Labels are editable objects that allow users to manually categorize other object
 <gl-label
   color="#fff"
   background-color="#D9C2EE"
-  target="http://some.url"
+  title="Basic label"
   description="Some content"
-  :is-scoped="true"
-  scoped-labels-documentation-link="http://some.url"
-  >
-  Label content
-</gl-label>
+  target="http://some.url"
+  />
 ~~~

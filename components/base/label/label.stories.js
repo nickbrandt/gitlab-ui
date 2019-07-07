@@ -20,6 +20,9 @@ const generateProps = ({
     backgroundColor: {
       default: color('Background color', '#D9C2EE'),
     },
+    title: {
+      default: text('Label title', 'Label title'),
+    },
     description: {
       default: text('Label description', ''),
     },
@@ -56,9 +59,9 @@ documentedStoriesOf('base|label', readme)
         :background-color="backgroundColor"
         :size="size"
         :variant="variant"
+        :title="title"
         :description="description"
         :target="target"
       >
-        Basic Label
       </gl-label>`,
   }));
