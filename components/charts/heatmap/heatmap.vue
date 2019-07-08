@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
-import { whiteLight } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const defaultOptions = {
   tooltip: {
@@ -88,7 +88,10 @@ export default {
           },
           grid: {
             height: '30%',
-            left: '8%',
+            left: '10%',
+            show: true,
+            borderWidth: 0,
+            backgroundColor: gray100,
           },
           visualMap: {
             min,
@@ -96,6 +99,7 @@ export default {
           },
           xAxis: {
             data: this.xAxisLabels,
+            z: 3,
             axisTick: false,
             name: this.xAxisName,
             nameLocation: 'middle',
@@ -103,7 +107,7 @@ export default {
               verticalAlign: 'middle',
             },
             offset: 6,
-            splitArea: {
+            splitLine: {
               show: true,
               lineStyle: {
                 color: whiteLight,
@@ -112,17 +116,18 @@ export default {
             },
           },
           yAxis: {
+            data: this.yAxisLabels,
+            z: 3,
             type: 'category',
+            axisTick: false,
             axisLabel: {
               margin: 8,
             },
-            axisTick: false,
-            data: this.yAxisLabels,
-            nameLocation: 'middle',
             name: this.yAxisName,
+            nameLocation: 'middle',
             nameGap: 50,
             nameRotate: 90,
-            splitArea: {
+            splitLine: {
               show: true,
               lineStyle: {
                 color: whiteLight,
