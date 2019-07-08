@@ -29,9 +29,10 @@ function generateProps({ inline } = {}) {
       default: select(
         'size',
         {
-          sm: 'sm',
-          md: 'md',
-          lg: 'lg',
+          'sm (16x16)': 'sm',
+          'md (24x24)': 'md',
+          'lg (32x32)': 'lg',
+          'xl (64x64)': 'xl',
         },
         'sm'
       ),

@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-const sizes = ['sm', 'md', 'lg'];
+const sizes = ['sm', 'md', 'lg', 'xl'];
 const colors = ['orange', 'dark', 'light'];
 
 export default {

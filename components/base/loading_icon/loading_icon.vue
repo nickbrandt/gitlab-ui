@@ -1,15 +1,16 @@
 <script>
 const sizes = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg',
+  sm: 'sm', // -> 16px
+  md: 'md', // -> 24px
+  lg: 'lg', // -> 32px
+  xl: 'xl', // -> 64px
 };
 const sizeToStringMap = {
   1: sizes.sm,
-  2: sizes.md,
-  3: sizes.md,
-  4: sizes.lg,
-  5: sizes.lg,
+  2: sizes.lg,
+  3: sizes.lg,
+  4: sizes.xl,
+  5: sizes.xl,
 };
 const colors = {
   orange: 'orange',
