@@ -133,7 +133,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
   >
      
     <div
-      class="position-relative ms-no-clear"
+      class="position-relative ms-no-clear gl-search-box"
     >
       <input
         aria-label="Search"
@@ -321,7 +321,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
   >
      
     <div
-      class="position-relative ms-no-clear"
+      class="position-relative ms-no-clear gl-search-box"
     >
       <input
         aria-label="Search"
@@ -563,7 +563,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
   >
      
     <div
-      class="position-relative ms-no-clear"
+      class="position-relative ms-no-clear gl-search-box"
     >
       <input
         aria-label="Search"
@@ -794,7 +794,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
   >
      
     <div
-      class="position-relative ms-no-clear"
+      class="position-relative ms-no-clear gl-search-box"
     >
       <input
         aria-label="Search"
@@ -860,7 +860,7 @@ exports[`Paginated List Search states renders the default empty search message w
   >
      
     <div
-      class="position-relative ms-no-clear"
+      class="position-relative ms-no-clear gl-search-box"
     >
       <input
         aria-label="Search"
@@ -926,7 +926,7 @@ exports[`Paginated List Search states renders the list flitered by search result
   >
      
     <div
-      class="position-relative ms-no-clear"
+      class="position-relative ms-no-clear gl-search-box"
     >
       <input
         aria-label="Search"

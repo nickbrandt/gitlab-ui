@@ -1,0 +1,11 @@
+/*
+ * To match the design spec, added 3px margin so the icon is even 16px wide now.
+ * This can be removed once SVG based icons kick in.
+ * Discussion: https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/153#note_133591712
+ * See: https://gitlab.com/gitlab-org/gitlab-ui/issues/312
+ */
+.gl-search-box {
+  .fa-search {
+    margin: 0 1.5px;
+  }
+}

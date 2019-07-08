@@ -1,0 +1,17 @@
+/*
+This is a temporary measure to ensure custom select styles are not affected by our
+lack of an autoprefixer tool for compiling bootstrap.
+
+TODO: Remove once bootstrap is included in gitlab-ui or we include an autoprefixer
+on gitlab-ce/ee
+See: https://gitlab.com/gitlab-org/gitlab-ce/issues/64455
+*/
+
+/* stylelint-disable property-no-vendor-prefix */
+.gl-form-select {
+  &.custom-select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+}
+/* stylelint-enable property-no-vendor-prefix */
