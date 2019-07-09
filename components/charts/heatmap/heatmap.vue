@@ -88,10 +88,11 @@ export default {
           },
           grid: {
             height: '30%',
-            left: '10%',
             show: true,
             borderWidth: 0,
             backgroundColor: gray100,
+            left: '8%',
+            top: '5%',
           },
           visualMap: {
             min,
