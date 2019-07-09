@@ -1,0 +1,9 @@
+.gl-dropdown {
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+}
+
+.gl-dropdown-header {
+  font-weight: $gl-font-weight-bold;
+}
