@@ -12,5 +12,7 @@ export default {
 <template>
   <b-tabs v-bind="$attrs" v-on="$listeners">
     <slot></slot>
+    <template v-slot:tabs><slot name="tabs"></slot></template>
+    <template v-slot:empty><slot name="empty"></slot></template>
   </b-tabs>
 </template>
