@@ -32,6 +32,6 @@
 @import 'bootstrap/scss/utilities';
 @import 'bootstrap/scss/print';
 
-@import 'bootstrap-vue/src/index';
+@import 'bootstrap-vue/src/index.scss'; // stylelint-disable-line
 
 @import 'common';
