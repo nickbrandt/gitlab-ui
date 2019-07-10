@@ -34,10 +34,4 @@
 
 @import 'bootstrap-vue/src/index';
 
-// Settings
-@import 'variables';
-@import 'mixins';
-@import 'utilities';
-
-// Components
-@import 'components';
+@import 'common';
