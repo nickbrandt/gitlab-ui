@@ -75,7 +75,7 @@ export default {
 </script>
 
 <template>
-  <div class="position-relative ms-no-clear">
+  <div class="position-relative ms-no-clear gl-search-box">
     <gl-form-input
       ref="input"
       v-model="content"
@@ -117,14 +117,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style scoped>
-/*
- * To match the design spec, added 3px margin so the icon is even 16px wide now.
- * This can be removed once SVG based icons kick in.
- * Discussion: https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/153#note_133591712
- */
-.fa-search {
-  margin: 0 1.5px;
-}
-</style>
