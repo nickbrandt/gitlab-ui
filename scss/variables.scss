@@ -1,38 +1,26 @@
-// Color schema
-$darken-normal-factor: 7%;
-$darken-dark-factor: 10%;
-$darken-border-factor: 5%;
-$darken-border-dashed-factor: 25%;
+// Layout
+$grid-size: 8px;
 
+$gl-spacing-scale: (
+  0: 0,
+  1: #{0.25 * $grid-size},
+  2: #{0.5 * $grid-size},
+  3: $grid-size,
+  4: #{1.5 * $grid-size},
+  5: #{2 * $grid-size},
+  6: #{3 * $grid-size},
+  7: #{4 * $grid-size},
+  8: #{5 * $grid-size}
+);
+
+$transparent: transparent;
+$black: #000;
+
+// Color schema
 $white-light: #fff;
 $white-normal: #f0f0f0;
 $white-dark: #eaeaea;
 $white-transparent: rgba(255, 255, 255, 0.8);
-
-$gray-lightest: #fdfdfd;
-$gray-light: #fafafa;
-$gray-lighter: #f9f9f9;
-$gray-normal: #f5f5f5;
-$gray-dark: darken($gray-light, $darken-dark-factor);
-$gray-darker: #eee;
-$gray-darkest: #c4c4c4;
-
-$black: #000;
-$black-transparent: rgba(0, 0, 0, 0.3);
-$almost-black: #242424;
-
-$t-gray-a-02: rgba($black, 0.02);
-$t-gray-a-04: rgba($black, 0.04);
-$t-gray-a-06: rgba($black, 0.06);
-$t-gray-a-08: rgba($black, 0.08);
-
-$gl-gray-100: #ddd;
-$gl-gray-200: #ccc;
-$gl-gray-350: #aaa;
-$gl-gray-400: #999;
-$gl-gray-500: #777;
-$gl-gray-600: #666;
-$gl-gray-700: #555;
 
 $green-50: #f1fdf6;
 $green-100: #dcf5e7;
@@ -93,6 +81,111 @@ $gray-700: #707070;
 $gray-800: #4f4f4f;
 $gray-900: #2e2e2e;
 $gray-950: #1f1f1f;
+
+// GitLab themes
+
+$gl-themes: 'indigo', 'blue', 'light-blue', 'green', 'red', 'light-red';
+
+$theme-indigo-50: #f7f7ff;
+$theme-indigo-100: #ebebfa;
+$theme-indigo-200: #d1d1f0;
+$theme-indigo-300: #a6a6de;
+$theme-indigo-400: #7c7ccc;
+$theme-indigo-500: #6666c4;
+$theme-indigo-600: #5b5bbd;
+$theme-indigo-700: #4b4ba3;
+$theme-indigo-800: #393982;
+$theme-indigo-900: #292961;
+$theme-indigo-950: #1a1a40;
+
+$theme-blue-50: #f4f8fc;
+$theme-blue-100: #e6edf5;
+$theme-blue-200: #c8d7e6;
+$theme-blue-300: #97b3cf;
+$theme-blue-400: #648cb4;
+$theme-blue-500: #4a79a8;
+$theme-blue-600: #3e6fa0;
+$theme-blue-700: #305c88;
+$theme-blue-800: #25496e;
+$theme-blue-900: #1a3652;
+$theme-blue-950: #0f2235;
+
+$theme-light-blue-50: #f2f7fc;
+$theme-light-blue-100: #ebf1f7;
+$theme-light-blue-200: #c9dcf2;
+$theme-light-blue-300: #83abd4;
+$theme-light-blue-400: #4d86bf;
+$theme-light-blue-500: #367cc2;
+$theme-light-blue-600: #3771ab;
+$theme-light-blue-700: #2261a1;
+$theme-light-blue-800: #25496e;
+$theme-light-blue-900: #1a3652;
+$theme-light-blue-950: #0f2235;
+
+$theme-green-50: #f2faf6;
+$theme-green-100: #e4f3ea;
+$theme-green-200: #c0dfcd;
+$theme-green-300: #8ac2a1;
+$theme-green-400: #52a274;
+$theme-green-500: #35935c;
+$theme-green-600: #288a50;
+$theme-green-700: #1c7441;
+$theme-green-800: #145d33;
+$theme-green-900: #0d4524;
+$theme-green-950: #072d16;
+
+$theme-red-50: #fcf4f2;
+$theme-red-100: #fae9e6;
+$theme-red-200: #ebcac5;
+$theme-red-300: #d99b91;
+$theme-red-400: #b0655a;
+$theme-red-500: #ad4a3b;
+$theme-red-600: #9e4133;
+$theme-red-700: #912f20;
+$theme-red-800: #78291d;
+$theme-red-900: #691a16;
+$theme-red-950: #36140f;
+
+$theme-light-red-50: #fff6f5;
+$theme-light-red-100: #fae2de;
+$theme-light-red-200: #f7d5d0;
+$theme-light-red-300: #d9796a;
+$theme-light-red-400: #cf604e;
+$theme-light-red-500: #c24b38;
+$theme-light-red-600: #b03927;
+$theme-light-red-700: #a62e21;
+$theme-light-red-800: #78291d;
+$theme-light-red-900: #691a16;
+$theme-light-red-950: #36140f;
+
+$darken-normal-factor: 7%;
+$darken-dark-factor: 10%;
+$darken-border-factor: 5%;
+$darken-border-dashed-factor: 25%;
+
+$t-gray-a-02: rgba($black, 0.02);
+$t-gray-a-04: rgba($black, 0.04);
+$t-gray-a-06: rgba($black, 0.06);
+$t-gray-a-08: rgba($black, 0.08);
+
+$absolutes: (
+  'transparent': $transparent,
+  'black': $black
+);
+
+$transparencies: (
+  '02': $t-gray-a-02,
+  '04': $t-gray-a-04,
+  '06': $t-gray-a-06,
+  '08': $t-gray-a-08
+);
+
+$whites: (
+  'light': $white-light,
+  'normal': $white-normal,
+  'dark': $white-dark,
+  'transparent': $white-transparent
+);
 
 $greens: (
   '50': $green-50,
@@ -172,160 +265,173 @@ $color-ranges: (
   'danger': $reds
 );
 
-// GitLab themes
-$indigo-50: #f7f7ff;
-$indigo-100: #ebebfa;
-$indigo-200: #d1d1f0;
-$indigo-300: #a6a6de;
-$indigo-400: #7c7ccc;
-$indigo-500: #6666c4;
-$indigo-600: #5b5bbd;
-$indigo-700: #4b4ba3;
-$indigo-800: #393982;
-$indigo-900: #292961;
-$indigo-950: #1a1a40;
-
-$theme-blue-50: #f4f8fc;
-$theme-blue-100: #e6edf5;
-$theme-blue-200: #c8d7e6;
-$theme-blue-300: #97b3cf;
-$theme-blue-400: #648cb4;
-$theme-blue-500: #4a79a8;
-$theme-blue-600: #3e6fa0;
-$theme-blue-700: #305c88;
-$theme-blue-800: #25496e;
-$theme-blue-900: #1a3652;
-$theme-blue-950: #0f2235;
-
-$theme-light-blue-50: #f2f7fc;
-$theme-light-blue-100: #ebf1f7;
-$theme-light-blue-200: #c9dcf2;
-$theme-light-blue-300: #83abd4;
-$theme-light-blue-400: #4d86bf;
-$theme-light-blue-500: #367cc2;
-$theme-light-blue-600: #3771ab;
-$theme-light-blue-700: #2261a1;
-
-$theme-green-50: #f2faf6;
-$theme-green-100: #e4f3ea;
-$theme-green-200: #c0dfcd;
-$theme-green-300: #8ac2a1;
-$theme-green-400: #52a274;
-$theme-green-500: #35935c;
-$theme-green-600: #288a50;
-$theme-green-700: #1c7441;
-$theme-green-800: #145d33;
-$theme-green-900: #0d4524;
-$theme-green-950: #072d16;
-
-$theme-light-green-700: #156b39;
-
-$theme-red-50: #fcf4f2;
-$theme-red-100: #fae9e6;
-$theme-red-200: #ebcac5;
-$theme-red-300: #d99b91;
-$theme-red-400: #b0655a;
-$theme-red-500: #ad4a3b;
-$theme-red-600: #9e4133;
-$theme-red-700: #912f20;
-$theme-red-800: #78291d;
-$theme-red-900: #691a16;
-$theme-red-950: #36140f;
-
-$theme-light-red-50: #fff6f5;
-$theme-light-red-100: #fae2de;
-$theme-light-red-200: #f7d5d0;
-$theme-light-red-300: #d9796a;
-$theme-light-red-400: #cf604e;
-$theme-light-red-500: #c24b38;
-$theme-light-red-600: #b03927;
-$theme-light-red-700: #a62e21;
-
-$border-white-light: darken($white-light, $darken-border-factor);
-$border-white-normal: darken($white-normal, $darken-border-factor);
-
-$border-gray-light: darken($gray-light, $darken-border-factor);
-$border-gray-normal: darken($gray-normal, $darken-border-factor);
-$border-gray-normal-dashed: darken($gray-normal, $darken-border-dashed-factor);
-$border-gray-dark: darken($white-normal, $darken-border-factor);
-
-// UI elements
-$border-color: #e5e5e5;
-$shadow-color: $t-gray-a-08;
-
-// Text
-$gl-font-size: 14px;
-$gl-font-size-xs: 11px;
-$gl-font-size-small: 12px;
-$gl-font-size-large: 16px;
-$gl-font-weight-normal: 400;
-$gl-font-weight-bold: 600;
-$gl-text-color: #2e2e2e;
-$gl-text-color-secondary: #707070;
-$gl-text-color-tertiary: #919191;
-$gl-text-color-quaternary: #d6d6d6;
-$gl-text-color-inverted: rgba(255, 255, 255, 1);
-$gl-text-color-secondary-inverted: rgba(255, 255, 255, 0.85);
-$gl-text-color-disabled: #919191;
-$gl-grayish-blue: #7f8fa4;
-$gl-gray-dark: #313236;
-$gl-gray-light: #5c5c5c;
-$gl-header-color: #4c4e54;
-
-$type-scale: (
-  1: 12px,
-  2: 14px,
-  3: 16px,
-  4: 20px,
-  5: 28px,
-  6: 42px
+$theme-indigo: (
+  '50': $theme-indigo-50,
+  '100': $theme-indigo-100,
+  '200': $theme-indigo-200,
+  '300': $theme-indigo-300,
+  '400': $theme-indigo-400,
+  '500': $theme-indigo-500,
+  '600': $theme-indigo-600,
+  '700': $theme-indigo-700,
+  '800': $theme-indigo-800,
+  '900': $theme-indigo-900,
+  '950': $theme-indigo-950
 );
 
-// Tooltips
-$tooltip-font-size: 12px;
+$theme-blue: (
+  '50': $theme-blue-50,
+  '100': $theme-blue-100,
+  '200': $theme-blue-200,
+  '300': $theme-blue-300,
+  '400': $theme-blue-400,
+  '500': $theme-blue-500,
+  '600': $theme-blue-600,
+  '700': $theme-blue-700,
+  '800': $theme-blue-800,
+  '900': $theme-blue-900,
+  '950': $theme-blue-950
+);
 
-// Padding
-$gl-padding-4: 4px;
-$gl-padding-8: 8px;
-$gl-padding-12: 12px;
-$gl-padding: 16px;
-$gl-padding-24: 24px;
-$gl-padding-32: 32px;
-$gl-padding-50: 50px;
-$gl-col-padding: 15px;
-$gl-input-padding: 10px;
-$gl-vert-padding: 6px;
-$gl-padding-top: 10px;
-$gl-sidebar-padding: 22px;
-$gl-bar-padding: 3px;
-$input-horizontal-padding: 12px;
+$theme-light-blue: (
+  '50': $theme-light-blue-50,
+  '100': $theme-light-blue-100,
+  '200': $theme-light-blue-200,
+  '300': $theme-light-blue-300,
+  '400': $theme-light-blue-400,
+  '500': $theme-light-blue-500,
+  '600': $theme-light-blue-600,
+  '700': $theme-light-blue-700,
+  '800': $theme-light-blue-800,
+  '900': $theme-light-blue-900,
+  '950': $theme-light-blue-950
+);
 
-// Misc
-$header-height: 40px;
-$suggestion-header-height: 46px;
-$ide-statusbar-height: 25px;
-$fixed-layout-width: 1280px;
-$limited-layout-width: 990px;
-$container-text-max-width: 540px;
-$border-radius-default: 4px;
-$border-radius-small: 2px;
-$border-radius-large: 8px;
-$default-icon-size: 18px;
-$layout-link-gray: #7e7c7c;
-$btn-side-margin: 10px;
-$btn-sm-side-margin: 7px;
-$btn-margin-5: 5px;
+$theme-green: (
+  '50': $theme-green-50,
+  '100': $theme-green-100,
+  '200': $theme-green-200,
+  '300': $theme-green-300,
+  '400': $theme-green-400,
+  '500': $theme-green-500,
+  '600': $theme-green-600,
+  '700': $theme-green-700,
+  '800': $theme-green-800,
+  '900': $theme-green-900,
+  '950': $theme-green-950
+);
+
+$theme-red: (
+  '50': $theme-red-50,
+  '100': $theme-red-100,
+  '200': $theme-red-200,
+  '300': $theme-red-300,
+  '400': $theme-red-400,
+  '500': $theme-red-500,
+  '600': $theme-red-600,
+  '700': $theme-red-700,
+  '800': $theme-red-800,
+  '900': $theme-red-900,
+  '950': $theme-red-950
+);
+
+$theme-light-red: (
+  '50': $theme-light-red-50,
+  '100': $theme-light-red-100,
+  '200': $theme-light-red-200,
+  '300': $theme-light-red-300,
+  '400': $theme-light-red-400,
+  '500': $theme-light-red-500,
+  '600': $theme-light-red-600,
+  '700': $theme-light-red-700,
+  '800': $theme-light-red-800,
+  '900': $theme-light-red-900,
+  '950': $theme-light-red-950
+);
+
+// black and transparent are accessible without referencing a group name
+$gl-color-groups: (
+  '': $absolutes,
+  't-gray-a': $transparencies,
+  'white': $whites,
+  'green': $greens,
+  'blue': $blues,
+  'orange': $oranges,
+  'red': $reds,
+  'gray': $grays,
+  'theme-indigo': $theme-indigo,
+  'theme-blue': $theme-blue,
+  'theme-light-blue': $theme-light-blue,
+  'theme-green': $theme-green,
+  'theme-red': $theme-red,
+  'theme-light-red': $theme-light-red,
+  'theme-gray': $grays
+);
+
+// Text
+$gl-font-weight-normal: 400;
+$gl-font-weight-bold: 600;
+
+$gl-font-weights: (
+  'normal': $gl-font-weight-normal,
+  'bold': $gl-font-weight-bold
+);
+
+$gl-type-scale: (
+  'sm': 12px,
+  'base': 14px,
+  'lg': 16px,
+  'xl': 20px,
+  '2xl': 28px,
+  '3xl': 42px
+);
+
+// Line height
+$gl-line-height-14: 14px;
 $gl-line-height: 16px;
 $gl-line-height-20: 20px;
 $gl-line-height-24: 24px;
-$gl-line-height-14: 14px;
+
+$gl-line-heights: (
+  '14': $gl-line-height-14,
+  '': $gl-line-height,
+  '20': $gl-line-height-20,
+  '24': $gl-line-height-24
+);
 
 // Fonts
-$monospace-font: 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
+$gl-monospace-font: 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
   'Courier New', 'andale mono', 'lucida console', monospace;
-$regular-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell,
+$gl-regular-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell,
   'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
+
+$gl-fonts: (
+  'monospace': $gl-monospace-font,
+  'regular': $gl-regular-font
+);
+
+// borders
+$gl-border-sizes: (
+  0: 0,
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px
+);
+
+// border roundness
+$gl-border-radius-small: 2px;
+$gl-border-radius-default: 4px;
+$gl-border-radius-large: 8px;
+
+$gl-rounded-sizes: (
+  'none': 0,
+  'sm': $gl-border-radius-small,
+  '': $gl-border-radius-default,
+  'lg': $gl-border-radius-large
+);
 
 // Toasts
 $toast-offset: 24px;

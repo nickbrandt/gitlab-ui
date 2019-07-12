@@ -5,14 +5,14 @@ import {
   blue500,
   blue600,
   blue800,
-  glGray200,
-  glTextColor,
-  glTextColorTertiary,
   gray100,
   gray200,
+  gray300,
+  gray600,
   gray700,
+  gray900,
   green500,
-  indigo500,
+  themeIndigo500,
   orange500,
   red500,
   whiteNormal,
@@ -21,16 +21,16 @@ import {
 export const themeName = 'gitlab';
 
 export const heatmapHues = [gray100, blue200, blue400, blue600, blue800];
-export const colorPalette = [blue500, green500, orange500, indigo500];
+export const colorPalette = [blue500, green500, orange500, themeIndigo500];
 export const colorFromPalette = index => colorPalette[index % colorPalette.length];
 
 const axes = {
   axisLabel: {
     margin: 8,
     show: true,
-    color: glTextColorTertiary,
+    color: gray600,
     textStyle: {
-      color: glTextColorTertiary,
+      color: gray600,
     },
   },
   axisLine: {
@@ -38,7 +38,7 @@ const axes = {
   },
   axisPointer: {
     lineStyle: {
-      color: glTextColorTertiary,
+      color: gray600,
     },
     label: {
       show: false,
@@ -63,7 +63,7 @@ const axes = {
   splitArea: {
     show: false,
     areaStyle: {
-      color: [hexToRgba(whiteNormal, 0.3), hexToRgba(glGray200, 0.3)],
+      color: [hexToRgba(whiteNormal, 0.3), hexToRgba(gray300, 0.3)],
     },
   },
 };
@@ -72,7 +72,7 @@ export default {
   color: colorPalette,
   backgroundColor: 'transparent',
   textStyle: {
-    color: glTextColor,
+    color: gray900,
   },
   markLine: {
     silent: true,
@@ -105,12 +105,12 @@ export default {
         opacity: 1,
       },
     },
-    fillerColor: hexToRgba(glGray200, 0.2),
+    fillerColor: hexToRgba(gray300, 0.2),
     handleColor: gray700,
     handleSize: '50%',
     labelFormatter: () => null,
     textStyle: {
-      color: glTextColorTertiary,
+      color: gray600,
     },
   },
   toolbox: {
