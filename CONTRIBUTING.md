@@ -47,6 +47,7 @@ To fix this, run `yarn link "@gitlab/ui"` within the gitlab-ui folder. See https
 We have automated as much of our documentation as possible (for example props, inherited props, links to underlying documentation, etc.) and kept manual tasks (for example name of vue-bootstrap component, slot descriptions, etc.) to an absolute minimum. The target for our documentation components and exports is to have them automatically integrated into [design.gitlab.com](https://design.gitlab.com). The main component for documentation is called `component_documentation_generator.vue`.
 
 ## Automatic deploys
+
 We use [`semantic-release`](https://gitlab.com/gitlab-org/gitlab-ui/wikis/Frequently-asked-questions#2-why-are-we-using-semantic-release) to automatically publish `gitlab-ui`.
 Please follow [this specification](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#specification) to ensure your changes will be automatically deployed.
 
@@ -92,6 +93,16 @@ export default {
   ]
 };
 ```
+
+## Troubleshooting
+
+### What to do when image snapshots cause the pipeline to fail
+
+We use the [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots) addon to generate and compare image snapshots based on [storybook](https://github.com/storybookjs/storybook) stories. Occasionally, component or dependency updates can create visual differences which can cause the pipeline to fail on master because of the failing `visual` job.
+
+1. Create a branch locally and delete the image snapshots causing the pipeline failure.
+2. Commit and push the changes to create a merge request.
+3. Manually trigger the `update_snapshots` job in the failing pipeline and regenerate snapshots.
 
 ## Contribution guidelines
 
