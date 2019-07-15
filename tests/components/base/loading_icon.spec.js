@@ -2,88 +2,100 @@ import { shallowMount } from '@vue/test-utils';
 import LoadingIcon from '../../../components/base/loading_icon/loading_icon.vue';
 
 describe('loading icon component', () => {
-  const mountWithOptions = shallowMount.bind(null, LoadingIcon);
+  let wrapper;
+  const createComponent = propsData => {
+    wrapper = shallowMount(LoadingIcon, { propsData });
+  };
+
+  const findSpinnerEl = () => wrapper.find('.spinner');
+  const getSpinnerClasses = () => findSpinnerEl().classes();
+
+  afterEach(() => {
+    wrapper.destroy();
+  });
 
   describe('display', () => {
     it('should render as a block by default', () => {
-      const component = mountWithOptions({});
-      expect(component.vm.$el.tagName).toEqual('DIV');
+      createComponent();
+      expect(wrapper.element.tagName).toBe('DIV');
     });
 
     it('should render inline using prop', () => {
-      const component = mountWithOptions({
-        propsData: {
-          inline: true,
-        },
-      });
-      expect(component.vm.$el.tagName).toEqual('SPAN');
+      createComponent({ inline: true });
+      expect(wrapper.element.tagName).toBe('SPAN');
     });
   });
 
   describe('css class', () => {
+    const supportedSizes = ['sm', 'md', 'lg'];
+    const supportedColors = ['dark', 'light', 'orange'];
+    const sizeColorCombinations = supportedSizes.reduce(
+      (combinations, size) => combinations.concat(supportedColors.map(color => [size, color])),
+      []
+    );
+
     it('should render the spinner css class by default', () => {
-      const component = mountWithOptions({});
+      createComponent();
+      const spinnerClasses = getSpinnerClasses();
 
-      expect(component.vm.$el.querySelector('span').classList.contains('spinner')).toEqual(true);
+      expect(spinnerClasses).toContain('spinner');
     });
 
-    it('should render spinner-lg css class', () => {
-      const component = mountWithOptions({
-        propsData: {
-          size: 'lg',
-        },
-      });
+    it.each(supportedSizes)('should render spinner properly for size %s', size => {
+      createComponent({ size });
+      const spinnerClasses = getSpinnerClasses();
 
-      expect(component.vm.$el.querySelector('span').classList.contains('spinner')).toEqual(true);
-      expect(component.vm.$el.querySelector('span').classList.contains('spinner-lg')).toEqual(true);
+      expect(spinnerClasses).toContain('spinner');
+      expect(spinnerClasses).toContain(`spinner-${size}`);
     });
 
-    it('should render spinner-md and dark css class', () => {
-      const component = mountWithOptions({
-        propsData: {
-          size: 'md',
-          color: 'dark',
-        },
-      });
+    it.each(supportedColors)('should render spinner properly for color %s', color => {
+      createComponent({ color });
+      const spinnerClasses = getSpinnerClasses();
 
-      expect(component.vm.$el.querySelector('span').classList.contains('spinner')).toEqual(true);
-      expect(component.vm.$el.querySelector('span').classList.contains('spinner-md')).toEqual(true);
-      expect(component.vm.$el.querySelector('span').classList.contains('spinner-dark')).toEqual(
-        true
-      );
+      expect(spinnerClasses).toContain('spinner');
+      expect(spinnerClasses).toContain(`spinner-${color}`);
     });
+
+    it.each(sizeColorCombinations)(
+      'should render spinner properly for combination of size: "%s" and color: "%s"',
+      (size, color) => {
+        createComponent({ size, color });
+        const spinnerClasses = getSpinnerClasses();
+
+        expect(spinnerClasses).toContain('spinner');
+        expect(spinnerClasses).toContain(`spinner-${size}`);
+        expect(spinnerClasses).toContain(`spinner-${color}`);
+      }
+    );
   });
 
   describe('aria label', () => {
     it('should default to loading', () => {
-      const component = mountWithOptions({});
-      expect(component.vm.$el.querySelector('span').getAttribute('aria-label')).toEqual('Loading');
+      createComponent();
+      const spinnerEl = findSpinnerEl();
+
+      expect(spinnerEl.attributes('aria-label')).toBe('Loading');
     });
 
     it('should change using prop', () => {
       const label = 'label';
-      const component = mountWithOptions({
-        propsData: {
-          label,
-        },
-      });
+      createComponent({ label });
+      const spinnerEl = findSpinnerEl();
 
-      expect(component.vm.$el.querySelector('span').getAttribute('aria-label')).toEqual(label);
+      expect(spinnerEl.attributes('aria-label')).toBe(label);
     });
   });
 
   describe('legacy sizes', () => {
-    const findSpinnerEl = component => component.find('span');
-    const getSpinnerClasses = component => findSpinnerEl(component).classes();
-
     it('should warn if legacy sizes are used', () => {
       const deprecationWarning =
         "Icon sizes 1 - 5 are deprecated, please use 'sm', 'md' and 'lg' instead.";
       const legacySize = 3;
 
       console.warn = jest.fn(); // eslint-disable-line no-console
-      mountWithOptions({ propsData: { size: legacySize } });
 
+      createComponent({ size: legacySize });
       expect(console.warn).toHaveBeenCalledWith(deprecationWarning); // eslint-disable-line no-console
 
       console.warn.mockReset(); // eslint-disable-line no-console
@@ -94,8 +106,8 @@ describe('loading icon component', () => {
 
       console.error = jest.fn(); // eslint-disable-line no-console
 
-      const component = mountWithOptions({ propsData: { size: invalidSize } });
-      const spinnerClasses = getSpinnerClasses(component);
+      createComponent({ size: invalidSize });
+      const spinnerClasses = getSpinnerClasses();
 
       expect(console.error).toHaveBeenCalledTimes(1); // eslint-disable-line no-console
 
@@ -108,35 +120,27 @@ describe('loading icon component', () => {
 
     it('should convert size of 1 to "sm"', () => {
       const legacySize = 1;
-      const component = mountWithOptions({ propsData: { size: legacySize } });
-      const spinnerClasses = getSpinnerClasses(component);
+      createComponent({ size: legacySize });
+      const spinnerClasses = getSpinnerClasses();
 
       expect(spinnerClasses).toContain('spinner');
       expect(spinnerClasses).toContain('spinner-sm');
     });
 
-    it('should convert size of 2 or 3 to "md"', () => {
-      const legacySizes = [2, 3];
+    it.each([2, 3])('convert size of %s to "md"', legacySize => {
+      createComponent({ size: legacySize });
+      const spinnerClasses = getSpinnerClasses();
 
-      legacySizes.forEach(legacySize => {
-        const component = mountWithOptions({ propsData: { size: legacySize } });
-        const spinnerClasses = getSpinnerClasses(component);
-
-        expect(spinnerClasses).toContain('spinner');
-        expect(spinnerClasses).toContain('spinner-md');
-      });
+      expect(spinnerClasses).toContain('spinner');
+      expect(spinnerClasses).toContain('spinner-md');
     });
 
-    it('should convert size of 4 or 5 to "lg"', () => {
-      const legacySizes = [4, 5];
+    it.each([4, 5])('convert size of %s to "lg"', legacySize => {
+      createComponent({ size: legacySize });
+      const spinnerClasses = getSpinnerClasses();
 
-      legacySizes.forEach(legacySize => {
-        const component = mountWithOptions({ propsData: { size: legacySize } });
-        const spinnerClasses = getSpinnerClasses(component);
-
-        expect(spinnerClasses).toContain('spinner');
-        expect(spinnerClasses).toContain('spinner-lg');
-      });
+      expect(spinnerClasses).toContain('spinner');
+      expect(spinnerClasses).toContain('spinner-lg');
     });
   });
 });
