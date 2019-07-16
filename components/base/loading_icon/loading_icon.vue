@@ -52,13 +52,8 @@ export default {
     rootElementType() {
       return this.inline ? 'span' : 'div';
     },
-    spinnerColor() {
-      return this.color === defaultColor ? 'spinner' : `spinner spinner-${colors[this.color]}`;
-    },
-    cssClass() {
-      return this.size === defaultSize
-        ? this.spinnerColor
-        : this.spinnerColor + this.spinnerSizeCss;
+    colorClass() {
+      return this.color === defaultColor ? null : `spinner-${colors[this.color]}`;
     },
     sizeToString() {
       return sizeToStringMap[this.size] || defaultSize;
@@ -66,7 +61,10 @@ export default {
     isSizeString() {
       return Number.isNaN(parseInt(this.size, 10));
     },
-    spinnerSizeCss() {
+    sizeClass() {
+      if (this.size === defaultSize) {
+        return null;
+      }
       return this.isSizeString ? ` spinner-${sizes[this.size]} ` : ` spinner-${this.sizeToString}`;
     },
   },
@@ -82,7 +80,8 @@ export default {
     class="loading-container text-center"
   >
     <span
-      :class="cssClass"
+      class="spinner"
+      :class="[colorClass, sizeClass]"
       :aria-label="label"
       aria-hidden="true"
     ></span>
