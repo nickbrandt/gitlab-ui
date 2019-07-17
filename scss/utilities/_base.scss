@@ -14,10 +14,26 @@ $utilities: ();
   @return $utility-name;
 }
 
-@mixin add-utility($base-name, $suffix, $properties) {
-  $utilities: map-merge($utilities, (
-    #{create-utility-name($base-name, $suffix)}: $properties
-  )) !global;
+@mixin write-properties($properties) {
+  @each $name, $value in $properties {
+    #{$name}: $value;
+  }
+}
+
+@mixin add-utility($base-name, $suffix, $properties, $is-add-class: true) {
+  $utility-name: 'gl-#{create-utility-name($base-name, $suffix)}';
+
+  $utilities: map-merge($utilities, (#{$utility-name}: $properties)) !global;
+
+  @if $is-add-class {
+    #{'.#{$utility-name}'} {
+      @include write-properties($properties);
+    }
+  }
+}
+
+@mixin add-utility-silent($base-name, $suffix, $properties) {
+  @include add-utility($base-name, $suffix, $properties, false);
 }
 
 @function find-utility($utility-name) {
@@ -30,18 +46,10 @@ $utilities: ();
   @return $utility;
 }
 
-@mixin gl-utility($utility-names...) {
+@mixin utility($utility-names...) {
   @each $utility-name in $utility-names {
     $utility: find-utility($utility-name);
 
-    @each $prop-name, $prop-value in $utility {
-      #{$prop-name}: $prop-value;
-    }
-  }
-}
-
-@mixin gl-utility-class($utility-name) {
-  #{'.#{$utility-name}'} {
-    @include gl-utility($utility-name);
+    @include write-properties($utility);
   }
 }

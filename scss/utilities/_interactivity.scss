@@ -1,7 +1,0 @@
-
-// Cursors
-@each $cursor in (auto, default, pointer, wait, text, move, not-allowed) {
-  @include add-utility('cursor', $cursor, (
-    cursor: $cursor
-  ));
-}

@@ -1,10 +1,206 @@
 @import 'base';
-@import 'borders';
-@import 'colors';
-@import 'inset_borders';
-@import 'position';
-@import 'spacing';
-@import 'text';
 
-// Generate utility classes after all utilities are added
-@import 'classes';
+/*
+* Marks a style declration as !important. In the
+* first iteration of the silent classes library,
+* it has been decided to maintain their style declarations
+* not important by default.
+*/
+@function important($value, $is-important: false) {
+  @if ($is-important == true) {
+    @return $value !important;
+  } @else {
+    @return $value;
+  }
+}
+
+@each $name, $space in $gl-spacing-scale {
+  // Padding
+  @include add-utility('p', $name, (
+    padding: important($space),
+  ));
+
+  @include add-utility('pl', $name, (
+    padding-left: important($space),
+  ));
+
+  @include add-utility('pr', $name, (
+    padding-right: important($space),
+  ));
+
+  @include add-utility('px', $name, (
+    padding-left: important($space),
+    padding-right: important($space),
+  ));
+
+  @include add-utility('pt', $name, (
+    padding-top: important($space),
+  ));
+
+  @include add-utility('pb', $name, (
+    padding-bottom: important($space),
+  ));
+
+  @include add-utility('py', $name, (
+    padding-top: important($space),
+    padding-bottom: important($space),
+  ));
+}
+
+// Border utility classes
+
+// Border Style
+@each $border-style in solid, dashed, dotted, none {
+  @include add-utility('border', $border-style, (
+    border-style: important($border-style),
+  ));
+}
+
+// Border Size
+@each $name, $size in $gl-border-sizes {
+  @include add-utility('border', $name, (
+    border-width: important($size),
+  ));
+
+  @include add-utility('border-t', $name, (
+    border-top-width: important($size),
+  ));
+
+  @include add-utility('border-b', $name, (
+    border-bottom-width: important($size),
+  ));
+
+  @include add-utility('border-r', $name, (
+    border-right-width: important($size),
+  ));
+
+  @include add-utility('border-l', $name, (
+    border-left-width: important($size),
+  ));
+}
+
+// Border Roundness
+@each $name, $round-size  in $gl-rounded-sizes {
+  @include add-utility('rounded', $name, (
+    border-radius: important($round-size),
+  ));
+}
+
+// Inset borders
+@each $group-name, $color-group in $gl-color-groups {
+  @each $color-name, $color in $color-group {
+    @each $border, $size in $gl-border-sizes {
+      $suffix: '#{$border}-#{$group-name}-#{$color-name}';
+
+      @include add-utility-silent('inset-border-t', $suffix, (
+        box-shadow: inset 0 $size 0 0 $color
+      ));
+
+      @include add-utility-silent('inset-border-b', $suffix, (
+        box-shadow: inset 0 ($size * -1) 0 0 $color
+      ));
+
+      @include add-utility-silent('inset-border-r', $suffix, (
+        box-shadow: inset ($size * -1) 0 0 0 $color
+      ));
+
+      @include add-utility-silent('inset-border-l', $suffix, (
+        box-shadow: inset $size 0 0 0 $color
+      ));
+    }
+  }
+}
+
+// Color utility classes
+// background, text, and border colors based on gitlab color variables
+@each $group-name, $color-group in $gl-color-groups {
+  @each $color-name, $color in $color-group {
+    $suffix: null;
+
+    @if $group-name != '' {
+      $suffix: '#{$group-name}-#{$color-name}';
+    } @else {
+      $suffix: $color-name;
+    }
+
+    @include add-utility('bg', $suffix, (
+      background-color: important($color),
+    ));
+
+    @include add-utility('text', $suffix, (
+      color: important($color),
+    ));
+
+    @include add-utility('border', $suffix, (
+      border-color: important($color),
+    ));
+  }
+}
+
+// Text utility classes
+
+// font-family
+@each $font-name, $font in $gl-fonts {
+  @include add-utility('font', $font-name, (
+    font-family: important($font),
+  ));
+}
+
+// font-weight
+@each $weight-name, $weight in $gl-font-weights {
+  @include add-utility('font', $weight-name, (
+    font-weight: important($weight),
+  ));
+}
+
+// font-size
+@each $size-name, $size in $gl-type-scale {
+  @include add-utility('font', $size-name, (
+    font-size: important($size),
+  ));
+}
+
+// Line height
+@each $name, $line-height in $gl-line-heights {
+  @include add-utility('line-height', $name, (
+    line-height: important($line-height),
+  ));
+}
+
+// Interactivity utility classes
+
+// Cursors
+@each $cursor in (auto, default, pointer, wait, text, move, not-allowed) {
+  @include add-utility('cursor', $cursor, (
+    cursor: important($cursor),
+  ));
+}
+
+// Position utilities
+
+// Position type
+@each $position-type in (static, fixed, absolute, relative, sticky) {
+  @include add-utility('position', $position-type, (
+    position: $position-type,
+  ));
+}
+
+// Relative/Absolute positions
+$positions: (
+  'top-0': (
+    top: 0
+  ),
+  'bottom-0': (
+    bottom: 0
+  ),
+  'right-0': (
+    right: 0
+  ),
+  'left-0': (
+    left: 0
+  )
+);
+
+@each $position-name, $position-cords in $positions {
+  @include add-utility('', $position-name, $position-cords);
+}
