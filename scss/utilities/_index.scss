@@ -5,3 +5,6 @@
 @import 'position';
 @import 'spacing';
 @import 'text';
+
+// Generate utility classes after all utilities are added
+@import 'classes';

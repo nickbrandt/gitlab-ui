@@ -39,3 +39,9 @@ $utilities: ();
     }
   }
 }
+
+@mixin gl-utility-class($utility-name) {
+  #{'.#{$utility-name}'} {
+    @include gl-utility($utility-name);
+  }
+}
