@@ -1,0 +1,41 @@
+$utilities: ();
+
+@function create-utility-name($base-name, $suffix) {
+  $utility-name: null;
+
+  @if $base-name != '' and $suffix != '' {
+    $utility-name: #{'#{$base-name}-#{$suffix}'};
+  } @else if $base-name != '' {
+    $utility-name: $base-name;
+  } @else {
+    $utility-name: $suffix;
+  }
+
+  @return $utility-name;
+}
+
+@function add-utility($base-name, $suffix, $properties) {
+  @return map-merge($utilities, (
+    #{create-utility-name($base-name, $suffix)}: $properties
+  ));
+}
+
+@function find-utility($utility-name) {
+  $utility: map-get($utilities, $utility-name);
+
+  @if $utility == null {
+    @error 'Utility with name #{$utility-name} not found';
+  }
+
+  @return $utility;
+}
+
+@mixin gl-utility($utility-names) {
+  @each $utility-name in $utility-names {
+    $utility: find-utility($utility-name);
+
+    @each $prop-name, $prop-value in $utility {
+      #{$prop-name}: $prop-value;
+    }
+  }
+}

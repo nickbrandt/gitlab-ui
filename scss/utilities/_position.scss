@@ -1,0 +1,24 @@
+@each $position-type in (static, fixed, absolute, relative, sticky) {
+  $utilities: add-utility('position', $position-type, (
+    position: $position-type
+  ));
+}
+
+$positions: (
+  'top-0': (
+    top: 0
+  ),
+  'bottom-0': (
+    bottom: 0
+  ),
+  'right-0': (
+    right: 0
+  ),
+  'left-0': (
+    left: 0
+  )
+);
+
+@each $position-name, $position-cords in $positions {
+  $utilities: add-utility('', $position-name, $position-cords);
+}

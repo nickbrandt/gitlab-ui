@@ -1,0 +1,23 @@
+@each $group-name, $color-group in $gl-color-groups {
+  @each $color-name, $color in $color-group {
+    $suffix: null;
+
+    @if $group-name != '' {
+      $suffix: '#{$group-name}-#{$color-name}';
+    } @else {
+      $suffix: $color-name;
+    }
+
+    $utilities: add-utility('bg', $suffix, (
+      background-color: important($color)
+    ));
+
+    $utilities: add-utility('text', $suffix, (
+      color: important($color)
+    ));
+
+    $utilities: add-utility('border', $suffix, (
+      border-color: important($color)
+    ));
+  }
+}
