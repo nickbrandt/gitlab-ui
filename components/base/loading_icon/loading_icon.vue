@@ -52,20 +52,17 @@ export default {
     rootElementType() {
       return this.inline ? 'span' : 'div';
     },
-    colorClass() {
-      return this.color === defaultColor ? null : `spinner-${colors[this.color]}`;
-    },
     sizeToString() {
       return sizeToStringMap[this.size] || defaultSize;
     },
     isSizeString() {
       return Number.isNaN(parseInt(this.size, 10));
     },
-    sizeClass() {
-      if (this.size === defaultSize) {
-        return null;
-      }
-      return this.isSizeString ? ` spinner-${sizes[this.size]} ` : ` spinner-${this.sizeToString}`;
+    actualSize() {
+      return this.isSizeString ? sizes[this.size] : this.sizeToString;
+    },
+    cssClasses() {
+      return [`spinner-${colors[this.color]}`, `spinner-${sizes[this.actualSize]}`];
     },
   },
   created() {
@@ -75,15 +72,7 @@ export default {
 };
 </script>
 <template>
-  <component
-    :is="rootElementType"
-    class="loading-container text-center"
-  >
-    <span
-      class="spinner"
-      :class="[colorClass, sizeClass]"
-      :aria-label="label"
-      aria-hidden="true"
-    ></span>
+  <component :is="rootElementType" class="loading-container text-center">
+    <span class="spinner" :class="cssClasses" :aria-label="label" aria-hidden="true"></span>
   </component>
 </template>
