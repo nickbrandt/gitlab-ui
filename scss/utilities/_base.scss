@@ -30,7 +30,7 @@ $utilities: ();
   @return $utility;
 }
 
-@mixin gl-utility($utility-names) {
+@mixin gl-utility($utility-names...) {
   @each $utility-name in $utility-names {
     $utility: find-utility($utility-name);
 

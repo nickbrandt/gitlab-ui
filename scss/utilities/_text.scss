@@ -2,27 +2,27 @@
 // font-family
 @each $font-name, $font in $gl-fonts {
   $utilities: add-utility('font', $font-name, (
-    font-family: important($font)
+    font-family: $font
   ));
 }
 
 // font-weight
 @each $weight-name, $weight in $gl-font-weights {
   $utilities: add-utility('font', $weight-name, (
-    font-weight: important($weight)
+    font-weight: $weight
   ));
 }
 
 // font-size
 @each $size-name, $size in $gl-type-scale {
   $utilities: add-utility('font', $size-name, (
-    font-size: important($size)
+    font-size: $size
   ));
 }
 
 // Line height
 @each $name, $line-height in $gl-line-heights {
   $utilities: add-utility('line-height', $name, (
-    line-height: important($line-height)
+    line-height: $line-height
   ));
 }

@@ -9,15 +9,15 @@
     }
 
     $utilities: add-utility('bg', $suffix, (
-      background-color: important($color)
+      background-color: $color
     ));
 
     $utilities: add-utility('text', $suffix, (
-      color: important($color)
+      color: $color
     ));
 
     $utilities: add-utility('border', $suffix, (
-      border-color: important($color)
+      border-color: $color
     ));
   }
 }

@@ -1,0 +1,23 @@
+@each $group-name, $color-group in $gl-color-groups {
+  @each $color-name, $color in $color-group {
+    @each $border, $size in $gl-border-sizes {
+      $suffix: '#{$border}-#{$group-name}-#{$color-name}';
+
+      $utilities: add-utility('inset-border-t', $suffix, (
+        box-shadow: inset 0 $size 0 0 $color
+      ));
+
+      $utilities: add-utility('inset-border-b', $suffix, (
+        box-shadow: inset 0 ($size * -1) 0 0 $color
+      ));
+
+      $utilities: add-utility('inset-border-r', $suffix, (
+        box-shadow: inset ($size * -1) 0 0 0 $color
+      ));
+
+      $utilities: add-utility('inset-border-l', $suffix, (
+        box-shadow: inset $size 0 0 0 $color
+      ));
+    }
+  }
+}

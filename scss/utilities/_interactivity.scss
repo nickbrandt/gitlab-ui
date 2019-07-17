@@ -2,6 +2,6 @@
 // Cursors
 @each $cursor in (auto, default, pointer, wait, text, move, not-allowed) {
   $utilities: add-utility('cursor', $cursor, (
-    cursor: important($cursor)
+    cursor: $cursor
   ));
 }
