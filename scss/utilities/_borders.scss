@@ -1,36 +1,36 @@
 // Border Style
 @each $border-style in solid, dashed, dotted, none {
-  $utilities: add-utility('border', $border-style, (
+  @include add-utility('border', $border-style, (
     border-style: $border-style
   ));
 }
 
 // Border Size
 @each $name, $size in $gl-border-sizes {
-  $utilities: add-utility('border', $name, (
+  @include add-utility('border', $name, (
     border-width: $size
   ));
 
-  $utilities: add-utility('border-t', $name, (
+  @include add-utility('border-t', $name, (
     border-top-width: $size
   ));
 
-  $utilities: add-utility('border-b', $name, (
+  @include add-utility('border-b', $name, (
     border-bottom-width: $size
   ));
 
-  $utilities: add-utility('border-r', $name, (
+  @include add-utility('border-r', $name, (
     border-right-width: $size
   ));
 
-  $utilities: add-utility('border-l', $name, (
+  @include add-utility('border-l', $name, (
     border-left-width: $size
   ));
 }
 
 // Border Roundness
 @each $name, $round-size  in $gl-rounded-sizes {
-  $utilities: add-utility('rounded', $name, (
+  @include add-utility('rounded', $name, (
     border-radius: $round-size
   ));
 }

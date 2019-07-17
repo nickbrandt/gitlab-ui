@@ -8,15 +8,15 @@
       $suffix: $color-name;
     }
 
-    $utilities: add-utility('bg', $suffix, (
+    @include add-utility('bg', $suffix, (
       background-color: $color
     ));
 
-    $utilities: add-utility('text', $suffix, (
+    @include add-utility('text', $suffix, (
       color: $color
     ));
 
-    $utilities: add-utility('border', $suffix, (
+    @include add-utility('border', $suffix, (
       border-color: $color
     ));
   }

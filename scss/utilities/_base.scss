@@ -14,10 +14,10 @@ $utilities: ();
   @return $utility-name;
 }
 
-@function add-utility($base-name, $suffix, $properties) {
-  @return map-merge($utilities, (
+@mixin add-utility($base-name, $suffix, $properties) {
+  $utilities: map-merge($utilities, (
     #{create-utility-name($base-name, $suffix)}: $properties
-  ));
+  )) !global;
 }
 
 @function find-utility($utility-name) {

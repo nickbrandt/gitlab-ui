@@ -1,31 +1,31 @@
 @each $name, $space in $gl-spacing-scale {
   // Padding
-  $utilities: add-utility('padding', $name, (
+  @include add-utility('padding', $name, (
     padding: $space
   ));
 
-  $utilities: add-utility('padding-l', $name, (
+  @include add-utility('padding-l', $name, (
     padding-left: $space
   ));
 
-  $utilities: add-utility('padding-r', $name, (
+  @include add-utility('padding-r', $name, (
     padding-right: $space
   ));
 
-  $utilities: add-utility('padding-x', $name, (
+  @include add-utility('padding-x', $name, (
     padding-left: $space,
     padding-right: $space
   ));
 
-  $utilities: add-utility('padding-t', $name, (
+  @include add-utility('padding-t', $name, (
     padding-top: $space
   ));
 
-  $utilities: add-utility('padding-b', $name, (
+  @include add-utility('padding-b', $name, (
     padding-bottom: $space
   ));
 
-  $utilities: add-utility('padding-y', $name, (
+  @include add-utility('padding-y', $name, (
     padding-top: $space,
     padding-bottom: $space
   ));

@@ -1,5 +1,5 @@
 @each $position-type in (static, fixed, absolute, relative, sticky) {
-  $utilities: add-utility('position', $position-type, (
+  @include add-utility('position', $position-type, (
     position: $position-type
   ));
 }
@@ -20,5 +20,5 @@ $positions: (
 );
 
 @each $position-name, $position-cords in $positions {
-  $utilities: add-utility('', $position-name, $position-cords);
+  @include add-utility('', $position-name, $position-cords);
 }
