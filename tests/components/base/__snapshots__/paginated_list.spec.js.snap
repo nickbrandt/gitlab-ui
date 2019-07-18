@@ -162,7 +162,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
           <span
             aria-hidden="true"
             aria-label="Loading"
-            class="spinner"
+            class="spinner spinner-orange spinner-sm"
           />
         </span>
          
@@ -350,7 +350,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
           <span
             aria-hidden="true"
             aria-label="Loading"
-            class="spinner"
+            class="spinner spinner-orange spinner-sm"
           />
         </span>
          
@@ -592,7 +592,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
           <span
             aria-hidden="true"
             aria-label="Loading"
-            class="spinner"
+            class="spinner spinner-orange spinner-sm"
           />
         </span>
          
@@ -824,7 +824,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
           <span
             aria-hidden="true"
             aria-label="Loading"
-            class="spinner"
+            class="spinner spinner-orange spinner-sm"
           />
         </span>
          
@@ -890,7 +890,7 @@ exports[`Paginated List Search states renders the default empty search message w
           <span
             aria-hidden="true"
             aria-label="Loading"
-            class="spinner"
+            class="spinner spinner-orange spinner-sm"
           />
         </span>
          
@@ -956,7 +956,7 @@ exports[`Paginated List Search states renders the list flitered by search result
           <span
             aria-hidden="true"
             aria-label="Loading"
-            class="spinner"
+            class="spinner spinner-orange spinner-sm"
           />
         </span>
          
