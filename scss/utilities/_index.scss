@@ -90,7 +90,13 @@
 @each $group-name, $color-group in $gl-color-groups {
   @each $color-name, $color in $color-group {
     @each $border, $size in $gl-border-sizes {
-      $suffix: '#{$border}-#{$group-name}-#{$color-name}';
+      $suffix: null;
+
+      @if $group-name != '' {
+        $suffix: '#{$border}-#{$group-name}-#{$color-name}';
+      } @else {
+        $suffix: '#{$border}-#{$color-name}';
+      }
 
       @include add-utility-silent('inset-border-t', $suffix, (
         box-shadow: inset 0 $size 0 0 $color
