@@ -25,7 +25,7 @@ const formatPropertyValue = value => {
 }
 
 const formatUtilityProperty = (propName, propValue) =>
-  `${propName}: ${formatPropertyValue(propValue)};`;
+  `\`${propName}: ${formatPropertyValue(propValue)};\``;
 
 const formatUtilityProperties = props =>
   Object.keys(props).map(propName =>
