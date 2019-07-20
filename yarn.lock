@@ -2525,7 +2525,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@^3.1.1, bluebird@^3.3.5, bluebird@^3.5.5:
+bluebird@^3.1.1, bluebird@^3.3.5, bluebird@^3.4.7, bluebird@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
   integrity sha512-5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==
@@ -3265,6 +3265,11 @@ color-convert@^1.9.0, color-convert@^1.9.1:
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
   dependencies:
     color-name "1.1.3"
+
+color-convert@~0.5.0:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
+  integrity sha1-vbbGnOZg+t/+CwAHzER+G59ygr0=
 
 color-name@1.1.3, color-name@^1.0.0:
   version "1.1.3"
@@ -5667,7 +5672,7 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
-gonzales-pe@^4.2.3:
+gonzales-pe@^4.2.2, gonzales-pe@^4.2.3:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/gonzales-pe/-/gonzales-pe-4.2.4.tgz#356ae36a312c46fe0f1026dd6cb539039f8500d2"
   integrity sha512-v0Ts/8IsSbh9n1OJRnSfa7Nlxi4AkXIsWB6vPept8FDbL4bXn3FNuxjYtO/nmBGu7GDkL9MFeGebeSu6l55EPQ==
@@ -6287,6 +6292,13 @@ into-stream@^3.1.0:
   dependencies:
     from2 "^2.1.1"
     p-is-promise "^1.1.0"
+
+invariant@2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
+  integrity sha1-nh9WrArNtr8wMwbzOL47IErmA2A=
+  dependencies:
+    loose-envify "^1.0.0"
 
 invariant@2.2.4, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   version "2.2.4"
@@ -8969,6 +8981,13 @@ parse-asn1@^5.0.0:
     evp_bytestokey "^1.0.0"
     pbkdf2 "^3.0.3"
 
+parse-color@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parse-color/-/parse-color-1.0.0.tgz#7b748b95a83f03f16a94f535e52d7f3d94658619"
+  integrity sha1-e3SLlag/A/FqlPU15S1/PZRlhhk=
+  dependencies:
+    color-convert "~0.5.0"
+
 parse-entities@^1.0.2, parse-entities@^1.1.0, parse-entities@^1.1.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/parse-entities/-/parse-entities-1.2.2.tgz#c31bf0f653b6661354f8973559cb86dd1d5edf50"
@@ -10106,6 +10125,14 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+query-ast@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/query-ast/-/query-ast-1.0.2.tgz#efc59271addc2699a1ed563be9a7cc61fed590c0"
+  integrity sha512-mg78RW1QHhW8ChuJfR3V7/8GZ+Hm0mVyuh91gCCaYlObGPaorPsOEY0LXbzjzydvfGui9seLTFW2MiuDy0MT8w==
+  dependencies:
+    invariant "2.2.2"
+    lodash "^4.17.4"
+
 query-string@^5.0.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-5.1.1.tgz#a78c012b71c17e05f2e3fa2319dd330682efb3cb"
@@ -11199,6 +11226,16 @@ sass-export@^1.0.3:
     glob "^7.1.2"
     minimist "^1.2.0"
     node-sass "^4.5.2"
+
+sass-extract@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/sass-extract/-/sass-extract-2.1.0.tgz#c65e6ca3103cbcf2fca0dcd81b07e4e49a6cc583"
+  integrity sha1-xl5soxA8vPL8oNzYGwfk5JpsxYM=
+  dependencies:
+    bluebird "^3.4.7"
+    gonzales-pe "^4.2.2"
+    parse-color "^1.0.0"
+    query-ast "^1.0.1"
 
 sass-graph@^2.2.4:
   version "2.2.4"

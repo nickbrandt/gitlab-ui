@@ -42,6 +42,7 @@
     "highlight.js": "^9.13.1",
     "js-beautify": "^1.8.8",
     "lodash": "^4.17.14",
+    "sass-extract": "^2.1.0",
     "url-search-params-polyfill": "^5.0.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.4.2"
