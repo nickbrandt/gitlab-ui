@@ -1,0 +1,53 @@
+{
+  "Padding": {
+    "props": ["padding", "padding-left", "padding-top", "padding-bottom"]
+  },
+  "Border style": {
+    "props": ["border-style"]
+  },
+  "Border width": {
+    "props": ["border-width"]
+  },
+  "Font family": {
+    "props": ["font-family"]
+  },
+  "Font weight": {
+    "props": ["font-weight"]
+  },
+  "Font size": {
+    "props": ["font-size"]
+  },
+  "Line height": {
+    "props": ["line-height"]
+  },
+  "Position": {
+    "props": ["position", "top", "bottom", "left", "right"]
+  },
+  "Cursor": {
+    "props": ["cursor"]
+  },
+  "Text color": {
+    "props": ["color"],
+    "displaySettings": {
+      "maxRows": 30
+    }
+  },
+  "Border color": {
+    "props": ["border-color"],
+    "displaySettings": {
+      "maxRows": 30
+    }
+  },
+  "Background color": {
+    "props": ["background-color"],
+    "displaySettings": {
+      "maxRows": 30
+    }
+  },
+  "Inset shadow borders": {
+    "props": ["box-shadow"],
+    "displaySettings": {
+      "maxRows": 30
+    }
+  }
+}

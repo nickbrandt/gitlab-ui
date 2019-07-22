@@ -12,6 +12,7 @@
   "scripts": {
     "build": "RELOAD_SCSS_VARIABLES=true yarn get-scss-variables && NODE_ENV=production rollup -c",
     "build-preview-head": "node .storybook/generate-preview-head.js",
+    "build-scss-utilities-catalog": "node scss_utilities_docs/build_catalog/build_catalog",
     "get-scss-variables": "sh scss_to_js/get_scss.sh",
     "clean": "rm -r dist storybook scss_to_js/scss_variables.*",
     "prettier-all": "prettier --list-different '**/*.{js,vue}'",
