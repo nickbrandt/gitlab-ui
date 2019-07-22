@@ -1,6 +1,7 @@
 <script>
 import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
+import ChartLegend from '../legend/legend.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -10,9 +11,7 @@ const defaultOptions = {
     transitionDuration: 0,
   },
   visualMap: {
-    type: 'piecewise',
-    orient: 'horizontal',
-    left: 'center',
+    show: false,
     inRange: {
       color: heatmapHues,
     },
@@ -42,6 +41,7 @@ function getRange(series) {
 export default {
   components: {
     Chart,
+    ChartLegend,
   },
   mixins: [ToolboxMixin],
   props: {
@@ -75,6 +75,11 @@ export default {
       default: '',
     },
   },
+  data() {
+    return {
+      chart: null,
+    };
+  },
   computed: {
     computedOptions() {
       const { min, max } = getRange(this.dataSeries);
@@ -88,11 +93,10 @@ export default {
           },
           grid: {
             height: '30%',
+            left: '68px',
             show: true,
             borderWidth: 0,
             backgroundColor: gray100,
-            left: '8%',
-            top: '5%',
           },
           visualMap: {
             min,
@@ -103,6 +107,7 @@ export default {
             z: 3,
             axisTick: false,
             name: this.xAxisName,
+            nameGap: 26,
             nameLocation: 'middle',
             nameTextStyle: {
               verticalAlign: 'middle',
@@ -110,6 +115,7 @@ export default {
             offset: 6,
             splitLine: {
               show: true,
+              interval: 0,
               lineStyle: {
                 color: whiteLight,
                 width: 2,
@@ -130,6 +136,7 @@ export default {
             nameRotate: 90,
             splitLine: {
               show: true,
+              interval: 0,
               lineStyle: {
                 color: whiteLight,
                 width: 2,
@@ -141,10 +148,51 @@ export default {
         this.options
       );
     },
+    compiledOptions() {
+      return this.chart ? this.chart.getOption() : null;
+    },
+    seriesInfo() {
+      const { min, max } = getRange(this.dataSeries);
+      const color = heatmapHues;
+      const splitSize = (max - min) / color.length;
+      let currentMin = min;
+
+      return color.reduce((acc, hue) => {
+        const currentMax = currentMin + splitSize;
+        acc.push({
+          name: `${this.formatNumber(currentMin)} -
+            ${this.formatNumber(currentMax)}`,
+          color: hue,
+        });
+
+        currentMin = currentMax;
+        return acc;
+      }, []);
+    },
+  },
+  methods: {
+    formatNumber(num) {
+      return parseFloat(num).toFixed();
+    },
+    onCreated(chart) {
+      this.chart = chart;
+    },
   },
 };
 </script>
 
 <template>
-  <chart :options="computedOptions"/>
+  <div class="gl-heatmap-container">
+    <chart 
+      :options="computedOptions" 
+      @created="onCreated"
+      class="gl-heatmap"
+    />
+    <chart-legend 
+      v-if="compiledOptions"
+      :chart="chart"
+      :series-info="seriesInfo"
+      class="gl-heatmap-legend"
+    />
+  </div>
 </template>
