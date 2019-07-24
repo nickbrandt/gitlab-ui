@@ -19,6 +19,8 @@ const colors = {
 const defaultSize = sizes.sm;
 const defaultColor = colors.orange;
 
+const baseCssClass = 'gl-spinner';
+
 export default {
   props: {
     label: {
@@ -62,7 +64,11 @@ export default {
       return this.isSizeString ? sizes[this.size] : this.sizeToString;
     },
     cssClasses() {
-      return [`spinner-${colors[this.color]}`, `spinner-${sizes[this.actualSize]}`];
+      return [
+        baseCssClass,
+        `${baseCssClass}-${colors[this.color]}`,
+        `${baseCssClass}-${sizes[this.actualSize]}`,
+      ];
     },
   },
   created() {
@@ -73,6 +79,6 @@ export default {
 </script>
 <template>
   <component :is="rootElementType" class="loading-container text-center">
-    <span class="spinner" :class="cssClasses" :aria-label="label" aria-hidden="true"></span>
+    <span :class="cssClasses" :aria-label="label" aria-hidden="true"></span>
   </component>
 </template>

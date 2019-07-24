@@ -7,7 +7,8 @@ describe('loading icon component', () => {
     wrapper = shallowMount(LoadingIcon, { propsData });
   };
 
-  const findSpinnerEl = () => wrapper.find('.spinner');
+  const baseCssClass = 'gl-spinner';
+  const findSpinnerEl = () => wrapper.find(`.${baseCssClass}`);
   const getSpinnerClasses = () => findSpinnerEl().classes();
 
   afterEach(() => {
@@ -38,23 +39,23 @@ describe('loading icon component', () => {
       createComponent();
       const spinnerClasses = getSpinnerClasses();
 
-      expect(spinnerClasses).toContain('spinner');
+      expect(spinnerClasses).toContain(baseCssClass);
     });
 
     it.each(supportedSizes)('should render spinner properly for size %s', size => {
       createComponent({ size });
       const spinnerClasses = getSpinnerClasses();
 
-      expect(spinnerClasses).toContain('spinner');
-      expect(spinnerClasses).toContain(`spinner-${size}`);
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-${size}`);
     });
 
     it.each(supportedColors)('should render spinner properly for color %s', color => {
       createComponent({ color });
       const spinnerClasses = getSpinnerClasses();
 
-      expect(spinnerClasses).toContain('spinner');
-      expect(spinnerClasses).toContain(`spinner-${color}`);
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-${color}`);
     });
 
     it.each(sizeColorCombinations)(
@@ -63,9 +64,9 @@ describe('loading icon component', () => {
         createComponent({ size, color });
         const spinnerClasses = getSpinnerClasses();
 
-        expect(spinnerClasses).toContain('spinner');
-        expect(spinnerClasses).toContain(`spinner-${size}`);
-        expect(spinnerClasses).toContain(`spinner-${color}`);
+        expect(spinnerClasses).toContain(baseCssClass);
+        expect(spinnerClasses).toContain(`${baseCssClass}-${size}`);
+        expect(spinnerClasses).toContain(`${baseCssClass}-${color}`);
       }
     );
   });
@@ -112,8 +113,8 @@ describe('loading icon component', () => {
       expect(console.error).toHaveBeenCalledTimes(1); // eslint-disable-line no-console
 
       // default size as fallback
-      expect(spinnerClasses).toContain('spinner');
-      expect(spinnerClasses).toContain('spinner-sm');
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-sm`);
 
       console.warn.mockReset(); // eslint-disable-line no-console
     });
@@ -123,24 +124,24 @@ describe('loading icon component', () => {
       createComponent({ size: legacySize });
       const spinnerClasses = getSpinnerClasses();
 
-      expect(spinnerClasses).toContain('spinner');
-      expect(spinnerClasses).toContain('spinner-sm');
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-sm`);
     });
 
     it.each([2, 3])('convert size of %s to "md"', legacySize => {
       createComponent({ size: legacySize });
       const spinnerClasses = getSpinnerClasses();
 
-      expect(spinnerClasses).toContain('spinner');
-      expect(spinnerClasses).toContain('spinner-md');
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-md`);
     });
 
     it.each([4, 5])('convert size of %s to "lg"', legacySize => {
       createComponent({ size: legacySize });
       const spinnerClasses = getSpinnerClasses();
 
-      expect(spinnerClasses).toContain('spinner');
-      expect(spinnerClasses).toContain('spinner-lg');
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-lg`);
     });
   });
 });
