@@ -1,0 +1,58 @@
+@mixin gl-spinner-color($color) {
+  border-color: rgba($color, 0.25);
+  border-top-color: $color;
+}
+
+@mixin gl-spinner-size($size, $border-width) {
+  width: $size;
+  height: $size;
+  border-width: $border-width;
+  transform-origin: 50% 50% calc((#{$size} / 2) + #{$border-width});
+}
+
+@keyframes gl-spinner-rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.gl-spinner {
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  animation-name: gl-spinner-rotate;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  border-style: solid;
+  display: inline-flex;
+
+  // default size
+  @include gl-spinner-size(16px, 2px);
+  // default colour
+  @include gl-spinner-color($orange-600);
+
+  &.gl-spinner-md {
+    @include gl-spinner-size(24px, 3px);
+  }
+
+  &.gl-spinner-lg {
+    @include gl-spinner-size(32px, 3px);
+  }
+
+  &.gl-spinner-xl {
+    @include gl-spinner-size(64px, 4px);
+  }
+
+  &.gl-spinner-dark {
+    @include gl-spinner-color($gray-700);
+  }
+
+  &.gl-spinner-light {
+    @include gl-spinner-color($white);
+  }
+}

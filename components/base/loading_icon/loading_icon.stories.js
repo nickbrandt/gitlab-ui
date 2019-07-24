@@ -8,12 +8,14 @@ const components = {
 };
 
 const template = `
-  <gl-loading-icon
-    :label="label"
-    :size="size"
-    :inline="inline"
-    :color="color"
-  />
+  <div :class="['p-2', 'rounded', { 'bg-dark' : color === 'light' } ]" >
+    <gl-loading-icon
+      :label="label"
+      :size="size"
+      :inline="inline"
+      :color="color"
+    />
+  </div>
 `;
 
 function generateProps({ inline } = {}) {
