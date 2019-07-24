@@ -2,6 +2,7 @@
 $grid-size: 8px;
 
 $gl-spacing-scale: (
+  'auto': auto,
   0: 0,
   1: #{0.25 * $grid-size},
   2: #{0.5 * $grid-size},

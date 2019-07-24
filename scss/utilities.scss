@@ -1,206 +1,201 @@
-// Spacing utility classes. Based on gitlab spacing scale.
 
-@mixin utility-style($utility-base-name, $utility-suffix, $is-silent-only: false) {
-  $utility-name: null;
-
-  @if $utility-base-name != '' and $utility-suffix != '' {
-    $utility-name: #{'#{$utility-base-name}-#{$utility-suffix}'};
-  } @else if $utility-base-name != '' {
-    $utility-name: $utility-base-name;
-  } @else {
-    $utility-name: $utility-suffix;
-  }
-
-  $utility-silent-class: '%#{$utility-name}';
-  $utility-class: '.#{$utility-name}';
-
-  #{$utility-silent-class} { @content; }
-
-  @if $is-silent-only == false {
-    #{$utility-class} { @extend #{$utility-silent-class}; }
-  }
-}
-
-/*
-* Marks a style declration as !important. In the
-* first iteration of the silent classes library,
-* it has been decided to maintain their style declarations
-* not important by default.
+/**
+* Padding utilities.
+*
+* naming convention: gl-p{position}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
 */
-@function important($value, $is-important: false) {
-  @if ($is-important == true) {
-    @return $value !important;
-  } @else {
-    @return $value;
-  }
+.gl-p-0 { @include gl-p-0; }
+.gl-p-4 { @include gl-p-4; }
+
+.gl-px-3 { @include gl-px-3; }
+
+.gl-pr-2 { @include gl-pr-2; }
+
+.gl-pl-2 { @include gl-pl-2; }
+
+.gl-py-0 { @include gl-py-0; }
+.gl-py-2 { @include gl-py-2; }
+.gl-py-3 { @include gl-py-3; }
+.gl-py-4 { @include gl-py-4; }
+
+/**
+* Margin utilities.
+*
+* naming convention: gl-m{position}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+.gl-mr-2 { @include gl-mr-2; }
+
+.gl-my-auto { @include gl-my-auto; }
+
+.gl-mx-3 { @include gl-mx-3; }
+
+/**
+* Fixed dimension (width/height) utilities
+*
+* naming convention: gl-{width|height}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+.gl-fixed-width-3 { @include gl-fixed-width-3; }
+.gl-fixed-width-4 { @include gl-fixed-width-4; }
+
+.gl-fixed-height-4 { @include gl-fixed-height-4; }
+
+/**
+* Border style utilities.
+*
+* naming convention: gl-border-{style}
+*/
+.gl-border-solid { @include gl-border-solid; }
+
+
+/**
+* Border style utilities.
+*
+* naming convention: gl-border-{color-palette-variable}
+* notes:
+* - Prefer design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+.gl-border-gray-200 { @include gl-border-gray-200; }
+.gl-border-gray-300 { @include gl-border-gray-300; }
+
+
+/**
+* Border width utilities.
+*
+* naming convention: gl-border-{position}-{border-width}
+* notes:
+* - Base new utilities in this group in the $gl-border-size variable
+*/
+.gl-border-0 { @include gl-border-0; }
+.gl-border-b-1 { @include gl-border-b-1; }
+
+/**
+* Border radius utilities.
+*
+* naming convention: gl-rounded-{roundness-size}
+* notes:
+* - Base new utilities in this group in the $gl-border-radius variables
+*/
+.gl-rounded-full { @include gl-rounded-full; }
+
+/**
+* Font size utility
+
+* Notes:
+* - Strictly based on design system type scale. See
+* $gl-type-scale for further references.
+*/
+.gl-font-sm { @include gl-font-sm; }
+
+/**
+* Font-weight utilities.
+*
+* naming convention: gl-font-weight-[bold|normal]
+*/
+.gl-font-weight-normal { @include gl-font-weight-normal; }
+.gl-font-weight-bold { @include gl-font-weight-bold; }
+
+
+/**
+* Text color utilities.
+*
+* naming convention: gl-text-{color-palette-variable-name}
+* notes:
+* - Strictly based design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+.gl-text-gray-400 { @include gl-text-gray-400; }
+.gl-text-gray-700 { @include gl-text-gray-700; }
+.gl-text-gray-900 { @include gl-text-gray-900; }
+.gl-text-gray-950 { @include gl-text-gray-950; }
+
+
+/**
+* Line height utilities.
+*
+* naming convention: gl-line-height-{line-height-in-pixels}
+* notes:
+* - Strictly based in gl-line-height-{n} variables
+*/
+.gl-line-height { @include gl-line-height; }
+
+/**
+* Align-items utilities
+*/
+.gl-align-items-center { @include gl-align-items-center; }
+
+/**
+* Inset border utilities
+*
+* Uses box-shadow: inset to create a border that does not
+* increase the box size of an element
+*
+* Naming convention: gl-inset-border-{border-position}-{border-size}-{color-name}
+*/
+.gl-inset-border-b-2-gray-200 {
+  @include gl-inset-border-b-2-gray-200;
 }
 
-@each $name, $space in $gl-spacing-scale {
-  // Padding
-  @include utility-style('gl-p', $name) {
-    padding: important($space);
-  }
-
-  @include utility-style('gl-pl', $name) {
-    padding-left: important($space);
-  }
-
-  @include utility-style('gl-pr', $name) {
-    padding-right: important($space);
-  }
-
-  @include utility-style('gl-px', $name) {
-    padding-left: important($space);
-    padding-right: important($space);
-  }
-
-  @include utility-style('gl-pt', $name) {
-    padding-top: important($space);
-  }
-
-  @include utility-style('gl-pb', $name) {
-    padding-bottom: important($space);
-  }
-
-  @include utility-style('gl-py', $name) {
-    padding-top: important($space);
-    padding-bottom: important($space);
-  }
+.gl-inset-border-b-2-theme-indigo-500 {
+  @include gl-inset-border-b-2-gray-200;;
 }
 
-// Border utility classes
-
-// Border Style
-@each $border-style in solid, dashed, dotted, none {
-  @include utility-style('gl-border', $border-style) {
-    border-style: important($border-style);
-  }
+.gl-inset-border-b-2-theme-red-500 {
+  @include gl-inset-border-b-2-theme-red-500;
 }
 
-// Border Size
-@each $name, $size in $gl-border-sizes {
-  @include utility-style('gl-border', $name) {
-    border-width: important($size);
-  }
-
-  @include utility-style('gl-border-t', $name) {
-    border-top-width: important($size);
-  }
-
-  @include utility-style('gl-border-b', $name) {
-    border-bottom-width: important($size);
-  }
-
-  @include utility-style('gl-border-r', $name) {
-    border-right-width: important($size);
-  }
-
-  @include utility-style('gl-border-l', $name) {
-    border-left-width: important($size);
-  }
+.gl-inset-border-b-2-theme-light-red-500 {
+  @include gl-inset-border-b-2-theme-light-red-500;
 }
 
-// Border Roundness
-@each $name, $round-size  in $gl-rounded-sizes {
-  @include utility-style('gl-rounded', $name) {
-    border-radius: important($round-size);
-  }
+.gl-inset-border-b-2-theme-blue-500 {
+  @include gl-inset-border-b-2-theme-blue-500;
 }
 
-// Color utility classes
-// background, text, and border colors based on gitlab color variables
-@each $group-name, $color-group in $gl-color-groups {
-  @each $color-name, $color in $color-group {
-    $suffix: null;
-
-    @if $group-name != '' {
-      $suffix: '#{$group-name}-#{$color-name}';
-    } @else {
-      $suffix: $color-name;
-    }
-
-    @include utility-style('gl-bg', $suffix) {
-      background-color: important($color);
-    }
-
-    @include utility-style('gl-text', $suffix) {
-      color: important($color);
-    }
-
-    @include utility-style('gl-border', $suffix) {
-      border-color: important($color);
-    }
-  }
+.gl-inset-border-b-2-theme-light-blue-500 {
+  @include gl-inset-border-b-2-theme-light-blue-500;
 }
 
-// Text utility classes
-
-// font-family
-@each $font-name, $font in $gl-fonts {
-  @include utility-style('gl-font', $font-name) {
-    font-family: important($font);
-  }
+.gl-inset-border-b-2-theme-green-500 {
+  @include gl-inset-border-b-2-theme-green-500;
 }
 
-// font-weight
-@each $weight-name, $weight in $gl-font-weights {
-  @include utility-style('gl-font', $weight-name) {
-    font-weight: important($weight);
-  }
-}
+/**
+* Position utilities.
+*
+* naming convention: gl-position-{property-value}
+*/
+.gl-position-absolute { @include gl-position-absolute; }
 
-// font-size
-@each $size-name, $size in $gl-type-scale {
-  @include utility-style('gl-font', $size-name) {
-    font-size: important($size);
-  }
-}
+/**
+* Coords utilities
+*
+* naming convention: gl-{position}-{value}
+*/
+.gl-top-0 { @include gl-top-0; }
+.gl-right-0 { @include gl-right-0; }
 
-// Line height
-@each $name, $line-height in $gl-line-heights {
-  @include utility-style('gl-line-height', $name) {
-    line-height: important($line-height);
-  }
-}
+/**
+* Cursor utilities
+*
+* naming convention: gl-cursor-{property-value}
+*/
+.gl-cursor-pointer { @include gl-cursor-pointer; }
 
-// Interactivity utility classes
 
-// Cursors
-@each $cursor in (auto, default, pointer, wait, text, move, not-allowed) {
-  @include utility-style('gl-cursor', $cursor) {
-    cursor: important($cursor);
-  }
-}
-
-// Position utilities
-
-// Position type
-@each $position-type in (static, fixed, absolute, relative, sticky) {
-  @include utility-style('gl-position', $position-type) {
-    position: $position-type;
-  }
-}
-
-// Relative/Absolute positions
-$positions: (
-  'top-0': (
-    top: 0
-  ),
-  'bottom-0': (
-    bottom: 0
-  ),
-  'right-0': (
-    right: 0
-  ),
-  'left-0': (
-    left: 0
-  )
-);
-
-@each $position-name, $position-cords in $positions {
-  @include utility-style('gl', $position-name) {
-    @each $coord-axis, $coord-value  in $position-cords {
-      #{$coord-axis}: $coord-value;
-    }
-  }
-}
+/**
+* Background color utilities.
+*
+* naming convention: gl-bg-{color-palette-variable-name}
+* notes:
+* - Strictly based design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+.gl-bg-transparent { @include gl-bg-transparent; }
+.gl-bg-white-light { @include gl-bg-white-light; }
