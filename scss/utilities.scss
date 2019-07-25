@@ -1,18 +1,12 @@
 /**
 * Utility class library
 *
-* ===========
-* = WARNING =
-* ===========
-*
-* Please take caution to make sure that the utility naming and values are consistent. We'd like to
-* be able to automate this file in the future.
-*
 * Naming conventions
 *
 * - Prefix the utility names with the gl- namespace
-* - Use t(op), b(ottom), l(eft), and r(ight) to indicate
+* - Use t(op), b(ottom), left(l), and r(ight) to indicate
 *   positioning variations, i.e. gl-border-b-1
+*
 */
 
 /**
@@ -77,8 +71,8 @@
 
 
 @mixin gl-my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: map-get($gl-spacing-scale, 'auto');
+  margin-bottom: map-get($gl-spacing-scale, 'auto');
 }
 .gl-my-auto { @include gl-my-auto; }
 
@@ -96,14 +90,14 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
-@mixin gl-w-3 { width: map-get($gl-spacing-scale, 3); }
-.gl-w-3 { @include gl-w-3; }
+@mixin gl-fixed-width-3 { width: map-get($gl-spacing-scale, 3); }
+.gl-fixed-width-3 { @include gl-fixed-width-3; }
 
-@mixin gl-w-4 { width: map-get($gl-spacing-scale, 4); }
-.gl-w-4 { @include gl-w-4; }
+@mixin gl-fixed-width-4 { width: map-get($gl-spacing-scale, 4); }
+.gl-fixed-width-4 { @include gl-fixed-width-4; }
 
-@mixin gl-h-4 { width: map-get($gl-spacing-scale, 4); }
-.gl-h-4 { @include gl-h-4; }
+@mixin gl-fixed-height-4 { width: map-get($gl-spacing-scale, 4); }
+.gl-fixed-height-4 { @include gl-fixed-height-4; }
 
 
 /**
@@ -201,8 +195,8 @@
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
-@mixin gl-line-height-normal { line-height: $gl-line-height; }
-.gl-line-height-normal { @include gl-line-height-normal; }
+@mixin gl-line-height { line-height: $gl-line-height; }
+.gl-line-height { @include gl-line-height; }
 
 /**
 * Align-items utilities
@@ -256,10 +250,10 @@
 /**
 * Position utilities.
 *
-* naming convention: gl-{property-value}
+* naming convention: gl-position-{property-value}
 */
-@mixin gl-absolute { position: absolute; }
-.gl-absolute { @include gl-absolute; }
+@mixin gl-position-absolute { position: absolute; }
+.gl-position-absolute { @include gl-position-absolute; }
 
 /**
 * Coords utilities
@@ -289,7 +283,7 @@
 * - Strictly based design system color palette. See variables.scss
 * for a comprehensive list.
 */
-@mixin gl-bg-transparent { background-color: $transparent; }
+@mixin gl-bg-transparent { background-color: transparent; }
 .gl-bg-transparent { @include gl-bg-transparent; }
 
 @mixin gl-bg-white-light { background-color: $white-light; }
