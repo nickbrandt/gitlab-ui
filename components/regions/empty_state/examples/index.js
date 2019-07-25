@@ -3,6 +3,7 @@ import EmptyStatePrimaryButtonExample from './empty_state.primary_button.example
 import EmptyStateMultipleButtonExample from './empty_state.multiple_button.example.vue';
 import EmptyStateNoIllustrationExample from './empty_state.no_illustration.example.vue';
 import EmptyStateNoCustomActions from './empty_state.custom_actions.example.vue';
+import EmptyStateSlottedDescription from './empty_state.slotted_description.example.vue';
 
 export default [
   {
@@ -37,6 +38,12 @@ export default [
         name: 'Custom Actions',
         description: 'Replace default buttons with custom contents',
         component: EmptyStateNoCustomActions,
+      },
+      {
+        id: 'empty-state-slotted-description',
+        name: 'Slotted Description',
+        description: 'Use a more custom, slotted description',
+        component: EmptyStateSlottedDescription,
       },
     ],
   },

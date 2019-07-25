@@ -118,4 +118,53 @@ describe('empty state component', () => {
       expect(customButtons.exists()).toBe(true);
     });
   });
+
+  describe('with different descriptions', () => {
+    it('should render description from prop', () => {
+      component = shallowMount(EmptyState, {
+        propsData: {
+          ...props,
+        },
+      });
+
+      const description = component.find('p');
+      expect(description.text()).toEqual(props.description);
+    });
+
+    it('should render description from slot', () => {
+      const slotDescription = 'Slotted description';
+
+      component = shallowMount(EmptyState, {
+        propsData: {
+          ...props,
+          description: null,
+        },
+        slots: {
+          description: `<span id="slotted">${slotDescription}</span>`,
+        },
+      });
+
+      const description = component.find('#slotted');
+      expect(description.text()).toEqual(slotDescription);
+    });
+
+    it('should render a slotted description over a props description', () => {
+      const slotDescription = 'Slotted description';
+
+      component = shallowMount(EmptyState, {
+        propsData: {
+          ...props,
+        },
+        slots: {
+          description: `<span id="slotted">${slotDescription}</span>`,
+        },
+      });
+
+      const description = component.find('#slotted');
+      const p = component.find('p');
+
+      expect(description.text()).toEqual(slotDescription);
+      expect(p.text()).not.toBe(props.description);
+    });
+  });
 });
