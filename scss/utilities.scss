@@ -96,14 +96,14 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
-@mixin gl-fixed-width-3 { width: map-get($gl-spacing-scale, 3); }
-.gl-fixed-width-3 { @include gl-fixed-width-3; }
+@mixin gl-w-3 { width: map-get($gl-spacing-scale, 3); }
+.gl-w-3 { @include gl-w-3; }
 
-@mixin gl-fixed-width-4 { width: map-get($gl-spacing-scale, 4); }
-.gl-fixed-width-4 { @include gl-fixed-width-4; }
+@mixin gl-w-4 { width: map-get($gl-spacing-scale, 4); }
+.gl-w-4 { @include gl-w-4; }
 
-@mixin gl-fixed-height-4 { width: map-get($gl-spacing-scale, 4); }
-.gl-fixed-height-4 { @include gl-fixed-height-4; }
+@mixin gl-h-4 { width: map-get($gl-spacing-scale, 4); }
+.gl-h-4 { @include gl-h-4; }
 
 
 /**
@@ -201,8 +201,8 @@
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
-@mixin gl-line-height { line-height: $gl-line-height; }
-.gl-line-height { @include gl-line-height; }
+@mixin gl-line-height-normal { line-height: $gl-line-height; }
+.gl-line-height-normal { @include gl-line-height-normal; }
 
 /**
 * Align-items utilities
@@ -256,10 +256,10 @@
 /**
 * Position utilities.
 *
-* naming convention: gl-position-{property-value}
+* naming convention: gl-{property-value}
 */
-@mixin gl-position-absolute { position: absolute; }
-.gl-position-absolute { @include gl-position-absolute; }
+@mixin gl-absolute { position: absolute; }
+.gl-absolute { @include gl-absolute; }
 
 /**
 * Coords utilities
