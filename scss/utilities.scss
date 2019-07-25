@@ -1,12 +1,18 @@
 /**
 * Utility class library
 *
+* ===========
+* = WARNING =
+* ===========
+*
+* Please take caution to make sure that the utility naming and values are consistent. We'd like to
+* be able to automate this file in the future.
+*
 * Naming conventions
 *
 * - Prefix the utility names with the gl- namespace
 * - Use t(op), b(ottom), left(l), and r(ight) to indicate
 *   positioning variations, i.e. gl-border-b-1
-*
 */
 
 /**
@@ -71,8 +77,8 @@
 
 
 @mixin gl-my-auto {
-  margin-top: map-get($gl-spacing-scale, 'auto');
-  margin-bottom: map-get($gl-spacing-scale, 'auto');
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .gl-my-auto { @include gl-my-auto; }
 
@@ -283,7 +289,7 @@
 * - Strictly based design system color palette. See variables.scss
 * for a comprehensive list.
 */
-@mixin gl-bg-transparent { background-color: transparent; }
+@mixin gl-bg-transparent { background-color: $transparent; }
 .gl-bg-transparent { @include gl-bg-transparent; }
 
 @mixin gl-bg-white-light { background-color: $white-light; }

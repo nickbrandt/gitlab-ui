@@ -2,7 +2,6 @@
 $grid-size: 8px;
 
 $gl-spacing-scale: (
-  'auto': auto,
   0: 0,
   1: #{0.25 * $grid-size},
   2: #{0.5 * $grid-size},
@@ -432,8 +431,7 @@ $gl-rounded-sizes: (
   'none': 0,
   'sm': $gl-border-radius-small,
   '': $gl-border-radius-default,
-  'lg': $gl-border-radius-large,
-  'full': $gl-border-radius-full
+  'lg': $gl-border-radius-large
 );
 
 // Toasts
