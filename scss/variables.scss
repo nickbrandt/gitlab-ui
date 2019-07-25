@@ -432,7 +432,8 @@ $gl-rounded-sizes: (
   'none': 0,
   'sm': $gl-border-radius-small,
   '': $gl-border-radius-default,
-  'lg': $gl-border-radius-large
+  'lg': $gl-border-radius-large,
+  'full': $gl-border-radius-full
 );
 
 // Toasts
