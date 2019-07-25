@@ -107,10 +107,14 @@ export default {
       <div class="text-content">
         <h4 ref="title" :class="{center: centerTitle, h5: compact}">{{ title }}</h4>
         <p
-          v-if="description"
+          v-if="description || $slots.description"
           ref="description"
           :class="{center: centerDescription}"
-        >{{ description }}</p>
+        >
+          <slot name="description">
+            {{ description }}
+          </slot>
+        </p>
         <div :class="{ 'text-center': fullscreen }">
           <slot name="actions">
             <gl-button
