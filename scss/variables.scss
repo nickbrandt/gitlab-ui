@@ -426,12 +426,14 @@ $gl-border-sizes: (
 $gl-border-radius-small: 2px;
 $gl-border-radius-default: 4px;
 $gl-border-radius-large: 8px;
+$gl-border-radius-full: 50%;
 
 $gl-rounded-sizes: (
   'none': 0,
   'sm': $gl-border-radius-small,
   '': $gl-border-radius-default,
-  'lg': $gl-border-radius-large
+  'lg': $gl-border-radius-large,
+  'full': $gl-border-radius-full
 );
 
 // Toasts
