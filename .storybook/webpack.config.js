@@ -29,6 +29,19 @@ module.exports = ({ config }) => {
       test: /@gitlab\/svgs\/dist\/icons\.svg$/,
       loader: 'raw-loader',
     },
+    // in a test-context this rule breaks the rendering of visual-snapshots
+    // because babel.config sets target to 'node'
+    ...(process.env.NODE_ENV !== 'test'
+      ? [
+          {
+            test: /\.js$/,
+            exclude: /node_modules\/(?!(bootstrap-vue)\/).*/,
+            use: {
+              loader: 'babel-loader',
+            },
+          },
+        ]
+      : []),
   ];
 
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
