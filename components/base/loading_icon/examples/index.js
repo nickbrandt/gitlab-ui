@@ -1,29 +1,48 @@
-import LoadingIconBasicExample from './loading_icon.basic.example.vue';
-import LoadingIconBigExample from './loading_icon.big.example.vue';
+import LoadingIconSmallExample from './loading_icon.small.example.vue';
+import LoadingIconMediumExample from './loading_icon.medium.example.vue';
+import LoadingIconLargeExample from './loading_icon.large.example.vue';
+import LoadingIconExtraLargeExample from './loading_icon.extra_large.example.vue';
 import LoadingIconInlineExample from './loading_icon.inline.example.vue';
 import LoadingIconAllOptionsExample from './loading_icon.all.example.vue';
 
 export default [
   {
-    name: 'Basic',
+    name: 'Display',
     items: [
-      {
-        id: 'loading-icon-basic',
-        name: 'Basic',
-        description: 'Basic Loading Icon',
-        component: LoadingIconBasicExample,
-      },
-      {
-        id: 'loading-icon-big',
-        name: 'Big',
-        description: 'Big Loading Icon',
-        component: LoadingIconBigExample,
-      },
       {
         id: 'loading-icon-inline',
         name: 'Inline',
         description: 'Loading Icon Inline',
         component: LoadingIconInlineExample,
+      },
+    ],
+  },
+  {
+    name: 'Size',
+    items: [
+      {
+        id: 'loading-icon-small',
+        name: 'Small (16x16)',
+        description: 'Small Loading Icon',
+        component: LoadingIconSmallExample,
+      },
+      {
+        id: 'loading-icon-medium',
+        name: 'Medium (24x24)',
+        description: 'Medium Loading Icon',
+        component: LoadingIconMediumExample,
+      },
+      {
+        id: 'loading-icon-large',
+        name: 'Large (32x32)',
+        description: 'Large Loading Icon',
+        component: LoadingIconLargeExample,
+      },
+      {
+        id: 'loading-icon-extra-large',
+        name: 'Extra Large (64x64)',
+        description: 'Extra Large Loading Icon',
+        component: LoadingIconExtraLargeExample,
       },
     ],
   },

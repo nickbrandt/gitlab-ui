@@ -128,20 +128,20 @@ describe('loading icon component', () => {
       expect(spinnerClasses).toContain(`${baseCssClass}-sm`);
     });
 
-    it.each([2, 3])('convert size of %s to "md"', legacySize => {
-      createComponent({ size: legacySize });
-      const spinnerClasses = getSpinnerClasses();
-
-      expect(spinnerClasses).toContain(baseCssClass);
-      expect(spinnerClasses).toContain(`${baseCssClass}-md`);
-    });
-
-    it.each([4, 5])('convert size of %s to "lg"', legacySize => {
+    it.each([2, 3])('convert size of %s to "lg"', legacySize => {
       createComponent({ size: legacySize });
       const spinnerClasses = getSpinnerClasses();
 
       expect(spinnerClasses).toContain(baseCssClass);
       expect(spinnerClasses).toContain(`${baseCssClass}-lg`);
+    });
+
+    it.each([4, 5])('convert size of %s to "xl"', legacySize => {
+      createComponent({ size: legacySize });
+      const spinnerClasses = getSpinnerClasses();
+
+      expect(spinnerClasses).toContain(baseCssClass);
+      expect(spinnerClasses).toContain(`${baseCssClass}-xl`);
     });
   });
 });
