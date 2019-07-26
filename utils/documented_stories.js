@@ -84,7 +84,7 @@ const withCustomPreview = withDocs({
     template: `<div>
                 {{ error }}
                 <template v-if="componentName">
-                  <gl-example-explorer :componentName="componentName" /><br/>
+                  <gl-example-explorer :componentName="componentName" />
                   <gl-component-documentation :componentName="componentName" />
                 </template>
               </div>`,

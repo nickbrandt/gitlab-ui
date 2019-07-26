@@ -45,6 +45,7 @@ export default {
 
 <template>
   <div>
+    <h3>Examples</h3>
     <gl-form-select
       v-if="exampleGroups && exampleGroups.length>0"
       v-model="selectedExampleId"
