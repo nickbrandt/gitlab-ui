@@ -23,7 +23,7 @@ export default {
     size: {
       type: String,
       required: false,
-      default: 'sm',
+      default: 'md',
       validator(value) {
         return sizes.indexOf(value) !== -1;
       },
@@ -58,6 +58,6 @@ export default {
 </script>
 <template>
   <component :is="rootElementType" class="gl-spinner-container">
-    <span :class="cssClasses" class="align-text-bottom" :aria-label="label"></span>
+    <span :class="cssClasses" class="gl-vertical-align-text-middle" :aria-label="label"></span>
   </component>
 </template>

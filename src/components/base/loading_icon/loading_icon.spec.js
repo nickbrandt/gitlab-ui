@@ -42,6 +42,13 @@ describe('loading icon component', () => {
       expect(spinnerClasses).toContain(baseCssClass);
     });
 
+    it('should render the "md" size by default', () => {
+      createComponent();
+      const spinnerClasses = getSpinnerClasses();
+
+      expect(spinnerClasses).toContain(`${baseCssClass}-md`);
+    });
+    
     it.each(supportedSizes)('should render spinner properly for size %s', (size) => {
       createComponent({ size });
       const spinnerClasses = getSpinnerClasses();
