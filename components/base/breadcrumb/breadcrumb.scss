@@ -1,0 +1,43 @@
+.gl-breadcrumbs {
+  @include gl-border-b-1;
+  @include gl-border-b-solid;
+  @include gl-border-gray-300;
+}
+
+.gl-breadcrumb-list {
+  @include gl-bg-transparent;
+  @include gl-p-0;
+  @include gl-align-items-center;
+  @include media-breakpoint-down(xs) {
+    @include gl-flex-wrap;
+  }
+}
+
+.gl-breadcrumb-separator svg {
+  @include gl-my-auto;
+  @include gl-mx-3;
+  @include gl-w-3;
+  @include gl-text-gray-700;
+}
+
+.gl-breadcrumb-avatar-tile {
+  @include gl-mr-2;
+  @include gl-border-1;
+  @include gl-border-solid;
+  @include gl-border-gray-300;
+  @include gl-rounded-full;
+}
+
+// bootstrap overrides
+.breadcrumb-item a {
+  @include gl-font-sm;
+  @include gl-text-gray-700;
+  @include media-breakpoint-down(xs) {
+    @include str-truncated(128px);
+  }
+}
+
+.breadcrumb-item:last-child a {
+  @include gl-text-gray-950;
+  @include gl-font-weight-bold;
+}
