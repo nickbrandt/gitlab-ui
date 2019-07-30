@@ -75,7 +75,6 @@
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 .gl-mr-2 { @include gl-mr-2; }
 
-
 @mixin gl-my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -87,7 +86,6 @@
   margin-left: $gl-spacing-scale-3;
   margin-right: $gl-spacing-scale-3;
 }
-.gl-mx-3 { @include gl-mx-3; }
 
 /**
 * Fixed dimension (width/height) utilities
@@ -109,11 +107,13 @@
 /**
 * Border style utilities.
 *
-* naming convention: gl-border-{style}
+* naming convention: gl-border-{position}-{style}
 */
 @mixin gl-border-solid { border-style: solid; }
 .gl-border-solid { @include gl-border-solid; }
 
+@mixin gl-border-b-solid { border-bottom-style: solid; }
+.gl-border-b-solid { @include gl-border-b-solid; }
 
 /**
 * Border style utilities.
@@ -139,6 +139,9 @@
 */
 @mixin gl-border-0 { border-width: map-get($gl-border-sizes, 0); }
 .gl-border-0 { @include gl-border-0; }
+
+@mixin gl-border-1 { border-width: map-get($gl-border-sizes, 1); }
+.gl-border-1 { @include gl-border-1; }
 
 @mixin gl-border-b-1 { border-bottom-width: map-get($gl-border-sizes, 1); }
 .gl-border-b-1 { @include gl-border-b-1; }
@@ -205,10 +208,10 @@
 .gl-line-height-normal { @include gl-line-height-normal; }
 
 /**
-* Align-items utilities
+* text-items utilities
 */
-@mixin gl-align-items-center { text-align: center; }
-.gl-align-items-center { @include gl-align-items-center; }
+@mixin gl-text-align-center { text-align: center; }
+.gl-text-align-center { @include gl-text-align-center; }
 
 /**
 * Inset border utilities
@@ -253,6 +256,14 @@
 }
 .gl-inset-border-b-2-theme-green-500 { @include gl-inset-border-b-2-theme-green-500; }
 
+/**
+* Flexbox utilities
+*/
+@mixin gl-align-items-center { align-items: center; }
+.gl-align-items-center { @include gl-align-items-center; }
+
+@mixin gl-flex-wrap { flex-wrap: wrap; }
+.gl-flex-wrap { @include gl-flex-wrap; }
 /**
 * Position utilities.
 *

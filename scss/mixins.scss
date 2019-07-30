@@ -1,0 +1,8 @@
+@mixin str-truncated($max-width: 82%) {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+  max-width: $max-width;
+}
