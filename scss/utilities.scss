@@ -22,46 +22,46 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
-@mixin gl-p-0 { padding: map-get($gl-spacing-scale, 0); }
+@mixin gl-p-0 { padding: $gl-spacing-scale-0; }
 .gl-p-0 { @include gl-p-0; }
 
-@mixin gl-p-4 { padding: map-get($gl-spacing-scale, 4); }
+@mixin gl-p-4 { padding: $gl-spacing-scale-4; }
 .gl-p-4 { @include gl-p-4; }
 
 
 @mixin gl-px-3 {
-  padding-left: map-get($gl-spacing-scale, 3);
-  padding-right: map-get($gl-spacing-scale, 3);
+  padding-left: $gl-spacing-scale-3;
+  padding-right: $gl-spacing-scale-3;
 }
 .gl-px-3 { @include gl-px-3; }
 
-@mixin gl-pr-2 { padding-right: map-get($gl-spacing-scale, 2); }
+@mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 .gl-pr-2 { @include gl-pr-2; }
 
-@mixin gl-pl-2 { padding-left: map-get($gl-spacing-scale, 2); }
+@mixin gl-pl-2 { padding-left: $gl-spacing-scale-2; }
 .gl-pl-2 { @include gl-pl-2; }
 
 @mixin gl-py-0 {
-  padding-top: map-get($gl-spacing-scale, 0);
-  padding-bottom: map-get($gl-spacing-scale, 0);
+  padding-top: $gl-spacing-scale-0;
+  padding-bottom: $gl-spacing-scale-0;
 }
 .gl-py-0 { @include gl-py-0; }
 
 @mixin gl-py-2 {
-  padding-top: map-get($gl-spacing-scale, 2);
-  padding-bottom: map-get($gl-spacing-scale, 2);
+  padding-top: $gl-spacing-scale-2;
+  padding-bottom: $gl-spacing-scale-2;
 }
 .gl-py-2 { @include gl-py-2; }
 
 @mixin gl-py-3 {
-  padding-top: map-get($gl-spacing-scale, 3);
-  padding-bottom: map-get($gl-spacing-scale, 3);
+  padding-top: $gl-spacing-scale-3;
+  padding-bottom: $gl-spacing-scale-3;
 }
 .gl-py-3 { @include gl-py-3; }
 
 @mixin gl-py-4 {
-  padding-top: map-get($gl-spacing-scale, 4);
-  padding-bottom: map-get($gl-spacing-scale, 4);
+  padding-top: $gl-spacing-scale-4;
+  padding-bottom: $gl-spacing-scale-4;
 }
 .gl-py-4 { @include gl-py-4; }
 
@@ -72,7 +72,7 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
-@mixin gl-mr-2 { margin-right: map-get($gl-spacing-scale, 2); }
+@mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 .gl-mr-2 { @include gl-mr-2; }
 
 
@@ -84,8 +84,8 @@
 
 
 @mixin gl-mx-3 {
-  margin-left: map-get($gl-spacing-scale, 3);
-  margin-right: map-get($gl-spacing-scale, 3);
+  margin-left: $gl-spacing-scale-3;
+  margin-right: $gl-spacing-scale-3;
 }
 .gl-mx-3 { @include gl-mx-3; }
 
@@ -96,13 +96,13 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
-@mixin gl-w-3 { width: map-get($gl-spacing-scale, 3); }
+@mixin gl-w-3 { width: $gl-spacing-scale-3; }
 .gl-w-3 { @include gl-w-3; }
 
-@mixin gl-w-4 { width: map-get($gl-spacing-scale, 4); }
+@mixin gl-w-4 { width: $gl-spacing-scale-4; }
 .gl-w-4 { @include gl-w-4; }
 
-@mixin gl-h-4 { width: map-get($gl-spacing-scale, 4); }
+@mixin gl-h-4 { width: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
 
