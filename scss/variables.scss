@@ -426,14 +426,14 @@ $gl-border-sizes: (
 
 // border roundness
 $gl-border-radius-small: 2px;
-$gl-border-radius-default: 4px;
+$gl-border-radius-base: 4px;
 $gl-border-radius-large: 8px;
 $gl-border-radius-full: 50%;
 
 $gl-rounded-sizes: (
   'none': 0,
   'sm': $gl-border-radius-small,
-  '': $gl-border-radius-default,
+  'base': $gl-border-radius-base,
   'lg': $gl-border-radius-large,
   'full': $gl-border-radius-full,
 );
@@ -465,3 +465,6 @@ $license-header-cell-width: 150px;
 $avatar-radius: 50%;
 $gl-avatar-size: 40px;
 $gl-avatar-border-opacity: 0.1;
+
+$gl-icon-chevron-left-sm: 'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icn/chevron-left</title><path d="M7.414 7.989l2.295 2.306a1 1 0 1 1-1.418 1.41l-3-3.015a1 1 0 0 1 .004-1.414l3-2.985a1 1 0 1 1 1.41 1.418l-2.29 2.28z" id="a"/></svg>';
+$gl-icon-chevron-right-sm: 'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icn/chevron-right</title><path d="M8.586 7.989l-2.291-2.28a1 1 0 1 1 1.41-1.418l3 2.985a1 1 0 0 1 .004 1.414l-3 3.015a1 1 0 0 1-1.418-1.41l2.295-2.306z" id="a"/></svg>';
