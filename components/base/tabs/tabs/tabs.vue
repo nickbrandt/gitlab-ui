@@ -1,6 +1,6 @@
 <script>
 import BTabs from 'bootstrap-vue/src/components/tabs/tabs';
-import { glThemes } from '../../../../utils/constants';
+import { getGlThemes } from '../../../../utils/utils';
 
 export default {
   components: {
@@ -12,7 +12,7 @@ export default {
       type: String,
       required: false,
       default: 'indigo',
-      validator: theme => glThemes.includes(theme),
+      validator: theme => getGlThemes().includes(theme),
     },
     contentClass: {
       type: String,

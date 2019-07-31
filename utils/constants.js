@@ -101,8 +101,6 @@ export const alignOptions = {
   fill: 'fill',
 };
 
-export const glThemes = ['indigo', 'blue', 'light-blue', 'green', 'red', 'light-red'];
-
 export const resizeDebounceTime = 200;
 
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);

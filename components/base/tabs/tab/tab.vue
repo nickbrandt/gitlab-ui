@@ -10,7 +10,6 @@ export default {
 </script>
 <template>
   <b-tab
-    class="gl-tab-content"
     title-link-class="gl-tab-nav-item"
     v-bind="$attrs"
     v-on="$listeners">

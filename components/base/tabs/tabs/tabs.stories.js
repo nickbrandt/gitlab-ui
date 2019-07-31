@@ -1,7 +1,7 @@
 import { withKnobs, select } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../../../../utils/documented_stories';
 import { GlTabs, GlTab } from '../../../../index';
-import { glThemes } from '../../../../utils/constants';
+import { getGlThemes } from '../../../../utils/utils';
 
 const createBaseStory = () => ({
   components: {
@@ -11,7 +11,7 @@ const createBaseStory = () => ({
   props: {
     theme: {
       type: String,
-      default: select('theme', glThemes, 'indigo'),
+      default: select('theme', getGlThemes(), 'indigo'),
     },
   },
 });

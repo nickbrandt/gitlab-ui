@@ -1,3 +1,5 @@
+import { glThemes as glThemesVariable } from '../scss_to_js/scss_variables';
+
 export function debounceByAnimationFrame(fn) {
   let requestId;
 
@@ -8,6 +10,8 @@ export function debounceByAnimationFrame(fn) {
     requestId = window.requestAnimationFrame(() => fn.apply(this, args));
   };
 }
+
+export const getGlThemes = () => glThemesVariable.split(',').map(glTheme => glTheme.trim());
 
 export function hexToRgba(hex, opacity = 1) {
   const cleanHex = hex.replace('#', '');
