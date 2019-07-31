@@ -1,8 +1,12 @@
+import { glThemes as glThemesVariable } from '../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+
 function appendDefaultOption(options) {
   return Object.assign({}, options, {
     default: '',
   });
 }
+
+export const glThemes = glThemesVariable.split(',').map(glTheme => glTheme.trim());
 
 export const variantOptions = {
   primary: 'primary',
