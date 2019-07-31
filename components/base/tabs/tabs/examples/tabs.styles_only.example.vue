@@ -14,8 +14,8 @@
       </li>
     </ul>
     <div class="tab-content gl-tab-content">
-      <div role="tabpanel" class="tab-pane gl-tab-content active">first content</div>
-      <div role="tabpanel" class="tab-pane gl-tab-content">second content</div>
+      <div role="tabpanel" class="tab-pane active">first content</div>
+      <div role="tabpanel" class="tab-pane">second content</div>
     </div>
   </div>
 </template>

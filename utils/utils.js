@@ -1,4 +1,4 @@
-import { glThemes as glThemesVariable } from '../scss_to_js/scss_variables';
+import { glThemes as glThemesVariable } from '../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export function debounceByAnimationFrame(fn) {
   let requestId;
