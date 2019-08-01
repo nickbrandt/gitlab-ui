@@ -28,12 +28,18 @@
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
 .gl-p-4 { @include gl-p-4; }
 
-
 @mixin gl-px-3 {
   padding-left: $gl-spacing-scale-3;
   padding-right: $gl-spacing-scale-3;
 }
 .gl-px-3 { @include gl-px-3; }
+
+@mixin gl-px-4 {
+  padding-left: $gl-spacing-scale-4;
+  padding-right: $gl-spacing-scale-4;
+}
+.gl-px-4 { @include gl-px-4; }
+
 
 @mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 .gl-pr-2 { @include gl-pr-2; }
@@ -64,6 +70,12 @@
   padding-bottom: $gl-spacing-scale-4;
 }
 .gl-py-4 { @include gl-py-4; }
+
+@mixin gl-py-5 {
+  padding-top: $gl-spacing-scale-5;
+  padding-bottom: $gl-spacing-scale-5;
+}
+.gl-py-5 { @include gl-py-5; }
 
 /**
 * Margin utilities.
