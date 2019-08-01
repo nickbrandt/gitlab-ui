@@ -1,0 +1,62 @@
+.gl-tabs-nav {
+  @include gl-border-solid;
+  @include gl-border-gray-200;
+  @include gl-border-0;
+  @include gl-border-b-1;
+}
+
+.gl-tab-nav-item {
+  @include gl-text-gray-700;
+  @include gl-px-4;
+  @include gl-py-5;
+  @include gl-line-height-normal;
+
+  transition: box-shadow 100ms linear;
+
+  &.disabled {
+    @include gl-text-gray-400;
+  }
+
+  &:hover {
+    @include gl-text-gray-900;
+    @include gl-inset-border-b-2-gray-200;
+  }
+
+  > .gl-tab-counter-badge {
+    font-weight: inherit;
+    color: inherit;
+  }
+}
+
+.gl-tab-content {
+  @include gl-py-3;
+}
+
+.gl-tab-nav-item-active {
+  @include gl-font-weight-bold;
+  @include gl-text-gray-900;
+}
+
+.gl-tab-nav-item-active-indigo {
+  @include gl-inset-border-b-2-theme-indigo-500;
+}
+
+.gl-tab-nav-item-active-blue {
+  @include gl-inset-border-b-2-theme-blue-500;
+}
+
+.gl-tab-nav-item-active-light-blue {
+  @include gl-inset-border-b-2-theme-light-blue-500;
+}
+
+.gl-tab-nav-item-active-red {
+  @include gl-inset-border-b-2-theme-red-500;
+}
+
+.gl-tab-nav-item-active-light-red {
+  @include gl-inset-border-b-2-theme-light-red-500;
+}
+
+.gl-tab-nav-item-active-green {
+  @include gl-inset-border-b-2-theme-green-500;
+}
