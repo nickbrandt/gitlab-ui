@@ -1,0 +1,17 @@
+@import 'pikaday/scss/pikaday';
+
+// Datepicker
+$gl-datepicker-width: 258px;
+
+.gl-datepicker-input {
+  width: $gl-datepicker-width;
+}
+
+.gl-datepicker-trigger {
+  @include gl-font-sm;
+  @include gl-cursor-pointer;
+  @include gl-absolute;
+  @include gl-top-0;
+  @include gl-right-0;
+  @include gl-p-4;
+}
