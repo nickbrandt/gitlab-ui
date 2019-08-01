@@ -4,7 +4,7 @@ const scssJson = require('./scss_variables.json'); // eslint-disable-line import
 
 const jsExports = scssJson.variables.reduce((acc, { name, compiledValue }) => {
   const exportName = camelCase(name);
-  acc[exportName] = `export const ${exportName} = '${compiledValue}';`;
+  acc[exportName] = `export const ${exportName} = '${compiledValue.replace('\'', '')}';`;
 
   return acc;
 }, {});
