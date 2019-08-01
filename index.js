@@ -49,6 +49,7 @@ export { default as GlFormCheckbox } from './components/base/form/form_checkbox/
 export { default as GlFriendlyWrap } from './components/base/friendly_wrap/friendly_wrap.vue';
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
 export { default as GlLabel } from './components/base/label/label.vue';
+export { default as GlDatepicker } from './components/base/datepicker/datepicker.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';

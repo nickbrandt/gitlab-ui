@@ -105,6 +105,9 @@ export {
   default as GlFriendlyWrapDocumentation,
 } from '../components/base/friendly_wrap/friendly_wrap.documentation';
 export { default as GlLabelDocumentation } from '../components/base/label/label.documentation';
+export {
+  default as GlDatepickerDocumentation,
+} from '../components/base/datepicker/datepicker.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
