@@ -109,3 +109,6 @@ export const resizeDebounceTime = 200;
 
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
+
+// Datetime constants
+export const defaultDateFormat = 'YYYY-MM-DD';
