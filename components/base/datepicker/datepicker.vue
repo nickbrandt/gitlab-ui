@@ -19,22 +19,21 @@ export const defaultDateFormatter = date => {
 };
 
 const equals = (date1, date2) => date1 && date2 && date1.getTime() === date2.getTime();
-const isBefore = (compareTo, date) => compareTo && date &&
-  date.getTime() < compareTo.getTime();
+const isBefore = (compareTo, date) => compareTo && date && date.getTime() < compareTo.getTime();
 
-const highlightPastDates = (pikaday) => {
+const highlightPastDates = pikaday => {
   const pikaButtons = pikaday.el.querySelectorAll('.pika-button');
   const today = new Date();
 
-  pikaButtons.forEach((pikaButton) => {
+  pikaButtons.forEach(pikaButton => {
     const { pikaYear, pikaMonth, pikaDay } = pikaButton.dataset;
     const pikaButtonDate = new Date(pikaYear, pikaMonth, pikaDay);
 
     if (isBefore(today, pikaButtonDate)) {
       pikaButton.classList.add('is-past-date');
     }
-  })
-}
+  });
+};
 
 export default {
   components: {
@@ -148,7 +147,7 @@ export default {
       onDraw(pikaday) {
         highlightPastDates(pikaday);
         drawEvent();
-      }
+      },
     };
 
     if (this.i18n) {
