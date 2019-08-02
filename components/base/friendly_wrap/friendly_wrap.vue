@@ -27,5 +27,6 @@ export default {
 </script>
 
 <template>
+  <!-- eslint-disable-next-line vue/no-v-html -->
   <span class="text-break" v-html="displayText"></span>
 </template>

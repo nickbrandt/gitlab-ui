@@ -185,8 +185,8 @@ export default {
   <div class="gl-heatmap-container">
     <chart 
       :options="computedOptions" 
-      @created="onCreated"
       class="gl-heatmap"
+      @created="onCreated"
     />
     <chart-legend 
       v-if="compiledOptions"

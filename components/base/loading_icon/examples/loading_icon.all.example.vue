@@ -3,21 +3,21 @@
     <p>
       Size:
       <label v-for="size in sizes" :key="size">
-        <input type="radio" :value="size" name="size" v-model="selectedSize" />
+        <input v-model="selectedSize" type="radio" :value="size" name="size" />
         {{size}}&nbsp;
       </label>
     </p>
     <p>
       Color:
       <label v-for="color in colors" :key="color">
-        <input type="radio" :value="color" name="color" v-model="selectedColor" />
+        <input v-model="selectedColor" type="radio" :value="color" name="color" />
         {{color}}&nbsp;
       </label>
     </p>
     <p>
       <label>
         Inline:
-        <input type="checkbox" v-model="isInline" />
+        <input v-model="isInline" type="checkbox" />
       </label>
     </p>
     <div class="text-center p-1" :style="backgroundStyle">
@@ -30,6 +30,11 @@ const sizes = ['sm', 'md', 'lg', 'xl'];
 const colors = ['orange', 'dark', 'light'];
 
 export default {
+  data: () => ({
+    selectedSize: sizes[0],
+    selectedColor: colors[0],
+    isInline: false,
+  }),
   computed: {
     sizes: () => sizes,
     colors: () => colors,
@@ -42,10 +47,5 @@ export default {
         : {};
     },
   },
-  data: () => ({
-    selectedSize: sizes[0],
-    selectedColor: colors[0],
-    isInline: false,
-  }),
 };
 </script>
