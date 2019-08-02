@@ -10,7 +10,7 @@ import replace from 'rollup-plugin-replace';
 import glob from 'glob';
 
 import { dependencies as bootstrapVueDependencies } from 'bootstrap-vue/package.json';
-import { dependencies } from './package.json';
+import { dependencies, peerDependencies } from './package.json';
 
 /*
  List of all external modules. At the moment we consider every dependency to be a external,
@@ -19,6 +19,7 @@ import { dependencies } from './package.json';
  */
 const externalModules = [
   '@gitlab/ui',
+  ...Object.keys(peerDependencies),
   ...Object.keys(dependencies).filter(name => name !== 'bootstrap-vue'),
   ...Object.keys(bootstrapVueDependencies),
 ];
