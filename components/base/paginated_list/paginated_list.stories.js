@@ -176,6 +176,7 @@ documentedStoriesOf('base|paginated-list', readme)
     template: templateWithHeader,
     methods: {
       alert() {
+        // eslint-disable-next-line no-alert
         window.alert('clicked');
       },
     },
@@ -191,6 +192,7 @@ documentedStoriesOf('base|paginated-list', readme)
     template: templateWithRow,
     methods: {
       alert() {
+        // eslint-disable-next-line no-alert
         window.alert('clicked');
       },
     },

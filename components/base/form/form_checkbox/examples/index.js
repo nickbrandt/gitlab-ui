@@ -5,8 +5,9 @@ import FormCheckboxCheckedDisabled from './form_checkbox.checked_disabled.exampl
 import FormCheckboxValues from './form_checkbox.values.example.vue';
 import FormCheckboxIndeterminate from './form_checkbox.indeterminant.example.vue';
 import FormCheckboxHelp from './form_checkbox.help.example.vue';
-import FormCheckboxMultiple from './form_checkbox.multiple.example.vue';
-import FormCheckboxMultipleInline from './form_checkbox.multiple_inline.example.vue';
+import FormCheckboxGroupSlots from './form_checkbox_group.slots.example.vue';
+import FormCheckboxGroupStacked from './form_checkbox_group.stacked.example.vue';
+import FormCheckboxGroupOptionsArray from './form_checkbox_group.options_array.example.vue';
 
 export default [
   {
@@ -47,15 +48,25 @@ export default [
         name: 'Form Checkbox with Help Text',
         component: FormCheckboxHelp,
       },
+    ],
+  },
+  {
+    name: 'Checkbox Group',
+    items: [
       {
-        id: 'multiple-form-checkboxes',
-        name: 'Multiple Form Checkboxes',
-        component: FormCheckboxMultiple,
+        id: 'form-checkbox-group-slots',
+        name: 'Form Checkbox Group using Slots',
+        component: FormCheckboxGroupSlots,
       },
       {
-        id: 'multiple-inline-form-checkboxes',
-        name: 'Multiple Inline Form Checkboxes',
-        component: FormCheckboxMultipleInline,
+        id: 'form-checkbox-group-stacked',
+        name: 'Form Checkbox Group using stacked',
+        component: FormCheckboxGroupStacked,
+      },
+      {
+        id: 'form-checkbox-group-options-array',
+        name: 'Form Checkbox Group using Options Array',
+        component: FormCheckboxGroupOptionsArray,
       },
     ],
   },
