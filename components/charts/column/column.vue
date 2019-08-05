@@ -128,8 +128,9 @@ export default {
   },
   methods: {
     moveShowTooltip(mouseEvent) {
+      const xOffset = 2;
       this.tooltipPosition = {
-        left: `${mouseEvent.zrX}px`,
+        left: `${mouseEvent.zrX + xOffset}px`,
         top: `${mouseEvent.zrY}px`,
       };
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
