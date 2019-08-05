@@ -108,6 +108,7 @@ export { default as GlLabelDocumentation } from '../components/base/label/label.
 export {
   default as GlDatepickerDocumentation,
 } from '../components/base/datepicker/datepicker.documentation';
+export { default as GlTokenDocumentation } from '../components/base/token/token.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

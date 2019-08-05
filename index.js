@@ -11,6 +11,7 @@ export { default as GlPagination } from './components/base/pagination/pagination
 export { default as GlPaginatedList } from './components/base/paginated_list/paginated_list.vue';
 export { default as GlPopover } from './components/base/popover/popover.vue';
 export { default as GlProgressBar } from './components/base/progress_bar/progress_bar.vue';
+export { default as GlToken } from './components/base/token/token.vue';
 export {
   default as GlSkeletonLoading,
 } from './components/base/skeleton_loading/skeleton_loading.vue';
