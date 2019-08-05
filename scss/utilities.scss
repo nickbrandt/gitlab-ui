@@ -378,6 +378,13 @@
 @mixin gl-flex-wrap { flex-wrap: wrap; }
 .gl-flex-wrap { @include gl-flex-wrap; }
 
+@mixin gl-flex-direction-column { flex-direction: column; }
+.gl-flex-direction-column { @include gl-flex-direction-column; }
+
+@mixin gl-justify-content-center { justify-content: center; }
+.gl-justify-content-center { @include gl-justify-content-center; }
+
+
 /**
 * Position utilities.
 *
@@ -422,6 +429,9 @@
 
 @mixin gl-bg-gray-100 { background-color: $gray-100; }
 .gl-bg-gray-100 { @include gl-bg-gray-100; }
+
+@mixin gl-bg-gray-200 { background-color: $gray-200; }
+.gl-bg-gray-200 { @include gl-bg-gray-200; }
 
 @mixin gl-bg-blue-500 { background-color: $blue-500; }
 .gl-bg-blue-500 { @include gl-bg-blue-500; }
