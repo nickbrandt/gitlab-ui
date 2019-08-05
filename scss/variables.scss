@@ -10,6 +10,9 @@ $gl-spacing-scale-5: 2 * $grid-size;
 $gl-spacing-scale-6: 3 * $grid-size;
 $gl-spacing-scale-7: 4 * $grid-size;
 $gl-spacing-scale-8: 5 * $grid-size;
+$gl-spacing-scale-9: 6 * $grid-size;
+$gl-spacing-scale-10: 7 * $grid-size;
+$gl-spacing-scale-11: 8 * $grid-size;
 
 $transparent: transparent;
 $black: #000;
@@ -375,9 +378,11 @@ $gl-font-weights: (
   'bold': $gl-font-weight-bold
 );
 
+$gl-type-scale-base: 14px;
+
 $gl-type-scale: (
   'sm': 12px,
-  'base': 14px,
+  'base': $gl-type-scale-base,
   'lg': 16px,
   'xl': 20px,
   '2xl': 28px,
