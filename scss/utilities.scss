@@ -87,6 +87,9 @@
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 .gl-mr-2 { @include gl-mr-2; }
 
+@mixin gl-ml-1 { margin-left: $gl-spacing-scale-1; }
+.gl-ml-1 { @include gl-ml-1; }
+
 @mixin gl-my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -167,6 +170,9 @@
 */
 @mixin gl-rounded-full { border-radius: $gl-border-radius-full; }
 .gl-rounded-full { @include gl-rounded-full; }
+
+@mixin gl-rounded-small { border-radius: $gl-border-radius-small; }
+.gl-rounded-small { @include gl-rounded-small; }
 
 /**
 * Font size utility
@@ -269,6 +275,12 @@
 .gl-inset-border-b-2-theme-green-500 { @include gl-inset-border-b-2-theme-green-500; }
 
 /**
+* Display utilities
+*/
+@mixin gl-display-inline-flex { display: inline-flex; }
+.gl-display-inline-flex { @include gl-display-inline-flex; }
+
+/**
 * Flexbox utilities
 */
 @mixin gl-align-items-center { align-items: center; }
@@ -276,6 +288,13 @@
 
 @mixin gl-flex-wrap { flex-wrap: wrap; }
 .gl-flex-wrap { @include gl-flex-wrap; }
+
+@mixin gl-flex-direction-column { flex-direction: column; }
+.gl-flex-direction-column { @include gl-flex-direction-column; }
+
+@mixin gl-justify-content-center { justify-content: center; }
+.gl-justify-content-center { @include gl-justify-content-center; }
+
 /**
 * Position utilities.
 *
@@ -317,3 +336,6 @@
 
 @mixin gl-bg-white-light { background-color: $white-light; }
 .gl-bg-white-light { @include gl-bg-white-light; }
+
+@mixin gl-bg-gray-200 { background-color: $gray-200; }
+.gl-bg-gray-200 { @include gl-bg-gray-200; }
