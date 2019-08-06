@@ -184,6 +184,9 @@
 @mixin gl-font-sm { font-size: map-get($gl-type-scale, 'sm'); }
 .gl-font-sm { @include gl-font-sm; }
 
+@mixin gl-font-base { font-size: map-get($gl-type-scale, 'base'); }
+.gl-font-base { @include gl-font-base; }
+
 /**
 * Font-weight utilities.
 *
