@@ -11,12 +11,14 @@ import defaultChartOptions, {
 } from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
   components: {
     Chart,
     ChartTooltip,
     ChartLegend,
+    TooltipDefaultFormat,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -181,9 +183,12 @@ export default {
     onLabelChange(params) {
       const { tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
+          const barColor = colorFromPalette(bar.seriesIndex);
+
           acc.tooltipContent[bar.seriesName] = {
             value: bar.value,
             index: bar.seriesIndex,
+            color: barColor,
           };
 
           return acc;
@@ -195,16 +200,6 @@ export default {
 
       this.tooltipTitle = params.value;
       this.$set(this, 'tooltipContent', tooltipContent);
-    },
-    styleIndicator(index) {
-      const barColor = colorFromPalette(index);
-
-      return {
-        width: '16px',
-        height: '4px',
-        backgroundColor: barColor,
-        marginRight: '4px',
-      };
     },
   },
 };
@@ -220,15 +215,9 @@ export default {
       :left="tooltipPosition.left"
     >
       <div slot="title">{{ tooltipTitle }}</div>
-      <div
-        v-for="(value, label) in tooltipContent"
-        :key="label + value.value"
-        class="d-flex align-items-center"
-      >
-        <div :style="styleIndicator(value.index)"></div>
-        <div class="flex-grow-1">{{ label }}</div>
-        <div class="text-right">{{ value.value }}</div>
-      </div>
+      <tooltip-default-format 
+        :tooltip-content="tooltipContent"
+      />
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"
