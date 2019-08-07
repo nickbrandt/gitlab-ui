@@ -28,14 +28,16 @@ $gl-datepicker-width: 240px;
 
   .pika-lendar {
     @include gl-m-0;
-    @include gl-p-4;
+    @include gl-pt-5;
+    @include gl-px-4;
+    @include gl-pb-3;
     @include gl-inset-border-1-gray-200;
     @include gl-rounded-base;
   }
 
   .pika-title {
     @include gl-line-height-normal;
-    @include gl-mb-4;
+    @include gl-mb-5;
     @include gl-h-5;
   }
 
@@ -68,7 +70,7 @@ $gl-datepicker-width: 240px;
   }
 
   th {
-    @include gl-pb-4;
+    @include gl-pb-3;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
     @include gl-text-gray-700;
@@ -76,6 +78,7 @@ $gl-datepicker-width: 240px;
 
   abbr[title] {
     @include gl-text-decoration-none;
+    @include gl-cursor-default;
   }
 
   .pika-button {
@@ -86,6 +89,7 @@ $gl-datepicker-width: 240px;
     @include gl-text-center;
     @include gl-text-gray-900;
     @include gl-line-height-normal;
+    @include gl-w-7;
 
     &.is-past-date {
       @include gl-text-gray-600;
@@ -97,14 +101,14 @@ $gl-datepicker-width: 240px;
     }
   }
 
+  .is-today > .pika-button {
+    @include gl-font-weight-bold;
+    @include gl-text-gray-900;
+  }
+
   .is-selected > .pika-button {
     @include gl-bg-blue-500;
     @include gl-font-weight-normal;
     @include gl-text-white;
-  }
-
-  .is-today > .pika-button {
-    @include gl-font-weight-bold;
-    @include gl-text-gray-900;
   }
 }
