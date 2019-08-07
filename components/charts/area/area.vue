@@ -14,12 +14,14 @@ import defaultChartOptions, {
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
   components: {
     Chart,
     ChartLegend,
     ChartTooltip,
+    TooltipDefaultFormat,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -145,10 +147,15 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
+      const seriesDataLength = params.seriesData.length;
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, line) => {
           const [title, value] = line.value || [];
-          acc.tooltipContent[line.seriesName] = value;
+
+          acc.tooltipContent[line.seriesName] = {
+            value,
+            color: seriesDataLength === 1 ? '' : line.color,
+          };
           if (!acc.xLabels.includes(title)) {
             acc.xLabels.push(title);
           }
@@ -208,10 +215,9 @@ export default {
       </template>
       <template v-else>
         <div slot="title">{{ tooltipTitle }}</div>
-        <div v-for="(value, label) in tooltipContent" :key="label + value">
-          {{ label }}
-          {{ value }}
-        </div>
+        <tooltip-default-format 
+          :tooltip-content="tooltipContent"
+        />
       </template>
     </chart-tooltip>
     <chart-legend
