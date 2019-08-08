@@ -1,0 +1,9 @@
+.gl-form-group {
+  margin-bottom: $gl-line-height;
+
+  .col-form-label {
+    line-height: $gl-line-height;
+    padding-top: 0;
+    padding-bottom: $gl-spacing-scale-3;
+  }  
+}
