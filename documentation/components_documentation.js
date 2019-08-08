@@ -23,6 +23,9 @@ export {
   default as GlColumnChartDocumentation,
 } from '../components/charts/column/column.documentation';
 export {
+  default as GlDiscreteScatterChartDocumentation,
+} from '../components/charts/discrete_scatter/discrete_scatter.documentation';
+export {
   default as GlSkeletonLoadingDocumentation,
 } from '../components/base/skeleton_loading/skeleton_loading.documentation';
 export { default as GlBadgeDocumentation } from '../components/base/badge/badge.documentation';

@@ -9,4 +9,7 @@ export { default as GlColumnChart } from './components/charts/column/column.vue'
 export {
   default as GlStackedColumnChart,
 } from './components/charts/stacked_column/stacked_column.vue';
+export {
+  default as GlDiscreteScatterChart,
+} from './components/charts/discrete_scatter/discrete_scatter.vue';
 export { default as GlSingleStat } from './components/charts/single_stat/single_stat.vue';
