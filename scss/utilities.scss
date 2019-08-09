@@ -325,6 +325,8 @@
 @mixin gl-cursor-pointer { cursor: pointer; }
 .gl-cursor-pointer { @include gl-cursor-pointer; }
 
+@mixin gl-pointer-events-none { pointer-events: none; }
+.gl-pointer-events-none { @include gl-pointer-events-none; }
 
 /**
 * Background color utilities.
