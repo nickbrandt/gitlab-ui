@@ -5,10 +5,12 @@ import ChartLegend from '../legend/legend.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { throttle } from '../../../utils/utils';
 
 const defaultOptions = {
   tooltip: {
     transitionDuration: 0,
+    showContent: true,
   },
   visualMap: {
     show: false,
@@ -78,6 +80,15 @@ export default {
   data() {
     return {
       chart: null,
+      showTooltip: false,
+      tooltipTitle: '',
+      tooltipContent: '',
+      tooltip: {
+        left: '0',
+        top: '0',
+        content: '',
+        title: '',
+      },
     };
   },
   computed: {
@@ -90,6 +101,11 @@ export default {
           series: {
             data: this.dataSeries,
             z: 2,
+          },
+          tooltip: {
+            formatter: params => {
+              [, , this.tooltipContent] = params.data;
+            },
           },
           grid: {
             height: '30%',
@@ -170,12 +186,31 @@ export default {
       }, []);
     },
   },
+  beforeDestroy() {
+    this.chart.getDom().removeEventListener('mousemove', this.debouncedMouseMove);
+    this.chart.getDom().removeEventListener('mouseout', this.debouncedMouseMove);
+  },
   methods: {
     formatNumber(num) {
       return parseFloat(num).toFixed();
     },
     onCreated(chart) {
       this.chart = chart;
+      this.throttledMouseMove = throttle(this.mouseMove);
+      this.chart.getDom().addEventListener('mousemove', this.throttledMouseMove);
+      this.chart.getDom().addEventListener('mouseout', this.hideTooltip);
+    },
+    mouseMove(mouseEvent) {
+      const { zrX: x, zrY: y } = mouseEvent;
+      this.tooltip = {
+        left: `${x}px`,
+        top: `${y}px`,
+      };
+
+      this.tooltip.show = this.chart.containPixel('grid', [x, y]);
+    },
+    hideTooltip() {
+      this.tooltip.show = false;
     },
   },
 };
@@ -194,5 +229,18 @@ export default {
       :series-info="seriesInfo"
       class="gl-heatmap-legend"
     />
+    <gl-chart-tooltip
+      v-if="chart"
+      :chart="chart"
+      :show="tooltip.show"
+      :top="tooltip.top"
+      :left="tooltip.left"
+    >
+      <div
+        v-if="tooltipTitle"
+        slot="title"
+      >{{ tooltipTitle }}</div>
+      {{ tooltipContent }}
+    </gl-chart-tooltip>
   </div>
 </template>

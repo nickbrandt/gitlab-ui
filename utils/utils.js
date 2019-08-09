@@ -9,6 +9,23 @@ export function debounceByAnimationFrame(fn) {
   };
 }
 
+export function throttle(fn) {
+  let working = false;
+
+  return (...args) => {
+    if (working) {
+      return;
+    }
+
+    working = true;
+    fn(...args);
+
+    window.requestAnimationFrame(() => {
+      working = false;
+    });
+  };
+}
+
 export function hexToRgba(hex, opacity = 1) {
   const cleanHex = hex.replace('#', '');
   const rgb =
