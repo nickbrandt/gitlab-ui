@@ -168,6 +168,10 @@
 * notes:
 * - Base new utilities in this group in the $gl-border-radius variables
 */
+
+@mixin gl-rounded-default { border-radius: $gl-border-radius-default; }
+.gl-rounded-default { @include gl-rounded-default; }
+
 @mixin gl-rounded-full { border-radius: $gl-border-radius-full; }
 .gl-rounded-full { @include gl-rounded-full; }
 
