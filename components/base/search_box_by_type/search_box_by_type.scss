@@ -8,6 +8,7 @@ $gl-search-input-icon-padding: 3.5 * $grid-size;
 
 .gl-search-box-by-type-icon {
   @include gl-search-box-by-type-icon;
+
   &.left {
     @include gl-absolute;
   }
@@ -24,6 +25,7 @@ $gl-search-input-icon-padding: 3.5 * $grid-size;
   @include gl-bg-transparent;
   @include gl-p-0;
   @include gl-cursor-pointer;
+
   &:focus {
     outline: none;
   }
