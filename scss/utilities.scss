@@ -90,6 +90,12 @@
 @mixin gl-ml-1 { margin-left: $gl-spacing-scale-1; }
 .gl-ml-1 { @include gl-ml-1; }
 
+@mixin gl-my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.gl-my-0 { @include gl-my-0; }
+
 @mixin gl-my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -101,6 +107,13 @@
   margin-left: $gl-spacing-scale-3;
   margin-right: $gl-spacing-scale-3;
 }
+
+@mixin gl-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.gl-mx-auto { @include gl-mx-auto; }
+
 
 /**
 * Fixed dimension (width/height) utilities
@@ -225,6 +238,9 @@
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
+@mixin gl-line-height-0 { line-height: 0; }
+.gl-line-height-0 { @include gl-line-height-0; }
+
 @mixin gl-line-height-normal { line-height: $gl-line-height; }
 .gl-line-height-normal { @include gl-line-height-normal; }
 
@@ -305,6 +321,9 @@
 */
 @mixin gl-absolute { position: absolute; }
 .gl-absolute { @include gl-absolute; }
+
+@mixin gl-relative { position: relative; }
+.gl-relative { @include gl-relative; }
 
 /**
 * Coords utilities
