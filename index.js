@@ -54,6 +54,7 @@ export { default as GlFriendlyWrap } from './components/base/friendly_wrap/frien
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
 export { default as GlLabel } from './components/base/label/label.vue';
 export { default as GlDatepicker } from './components/base/datepicker/datepicker.vue';
+export { default as GlIcon } from './components/base/icon/icon.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';
