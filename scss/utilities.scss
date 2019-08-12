@@ -25,6 +25,9 @@
 @mixin gl-p-0 { padding: $gl-spacing-scale-0; }
 .gl-p-0 { @include gl-p-0; }
 
+@mixin gl-p-3 { padding: $gl-spacing-scale-3; }
+.gl-p-3 { @include gl-p-3; }
+
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
 .gl-p-4 { @include gl-p-4; }
 
@@ -40,9 +43,12 @@
 }
 .gl-px-4 { @include gl-px-4; }
 
-
 @mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 .gl-pr-2 { @include gl-pr-2; }
+
+@mixin gl-pr-7 { padding-right: $gl-spacing-scale-7; }
+.gl-pr-7 { @include gl-pr-7; }
+
 
 @mixin gl-pl-2 { padding-left: $gl-spacing-scale-2; }
 .gl-pl-2 { @include gl-pl-2; }
@@ -84,6 +90,9 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+@mixin gl-m-3 { margin: $gl-spacing-scale-3; }
+.gl-m-3 { @include gl-m-3; }
+
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 .gl-mr-2 { @include gl-mr-2; }
 
@@ -131,12 +140,20 @@
 @mixin gl-h-4 { width: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
+@mixin gl-h-5 { height: $gl-spacing-scale-5; }
+.gl-h-5 { @include gl-h-5; }
+
+@mixin gl-h-7 { height: $gl-spacing-scale-7; }
+.gl-h-7 { @include gl-h-7; }
 
 /**
 * Border style utilities.
 *
 * naming convention: gl-border-{position}-{style}
 */
+@mixin gl-border-none { border-style: none; }
+.gl-border-none { @include gl-border-none; }
+
 @mixin gl-border-solid { border-style: solid; }
 .gl-border-solid { @include gl-border-solid; }
 
@@ -296,6 +313,9 @@
 /**
 * Display utilities
 */
+@mixin gl-display-flex { display: flex; }
+.gl-display-flex { @include gl-display-flex; }
+
 @mixin gl-display-inline-flex { display: inline-flex; }
 .gl-display-inline-flex { @include gl-display-inline-flex; }
 

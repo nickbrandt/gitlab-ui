@@ -133,46 +133,30 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
   >
      
     <div
-      class="position-relative ms-no-clear gl-search-box"
+      class="gl-search-box-by-type"
     >
+      <svg
+        aria-hidden="true"
+        class="gl-search-box-by-type-icon left s16 ic-search"
+      >
+        <use
+          xlink:href="/temp_icons.svg#search"
+        />
+      </svg>
+       
       <input
         aria-label="Search"
-        class="pl-5 form-control"
+        class="gl-search-box-by-type-input form-control"
         placeholder="Search"
         type="text"
       />
        
       <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
+        class="gl-search-box-by-type-right-icons"
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style="display: none;"
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
+        <!---->
          
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style="display: none;"
-          title=""
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -321,46 +305,30 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
   >
      
     <div
-      class="position-relative ms-no-clear gl-search-box"
+      class="gl-search-box-by-type"
     >
+      <svg
+        aria-hidden="true"
+        class="gl-search-box-by-type-icon left s16 ic-search"
+      >
+        <use
+          xlink:href="/temp_icons.svg#search"
+        />
+      </svg>
+       
       <input
         aria-label="Search"
-        class="pl-5 form-control"
+        class="gl-search-box-by-type-input form-control"
         placeholder="Search"
         type="text"
       />
        
       <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
+        class="gl-search-box-by-type-right-icons"
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style="display: none;"
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
+        <!---->
          
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style="display: none;"
-          title=""
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -563,46 +531,30 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
   >
      
     <div
-      class="position-relative ms-no-clear gl-search-box"
+      class="gl-search-box-by-type"
     >
+      <svg
+        aria-hidden="true"
+        class="gl-search-box-by-type-icon left s16 ic-search"
+      >
+        <use
+          xlink:href="/temp_icons.svg#search"
+        />
+      </svg>
+       
       <input
         aria-label="Search"
-        class="pl-5 form-control"
+        class="gl-search-box-by-type-input form-control"
         placeholder="Search"
         type="text"
       />
        
       <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
+        class="gl-search-box-by-type-right-icons"
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style="display: none;"
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
+        <!---->
          
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style="display: none;"
-          title=""
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -794,47 +746,31 @@ exports[`Paginated List Search states renders the custom empty search message wh
   >
      
     <div
-      class="position-relative ms-no-clear gl-search-box"
+      class="gl-search-box-by-type"
     >
+      <svg
+        aria-hidden="true"
+        class="gl-search-box-by-type-icon left s16 ic-search"
+      >
+        <use
+          xlink:href="/temp_icons.svg#search"
+        />
+      </svg>
+       
       <input
         aria-label="Search"
-        class="pl-5 form-control pr-5"
-        id="__BVID__42"
+        class="gl-search-box-by-type-input form-control"
+        id="__BVID__43"
         placeholder="Search"
         type="text"
       />
        
       <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
+        class="gl-search-box-by-type-right-icons"
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style=""
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
+        <!---->
          
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style=""
-          title=""
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -860,47 +796,31 @@ exports[`Paginated List Search states renders the default empty search message w
   >
      
     <div
-      class="position-relative ms-no-clear gl-search-box"
+      class="gl-search-box-by-type"
     >
+      <svg
+        aria-hidden="true"
+        class="gl-search-box-by-type-icon left s16 ic-search"
+      >
+        <use
+          xlink:href="/temp_icons.svg#search"
+        />
+      </svg>
+       
       <input
         aria-label="Search"
-        class="pl-5 form-control pr-5"
-        id="__BVID__26"
+        class="gl-search-box-by-type-input form-control"
+        id="__BVID__27"
         placeholder="Search"
         type="text"
       />
        
       <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
+        class="gl-search-box-by-type-right-icons"
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style=""
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
+        <!---->
          
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style=""
-          title=""
-        />
+        <!---->
       </div>
     </div>
   </div>
@@ -926,47 +846,31 @@ exports[`Paginated List Search states renders the list flitered by search result
   >
      
     <div
-      class="position-relative ms-no-clear gl-search-box"
+      class="gl-search-box-by-type"
     >
+      <svg
+        aria-hidden="true"
+        class="gl-search-box-by-type-icon left s16 ic-search"
+      >
+        <use
+          xlink:href="/temp_icons.svg#search"
+        />
+      </svg>
+       
       <input
         aria-label="Search"
-        class="pl-5 form-control pr-5"
-        id="__BVID__18"
+        class="gl-search-box-by-type-input form-control"
+        id="__BVID__19"
         placeholder="Search"
         type="text"
       />
        
       <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
+        class="gl-search-box-by-type-right-icons"
       >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style=""
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
+        <!---->
          
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style=""
-          title=""
-        />
+        <!---->
       </div>
     </div>
   </div>
