@@ -54,102 +54,108 @@ const defaultOptions = {
     type: 'category',
   },
 };
+
 const template = `<gl-line-chart
   :data="data"
   :option="option"
   :thresholds="thresholds"
+  :includeLegendAvgMax="includeLegendAvgMax"
 />`;
 
-function generateData({
+function generateProps({
   data = defaultData,
   option = defaultOptions,
   thresholds = [],
   includeLegendAvgMax = true,
 } = {}) {
   return {
-    option: object('EChart Options', option),
-    thresholds: object('Thresholds', thresholds),
-    data: object('Chart Data', data),
-    includeLegendAvgMax: boolean('Include Legend Avg Max', includeLegendAvgMax),
+    includeLegendAvgMax: {
+      type: Boolean,
+      default: boolean('Include Legend Avg Max', includeLegendAvgMax),
+    },
+    option: {
+      type: Object,
+      default: object('EChart Options', option),
+    },
+    thresholds: {
+      type: Array,
+      default: object('Thresholds', thresholds),
+    },
+    data: {
+      type: Array,
+      default: object('Chart Data', data),
+    },
   };
 }
 
 documentedStoriesOf('charts|line-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    data() {
-      return generateData();
-    },
+    props: generateProps(),
     components,
     template,
   }))
   .add('with threshold', () => ({
-    data() {
-      return generateData({
-        thresholds: [{ threshold: 1350, operator: '>' }],
-      });
-    },
+    props: generateProps({
+      thresholds: [{ threshold: 1350, operator: '>' }],
+    }),
     components,
     template,
   }))
   .add('with zoom and scroll', () => ({
-    data() {
-      return generateData({
-        data: [
+    props: generateProps({
+      data: [
+        {
+          name: 'Time Series',
+          data: generateTimeSeries(),
+        },
+      ],
+      option: {
+        xAxis: {
+          type: 'time',
+          name: 'Time',
+          axisLabel: {
+            formatter: d => {
+              const date = new Date(d);
+              const month = (date.getMonth() + 1).toString().padStart(2, '0');
+              const day = date
+                .getDate()
+                .toString()
+                .padStart(2, '0');
+
+              return `${date.getFullYear()}-${month}-${day}`;
+            },
+          },
+        },
+        dataZoom: [
           {
-            name: 'Time Series',
-            data: generateTimeSeries(),
+            type: 'slider',
+            startValue: '2018-03-01T00:00:00.000',
+            handleIcon: getSvgEchartsPath('scroll-handle'),
+            dataBackground: {
+              lineStyle: {
+                width: 2,
+                color: gray200,
+              },
+              areaStyle: null,
+            },
           },
         ],
-        option: {
-          xAxis: {
-            type: 'time',
-            name: 'Time',
-            axisLabel: {
-              formatter: d => {
-                const date = new Date(d);
-                const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                const day = date
-                  .getDate()
-                  .toString()
-                  .padStart(2, '0');
-
-                return `${date.getFullYear()}-${month}-${day}`;
-              },
-            },
-          },
-          dataZoom: [
-            {
-              type: 'slider',
-              startValue: '2018-03-01T00:00:00.000',
-              handleIcon: getSvgEchartsPath('scroll-handle'),
-              dataBackground: {
-                lineStyle: {
-                  width: 2,
-                  color: gray200,
-                },
-                areaStyle: null,
-              },
-            },
-          ],
-        },
-      });
-    },
+      },
+    }),
     components,
     template,
   }))
   .add('with toolbox', () => ({
-    data() {
-      return generateData({
-        option: {
-          xAxis: {
-            name: 'Time',
-            type: 'category',
-          },
-          toolbox,
+    props: generateProps({
+      option: {
+        xAxis: {
+          name: 'Time',
+          type: 'category',
         },
-      });
-    },
+        toolbox,
+      },
+    }),
     components,
     template,
   }));
