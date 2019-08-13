@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlHeatmap } from '../../../charts';
 import { toolbox } from '../../../utils/charts/story_config';
@@ -15,7 +14,6 @@ function generateData() {
 }
 
 documentedStoriesOf('charts|heatmap', readme)
-  .addDecorator(withKnobs)
   .add('default', () => ({
     data() {
       return {

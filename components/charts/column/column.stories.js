@@ -19,7 +19,7 @@ const template = `
   />
 `;
 
-function generateData({
+function generateProps({
   data = {
     Full: [
       ['Mon', 1220],
@@ -37,48 +37,52 @@ function generateData({
   xAxisType = 'category',
 } = {}) {
   return {
-    data: object('Chart Data', data),
-    option: object('Echart Options', option),
-    yAxisTitle: text('Y Axis Title', yAxisTitle),
-    xAxisTitle: text('X Axis Title', xAxisTitle),
-    xAxisType: text('X Axis Type', xAxisType),
+    data: {
+      default: object('Chart Data', data),
+    },
+    option: {
+      default: object('Echart Options', option),
+    },
+    yAxisTitle: {
+      default: text('Y Axis Title', yAxisTitle),
+    },
+    xAxisTitle: {
+      default: text('X Axis Title', xAxisTitle),
+    },
+    xAxisType: {
+      default: text('X Axis Type', xAxisType),
+    },
   };
 }
 
 documentedStoriesOf('charts|column-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    data() {
-      return generateData();
-    },
+    props: generateProps(),
     components,
     template,
   }))
   .add('with zoom and scroll', () => ({
-    data() {
-      return generateData({
-        option: {
-          dataZoom: [
-            {
-              type: 'slider',
-              startValue: 1,
-              handleIcon: getSvgEchartsPath('scroll-handle'),
-            },
-          ],
-        },
-      });
-    },
+    props: generateProps({
+      option: {
+        dataZoom: [
+          {
+            type: 'slider',
+            startValue: 1,
+            handleIcon: getSvgEchartsPath('scroll-handle'),
+          },
+        ],
+      },
+    }),
     components,
     template,
   }))
   .add('with toolbox', () => ({
-    data() {
-      return generateData({
-        option: {
-          toolbox,
-        },
-      });
-    },
+    props: generateProps({
+      option: {
+        toolbox,
+      },
+    }),
     components,
     template,
   }));
