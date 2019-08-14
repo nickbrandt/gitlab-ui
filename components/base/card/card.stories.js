@@ -10,5 +10,5 @@ const components = {
 documentedStoriesOf('base|card', readme).add('default', () => ({
   props: {},
   components,
-  template: '<ul class="list-unstyled"><gl-card /></ul>',
+  template: '<div><gl-card /></div>',
 }));

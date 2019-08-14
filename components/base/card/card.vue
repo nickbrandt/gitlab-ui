@@ -1,5 +1,5 @@
 <script>
-import BCard from 'bootstrap-vue/src/components/card';
+import BCard from 'bootstrap-vue/src/components/card/card';
 
 export default {
   components: {
@@ -7,11 +7,9 @@ export default {
   },
 };
 </script>
+
 <template>
-  <b-button-group
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
+  <b-card>
     <slot></slot>
-  </b-button-group>
+  </b-card>
 </template>
