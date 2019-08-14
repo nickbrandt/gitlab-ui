@@ -35,6 +35,11 @@ export default {
       required: false,
       default: null,
     },
+    selectableText: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     containerId() {
@@ -66,7 +71,8 @@ export default {
       :id="containerId"
       :style="containerPosition"
       style="width: 1px; height: 1px"
-      class="chart-tooltip position-absolute gl-pointer-events-none"
+      class="chart-tooltip position-absolute "
+      :class="{ 'gl-pointer-events-none': !selectableText }"
     ></div>
     <!--
       Needs to be triggered programatically using `show` property
