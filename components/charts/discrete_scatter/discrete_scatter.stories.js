@@ -16,7 +16,7 @@ const template = `
   />
 `;
 
-function generateData({
+function generateProps({
   data = [
     {
       type: 'scatter',
@@ -36,19 +36,29 @@ function generateData({
   xAxisTitle = 'Date',
 } = {}) {
   return {
-    data: object('Chart Data', data),
-    option: object('EChart Options', option),
-    yAxisTitle: text('Y Axis Title', yAxisTitle),
-    xAxisTitle: text('X Axis Title', xAxisTitle),
+    data: {
+      type: Object,
+      default: object('Chart Data', data),
+    },
+    option: {
+      type: Object,
+      default: object('EChart Options', option),
+    },
+    yAxisTitle: {
+      type: String,
+      default: text('Y Axis Title', yAxisTitle),
+    },
+    xAxisTitle: {
+      type: String,
+      default: text('X Axis Title', xAxisTitle),
+    },
   };
 }
 
 documentedStoriesOf('charts|discrete-scatter-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    data() {
-      return generateData();
-    },
+    props: generateProps(),
     components,
     template,
   }));
