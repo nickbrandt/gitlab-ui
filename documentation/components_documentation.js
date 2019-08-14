@@ -119,10 +119,10 @@ export { default as GlToggleDocumentation } from '../components/base/toggle/togg
 export {
   default as GlDaterangePickerDocumentation,
 } from '../components/base/daterange_picker/daterange_picker.documentation';
-
 export {
   default as GlIntersperseDocumentation,
 } from '../components/base/intersperse/intersperse.documentation';
+export { default as GlCardDocumentation } from '../components/base/card/card/card.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
