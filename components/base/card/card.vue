@@ -5,11 +5,12 @@ export default {
   components: {
     BCard,
   },
+  inheritAttrs: false,
 };
 </script>
 
 <template>
-  <b-card>
+  <b-card v-bind="$attrs">
     <slot></slot>
   </b-card>
 </template>
