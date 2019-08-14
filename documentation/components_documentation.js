@@ -122,7 +122,7 @@ export {
 export {
   default as GlIntersperseDocumentation,
 } from '../components/base/intersperse/intersperse.documentation';
-export { default as GlCardDocumentation } from '../components/base/card/card/card.documentation';
+export { default as GlCardDocumentation } from '../components/base/card/card.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

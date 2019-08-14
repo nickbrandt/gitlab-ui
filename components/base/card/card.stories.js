@@ -1,7 +1,7 @@
-import documentedStoriesOf from '../../../../utils/documented_stories';
+import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './card.md';
 
-import { GlCard } from '../../../../index';
+import { GlCard } from '../../../index';
 
 const components = {
   GlCard,
