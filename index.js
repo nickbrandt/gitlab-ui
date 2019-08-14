@@ -61,6 +61,7 @@ export {
 export { default as GlIntersperse } from './components/base/intersperse/intersperse.vue';
 export { default as GlToggle } from './components/base/toggle/toggle.vue';
 export { default as GlCard } from './components/base/card/card.vue';
+export { default as GlCardText } from './components/base/card/card_text.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';
