@@ -4,7 +4,7 @@
     :option="{
       series: [{
         type: 'scatter',
-        data: [[2, 5], [6, 10]],
+        data: (() => { var arr = []; for (var i = 0; i < 200; i++) { arr.push([i, i]); } return arr; } )(),
       }]
     }"
   />
