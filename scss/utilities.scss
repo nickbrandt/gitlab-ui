@@ -115,7 +115,7 @@
 @mixin gl-w-4 { width: $gl-spacing-scale-4; }
 .gl-w-4 { @include gl-w-4; }
 
-@mixin gl-h-4 { width: $gl-spacing-scale-4; }
+@mixin gl-h-4 { height: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
 
