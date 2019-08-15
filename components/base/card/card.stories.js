@@ -1,9 +1,8 @@
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './card.md';
-import PurchasePlanTemplate from './examples/card.purchase.plans.example.vue'
+import PurchasePlanTemplate from './examples/card.purchase.plans.example.vue';
 
 import { GlCard } from '../../../index';
-
 
 const components = {
   GlCard,
