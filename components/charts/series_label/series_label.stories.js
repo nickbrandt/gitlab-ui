@@ -8,10 +8,17 @@ const components = {
   GlChartSeriesLabel,
 };
 
-const data = ({ color = colorPalette[0], type = 'solid' }) => ({
-  color: text('Color', color),
-  type: text('Series Type', type),
+const generateProps = ({ color = colorPalette[0], type = 'solid' } = {}) => ({
+  color: {
+    type: String,
+    default: text('Color', color),
+  },
+  type: {
+    type: String,
+    default: text('Series Type', type),
+  },
 });
+
 const template = `<gl-chart-series-label
     :color="color"
     :type="type"
@@ -23,13 +30,11 @@ documentedStoriesOf('charts|chart-series-label', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
-    data,
+    props: generateProps(),
     template,
   }))
   .add('dashed', () => ({
     components,
-    data() {
-      return data({ type: 'dashed' });
-    },
+    props: generateProps({ type: 'dashed' }),
     template,
   }));
