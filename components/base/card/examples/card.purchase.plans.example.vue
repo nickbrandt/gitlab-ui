@@ -1,7 +1,6 @@
-
 <template>
   <div>
-    <gl-card no-body style="max-width: 20rem;" >
+    <gl-card no-body style="max-width: 20rem; min-width: 14rem;">
       <b-card-header>Bronze</b-card-header>
       <b-card-body>
         <div class="price-per-month">
