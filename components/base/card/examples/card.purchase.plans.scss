@@ -1,0 +1,33 @@
+.pricing {
+  border-bottom: green 1px solid;
+}
+
+.price-per-month {
+  color: #1b69b6;
+  display: flex;
+  flex-direction: row;
+  color: #1f78d1;
+  justify-content: left;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.billing-conditions {
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+  margin: auto 0;
+  line-height: 20px;
+  padding: 0;
+}
+
+.subtext {
+  color: #1b69b6;
+}
+
+.features {
+  p {
+    margin: 0;
+  }
+  margin-bottom: 8px;
+}
