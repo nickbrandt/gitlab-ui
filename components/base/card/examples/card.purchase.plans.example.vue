@@ -21,8 +21,10 @@
     <gl-link href="https://about.gitlab.com/pricing/#gitlab-com">See all Bronze features</gl-link>
     </b-card-body>
 
-    <gl-card-footer>
+    <gl-card-footer >
+        <div class="flex justify-content-end">
         <gl-button href="#" variant="primary">Upgrade</gl-button>
+        </div>
     </gl-card-footer>
   </gl-card>
   </div>
