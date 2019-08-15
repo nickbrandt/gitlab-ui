@@ -83,7 +83,6 @@ describe('datepicker component', () => {
 
     beforeEach(() => {
       pastDateButton = {
-        pastDate: true,
         dataset: {
           pikaYear: 2016,
           pikaMonth: 1,
@@ -94,7 +93,6 @@ describe('datepicker component', () => {
         },
       };
       futureDateButton = {
-        pastDate: true,
         dataset: {
           pikaYear: currentDate.getFullYear(),
           pikaMonth: currentDate.getMonth(),

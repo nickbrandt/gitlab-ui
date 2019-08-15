@@ -28,7 +28,6 @@
 @mixin gl-p-3 { padding: $gl-spacing-scale-3; }
 .gl-p-3 { @include gl-p-3; }
 
-
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
 .gl-p-4 { @include gl-p-4; }
 
@@ -43,7 +42,6 @@
   padding-right: $gl-spacing-scale-4;
 }
 .gl-px-4 { @include gl-px-4; }
-
 
 @mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 .gl-pr-2 { @include gl-pr-2; }
@@ -68,7 +66,6 @@
 
 @mixin gl-pb-4 { padding-bottom: $gl-spacing-scale-4; }
 .gl-pb-4 { @include gl-pb-4; }
-
 
 @mixin gl-py-2 {
   padding-top: $gl-spacing-scale-2;
@@ -125,13 +122,11 @@
 @mixin gl-mb-5 { margin-bottom: $gl-spacing-scale-5; }
 .gl-mb-5 { @include gl-mb-5; }
 
-
 @mixin gl-my-auto {
   margin-top: auto;
   margin-bottom: auto;
 }
 .gl-my-auto { @include gl-my-auto; }
-
 
 @mixin gl-mx-3 {
   margin-left: $gl-spacing-scale-3;
@@ -172,7 +167,6 @@
 *
 * naming convention: gl-border-{position}-{style}
 */
-
 @mixin gl-border-none { border-style: none; }
 .gl-border-none { @include gl-border-none; }
 
@@ -195,7 +189,6 @@
 
 @mixin gl-border-gray-300 { border-color: $gray-300; }
 .gl-border-gray-300 { @include gl-border-gray-300; }
-
 
 /**
 * Border width utilities.
@@ -220,10 +213,8 @@
 * notes:
 * - Base new utilities in this group in the $gl-border-radius variables
 */
-
 @mixin gl-rounded-base { border-radius: $gl-border-radius-base; }
 .gl-rounded-base { @include gl-rounded-base; }
-
 
 @mixin gl-rounded-full { border-radius: $gl-border-radius-full; }
 .gl-rounded-full { @include gl-rounded-full; }
@@ -322,7 +313,6 @@
 *
 * Naming convention: gl-inset-border-{border-position}-{border-size}-{color-name}
 */
-
 @mixin gl-inset-border-1-gray-200 {
   box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $gray-200;
 }
@@ -394,7 +384,6 @@
 
 @mixin gl-justify-content-center { justify-content: center; }
 .gl-justify-content-center { @include gl-justify-content-center; }
-
 
 /**
 * Position utilities.
@@ -472,7 +461,6 @@
 */
 @mixin gl-bg-no-repeat { background-repeat: no-repeat; }
 .gl-bg-no-repeat { @include gl-bg-no-repeat; }
-
 
 /**
 * Background image utilities.
