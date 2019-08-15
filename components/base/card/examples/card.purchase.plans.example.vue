@@ -1,7 +1,9 @@
 <template>
   <div>
     <gl-card no-body style="max-width: 20rem; min-width: 14rem;">
-      <b-card-header>Bronze</b-card-header>
+      <b-card-header>
+        <p style="font-weight: bold; margin: 0;">Bronze</p>
+      </b-card-header>
       <b-card-body>
         <div class="price-per-month">
           <div class="append-right-5">$0</div>
