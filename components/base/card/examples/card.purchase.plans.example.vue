@@ -15,7 +15,7 @@
         2,000 CI pipeline minutes/month
         Next day support
     </gl-card-text>
-    <gl-link>See all Bronze features</gl-link>
+    <gl-link href="https://about.gitlab.com/pricing/#gitlab-com">See all Bronze features</gl-link>
     <gl-button href="#" variant="primary">Upgrade</gl-button>
   </gl-card>
   </div>
