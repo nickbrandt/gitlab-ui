@@ -64,7 +64,16 @@ export const engineeringNotation = (num, precision = 2) => {
   }
 
   const scaledPower = 3 * Math.floor(power / 3);
-  const scaledMantissa = exponentialNotation / 10 ** scaledPower;
+  const scaledMantissa = (exponentialNotation / 10 ** scaledPower)
+    // strip trailing decimals from floating point rounding errors
+    .toFixed(precision)
+    // strip trailing 0s after a decimal point
+    .replace(/\.([1-9]*)0+$/, (_, fractionalDigits) => {
+      if (fractionalDigits) {
+        return `.${fractionalDigits}`;
+      }
+      return '';
+    });
 
-  return `${parseFloat(scaledMantissa)}${allYourBase[scaledPower]}`;
+  return `${scaledMantissa}${allYourBase[scaledPower]}`;
 };

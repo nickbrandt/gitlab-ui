@@ -84,5 +84,17 @@ describe('number utils', () => {
       expect(numberUtils.engineeringNotation(Infinity)).toBe('Infinity');
       expect(numberUtils.engineeringNotation(-Infinity)).toBe('-Infinity');
     });
+
+    it('correctly truncates floats', () => {
+      expect(numberUtils.engineeringNotation(0.0000007)).toBe('700n');
+    });
+
+    it('correctly rounds floats', () => {
+      expect(numberUtils.engineeringNotation(0.0000007549)).toBe('755n');
+    });
+
+    it('correctly rounds low-precision floats', () => {
+      expect(numberUtils.engineeringNotation(0.0000007549, 0)).toBe('800n');
+    });
   });
 });
