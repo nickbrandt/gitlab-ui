@@ -80,14 +80,12 @@ export default {
   data() {
     return {
       chart: null,
-      showTooltip: false,
-      tooltipTitle: '',
-      tooltipContent: '',
       tooltip: {
+        show: false,
         left: '0',
         top: '0',
-        content: '',
         title: '',
+        content: '',
       },
     };
   },
@@ -237,9 +235,9 @@ export default {
       :left="tooltip.left"
     >
       <div
-        v-if="tooltipTitle"
+        v-if="tooltip.title"
         slot="title"
-      >{{ tooltipTitle }}</div>
+      >{{ tooltip.title }}</div>
       {{ tooltipContent }}
     </gl-chart-tooltip>
   </div>
