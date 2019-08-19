@@ -144,7 +144,7 @@ export default {
       onSelect: this.selected.bind(this),
       onClose: this.closed.bind(this),
       onOpen: this.opened.bind(this),
-      onDraw(pikaday) {
+      onDraw: (pikaday) => {
         highlightPastDates(pikaday);
         drawEvent();
       },

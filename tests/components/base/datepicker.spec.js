@@ -13,7 +13,14 @@ describe('datepicker component', () => {
   });
 
   beforeEach(() => {
-    currentDate = new Date();
+    const DateConstructor = Date;
+
+    currentDate = new Date(2018, 0, 1);
+
+    global.Date = jest.fn((...dateParams) => dateParams.length ?
+      new DateConstructor(...dateParams) :
+      currentDate
+    );
   });
 
   it('sets initial value as the calendar default date', () => {
