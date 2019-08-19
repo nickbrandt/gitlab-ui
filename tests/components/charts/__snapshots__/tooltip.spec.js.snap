@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <div id="_echarts_instance_-tooltip" class="chart-tooltip position-absolute " style="width: 1px; height: 1px;"></div>
+  <gl-popover-stub cssclasses="" target="_echarts_instance_-tooltip" container="_echarts_instance_-tooltip" triggers=""><template></template> </gl-popover-stub>
+</div>
+`;
+
+exports[`Chart Tooltip prevent pointer events by default 1`] = `
+<div>
+  <div id="_echarts_instance_-tooltip" class="chart-tooltip position-absolute  gl-pointer-events-none" style="width: 1px; height: 1px;"></div>
+  <gl-popover-stub cssclasses="" target="_echarts_instance_-tooltip" container="_echarts_instance_-tooltip" triggers=""><template></template> </gl-popover-stub>
+</div>
+`;
