@@ -1,10 +1,11 @@
 const fs = require('fs');
 const camelCase = require('lodash/camelCase');
+const escape = require('lodash/escape');
 const scssJson = require('./scss_variables.json'); // eslint-disable-line import/no-unresolved
 
 const jsExports = scssJson.variables.reduce((acc, { name, compiledValue }) => {
   const exportName = camelCase(name);
-  acc[exportName] = `export const ${exportName} = '${compiledValue.replace("'", '')}';`;
+  acc[exportName] = `export const ${exportName} = '${escape(compiledValue)}'`;
 
   return acc;
 }, {});
