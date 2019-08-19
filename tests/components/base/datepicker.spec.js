@@ -17,9 +17,8 @@ describe('datepicker component', () => {
 
     currentDate = new Date(2018, 0, 1);
 
-    global.Date = jest.fn((...dateParams) => dateParams.length ?
-      new DateConstructor(...dateParams) :
-      currentDate
+    global.Date = jest.fn(
+      (...dateParams) => (dateParams.length ? new DateConstructor(...dateParams) : currentDate)
     );
   });
 
