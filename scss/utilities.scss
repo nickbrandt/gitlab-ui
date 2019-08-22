@@ -25,6 +25,9 @@
 @mixin gl-p-0 { padding: $gl-spacing-scale-0; }
 .gl-p-0 { @include gl-p-0; }
 
+@mixin gl-p-3 { padding: $gl-spacing-scale-3; }
+.gl-p-3 { @include gl-p-3; }
+
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
 .gl-p-4 { @include gl-p-4; }
 
@@ -40,7 +43,6 @@
 }
 .gl-px-4 { @include gl-px-4; }
 
-
 @mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 .gl-pr-2 { @include gl-pr-2; }
 
@@ -52,6 +54,18 @@
   padding-bottom: $gl-spacing-scale-0;
 }
 .gl-py-0 { @include gl-py-0; }
+
+@mixin gl-pt-5 { padding-top: $gl-spacing-scale-5; }
+.gl-pt-5 { @include gl-pt-5; }
+
+@mixin gl-pb-2 { padding-bottom: $gl-spacing-scale-2; }
+.gl-pb-2 { @include gl-pb-2; }
+
+@mixin gl-pb-3 { padding-bottom: $gl-spacing-scale-3; }
+.gl-pb-3 { @include gl-pb-3; }
+
+@mixin gl-pb-4 { padding-bottom: $gl-spacing-scale-4; }
+.gl-pb-4 { @include gl-pb-4; }
 
 @mixin gl-py-2 {
   padding-top: $gl-spacing-scale-2;
@@ -84,11 +98,29 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+@mixin gl-m-0 { margin: $gl-spacing-scale-0; }
+.gl-m-0 { @include gl-m-0; }
+
+@mixin gl-mt-3 { margin-top: $gl-spacing-scale-3; }
+.gl-mt-3 { @include gl-mt-3; }
+
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 .gl-mr-2 { @include gl-mr-2; }
 
 @mixin gl-ml-1 { margin-left: $gl-spacing-scale-1; }
 .gl-ml-1 { @include gl-ml-1; }
+
+@mixin gl-mb-2 { margin-bottom: $gl-spacing-scale-2; }
+.gl-mb-2 { @include gl-mb-2; }
+
+@mixin gl-mb-3 { margin-bottom: $gl-spacing-scale-3; }
+.gl-mb-3 { @include gl-mb-3; }
+
+@mixin gl-mb-4 { margin-bottom: $gl-spacing-scale-4; }
+.gl-mb-4 { @include gl-mb-4; }
+
+@mixin gl-mb-5 { margin-bottom: $gl-spacing-scale-5; }
+.gl-mb-5 { @include gl-mb-5; }
 
 @mixin gl-my-auto {
   margin-top: auto;
@@ -96,11 +128,11 @@
 }
 .gl-my-auto { @include gl-my-auto; }
 
-
 @mixin gl-mx-3 {
   margin-left: $gl-spacing-scale-3;
   margin-right: $gl-spacing-scale-3;
 }
+.gl-mx-3 { @include gl-mx-3; }
 
 /**
 * Fixed dimension (width/height) utilities
@@ -115,15 +147,29 @@
 @mixin gl-w-4 { width: $gl-spacing-scale-4; }
 .gl-w-4 { @include gl-w-4; }
 
-@mixin gl-h-4 { width: $gl-spacing-scale-4; }
+@mixin gl-w-5 { width: $gl-spacing-scale-5; }
+.gl-w-5 { @include gl-w-5; }
+
+@mixin gl-w-5 { width: $gl-spacing-scale-5; }
+.gl-w-5 { @include gl-w-5; }
+
+@mixin gl-w-7 { width: $gl-spacing-scale-7; }
+.gl-w-7 { @include gl-w-5; }
+
+@mixin gl-h-4 { height: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
+@mixin gl-h-5 { height: $gl-spacing-scale-5; }
+.gl-h-5 { @include gl-h-5; }
 
 /**
 * Border style utilities.
 *
 * naming convention: gl-border-{position}-{style}
 */
+@mixin gl-border-none { border-style: none; }
+.gl-border-none { @include gl-border-none; }
+
 @mixin gl-border-solid { border-style: solid; }
 .gl-border-solid { @include gl-border-solid; }
 
@@ -143,7 +189,6 @@
 
 @mixin gl-border-gray-300 { border-color: $gray-300; }
 .gl-border-gray-300 { @include gl-border-gray-300; }
-
 
 /**
 * Border width utilities.
@@ -168,9 +213,8 @@
 * notes:
 * - Base new utilities in this group in the $gl-border-radius variables
 */
-
-@mixin gl-rounded-default { border-radius: $gl-border-radius-default; }
-.gl-rounded-default { @include gl-rounded-default; }
+@mixin gl-rounded-base { border-radius: $gl-border-radius-base; }
+.gl-rounded-base { @include gl-rounded-base; }
 
 @mixin gl-rounded-full { border-radius: $gl-border-radius-full; }
 .gl-rounded-full { @include gl-rounded-full; }
@@ -179,8 +223,22 @@
 .gl-rounded-small { @include gl-rounded-small; }
 
 /**
-* Font size utility
+* Font family utility
+*
+* naming convention: gl-font-{family-name}
+* Notes:
+* - Strictly based on design system typography specs
+*/
+@mixin gl-font-monospace { font-family: $gl-monospace-font; }
+.gl-font-monospace { @include gl-font-monospace; }
 
+@mixin gl-font-regular { font-family: $gl-regular-font; }
+.gl-font-regular { @include gl-font-regular; }
+
+/**
+* Font size utility
+*
+* naming convention: gl-font-{type-scale-size}
 * Notes:
 * - Strictly based on design system type scale. See
 * $gl-type-scale for further references.
@@ -210,8 +268,14 @@
 * - Strictly based design system color palette. See variables.scss
 * for a comprehensive list.
 */
+@mixin gl-text-white { color: $white; }
+.gl-text-white { @include gl-text-white; }
+
 @mixin gl-text-gray-400 { color: $gray-400; }
 .gl-text-gray-400 { @include gl-text-gray-400; }
+
+@mixin gl-text-gray-600 { color: $gray-600; }
+.gl-text-gray-600 { @include gl-text-gray-600; }
 
 @mixin gl-text-gray-700 { color: $gray-700; }
 .gl-text-gray-700 { @include gl-text-gray-700; }
@@ -233,10 +297,13 @@
 .gl-line-height-normal { @include gl-line-height-normal; }
 
 /**
-* text-items utilities
+* Text align utilities
 */
-@mixin gl-text-align-center { text-align: center; }
-.gl-text-align-center { @include gl-text-align-center; }
+@mixin gl-text-center { text-align: center; }
+.gl-text-center { @include gl-text-center; }
+
+@mixin gl-text-decoration-none { text-decoration: none; }
+.gl-text-decoration-none { @include gl-text-decoration-none; }
 
 /**
 * Inset border utilities
@@ -246,6 +313,11 @@
 *
 * Naming convention: gl-inset-border-{border-position}-{border-size}-{color-name}
 */
+@mixin gl-inset-border-1-gray-200 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $gray-200;
+}
+.gl-inset-border-1-gray-200 { @include gl-inset-border-1-gray-200; }
+
 @mixin gl-inset-border-b-2-gray-200 {
   box-shadow: inset 0 (map-get($gl-border-sizes, 2) * -1) 0 0 $gray-200;
 }
@@ -280,6 +352,17 @@
   box-shadow: inset 0 (map-get($gl-border-sizes, 2) * -1) 0 0 $theme-green-500;
 }
 .gl-inset-border-b-2-theme-green-500 { @include gl-inset-border-b-2-theme-green-500; }
+
+/**
+* Box shadow utilities
+*
+* naming convention: gl-shadow-{config-name}
+*/
+@mixin gl-shadow-none { box-shadow: none; }
+.gl-shadow-none { box-shadow: none; }
+
+@mixin gl-shadow { box-shadow: 0 2px 3px 1px $gray-200; }
+.gl-shadow { @include gl-shadow; }
 
 /**
 * Display utilities
@@ -326,9 +409,11 @@
 *
 * naming convention: gl-cursor-{property-value}
 */
+@mixin gl-cursor-default { cursor: default; }
+.gl-cursor-default { @include gl-cursor-default; }
+
 @mixin gl-cursor-pointer { cursor: pointer; }
 .gl-cursor-pointer { @include gl-cursor-pointer; }
-
 
 /**
 * Background color utilities.
@@ -344,5 +429,46 @@
 @mixin gl-bg-white-light { background-color: $white-light; }
 .gl-bg-white-light { @include gl-bg-white-light; }
 
+@mixin gl-bg-gray-100 { background-color: $gray-100; }
+.gl-bg-gray-100 { @include gl-bg-gray-100; }
+
 @mixin gl-bg-gray-200 { background-color: $gray-200; }
 .gl-bg-gray-200 { @include gl-bg-gray-200; }
+
+@mixin gl-bg-blue-500 { background-color: $blue-500; }
+.gl-bg-blue-500 { @include gl-bg-blue-500; }
+
+/**
+* Background position utilities.
+*
+* naming convention: gl-bg-{position}
+*/
+@mixin gl-bg-center { background-position: center; }
+.gl-bg-center { @include gl-bg-center; }
+
+/**
+* Background size utilities.
+*
+* naming convention: gl-bg-{repeat-pattern}
+*/
+@mixin gl-bg-size-100p { background-size: 100% 100%; }
+.gl-bg-size-100p { @include gl-bg-size-100p; }
+
+/**
+* Background repeat  utilities.
+*
+* naming convention: gl-bg-{repeat-pattern}
+*/
+@mixin gl-bg-no-repeat { background-repeat: no-repeat; }
+.gl-bg-no-repeat { @include gl-bg-no-repeat; }
+
+/**
+* Background image utilities.
+*
+* naming convention: gl-bg-{image-name}
+*/
+@mixin gl-bg-chevron-left-sm { background-image: url($gl-icon-chevron-left-sm); }
+.gl-bg-chevron-left-sm { @include gl-bg-chevron-left-sm; }
+
+@mixin gl-bg-chevron-right-sm { background-image: url($gl-icon-chevron-right-sm); }
+.gl-bg-chevron-right-sm { @include gl-bg-chevron-right-sm; }

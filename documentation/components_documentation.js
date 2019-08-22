@@ -113,6 +113,10 @@ export {
 } from '../components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../components/base/token/token.documentation';
 
+export {
+  default as GlIntersperseDocumentation,
+} from '../components/base/intersperse/intersperse.documentation';
+
 const componentList = Object.getPrototypeOf(module).exports;
 
 export const getDocumentationFor = componentName => {

@@ -132,49 +132,9 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
      
-    <div
-      class="position-relative ms-no-clear gl-search-box"
-    >
-      <input
-        aria-label="Search"
-        class="pl-5 form-control"
-        placeholder="Search"
-        type="text"
-      />
-       
-      <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-      >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style="display: none;"
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
-         
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style="display: none;"
-          title=""
-        />
-      </div>
-    </div>
+    <gl-search-box-by-type-stub
+      value=""
+    />
   </div>
     
   <ul
@@ -247,122 +207,36 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     </li>
   </ul>
    
-  <ul
-    aria-label="Pagination"
-    class="pagination gl-pagination text-nowrap d-flex justify-content-center prepend-top-default"
-    role="navigation"
-  >
-    <li
-      class="page-item disabled"
-    >
-      <span
-        aria-disabled="true"
-        aria-label="Go to previous page"
-        class="page-link"
-        href="#"
-      >
-        ‹ Prev
-      </span>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to page 1"
-        class="page-link  active btn-primary"
-        href="#"
-      >
-        1
-      </a>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to page 2"
-        class="page-link"
-        href="#"
-      >
-        2
-      </a>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to page 3"
-        class="page-link"
-        href="#"
-      >
-        3
-      </a>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to next page"
-        class="page-link"
-        href="#"
-      >
-        Next ›
-      </a>
-    </li>
-  </ul>
+  <gl-pagination-stub
+    align="left"
+    class="d-flex justify-content-center prepend-top-default"
+    ellipsistext="…"
+    labelfirstpage="Go to first page"
+    labellastpage="Go to last page"
+    labelnextpage="Go to next page"
+    labelpage="page => \`Go to page \${page}\`"
+    labelprevpage="Go to previous page"
+    limits="[object Object]"
+    nexttext="Next ›"
+    perpage="5"
+    prevtext="‹ Prev"
+    totalitems="13"
+    value="1"
+  />
    
   <!---->
 </div>
 `;
 
-exports[`Paginated List Pagination renders 10 items for a default page size of 10, 13 total and renders pagination 1`] = `
+exports[`Paginated List Pagination renders 10 items for a default page size of 10, 13 total 1`] = `
 <div>
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
      
-    <div
-      class="position-relative ms-no-clear gl-search-box"
-    >
-      <input
-        aria-label="Search"
-        class="pl-5 form-control"
-        placeholder="Search"
-        type="text"
-      />
-       
-      <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-      >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style="display: none;"
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
-         
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style="display: none;"
-          title=""
-        />
-      </div>
-    </div>
+    <gl-search-box-by-type-stub
+      value=""
+    />
   </div>
     
   <ul
@@ -500,111 +374,36 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
     </li>
   </ul>
    
-  <ul
-    aria-label="Pagination"
-    class="pagination gl-pagination text-nowrap d-flex justify-content-center prepend-top-default"
-    role="navigation"
-  >
-    <li
-      class="page-item disabled"
-    >
-      <span
-        aria-disabled="true"
-        aria-label="Go to previous page"
-        class="page-link"
-        href="#"
-      >
-        ‹ Prev
-      </span>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to page 1"
-        class="page-link  active btn-primary"
-        href="#"
-      >
-        1
-      </a>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to page 2"
-        class="page-link"
-        href="#"
-      >
-        2
-      </a>
-    </li>
-    <li
-      class="page-item"
-    >
-      <a
-        aria-label="Go to next page"
-        class="page-link"
-        href="#"
-      >
-        Next ›
-      </a>
-    </li>
-  </ul>
+  <gl-pagination-stub
+    align="left"
+    class="d-flex justify-content-center prepend-top-default"
+    ellipsistext="…"
+    labelfirstpage="Go to first page"
+    labellastpage="Go to last page"
+    labelnextpage="Go to next page"
+    labelpage="page => \`Go to page \${page}\`"
+    labelprevpage="Go to previous page"
+    limits="[object Object]"
+    nexttext="Next ›"
+    perpage="10"
+    prevtext="‹ Prev"
+    totalitems="13"
+    value="1"
+  />
    
   <!---->
 </div>
 `;
 
-exports[`Paginated List Pagination renders 13 items for a default page size of 20, 13 total items, and does not render pagination 1`] = `
+exports[`Paginated List Pagination renders 13 items for a default page size of 20 1`] = `
 <div>
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
      
-    <div
-      class="position-relative ms-no-clear gl-search-box"
-    >
-      <input
-        aria-label="Search"
-        class="pl-5 form-control"
-        placeholder="Search"
-        type="text"
-      />
-       
-      <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-      >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style="display: none;"
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
-         
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style="display: none;"
-          title=""
-        />
-      </div>
-    </div>
+    <gl-search-box-by-type-stub
+      value=""
+    />
   </div>
     
   <ul
@@ -781,7 +580,22 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
     </li>
   </ul>
    
-  <!---->
+  <gl-pagination-stub
+    align="left"
+    class="d-flex justify-content-center prepend-top-default"
+    ellipsistext="…"
+    labelfirstpage="Go to first page"
+    labellastpage="Go to last page"
+    labelnextpage="Go to next page"
+    labelpage="page => \`Go to page \${page}\`"
+    labelprevpage="Go to previous page"
+    limits="[object Object]"
+    nexttext="Next ›"
+    perpage="20"
+    prevtext="‹ Prev"
+    totalitems="13"
+    value="1"
+  />
    
   <!---->
 </div>
@@ -793,50 +607,9 @@ exports[`Paginated List Search states renders the custom empty search message wh
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
      
-    <div
-      class="position-relative ms-no-clear gl-search-box"
-    >
-      <input
-        aria-label="Search"
-        class="pl-5 form-control pr-5"
-        id="__BVID__42"
-        placeholder="Search"
-        type="text"
-      />
-       
-      <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-      >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style=""
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
-         
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style=""
-          title=""
-        />
-      </div>
-    </div>
+    <gl-search-box-by-type-stub
+      value=""
+    />
   </div>
     
   <ul
@@ -859,50 +632,9 @@ exports[`Paginated List Search states renders the default empty search message w
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
      
-    <div
-      class="position-relative ms-no-clear gl-search-box"
-    >
-      <input
-        aria-label="Search"
-        class="pl-5 form-control pr-5"
-        id="__BVID__26"
-        placeholder="Search"
-        type="text"
-      />
-       
-      <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-      >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style=""
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
-         
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style=""
-          title=""
-        />
-      </div>
-    </div>
+    <gl-search-box-by-type-stub
+      value=""
+    />
   </div>
     
   <ul
@@ -925,50 +657,9 @@ exports[`Paginated List Search states renders the list flitered by search result
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
      
-    <div
-      class="position-relative ms-no-clear gl-search-box"
-    >
-      <input
-        aria-label="Search"
-        class="pl-5 form-control pr-5"
-        id="__BVID__18"
-        placeholder="Search"
-        type="text"
-      />
-       
-      <div
-        class="pl-2 pr-2 position-left-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-      >
-        <i
-          aria-hidden="true"
-          class="fa fa-search"
-        />
-      </div>
-       
-      <div
-        class="pr-2 pl-2 position-right-0 position-absolute position-top-0 h-100 d-flex align-items-center text-muted"
-        style=""
-      >
-        <span
-          class="loading-container text-center"
-          style="display: none;"
-        >
-          <span
-            aria-hidden="true"
-            aria-label="Loading"
-            class="gl-spinner gl-spinner-orange gl-spinner-sm"
-          />
-        </span>
-         
-        <i
-          aria-hidden="true"
-          class="fa fa-times fa-lg cursor-pointer"
-          data-original-title="Clear"
-          style=""
-          title=""
-        />
-      </div>
-    </div>
+    <gl-search-box-by-type-stub
+      value=""
+    />
   </div>
     
   <ul
@@ -1002,7 +693,22 @@ exports[`Paginated List Search states renders the list flitered by search result
     </li>
   </ul>
    
-  <!---->
+  <gl-pagination-stub
+    align="left"
+    class="d-flex justify-content-center prepend-top-default"
+    ellipsistext="…"
+    labelfirstpage="Go to first page"
+    labellastpage="Go to last page"
+    labelnextpage="Go to next page"
+    labelpage="page => \`Go to page \${page}\`"
+    labelprevpage="Go to previous page"
+    limits="[object Object]"
+    nexttext="Next ›"
+    perpage="10"
+    prevtext="‹ Prev"
+    totalitems="2"
+    value="1"
+  />
    
   <!---->
 </div>

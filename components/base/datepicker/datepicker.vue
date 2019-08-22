@@ -19,6 +19,21 @@ export const defaultDateFormatter = date => {
 };
 
 const equals = (date1, date2) => date1 && date2 && date1.getTime() === date2.getTime();
+const isBefore = (compareTo, date) => compareTo && date && date.getTime() < compareTo.getTime();
+
+const highlightPastDates = pikaday => {
+  const pikaButtons = pikaday.el.querySelectorAll('.pika-button');
+  const today = new Date();
+
+  pikaButtons.forEach(pikaButton => {
+    const { pikaYear, pikaMonth, pikaDay } = pikaButton.dataset;
+    const pikaButtonDate = new Date(pikaYear, pikaMonth, pikaDay);
+
+    if (isBefore(today, pikaButtonDate)) {
+      pikaButton.classList.add('is-past-date');
+    }
+  });
+};
 
 export default {
   components: {
@@ -109,6 +124,8 @@ export default {
       ? $parentEl.querySelector(this.target)
       : this.$refs.calendarTriggerBtn;
     const container = this.container ? $parentEl.querySelector(this.container) : this.$el;
+    const drawEvent = this.draw.bind(this);
+
     const pikadayConfig = {
       field: this.$refs.datepickerField.$el,
       trigger,
@@ -127,7 +144,10 @@ export default {
       onSelect: this.selected.bind(this),
       onClose: this.closed.bind(this),
       onOpen: this.opened.bind(this),
-      onDraw: this.draw.bind(this),
+      onDraw: pikaday => {
+        highlightPastDates(pikaday);
+        drawEvent();
+      },
     };
 
     if (this.i18n) {

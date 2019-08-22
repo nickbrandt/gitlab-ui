@@ -4,6 +4,7 @@ import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
+import { engineeringNotation } from '../../../utils/number_utils';
 import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const defaultOptions = {
@@ -153,27 +154,20 @@ export default {
     },
     seriesInfo() {
       const { min, max } = getRange(this.dataSeries);
-      const color = heatmapHues;
-      const splitSize = (max - min) / color.length;
-      let currentMin = min;
+      const step = (max - min) / heatmapHues.length;
 
-      return color.reduce((acc, hue) => {
-        const currentMax = currentMin + splitSize;
-        acc.push({
-          name: `${this.formatNumber(currentMin)} -
-            ${this.formatNumber(currentMax)}`,
-          color: hue,
-        });
+      return heatmapHues.map((color, index) => {
+        const lowerBound = engineeringNotation(min + step * index);
+        const upperBound = engineeringNotation(min + step * (index + 1));
 
-        currentMin = currentMax;
-        return acc;
-      }, []);
+        return {
+          name: `${lowerBound} - ${upperBound}`,
+          color,
+        };
+      });
     },
   },
   methods: {
-    formatNumber(num) {
-      return parseFloat(num).toFixed();
-    },
     onCreated(chart) {
       this.chart = chart;
     },

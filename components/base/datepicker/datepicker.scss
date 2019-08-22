@@ -1,7 +1,7 @@
 @import 'pikaday/scss/pikaday';
 
 // Datepicker
-$gl-datepicker-width: 258px;
+$gl-datepicker-width: 240px;
 
 .gl-datepicker-input {
   width: $gl-datepicker-width;
@@ -14,4 +14,101 @@ $gl-datepicker-width: 258px;
   @include gl-top-0;
   @include gl-right-0;
   @include gl-p-4;
+}
+
+.gl-datepicker-theme {
+  @include gl-font-regular;
+  @include gl-border-none;
+  @include gl-rounded-base;
+  @include gl-mt-3;
+
+  &.is-bound {
+    @include gl-shadow;
+  }
+
+  .pika-lendar {
+    @include gl-m-0;
+    @include gl-pt-5;
+    @include gl-px-4;
+    @include gl-pb-3;
+    @include gl-inset-border-1-gray-200;
+    @include gl-rounded-base;
+  }
+
+  .pika-title {
+    @include gl-line-height-normal;
+    @include gl-mb-5;
+    @include gl-h-5;
+  }
+
+  .pika-next,
+  .pika-prev {
+    @include gl-bg-center;
+    @include gl-bg-no-repeat;
+    @include gl-bg-size-100p;
+    @include gl-w-5;
+    @include gl-h-5;
+  }
+
+  .pika-next {
+    @include gl-bg-chevron-right-sm;
+  }
+
+  .pika-prev {
+    @include gl-bg-chevron-left-sm;
+  }
+
+  .pika-label {
+    @include gl-font-base;
+    @include gl-line-height-normal;
+    @include gl-py-0;
+  }
+
+  .pika-select {
+    @include gl-top-0;
+    @include gl-h-5;
+  }
+
+  th {
+    @include gl-pb-3;
+    @include gl-font-weight-bold;
+    @include gl-line-height-normal;
+    @include gl-text-gray-700;
+  }
+
+  abbr[title] {
+    @include gl-text-decoration-none;
+    @include gl-cursor-default;
+  }
+
+  .pika-button {
+    @include gl-shadow-none;
+    @include gl-rounded-base;
+    @include gl-bg-transparent;
+    @include gl-py-3;
+    @include gl-text-center;
+    @include gl-text-gray-900;
+    @include gl-line-height-normal;
+    @include gl-w-7;
+
+    &.is-past-date {
+      @include gl-text-gray-600;
+    }
+
+    &:hover {
+      @include gl-text-gray-900;
+      @include gl-bg-gray-100;
+    }
+  }
+
+  .is-today > .pika-button {
+    @include gl-font-weight-bold;
+    @include gl-text-gray-900;
+  }
+
+  .is-selected > .pika-button {
+    @include gl-bg-blue-500;
+    @include gl-font-weight-normal;
+    @include gl-text-white;
+  }
 }

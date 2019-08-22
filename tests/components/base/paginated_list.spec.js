@@ -1,8 +1,10 @@
-import Vue from 'vue';
-import { mount, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import PaginatedList from '../../../components/base/paginated_list/paginated_list.vue';
+import GlSearchBoxByType from '../../../components/base/search_box_by_type/search_box_by_type.vue';
+import GlPagination from '../../../components/base/pagination/pagination.vue';
 
 describe('Paginated List', () => {
+  let wrapper;
   let template;
 
   beforeAll(() => {
@@ -13,22 +15,29 @@ describe('Paginated List', () => {
     `;
   });
 
-  describe('Searchless states', () => {
-    let wrapper;
+  afterEach(() => {
+    wrapper.destroy();
 
-    afterEach(() => {
-      wrapper.destroy();
+    wrapper = null;
+  });
+
+  const createComponent = (props = {}) => {
+    wrapper = shallowMount(PaginatedList, {
+      scopedSlots: {
+        default: template,
+      },
+      propsData: {
+        list: [],
+        ...props,
+      },
+      sync: false,
     });
+  };
 
+  describe('Searchless states', () => {
     it('renders the list in an empty state, when no items are provided', () => {
-      wrapper = shallowMount(PaginatedList, {
-        scopedSlots: {
-          default: template,
-        },
-        propsData: {
-          list: [],
-        },
-      });
+      createComponent();
+
       expect(wrapper.findAll('.item').length).toEqual(0);
       expect(wrapper.findAll('.empty-message').length).toEqual(1);
       expect(wrapper.element).toMatchSnapshot();
@@ -37,112 +46,68 @@ describe('Paginated List', () => {
     it('renders the list in an empty state with a custom empty message, when one is provided', () => {
       const msg = 'List is passed in empty';
 
-      wrapper = shallowMount(PaginatedList, {
-        scopedSlots: {
-          default: template,
-        },
-        propsData: {
-          list: [],
-          emptyMessage: msg,
-        },
-      });
+      createComponent({ emptyMessage: msg });
+
       expect(wrapper.findAll('.item').length).toEqual(0);
       expect(wrapper.find('.empty-message').text()).toEqual(msg);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('renders the list with nested items, when an array of items is provided', () => {
-      wrapper = shallowMount(PaginatedList, {
-        propsData: {
-          list: [{ id: 'foo' }, { id: 'bar' }],
-        },
-        scopedSlots: {
-          default: template,
-        },
+      createComponent({
+        list: [{ id: 'foo' }, { id: 'bar' }],
       });
+
       expect(wrapper.findAll('.item').length).toEqual(2);
       expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   describe('Search states', () => {
-    let wrapper;
+    const list = [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }];
 
-    beforeEach(() => {
-      wrapper = mount(PaginatedList, {
-        propsData: {
-          list: [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }],
-        },
-        scopedSlots: {
-          default: template,
-        },
+    it('renders the list flitered by search results', () => {
+      createComponent({ list });
+
+      const search = wrapper.find(GlSearchBoxByType);
+      search.vm.$emit('input', 'ba');
+
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.findAll('.item').length).toEqual(2);
+        expect(wrapper.element).toMatchSnapshot();
       });
     });
 
-    afterEach(() => {
-      wrapper.destroy();
+    it('renders the default empty search message when there are no search results', () => {
+      createComponent({ list });
+
+      const search = wrapper.find(GlSearchBoxByType);
+      search.vm.$emit('input', 'qux');
+
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.findAll('.item').length).toEqual(0);
+        expect(wrapper.findAll('.empty-search').length).toEqual(1);
+        expect(wrapper.element).toMatchSnapshot();
+      });
     });
 
-    it('renders the list flitered by search results', done => {
-      const search = wrapper.find('input');
-      search.setValue('ba');
-      search.trigger('input');
-
-      return Vue.nextTick()
-        .then(() => {
-          expect(wrapper.findAll('.item').length).toEqual(2);
-          expect(wrapper.element).toMatchSnapshot();
-          done();
-        })
-        .catch(done.fail);
-    });
-
-    it('renders the default empty search message when there are no search results', done => {
-      const search = wrapper.find('input');
-      search.setValue('qux');
-      search.trigger('input');
-
-      return Vue.nextTick()
-        .then(() => {
-          expect(wrapper.findAll('.item').length).toEqual(0);
-          expect(wrapper.findAll('.empty-search').length).toEqual(1);
-          expect(wrapper.element).toMatchSnapshot();
-          done();
-        })
-        .catch(done.fail);
-    });
-
-    it('renders the custom empty search message when there are no search results', done => {
+    it('renders the custom empty search message when there are no search results', () => {
       const msg = 'Custom empty message';
 
-      wrapper = mount(PaginatedList, {
-        propsData: {
-          list: [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }],
-          emptySearchMessage: msg,
-        },
-        scopedSlots: {
-          default: template,
-        },
+      createComponent({ list, emptySearchMessage: msg });
+
+      const search = wrapper.find(GlSearchBoxByType);
+      search.vm.$emit('input', 'qux');
+
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.findAll('.item').length).toEqual(0);
+        expect(wrapper.find('.empty-search').text()).toEqual(msg);
+        expect(wrapper.element).toMatchSnapshot();
       });
-
-      const search = wrapper.find('input');
-      search.setValue('qux');
-      search.trigger('input');
-
-      return Vue.nextTick()
-        .then(() => {
-          expect(wrapper.findAll('.item').length).toEqual(0);
-          expect(wrapper.find('.empty-search').text()).toEqual(msg);
-          expect(wrapper.element).toMatchSnapshot();
-          done();
-        })
-        .catch(done.fail);
     });
   });
 
   describe('Pagination', () => {
-    let wrapper;
-
     const list = [
       { id: 'foo' },
       { id: 'bar' },
@@ -159,83 +124,42 @@ describe('Paginated List', () => {
       { id: 'thud' },
     ];
 
-    afterEach(() => {
-      wrapper.destroy();
-    });
-
-    it('renders 10 items for a default page size of 10, 13 total and renders pagination', () => {
-      wrapper = mount(PaginatedList, {
-        propsData: {
-          list,
-        },
-        scopedSlots: {
-          default: template,
-        },
-      });
+    it('renders 10 items for a default page size of 10, 13 total', () => {
+      createComponent({ list });
 
       expect(wrapper.findAll('.item').length).toEqual(10);
-      expect(wrapper.findAll('.gl-pagination').length).toEqual(1);
+      expect(wrapper.find(GlPagination).props('totalItems')).toEqual(13);
+      expect(wrapper.find(GlPagination).props('perPage')).toEqual(10);
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('renders 13 items for a default page size of 20, 13 total items, and does not render pagination', () => {
-      wrapper = mount(PaginatedList, {
-        propsData: {
-          list,
-          perPage: 20,
-        },
-        scopedSlots: {
-          default: template,
-        },
-      });
+    it('renders 13 items for a default page size of 20', () => {
+      createComponent({ list, perPage: 20 });
 
       expect(wrapper.findAll('.item').length).toEqual(13);
-      expect(wrapper.findAll('.gl-pagination').length).toEqual(0);
+      expect(wrapper.find(GlPagination).props('totalItems')).toEqual(13);
+      expect(wrapper.find(GlPagination).props('perPage')).toEqual(20);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('renders 5 items on page 1 for a page size of 5, 13 total itmes and renders pagination', () => {
-      wrapper = mount(PaginatedList, {
-        propsData: {
-          list,
-          perPage: 5,
-        },
-        scopedSlots: {
-          default: template,
-        },
-      });
+      createComponent({ list, perPage: 5 });
 
       expect(wrapper.findAll('.item').length).toEqual(5);
-      expect(wrapper.findAll('.gl-pagination').length).toEqual(1);
+      expect(wrapper.find(GlPagination).props('totalItems')).toEqual(13);
+      expect(wrapper.find(GlPagination).props('perPage')).toEqual(5);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('renders 3 items on page 2 with default page size of 10 and 13 total items', () => {
-      wrapper = shallowMount(PaginatedList, {
-        propsData: {
-          list,
-          page: 2,
-        },
-        scopedSlots: {
-          default: template,
-        },
-      });
+      createComponent({ list, page: 2 });
 
       expect(wrapper.findAll('.item').length).toEqual(3);
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('renders 1 item on page 7 with page size of 2 and 13 total items', () => {
-      wrapper = shallowMount(PaginatedList, {
-        propsData: {
-          list,
-          page: 7,
-          perPage: 2,
-        },
-        scopedSlots: {
-          default: template,
-        },
-      });
+      createComponent({ list, page: 7, perPage: 2 });
 
       expect(wrapper.findAll('.item').length).toEqual(1);
       expect(wrapper.element).toMatchSnapshot();
@@ -243,109 +167,58 @@ describe('Paginated List', () => {
   });
 
   describe('props', () => {
-    let wrapper;
-
-    afterEach(() => {
-      wrapper.destroy();
-    });
-
     describe('filterable', () => {
       it('has search enabled by default', () => {
-        wrapper = mount(PaginatedList, {
-          scopedSlots: {
-            default: template,
-          },
-          propsData: {
-            list: [],
-          },
-        });
+        createComponent();
 
-        expect(wrapper.findAll('[aria-label="Search"]').length).toEqual(1);
+        expect(wrapper.find(GlSearchBoxByType).exists()).toBeTruthy();
       });
 
       it('has search disabled when filterable prop set to false', () => {
-        wrapper = mount(PaginatedList, {
-          scopedSlots: {
-            default: template,
-          },
-          propsData: {
-            list: [],
-            filterable: false,
-          },
-        });
+        createComponent({ filterable: false });
 
         expect(wrapper.findAll('[aria-label="Search"]').length).toEqual(0);
       });
     });
 
     describe('filter', () => {
-      it('filters on default "id" key', done => {
-        wrapper = shallowMount(PaginatedList, {
-          scopedSlots: {
-            default: template,
-          },
-          propsData: {
-            list: [{ id: 'foo' }, { id: 'bar' }],
-          },
+      const list = [{ id: 'foo' }, { id: 'bar' }];
+
+      it('filters on default "id" key', () => {
+        createComponent({ list });
+
+        wrapper.setData({ queryStr: 'ba' });
+
+        return wrapper.vm.$nextTick().then(() => {
+          expect(wrapper.findAll('.item').length).toEqual(1);
+          expect(wrapper.element).toMatchSnapshot();
         });
-
-        wrapper.vm.queryStr = 'ba';
-
-        return Vue.nextTick()
-          .then(() => {
-            expect(wrapper.findAll('.item').length).toEqual(1);
-            expect(wrapper.element).toMatchSnapshot();
-            done();
-          })
-          .catch(done.fail);
       });
 
-      it('filters on provided "myKey" key', done => {
-        wrapper = shallowMount(PaginatedList, {
-          scopedSlots: {
-            default: template,
-          },
-          propsData: {
-            list: [{ myKey: 'foo' }, { myKey: 'bar' }],
-            filter: 'myKey',
-          },
+      it('filters on provided "myKey" key', () => {
+        createComponent({ list: [{ myKey: 'foo' }, { myKey: 'bar' }], filter: 'myKey' });
+
+        wrapper.setData({ queryStr: 'ba' });
+
+        return wrapper.vm.$nextTick().then(() => {
+          expect(wrapper.findAll('.item').length).toEqual(1);
+          expect(wrapper.element).toMatchSnapshot();
         });
-
-        wrapper.vm.queryStr = 'ba';
-
-        return Vue.nextTick()
-          .then(() => {
-            expect(wrapper.findAll('.item').length).toEqual(1);
-            expect(wrapper.element).toMatchSnapshot();
-            done();
-          })
-          .catch(done.fail);
       });
 
-      it('filters with provided filter function', done => {
+      it('filters with provided filter function', () => {
         const filter = (item, queryStr) => item.id.includes(queryStr);
 
-        wrapper = shallowMount(PaginatedList, {
-          scopedSlots: {
-            default: template,
-          },
-          propsData: {
-            list: [{ id: 'foo' }, { id: 'bar' }],
-            filter,
-          },
+        createComponent({ list, filter });
+
+        wrapper.setData({ queryStr: 'ba' });
+
+        return wrapper.vm.$nextTick().then(() => {
+          const elem = wrapper.findAll('.item');
+          expect(elem.length).toEqual(1);
+          expect(elem.at(0).text()).toBe('Item Name: bar');
+          expect(wrapper.element).toMatchSnapshot();
         });
-
-        wrapper.vm.queryStr = 'ba';
-
-        return Vue.nextTick()
-          .then(() => {
-            const elem = wrapper.findAll('.item');
-            expect(elem.length).toEqual(1);
-            expect(elem.at(0).text()).toBe('Item Name: bar');
-            expect(wrapper.element).toMatchSnapshot();
-            done();
-          })
-          .catch(done.fail);
       });
     });
   });
