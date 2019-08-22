@@ -46,13 +46,67 @@ If the variable is unset, it defaults to `0`.
 npm install @gitlab/ui
 ```
 
-## Configuring application.css
+## Adding CSS
 
-This project uses GitLab CE's master branch `application.css` for styles. If you'd like to configure a different css file to load instead of the default `application.css`, you may set the `CSS_URL` environment variable with the css path before building storybook.
+From GitLab 12.2 on, we are moving components styles into GitLab UI, as
+described in the approved [RFC #2](https://gitlab.com/gitlab-org/frontend/rfcs/issues/2).
+This approach will let us progressively decouple GitLab UI's styles from
+GitLab CE's styles.
 
-```sh
-CSS_URL=https://example.com/application.css yarn storybook
+Within the components' CSS, you should include utility mixins. See
+[`scss/utilities.scss`](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/scss/utilities.scss)
+for a comprehensive list of the available utilities. If what you are
+looking for is not available, add it following the naming conventions
+indicated in that file.
+
+Files should be structured like this:
+
+```plaintext
+.
+├── components
+│   └── base
+│       ├── button
+│       │   ├── button.scss
+│       │   ├── button.stories.js
+│       │   └── button.vue
+│       └── popover
+│           ├── popover.scss
+│           ├── popover.stories.js
+│           └── popover.vue
+└── assets
+    ├──components.scss
+    └── gitlab_ui.scss
 ```
+
+Where each component's stylesheet contains its "modularized" style:
+
+```scss
+// button.scss
+
+.gl-button {
+  // style
+  @include some-utility-mixin;
+}
+```
+
+And the `assets/components.scss` file imports all components' stylesheets:
+
+```scss
+// components.scss
+
+@import '../components/base/button/button';
+@import '../components/base/popover/popover';
+```
+
+Within the component and when the component is integrated
+into the application, you should still follow the
+[`utility-first`](https://docs.gitlab.com/ce/development/fe_guide/style_guide_scss.html#utility-classes) 
+approach for basic layout and other styles.
+
+See [!623](https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/623)
+for an example and [!624](https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/624)
+for the first pass implementation of silent classes. Follow along with the development
+epic at [&1590](https://gitlab.com/groups/gitlab-org/-/epics/1590).
 
 ## Contributing guide
 
