@@ -5,13 +5,13 @@ import readme from './avatar.md';
 
 const projectFallbackTemplate = `
   <div>
-    <gl-avatar :entity-name="entityName" :entity-id="entityId" class="float-none" :size="size" shape="rect"/>
+    <gl-avatar :entity-name="entityName" :entity-id="entityId" :size="size" shape="rect"/>
   </div>
   `;
 
 const imageTemplate = `
   <div>
-    <gl-avatar :size="size" :shape="shape" src="https://about.gitlab.com/images/press/gitlab-summit-south-africa.jpg" class="float-none"/>
+    <gl-avatar :size="size" :shape="shape" src="https://about.gitlab.com/images/press/gitlab-summit-south-africa.jpg" />
   </div>
   `;
 

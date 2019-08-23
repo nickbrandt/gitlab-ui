@@ -150,17 +150,41 @@
 @mixin gl-w-5 { width: $gl-spacing-scale-5; }
 .gl-w-5 { @include gl-w-5; }
 
-@mixin gl-w-5 { width: $gl-spacing-scale-5; }
-.gl-w-5 { @include gl-w-5; }
+@mixin gl-w-6 { width: $gl-spacing-scale-6; }
+.gl-w-6 { @include gl-w-6; }
 
 @mixin gl-w-7 { width: $gl-spacing-scale-7; }
-.gl-w-7 { @include gl-w-5; }
+.gl-w-7 { @include gl-w-7; }
+
+@mixin gl-w-9 { width: $gl-spacing-scale-9; }
+.gl-w-9 { @include gl-w-9; }
+
+@mixin gl-w-11 { width: $gl-spacing-scale-11; }
+.gl-w-11 { @include gl-w-11; }
+
+@mixin gl-w-13 { width: $gl-spacing-scale-13; }
+.gl-w-13 { @include gl-w-13; }
 
 @mixin gl-h-4 { height: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
 @mixin gl-h-5 { height: $gl-spacing-scale-5; }
 .gl-h-5 { @include gl-h-5; }
+
+@mixin gl-h-6 { height: $gl-spacing-scale-6; }
+.gl-h-6 { @include gl-h-6; }
+
+@mixin gl-h-7 { height: $gl-spacing-scale-7; }
+.gl-h-7 { @include gl-h-7; }
+
+@mixin gl-h-9 { height: $gl-spacing-scale-9; }
+.gl-h-9 { @include gl-h-9; }
+
+@mixin gl-h-11 { height: $gl-spacing-scale-11; }
+.gl-h-11 { @include gl-h-11; }
+
+@mixin gl-h-13 { height: $gl-spacing-scale-13; }
+.gl-h-13 { @include gl-h-13; }
 
 /**
 * Border style utilities.
@@ -189,6 +213,9 @@
 
 @mixin gl-border-gray-300 { border-color: $gray-300; }
 .gl-border-gray-300 { @include gl-border-gray-300; }
+
+@mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
+.gl-border-t-gray-a-08 { @include gl-border-t-gray-a-08; }
 
 /**
 * Border width utilities.
@@ -222,6 +249,9 @@
 @mixin gl-rounded-small { border-radius: $gl-border-radius-small; }
 .gl-rounded-small { @include gl-rounded-small; }
 
+@mixin gl-rounded-lg { border-radius: $gl-border-radius-large; }
+.gl-rounded-lg { @include gl-rounded-lg; }
+
 /**
 * Font family utility
 *
@@ -248,6 +278,15 @@
 
 @mixin gl-font-base { font-size: map-get($gl-type-scale, 'base'); }
 .gl-font-base { @include gl-font-base; }
+
+@mixin gl-font-xl { font-size: map-get($gl-type-scale, 'xl'); }
+.gl-font-xl { @include gl-font-xl; }
+
+@mixin gl-font-2xl { font-size: map-get($gl-type-scale, '2xl'); }
+.gl-font-2xl { @include gl-font-2xl; }
+
+@mixin gl-font-3xl { font-size: map-get($gl-type-scale, '3xl'); }
+.gl-font-3xl { @include gl-font-3xl; }
 
 /**
 * Font-weight utilities.
@@ -296,6 +335,15 @@
 @mixin gl-line-height-normal { line-height: $gl-line-height; }
 .gl-line-height-normal { @include gl-line-height-normal; }
 
+@mixin gl-line-height-24 { line-height: $gl-line-height-24; }
+.gl-line-height-24 { @include gl-line-height-24; }
+
+@mixin gl-line-height-32 { line-height: $gl-line-height-32; }
+.gl-line-height-32 { @include gl-line-height-32; }
+
+@mixin gl-line-height-52 { line-height: $gl-line-height-52; }
+.gl-line-height-52 { @include gl-line-height-52; }
+
 /**
 * Text align utilities
 */
@@ -304,6 +352,12 @@
 
 @mixin gl-text-decoration-none { text-decoration: none; }
 .gl-text-decoration-none { @include gl-text-decoration-none; }
+
+/**
+* Vertical align utilities
+*/
+@mixin gl-vertical-align-top { vertical-align: top; }
+.gl-vertical-align-top { @include gl-vertical-align-top; }
 
 /**
 * Inset border utilities
@@ -367,6 +421,9 @@
 /**
 * Display utilities
 */
+@mixin gl-display-flex { display: flex; }
+.gl-display-flex { @include gl-display-flex; }
+
 @mixin gl-display-inline-flex { display: inline-flex; }
 .gl-display-inline-flex { @include gl-display-inline-flex; }
 
@@ -392,6 +449,15 @@
 */
 @mixin gl-absolute { position: absolute; }
 .gl-absolute { @include gl-absolute; }
+
+/**
+* Overflow utilities.
+*
+* naming convention: gl-overflow-{property-value} |
+* gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
+*/
+@mixin gl-overflow-hidden { overflow: hidden; }
+.gl-overflow-hidden { @include gl-overflow-hidden; }
 
 /**
 * Coords utilities

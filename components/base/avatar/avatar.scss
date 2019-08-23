@@ -1,0 +1,90 @@
+$gl-avatar-identicon-red: #ffebee;
+$gl-avatar-identicon-purple: #f3e5f5;
+$gl-avatar-identicon-indigo: #e8eaf6;
+$gl-avatar-identicon-blue: #e3f2fd;
+$gl-avatar-identicon-teal: #e0f2f1;
+$gl-avatar-identicon-orange: #fbe9e7;
+
+$gl-avatar-identicon-bgs: $gl-avatar-identicon-red,
+  $gl-avatar-identicon-purple,
+  $gl-avatar-identicon-indigo,
+  $gl-avatar-identicon-blue,
+  $gl-avatar-identicon-teal,
+  $gl-avatar-identicon-orange,
+  $gray-200;
+
+.gl-avatar {
+  @include gl-border-1;
+  @include gl-border-solid;
+  @include gl-border-t-gray-a-08;
+  @include gl-overflow-hidden;
+}
+
+.gl-avatar-s16 {
+  @include gl-w-5;
+  @include gl-h-5;
+  @include gl-font-sm;
+  @include gl-line-height-normal;
+  @include gl-rounded-small;
+}
+
+.gl-avatar-s24 {
+  @include gl-w-6;
+  @include gl-h-6;
+  @include gl-font-sm;
+  @include gl-line-height-normal;
+  @include gl-rounded-base;
+}
+
+.gl-avatar-s32 {
+  @include gl-w-7;
+  @include gl-h-7;
+  @include gl-font-base;
+  @include gl-line-height-normal;
+  @include gl-rounded-base;
+}
+
+.gl-avatar-s48 {
+  @include gl-w-9;
+  @include gl-h-9;
+  @include gl-font-xl;
+  @include gl-line-height-24;
+  @include gl-rounded-lg;
+}
+
+.gl-avatar-s64 {
+  @include gl-w-11;
+  @include gl-h-11;
+  @include gl-font-2xl;
+  @include gl-line-height-32;
+  @include gl-rounded-lg;
+}
+
+.gl-avatar-s96 {
+  @include gl-w-13;
+  @include gl-h-13;
+  @include gl-font-3xl;
+  @include gl-line-height-52;
+  @include gl-rounded-lg;
+}
+
+.gl-avatar-circle {
+  @include gl-rounded-full;
+}
+
+.gl-avatar-identicon {
+  @include gl-text-center;
+  @include gl-vertical-align-top;
+  @include gl-text-gray-900;
+  @include gl-display-flex;
+  @include gl-justify-content-center;
+  @include gl-flex-direction-column;
+}
+
+// Background colors
+@for $i from 1 through length($gl-avatar-identicon-bgs) {
+  &.gl-avatar-identicon-bg#{$i} {
+    background-color: nth($gl-avatar-identicon-bgs, $i);
+  }
+}
+
