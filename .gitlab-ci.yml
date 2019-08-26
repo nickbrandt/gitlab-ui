@@ -42,7 +42,7 @@ build:
 
 lint:
   extends: .yarn_install
-  dependencies: []
+  needs: []
   stage: build-and-check
   script:
     - yarn eslint
@@ -58,7 +58,8 @@ visual:
   extends: .yarn_install
   tags:
     - gitlab-org # This allows us to use higher performance runners
-  dependencies: []
+  needs:
+    - build_docker_image
   stage: build-and-check
   script:
     - if ${CSS_URL}; then CSS_URL=${CSS_URL} yarn test; else yarn test; fi
@@ -83,7 +84,7 @@ update_snapshots:
 
 review:
   stage: deploy
-  dependencies:
+  needs:
     - build
   script:
     - rsync -av --delete public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
@@ -101,8 +102,8 @@ review:
     - deploy
 
 review_stop:
-  dependencies: []
   stage: deploy
+  needs: []
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
   when: manual
@@ -120,7 +121,7 @@ review_stop:
 
 pages:
   stage: deploy
-  dependencies:
+  needs:
     - build
   script:
     - echo "Deploying to Pages"
@@ -133,7 +134,7 @@ pages:
 upload_artifacts:
   extends: .yarn_install
   stage: release
-  dependencies: []
+  needs: []
   script:
     - yarn build
     - yarn pack --filename gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
@@ -148,7 +149,7 @@ upload_artifacts:
 publish:
   extends: .yarn_install
   stage: release
-  dependencies: []
+  needs: []
   script:
     - yarn build
     - $(yarn bin)/semantic-release
