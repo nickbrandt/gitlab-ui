@@ -93,6 +93,21 @@ update_snapshots:
     - git commit -m "Update snapshots"
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
 
+## Secure features
+include:
+  - template: License-Management.gitlab-ci.yml
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+
+dependency_scanning:
+  stage: build-and-check
+
+license_management:
+  stage: build-and-check
+
+sast:
+  stage: build-and-check
+
 review:
   stage: deploy
   needs:
