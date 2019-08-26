@@ -1,3 +1,3 @@
 <template>
-  <gl-button>Test Button</gl-button>
+  <gl-button new-style>Test Button</gl-button>
 </template>

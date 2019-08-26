@@ -52,14 +52,12 @@ export const formStateOptions = {
 };
 
 export const buttonVariantOptions = {
-  primary: 'primary',
-  secondary: 'secondary',
+  default: null,
+  info: 'info',
   success: 'success',
   warning: 'warning',
   danger: 'danger',
-  link: 'link',
-  'outline-primary': 'outline-primary',
-  'outline-secondary': 'outline-secondary',
+  'outline-info': 'outline-info',
   'outline-success': 'outline-success',
   'outline-warning': 'outline-warning',
   'outline-danger': 'outline-danger',
