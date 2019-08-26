@@ -6,7 +6,7 @@ stages:
   - pre-build
   - build-and-check
   - deploy
-  - release
+  - publish
 
 .yarn_install:
   image: $PUPPETEER_IMAGE
@@ -34,11 +34,13 @@ build:
   stage: build-and-check
   script:
     - yarn storybook-static
+    - yarn build
     - mkdir public
     - mv storybook/* public
   artifacts:
     paths:
       - public
+      - dist
 
 lint:
   extends: .yarn_install
@@ -133,25 +135,34 @@ pages:
 
 upload_artifacts:
   extends: .yarn_install
-  stage: release
-  needs: []
+  stage: deploy
+  variables:
+    TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+  needs:
+    - build
   script:
-    - yarn build
-    - yarn pack --filename gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
-    - echo "The package.json dependency URL is https://gitlab.com/gitlab-org/gitlab-ui/-/jobs/$CI_JOB_ID/artifacts/raw/gitlab-ui.$CI_COMMIT_REF_SLUG.tgz"
+    - yarn pack --filename $TAR_ARCHIVE_NAME
+    - echo "The package.json dependency URL is $CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
   artifacts:
     when: always
     paths:
-      - gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+      - $TAR_ARCHIVE_NAME
   only:
     - /.+/@gitlab-org/gitlab-ui
 
-publish:
+
+publish_to_npm:
   extends: .yarn_install
-  stage: release
-  needs: []
+  # We need to run `publish` after pages, so that pages will get deployed
+  # properly, as the publish-to-npm step will create a new commit and this
+  # could lead to a side-effect where pages don't get published because of
+  # the commit being made before `pages` had a chance to run
+  stage: publish
+  # This job doesn't use the DAG feature, because we don't want it to
+  # run in case another job in the previous stages fails
+  dependencies:
+    - build
   script:
-    - yarn build
     - $(yarn bin)/semantic-release
   only:
     - master@gitlab-org/gitlab-ui
