@@ -1,0 +1,46 @@
+@mixin inline-styles {
+  @include gl-mt-1;
+  @include gl-ml-0;
+  @include gl-align-self-start;
+  @include gl-static;
+  @include gl-h-auto;
+}
+
+.gl-form-checkbox {
+  @include gl-mr-5;
+  @include gl-mb-3;
+
+  &.form-check {
+    @include gl-display-flex;
+    @include gl-pl-0;
+  }
+
+  &.form-check-inline {
+    @include gl-display-inline-flex;
+    @include gl-align-items-center;
+
+    // TODO: Remove this block after these styles are removed from CE
+    // https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/31500
+    .form-check-input {
+      @include inline-styles;
+    }
+  }
+
+  .form-check-input {
+    @include inline-styles;
+  }
+
+  .form-check-label {
+    @include gl-pl-3;
+    @include gl-line-height-normal;
+  }
+
+  .form-check-input:disabled,
+  .form-check-input:disabled ~ .form-check-label {
+    @include gl-cursor-not-allowed;
+  }
+
+  .help-text {
+    @include gl-mt-2;
+  }
+}
