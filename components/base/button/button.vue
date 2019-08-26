@@ -7,6 +7,13 @@ export default {
     BButton,
   },
   mixins: [RelMixin],
+  props: {
+    newStyle: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
 };
 </script>
 <template>
@@ -14,6 +21,7 @@ export default {
     v-bind="$attrs"
     :rel="relType"
     :target="target"
+    :class="{'gl-button': newStyle}"
     v-on="$listeners"
   >
     <slot></slot>

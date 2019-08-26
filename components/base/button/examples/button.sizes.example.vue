@@ -1,7 +1,6 @@
 <template>
   <div>
-    <gl-button>default</gl-button>
-    <gl-button size="lg">lg</gl-button>
-    <gl-button size="sm">sm</gl-button>
+    <gl-button new-style>default</gl-button>
+    <gl-button new-style size="sm">small</gl-button>
   </div>
 </template>
