@@ -31,6 +31,8 @@ build_docker_image:
 
 build:
   extends: .yarn_install
+  tags:
+    - gitlab-org # This allows us to use higher performance runners
   stage: build-and-check
   script:
     - yarn storybook-static
