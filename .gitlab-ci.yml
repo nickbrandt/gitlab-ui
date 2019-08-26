@@ -8,8 +8,15 @@ stages:
   - deploy
   - publish
 
-.yarn_install:
+.puppeteer:
   image: $PUPPETEER_IMAGE
+
+.node:
+  image: node:12
+  variables:
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+
+.yarn_install:
   before_script:
     - yarn install
 
@@ -30,7 +37,7 @@ build_docker_image:
     - ./build-docker.sh
 
 build:
-  extends: .yarn_install
+  extends: [.node, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
   stage: build-and-check
@@ -45,7 +52,7 @@ build:
       - dist
 
 lint:
-  extends: .yarn_install
+  extends: [.node, .yarn_install]
   needs: []
   stage: build-and-check
   script:
@@ -59,7 +66,7 @@ lint:
       || echo "No Vue component contains <style tags"
 
 visual:
-  extends: .yarn_install
+  extends: [.puppeteer, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
   needs:
@@ -73,7 +80,7 @@ visual:
       - tests/__image_snapshots__/
 
 update_snapshots:
-  extends: .yarn_install
+  extends: [.puppeteer, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
   stage: pre-build
@@ -136,7 +143,7 @@ pages:
     - master
 
 upload_artifacts:
-  extends: .yarn_install
+  extends: .node
   stage: deploy
   variables:
     TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
@@ -152,9 +159,8 @@ upload_artifacts:
   only:
     - /.+/@gitlab-org/gitlab-ui
 
-
 publish_to_npm:
-  extends: .yarn_install
+  extends: [.node, .yarn_install]
   # We need to run `publish` after pages, so that pages will get deployed
   # properly, as the publish-to-npm step will create a new commit and this
   # could lead to a side-effect where pages don't get published because of
