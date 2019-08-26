@@ -38,14 +38,14 @@ documentedStoriesOf('base|form/form-checkbox', readme)
     template: `
       <gl-form-checkbox-group :stacked="isStacked" :options="options">
         <template v-slot:first>
-          <gl-form-checkbox value="First option">First option</gl-form-checkbox>
+          <gl-form-checkbox value="Slot option">
+            Slot option with help text
+            <template v-slot:help>
+              Help text
+            </template>
+          </gl-form-checkbox>
         </template>
-        <gl-form-checkbox value="Slot option">
-          Slot option with help text
-          <template v-slot:help>
-            Help text
-          </template>
-        </gl-form-checkbox>
+        <gl-form-checkbox value="Last option">Last option</gl-form-checkbox>
       </gl-form-checkbox-group>
     `,
   }));
