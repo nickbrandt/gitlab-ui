@@ -85,4 +85,35 @@ documentedStoriesOf('charts|column-chart', readme)
     }),
     components,
     template,
+  }))
+  .add('with custom tooltip', () => ({
+    props: generateProps(),
+    components,
+    data() {
+      return {
+        tooltipTitle: '',
+        tooltipContent: '',
+      };
+    },
+    methods: {
+      customTooltipFormatter(params) {
+        const { value: label, seriesData } = params;
+        const { data } = seriesData[0];
+        const [, value] = data;
+        this.tooltipTitle = label;
+        this.tooltipContent = `This is my value: ${value}`;
+      },
+    },
+    template: `
+      <gl-column-chart
+        :data="data"
+        :option="option"
+        :custom-tooltip-formatter="customTooltipFormatter"
+        :y-axis-title="yAxisTitle"
+        :x-axis-title="xAxisTitle"
+        :x-axis-type="xAxisType">
+          <template slot="tooltipTitle">{{ tooltipTitle }}</template>
+          <template slot="tooltipContent">{{ tooltipContent }}</template>
+      </gl-column-chart>
+    `,
   }));

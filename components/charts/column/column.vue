@@ -40,6 +40,11 @@ export default {
       required: true,
       validator: value => ['value', 'category', 'time', 'log'].indexOf(value) !== -1,
     },
+    customTooltipFormatter: {
+      type: Function,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -52,6 +57,7 @@ export default {
         top: '0',
       },
       debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
+      tooltipFormatter: this.customTooltipFormatter || this.defaultTooltipFormatter,
     };
   },
   computed: {
@@ -141,7 +147,7 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
-    onLabelChange(params) {
+    defaultTooltipFormatter(params) {
       const { xLabels, tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
           const [title, value] = bar.value || [];
@@ -159,6 +165,20 @@ export default {
       this.$set(this, 'tooltipContent', tooltipContent);
       this.tooltipTitle = xLabels.join(', ');
     },
+    onLabelChange(params) {
+      this.tooltipFormatter(params);
+      const { seriesData = [] } = params;
+      // seriesData is an array of nearby data point coordinates
+      // seriesData[0] is the nearest point at which the tooltip is displayed
+      // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
+      if (seriesData.length && seriesData[0].data) {
+        const [left, top] = this.chart.convertToPixel('grid', seriesData[0].data);
+        this.tooltipPosition = {
+          left: `${left}px`,
+          top: `${top}px`,
+        };
+      }
+    },
     onUpdated(chart) {
       this.$emit('updated', chart);
     },
@@ -175,8 +195,14 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <div slot="title">{{ tooltipTitle }}</div>
-      <div v-for="(value, label) in tooltipContent" :key="label + value">{{ value }}</div>
+      <template v-if="customTooltipFormatter">
+        <slot slot="title" name="tooltipTitle"></slot>
+        <slot name="tooltipContent"></slot>
+      </template>
+      <template v-else>
+        <div slot="title">{{ tooltipTitle }}</div>
+        <div v-for="(value, label) in tooltipContent" :key="label + value">{{ value }}</div>
+      </template>
     </chart-tooltip>
   </div>
 </template>
