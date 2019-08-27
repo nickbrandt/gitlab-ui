@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import Label from '../../../components/base/label/label.vue';
+import Label from './label.vue';
 
 const localVue = createLocalVue();
 const defaultProps = {

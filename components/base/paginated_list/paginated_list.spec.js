@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import PaginatedList from '../../../components/base/paginated_list/paginated_list.vue';
-import GlSearchBoxByType from '../../../components/base/search_box_by_type/search_box_by_type.vue';
-import GlPagination from '../../../components/base/pagination/pagination.vue';
+import PaginatedList from './paginated_list.vue';
+import GlSearchBoxByType from '../search_box_by_type/search_box_by_type.vue';
+import GlPagination from '../pagination/pagination.vue';
 
 describe('Paginated List', () => {
   let wrapper;

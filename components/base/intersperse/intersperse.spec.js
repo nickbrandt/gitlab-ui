@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Intersperse from '../../../components/base/intersperse/intersperse.vue';
+import Intersperse from './intersperse.vue';
 
 const localVue = createLocalVue();
 

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import ColumnChart from '../../../components/charts/column/column.vue';
-import Chart from '../../../components/charts/chart/chart.vue';
+import ColumnChart from './column.vue';
+import Chart from '../chart/chart.vue';
 
 describe('column chart component', () => {
   const defaultChartProps = {

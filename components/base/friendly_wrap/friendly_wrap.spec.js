@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import FriendlyWrap from '../../../components/base/friendly_wrap/friendly_wrap.vue';
+import FriendlyWrap from './friendly_wrap.vue';
 
 const localVue = createLocalVue();
 

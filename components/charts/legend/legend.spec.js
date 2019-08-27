@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import Chart from '../../../components/charts/chart/chart.vue';
-import Legend from '../../../components/charts/legend/legend.vue';
+import Chart from '../chart/chart.vue';
+import Legend from './legend.vue';
 import { GlChartSeriesLabel } from '../../../charts';
 
 jest.mock('echarts', () => ({
