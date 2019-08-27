@@ -38,6 +38,11 @@ export const labelSizeOptions = {
   sm: 'sm',
 };
 
+export const labelColorOptions = {
+  dark: 'dark',
+  light: 'light',
+};
+
 export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
 
 export const avatarShapeOptions = {
