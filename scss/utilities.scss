@@ -346,8 +346,17 @@
 @mixin gl-text-white { color: $white; }
 .gl-text-white { @include gl-text-white; }
 
+@mixin gl-text-white-light { color: $white-light; }
+.gl-text-white-light { @include gl-text-white-light; }
+
+@mixin gl-text-black-normal { color: $black-normal; }
+.gl-text-black-normal { @include gl-text-black-normal; }
+
 @mixin gl-text-gray-400 { color: $gray-400; }
 .gl-text-gray-400 { @include gl-text-gray-400; }
+
+@mixin gl-text-gray-500 { color: $gray-500; }
+.gl-text-gray-500 { @include gl-text-gray-500; }
 
 @mixin gl-text-gray-600 { color: $gray-600; }
 .gl-text-gray-600 { @include gl-text-gray-600; }
@@ -537,6 +546,8 @@
 
 /**
 * Display utilities
+*
+* Naming convention gl-display-{property-value}
 */
 @mixin gl-display-flex { display: flex; }
 .gl-display-flex { @include gl-display-flex; }
@@ -629,6 +640,9 @@
 
 @mixin gl-bg-white { background-color: $white; }
 .gl-bg-white { @include gl-bg-white; }
+
+@mixin gl-bg-white-light { background-color: $white-light; }
+.gl-bg-white-light { @include gl-bg-white-light; }
 
 @mixin gl-bg-gray-50 { background-color: $gray-50; }
 .gl-bg-gray-50 { @include gl-bg-gray-50; }

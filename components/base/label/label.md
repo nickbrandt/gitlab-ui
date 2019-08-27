@@ -7,13 +7,13 @@ Labels are editable objects that allow users to manually categorize other object
 **Using the component**
 ~~~js
 <gl-label
-  color="#fff"
+  color="dark"
   background-color="#D9C2EE"
-  target="http://some.url"
+  title="Label content"
   description="Some content"
-  :is-scoped="true"
+  size="sm"
+  tooltipPlacement="top"
+  target="http://some.url"
   scoped-labels-documentation-link="http://some.url"
-  >
-  Label content
-</gl-label>
+/>
 ~~~

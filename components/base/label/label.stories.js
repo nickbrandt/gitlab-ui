@@ -1,6 +1,6 @@
-import { withKnobs, text, color, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, color, select } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
-import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
+import { labelSizeOptions, labelColorOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './label.md';
 import { GlLabel } from '../../../index';
 
@@ -9,22 +9,22 @@ const components = {
 };
 
 const generateProps = ({
-  isScoped = false,
+  title = 'Label title',
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
 } = {}) => {
   const props = {
     color: {
-      default: color('Font color', '#fff'),
+      default: select('color', labelColorOptions, labelColorOptions.dark),
     },
     backgroundColor: {
       default: color('Background color', '#D9C2EE'),
     },
+    title: {
+      default: text('Label title', title),
+    },
     description: {
       default: text('Label description', ''),
-    },
-    target: {
-      default: text('Link to label target', '#'),
     },
     size: {
       type: String,
@@ -34,13 +34,13 @@ const generateProps = ({
       type: String,
       default: select('Tooltip Placement', tooltipPlacements, tooltipPlacement),
     },
+    target: {
+      default: text('Link to label target', '#'),
+    },
+    scopedLabelsDocumentationLink: {
+      default: text('Link to Scoped Labels Documentation', '#'),
+    },
   };
-
-  if (isScoped) {
-    props.isScoped = {
-      default: boolean('Scope label type', true),
-    };
-  }
 
   return props;
 };
@@ -55,10 +55,25 @@ documentedStoriesOf('base|label', readme)
         :color="color"
         :background-color="backgroundColor"
         :size="size"
+        :title="title"
         :description="description"
-        :target="target"
         :tooltip-placement="tooltipPlacement"
-      >
-        Basic Label
-      </gl-label>`,
+        :target="target"
+        :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
+      />`,
+  }))
+  .add('scoped', () => ({
+    props: generateProps({ title: 'scoped::label' }),
+    components,
+    template: `
+      <gl-label
+        :color="color"
+        :background-color="backgroundColor"
+        :size="size"
+        :title="title"
+        :description="description"
+        :tooltip-placement="tooltipPlacement"
+        :target="target"
+        :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
+      />`,
   }));

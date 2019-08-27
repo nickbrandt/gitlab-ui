@@ -1,56 +1,145 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Label from '../../../components/base/label/label.vue';
+import GlLink from '../../../components/base/link/link.vue';
+import GlTooltip from '../../../components/base/tooltip/tooltip.vue';
 
-const localVue = createLocalVue();
 const defaultProps = {
-  color: 'white',
+  title: 'title',
   backgroundColor: 'red',
+  color: 'dark',
 };
 
 describe('Label component', () => {
   let wrapper;
 
-  const createComponent = (propsData, title = 'Hello world') =>
-    mount(Label, {
-      slots: {
-        default: title,
-      },
-      localVue,
+  const createComponent = propsData => {
+    wrapper = shallowMount(Label, {
+      sync: false,
       propsData,
     });
+  };
 
   afterEach(() => {
     wrapper.destroy();
   });
 
-  it('renders the label title', () => {
-    const title = 'Label Title';
-    wrapper = createComponent({ ...defaultProps }, title);
-    expect(wrapper.find('.gl-label').text()).toEqual(title);
+  const findLink = () => wrapper.find(GlLink);
+  const findDocLink = () => wrapper.findAll(GlLink).at(1);
+  const findTitle = () => wrapper.find('.gl-label-text');
+  const findSubTitle = () => wrapper.findAll('.gl-label-text').at(1);
+  const findTooltipText = () => wrapper.find(GlTooltip).text();
+
+  describe('basic label', () => {
+    it('renders the label title', () => {
+      const title = 'Label Title';
+      createComponent({ ...defaultProps, title });
+      expect(findTitle().text()).toEqual(title);
+    });
+
+    it('renders the label background color', () => {
+      createComponent({ ...defaultProps });
+
+      expect(findTitle().attributes('style')).toContain(
+        `background-color: ${defaultProps.backgroundColor}`
+      );
+    });
+
+    it('renders a black label', () => {
+      createComponent({ ...defaultProps });
+
+      expect(findTitle().classes()).toContain(`gl-text-black-normal`);
+    });
+
+    it('renders a white label if color is light', () => {
+      createComponent({ ...defaultProps, color: 'light' });
+
+      expect(findTitle().classes()).toContain(`gl-text-white-light`);
+    });
+
+    it('renders the label description', () => {
+      const props = { ...defaultProps, description: 'lorem ipsum' };
+
+      createComponent(props);
+
+      expect(wrapper.html()).toContain(props.description);
+    });
+
+    it('links to label target', () => {
+      const props = { ...defaultProps, target: 'http://local.host' };
+
+      createComponent(props);
+
+      expect(wrapper.find(GlLink).attributes('href')).toEqual(props.target);
+    });
   });
 
-  it('renders the label background color', () => {
-    const backgroundStyle = `background-color: ${defaultProps.backgroundColor};`;
-    wrapper = createComponent({ ...defaultProps });
-    expect(wrapper.find('.gl-label').attributes('style')).toContain(backgroundStyle);
-  });
+  describe('scoped label', () => {
+    const scopedProps = {
+      ...defaultProps,
+      title: 'scoped::label',
+    };
 
-  it('renders the label color', () => {
-    const colorStyle = `color: ${defaultProps.color};`;
-    wrapper = createComponent({ ...defaultProps });
-    expect(wrapper.find('.gl-label > a').attributes('style')).toContain(colorStyle);
-  });
+    it('renders the scoped title', () => {
+      createComponent({ ...scopedProps });
 
-  it('renders the label desciption', () => {
-    const props = { ...defaultProps, desciption: 'lorem ipsum' };
+      expect(findTitle().text()).toEqual('scoped');
+      expect(findSubTitle().text()).toEqual('label');
+    });
 
-    wrapper = createComponent(props);
-    expect(wrapper.html()).toContain(props.desciption);
-  });
+    it('renders the label background color', () => {
+      createComponent({ ...scopedProps });
 
-  it('links to label target', () => {
-    const props = { ...defaultProps, target: 'http://local.host' };
-    wrapper = createComponent(props);
-    expect(wrapper.find('.js-label-wrapper').attributes('href')).toEqual(props.target);
+      expect(findTitle().attributes('style')).toContain(
+        `background-color: ${defaultProps.backgroundColor};`
+      );
+    });
+
+    it('renders a black label', () => {
+      createComponent({ ...defaultProps });
+
+      expect(findTitle().classes()).toContain(`gl-text-black-normal`);
+    });
+
+    it('renders a white label if color is light', () => {
+      createComponent({ ...defaultProps, color: 'light' });
+
+      expect(findTitle().classes()).toContain(`gl-text-white-light`);
+    });
+
+    it('renders the right side color as background color of left side if color is light', () => {
+      createComponent({ ...scopedProps, color: 'light' });
+
+      expect(findSubTitle().attributes('style')).toContain(
+        `color: ${defaultProps.backgroundColor}`
+      );
+    });
+
+    it('renders the right side color as black if color is set to dark', () => {
+      createComponent({ ...scopedProps, color: 'dark' });
+
+      expect(findSubTitle().attributes('style')).toContain('rgb(51, 51, 51)');
+    });
+
+    it('renders the label description', () => {
+      const props = { ...scopedProps, description: 'lorem ipsum' };
+
+      createComponent(props);
+
+      expect(findTooltipText()).toEqual(props.description);
+    });
+
+    it('links to label target', () => {
+      const props = { ...scopedProps, target: 'http://local.host' };
+      createComponent(props);
+      expect(findLink().attributes('href')).toEqual(props.target);
+    });
+
+    it('links to scoped label documentation link', () => {
+      const props = { ...scopedProps, scopedLabelsDocumentationLink: 'http://local.host' };
+
+      createComponent(props);
+
+      expect(findDocLink().attributes('href')).toEqual(props.scopedLabelsDocumentationLink);
+    });
   });
 });
