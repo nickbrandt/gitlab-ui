@@ -9,6 +9,53 @@ $gl-popover-max-width: 384px;
   @include gl-shadow;
   @include gl-font-sm;
 
+  &.bs-popover-top {
+    /* When popover position is top, the arrow is translated 1 pixel
+    *  due to the box-shadow include in our custom styles.
+    */
+    > .arrow::before {
+      border-top-color: $gray-200;
+      bottom: 1px;
+    }
+
+    > .arrow::after {
+      bottom: 2px;
+    }
+  }
+
+  &.bs-popover-bottom {
+    > .arrow::before {
+      border-bottom-color: $gray-200;
+    }
+
+    > .popover-header::before {
+      @include gl-border-white-light;
+    }
+  }
+
+  &.bs-popover-right > .arrow::before {
+    border-right-color: $gray-200;
+  }
+
+  &.bs-popover-left > .arrow::before {
+    border-left-color: $gray-200;
+  }
+
+  .popover-header {
+    @include gl-bg-white-light;
+    @include gl-font-sm;
+  }
+
+  .popover-body {
+    @include gl-py-5;
+    @include gl-px-4;
+
+    > .popover-hr {
+      @include gl-my-5;
+      @include gl-mx-0;
+    }
+  }
+
   /**
   * Blue popover variation
   */
@@ -47,102 +94,5 @@ $gl-popover-max-width: 384px;
         border-left-color: $blue-600;
       }
     }
-  }
-}
-
-.bs-popover-top {
-  /* When popover position is top, the arrow is translated 1 pixel
-  *  due to the box-shadow include in our custom styles.
-  */
-  > .arrow::before {
-    border-top-color: $gray-200;
-    bottom: 1px;
-  }
-
-  > .arrow::after {
-    bottom: 2px;
-  }
-}
-
-.bs-popover-bottom {
-  > .arrow::before {
-    border-bottom-color: $gray-200;
-  }
-
-  > .popover-header::before {
-    @include gl-border-white-light;
-  }
-}
-
-.bs-popover-right > .arrow::before {
-  border-right-color: $gray-200;
-}
-
-.bs-popover-left > .arrow::before {
-  border-left-color: $gray-200;
-}
-
-.popover-header {
-  @include gl-bg-white-light;
-  @include gl-font-sm;
-}
-
-.popover-body {
-  @include gl-py-5;
-  @include gl-px-4;
-
-  > .popover-hr {
-    @include gl-my-5;
-    @include gl-mx-0;
-  }
-}
-
-/**
-* mr_popover component
-*/
-.mr-popover {
-  .text-secondary {
-    @include gl-font-sm;
-    @include gl-line-height-normal;
-  }
-}
-
-// TODO: Is this used anywhere in the application? I cannot find any usages in CE or EE.
-.onboarding-popover {
-  box-shadow: 0 2px 4px $dropdown-shadow-color;
-  max-width: 280px;
-
-  .popover-body {
-    font-size: $gl-font-size;
-    line-height: $gl-line-height;
-    padding: $gl-padding;
-  }
-
-  .popover-header {
-    display: none;
-  }
-
-  .accept-mr-label {
-    background-color: $accepting-mr-label-color;
-    color: $white-light;
-  }
-}
-
-/**
-* user_popover component
-*/
-.user-popover {
-  padding: $gl-padding-8;
-  line-height: $gl-line-height;
-
-  .category-icon {
-    color: $gray-600;
-  }
-}
-
-.onboarding-welcome-page {
-  .popover {
-    min-width: auto;
-    max-width: 40%;
   }
 }
