@@ -38,6 +38,11 @@ export const labelSizeOptions = {
   sm: 'sm',
 };
 
+export const labelColorOptions = {
+  dark: 'dark',
+  light: 'light',
+};
+
 export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
 
 export const avatarShapeOptions = {
@@ -52,14 +57,12 @@ export const formStateOptions = {
 };
 
 export const buttonVariantOptions = {
-  primary: 'primary',
-  secondary: 'secondary',
+  default: null,
+  info: 'info',
   success: 'success',
   warning: 'warning',
   danger: 'danger',
-  link: 'link',
-  'outline-primary': 'outline-primary',
-  'outline-secondary': 'outline-secondary',
+  'outline-info': 'outline-info',
   'outline-success': 'outline-success',
   'outline-warning': 'outline-warning',
   'outline-danger': 'outline-danger',

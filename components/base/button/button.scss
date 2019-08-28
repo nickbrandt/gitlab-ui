@@ -1,0 +1,239 @@
+/*
+ * Button-specific utilities
+ */
+@mixin gl-button-hover($color) {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 2) $color,
+    0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+@mixin gl-button-active($color) {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 2) $color,
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+@mixin gl-button-focus($color) {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 2) $color,
+    0 0 0 1px $blue-300,
+    0 0 4px 1px $blue-300;
+}
+
+.gl-button {
+  @include gl-border-0;
+  @include gl-py-3;
+  @include gl-px-4;
+  @include gl-bg-white;
+  @include gl-text-gray-900;
+  @include gl-inset-border-1-gray-400;
+
+  &:hover {
+    @include gl-bg-gray-200;
+    @include gl-button-hover($gray-400);
+  }
+
+  &:active {
+    @include gl-bg-gray-300;
+    @include gl-button-active($gray-500);
+  }
+
+  &:focus {
+    @include gl-bg-gray-200;
+    @include gl-button-focus($gray-400);
+  }
+
+  &.btn-info,
+  &.btn-success,
+  &.btn-danger,
+  &.btn-warning {
+    @include gl-text-white;
+    @include gl-font-weight-bold;
+  }
+
+  &.btn-info:not(:disabled) {
+    @include gl-bg-blue-500;
+    @include gl-inset-border-1-blue-600;
+
+    &:hover {
+      @include gl-bg-blue-600;
+      @include gl-button-hover($blue-700);
+    }
+
+    &:active {
+      @include gl-bg-blue-700;
+      @include gl-button-active($blue-800);
+    }
+
+    &:focus {
+      @include gl-bg-blue-600;
+      @include gl-button-focus($blue-700);
+    }
+  }
+
+  &.btn-outline-info:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-blue-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-blue-500;
+
+    &:hover {
+      @include gl-bg-blue-100;
+      @include gl-text-blue-600;
+      @include gl-button-hover($blue-500);
+    }
+
+    &:active {
+      @include gl-bg-blue-200;
+      @include gl-text-blue-700;
+      @include gl-button-active($blue-600);
+    }
+
+    &:focus {
+      @include gl-bg-blue-100;
+      @include gl-text-blue-600;
+      @include gl-button-focus($blue-500);
+    }
+  }
+
+  &.btn-success:not(:disabled) {
+    @include gl-bg-green-500;
+    @include gl-inset-border-1-green-600;
+
+    &:hover {
+      @include gl-bg-green-600;
+      @include gl-button-hover($green-700);
+    }
+
+    &:active {
+      @include gl-bg-green-700;
+      @include gl-button-active($green-800);
+    }
+
+    &:focus {
+      @include gl-bg-green-600;
+      @include gl-button-focus($green-700);
+    }
+  }
+
+  &.btn-outline-success:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-green-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-green-500;
+
+    &:hover {
+      @include gl-bg-green-100;
+      @include gl-text-green-600;
+      @include gl-button-hover($green-500);
+    }
+
+    &:active {
+      @include gl-bg-green-200;
+      @include gl-text-green-700;
+      @include gl-button-active($green-600);
+    }
+
+    &:focus {
+      @include gl-bg-green-100;
+      @include gl-text-green-600;
+      @include gl-button-focus($green-500);
+    }
+  }
+
+  &.btn-warning:not(:disabled) {
+    @include gl-bg-orange-500;
+    @include gl-inset-border-1-orange-600;
+
+    &:hover {
+      @include gl-bg-orange-600;
+      @include gl-button-hover($orange-700);
+    }
+
+    &:active {
+      @include gl-bg-orange-700;
+      @include gl-button-active($orange-800);
+    }
+
+    &:focus {
+      @include gl-bg-orange-600;
+      @include gl-button-focus($orange-700);
+    }
+  }
+
+  &.btn-outline-warning:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-orange-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-orange-500;
+
+    &:hover {
+      @include gl-bg-orange-100;
+      @include gl-text-orange-600;
+      @include gl-button-hover($orange-500);
+    }
+
+    &:active {
+      @include gl-bg-orange-200;
+      @include gl-text-orange-700;
+      @include gl-button-active($orange-600);
+    }
+
+    &:focus {
+      @include gl-bg-orange-100;
+      @include gl-text-orange-600;
+      @include gl-button-focus($orange-500);
+    }
+  }
+
+  &.btn-danger:not(:disabled) {
+    @include gl-bg-red-500;
+    @include gl-inset-border-1-red-600;
+
+    &:hover {
+      @include gl-bg-red-600;
+      @include gl-button-hover($red-700);
+    }
+
+    &:active {
+      @include gl-bg-red-700;
+      @include gl-button-active($red-800);
+    }
+
+    &:focus {
+      @include gl-bg-red-600;
+      @include gl-button-focus($red-700);
+    }
+  }
+
+  &.btn-outline-danger:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-red-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-red-500;
+
+    &:hover {
+      @include gl-bg-red-100;
+      @include gl-text-red-600;
+      @include gl-button-hover($red-500);
+    }
+
+    &:active {
+      @include gl-bg-red-200;
+      @include gl-text-red-700;
+      @include gl-button-active($red-600);
+    }
+
+    &:focus {
+      @include gl-bg-red-100;
+      @include gl-text-red-600;
+      @include gl-button-focus($red-500);
+    }
+  }
+
+  &.btn-sm {
+    @include gl-py-2;
+    @include gl-px-3;
+  }
+
+  &.disabled {
+    @include gl-bg-gray-50;
+    @include gl-text-gray-600;
+    @include gl-inset-border-1-gray-200;
+  }
+}

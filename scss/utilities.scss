@@ -46,8 +46,14 @@
 @mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 .gl-pr-2 { @include gl-pr-2; }
 
+@mixin gl-pl-0 { padding-left: $gl-spacing-scale-0; }
+.gl-pl-0 { @include gl-pl-0; }
+
 @mixin gl-pl-2 { padding-left: $gl-spacing-scale-2; }
 .gl-pl-2 { @include gl-pl-2; }
+
+@mixin gl-pl-3 { padding-left: $gl-spacing-scale-3; }
+.gl-pl-3 { @include gl-pl-3; }
 
 @mixin gl-py-0 {
   padding-top: $gl-spacing-scale-0;
@@ -101,11 +107,35 @@
 @mixin gl-m-0 { margin: $gl-spacing-scale-0; }
 .gl-m-0 { @include gl-m-0; }
 
+@mixin gl-mt-0 { margin-top: $gl-spacing-scale-0; }
+.gl-mt-0 { @include gl-mt-0; }
+
+@mixin gl-mt-1 { margin-top: $gl-spacing-scale-1; }
+.gl-mt-1 { @include gl-mt-1; }
+
+@mixin gl-mt-2 { margin-top: $gl-spacing-scale-2; }
+.gl-mt-2 { @include gl-mt-2; }
+
 @mixin gl-mt-3 { margin-top: $gl-spacing-scale-3; }
 .gl-mt-3 { @include gl-mt-3; }
 
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 .gl-mr-2 { @include gl-mr-2; }
+
+@mixin gl-mr-3 { margin-right: $gl-spacing-scale-3; }
+.gl-mr-3 { @include gl-mr-3; }
+
+@mixin gl-mr-5 { margin-right: $gl-spacing-scale-5; }
+.gl-mr-5 { @include gl-mr-5; }
+
+@mixin gl-mb-1 { margin-bottom: $gl-spacing-scale-1; }
+.gl-mb-1 { @include gl-mb-1; }
+
+@mixin gl-mb-2 { margin-bottom: $gl-spacing-scale-2; }
+.gl-mb-2 { @include gl-mb-2; }
+
+@mixin gl-mb-3 { margin-bottom: $gl-spacing-scale-3; }
+.gl-mb-3 { @include gl-mb-3; }
 
 @mixin gl-ml-1 { margin-left: $gl-spacing-scale-1; }
 .gl-ml-1 { @include gl-ml-1; }
@@ -121,6 +151,9 @@
 
 @mixin gl-mb-5 { margin-bottom: $gl-spacing-scale-5; }
 .gl-mb-5 { @include gl-mb-5; }
+
+@mixin gl-ml-0 { margin-left: $gl-spacing-scale-0; }
+.gl-ml-0 { @include gl-ml-0; }
 
 @mixin gl-my-auto {
   margin-top: auto;
@@ -150,17 +183,44 @@
 @mixin gl-w-5 { width: $gl-spacing-scale-5; }
 .gl-w-5 { @include gl-w-5; }
 
-@mixin gl-w-5 { width: $gl-spacing-scale-5; }
-.gl-w-5 { @include gl-w-5; }
+@mixin gl-w-6 { width: $gl-spacing-scale-6; }
+.gl-w-6 { @include gl-w-6; }
 
 @mixin gl-w-7 { width: $gl-spacing-scale-7; }
-.gl-w-7 { @include gl-w-5; }
+.gl-w-7 { @include gl-w-7; }
+
+@mixin gl-w-9 { width: $gl-spacing-scale-9; }
+.gl-w-9 { @include gl-w-9; }
+
+@mixin gl-w-11 { width: $gl-spacing-scale-11; }
+.gl-w-11 { @include gl-w-11; }
+
+@mixin gl-w-13 { width: $gl-spacing-scale-13; }
+.gl-w-13 { @include gl-w-13; }
 
 @mixin gl-h-4 { height: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
 @mixin gl-h-5 { height: $gl-spacing-scale-5; }
 .gl-h-5 { @include gl-h-5; }
+
+@mixin gl-h-auto { height: auto; }
+.gl-h-auto { @include gl-h-auto; }
+
+@mixin gl-h-6 { height: $gl-spacing-scale-6; }
+.gl-h-6 { @include gl-h-6; }
+
+@mixin gl-h-7 { height: $gl-spacing-scale-7; }
+.gl-h-7 { @include gl-h-7; }
+
+@mixin gl-h-9 { height: $gl-spacing-scale-9; }
+.gl-h-9 { @include gl-h-9; }
+
+@mixin gl-h-11 { height: $gl-spacing-scale-11; }
+.gl-h-11 { @include gl-h-11; }
+
+@mixin gl-h-13 { height: $gl-spacing-scale-13; }
+.gl-h-13 { @include gl-h-13; }
 
 /**
 * Border style utilities.
@@ -189,6 +249,9 @@
 
 @mixin gl-border-gray-300 { border-color: $gray-300; }
 .gl-border-gray-300 { @include gl-border-gray-300; }
+
+@mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
+.gl-border-t-gray-a-08 { @include gl-border-t-gray-a-08; }
 
 /**
 * Border width utilities.
@@ -222,6 +285,9 @@
 @mixin gl-rounded-small { border-radius: $gl-border-radius-small; }
 .gl-rounded-small { @include gl-rounded-small; }
 
+@mixin gl-rounded-lg { border-radius: $gl-border-radius-large; }
+.gl-rounded-lg { @include gl-rounded-lg; }
+
 /**
 * Font family utility
 *
@@ -249,6 +315,15 @@
 @mixin gl-font-base { font-size: map-get($gl-type-scale, 'base'); }
 .gl-font-base { @include gl-font-base; }
 
+@mixin gl-font-xl { font-size: map-get($gl-type-scale, 'xl'); }
+.gl-font-xl { @include gl-font-xl; }
+
+@mixin gl-font-2xl { font-size: map-get($gl-type-scale, '2xl'); }
+.gl-font-2xl { @include gl-font-2xl; }
+
+@mixin gl-font-3xl { font-size: map-get($gl-type-scale, '3xl'); }
+.gl-font-3xl { @include gl-font-3xl; }
+
 /**
 * Font-weight utilities.
 *
@@ -271,8 +346,17 @@
 @mixin gl-text-white { color: $white; }
 .gl-text-white { @include gl-text-white; }
 
+@mixin gl-text-white-light { color: $white-light; }
+.gl-text-white-light { @include gl-text-white-light; }
+
+@mixin gl-text-black-normal { color: $black-normal; }
+.gl-text-black-normal { @include gl-text-black-normal; }
+
 @mixin gl-text-gray-400 { color: $gray-400; }
 .gl-text-gray-400 { @include gl-text-gray-400; }
+
+@mixin gl-text-gray-500 { color: $gray-500; }
+.gl-text-gray-500 { @include gl-text-gray-500; }
 
 @mixin gl-text-gray-600 { color: $gray-600; }
 .gl-text-gray-600 { @include gl-text-gray-600; }
@@ -286,6 +370,42 @@
 @mixin gl-text-gray-950 { color: $gray-950; }
 .gl-text-gray-950 { @include gl-text-gray-950; }
 
+@mixin gl-text-blue-500 { color: $blue-500; }
+.gl-text-blue-500 { @include gl-text-blue-500; }
+
+@mixin gl-text-blue-600 { color: $blue-600; }
+.gl-text-blue-600 { @include gl-text-blue-600; }
+
+@mixin gl-text-blue-700 { color: $blue-700; }
+.gl-text-blue-700 { @include gl-text-blue-700; }
+
+@mixin gl-text-green-500 { color: $green-500; }
+.gl-text-green-500 { @include gl-text-green-500; }
+
+@mixin gl-text-green-600 { color: $green-600; }
+.gl-text-green-600 { @include gl-text-green-600; }
+
+@mixin gl-text-green-700 { color: $green-700; }
+.gl-text-green-700 { @include gl-text-green-700; }
+
+@mixin gl-text-orange-500 { color: $orange-500; }
+.gl-text-orange-500 { @include gl-text-orange-500; }
+
+@mixin gl-text-orange-600 { color: $orange-600; }
+.gl-text-orange-600 { @include gl-text-orange-600; }
+
+@mixin gl-text-orange-700 { color: $orange-700; }
+.gl-text-orange-700 { @include gl-text-orange-700; }
+
+@mixin gl-text-red-500 { color: $red-500; }
+.gl-text-red-500 { @include gl-text-red-500; }
+
+@mixin gl-text-red-600 { color: $red-600; }
+.gl-text-red-600 { @include gl-text-red-600; }
+
+@mixin gl-text-red-700 { color: $red-700; }
+.gl-text-red-700 { @include gl-text-red-700; }
+
 /**
 * Line height utilities.
 *
@@ -296,6 +416,15 @@
 @mixin gl-line-height-normal { line-height: $gl-line-height; }
 .gl-line-height-normal { @include gl-line-height-normal; }
 
+@mixin gl-line-height-24 { line-height: $gl-line-height-24; }
+.gl-line-height-24 { @include gl-line-height-24; }
+
+@mixin gl-line-height-32 { line-height: $gl-line-height-32; }
+.gl-line-height-32 { @include gl-line-height-32; }
+
+@mixin gl-line-height-52 { line-height: $gl-line-height-52; }
+.gl-line-height-52 { @include gl-line-height-52; }
+
 /**
 * Text align utilities
 */
@@ -304,6 +433,12 @@
 
 @mixin gl-text-decoration-none { text-decoration: none; }
 .gl-text-decoration-none { @include gl-text-decoration-none; }
+
+/**
+* Vertical align utilities
+*/
+@mixin gl-vertical-align-top { vertical-align: top; }
+.gl-vertical-align-top { @include gl-vertical-align-top; }
 
 /**
 * Inset border utilities
@@ -318,15 +453,60 @@
 }
 .gl-inset-border-1-gray-200 { @include gl-inset-border-1-gray-200; }
 
+@mixin gl-inset-border-1-gray-400 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $gray-400;
+}
+.gl-inset-border-1-gray-400 { @include gl-inset-border-1-gray-400; }
+
 @mixin gl-inset-border-b-2-gray-200 {
   box-shadow: inset 0 (map-get($gl-border-sizes, 2) * -1) 0 0 $gray-200;
 }
 .gl-inset-border-b-2-gray-200 { @include gl-inset-border-b-2-gray-200; }
 
+@mixin gl-inset-border-1-blue-500 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $blue-500;
+}
+.gl-inset-border-1-blue-500 { @include gl-inset-border-1-blue-500; }
+
+@mixin gl-inset-border-1-blue-600 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $blue-600;
+}
+.gl-inset-border-1-blue-600 { @include gl-inset-border-1-blue-600; }
+
+@mixin gl-inset-border-1-green-500 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $green-500;
+}
+.gl-inset-border-1-green-500 { @include gl-inset-border-1-green-500; }
+
+@mixin gl-inset-border-1-green-600 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $green-600;
+}
+.gl-inset-border-1-green-600 { @include gl-inset-border-1-green-600; }
+
+@mixin gl-inset-border-1-orange-500 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $orange-500;
+}
+.gl-inset-border-1-orange-500 { @include gl-inset-border-1-orange-500; }
+
+@mixin gl-inset-border-1-orange-600 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $orange-600;
+}
+.gl-inset-border-1-orange-600 { @include gl-inset-border-1-orange-600; }
+
+@mixin gl-inset-border-1-red-500 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $red-500;
+}
+.gl-inset-border-1-red-500 { @include gl-inset-border-1-red-500; }
+
+@mixin gl-inset-border-1-red-600 {
+  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 1) $red-600;
+}
+.gl-inset-border-1-red-600 { @include gl-inset-border-1-red-600; }
+
 @mixin gl-inset-border-b-2-theme-indigo-500 {
   box-shadow: inset 0 (map-get($gl-border-sizes, 2) * -1) 0 0 $theme-indigo-500;
 }
-.gl-inset-border-b-2-theme-indigo-500 { @include gl-inset-border-b-2-gray-200; }
+.gl-inset-border-b-2-theme-indigo-500 { @include gl-inset-border-b-2-theme-indigo-500; }
 
 @mixin gl-inset-border-b-2-theme-red-500 {
   box-shadow: inset 0 (map-get($gl-border-sizes, 2) * -1) 0 0 $theme-red-500;
@@ -366,13 +546,24 @@
 
 /**
 * Display utilities
+*
+* Naming convention gl-display-{property-value}
 */
+@mixin gl-display-flex { display: flex; }
+.gl-display-flex { @include gl-display-flex; }
+
 @mixin gl-display-inline-flex { display: inline-flex; }
 .gl-display-inline-flex { @include gl-display-inline-flex; }
+
+@mixin gl-display-flex { display: flex; }
+.gl-display-flex { @include gl-display-flex; }
 
 /**
 * Flexbox utilities
 */
+@mixin gl-align-items-baseline { align-items: baseline; }
+.gl-align-items-baseline { @include gl-align-items-baseline; }
+
 @mixin gl-align-items-center { align-items: center; }
 .gl-align-items-center { @include gl-align-items-center; }
 
@@ -385,6 +576,12 @@
 @mixin gl-justify-content-center { justify-content: center; }
 .gl-justify-content-center { @include gl-justify-content-center; }
 
+@mixin gl-align-self-start { align-self: flex-start; }
+.gl-align-self-start { @include gl-align-self-start; }
+
+@mixin gl-align-self-center { align-self: center; }
+.gl-align-self-center { @include gl-align-self-center; }
+
 /**
 * Position utilities.
 *
@@ -392,6 +589,18 @@
 */
 @mixin gl-absolute { position: absolute; }
 .gl-absolute { @include gl-absolute; }
+
+@mixin gl-static { position: static; }
+.gl-static { @include gl-static; }
+
+/**
+* Overflow utilities.
+*
+* naming convention: gl-overflow-{property-value} |
+* gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
+*/
+@mixin gl-overflow-hidden { overflow: hidden; }
+.gl-overflow-hidden { @include gl-overflow-hidden; }
 
 /**
 * Coords utilities
@@ -415,6 +624,9 @@
 @mixin gl-cursor-pointer { cursor: pointer; }
 .gl-cursor-pointer { @include gl-cursor-pointer; }
 
+@mixin gl-cursor-not-allowed { cursor: not-allowed; }
+.gl-cursor-not-allowed { @include gl-cursor-not-allowed; }
+
 /**
 * Background color utilities.
 *
@@ -426,8 +638,83 @@
 @mixin gl-bg-transparent { background-color: $transparent; }
 .gl-bg-transparent { @include gl-bg-transparent; }
 
+@mixin gl-bg-white { background-color: $white; }
+.gl-bg-white { @include gl-bg-white; }
+
 @mixin gl-bg-white-light { background-color: $white-light; }
 .gl-bg-white-light { @include gl-bg-white-light; }
+
+@mixin gl-bg-gray-50 { background-color: $gray-50; }
+.gl-bg-gray-50 { @include gl-bg-gray-50; }
+
+@mixin gl-bg-gray-100 { background-color: $gray-100; }
+.gl-bg-gray-100 { @include gl-bg-gray-100; }
+
+@mixin gl-bg-gray-200 { background-color: $gray-200; }
+.gl-bg-gray-200 { @include gl-bg-gray-200; }
+
+@mixin gl-bg-gray-300 { background-color: $gray-300; }
+.gl-bg-gray-300 { @include gl-bg-gray-300; }
+
+@mixin gl-bg-blue-100 { background-color: $blue-100; }
+.gl-bg-blue-100 { @include gl-bg-blue-100; }
+
+@mixin gl-bg-blue-200 { background-color: $blue-200; }
+.gl-bg-blue-200 { @include gl-bg-blue-200; }
+
+@mixin gl-bg-blue-500 { background-color: $blue-500; }
+.gl-bg-blue-500 { @include gl-bg-blue-500; }
+
+@mixin gl-bg-blue-600 { background-color: $blue-600; }
+.gl-bg-blue-600 { @include gl-bg-blue-600; }
+
+@mixin gl-bg-blue-700 { background-color: $blue-700; }
+.gl-bg-blue-700 { @include gl-bg-blue-700; }
+
+@mixin gl-bg-green-100 { background-color: $green-100; }
+.gl-bg-green-100 { @include gl-bg-green-100; }
+
+@mixin gl-bg-green-200 { background-color: $green-200; }
+.gl-bg-green-200 { @include gl-bg-green-200; }
+
+@mixin gl-bg-green-500 { background-color: $green-500; }
+.gl-bg-green-500 { @include gl-bg-green-500; }
+
+@mixin gl-bg-green-600 { background-color: $green-600; }
+.gl-bg-green-600 { @include gl-bg-green-600; }
+
+@mixin gl-bg-green-700 { background-color: $green-700; }
+.gl-bg-green-700 { @include gl-bg-green-700; }
+
+@mixin gl-bg-orange-100 { background-color: $orange-100; }
+.gl-bg-orange-100 { @include gl-bg-orange-100; }
+
+@mixin gl-bg-orange-200 { background-color: $orange-200; }
+.gl-bg-orange-200 { @include gl-bg-orange-200; }
+
+@mixin gl-bg-orange-500 { background-color: $orange-500; }
+.gl-bg-orange-500 { @include gl-bg-orange-500; }
+
+@mixin gl-bg-orange-600 { background-color: $orange-600; }
+.gl-bg-orange-600 { @include gl-bg-orange-600; }
+
+@mixin gl-bg-orange-700 { background-color: $orange-700; }
+.gl-bg-orange-700 { @include gl-bg-orange-700; }
+
+@mixin gl-bg-red-100 { background-color: $red-100; }
+.gl-bg-red-100 { @include gl-bg-red-100; }
+
+@mixin gl-bg-red-200 { background-color: $red-200; }
+.gl-bg-red-200 { @include gl-bg-red-200; }
+
+@mixin gl-bg-red-500 { background-color: $red-500; }
+.gl-bg-red-500 { @include gl-bg-red-500; }
+
+@mixin gl-bg-red-600 { background-color: $red-600; }
+.gl-bg-red-600 { @include gl-bg-red-600; }
+
+@mixin gl-bg-red-700 { background-color: $red-700; }
+.gl-bg-red-700 { @include gl-bg-red-700; }
 
 @mixin gl-bg-gray-100 { background-color: $gray-100; }
 .gl-bg-gray-100 { @include gl-bg-gray-100; }

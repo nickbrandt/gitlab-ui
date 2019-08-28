@@ -13,7 +13,7 @@ const components = {
 };
 
 function generateProps({
-  variant = buttonVariantOptions.primary,
+  variant = buttonVariantOptions.info,
   size = sizeOptionsWithNoDefault.default,
   withLink = false,
 } = {}) {
@@ -59,6 +59,7 @@ documentedStoriesOf('base|button', readme)
         :variant="variant"
         :size="size"
         :disabled="disabled"
+        new-style
       >
         This is a button
       </gl-button>
@@ -74,6 +75,7 @@ documentedStoriesOf('base|button', readme)
         :disabled="disabled"
         :href="href"
         :target="target"
+        new-style
       >
         This is a link button
       </gl-button>

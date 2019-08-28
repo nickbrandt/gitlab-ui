@@ -39,10 +39,10 @@ export default {
   },
   computed: {
     sizeClass() {
-      return `s${this.size}`;
+      return `gl-avatar-s${this.size}`;
     },
-    shapeClass() {
-      return this.shape === avatarShapeOptions.rect ? 'rect-avatar' : '';
+    isCircle() {
+      return this.shape === avatarShapeOptions.circle;
     },
     identiconBackgroundClass() {
       /*
@@ -50,7 +50,7 @@ export default {
       * Gets the remainder after dividing the 'entityId' by the number of available backgrounds.
       */
       const type = (this.entityId % IDENTICON_BG_COUNT) + 1;
-      return `bg${type}`;
+      return `gl-avatar-identicon-bg${type}`;
     },
     identiconText() {
       return this.entityName ? this.entityName.charAt(0).toUpperCase() : '';
@@ -58,10 +58,15 @@ export default {
   },
 };
 </script>
-
 <template>
-  <img v-if="src" :src="src" :alt="alt" class="avatar" :class="[sizeClass, shapeClass]"/>
-  <div v-else :class="[sizeClass, shapeClass, identiconBackgroundClass]" class="avatar identicon d-flex justify-content-center flex-column">
-    {{ identiconText }}
-  </div>
+  <img
+    v-if="src"
+    :src="src"
+    :alt="alt"
+    :class="['gl-avatar', { 'gl-avatar-circle': isCircle }, sizeClass]"
+  />
+  <div
+    v-else
+    :class="['gl-avatar gl-avatar-identicon', { 'gl-avatar-circle': isCircle }, sizeClass, identiconBackgroundClass]"
+  >{{ identiconText }}</div>
 </template>
