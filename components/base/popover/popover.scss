@@ -1,3 +1,6 @@
+// variables
+$gl-popover-max-width: 384px;
+
 .gl-popover {
   max-width: $gl-popover-max-width;
   @include gl-border-1;
