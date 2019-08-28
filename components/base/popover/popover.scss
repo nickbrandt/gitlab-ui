@@ -67,7 +67,7 @@
   }
 
   > .popover-header::before {
-    border-color: $white-light;
+    @include gl-border-white-light;
   }
 }
 
@@ -80,15 +80,17 @@
 }
 
 .popover-header {
-  background-color: $white-light;
-  font-size: $gl-font-size-small;
+  @include gl-bg-white-light;
+  @include gl-font-sm;
 }
 
 .popover-body {
-  padding: $gl-padding $gl-padding-12;
+  @include gl-py-5;
+  @include gl-px-4;
 
   > .popover-hr {
-    margin: $gl-padding 0;
+    @include gl-my-5;
+    @include gl-mx-0;
   }
 }
 
@@ -97,11 +99,12 @@
 */
 .mr-popover {
   .text-secondary {
-    font-size: 12px;
-    line-height: 1.33;
+    @include gl-font-sm;
+    @include gl-line-height-normal;
   }
 }
 
+// TODO: Is this used anywhere in the application? I cannot find any usages in CE or EE.
 .onboarding-popover {
   box-shadow: 0 2px 4px $dropdown-shadow-color;
   max-width: 280px;

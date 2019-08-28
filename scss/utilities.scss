@@ -161,6 +161,18 @@
 }
 .gl-my-auto { @include gl-my-auto; }
 
+@mixin gl-my-5 {
+  margin-top: $gl-spacing-scale-5;
+  margin-bottom: $gl-spacing-scale-5;
+}
+.gl-my-5 { @include gl-my-5; }
+
+@mixin gl-mx-0 {
+  margin-left: $gl-spacing-scale-0;
+  margin-right: $gl-spacing-scale-0;
+}
+.gl-mx-0 { @include gl-mx-0; }
+
 @mixin gl-mx-3 {
   margin-left: $gl-spacing-scale-3;
   margin-right: $gl-spacing-scale-3;
@@ -244,6 +256,9 @@
 * - Prefer design system color palette. See variables.scss
 * for a comprehensive list.
 */
+@mixin gl-border-white-light { border-color: $white-light; }
+.gl-border-white-light { @include gl-border-white-light; }
+
 @mixin gl-border-gray-200 { border-color: $gray-200; }
 .gl-border-gray-200 { @include gl-border-gray-200; }
 
@@ -595,6 +610,16 @@
 
 @mixin gl-static { position: static; }
 .gl-static { @include gl-static; }
+
+/**
+* Placement utilities.
+*
+* For absolute or fixed positioned elements
+*
+* naming convention: gl-{position}-{value}
+*/
+@mixin gl-bottom-1 { bottom: 0; }
+.gl-bottom-1 { @include gl-bottom-1; }
 
 /**
 * Overflow utilities.
