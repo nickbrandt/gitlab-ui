@@ -75,6 +75,11 @@ export default {
       required: false,
       default: '',
     },
+    legendText: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -183,6 +188,8 @@ export default {
       :chart="chart"
       :series-info="seriesInfo"
       class="gl-heatmap-legend"
+      :average-text="legendText.average"
+      :max-text="legendText.max"
     />
   </div>
 </template>

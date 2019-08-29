@@ -50,6 +50,11 @@ export default {
       required: false,
       default: null,
     },
+    legendText: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -230,6 +235,8 @@ export default {
       :style="legendStyle"
       :series-info="seriesInfo"
       :text-style="compiledOptions.textStyle"
+      :average-text="legendText.average"
+      :max-text="legendText.max"
     />
   </div>
 </template>
