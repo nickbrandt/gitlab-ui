@@ -47,13 +47,13 @@ describe('Label component', () => {
     it('renders a black label', () => {
       createComponent({ ...defaultProps });
 
-      expect(findTitle().classes()).toContain(`gl-text-black-normal`);
+      expect(findTitle().classes()).toContain('gl-label-text-black');
     });
 
     it('renders a white label if color is light', () => {
       createComponent({ ...defaultProps, color: 'light' });
 
-      expect(findTitle().classes()).toContain(`gl-text-white-light`);
+      expect(findTitle().classes()).toContain('gl-label-text-light');
     });
 
     it('renders the label description', () => {
@@ -97,13 +97,13 @@ describe('Label component', () => {
     it('renders a black label', () => {
       createComponent({ ...defaultProps });
 
-      expect(findTitle().classes()).toContain(`gl-text-black-normal`);
+      expect(findTitle().classes()).toContain('gl-label-text-black');
     });
 
     it('renders a white label if color is light', () => {
       createComponent({ ...defaultProps, color: 'light' });
 
-      expect(findTitle().classes()).toContain(`gl-text-white-light`);
+      expect(findTitle().classes()).toContain('gl-label-text-light');
     });
 
     it('renders the right side color as background color of left side if color is light', () => {

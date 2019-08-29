@@ -13,6 +13,7 @@
   @include gl-font-sm;
   @include gl-line-height-normal;
   @include gl-display-flex;
+  @include gl-text-decoration-none;
 }
 
 .gl-label-icon {
@@ -37,4 +38,12 @@
     @include gl-px-3;
     @include gl-py-0;
   }
+}
+
+.gl-label-text-black {
+  @include gl-text-black-normal;
+}
+
+.gl-label-text-light {
+  @include gl-text-white-light;
 }

@@ -5,6 +5,11 @@ import GlBadge from '../badge/badge.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { blackNormal } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
+const titleColorClassMap = {
+  [labelColorOptions.dark]: 'gl-label-text-black',
+  [labelColorOptions.light]: 'gl-label-text-light',
+};
+
 export default {
   components: {
     GlLink,
@@ -66,12 +71,8 @@ export default {
         'gl-label-scoped': this.scopedValue,
       };
     },
-    titleClasses() {
-      return {
-        'gl-label-text': true,
-        'gl-text-black-normal': this.color === labelColorOptions.dark,
-        'gl-text-white-light': this.color === labelColorOptions.light,
-      };
+    titleColorClass() {
+      return titleColorClassMap[this.color];
     },
     scopedKey() {
       return this.splitScopedLabel.length > 1 ? this.splitScopedLabel[0] : this.title;
@@ -105,8 +106,8 @@ export default {
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
-    <gl-link ref="labelTitle" :href="target" class="gl-label-link text-decoration-none">
-      <span :class="titleClasses" :style="{ backgroundColor }">{{ scopedKey }}</span>
+    <gl-link ref="labelTitle" :href="target" class="gl-label-link">
+      <span class="gl-label-text" :class="titleColorClass" :style="{ backgroundColor }">{{ scopedKey }}</span>
       <span
         v-if="scopedValue"
         class="gl-label-text"
