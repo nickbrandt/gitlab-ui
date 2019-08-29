@@ -1,0 +1,10 @@
+.divider {
+  height: 1px;
+  margin: #{$grid-size / 2} 0;
+  padding: 0;
+  background-color: $dropdown-divider-bg;
+
+  &:hover {
+    background-color: $dropdown-divider-bg;
+  }
+}
