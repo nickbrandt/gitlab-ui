@@ -161,6 +161,18 @@
 }
 .gl-my-auto { @include gl-my-auto; }
 
+@mixin gl-my-2 {
+  margin-top: $gl-spacing-scale-2;
+  margin-bottom: $gl-spacing-scale-2;
+}
+.gl-my-2 { @include gl-my-2; }
+
+@mixin gl-mx-0 {
+  margin-left: $gl-spacing-scale-0;
+  margin-right: $gl-spacing-scale-0;
+}
+.gl-mx-0 { @include gl-mx-0; }
+
 @mixin gl-mx-3 {
   margin-left: $gl-spacing-scale-3;
   margin-right: $gl-spacing-scale-3;
@@ -198,6 +210,9 @@
 @mixin gl-w-13 { width: $gl-spacing-scale-13; }
 .gl-w-13 { @include gl-w-13; }
 
+@mixin gl-h-0 { height: $gl-spacing-scale-0; }
+.gl-h-0 { @include gl-h-0; }
+
 @mixin gl-h-4 { height: $gl-spacing-scale-4; }
 .gl-h-4 { @include gl-h-4; }
 
@@ -233,6 +248,9 @@
 @mixin gl-border-solid { border-style: solid; }
 .gl-border-solid { @include gl-border-solid; }
 
+@mixin gl-border-t-solid { border-top-style: solid; }
+.gl-border-t-solid { @include gl-border-t-solid; }
+
 @mixin gl-border-b-solid { border-bottom-style: solid; }
 .gl-border-b-solid { @include gl-border-b-solid; }
 
@@ -253,6 +271,9 @@
 @mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
 .gl-border-t-gray-a-08 { @include gl-border-t-gray-a-08; }
 
+@mixin gl-border-t-gray-200 { border-top-color: $gray-200; }
+.gl-border-t-gray-200 { @include gl-border-t-gray-200; }
+
 /**
 * Border width utilities.
 *
@@ -265,6 +286,9 @@
 
 @mixin gl-border-1 { border-width: map-get($gl-border-sizes, 1); }
 .gl-border-1 { @include gl-border-1; }
+
+@mixin gl-border-t-1 { border-top-width: map-get($gl-border-sizes, 1); }
+.gl-border-t-1 { @include gl-border-t-1; }
 
 @mixin gl-border-b-1 { border-bottom-width: map-get($gl-border-sizes, 1); }
 .gl-border-b-1 { @include gl-border-b-1; }

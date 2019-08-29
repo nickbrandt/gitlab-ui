@@ -1,10 +1,13 @@
-.divider {
-  height: 1px;
-  margin: #{$grid-size / 2} 0;
-  padding: 0;
-  background-color: $dropdown-divider-bg;
-
-  &:hover {
-    background-color: $dropdown-divider-bg;
+.gl-dropdown {
+  .divider,
+  .dropdown-divider {
+    @include gl-overflow-hidden;
+    @include gl-h-0;
+    @include gl-my-2;
+    @include gl-mx-0;
+    @include gl-p-0;
+    @include gl-border-t-1;
+    @include gl-border-t-solid;
+    @include gl-border-t-gray-200;
   }
 }
