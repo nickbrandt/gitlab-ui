@@ -49,7 +49,7 @@ export default {
       chart: null,
       showTooltip: false,
       tooltipTitle: '',
-      tooltipContent: {},
+      tooltipContent: '',
       tooltipPosition: {
         left: '0',
         top: '0',
@@ -84,15 +84,12 @@ export default {
         {},
         defaultChartOptions,
         {
+          tooltip: {
+            formatter: this.onLabelChange,
+          },
           xAxis: {
             type: 'category',
             name: this.xAxisTitle,
-            axisPointer: {
-              show: true,
-              label: {
-                formatter: this.onLabelChange,
-              },
-            },
             axisTick: {
               alignWithLabel: true,
               show: true,
@@ -119,22 +116,10 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
-      const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, series) => {
-          const [title, value] = series.value || [];
-          acc.tooltipContent[series.seriesName] = value;
-          if (!acc.xLabels.includes(title)) {
-            acc.xLabels.push(title);
-          }
-          return acc;
-        },
-        {
-          xLabels: [],
-          tooltipContent: {},
-        }
-      );
-      this.$set(this, 'tooltipContent', tooltipContent);
-      this.tooltipTitle = xLabels.join(', ');
+      const { data } = params;
+      const [title, content] = data;
+      this.tooltipTitle = title;
+      this.tooltipContent = content;
     },
     showHideTooltip(mouseEvent) {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
@@ -150,12 +135,12 @@ export default {
     },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
-      const { seriesData = [] } = params;
-      // seriesData is an array of nearby data point coordinates
-      // seriesData[0] is the nearest point at which the tooltip is displayed
-      // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
-      if (seriesData.length && seriesData[0].data) {
-        const [left, top] = this.chart.convertToPixel('grid', seriesData[0].data);
+
+      const { data = [] } = params;
+
+      if (data.length) {
+        const [left, top] = this.chart.convertToPixel('grid', data);
+
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
@@ -181,9 +166,8 @@ export default {
       </template>
       <template v-else>
         <div slot="title">{{ tooltipTitle }}</div>
-        <div v-for="(value, label) in tooltipContent" :key="label + value">
-          {{ label }}
-          {{ value }}
+        <div>
+          {{ tooltipContent }}
         </div>
       </template>
     </chart-tooltip>
