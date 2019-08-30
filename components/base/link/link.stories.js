@@ -16,7 +16,7 @@ function generateProps({ href = '#' } = {}) {
     },
     target: {
       type: String,
-      default: select('target', targetOptions, targetOptions.null),
+      default: select('target', targetOptions, null),
     },
   };
 }
