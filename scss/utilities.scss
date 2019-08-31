@@ -251,7 +251,7 @@
 /**
 * Border style utilities.
 *
-* naming convention: gl-border-{color-palette-variable}
+* naming convention: gl-border-{position}-{color-palette-variable}
 * notes:
 * - Prefer design system color palette. See variables.scss
 * for a comprehensive list.
@@ -270,6 +270,30 @@
 
 @mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
 .gl-border-t-gray-a-08 { @include gl-border-t-gray-a-08; }
+
+@mixin gl-border-t-gray-200 { border-top-color: $gray-200; }
+.gl-border-t-gray-200 { @include gl-border-t-gray-200; }
+
+@mixin gl-border-r-gray-200 { border-right-color: $gray-200; }
+.gl-border-r-gray-200 { @include gl-border-r-gray-200; }
+
+@mixin gl-border-b-gray-200 { border-bottom-color: $gray-200; }
+.gl-border-b-gray-200 { @include gl-border-b-gray-200; }
+
+@mixin gl-border-l-gray-200 { border-left-color: $gray-200; }
+.gl-border-l-gray-200 { @include gl-border-l-gray-200; }
+
+@mixin gl-border-t-blue-600 { border-top-color: $blue-600; }
+.gl-border-t-blue-600 { @include gl-border-t-blue-600; }
+
+@mixin gl-border-r-blue-600 { border-right-color: $blue-600; }
+.gl-border-r-blue-600 { @include gl-border-r-blue-600; }
+
+@mixin gl-border-b-blue-600 { border-bottom-color: $blue-600; }
+.gl-border-b-blue-600 { @include gl-border-b-blue-600; }
+
+@mixin gl-border-l-blue-600 { border-left-color: $blue-600; }
+.gl-border-l-blue-600 { @include gl-border-l-blue-600; }
 
 /**
 * Border width utilities.
@@ -610,16 +634,6 @@
 
 @mixin gl-static { position: static; }
 .gl-static { @include gl-static; }
-
-/**
-* Placement utilities.
-*
-* For absolute or fixed positioned elements
-*
-* naming convention: gl-{position}-{value}
-*/
-@mixin gl-bottom-1 { bottom: 0; }
-.gl-bottom-1 { @include gl-bottom-1; }
 
 /**
 * Overflow utilities.

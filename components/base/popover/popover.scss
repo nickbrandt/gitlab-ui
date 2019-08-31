@@ -14,7 +14,7 @@ $gl-popover-max-width: 384px;
     *  due to the box-shadow include in our custom styles.
     */
     > .arrow::before {
-      border-top-color: $gray-200;
+      @include gl-border-t-gray-200;
       bottom: 1px;
     }
 
@@ -25,7 +25,7 @@ $gl-popover-max-width: 384px;
 
   &.bs-popover-bottom {
     > .arrow::before {
-      border-bottom-color: $gray-200;
+      @include gl-border-b-gray-200;
     }
 
     > .popover-header::before {
@@ -34,11 +34,11 @@ $gl-popover-max-width: 384px;
   }
 
   &.bs-popover-right > .arrow::before {
-    border-right-color: $gray-200;
+    @include gl-border-r-gray-200;
   }
 
   &.bs-popover-left > .arrow::before {
-    border-left-color: $gray-200;
+    @include gl-border-l-gray-200;
   }
 
   .popover-header {
@@ -70,28 +70,28 @@ $gl-popover-max-width: 384px;
     &.bs-popover-bottom {
       .arrow::before,
       .arrow::after {
-        border-bottom-color: $blue-600;
+        @include gl-border-b-blue-600;
       }
     }
 
     &.bs-popover-top {
       .arrow::before,
       .arrow::after {
-        border-top-color: $blue-600;
+        @include gl-border-t-blue-600;
       }
     }
 
     &.bs-popover-right {
       .arrow::after,
       .arrow::before {
-        border-right-color: $blue-600;
+        @include gl-border-r-blue-600;
       }
     }
 
     &.bs-popover-left {
       .arrow::before,
       .arrow::after {
-        border-left-color: $blue-600;
+        @include gl-border-l-blue-600;
       }
     }
   }
