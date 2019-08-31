@@ -19,7 +19,7 @@ $gl-popover-max-width: 384px;
     }
 
     > .arrow::after {
-      bottom: 2px;
+      @include gl-bottom-1;
     }
   }
 

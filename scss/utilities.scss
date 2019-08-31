@@ -636,6 +636,16 @@
 .gl-static { @include gl-static; }
 
 /**
+* Placement utilities.
+*
+* For absolute or fixed positioned elements
+*
+* naming convention: gl-{position}-{spacing-scale-index}
+*/
+@mixin gl-bottom-1 { bottom: $gl-spacing-scale-1; }
+.gl-bottom-1 { @include gl-bottom-1; }
+
+/**
 * Overflow utilities.
 *
 * naming convention: gl-overflow-{property-value} |
