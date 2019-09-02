@@ -12,7 +12,7 @@ import { isString, isUndefined } from 'lodash';
 import * as enumConstants from '../../utils/constants';
 import { getValidationInfoText } from '../../utils/validation_utils';
 
-import { gitlabComponents, componentValidator } from '../all_components';
+import { gitlabComponents, gitlabChartComponents, componentValidator } from '../all_components';
 
 import { getDocumentationFor } from '../components_documentation';
 
@@ -52,6 +52,12 @@ export default {
         return Vue.options.components[this.componentName] || {};
       }
       return {};
+    },
+    importSubDir() {
+      if (gitlabChartComponents[this.componentName]) {
+        return '/dist/charts';
+      }
+      return '';
     },
     actualComponentOptions() {
       return this.actualComponent.options || {};
@@ -254,7 +260,7 @@ export default {
     <h3>Import</h3>
 
     <p>
-      <code>import { {{ componentName }} } from '@gitlab/ui';</code>
+      <code>import { {{ componentName }} } from '@gitlab/ui{{importSubDir}}';</code>
     </p>
 
     <template v-if="bootstrapComponentName">

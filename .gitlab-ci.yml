@@ -66,6 +66,13 @@ lint:
       && exit 1
       || echo "No Vue component contains <style tags"
 
+generate_utility_classes:
+  extends: [.node]
+  needs: []
+  stage: build-and-check
+  script:
+    - yarn generate-utilities
+
 visual:
   extends: [.puppeteer, .yarn_install]
   tags:
