@@ -175,6 +175,9 @@
 
 @mixin gl-h-7 { height: $gl-spacing-scale-7; }
 
+@mixin gl-h-8 { height: $gl-spacing-scale-8; }
+.gl-h-8 { @include gl-h-8; }
+
 @mixin gl-h-9 { height: $gl-spacing-scale-9; }
 
 @mixin gl-h-11 { height: $gl-spacing-scale-11; }
@@ -473,7 +476,7 @@
 
 @mixin gl-display-inline-flex { display: inline-flex; }
 
-@mixin gl-display-flex { display: flex; }
+@mixin gl-display-block { display: block; }
 
 /**
 * Flexbox utilities
@@ -499,6 +502,9 @@
 */
 @mixin gl-absolute { position: absolute; }
 
+@mixin gl-relative { position: relative; }
+.gl-relative { @include gl-relative; }
+
 @mixin gl-static { position: static; }
 
 /**
@@ -520,13 +526,25 @@
 @mixin gl-overflow-hidden { overflow: hidden; }
 
 /**
-* Coords utilities
+* Placement utilities
 *
 * naming convention: gl-{position}-{value}
 */
 @mixin gl-top-0 { top: 0; }
 
 @mixin gl-right-0 { right: 0; }
+
+@mixin gl-left-0 { left: 0; }
+.gl-left-0 { @include gl-left-0; }
+
+/**
+* Overflow utilities.
+*
+* naming convention: gl-overflow-{property-value} |
+* gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
+*/
+@mixin gl-overflow-hidden { overflow: hidden; }
+.gl-overflow-hidden { @include gl-overflow-hidden; }
 
 /**
 * Cursor utilities
@@ -621,8 +639,11 @@
 */
 @mixin gl-bg-size-100p { background-size: 100% 100%; }
 
+@mixin gl-bg-size-cover { background-size: cover; }
+.gl-bg-size-cover { @include gl-bg-size-cover; }
+
 /**
-* Background repeat  utilities.
+* Background repeat utilities.
 *
 * naming convention: gl-bg-{repeat-pattern}
 */
@@ -636,3 +657,11 @@
 @mixin gl-bg-chevron-left-sm { background-image: url($gl-icon-chevron-left-sm); }
 
 @mixin gl-bg-chevron-right-sm { background-image: url($gl-icon-chevron-right-sm); }
+
+/**
+* Content utilities.
+*
+* naming convention: gl-content-{value}
+*/
+@mixin gl-content-empty { content: ''; }
+.gl-content-empty { @include gl-content-empty; }
