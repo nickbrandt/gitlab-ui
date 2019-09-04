@@ -24,6 +24,9 @@
 */
 @mixin gl-p-0 { padding: $gl-spacing-scale-0; }
 
+@mixin gl-p-1 { padding: $gl-spacing-scale-1; }
+.gl-p-1 { @include gl-p-1; }
+
 @mixin gl-p-3 { padding: $gl-spacing-scale-3; }
 
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
@@ -93,6 +96,9 @@
 @mixin gl-mt-1 { margin-top: $gl-spacing-scale-1; }
 
 @mixin gl-mt-2 { margin-top: $gl-spacing-scale-2; }
+
+@mixin gl-mt-1 { margin-top: $gl-spacing-scale-1; }
+.gl-mt-1 { @include gl-mt-1; }
 
 @mixin gl-mt-3 { margin-top: $gl-spacing-scale-3; }
 
@@ -169,6 +175,8 @@
 
 @mixin gl-w-9 { width: $gl-spacing-scale-9; }
 
+@mixin gl-w-10 { width: $gl-spacing-scale-10; }
+
 @mixin gl-w-11 { width: $gl-spacing-scale-11; }
 
 @mixin gl-w-13 { width: $gl-spacing-scale-13; }
@@ -193,6 +201,9 @@
 
 @mixin gl-h-13 { height: $gl-spacing-scale-13; }
 
+@mixin gl-h-6 { height: $gl-spacing-scale-6; }
+.gl-h-6 { @include gl-h-6; }
+
 /**
 * Border style utilities.
 *
@@ -206,8 +217,11 @@
 
 @mixin gl-border-b-solid { border-bottom-style: solid; }
 
+@mixin gl-outline-none { outline: none; }
+.gl-outline-none { @include gl-outline-none; }
+
 /**
-* Border style utilities.
+* Border color utilities.
 *
 * naming convention: gl-border-{position}-{color-palette-variable}
 * notes:
@@ -271,6 +285,9 @@
 @mixin gl-rounded-small { border-radius: $gl-border-radius-small; }
 
 @mixin gl-rounded-lg { border-radius: $gl-border-radius-large; }
+
+@mixin gl-rounded-pill { border-radius: $gl-spacing-scale-4; }
+.gl-rounded-pill { @include gl-rounded-pill; }
 
 /**
 * Font family utility
@@ -359,6 +376,9 @@
 @mixin gl-text-red-600 { color: $red-600; }
 
 @mixin gl-text-red-700 { color: $red-700; }
+
+@mixin gl-text-blue-500 { color: $blue-500; }
+.gl-text-blue-500 { @include gl-text-blue-500; }
 
 /**
 * Line height utilities.
@@ -483,6 +503,9 @@
 
 @mixin gl-display-block { display: block; }
 
+@mixin gl-display-flex { display: flex; }
+.gl-display-flex { @include gl-display-flex; }
+
 /**
 * Flexbox utilities
 */
@@ -528,6 +551,9 @@
 */
 @mixin gl-overflow-hidden { overflow: hidden; }
 
+@mixin gl-relative { position: relative; }
+.gl-relative { @include gl-relative; }
+
 /**
 * Placement utilities
 *
@@ -535,9 +561,18 @@
 */
 @mixin gl-top-0 { top: 0; }
 
+@mixin gl-top-1 { top: $gl-spacing-scale-1; }
+.gl-top-1 { @include gl-top-1; }
+
 @mixin gl-right-0 { right: 0; }
 
+@mixin gl-right-1 { right: $gl-spacing-scale-1; }
+.gl-right-1 { @include gl-right-1; }
+
 @mixin gl-left-0 { left: 0; }
+
+@mixin gl-left-1 { left: $gl-spacing-scale-1; }
+.gl-left-1 { @include gl-left-1; }
 
 /**
 * Overflow utilities.
@@ -557,6 +592,12 @@
 @mixin gl-cursor-pointer { cursor: pointer; }
 
 @mixin gl-cursor-not-allowed { cursor: not-allowed; }
+
+@mixin gl-cursor-not-allowed { cursor: not-allowed; }
+.gl-cursor-not-allowed { @include gl-cursor-not-allowed; }
+
+@mixin gl-user-select-none { user-select: none; }
+.gl-user-select-none { @include gl-user-select-none; }
 
 /**
 * Background color utilities.
@@ -624,7 +665,13 @@
 
 @mixin gl-bg-gray-200 { background-color: $gray-200; }
 
+@mixin gl-bg-gray-600 { background-color: $gray-600; }
+.gl-bg-gray-600 { @include gl-bg-gray-600; }
+
 @mixin gl-bg-blue-500 { background-color: $blue-500; }
+
+@mixin gl-bg-none { background: none; }
+.gl-bg-none { @include gl-bg-none; }
 
 /**
 * Background position utilities.
@@ -657,6 +704,26 @@
 @mixin gl-bg-chevron-left-sm { background-image: url($gl-icon-chevron-left-sm); }
 
 @mixin gl-bg-chevron-right-sm { background-image: url($gl-icon-chevron-right-sm); }
+.gl-bg-chevron-right-sm { @include gl-bg-chevron-right-sm; }
+
+/**
+* Transition utilities
+*
+* naming convention: gl-transition-{speed}
+*/
+@mixin gl-transition-slow { transition: all 0.4s ease; }
+.gl-transition-slow { @include gl-transition-slow; }
+
+@mixin gl-transition-medium { transition: all 0.2s ease; }
+.gl-transition-medium { @include gl-transition-medium; }
+
+/**
+* Opacity utilities
+*
+* naming convention: gl-opacity-{amount}
+*/
+@mixin gl-opacity-4 { opacity: 0.4; }
+.gl-opacity-4 { @include gl-opacity-4; }
 
 /**
 * Content utilities.

@@ -1,0 +1,76 @@
+/**
+* Toggle button
+*
+* @usage
+*  ### Active and Inactive text should be provided as data attributes:
+*  <button type="button" class="project-feature-toggle" data-enabled-text="Enabled" data-disabled-text="Disabled">
+*  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
+*  </button>
+
+*  ### Checked should have `is-checked` class
+*  <button type="button" class="project-feature-toggle is-checked" data-enabled-text="Enabled" data-disabled-text="Disabled">
+*  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
+*  </button>
+
+*  ### Disabled should have `is-disabled` class
+*  <button type="button" class="project-feature-toggle is-disabled" data-enabled-text="Enabled" data-disabled-text="Disabled" disabled="true">
+*  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
+*  </button>
+*/
+.gl-toggle {
+  @include gl-border-0;
+  @include gl-cursor-pointer;
+  @include gl-bg-gray-600;
+  @include gl-p-1;
+  @include gl-relative;
+  @include gl-w-10;
+  @include gl-h-6;
+  @include gl-outline-none;
+  @include gl-user-select-none;
+  @include gl-rounded-pill;
+  @include gl-transition-slow;
+
+  &::selection,
+  &::before::selection,
+  &::after::selection {
+    @include gl-bg-none;
+  }
+
+  &:focus {
+    @include gl-outline-none;
+  }
+
+  .toggle-icon {
+    @include gl-rounded-full;
+    @include gl-bg-white-light;
+    @include gl-absolute;
+    @include gl-display-inline-flex;
+    @include gl-align-items-center;
+    @include gl-left-1;
+    @include gl-top-1;
+    @include gl-transition-medium;
+    @include gl-justify-content-center;
+    @include gl-p-1;
+
+    path {
+      @include gl-text-gray-600;
+    }
+  }
+
+  &.is-checked {
+    @include gl-bg-blue-500;
+
+    .toggle-icon {
+      transform: translateX($gl-spacing-scale-7);
+
+      path {
+        @include gl-text-blue-500;
+      }
+    }
+  }
+
+  &.is-disabled {
+    @include gl-cursor-not-allowed;
+    @include gl-opacity-4;
+  }
+}
