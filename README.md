@@ -54,7 +54,7 @@ This approach will let us progressively decouple GitLab UI's styles from
 GitLab CE's styles.
 
 Within the components' CSS, you should include utility mixins. See
-[`scss/utilities.scss`](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/scss/utilities.scss)
+[`utility-mixins.scss`](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/scss/utility-mixins.scss)
 for a comprehensive list of the available utilities. If what you are
 looking for is not available, add it following the naming conventions
 indicated in that file.
