@@ -112,6 +112,7 @@ export {
   default as GlDatepickerDocumentation,
 } from '../components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../components/base/token/token.documentation';
+export { default as GlToggleDocumentation } from '../components/base/toggle/toggle.documentation';
 
 export {
   default as GlIntersperseDocumentation,
