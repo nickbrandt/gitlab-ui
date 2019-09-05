@@ -3,7 +3,7 @@ import { create } from '@storybook/theming';
 
 const req = require.context('../components', true, /\.stories\.js$/);
 
-import '../scss/storybook.scss';
+import '../scss/gitlab_ui.scss';
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
