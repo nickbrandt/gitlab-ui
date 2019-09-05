@@ -12,7 +12,6 @@
   "scripts": {
     "build": "yarn build-scss-variables && NODE_ENV=production rollup -c",
     "prebuild": "yarn generate-utilities",
-    "build-preview-head": "node .storybook/generate-preview-head.js",
     "generate-utilities": "make scss/utilities.scss",
     "build-scss-variables": "make scss_to_js/scss_variables.js",
     "clean": "rm -r dist storybook scss_to_js/scss_variables.* scss/utilities.scss",
@@ -21,7 +20,7 @@
     "start": "yarn storybook",
     "storybook": "yarn storybook-prep && start-storybook -p 9001 -c .storybook -s ./styles",
     "prestorybook": "yarn generate-utilities",
-    "storybook-prep": "yarn build-preview-head && yarn build-scss-variables",
+    "storybook-prep": "yarn build-scss-variables",
     "storybook-static": "yarn storybook-prep && build-storybook -c .storybook -o storybook  -s ./styles",
     "pretest:unit": "yarn build-scss-variables",
     "test": "yarn test:unit && yarn test:visual",
