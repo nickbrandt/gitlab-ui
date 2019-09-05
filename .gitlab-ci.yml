@@ -34,7 +34,7 @@ build_docker_image:
       echo '{"experimental": "enabled"}' > ~/.docker/config.json
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - ./build-docker.sh
+    - ./bin/build-docker.sh
 
 build:
   extends: [.node, .yarn_install]
