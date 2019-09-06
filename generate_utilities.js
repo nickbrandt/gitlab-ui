@@ -20,9 +20,12 @@ function main() {
   try {
     const contents = fs.readFileSync(mixinsPath, { encoding: 'utf-8' });
     const mixinRegexp = new RegExp('@mixin ([^ {]+) ?{', 'g');
-    const mixins = [...contents.matchAll(mixinRegexp)];
+    const mixins = contents.match(mixinRegexp);
     writeUtilities(
-      mixins.reduce((acc, [, mixinName]) => `${acc}.${mixinName} { @include ${mixinName}; }\n`, '')
+      mixins.reduce((acc, mixinMatch) => {
+        const mixinName = mixinMatch.replace(mixinRegexp, '$1');
+        return `${acc}.${mixinName} { @include ${mixinName}; }\n`;
+      }, '')
     );
   } catch (e) {
     console.error(`Could not read ${mixinsPath}`);
