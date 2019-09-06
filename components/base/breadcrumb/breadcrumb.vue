@@ -20,18 +20,17 @@ export default {
 </script>
 <template>
   <div class="gl-breadcrumbs">
-    <b-breadcrumb
-      class="gl-breadcrumb-list"
-      v-bind="$attrs"
-      v-on="$listeners"
-    >
+    <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
       <slot name="avatar"></slot>
       <template v-for="(item, index) in items">
         <b-breadcrumb-item :key="index" :text="item.text" :href="item.href" />
-          <span v-if="index != items.length -1" :key="`index ${item.text}`"
-            class="gl-breadcrumb-separator">
-            <slot name="caret"></slot>
-          </span>
+        <span
+          v-if="index != items.length - 1"
+          :key="`index ${item.text}`"
+          class="gl-breadcrumb-separator"
+        >
+          <slot name="caret"></slot>
+        </span>
       </template>
     </b-breadcrumb>
   </div>

@@ -46,9 +46,9 @@ export default {
     },
     identiconBackgroundClass() {
       /*
-      * Gets a number between 1-7 depending on the 'entityId'.
-      * Gets the remainder after dividing the 'entityId' by the number of available backgrounds.
-      */
+       * Gets a number between 1-7 depending on the 'entityId'.
+       * Gets the remainder after dividing the 'entityId' by the number of available backgrounds.
+       */
       const type = (this.entityId % IDENTICON_BG_COUNT) + 1;
       return `gl-avatar-identicon-bg${type}`;
     },
@@ -67,6 +67,13 @@ export default {
   />
   <div
     v-else
-    :class="['gl-avatar gl-avatar-identicon', { 'gl-avatar-circle': isCircle }, sizeClass, identiconBackgroundClass]"
-  >{{ identiconText }}</div>
+    :class="[
+      'gl-avatar gl-avatar-identicon',
+      { 'gl-avatar-circle': isCircle },
+      sizeClass,
+      identiconBackgroundClass,
+    ]"
+  >
+    {{ identiconText }}
+  </div>
 </template>

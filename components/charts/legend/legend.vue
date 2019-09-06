@@ -87,11 +87,9 @@ export default {
       >
         <strong>{{ series.name }}</strong>
       </gl-chart-series-label>
-      <span v-if="series.data && series.data.length">Avg: {{
-        seriesAverage(series.data)
-      }} · Max: {{
-        seriesMax(series.data)
-      }}</span>
+      <span v-if="series.data && series.data.length"
+        >Avg: {{ seriesAverage(series.data) }} · Max: {{ seriesMax(series.data) }}</span
+      >
     </div>
   </div>
 </template>

@@ -17,10 +17,7 @@
     ]"
   >
     <template #header>
-      <gl-button
-        variant="success"
-        class="order-1"
-      >
+      <gl-button variant="success" class="order-1">
         Foo Button
       </gl-button>
     </template>

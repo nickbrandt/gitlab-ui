@@ -56,23 +56,11 @@ export default {
 </script>
 
 <template>
-  <b-dropdown
-    class="gl-dropdown"
-    v-bind="$attrs"
-    :split="split"
-    v-on="$listeners"
-  >
+  <b-dropdown class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners">
     <slot></slot>
-    <slot
-      slot="button-content"
-      name="button-content"
-    >
+    <slot slot="button-content" name="button-content">
       {{ text }}
-      <i
-        v-if="renderCaret"
-        class="fa fa-chevron-down"
-        aria-hidden="true"
-      ></i>
+      <i v-if="renderCaret" class="fa fa-chevron-down" aria-hidden="true"></i>
     </slot>
   </b-dropdown>
 </template>

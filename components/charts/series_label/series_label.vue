@@ -73,7 +73,7 @@ export default {
         :width="formatPixelDimension($options.svgWidth)"
         :height="formatPixelDimension($options.svgHeight)"
       >
-        <path :d="pathContent"/>
+        <path :d="pathContent" />
       </svg>
     </div>
     <div ref="label">

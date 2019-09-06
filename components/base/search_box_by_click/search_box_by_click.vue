@@ -71,7 +71,6 @@ export default {
 <template>
   <div>
     <div class="position-relative ms-no-clear d-flex flex-fill">
-      
       <gl-form-input
         ref="input"
         v-model="content"
@@ -94,16 +93,8 @@ export default {
           @click="clearInput"
         ></i>
         <div class="border-left">
-          <gl-button
-            class="btn-transparent"
-            aria-label="Search Button"
-            :disabled="isDisabled"
-          >
-            <i
-              class="fa fa-search"
-              aria-hidden="true"
-              @click="onSearch"
-            ></i>
+          <gl-button class="btn-transparent" aria-label="Search Button" :disabled="isDisabled">
+            <i class="fa fa-search" aria-hidden="true" @click="onSearch"></i>
           </gl-button>
         </div>
       </div>

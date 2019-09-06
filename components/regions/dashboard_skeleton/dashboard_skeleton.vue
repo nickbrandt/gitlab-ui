@@ -12,11 +12,7 @@ export default {
 </script>
 <template>
   <div class="row dashboard-cards">
-    <div
-      v-for="index in cards"
-      :key="index"
-      class="col-12 col-md-6 col-xl-4 px-2"
-    >
+    <div v-for="index in cards" :key="index" class="col-12 col-md-6 col-xl-4 px-2">
       <div class="rounded-top py-4 bg-light"></div>
       <div class="dashboard-card-body card-body bg-secondary">
         <div class="row">

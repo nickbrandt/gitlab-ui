@@ -206,7 +206,13 @@ export default {
 </script>
 <template>
   <div class="position-relative">
-    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" @updated="onUpdated"/>
+    <chart
+      v-bind="$attrs"
+      :options="options"
+      v-on="$listeners"
+      @created="onCreated"
+      @updated="onUpdated"
+    />
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -215,9 +221,7 @@ export default {
       :left="tooltipPosition.left"
     >
       <div slot="title">{{ tooltipTitle }}</div>
-      <tooltip-default-format 
-        :tooltip-content="tooltipContent"
-      />
+      <tooltip-default-format :tooltip-content="tooltipContent" />
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"

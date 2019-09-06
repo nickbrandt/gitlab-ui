@@ -5,9 +5,7 @@
     description="Issues can be bugs, tasks, or ideas to be discissed. Also, issues are searchable and filterable."
   >
     <template #actions>
-      <gl-button
-        variant="success"
-      >Custom button</gl-button>
+      <gl-button variant="success">Custom button</gl-button>
       <a href="#" @click.prevent>Custom link</a>
     </template>
   </gl-empty-state>
