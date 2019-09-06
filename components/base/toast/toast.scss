@@ -1,0 +1,54 @@
+/*
+* These styles are specific to the gl-toast component.
+* Documentation: https://design.gitlab.com/components/toasts
+* Note: Styles below are nested in order to override some of vue-toasted's default styling
+*/
+.toasted-container {
+  max-width: $toast-max-width;
+
+  @include media-breakpoint-down(xs) {
+    @include gl-w-full;
+    padding-right: $toast-padding-right;
+  }
+
+  .toasted.gl-toast {
+    @include gl-rounded-base;
+    @include gl-font-base;
+    @include gl-py-3;
+    @include gl-pr-5;
+    @include gl-pl-6;
+    @include gl-mt-3;
+    @include gl-line-height-normal;
+    background-color: rgba($gray-900, $toast-background-opacity);
+
+    span {
+      @include gl-pr-3;
+    }
+
+    @include media-breakpoint-down(xs) {
+      .action:first-of-type {
+        // Ensures actions buttons are right aligned on mobile
+        @include gl-ml-auto;
+      }
+    }
+
+    .action {
+      @include gl-text-blue-300;
+      @include gl-m-0;
+      @include gl-ml-3;
+      @include gl-text-transform-none;
+      @include gl-font-base;
+    }
+
+    .toast-close {
+      @include gl-font-icon-size;
+      @include gl-ml-3;
+    }
+  }
+}
+
+// Overrides the default positioning of toasts
+body .toasted-container.bottom-left {
+  @include gl-bottom-6;
+  @include gl-left-6;
+}
