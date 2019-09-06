@@ -1,8 +1,5 @@
 <template>
-  <b-button
-    type="button"
-    @click="submit"
-  >
+  <b-button type="button" @click="submit">
     Edit in JSFiddle
   </b-button>
 </template>

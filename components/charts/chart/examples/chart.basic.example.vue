@@ -1,5 +1,5 @@
 <template>
-  <gl-chart 
+  <gl-chart
     :options="{
       xAxis: {
         type: 'category',

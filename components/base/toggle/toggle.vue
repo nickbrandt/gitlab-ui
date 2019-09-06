@@ -77,8 +77,13 @@ export default {
       @click="toggleFeature"
     >
       <gl-loading-icon v-if="isLoading" color="light" class="gl-mt-1" />
-      <span v-else :class="{ 'toggle-icon': true, 'disabled': disabled }">
-        <svg id="mobile-issue-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="s16">
+      <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
+        <svg
+          id="mobile-issue-close"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          class="s16"
+        >
           <path :d="path" />
         </svg>
       </span>

@@ -91,25 +91,17 @@ export default {
 <template>
   <div class="row" :class="{ 'empty-state': fullscreen }">
     <div :class="fullscreen ? 'col-12' : 'col-3 d-none d-sm-block'">
-      <div
-        v-if="svgPath"
-        :class="{ 'svg-content': fullscreen }"
-        class="svg-250"
-      >
-        <img
-          :src="svgPath"
-          :alt="title"
-          :class="{ 'mw-100': compact }"
-        />
+      <div v-if="svgPath" :class="{ 'svg-content': fullscreen }" class="svg-250">
+        <img :src="svgPath" :alt="title" :class="{ 'mw-100': compact }" />
       </div>
     </div>
     <div :class="fullscreen ? 'col-12' : 'col-sm-9'">
       <div class="text-content">
-        <h4 ref="title" :class="{center: centerTitle, h5: compact}">{{ title }}</h4>
+        <h4 ref="title" :class="{ center: centerTitle, h5: compact }">{{ title }}</h4>
         <p
           v-if="description || $slots.description"
           ref="description"
-          :class="{center: centerDescription}"
+          :class="{ center: centerDescription }"
         >
           <slot name="description">
             {{ description }}
@@ -121,12 +113,14 @@ export default {
               v-if="shouldRenderPrimaryButton"
               variant="success"
               :href="primaryButtonLink"
-            >{{ primaryButtonText }}</gl-button>
+              >{{ primaryButtonText }}</gl-button
+            >
             <gl-button
               v-if="shouldRenderSecondaryButton"
               variant="outline-success"
               :href="secondaryButtonLink"
-            >{{ secondaryButtonText }}</gl-button>
+              >{{ secondaryButtonText }}</gl-button
+            >
           </slot>
         </div>
       </div>

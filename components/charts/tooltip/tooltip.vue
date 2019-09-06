@@ -72,12 +72,7 @@ export default {
       Needs to be triggered programatically using `show` property
       This is why `triggers` is currently set to an empty string
     -->
-    <gl-popover
-      v-bind="$attrs"
-      :target="containerId"
-      :container="containerId"
-      triggers=""
-    >
+    <gl-popover v-bind="$attrs" :target="containerId" :container="containerId" triggers="">
       <slot slot="title" name="title"></slot>
       <slot></slot>
     </gl-popover>

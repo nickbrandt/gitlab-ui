@@ -35,6 +35,6 @@ export default {
     :state="state"
     label-for="input1"
   >
-    <gl-form-input id="input1" v-model.trim="name" :state="state"/>
+    <gl-form-input id="input1" v-model.trim="name" :state="state" />
   </gl-form-group>
 </template>

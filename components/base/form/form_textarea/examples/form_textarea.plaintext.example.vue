@@ -7,8 +7,5 @@ export default {
 </script>
 
 <template>
-  <gl-form-textarea
-    v-model="text"
-    plaintext
-  />
+  <gl-form-textarea v-model="text" plaintext />
 </template>

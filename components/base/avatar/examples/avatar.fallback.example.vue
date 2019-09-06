@@ -1,3 +1,3 @@
 <template>
-  <gl-avatar entity-name="Some Project" shape="rect"/>
+  <gl-avatar entity-name="Some Project" shape="rect" />
 </template>

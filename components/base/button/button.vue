@@ -21,7 +21,7 @@ export default {
     v-bind="$attrs"
     :rel="relType"
     :target="target"
-    :class="{'gl-button': newStyle}"
+    :class="{ 'gl-button': newStyle }"
     v-on="$listeners"
   >
     <slot></slot>

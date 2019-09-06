@@ -19,9 +19,5 @@ export default {
 </script>
 
 <template>
-  <b-form-textarea
-    v-bind="$attrs"
-    :value="value"
-    v-on="$listeners"
-  />
+  <b-form-textarea v-bind="$attrs" :value="value" v-on="$listeners" />
 </template>
