@@ -21,6 +21,12 @@ export default {
     {
       event: 'input',
       description: 'Emitted when a new date has been selected.',
+      args: [
+        {
+          arg: 'date',
+          description: 'The selected date',
+        },
+      ],
     },
     {
       event: 'close',
