@@ -19,13 +19,7 @@ export const variantOptions = {
   dark: 'dark',
 };
 
-export const targetOptions = {
-  self: '_self',
-  blank: '_blank',
-  parent: '_parent',
-  top: '_top',
-  null: '',
-};
+export const targetOptions = ['_self', '_blank', '_parent', '_top', null];
 
 export const sizeOptions = {
   default: null,

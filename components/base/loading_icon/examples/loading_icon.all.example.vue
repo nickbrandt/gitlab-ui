@@ -4,14 +4,14 @@
       Size:
       <label v-for="size in sizes" :key="size">
         <input v-model="selectedSize" type="radio" :value="size" name="size" />
-        {{size}}&nbsp;
+        {{ size }}&nbsp;
       </label>
     </p>
     <p>
       Color:
       <label v-for="color in colors" :key="color">
         <input v-model="selectedColor" type="radio" :value="color" name="color" />
-        {{color}}&nbsp;
+        {{ color }}&nbsp;
       </label>
     </p>
     <p>
@@ -21,7 +21,12 @@
       </label>
     </p>
     <div class="text-center p-1" :style="backgroundStyle">
-      <gl-loading-icon :size="selectedSize" :color="selectedColor" :inline="isInline" class="p-1" />Loading...
+      <gl-loading-icon
+        :size="selectedSize"
+        :color="selectedColor"
+        :inline="isInline"
+        class="p-1"
+      />Loading...
     </div>
   </div>
 </template>

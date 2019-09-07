@@ -1,9 +1,5 @@
 <template>
-  <gl-heatmap
-    title="Pageviews per hour"
-    :data-series="series"
-    :x-axis-labels="xAxisLabels"
-  />
+  <gl-heatmap title="Pageviews per hour" :data-series="series" :x-axis-labels="xAxisLabels" />
 </template>
 
 <script>

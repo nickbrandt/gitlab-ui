@@ -65,6 +65,16 @@ export default {
       required: false,
       default: null,
     },
+    startRange: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    endRange: {
+      type: Date,
+      required: false,
+      default: null,
+    },
     disableDayFn: {
       type: Function,
       required: false,
@@ -116,6 +126,12 @@ export default {
     },
     maxDate(maxDate) {
       this.calendar.setMaxDate(maxDate);
+    },
+    startRange(startRange) {
+      this.calendar.setStartRange(startRange);
+    },
+    endRange(endRange) {
+      this.calendar.setEndRange(endRange);
     },
   },
   mounted() {

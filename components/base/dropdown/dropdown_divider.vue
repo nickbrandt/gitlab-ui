@@ -10,8 +10,5 @@ export default {
 </script>
 
 <template>
-  <b-dropdown-divider
-    v-bind="$attrs"
-    v-on="$listeners"
-  />
+  <b-dropdown-divider v-bind="$attrs" v-on="$listeners" />
 </template>

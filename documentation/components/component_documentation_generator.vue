@@ -189,24 +189,17 @@ export default {
         head-variant="default"
         striped
       >
-        <template
-          slot="prop"
-          slot-scope="field"
-        >
+        <template slot="prop" slot-scope="field">
           <div>
-            <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">{{ field.value }}</span>
+            <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">{{
+              field.value
+            }}</span>
           </div>
         </template>
-        <template
-          slot="required"
-          slot-scope="data"
-        >
-          <span v-if="data.value===true">✅</span>
+        <template slot="required" slot-scope="data">
+          <span v-if="data.value === true">✅</span>
         </template>
-        <template
-          slot="val"
-          slot-scope="data"
-        >
+        <template slot="val" slot-scope="data">
           <code v-if="data.value">
             {{ data.value }}
           </code>
@@ -217,7 +210,9 @@ export default {
             <i>{{ data.item.additionalInfo }}</i>
           </div>
           <template v-if="data.item.enum">
-            <div>{{ data.item.enum }}: <i>{{ data.item.enumValues.join(', ') }}</i></div>
+            <div>
+              {{ data.item.enum }}: <i>{{ data.item.enumValues.join(', ') }}</i>
+            </div>
           </template>
         </template>
       </b-table>
@@ -225,27 +220,13 @@ export default {
 
     <div v-if="displaySlots.length > 0">
       <h4>Slots</h4>
-      <b-table
-        :items="displaySlots"
-        small
-        head-variant="default"
-        striped
-      />
+      <b-table :items="displaySlots" small head-variant="default" striped />
     </div>
 
     <div v-if="displayEvents.length > 0">
       <h4>Events</h4>
-      <b-table
-        :items="displayEvents"
-        :fields="eventsFields"
-        small
-        head-variant="default"
-        striped
-      >
-        <template
-          slot="args"
-          slot-scope="field"
-        >
+      <b-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
+        <template slot="args" slot-scope="field">
           <div
             v-for="argument in field.value"
             :key="`event-${field.item.event}-${argument.arg ? argument.arg : 'none'}`"
@@ -260,22 +241,24 @@ export default {
     <h3>Import</h3>
 
     <p>
-      <code>import { {{ componentName }} } from '@gitlab/ui{{importSubDir}}';</code>
+      <code>import { {{ componentName }} } from '@gitlab/ui{{ importSubDir }}';</code>
     </p>
 
     <template v-if="bootstrapComponentName">
       <h3 id="under-the-hood">vue-bootstrap component</h3>
-      <p>This component uses <a
-        :href="`https://bootstrap-vue.js.org/docs/components/${bootstrapComponentLink}`"
-        target="blank"
-      ><code>&lt;{{ bootstrapComponentName }}&gt;</code></a> from vue-bootstrap internally. So please take a look also there at their extensive documentation.</p>
+      <p>
+        This component uses
+        <a
+          :href="`https://bootstrap-vue.js.org/docs/components/${bootstrapComponentLink}`"
+          target="blank"
+          ><code>&lt;{{ bootstrapComponentName }}&gt;</code></a
+        >
+        from vue-bootstrap internally. So please take a look also there at their extensive
+        documentation.
+      </p>
     </template>
   </div>
-  <b-alert
-    v-else
-    show
-    variant="warning"
-  >
+  <b-alert v-else show variant="warning">
     No gitlab-ui component found with the name {{ componentName }}
   </b-alert>
 </template>

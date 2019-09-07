@@ -21,16 +21,18 @@ export default {
       v-bind="$attrs"
       plain
       @change="$emit('change', $event)"
-      @input="$emit('input', $event)">
+      @input="$emit('input', $event)"
+    >
       <slot name="first"></slot>
       <gl-form-checkbox
         v-for="(option, idx) in formOptions"
         :key="idx"
         :value="option.value"
-        :disabled="option.disabled">
+        :disabled="option.disabled"
+      >
         <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-if="option.html" v-html="option.html"></span>
-        <span v-else>{{option.text}}</span>
+        <span v-else>{{ option.text }}</span>
       </gl-form-checkbox>
       <slot></slot>
     </b-form-checkbox-group>

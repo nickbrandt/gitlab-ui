@@ -23,8 +23,9 @@ export default {
 </script>
 <template>
   <gl-discrete-scatter-chart
-  :data="chartData"
-  :option="{}"
-  y-axis-title="Pushes by day"
-  x-axis-title="Date"/>
+    :data="chartData"
+    :option="{}"
+    y-axis-title="Pushes by day"
+    x-axis-title="Date"
+  />
 </template>

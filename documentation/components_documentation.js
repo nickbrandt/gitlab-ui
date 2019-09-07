@@ -113,6 +113,9 @@ export {
 } from '../components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../components/base/token/token.documentation';
 export { default as GlToggleDocumentation } from '../components/base/toggle/toggle.documentation';
+export {
+  default as GlDaterangePickerDocumentation,
+} from '../components/base/daterange_picker/daterange_picker.documentation';
 
 export {
   default as GlIntersperseDocumentation,

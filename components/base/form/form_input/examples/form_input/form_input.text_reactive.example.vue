@@ -1,10 +1,6 @@
 <template>
   <div>
-    <gl-form-input
-      ref="input"
-      v-model="value"
-      type="text"
-    />
+    <gl-form-input ref="input" v-model="value" type="text" />
     <p class="mt-3">The entered value is: {{ value }}</p>
   </div>
 </template>

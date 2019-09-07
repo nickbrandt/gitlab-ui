@@ -87,25 +87,15 @@ export default {
       @change="onChange"
       @input="onInput"
     />
-    <div
-      :class="$options.iconWrapperClasses"
-      class="pl-2 pr-2 position-left-0"
-      @click="focusInput"
-    >
-      <i
-        class="fa fa-search"
-        aria-hidden="true"
-      ></i>
+    <div :class="$options.iconWrapperClasses" class="pl-2 pr-2 position-left-0" @click="focusInput">
+      <i class="fa fa-search" aria-hidden="true"></i>
     </div>
     <div
       v-show="hasRightIcon"
       :class="$options.iconWrapperClasses"
       class="pr-2 pl-2 position-right-0"
     >
-      <gl-loading-icon
-        v-show="isLoading"
-        :inline="true"
-      />
+      <gl-loading-icon v-show="isLoading" :inline="true" />
       <i
         v-show="isResetButtonVisible"
         v-gl-tooltip.hover

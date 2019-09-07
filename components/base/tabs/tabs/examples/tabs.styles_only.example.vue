@@ -7,7 +7,8 @@
           target="_self"
           href="#"
           class="nav-link gl-tab-nav-item gl-tab-nav-item-active gl-tab-nav-item-active-indigo"
-        >First</a>
+          >First</a
+        >
       </li>
       <li role="presentation" class="nav-item">
         <a role="tab" target="_self" href="#" class="nav-link gl-tab-nav-item">Second</a>

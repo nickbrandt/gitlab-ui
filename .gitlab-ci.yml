@@ -58,7 +58,7 @@ lint:
   stage: build-and-check
   script:
     - yarn eslint
-    - yarn prettier --list-different '**/*.{js,vue}'
+    - yarn prettier
     - yarn stylelint
     - >
       grep -r -i '<style' --include \*.vue components

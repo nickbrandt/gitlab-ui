@@ -1,9 +1,5 @@
 <template>
-  <gl-form-checkbox
-    v-model="status"
-    value="accepted"
-    unchecked-value="not-accepted"
-  >
+  <gl-form-checkbox v-model="status" value="accepted" unchecked-value="not-accepted">
     Accepted or Not Accepted
   </gl-form-checkbox>
 </template>

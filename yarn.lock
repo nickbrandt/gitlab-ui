@@ -841,10 +841,10 @@
     stylelint "^10.1.0"
     stylelint-scss "^3.8.0"
 
-"@gitlab/svgs@^1.70.0":
-  version "1.70.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.70.0.tgz#bdae478148c15d955fc06e69fd5d5ecae8298943"
-  integrity sha512-0uV9fgTwe17Fyy0hTcrsGX2jJuCrz3uRIe8yffuqc6pbQrSfYJyN66mfCCB45wq8lKTgOB5q0qcUyJx3RQEcKg==
+"@gitlab/svgs@^1.72.0":
+  version "1.72.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.72.0.tgz#78a29fd383a5a2b31ef91670068a6fea05ba234e"
+  integrity sha512-EVKRqrXsCY6tUiVAh+lpFMJAyNXZwfEqv5NeKH5ginhALMlOunRkY5rsDllyNvgZ0DWHJS1KEKJj2oVU1ouwAg==
 
 "@gitlab/vue-toasted@^1.2.1":
   version "1.2.1"
@@ -9761,15 +9761,15 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@1.14.3:
-  version "1.14.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.14.3.tgz#90238dd4c0684b7edce5f83b0fb7328e48bd0895"
-  integrity sha512-qZDVnCrnpsRJJq5nSsiHCE3BYMED2OtsI+cmzIzF1QIfqm5ALf8tEJcO27zV1gKNKRPdhjO0dNWnrzssDQ1tFg==
-
 prettier@1.16.3:
   version "1.16.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.3.tgz#8c62168453badef702f34b45b6ee899574a6a65d"
   integrity sha512-kn/GU6SMRYPxUakNXhpP0EedT/KmaPzr0H5lIsDogrykbaxOpOfAFfk5XA7DZrJyMAv1wlMV3CPcZruGXVVUZw==
+
+prettier@1.18.2:
+  version "1.18.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
+  integrity sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==
 
 pretty-error@^2.1.1:
   version "2.1.1"

@@ -143,7 +143,7 @@ export default {
   <div>
     <div class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse">
       <slot name="header"></slot>
-      <gl-search-box-by-type v-if="filterable" @input="query"/>
+      <gl-search-box-by-type v-if="filterable" @input="query" />
     </div>
 
     <slot name="subheader"></slot>
@@ -168,6 +168,8 @@ export default {
       v-if="emptyList"
       class="bs-callout bs-callout-warning mt-3 empty-message"
       :class="{ 'empty-message': zeroTotal, 'empty-search': zeroSearchResults }"
-    >{{ zeroTotal ? emptyMessage:emptySearchMessage }}</div>
+    >
+      {{ zeroTotal ? emptyMessage : emptySearchMessage }}
+    </div>
   </div>
 </template>

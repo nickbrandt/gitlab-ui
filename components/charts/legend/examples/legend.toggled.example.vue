@@ -57,15 +57,7 @@ export default {
 
 <template>
   <div>
-    <gl-chart
-      :options="options"
-      @created="onCreated"
-    />
-    <gl-chart-legend
-      v-if="chart"
-      id="js-chart-legend"
-      :chart="chart"
-      :series-info="seriesData"
-    />
+    <gl-chart :options="options" @created="onCreated" />
+    <gl-chart-legend v-if="chart" id="js-chart-legend" :chart="chart" :series-info="seriesData" />
   </div>
 </template>

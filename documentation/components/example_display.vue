@@ -185,84 +185,59 @@ export default {
               <strong>{{ exampleName }}</strong>
             </b-col>
             <b-col class="text-right">
-              <b-button-group
-                size="sm"
-                class="mx-1"
-              >
+              <b-button-group size="sm" class="mx-1">
                 <b-btn v-b-toggle.collapseSource>Source</b-btn>
                 <b-btn v-b-toggle.collapseHTML>HTML</b-btn>
-                <jsfiddle-button
-                  :example-name="exampleName"
-                  :source="source"
-                />
+                <jsfiddle-button :example-name="exampleName" :source="source" />
               </b-button-group>
             </b-col>
           </b-row>
         </div>
         <b-card-body>
-          <div
-            :is="currentExampleComponent"
-            ref="compiled"
-          />
+          <div :is="currentExampleComponent" ref="compiled" />
         </b-card-body>
         <b-list-group flush>
-          <b-collapse
-            id="collapseSource"
-            class="mt-2"
-          >
+          <b-collapse id="collapseSource" class="mt-2">
             <b-list-group-item>
               <b-row>
                 <b-col cols="8"><h6>Source</h6></b-col>
                 <b-col class="text-right">
-                  <template v-if="copiedSource">Copied!</template>
+                  <template v-if="copiedSource"
+                    >Copied!</template
+                  >
                   <b-button-group size="sm">
-                    <b-button
-                      :disabled="copiedSource"
-                      @click="copySource"
-                    >
+                    <b-button :disabled="copiedSource" @click="copySource">
                       Copy
                     </b-button>
                   </b-button-group>
                 </b-col>
               </b-row>
-              <code
-                class="hljs html"
-                v-html="sourceFormatted"
-              ></code>
+              <code class="hljs html" v-html="sourceFormatted"></code>
             </b-list-group-item>
           </b-collapse>
-          <b-collapse
-            id="collapseHTML"
-            class="mt-2"
-          >
+          <b-collapse id="collapseHTML" class="mt-2">
             <b-list-group-item>
               <b-row>
                 <b-col cols="8"><h6>HTML Output</h6></b-col>
                 <b-col class="text-right">
-                  <template v-if="copiedOutput">Copied!</template>
+                  <template v-if="copiedOutput"
+                    >Copied!</template
+                  >
                   <b-button-group size="sm">
-                    <b-button
-                      :disabled="copiedOutput"
-                      @click="copyHtml"
-                    >
+                    <b-button :disabled="copiedOutput" @click="copyHtml">
                       Copy
                     </b-button>
                   </b-button-group>
                 </b-col>
               </b-row>
-              <code
-                class="hljs html"
-                v-html="renderedHtmlFormatted"
-              ></code>
+              <code class="hljs html" v-html="renderedHtmlFormatted"></code>
             </b-list-group-item>
           </b-collapse>
         </b-list-group>
       </b-card>
     </div>
-    <b-alert
-      v-else-if="exampleName"
-      show
-      variant="warning"
-    >No Example found with the name "{{ exampleName }}"</b-alert>
+    <b-alert v-else-if="exampleName" show variant="warning"
+      >No Example found with the name "{{ exampleName }}"</b-alert
+    >
   </div>
 </template>

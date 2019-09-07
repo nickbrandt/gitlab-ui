@@ -177,12 +177,8 @@ export default {
 
 <template>
   <div class="gl-heatmap-container">
-    <chart 
-      :options="computedOptions" 
-      class="gl-heatmap"
-      @created="onCreated"
-    />
-    <chart-legend 
+    <chart :options="computedOptions" class="gl-heatmap" @created="onCreated" />
+    <chart-legend
       v-if="compiledOptions"
       :chart="chart"
       :series-info="seriesInfo"

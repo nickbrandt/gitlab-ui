@@ -54,6 +54,9 @@ export { default as GlFriendlyWrap } from './components/base/friendly_wrap/frien
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
 export { default as GlLabel } from './components/base/label/label.vue';
 export { default as GlDatepicker } from './components/base/datepicker/datepicker.vue';
+export {
+  default as GlDaterangePicker,
+} from './components/base/daterange_picker/daterange_picker.vue';
 export { default as GlIntersperse } from './components/base/intersperse/intersperse.vue';
 export { default as GlToggle } from './components/base/toggle/toggle.vue';
 

@@ -7,5 +7,5 @@
       <gl-dropdown-item>Second item</gl-dropdown-item>
       <gl-dropdown-item>Last item</gl-dropdown-item>
     </gl-dropdown>
-  </gl-button-group> 
+  </gl-button-group>
 </template>

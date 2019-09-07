@@ -15,11 +15,7 @@ export default {
 
 <template>
   <div class="position-relative">
-    <gl-chart
-      :options="{}"
-      :height="100"
-      @created="onCreated"
-    />
+    <gl-chart :options="{}" :height="100" @created="onCreated" />
     <gl-chart-tooltip
       v-if="echartInstance"
       :chart="echartInstance"

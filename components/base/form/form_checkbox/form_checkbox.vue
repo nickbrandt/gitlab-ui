@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-   <b-form-checkbox
+  <b-form-checkbox
     plain
     v-bind="$attrs"
     class="gl-form-checkbox"

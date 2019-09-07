@@ -107,20 +107,28 @@ export default {
     @click="$emit('click', $event)"
   >
     <gl-link ref="labelTitle" :href="target" class="gl-label-link">
-      <span class="gl-label-text" :class="titleColorClass" :style="{ backgroundColor }">{{ scopedKey }}</span>
+      <span class="gl-label-text" :class="titleColorClass" :style="{ backgroundColor }">{{
+        scopedKey
+      }}</span>
       <span
         v-if="scopedValue"
         class="gl-label-text"
         :style="{
-          color: scopedValueColor
-        }">
-          {{ scopedValue }}
+          color: scopedValueColor,
+        }"
+      >
+        {{ scopedValue }}
         <gl-link :href="scopedLabelsDocumentationLink">
           <i class="fa fa-question-circle gl-label-icon"></i>
         </gl-link>
       </span>
     </gl-link>
-    <gl-tooltip v-if="description" :target="$refs.labelTitle" :placement="tooltipPlacement" boundary="viewport">
+    <gl-tooltip
+      v-if="description"
+      :target="$refs.labelTitle"
+      :placement="tooltipPlacement"
+      boundary="viewport"
+    >
       {{ description }}
     </gl-tooltip>
   </gl-badge>
