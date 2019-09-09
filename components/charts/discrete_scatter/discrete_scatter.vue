@@ -3,7 +3,10 @@ import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
-import defaultChartOptions, { mergeSeriesToOptions } from '../../../utils/charts/config';
+import defaultChartOptions, {
+  dataZoomAdjustments,
+  mergeSeriesToOptions,
+} from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -97,6 +100,10 @@ export default {
                 color: gray200,
               },
             },
+            axisLabel: {
+              margin: 20,
+              verticalAlign: 'bottom',
+            },
           },
           yAxis: {
             type: 'value',
@@ -107,6 +114,7 @@ export default {
           },
         },
         this.option,
+        dataZoomAdjustments(this.option.dataZoom),
         this.toolboxAdjustments
       );
       // All chart options can be merged but series
