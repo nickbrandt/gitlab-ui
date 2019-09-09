@@ -1,6 +1,7 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlDiscreteScatterChart } from '../../../charts';
+import { getSvgEchartsPath } from '../../../utils/svg_utils';
 import readme from './discrete_scatter.md';
 
 const components = {
@@ -55,6 +56,21 @@ documentedStoriesOf('charts|discrete-scatter-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
+    components,
+    template,
+  }))
+  .add('with zoom and scroll', () => ({
+    props: generateProps({
+      option: {
+        dataZoom: [
+          {
+            type: 'slider',
+            startValue: 1,
+            handleIcon: getSvgEchartsPath('scroll-handle'),
+          },
+        ],
+      },
+    }),
     components,
     template,
   }));
