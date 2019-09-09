@@ -81,20 +81,27 @@ visual:
     - build_docker_image
   stage: build-and-check
   script:
-    - if ${CSS_URL}; then CSS_URL=${CSS_URL} yarn test; else yarn test; fi
+    - yarn test:visual
   artifacts:
     when: always
     paths:
       - tests/__image_snapshots__/
 
-update_snapshots:
+unit_tests:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: build-and-check
+  script:
+    - yarn test:unit
+
+update_screenshots:
   extends: [.puppeteer, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
   stage: pre-build
   when: manual
   script:
-    - yarn test --updateSnapshot
+    - yarn test:visual --updateSnapshot
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
     - git add .
