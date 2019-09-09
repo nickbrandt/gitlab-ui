@@ -9,7 +9,7 @@
    1. Create a story `component.js` in stories/ directory
    1. Import your component to `index.js`
    1. Create documentation.md in `documentation/` directory
-   1. Run the manual CI job (update_snapshots) to generate your image snapshots for diffing
+   1. Run the manual CI job (update_screenshots) to generate your image snapshots for diffing
 
 1. Create a MR to gitlab-ce/ee to replace the scenario implementation (if any) that you previously selected
 1. Update your package.json dependency reference of @gitlab/ui to the URL output of the upload_artifacts ci job in your gitlab-ui MR
@@ -104,7 +104,7 @@ Before proceeding make sure that the updated image snapshots a) still comply wit
 
 1. Create a branch locally and delete the image snapshots causing the pipeline failure.
 2. Commit and push the changes to create a merge request.
-3. Manually trigger the `update_snapshots` job in the failing pipeline and regenerate snapshots.
+3. Manually trigger the `update_screenshots` job in the failing pipeline and regenerate snapshots.
 
 ## Contribution guidelines
 
