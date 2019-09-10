@@ -3,6 +3,10 @@
   @include gl-border-gray-200;
   @include gl-border-0;
   @include gl-border-b-1;
+
+  > li {
+    @include gl-font-base;
+  }
 }
 
 .gl-tab-nav-item {
@@ -10,7 +14,6 @@
   @include gl-px-4;
   @include gl-py-5;
   @include gl-line-height-normal;
-  @include gl-font-base;
 
   transition: box-shadow 100ms linear;
 
