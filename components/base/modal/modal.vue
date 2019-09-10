@@ -32,7 +32,28 @@ export default {
     toggle() {
       this.$refs.modal.toggle();
     },
+    buttonWarning() {
+      let count = 0;
+      const nodes = this.$slots['modal-footer'][0].children;
+
+      nodes.forEach(node => {
+        if (node.tag === 'button') {
+          count++;
+        }
+      });
+
+      if (count >= 4) {
+        console.warn(
+          `Warning: The modal footer should not contain more than three button elements. There are currently ${count} buttons.`
+        );
+      }
+    },
   },
+  mounted() {
+    if (this.$slots['modal-footer']) {
+      this.buttonWarning();
+    }
+  }
 };
 </script>
 
