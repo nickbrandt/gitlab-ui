@@ -29,6 +29,16 @@ export default {
       required: false,
       default: () => ({}),
     },
+    averageText: {
+      type: String,
+      required: false,
+      default: 'Avg',
+    },
+    maxText: {
+      type: String,
+      required: false,
+      default: 'Max',
+    },
   },
   data() {
     return {
@@ -87,9 +97,10 @@ export default {
       >
         <strong>{{ series.name }}</strong>
       </gl-chart-series-label>
-      <span v-if="series.data && series.data.length"
-        >Avg: {{ seriesAverage(series.data) }} · Max: {{ seriesMax(series.data) }}</span
-      >
+      <span v-if="series.data && series.data.length">
+        {{ averageText }}: {{ seriesAverage(series.data) }} · {{ maxText }}:
+        {{ seriesMax(series.data) }}
+      </span>
     </div>
   </div>
 </template>

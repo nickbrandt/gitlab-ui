@@ -35,7 +35,6 @@ const template = `<gl-area-chart
   :option="option"
   :thresholds="thresholds"
   :includeLegendAvgMax="includeLegendAvgMax"
-  :legendText="legendText"
 />`;
 
 function generateProps({
@@ -43,7 +42,6 @@ function generateProps({
   option = defaultOptions,
   thresholds = [],
   includeLegendAvgMax = true,
-  legendText = { average: 'Avg', max: 'Max' },
 } = {}) {
   return {
     option: {
@@ -57,9 +55,6 @@ function generateProps({
     },
     includeLegendAvgMax: {
       default: boolean('Include Legend Avg Max', includeLegendAvgMax),
-    },
-    legendText: {
-      default: object('legend text', legendText),
     },
   };
 }
