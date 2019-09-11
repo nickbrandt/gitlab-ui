@@ -1,3 +1,106 @@
-.modal-backdrop {
-  opacity: 0.5;
+// variables
+$modal-body-height: 80px;
+$modal-body-line-height: 1.5;
+$modal-bg-color: rgba(0, 0, 0, 0.3);
+
+// mixins
+@mixin modal-btn-group-ml { margin-left: -1px; }
+@mixin modal-bg { background-color: $modal-bg-color; }
+
+body.modal-open {
+  @include gl-overflow-hidden;
+}
+
+.gl-modal {
+  @include modal-bg;
+
+  .modal-xl {
+    max-width: 98%;
+  }
+
+  .modal-content {
+    @include gl-rounded-base;
+
+    > :first-child {
+      @include gl-rounded-top-left-base;
+      @include gl-rounded-top-right-base;
+    }
+
+    > :last-child {
+      @include gl-rounded-bottom-left-base;
+      @include gl-rounded-bottom-right-base;
+    }
+  }
+
+  .modal-header {
+    @include gl-bg-white-light;
+
+    .modal-title {
+      @include gl-line-height-24;
+    }
+
+    .close {
+      @include gl-font-weight-normal;
+      @include gl-line-height-normal;
+      @include gl-text-gray-900;
+      @include gl-opacity-10;
+    }
+  }
+
+  .modal-body {
+    min-height: $modal-body-height;
+    line-height: $modal-body-line-height;
+    @include gl-bg-white-light;
+    @include gl-relative;
+    @include gl-p-5;
+    @include gl-pr-9;
+    @include gl-text-left;
+    @include gl-white-space-normal;
+  }
+
+  .modal-footer {
+    @include gl-display-flex;
+    @include gl-flex-direction-row;
+
+    .btn {
+      @include gl-m-0;
+    }
+
+    .btn + .btn:not(.dropdown-toggle-split),
+    .btn + .btn-group,
+    .btn-group + .btn {
+      @include gl-ml-3;
+    }
+
+    .btn-group .btn + .btn {
+      @include modal-btn-group-ml;
+    }
+
+    @include media-breakpoint-down(xs) {
+      @include gl-flex-direction-column;
+
+      .btn + .btn:not(.dropdown-toggle-split),
+      .btn + .btn-group,
+      .btn-group + .btn {
+        @include gl-ml-0;
+        @include gl-mt-3;
+      }
+
+      .btn-group .btn + .btn {
+        @include modal-btn-group-ml;
+        @include gl-mt-0;
+      }
+    }
+  }
+
+  .modal-backdrop {
+    @include gl-opacity-5;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .modal-dialog {
+      @include gl-my-11;
+      @include gl-mx-auto;
+    }
+  }
 }
