@@ -3,6 +3,7 @@ $gl-popover-max-width: 384px;
 
 .gl-popover {
   max-width: $gl-popover-max-width;
+  @include base-type;
   @include gl-border-1;
   @include gl-border-solid;
   @include gl-border-gray-200;

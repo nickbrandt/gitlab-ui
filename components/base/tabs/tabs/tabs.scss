@@ -5,7 +5,7 @@
   @include gl-border-b-1;
 
   > li {
-    @include gl-font-base;
+    @include base-type;
   }
 }
 

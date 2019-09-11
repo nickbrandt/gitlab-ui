@@ -4,7 +4,7 @@ import { popoverPlacements } from '../../../utils/constants';
 
 const template = `
   <div>
-    <gl-button id="pop-top">{{placement}}</gl-button>
+    <gl-button id="pop-top" new-style>{{placement}}</gl-button>
     <gl-popover target="pop-top"
       triggers="hover focus"
       :title="title"
