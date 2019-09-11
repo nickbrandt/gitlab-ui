@@ -2,6 +2,7 @@ import { withKnobs, date } from '@storybook/addon-knobs/dist/deprecated';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './datepicker.md';
 import GlDatepicker from './datepicker.vue';
+import GlButton from '../button/button.vue';
 
 const currentYear = new Date().getFullYear();
 
@@ -47,6 +48,7 @@ documentedStoriesOf('base|datepicker', readme)
     props: generateProps(),
     components: {
       GlDatepicker,
+      GlButton,
     },
     data() {
       return {
@@ -56,10 +58,10 @@ documentedStoriesOf('base|datepicker', readme)
     template: `
       <div>
         <div class="dropdown">
-          <button type="button" class="dropdown-menu-toggle">
+          <gl-button class="dropdown-menu-toggle" variant="default">
             <span class="dropdown-toggle-text"> Start date: {{value}} </span>
             <i class="fa fa-chevron-down" aria-hidden="true"> </i>
-          </button>
+          </gl-button>
         </div>
         <gl-datepicker v-model="value" target=".dropdown-menu-toggle" />
       </div>

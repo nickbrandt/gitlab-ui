@@ -1,3 +1,9 @@
+@mixin base-component() {
+  @include gl-font-regular;
+  @include gl-font-base;
+  @include gl-line-height-normal;
+}
+
 @mixin str-truncated($max-width: 82%) {
   display: inline-block;
   overflow: hidden;

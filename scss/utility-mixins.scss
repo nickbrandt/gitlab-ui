@@ -768,3 +768,8 @@
 * naming convention: gl-content-{value}
 */
 @mixin gl-content-empty { content: ''; }
+
+/**
+ * SVG utilities
+ */
+@mixin gl-fill-current-color { fill: currentColor; }

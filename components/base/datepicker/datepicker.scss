@@ -4,8 +4,8 @@
 $gl-datepicker-width: 240px;
 
 .gl-datepicker-input {
+  @include base-component;
   width: $gl-datepicker-width;
-  @include gl-font-base;
 }
 
 .gl-datepicker-trigger {
@@ -80,6 +80,7 @@ $gl-datepicker-width: 240px;
   abbr[title] {
     @include gl-text-decoration-none;
     @include gl-cursor-default;
+    @include gl-font-sm;
   }
 
   .pika-button {

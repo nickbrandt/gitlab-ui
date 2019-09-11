@@ -13,11 +13,12 @@
   }
 }
 
-.gl-breadcrumb-separator svg {
+.gl-breadcrumb-separator > svg {
   @include gl-my-auto;
   @include gl-mx-3;
   @include gl-w-3;
   @include gl-text-gray-700;
+  @include gl-fill-current-color;
 }
 
 .gl-breadcrumb-avatar-tile {
