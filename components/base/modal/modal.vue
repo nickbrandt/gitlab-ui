@@ -24,7 +24,8 @@ export default {
   },
   mounted() {
     if (this.$slots['modal-footer']) {
-      this.buttonWarning();
+      const nodes = this.$slots['modal-footer'][0].children || [];
+      this.buttonWarning(this.buttonCounter(nodes));
     }
   },
   methods: {
@@ -37,23 +38,22 @@ export default {
     toggle() {
       this.$refs.modal.toggle();
     },
-    buttonWarning() {
-      let count = 0;
-      const nodes = this.$slots['modal-footer'][0].children;
-
-      if (nodes) {
-        nodes.forEach(node => {
-          if (node.tag === 'button') {
-            count += 1;
-          }
-        });
-      }
-
-      if (count >= 4) {
+    buttonWarning(count) {
+      if (count > 3) {
         console.warn(
           `Warning: The modal footer should not contain more than three button elements. There are currently ${count} buttons.`
         );
       }
+    },
+    buttonCounter(nodes) {
+      const count = nodes.reduce((buttonCount, node) => {
+        if (node.tag === 'button') {
+          return buttonCount + 1;
+        } else {
+          return buttonCount;
+        }
+      }, 0);
+      return count;
     },
   },
 };
