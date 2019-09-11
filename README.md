@@ -42,6 +42,14 @@ If the variable is unset, it defaults to `0`.
 
 ## Installation
 
+Install with Yarn:
+
+```sh
+yarn add @gitlab/ui
+```
+
+Install with NPM:
+
 ```sh
 npm install @gitlab/ui
 ```
