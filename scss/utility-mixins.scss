@@ -30,6 +30,8 @@
 
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
 
+@mixin gl-p-5 { padding: $gl-spacing-scale-5; }
+
 @mixin gl-px-3 {
   padding-left: $gl-spacing-scale-3;
   padding-right: $gl-spacing-scale-3;
@@ -46,6 +48,8 @@
 
 @mixin gl-pr-5 { padding-right: $gl-spacing-scale-5; }
 
+@mixin gl-pr-9 { padding-right: $gl-spacing-scale-9; }
+
 @mixin gl-pl-0 { padding-left: $gl-spacing-scale-0; }
 
 @mixin gl-pl-2 { padding-left: $gl-spacing-scale-2; }
@@ -57,6 +61,11 @@
 @mixin gl-py-0 {
   padding-top: $gl-spacing-scale-0;
   padding-bottom: $gl-spacing-scale-0;
+}
+
+@mixin gl-py-6 {
+  padding-top: $gl-spacing-scale-6;
+  padding-bottom: $gl-spacing-scale-6;
 }
 
 @mixin gl-pt-5 { padding-top: $gl-spacing-scale-5; }
@@ -102,9 +111,9 @@
 
 @mixin gl-mt-2 { margin-top: $gl-spacing-scale-2; }
 
-@mixin gl-mt-1 { margin-top: $gl-spacing-scale-1; }
-
 @mixin gl-mt-3 { margin-top: $gl-spacing-scale-3; }
+
+@mixin gl-mt-5 { margin-top: $gl-spacing-scale-5; }
 
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 
@@ -118,21 +127,17 @@
 
 @mixin gl-mb-3 { margin-bottom: $gl-spacing-scale-3; }
 
-@mixin gl-ml-auto { margin-left: auto; }
-
-@mixin gl-ml-1 { margin-left: $gl-spacing-scale-1; }
-
-@mixin gl-ml-3 { margin-left: $gl-spacing-scale-3; }
-
-@mixin gl-mb-2 { margin-bottom: $gl-spacing-scale-2; }
-
-@mixin gl-mb-3 { margin-bottom: $gl-spacing-scale-3; }
-
 @mixin gl-mb-4 { margin-bottom: $gl-spacing-scale-4; }
 
 @mixin gl-mb-5 { margin-bottom: $gl-spacing-scale-5; }
 
+@mixin gl-ml-auto { margin-left: auto; }
+
 @mixin gl-ml-0 { margin-left: $gl-spacing-scale-0; }
+
+@mixin gl-ml-1 { margin-left: $gl-spacing-scale-1; }
+
+@mixin gl-ml-3 { margin-left: $gl-spacing-scale-3; }
 
 @mixin gl-my-auto {
   margin-top: auto;
@@ -144,6 +149,16 @@
   margin-bottom: $gl-spacing-scale-5;
 }
 
+@mixin gl-my-11 {
+  margin-top: $gl-spacing-scale-11;
+  margin-bottom: $gl-spacing-scale-11;
+}
+
+@mixin gl-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @mixin gl-mx-0 {
   margin-left: $gl-spacing-scale-0;
   margin-right: $gl-spacing-scale-0;
@@ -152,11 +167,6 @@
 @mixin gl-my-2 {
   margin-top: $gl-spacing-scale-2;
   margin-bottom: $gl-spacing-scale-2;
-}
-
-@mixin gl-mx-0 {
-  margin-left: $gl-spacing-scale-0;
-  margin-right: $gl-spacing-scale-0;
 }
 
 @mixin gl-mx-3 {
@@ -189,17 +199,15 @@
 
 @mixin gl-w-13 { width: $gl-spacing-scale-13; }
 
-@mixin gl-w-10 { width: $gl-spacing-scale-10; }
-
 @mixin gl-w-full { width: 100%; }
+
+@mixin gl-h-auto { height: auto; }
 
 @mixin gl-h-0 { height: $gl-spacing-scale-0; }
 
 @mixin gl-h-4 { height: $gl-spacing-scale-4; }
 
 @mixin gl-h-5 { height: $gl-spacing-scale-5; }
-
-@mixin gl-h-auto { height: auto; }
 
 @mixin gl-h-6 { height: $gl-spacing-scale-6; }
 
@@ -212,8 +220,6 @@
 @mixin gl-h-11 { height: $gl-spacing-scale-11; }
 
 @mixin gl-h-13 { height: $gl-spacing-scale-13; }
-
-@mixin gl-h-6 { height: $gl-spacing-scale-6; }
 
 /**
 * Border style utilities.
@@ -296,6 +302,14 @@
 
 @mixin gl-rounded-pill { border-radius: $gl-spacing-scale-4; }
 
+@mixin gl-rounded-top-left-base { border-top-left-radius: $gl-border-radius-base; }
+
+@mixin gl-rounded-top-right-base { border-top-right-radius: $gl-border-radius-base; }
+
+@mixin gl-rounded-bottom-left-base { border-bottom-left-radius: $gl-border-radius-base; }
+
+@mixin gl-rounded-bottom-right-base { border-bottom-right-radius: $gl-border-radius-base; }
+
 /**
 * Font family utility
 *
@@ -370,6 +384,8 @@
 
 @mixin gl-text-blue-700 { color: $blue-700; }
 
+@mixin gl-text-green-400 { color: $green-400; }
+
 @mixin gl-text-green-500 { color: $green-500; }
 
 @mixin gl-text-green-600 { color: $green-600; }
@@ -410,6 +426,8 @@
 */
 @mixin gl-text-center { text-align: center; }
 
+@mixin gl-text-left { text-align: left; }
+
 /**
 * Text utilities
 */
@@ -420,7 +438,14 @@
 /**
 * Vertical align utilities
 */
+@mixin gl-vertical-align-middle { vertical-align: middle; }
+
 @mixin gl-vertical-align-top { vertical-align: top; }
+
+/**
+* White space utilities
+*/
+@mixin gl-white-space-normal { white-space: normal; }
 
 /**
 * Inset border utilities
@@ -518,7 +543,7 @@
 
 @mixin gl-display-block { display: block; }
 
-@mixin gl-display-flex { display: flex; }
+@mixin gl-display-inline-block { display: inline-block; }
 
 /**
 * Flexbox utilities
@@ -531,6 +556,8 @@
 
 @mixin gl-flex-direction-column { flex-direction: column; }
 
+@mixin gl-flex-direction-row { flex-direction: row; }
+
 @mixin gl-justify-content-center { justify-content: center; }
 
 @mixin gl-align-self-start { align-self: flex-start; }
@@ -542,9 +569,9 @@
 *
 * naming convention: gl-{property-value}
 */
-@mixin gl-absolute { position: absolute; }
-
 @mixin gl-relative { position: relative; }
+
+@mixin gl-absolute { position: absolute; }
 
 @mixin gl-static { position: static; }
 
@@ -729,6 +756,10 @@
 *
 * naming convention: gl-opacity-{amount}
 */
+@mixin gl-opacity-10 { opacity: 1; }
+
+@mixin gl-opacity-5 { opacity: 0.5; }
+
 @mixin gl-opacity-4 { opacity: 0.4; }
 
 /**

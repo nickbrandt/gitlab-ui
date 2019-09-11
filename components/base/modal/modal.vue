@@ -32,7 +32,15 @@ export default {
 </script>
 
 <template>
-  <b-modal :id="modalId" ref="modal" :title-tag="titleTag" v-bind="$attrs" lazy v-on="$listeners">
+  <b-modal
+    :id="modalId"
+    ref="modal"
+    :title-tag="titleTag"
+    v-bind="$attrs"
+    lazy
+    modal-class="gl-modal"
+    v-on="$listeners"
+  >
     <slot></slot>
     <slot slot="modal-header" name="modal-header"></slot>
     <slot slot="modal-title" name="modal-title"></slot>
