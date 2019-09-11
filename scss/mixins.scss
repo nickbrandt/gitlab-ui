@@ -1,4 +1,4 @@
-@mixin base-component() {
+@mixin base-type() {
   @include gl-font-regular;
   @include gl-font-base;
   @include gl-line-height-normal;

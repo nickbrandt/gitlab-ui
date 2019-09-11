@@ -16,7 +16,7 @@
 }
 
 .gl-button {
-  @include base-component;
+  @include base-type;
   @include gl-border-0;
   @include gl-py-3;
   @include gl-px-4;

@@ -4,7 +4,6 @@
 $gl-datepicker-width: 240px;
 
 .gl-datepicker-input {
-  @include base-component;
   width: $gl-datepicker-width;
 }
 
@@ -18,7 +17,7 @@ $gl-datepicker-width: 240px;
 }
 
 .gl-datepicker-theme {
-  @include gl-font-base;
+  @include base-type;
   @include gl-border-none;
   @include gl-rounded-base;
   @include gl-mt-3;
