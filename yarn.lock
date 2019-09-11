@@ -841,10 +841,10 @@
     stylelint "^10.1.0"
     stylelint-scss "^3.8.0"
 
-"@gitlab/svgs@^1.72.0":
-  version "1.72.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.72.0.tgz#78a29fd383a5a2b31ef91670068a6fea05ba234e"
-  integrity sha512-EVKRqrXsCY6tUiVAh+lpFMJAyNXZwfEqv5NeKH5ginhALMlOunRkY5rsDllyNvgZ0DWHJS1KEKJj2oVU1ouwAg==
+"@gitlab/svgs@^1.73.0":
+  version "1.73.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.73.0.tgz#e44b347e4be77b94474c80cf5c2ee26ca0325c2f"
+  integrity sha512-4on+l5CS8Ae8OOcrnxwkO5s2zq1kHl/YjnOrHaX7megr6jsTYsVzKGaEMe0ViMSIPXA2+QnGD6vElKMkeD2+YQ==
 
 "@gitlab/vue-toasted@^1.2.1":
   version "1.2.1"
