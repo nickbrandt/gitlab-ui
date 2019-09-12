@@ -49,9 +49,8 @@ export default {
       const count = nodes.reduce((buttonCount, node) => {
         if (node.tag === 'button') {
           return buttonCount + 1;
-        } else {
-          return buttonCount;
-        }
+        } 
+        return buttonCount;
       }, 0);
       return count;
     },
