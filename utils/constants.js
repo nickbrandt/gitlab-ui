@@ -62,6 +62,32 @@ export const buttonVariantOptions = {
   'outline-danger': 'outline-danger',
 };
 
+export const newButtonCategoryOptions = {
+  tertiary: 'tertiary',
+  primary: 'primary',
+  secondary: 'secondary',
+};
+
+export const newButtonVariantOptions = {
+  default: 'default',
+  dashed: 'dashed',
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+  link: 'link',
+};
+
+export const newButtonSizeOptions = {
+  small: 'small',
+  medium: 'medium',
+};
+
+export const newButtonSizeOptionsMap = {
+  small: 'sm',
+  medium: 'md',
+};
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',
