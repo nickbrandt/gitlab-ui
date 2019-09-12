@@ -12,6 +12,9 @@ export {
   default as GlLineChartDocumentation,
 } from '../src/components/charts/line/line.documentation';
 export {
+  default as GlSparklineChartDocumentation,
+} from '../src/components/charts/sparkline/sparkline.documentation';
+export {
   default as GlChartSeriesLabelDocumentation,
 } from '../src/components/charts/series_label/series_label.documentation';
 export {

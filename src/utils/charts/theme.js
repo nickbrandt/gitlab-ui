@@ -24,6 +24,12 @@ export const heatmapHues = [gray100, blue200, blue400, blue600, blue800];
 export const colorPalette = [blue500, green500, orange500, themeIndigo500];
 export const colorFromPalette = index => colorPalette[index % colorPalette.length];
 
+export const sparkline = {
+  // additional colors are TBD - see issue: https://gitlab.com/gitlab-org/gitlab-ui/issues/484
+  variants: { gray900 },
+  defaultVariant: gray900,
+};
+
 const axes = {
   axisLabel: {
     margin: 8,
