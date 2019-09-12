@@ -221,6 +221,15 @@
 
 @mixin gl-h-13 { height: $gl-spacing-scale-13; }
 
+@mixin gl-h-6 { height: $gl-spacing-scale-6; }
+
+/**
+* Outline utilities.
+*
+* naming convention: gl-outline-{style}
+*/
+@mixin gl-outline-0 { outline: 0; }
+
 /**
 * Border style utilities.
 *
@@ -292,6 +301,8 @@
 * notes:
 * - Base new utilities in this group in the $gl-border-radius variables
 */
+@mixin gl-rounded-0 { border-radius: 0; }
+
 @mixin gl-rounded-base { border-radius: $gl-border-radius-base; }
 
 @mixin gl-rounded-full { border-radius: $gl-border-radius-full; }
@@ -424,6 +435,8 @@
 /**
 * Text align utilities
 */
+@mixin gl-text-left { text-align: left; }
+
 @mixin gl-text-center { text-align: center; }
 
 @mixin gl-text-left { text-align: left; }
@@ -660,6 +673,8 @@
 
 @mixin gl-bg-gray-300 { background-color: $gray-300; }
 
+@mixin gl-bg-gray-600 { background-color: $gray-600; }
+
 @mixin gl-bg-blue-100 { background-color: $blue-100; }
 
 @mixin gl-bg-blue-200 { background-color: $blue-200; }
@@ -699,14 +714,6 @@
 @mixin gl-bg-red-600 { background-color: $red-600; }
 
 @mixin gl-bg-red-700 { background-color: $red-700; }
-
-@mixin gl-bg-gray-100 { background-color: $gray-100; }
-
-@mixin gl-bg-gray-200 { background-color: $gray-200; }
-
-@mixin gl-bg-gray-600 { background-color: $gray-600; }
-
-@mixin gl-bg-blue-500 { background-color: $blue-500; }
 
 @mixin gl-bg-none { background: none; }
 
@@ -768,3 +775,19 @@
 * naming convention: gl-content-{value}
 */
 @mixin gl-content-empty { content: ''; }
+
+/**
+* Fill (svg) utilities.
+*
+* naming convention: gl-fill-{color-palette-variable-name}
+*/
+@mixin gl-fill-gray-700 { fill: $gray-700; }
+
+/**
+* White-space utilities.
+*
+* naming convention: gl-white-space-{value}
+*/
+@mixin gl-white-space-normal { white-space: normal; }
+
+@mixin gl-white-space-nowrap { white-space: nowrap; }
