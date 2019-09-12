@@ -17,6 +17,7 @@ export {
 } from './components/base/skeleton_loading/skeleton_loading.vue';
 export { default as GlBadge } from './components/base/badge/badge.vue';
 export { default as GlButton } from './components/base/button/button.vue';
+export { default as GlNewButton } from './components/base/new_button/new_button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
 export { default as GlToast } from './components/base/toast/toast';
 export {
