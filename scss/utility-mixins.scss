@@ -243,6 +243,9 @@
 
 @mixin gl-border-b-solid { border-bottom-style: solid; }
 
+@mixin gl-border-t-none { border-top-style: none; }
+.gl-border-t-none { @include gl-border-t-none; }
+
 @mixin gl-outline-none { outline: none; }
 
 /**

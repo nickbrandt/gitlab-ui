@@ -25,30 +25,6 @@ const tableItems = [
 
 function generateProps() {
   const props = {
-    striped: {
-      type: Boolean,
-      default: boolean('striped', false),
-    },
-    bordered: {
-      type: Boolean,
-      default: boolean('bordered', false),
-    },
-    outlined: {
-      type: Boolean,
-      default: boolean('outlined', false),
-    },
-    small: {
-      type: Boolean,
-      default: boolean('small', false),
-    },
-    hover: {
-      type: Boolean,
-      default: boolean('hover', false),
-    },
-    dark: {
-      type: Boolean,
-      default: boolean('dark', false),
-    },
     fixed: {
       type: Boolean,
       default: boolean('fixed', false),
@@ -71,12 +47,6 @@ documentedStoriesOf('base|table', readme)
       <gl-table 
         :items="$options.items"
         :fields="$options.fields"
-        :striped="striped"
-        :bordered="bordered"
-        :outlined="outlined"
-        :small="small"
-        :hover="hover"
-        :dark="dark"
         :fixed="fixed"
         :foot-clone="footClone"
       />
