@@ -49,7 +49,7 @@ export default {
       const count = nodes.reduce((buttonCount, node) => {
         if (node.tag === 'button') {
           return buttonCount + 1;
-        } 
+        }
         return buttonCount;
       }, 0);
       return count;
