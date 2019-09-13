@@ -46,6 +46,16 @@ export default {
       required: false,
       default: null,
     },
+    startPickerClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    endPickerClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -89,25 +99,29 @@ export default {
 
 <template>
   <div class="gl-daterange-picker">
-    <label>{{ fromLabel }}</label>
-    <gl-datepicker
-      v-model="startDate"
-      :min-date="defaultMinDate"
-      :max-date="fromCalendarMaxDate"
-      :start-range="fromCalendarStartRange"
-      :end-range="fromCalendarEndRange"
-      :i18n="i18n"
-      @input="onStartDateSelected"
-    />
-    <label>{{ toLabel }}</label>
-    <gl-datepicker
-      v-model="endDate"
-      :min-date="toCalendarMinDate"
-      :max-date="defaultMaxDate"
-      :start-range="toCalendarStartRange"
-      :end-range="toCalendarEndRange"
-      :i18n="i18n"
-      @input="onEndDateSelected"
-    />
+    <div :class="startPickerClass">
+      <label>{{ fromLabel }}</label>
+      <gl-datepicker
+        v-model="startDate"
+        :min-date="defaultMinDate"
+        :max-date="fromCalendarMaxDate"
+        :start-range="fromCalendarStartRange"
+        :end-range="fromCalendarEndRange"
+        :i18n="i18n"
+        @input="onStartDateSelected"
+      />
+    </div>
+    <div :class="endPickerClass">
+      <label>{{ toLabel }}</label>
+      <gl-datepicker
+        v-model="endDate"
+        :min-date="toCalendarMinDate"
+        :max-date="defaultMaxDate"
+        :start-range="toCalendarStartRange"
+        :end-range="toCalendarEndRange"
+        :i18n="i18n"
+        @input="onEndDateSelected"
+      />
+    </div>
   </div>
 </template>

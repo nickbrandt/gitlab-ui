@@ -9,5 +9,5 @@ export default {
 };
 </script>
 <template>
-  <gl-daterange-picker />
+  <gl-daterange-picker class="d-flex" />
 </template>

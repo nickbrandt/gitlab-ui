@@ -51,6 +51,6 @@ documentedStoriesOf('base|daterange-picker', readme)
       };
     },
     template: `
-      <gl-daterange-picker :default-min-date="defaultMinDate" :default-max-date="defaultMaxDate" :default-start-date="defaultStartDate" :default-end-date="defaultEndDate" v-model="value"/>
+      <gl-daterange-picker class="d-flex" :default-min-date="defaultMinDate" :default-max-date="defaultMaxDate" :default-start-date="defaultStartDate" :default-end-date="defaultEndDate" v-model="value"/>
     `,
   }));
