@@ -7,6 +7,7 @@
 .gl-label-text {
   @include gl-px-3;
   @include gl-py-2;
+  @include gl-font-weight-normal;
 }
 
 .gl-label-link {
