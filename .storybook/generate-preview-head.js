@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 const compile = pug.compileFile(path.resolve(__dirname, 'preview-head.pug'));
-const cssUrl = process.env.CSS_URL || 'https://gitlab-org.gitlab.io/gitlab-ce/application.css';
+const cssUrl = process.env.CSS_URL || 'https://gitlab-org.gitlab.io/gitlab/application.css';
 
 fs.writeFile(
   path.resolve(__dirname, 'preview-head.html'),
