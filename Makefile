@@ -8,7 +8,7 @@ scss_js = ${scss_js_dir}/scss_variables.js
 scss_js_export_script = ${scss_js_dir}/export_scss.js
 
 ${scss_json}: ${scss_variables}
-	yarn sass-export ${scss_variables} -o ${scss_json}
+	yarn sass-export ${scss_variables} -d "${scss_dir}" -o ${scss_json}
 
 ${scss_js}: ${scss_json} ${scss_js_export_script}
 	node ${scss_js_export_script}
