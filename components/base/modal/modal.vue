@@ -16,6 +16,11 @@ export default {
       required: false,
       default: 'h4',
     },
+    modalClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   methods: {
     show() {
@@ -38,7 +43,7 @@ export default {
     :title-tag="titleTag"
     v-bind="$attrs"
     lazy
-    modal-class="gl-modal"
+    :modal-class="['gl-modal', modalClass]"
     v-on="$listeners"
   >
     <slot></slot>
