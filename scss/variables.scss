@@ -1,5 +1,7 @@
+@import 'functions';
+
 // Layout
-$grid-size: 8px;
+$grid-size: px-to-rem(8px);
 $gl-spacing-scale-0: 0;
 $gl-spacing-scale-1: 0.25 * $grid-size;
 $gl-spacing-scale-2: 0.5 * $grid-size;
@@ -381,23 +383,23 @@ $gl-font-weights: (
   'bold': $gl-font-weight-bold
 );
 
-$gl-type-scale-base: 14px;
+$gl-type-scale-base: px-to-rem(14px);
 
 $gl-type-scale: (
-  'sm': 12px,
+  'sm': px-to-rem(12px),
   'base': $gl-type-scale-base,
-  'lg': 16px,
-  'xl': 20px,
-  '2xl': 28px,
-  '3xl': 42px
+  'lg': px-to-rem(16px),
+  'xl': px-to-rem(20px),
+  '2xl': px-to-rem(28px),
+  '3xl': px-to-rem(42px)
 );
 
 // Line height
-$gl-line-height-14: 14px;
-$gl-line-height: 16px;
-$gl-line-height-24: 24px;
-$gl-line-height-32: 32px;
-$gl-line-height-52: 52px;
+$gl-line-height-14: px-to-rem(14px);
+$gl-line-height: px-to-rem(16px);
+$gl-line-height-24: px-to-rem(24px);
+$gl-line-height-32: px-to-rem(32px);
+$gl-line-height-52: px-to-rem(52px);
 
 // Fonts
 $gl-monospace-font: 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
@@ -414,17 +416,17 @@ $gl-fonts: (
 // borders
 $gl-border-sizes: (
   0: 0,
-  1: 1px,
-  2: 2px,
-  3: 3px,
-  4: 4px,
-  5: 5px
+  1: px-to-rem(1px),
+  2: px-to-rem(2px),
+  3: px-to-rem(3px),
+  4: px-to-rem(4px),
+  5: px-to-rem(5px)
 );
 
 // border roundness
-$gl-border-radius-small: 2px;
-$gl-border-radius-base: 4px;
-$gl-border-radius-large: 8px;
+$gl-border-radius-small: $gl-spacing-scale-1;
+$gl-border-radius-base: $gl-spacing-scale-2;
+$gl-border-radius-large: $gl-spacing-scale-3;
 $gl-border-radius-full: 50%;
 
 $gl-rounded-sizes: (
@@ -436,15 +438,12 @@ $gl-rounded-sizes: (
 );
 
 // Toasts
-$toast-max-width: 586px;
-$toast-padding-right: 42px;
+$toast-max-width: px-to-rem(586px);
+$toast-padding-right: px-to-rem(42px);
 $toast-background-opacity: 0.95;
-
-// Licenses
-$license-header-cell-width: 150px;
 
 $gl-icon-chevron-left-sm: 'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icn/chevron-left</title><path d="M7.414 7.989l2.295 2.306a1 1 0 1 1-1.418 1.41l-3-3.015a1 1 0 0 1 .004-1.414l3-2.985a1 1 0 1 1 1.41 1.418l-2.29 2.28z" id="a"/></svg>';
 $gl-icon-chevron-right-sm: 'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icn/chevron-right</title><path d="M8.586 7.989l-2.291-2.28a1 1 0 1 1 1.41-1.418l3 2.985a1 1 0 0 1 .004 1.414l-3 3.015a1 1 0 0 1-1.418-1.41l2.295-2.306z" id="a"/></svg>';
 
 // Icons
-$default-icon-size: 18px;
+$default-icon-size: px-to-rem(18px);
