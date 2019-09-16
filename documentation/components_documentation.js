@@ -119,6 +119,12 @@ export { default as GlToggleDocumentation } from '../components/base/toggle/togg
 export {
   default as GlDaterangePickerDocumentation,
 } from '../components/base/daterange_picker/daterange_picker.documentation';
+export {
+  default as GlSortingDocumentation,
+} from '../components/base/sorting/sorting.documentation';
+export {
+  default as GlSortingItemDocumentation,
+} from '../components/base/sorting/sorting_item.documentation';
 
 export {
   default as GlIntersperseDocumentation,
