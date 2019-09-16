@@ -463,6 +463,8 @@
 */
 @mixin gl-white-space-normal { white-space: normal; }
 
+@mixin gl-white-space-nowrap { white-space: nowrap; }
+
 /**
 * Inset border utilities
 *
