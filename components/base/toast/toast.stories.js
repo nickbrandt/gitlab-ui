@@ -38,6 +38,29 @@ function generateWithActions() {
   });
 }
 
+function generateLong() {
+  return () => ({
+    template: `<gl-button @click="showToast()">Show toast with a long content</gl-button>`,
+    methods: {
+      showToast() {
+        this.$toast.show(
+          'This is a toast with a long content and an action. Notice how the text wraps to multiple lines when the max-width is reached.',
+          {
+            action: {
+              text: 'Undo action',
+              onClick: () => {},
+            },
+          }
+        );
+      },
+    },
+    mounted() {
+      this.showToast();
+    },
+  });
+}
+
 documentedStoriesOf('base|toast', readme)
   .add('default', generateDefault())
-  .add('with actions', generateWithActions());
+  .add('with actions', generateWithActions())
+  .add('with long content', generateLong());
