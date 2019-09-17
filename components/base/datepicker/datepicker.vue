@@ -104,6 +104,11 @@ export default {
       type: Object,
       required: false,
     },
+    theme: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -146,7 +151,7 @@ export default {
       field: this.$refs.datepickerField.$el,
       trigger,
       container,
-      theme: 'gl-datepicker-theme', // TODO: Implement theme
+      theme: `gl-datepicker-theme ${this.theme}`,
       defaultDate: this.value,
       setDefaultDate: Boolean(this.value),
       minDate: this.minDate,
