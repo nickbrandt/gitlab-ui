@@ -1,21 +1,21 @@
 @import 'functions';
 
 // Layout
-$grid-size: px-to-rem(8px);
+$gl-grid-size: px-to-rem(8px);
 $gl-spacing-scale-0: 0;
-$gl-spacing-scale-1: 0.25 * $grid-size;
-$gl-spacing-scale-2: 0.5 * $grid-size;
-$gl-spacing-scale-3: $grid-size;
-$gl-spacing-scale-4: 1.5 * $grid-size;
-$gl-spacing-scale-5: 2 * $grid-size;
-$gl-spacing-scale-6: 3 * $grid-size;
-$gl-spacing-scale-7: 4 * $grid-size;
-$gl-spacing-scale-8: 5 * $grid-size;
-$gl-spacing-scale-9: 6 * $grid-size;
-$gl-spacing-scale-10: 7 * $grid-size;
-$gl-spacing-scale-11: 8 * $grid-size;
-$gl-spacing-scale-12: 10 * $grid-size;
-$gl-spacing-scale-13: 12 * $grid-size;
+$gl-spacing-scale-1: 0.25 * $gl-grid-size;
+$gl-spacing-scale-2: 0.5 * $gl-grid-size;
+$gl-spacing-scale-3: $gl-grid-size;
+$gl-spacing-scale-4: 1.5 * $gl-grid-size;
+$gl-spacing-scale-5: 2 * $gl-grid-size;
+$gl-spacing-scale-6: 3 * $gl-grid-size;
+$gl-spacing-scale-7: 4 * $gl-grid-size;
+$gl-spacing-scale-8: 5 * $gl-grid-size;
+$gl-spacing-scale-9: 6 * $gl-grid-size;
+$gl-spacing-scale-10: 7 * $gl-grid-size;
+$gl-spacing-scale-11: 8 * $gl-grid-size;
+$gl-spacing-scale-12: 10 * $gl-grid-size;
+$gl-spacing-scale-13: 12 * $gl-grid-size;
 
 $transparent: transparent;
 

@@ -1,5 +1,5 @@
 // Breadcrumb max width 128px
-$breadcrumb-max-width: $grid-size * 16;
+$breadcrumb-max-width: $gl-grid-size * 16;
 
 .gl-breadcrumbs {
   @include gl-border-b-1;

@@ -1,7 +1,7 @@
 @import 'pikaday/scss/pikaday';
 
 // Datepicker Max Width: 240px
-$gl-datepicker-width: $grid-size * 30;
+$gl-datepicker-width: $gl-grid-size * 30;
 
 .gl-datepicker-input {
   width: $gl-datepicker-width;

@@ -18,20 +18,6 @@ $h4-font-size: $gl-type-scale-base * 1.5;
 $h5-font-size: $gl-type-scale-base * 1.25;
 $h6-font-size: $gl-type-scale-base;
 
-$spacer: $grid-size;
-$spacers: (
-  0: $gl-spacing-scale-0,
-  1: $gl-spacing-scale-2,
-  2: $gl-spacing-scale-3,
-  3: $gl-spacing-scale-5,
-  4: $gl-spacing-scale-6,
-  5: $gl-spacing-scale-7,
-  6: $gl-spacing-scale-8,
-  7: $gl-spacing-scale-9,
-  8: $gl-spacing-scale-10,
-  9: $gl-spacing-scale-11
-);
-
 $table-accent-bg: $gray-50;
 $card-border-color: $gray-200;
 $card-cap-bg: $gray-50;
