@@ -56,6 +56,11 @@ export default {
       required: false,
       default: '',
     },
+    theme: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -107,6 +112,7 @@ export default {
         :max-date="fromCalendarMaxDate"
         :start-range="fromCalendarStartRange"
         :end-range="fromCalendarEndRange"
+        :theme="theme"
         :i18n="i18n"
         @input="onStartDateSelected"
       />
@@ -119,6 +125,7 @@ export default {
         :max-date="defaultMaxDate"
         :start-range="toCalendarStartRange"
         :end-range="toCalendarEndRange"
+        :theme="theme"
         :i18n="i18n"
         @input="onEndDateSelected"
       />
