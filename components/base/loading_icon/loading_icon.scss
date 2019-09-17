@@ -32,20 +32,20 @@
   display: inline-flex;
 
   // default size
-  @include gl-spinner-size($gl-spacing-scale-5, map-get($gl-border-sizes, 2));
+  @include gl-spinner-size($gl-spacing-scale-5, $gl-border-size-2);
   // default colour
   @include gl-spinner-color($orange-600);
 
   &.gl-spinner-md {
-    @include gl-spinner-size($gl-spacing-scale-6, map-get($gl-border-sizes, 3));
+    @include gl-spinner-size($gl-spacing-scale-6, $gl-border-size-3);
   }
 
   &.gl-spinner-lg {
-    @include gl-spinner-size($gl-spacing-scale-7, map-get($gl-border-sizes, 3));
+    @include gl-spinner-size($gl-spacing-scale-7, $gl-border-size-3);
   }
 
   &.gl-spinner-xl {
-    @include gl-spinner-size($gl-spacing-scale-11, map-get($gl-border-sizes, 4));
+    @include gl-spinner-size($gl-spacing-scale-11, $gl-border-size-4);
   }
 
   &.gl-spinner-dark {

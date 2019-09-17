@@ -2,15 +2,15 @@
  * Button-specific utilities
  */
 @mixin gl-button-hover($color) {
-  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 2) $color,
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
     0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 @mixin gl-button-active($color) {
-  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 2) $color,
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
     inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 @mixin gl-button-focus($color) {
-  box-shadow: inset 0 0 0 map-get($gl-border-sizes, 2) $color,
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
     0 0 0 1px $blue-300,
     0 0 4px 1px $blue-300;
 }
