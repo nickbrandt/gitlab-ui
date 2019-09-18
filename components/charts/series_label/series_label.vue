@@ -1,5 +1,6 @@
 <script>
-import { makePathRect } from '../../../utils/svg_utils';
+const makePathRect = (startX, startY, width, height) =>
+  `M${startX},${startY}H${startX + width}V${startY + height}H${startX}Z`;
 
 export default {
   props: {

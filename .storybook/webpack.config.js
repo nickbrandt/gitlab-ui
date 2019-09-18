@@ -27,7 +27,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /@gitlab\/svgs\/dist\/icons\.svg$/,
-      loader: 'raw-loader',
+      loader: 'file-loader',
     },
     // in a test-context this rule breaks the rendering of visual-snapshots
     // because babel.config sets target to 'node'
