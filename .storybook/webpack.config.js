@@ -36,7 +36,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /@gitlab\/svgs\/dist\/icons\.svg$/,
-      loader: 'raw-loader',
+      loader: 'file-loader',
     },
     {
       test: /\.js$/,

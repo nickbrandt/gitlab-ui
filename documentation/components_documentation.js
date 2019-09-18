@@ -54,6 +54,7 @@ export { default as GlLinkDocumentation } from '../src/components/base/link/link
 export {
   default as GlLoadingIconDocumentation,
 } from '../src/components/base/loading_icon/loading_icon.documentation';
+export { default as GlIconDocumentation } from '../src/components/base/icon/icon.documentation';
 export { default as GlModalDocumentation } from '../src/components/base/modal/modal.documentation';
 export {
   default as GlPaginationDocumentation,
