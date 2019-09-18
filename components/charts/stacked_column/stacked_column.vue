@@ -59,6 +59,16 @@ export default {
       type: Array,
       required: true,
     },
+    legendAverageText: {
+      type: String,
+      required: false,
+      default: 'Avg',
+    },
+    legendMaxText: {
+      type: String,
+      required: false,
+      default: 'Max',
+    },
   },
   data() {
     return {
@@ -229,6 +239,8 @@ export default {
       :style="legendStyle"
       :series-info="seriesInfo"
       :text-style="compiledOptions.textStyle"
+      :average-text="legendAverageText"
+      :max-text="legendMaxText"
     />
   </div>
 </template>
