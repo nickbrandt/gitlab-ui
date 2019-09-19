@@ -1,19 +1,24 @@
 /* eslint-disable import/prefer-default-export */
-import { getSvgEchartsPath } from '../svg_utils';
+import {
+  marqueeSelectionSvgPath,
+  redoSvgPath,
+  clearAllSvgPath,
+  downloadSvgPath,
+} from '../svgs/svg_paths';
 
 export const toolbox = {
   feature: {
     dataZoom: {
       icon: {
-        zoom: getSvgEchartsPath('marquee-selection'),
-        back: getSvgEchartsPath('redo'),
+        zoom: marqueeSelectionSvgPath,
+        back: redoSvgPath,
       },
     },
     restore: {
-      icon: getSvgEchartsPath('clear-all'),
+      icon: clearAllSvgPath,
     },
     saveAsImage: {
-      icon: getSvgEchartsPath('download'),
+      icon: downloadSvgPath,
     },
   },
 };

@@ -3,7 +3,7 @@ import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlStackedColumnChart } from '../../../../charts';
 import readme from './stacked_column.md';
 import { columnOptions } from '../../../utils/constants';
-import { getSvgEchartsPath } from '../../../utils/svg_utils';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 
 const components = {
@@ -84,7 +84,7 @@ documentedStoriesOf('charts|stacked-column-chart', readme)
         dataZoom: [
           {
             startValue: 1,
-            handleIcon: getSvgEchartsPath('scroll-handle'),
+            handleIcon: scrollHandleSvgPath,
           },
         ],
       },
