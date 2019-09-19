@@ -4,7 +4,7 @@ variables:
 
 stages:
   - pre-build
-  - build-and-check
+  - test
   - deploy
   - publish
 
@@ -40,7 +40,7 @@ build:
   extends: [.node, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
-  stage: build-and-check
+  stage: test
   script:
     - yarn storybook-static
     - yarn build
@@ -55,7 +55,7 @@ build:
 lint:
   extends: [.node, .yarn_install]
   needs: []
-  stage: build-and-check
+  stage: test
   script:
     - yarn eslint
     - yarn prettier
@@ -69,7 +69,7 @@ lint:
 generate_utility_classes:
   extends: [.node]
   needs: []
-  stage: build-and-check
+  stage: test
   script:
     - yarn generate-utilities
 
@@ -79,7 +79,7 @@ visual:
     - gitlab-org # This allows us to use higher performance runners
   needs:
     - build_docker_image
-  stage: build-and-check
+  stage: test
   script:
     - yarn test:visual
   artifacts:
@@ -90,7 +90,7 @@ visual:
 unit_tests:
   extends: [.node, .yarn_install]
   needs: []
-  stage: build-and-check
+  stage: test
   script:
     - yarn test:unit
 
@@ -113,15 +113,6 @@ include:
   - template: License-Management.gitlab-ci.yml
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
-
-dependency_scanning:
-  stage: build-and-check
-
-license_management:
-  stage: build-and-check
-
-sast:
-  stage: build-and-check
 
 review:
   stage: deploy
