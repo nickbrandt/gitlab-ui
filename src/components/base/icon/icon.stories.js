@@ -1,4 +1,5 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
+import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './icon.md';
 import { GlIcon } from '../../../../index';
@@ -13,7 +14,7 @@ documentedStoriesOf('base|icon', readme)
     props: {
       name: {
         type: String,
-        default: text('name', 'check-circle'),
+        default: select('name', iconSpriteInfo.icons, 'check-circle'),
       },
       size: {
         type: String,
