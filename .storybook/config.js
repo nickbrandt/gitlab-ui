@@ -2,11 +2,21 @@ import { configure, addParameters, addDecorator } from '@storybook/vue';
 import { create } from '@storybook/theming';
 
 const req = require.context('../components', true, /\.stories\.js$/);
+const docsRequireCtx = require.context('../components', true, /documentation\.js$/);
+const testableStories = process.env.IS_GITLAB_INTEGRATION_TEST
+  ? docsRequireCtx.keys().reduce((acc, key) => {
+      const docModule = docsRequireCtx(key).default;
+      if (docModule.followsDesignSystem) {
+        acc.push(key.replace('documentation', 'stories'));
+      }
+      return acc;
+    }, [])
+  : req.keys();
 
 import '../scss/gitlab_ui.scss';
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  testableStories.forEach(filename => req(filename));
 }
 
 function addSbClass(c, a) {

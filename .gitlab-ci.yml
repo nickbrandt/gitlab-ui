@@ -87,6 +87,11 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
+visual_gitlab_integration:
+  extends: visual
+  script:
+    - yarn test:visual:gitlab
+
 unit_tests:
   extends: [.node, .yarn_install]
   needs: []
