@@ -427,6 +427,8 @@
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
+@mixin gl-line-height-0 { line-height: 0; }
+
 @mixin gl-line-height-normal { line-height: $gl-line-height; }
 
 @mixin gl-line-height-24 { line-height: $gl-line-height-24; }
