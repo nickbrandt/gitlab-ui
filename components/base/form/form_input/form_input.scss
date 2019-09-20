@@ -1,0 +1,9 @@
+.gl-form-input {
+  @include gl-display-flex;
+}
+
+.gl-form-input-placeholder::-webkit-input-placeholder {
+  // TODO: multiple browser support.
+  // Make this class a utility class.
+  @include gl-text-gray-700;
+}
