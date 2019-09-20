@@ -1,6 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
-
 module.exports = ({ config }) => {
   config.module.rules = [
     {
@@ -45,8 +43,6 @@ module.exports = ({ config }) => {
         ]
       : []),
   ];
-
-  config.plugins.push(new webpack.EnvironmentPlugin(['IS_GITLAB_INTEGRATION_TEST']));
 
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
 

@@ -13,6 +13,13 @@ const testableStories = process.env.IS_GITLAB_INTEGRATION_TEST
     }, [])
   : req.keys();
 
+const stylesheetsRequireCtx = require.context('../scss', true, /(storybook|gitlab_ui)\.scss$/);
+if (process.env.IS_GITLAB_INTEGRATION_TEST) {
+  stylesheetsRequireCtx('./storybook.scss');
+} else {
+  stylesheetsRequireCtx('./gitlab_ui.scss');
+}
+
 function loadStories() {
   testableStories.forEach(filename => req(filename));
 }
@@ -38,12 +45,4 @@ addParameters({
   },
 });
 
-if (process.env.IS_GITLAB_INTEGRATION_TEST) {
-  import(/* webpackChunkName: "gitlab_ui.css" */ '../scss/storybook.scss').then(() => {
-    configure(loadStories, module);
-  });
-} else {
-  import(/* webpackChunkName: "gitlab_ui.css" */ '../scss/gitlab_ui.scss').then(() => {
-    configure(loadStories, module);
-  });
-}
+configure(loadStories, module);
