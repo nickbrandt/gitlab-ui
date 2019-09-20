@@ -14,7 +14,10 @@
   @include gl-font-sm;
   @include gl-line-height-normal;
   @include gl-display-flex;
-  @include gl-text-decoration-none;
+
+  &:hover {
+    @include gl-text-decoration-none;
+  }
 }
 
 .gl-label-icon {
