@@ -24,7 +24,7 @@ function main() {
     writeUtilities(
       mixins.reduce((acc, mixinMatch) => {
         const mixinName = mixinMatch.replace(mixinRegexp, '$1');
-        return `${acc}.${mixinName} { @include ${mixinName}; }\n`;
+        return `${acc}.${mixinName} {\n  @include ${mixinName};\n}\n`;
       }, '')
     );
   } catch (e) {
