@@ -181,7 +181,7 @@ $gl-font-weight-bold: 600;
 
 $gl-font-weights: (
   'normal': $gl-font-weight-normal,
-  'bold': $gl-font-weight-bold
+  'bold': $gl-font-weight-bold,
 );
 
 $gl-type-scale-sm: px-to-rem(12px);
@@ -201,13 +201,13 @@ $gl-line-height-52: px-to-rem(52px);
 // Fonts
 $gl-monospace-font: 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
   'Courier New', 'andale mono', 'lucida console', monospace;
-$gl-regular-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu, Cantarell,
-  'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+$gl-regular-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu,
+  Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
 
 $gl-fonts: (
   'monospace': $gl-monospace-font,
-  'regular': $gl-regular-font
+  'regular': $gl-regular-font,
 );
 
 $gl-border-size-0: 0;
