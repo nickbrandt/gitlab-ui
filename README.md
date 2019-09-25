@@ -174,3 +174,7 @@ More answers and details can be found in the [SCSS Styleguide](https://docs.gitl
 ## Contributing guide
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to add new components and contribute in general to `gitlab-ui`.
+
+### FAQs
+
+Any question? Have a look at our [FAQ.md](FAQ.md), you might find the answer there.
