@@ -31,6 +31,7 @@
 
 .gl-tab-content {
   @include gl-py-3;
+  @include gl-font-base;
 }
 
 .gl-tab-nav-item-active {
