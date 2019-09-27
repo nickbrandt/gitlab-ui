@@ -2,25 +2,31 @@
 $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumbs {
-  @include gl-border-b-1;
-  @include gl-border-b-solid;
-  @include gl-border-gray-300;
+  @include gl-inset-border-b-1-gray-300;
+  @include gl-py-5;
 }
 
 .gl-breadcrumb-list {
   @include gl-bg-transparent;
   @include gl-p-0;
   @include gl-align-items-center;
+  @include gl-line-height-normal;
+  @include gl-m-0;
   @include media-breakpoint-down(xs) {
     @include gl-flex-wrap;
   }
 }
 
-.gl-breadcrumb-separator svg {
-  @include gl-my-auto;
-  @include gl-mx-3;
-  @include gl-w-3;
-  @include gl-text-gray-700;
+.gl-breadcrumb-separator {
+  @include gl-display-inline-flex;
+
+  > svg {
+    @include gl-my-auto;
+    @include gl-mx-3;
+    @include gl-w-3;
+    @include gl-text-gray-700;
+    @include gl-fill-current-color;
+  }
 }
 
 .gl-breadcrumb-avatar-tile {
@@ -32,15 +38,19 @@ $breadcrumb-max-width: $grid-size * 16;
 }
 
 // bootstrap overrides
-.breadcrumb-item a {
+.gl-breadcrumb-item {
   @include gl-font-sm;
-  @include gl-text-gray-700;
-  @include media-breakpoint-down(xs) {
-    @include str-truncated($breadcrumb-max-width);
+  @include gl-line-height-normal;
+
+  > a {
+    @include gl-text-gray-700;
+    @include media-breakpoint-down(xs) {
+      @include str-truncated($breadcrumb-max-width);
+    }
   }
 }
 
-.breadcrumb-item:last-child a {
+.gl-breadcrumb-item:last-child > a {
   @include gl-text-gray-950;
   @include gl-font-weight-bold;
 }
