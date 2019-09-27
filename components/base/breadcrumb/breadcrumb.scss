@@ -2,6 +2,7 @@
 $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumbs {
+  @include gl-border-0;
   @include gl-inset-border-b-1-gray-300;
   @include gl-py-5;
 }
