@@ -13,3 +13,4 @@ export {
   default as GlDiscreteScatterChart,
 } from './components/charts/discrete_scatter/discrete_scatter.vue';
 export { default as GlSingleStat } from './components/charts/single_stat/single_stat.vue';
+export { default as GlTreemap } from './components/charts/treemap';
