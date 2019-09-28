@@ -65,10 +65,9 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex">
-    <div v-if="color.length" class="flex-shrink-0 svg-content p-0 append-right-8">
+  <div class="gl-series-label">
+    <div v-if="color.length">
       <svg
-        class="d-block"
         :style="svgStyles"
         :width="formatPixelDimension($options.svgWidth)"
         :height="formatPixelDimension($options.svgHeight)"

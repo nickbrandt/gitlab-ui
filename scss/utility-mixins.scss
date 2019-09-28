@@ -600,6 +600,8 @@
 
 @mixin gl-flex-direction-row { flex-direction: row; }
 
+@mixin gl-flex-shrink-0 { flex-shrink: 0; }
+
 @mixin gl-justify-content-center { justify-content: center; }
 
 @mixin gl-align-self-start { align-self: flex-start; }
