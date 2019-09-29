@@ -7,7 +7,7 @@ Vue.use(GlToast);
 
 function generateDefault() {
   return () => ({
-    template: `<gl-button @click="showToast()">Show default toast</gl-button>`,
+    template: `<gl-new-button @click="showToast()">Show default toast</gl-new-button>`,
     methods: {
       showToast() {
         this.$toast.show('This is the default toast.');
@@ -21,7 +21,7 @@ function generateDefault() {
 
 function generateWithActions() {
   return () => ({
-    template: `<gl-button @click="showToast()">Show toast with actions</gl-button>`,
+    template: `<gl-new-button @click="showToast()">Show toast with actions</gl-new-button>`,
     methods: {
       showToast() {
         this.$toast.show('This is a toast with an action.', {
@@ -40,7 +40,7 @@ function generateWithActions() {
 
 function generateLong() {
   return () => ({
-    template: `<gl-button @click="showToast()">Show toast with a long content</gl-button>`,
+    template: `<gl-new-button @click="showToast()">Show toast with a long content</gl-new-button>`,
     methods: {
       showToast() {
         this.$toast.show(
