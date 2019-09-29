@@ -9,6 +9,9 @@
 .gl-form-checkbox {
   @include gl-mr-5;
   @include gl-mb-3;
+  @include gl-font-base;
+  @include gl-line-height-normal;
+  @include gl-text-gray-900;
 
   &.form-check {
     @include gl-display-flex;
@@ -38,9 +41,12 @@
   .form-check-input:disabled,
   .form-check-input:disabled ~ .form-check-label {
     @include gl-cursor-not-allowed;
+    @include gl-text-gray-700;
   }
 
   .help-text {
     @include gl-mt-2;
+    @include gl-text-gray-700;
+    @include gl-mb-0;
   }
 }
