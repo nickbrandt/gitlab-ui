@@ -32,11 +32,18 @@ export default {
       default: newButtonSizeOptions.medium,
       validator: value => Object.keys(newButtonSizeOptions).includes(value),
     },
+    selected: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     buttonClasses() {
       return {
-        'btn-inverted': this.category === newButtonCategoryOptions.secondary,
+        'btn-secondary': this.category === newButtonCategoryOptions.secondary,
+        'new-gl-button': this.variant !== newButtonVariantOptions.link,
+        selected: this.selected,
       };
     },
     buttonSize() {

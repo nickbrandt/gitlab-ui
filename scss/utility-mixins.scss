@@ -406,11 +406,17 @@
 
 @mixin gl-text-green-700 { color: $green-700; }
 
+@mixin gl-text-green-800 { color: $green-800; }
+
 @mixin gl-text-orange-500 { color: $orange-500; }
 
 @mixin gl-text-orange-600 { color: $orange-600; }
 
 @mixin gl-text-orange-700 { color: $orange-700; }
+
+@mixin gl-text-orange-800 { color: $orange-800; }
+
+@mixin gl-text-orange-900 { color: $orange-900; }
 
 @mixin gl-text-red-500 { color: $red-500; }
 
@@ -481,6 +487,10 @@
 
 @mixin gl-inset-border-1-gray-400 {
   box-shadow: inset 0 0 0 $gl-border-size-1 $gray-400;
+}
+
+@mixin gl-inset-border-1-gray-600 {
+  box-shadow: inset 0 0 0 $gl-border-size-1 $gray-600;
 }
 
 @mixin gl-inset-border-b-2-gray-200 {
