@@ -75,6 +75,13 @@ export default {
       }
       return true;
     },
+    // needed to bind category to the button child of a dropdown
+    variantHandler() {
+      if(this.category === 'secondary') {
+        return `secondary btn-${this.variant}`
+      } 
+      return this.variant
+    }
   },
 };
 </script>
@@ -84,7 +91,7 @@ export default {
     class="gl-dropdown"
     v-bind="$attrs"
     :split="split"
-    :variant="variant"
+    :variant="variantHandler"
     :size="buttonSize"
     v-on="$listeners"
   >
