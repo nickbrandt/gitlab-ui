@@ -3,7 +3,7 @@ import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import BDropdown from 'bootstrap-vue/src/components/dropdown/dropdown';
 import {
   newButtonCategoryOptions,
-  newButtonVariantOptions,
+  newDropdownVariantOptions,
   newButtonSizeOptions,
 } from '../../../utils/constants';
 import ButtonMixin from '../../mixins/button_mixin';
@@ -58,8 +58,8 @@ export default {
     variant: {
       type: String,
       required: false,
-      default: newButtonVariantOptions.default,
-      validator: value => Object.keys(newButtonVariantOptions).includes(value),
+      default: newDropdownVariantOptions.default,
+      validator: value => Object.keys(newDropdownVariantOptions).includes(value),
     },
     size: {
       type: String,

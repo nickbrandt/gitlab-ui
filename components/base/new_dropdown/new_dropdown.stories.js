@@ -2,7 +2,7 @@ import { withKnobs, select, boolean } from '@storybook/addon-knobs/dist/deprecat
 import documentedStoriesOf from '../../../utils/documented_stories';
 import {
   newButtonCategoryOptions,
-  newButtonVariantOptions,
+  newDropdownVariantOptions,
   newButtonSizeOptions,
 } from '../../../utils/constants';
 import readme from './new_dropdown.md';
@@ -17,7 +17,7 @@ const components = {
 
 function generateProps({
   category = newButtonCategoryOptions.tertiary,
-  variant = newButtonVariantOptions.default,
+  variant = newDropdownVariantOptions.default,
   size = newButtonSizeOptions.medium,
 } = {}) {
   const props = {
@@ -27,7 +27,7 @@ function generateProps({
     },
     variant: {
       type: String,
-      default: select('variant', newButtonVariantOptions, variant),
+      default: select('variant', newDropdownVariantOptions, variant),
     },
     size: {
       type: String,
