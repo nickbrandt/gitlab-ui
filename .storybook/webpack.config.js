@@ -14,7 +14,14 @@ module.exports = ({ config }) => {
     {
       test: /\.s?css$/,
       loaders: [
-        'style-loader',
+        {
+          loader: 'style-loader',
+          options: {
+            attrs: {
+              'data-gitlab-ui-style': true,
+            },
+          },
+        },
         'css-loader',
         {
           loader: 'sass-loader',
