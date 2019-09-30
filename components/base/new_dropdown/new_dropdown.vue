@@ -77,11 +77,11 @@ export default {
     },
     // needed to bind category to the button child of a dropdown
     variantHandler() {
-      if(this.category === 'secondary') {
-        return `secondary btn-${this.variant}`
-      } 
-      return this.variant
-    }
+      if (this.category === 'secondary') {
+        return `secondary btn-${this.variant}`;
+      }
+      return this.variant;
+    },
   },
 };
 </script>
