@@ -76,9 +76,7 @@ export default {
       return true;
     },
     categoryHandler() {
-      if (this.category === 'secondary') {
-        return `btn-secondary`;
-      }
+      return this.category === 'secondary' ? 'btn-secondary' : null;
     },
   },
 };

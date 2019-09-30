@@ -1,4 +1,4 @@
-import { withKnobs, select, boolean } from '@storybook/addon-knobs/dist/deprecated';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import {
   newButtonCategoryOptions,
