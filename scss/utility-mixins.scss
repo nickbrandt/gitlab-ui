@@ -462,6 +462,8 @@
 /**
 * Vertical align utilities
 */
+@mixin gl-vertical-align-baseline { vertical-align: baseline; }
+
 @mixin gl-vertical-align-middle { vertical-align: middle; }
 
 @mixin gl-vertical-align-top { vertical-align: top; }
@@ -799,6 +801,8 @@
 * naming convention: gl-fill-{color-palette-variable-name}
 */
 @mixin gl-fill-gray-700 { fill: $gray-700; }
+
+@mixin gl-fill-current-color { fill: currentColor; }
 
 /**
 * White-space utilities.
