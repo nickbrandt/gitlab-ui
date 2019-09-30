@@ -628,6 +628,10 @@
 */
 @mixin gl-overflow-hidden { overflow: hidden; }
 
+@mixin gl-overflow-y-auto { overflow-y: auto; }
+
+@mixin gl-overflow-x-hidden { overflow-x: hidden; }
+
 @mixin gl-relative { position: relative; }
 
 /**
