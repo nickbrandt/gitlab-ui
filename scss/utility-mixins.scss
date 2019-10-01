@@ -121,6 +121,8 @@
 
 @mixin gl-mr-5 { margin-right: $gl-spacing-scale-5; }
 
+@mixin gl-mb-0 { margin-bottom: $gl-spacing-scale-0; }
+
 @mixin gl-mb-1 { margin-bottom: $gl-spacing-scale-1; }
 
 @mixin gl-mb-2 { margin-bottom: $gl-spacing-scale-2; }
@@ -406,11 +408,17 @@
 
 @mixin gl-text-green-700 { color: $green-700; }
 
+@mixin gl-text-green-800 { color: $green-800; }
+
 @mixin gl-text-orange-500 { color: $orange-500; }
 
 @mixin gl-text-orange-600 { color: $orange-600; }
 
 @mixin gl-text-orange-700 { color: $orange-700; }
+
+@mixin gl-text-orange-800 { color: $orange-800; }
+
+@mixin gl-text-orange-900 { color: $orange-900; }
 
 @mixin gl-text-red-500 { color: $red-500; }
 
@@ -427,6 +435,8 @@
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
+@mixin gl-line-height-0 { line-height: 0; }
+
 @mixin gl-line-height-normal { line-height: $gl-line-height; }
 
 @mixin gl-line-height-24 { line-height: $gl-line-height-24; }
@@ -454,6 +464,8 @@
 /**
 * Vertical align utilities
 */
+@mixin gl-vertical-align-baseline { vertical-align: baseline; }
+
 @mixin gl-vertical-align-middle { vertical-align: middle; }
 
 @mixin gl-vertical-align-top { vertical-align: top; }
@@ -479,6 +491,10 @@
 
 @mixin gl-inset-border-1-gray-400 {
   box-shadow: inset 0 0 0 $gl-border-size-1 $gray-400;
+}
+
+@mixin gl-inset-border-1-gray-600 {
+  box-shadow: inset 0 0 0 $gl-border-size-1 $gray-600;
 }
 
 @mixin gl-inset-border-b-2-gray-200 {
@@ -613,6 +629,10 @@
 * gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
 */
 @mixin gl-overflow-hidden { overflow: hidden; }
+
+@mixin gl-overflow-y-auto { overflow-y: auto; }
+
+@mixin gl-overflow-x-hidden { overflow-x: hidden; }
 
 @mixin gl-relative { position: relative; }
 
@@ -787,6 +807,8 @@
 * naming convention: gl-fill-{color-palette-variable-name}
 */
 @mixin gl-fill-gray-700 { fill: $gray-700; }
+
+@mixin gl-fill-current-color { fill: currentColor; }
 
 /**
 * White-space utilities.

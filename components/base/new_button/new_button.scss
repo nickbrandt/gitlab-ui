@@ -1,0 +1,270 @@
+/*
+ * Button-specific utilities
+ */
+@mixin new-gl-button-hover($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
+    0 px-to-rem(2px) px-to-rem(2px) 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin new-gl-button-secondary-hover($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
+    0 px-to-rem(2px) px-to-rem(2px) 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin new-gl-button-active($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
+    inset 0 px-to-rem(2px) px-to-rem(4px) 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin new-gl-button-focus($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
+    0 0 0 px-to-rem(1px) $blue-300,
+    0 0 px-to-rem(4px) px-to-rem(1px) $blue-300;
+}
+
+.new-gl-button {
+  @include gl-border-0;
+  @include gl-py-3;
+  @include gl-px-4;
+  @include gl-bg-white;
+  @include gl-line-height-normal;
+  @include gl-text-gray-900;
+  @include gl-inset-border-1-gray-400;
+  @include gl-font-base;
+
+  &:hover {
+    @include gl-bg-gray-200;
+    @include new-gl-button-secondary-hover($gray-400);
+  }
+
+  &:active {
+    @include gl-bg-gray-300;
+    @include new-gl-button-active($gray-500);
+  }
+
+  &.selected {
+    @include gl-bg-gray-50;
+    box-shadow: inset 0 0 0 px-to-rem(1px) $gray-400,
+      inset 0 px-to-rem(1px) px-to-rem(4px) px-to-rem(1px) rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus {
+    @include gl-bg-gray-200;
+    @include new-gl-button-focus($gray-400);
+  }
+
+  &.btn-info,
+  &.btn-success,
+  &.btn-danger,
+  &.btn-warning {
+    @include gl-text-white;
+    @include gl-font-weight-bold;
+  }
+
+  &.btn-info:not(:disabled) {
+    @include gl-bg-blue-500;
+    @include gl-inset-border-1-blue-600;
+
+    &:hover {
+      @include new-gl-button-hover($blue-700);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-blue-600;
+      @include new-gl-button-active($blue-800);
+    }
+
+    &:focus {
+      @include new-gl-button-focus($blue-700);
+    }
+  }
+
+  &.btn-info.btn-secondary:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-blue-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-blue-500;
+
+    &:hover {
+      @include gl-bg-blue-100;
+      @include gl-text-blue-600;
+      @include new-gl-button-secondary-hover($blue-500);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-blue-200;
+      @include gl-text-blue-700;
+      @include new-gl-button-active($blue-600);
+    }
+
+    &:focus {
+      @include gl-bg-blue-100;
+      @include gl-text-blue-600;
+      @include new-gl-button-focus($blue-500);
+    }
+  }
+
+  &.btn-success:not(:disabled) {
+    @include gl-bg-green-500;
+    @include gl-inset-border-1-green-600;
+
+    &:hover {
+      @include new-gl-button-hover($green-700);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-green-600;
+      @include new-gl-button-active($green-800);
+    }
+
+    &:focus {
+      @include new-gl-button-focus($green-700);
+    }
+  }
+
+  &.btn-success.btn-secondary:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-green-600;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-green-500;
+
+    &:hover {
+      @include gl-bg-green-100;
+      @include gl-text-green-700;
+      @include new-gl-button-secondary-hover($green-500);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-green-200;
+      @include gl-text-green-800;
+      @include new-gl-button-active($green-600);
+    }
+
+    &:focus {
+      @include gl-bg-green-100;
+      @include gl-text-green-700;
+      @include new-gl-button-focus($green-500);
+    }
+  }
+
+  &.btn-warning:not(:disabled) {
+    @include gl-bg-orange-500;
+    @include gl-inset-border-1-orange-600;
+
+    &:hover {
+      @include new-gl-button-hover($orange-700);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-orange-600;
+      @include new-gl-button-active($orange-800);
+    }
+
+    &:focus {
+      @include new-gl-button-focus($orange-700);
+    }
+  }
+
+  &.btn-warning.btn-secondary:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-orange-700;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-orange-500;
+
+    &:hover {
+      @include gl-bg-orange-100;
+      @include gl-text-orange-800;
+      @include new-gl-button-secondary-hover($orange-500);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-orange-200;
+      @include gl-text-orange-900;
+      @include new-gl-button-active($orange-600);
+    }
+
+    &:focus {
+      @include gl-bg-orange-100;
+      @include gl-text-orange-800;
+      @include new-gl-button-focus($orange-500);
+    }
+  }
+
+  &.btn-danger:not(:disabled) {
+    @include gl-bg-red-500;
+    @include gl-inset-border-1-red-600;
+
+    &:hover {
+      @include new-gl-button-hover($red-700);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-red-600;
+      @include new-gl-button-active($red-800);
+    }
+
+    &:focus {
+      @include new-gl-button-focus($red-700);
+    }
+  }
+
+  &.btn-danger.btn-secondary:not(:disabled) {
+    @include gl-bg-white;
+    @include gl-text-red-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-red-500;
+
+    &:hover {
+      @include gl-bg-red-100;
+      @include gl-text-red-600;
+      @include new-gl-button-secondary-hover($red-500);
+    }
+
+    &:active,
+    &.selected {
+      @include gl-bg-red-200;
+      @include gl-text-red-700;
+      @include new-gl-button-active($red-600);
+    }
+
+    &:focus {
+      @include gl-bg-red-100;
+      @include gl-text-red-600;
+      @include new-gl-button-focus($red-500);
+    }
+  }
+
+  &.btn-sm {
+    @include gl-py-2;
+    @include gl-px-3;
+    @include gl-line-height-normal;
+    @include gl-font-base;
+  }
+
+  &.btn-dashed {
+    @include gl-inset-border-1-gray-600;
+    outline: px-to-rem(2px) dashed $white-light;
+    outline-offset: px-to-rem(-1px);
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.selected {
+      outline: none;
+    }
+  }
+
+  &.disabled[disabled] {
+    @include gl-bg-gray-50;
+    @include gl-text-gray-600;
+    @include gl-inset-border-1-gray-200;
+    cursor: not-allowed !important;
+  }
+}

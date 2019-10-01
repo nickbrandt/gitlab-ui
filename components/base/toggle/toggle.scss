@@ -17,6 +17,11 @@
 *  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
 *  </button>
 */
+
+.gl-toggle-wrapper {
+  @include gl-line-height-normal;
+}
+
 .gl-toggle {
   @include gl-border-0;
   @include gl-cursor-pointer;
@@ -51,6 +56,13 @@
     @include gl-transition-medium;
     @include gl-justify-content-center;
     @include gl-p-1;
+
+    > svg {
+      @include gl-w-5;
+      @include gl-h-5;
+      @include gl-fill-current-color;
+      @include gl-vertical-align-baseline;
+    }
 
     path {
       @include gl-text-gray-600;
