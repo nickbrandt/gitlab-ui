@@ -63,9 +63,6 @@ export {
   default as GlFormInputDocumentation,
 } from '../components/base/form/form_input/form_input.documentation';
 export {
-  default as GlFormInputWithClearDocumentation,
-} from '../components/base/form/form_input_with_clear/form_input_with_clear.documentation';
-export {
   default as GlFormTextareaDocumentation,
 } from '../components/base/form/form_textarea/form_textarea.documentation';
 export {
