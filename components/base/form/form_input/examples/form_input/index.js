@@ -1,6 +1,7 @@
 import FormInputTextExample from './form_input.text.example.vue';
 import FormInputTextReactiveExample from './form_input.text_reactive.example.vue';
 import FormInputTextDisabledExample from './form_input.text_disabled.example.vue';
+import FormInputTextClearable from './form_input.clearable.example.vue';
 
 export default [
   {
@@ -20,6 +21,11 @@ export default [
         id: 'input-text-disabled',
         name: 'disabled state',
         component: FormInputTextDisabledExample,
+      },
+      {
+        id: 'input-text-clear',
+        name: 'clearable',
+        component: FormInputTextClearable,
       },
     ],
   },
