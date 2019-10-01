@@ -16,11 +16,11 @@ describe('form input component', () => {
           data() {
             return {
               userInput,
-            }
-          }
+            };
+          },
         });
       });
-  
+
       it('has a <gl-button />', () => {
         expect(wrapper.find(Button).exists()).toBe(true);
       });
@@ -42,9 +42,9 @@ describe('form input component', () => {
 
     describe('when userInput is NOT present', () => {
       beforeEach(() => {
-        wrapper = mount(FormInput, { props: { clearable: true }});
+        wrapper = mount(FormInput, { props: { clearable: true } });
       });
-  
+
       it('does not find <gl-button />', () => {
         expect(wrapper.find(Button).exists()).toBe(false);
       });
