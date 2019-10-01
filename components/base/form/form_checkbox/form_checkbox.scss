@@ -21,12 +21,6 @@
   &.form-check-inline {
     @include gl-display-inline-flex;
     @include gl-align-items-center;
-
-    // TODO: Remove this block after these styles are removed from CE
-    // https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/31500
-    .form-check-input {
-      @include inline-styles;
-    }
   }
 
   .form-check-input {
