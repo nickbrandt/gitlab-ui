@@ -1,9 +1,24 @@
 .gl-form-input {
   @include gl-display-flex;
+  @include gl-relative;
+  @include gl-align-items-center;
+  @include gl-rounded-base;
+  @include gl-border-gray-200;
+  @include gl-border-1;
+  @include gl-border-solid;
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:hover {
+      @include gl-bg-white;
+    }
+  }
 }
 
-.gl-form-input-placeholder::-webkit-input-placeholder {
-  // TODO: multiple browser support.
-  // Make this class a utility class.
-  @include gl-text-gray-700;
+.clear-button {
+  @include gl-absolute;
+  @include gl-right-0;
+  @include gl-border-none;
 }
