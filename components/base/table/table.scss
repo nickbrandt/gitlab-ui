@@ -10,6 +10,8 @@ table.gl-table {
       @include gl-border-b-1;
       @include gl-p-5;
       @include gl-bg-transparent;
+      @include gl-line-height-normal;
+      @include gl-font-base;
     }
 
     th {
