@@ -16,7 +16,7 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red,
 .gl-avatar {
   @include gl-border-1;
   @include gl-border-solid;
-  @include gl-border-t-gray-a-08;
+  @include gl-border-gray-a-08;
   @include gl-overflow-hidden;
 }
 

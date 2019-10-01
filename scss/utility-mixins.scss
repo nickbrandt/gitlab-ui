@@ -267,7 +267,9 @@
 
 @mixin gl-border-blue-600 { border-color: $blue-600; }
 
-@mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
+@mixin gl-border-gray-a-08 { border-color: $t-gray-a-08; }
+
+@mixin gl-border-gray-a-24 { border-color: $t-gray-a-24; }
 
 @mixin gl-border-t-gray-200 { border-top-color: $gray-200; }
 
@@ -783,6 +785,12 @@
 *
 * naming convention: gl-transition-{speed}
 */
+@mixin gl-transition-property-border-color { transition-property: border-color; }
+
+@mixin gl-transition-duration-slow { transition-duration: 0.4s; }
+
+@mixin gl-transition-timing-function-ease { transition-timing-function: ease; }
+
 @mixin gl-transition-slow { transition: all 0.4s ease; }
 
 @mixin gl-transition-medium { transition: all 0.2s ease; }

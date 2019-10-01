@@ -55,6 +55,7 @@ export {
 export { default as GlFriendlyWrap } from './components/base/friendly_wrap/friendly_wrap.vue';
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
 export { default as GlAvatarLabeled } from './components/base/avatar_labeled/avatar_labeled.vue';
+export { default as GlAvatarLink } from './components/base/avatar_link/avatar_link.vue';
 export { default as GlLabel } from './components/base/label/label.vue';
 export { default as GlDatepicker } from './components/base/datepicker/datepicker.vue';
 export {
