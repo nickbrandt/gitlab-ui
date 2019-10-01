@@ -4,7 +4,7 @@ import { GlLineChart } from '../../../charts';
 import readme from './line.md';
 import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { generateTimeSeries } from '../../../utils/data_utils';
-import { getSvgEchartsPath } from '../../../utils/svg_utils';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 
 const components = {
@@ -127,7 +127,7 @@ documentedStoriesOf('charts|line-chart', readme)
           {
             type: 'slider',
             startValue: '2018-03-01T00:00:00.000',
-            handleIcon: getSvgEchartsPath('scroll-handle'),
+            handleIcon: scrollHandleSvgPath,
             dataBackground: {
               lineStyle: {
                 width: 2,

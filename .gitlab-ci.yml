@@ -107,7 +107,7 @@ update_screenshots:
   stage: pre-build
   when: manual
   script:
-    - yarn test:visual --updateSnapshot
+    - yarn test:visual:update
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
     - git add .

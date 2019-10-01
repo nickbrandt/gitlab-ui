@@ -75,7 +75,7 @@
     .toggle-icon {
       transform: translateX($gl-spacing-scale-7);
 
-      path {
+      svg {
         @include gl-text-blue-500;
       }
     }

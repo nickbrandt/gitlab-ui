@@ -4,7 +4,7 @@ import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlAreaChart } from '../../../charts';
 import readme from './area.md';
 import { generateTimeSeries } from '../../../utils/data_utils';
-import { getSvgEchartsPath } from '../../../utils/svg_utils';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 
 const components = {
@@ -101,7 +101,7 @@ documentedStoriesOf('charts|area-chart', readme)
         dataZoom: [
           {
             startValue: '2018-03-01T00:00:00.000',
-            handleIcon: getSvgEchartsPath('scroll-handle'),
+            handleIcon: scrollHandleSvgPath,
           },
         ],
       },

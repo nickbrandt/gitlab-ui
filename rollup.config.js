@@ -4,7 +4,6 @@ import vue from 'rollup-plugin-vue';
 import resolve from 'rollup-plugin-node-resolve';
 import { string } from 'rollup-plugin-string';
 import postcss from 'rollup-plugin-postcss';
-import svg from 'rollup-plugin-svg';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import glob from 'glob';
@@ -19,6 +18,7 @@ import { dependencies, peerDependencies } from './package.json';
  */
 const externalModules = [
   '@gitlab/ui',
+  '@gitlab/svgs/dist/icons.svg',
   ...Object.keys(peerDependencies),
   ...Object.keys(dependencies).filter(name => name !== 'bootstrap-vue'),
   ...Object.keys(bootstrapVueDependencies),
@@ -63,7 +63,6 @@ export default glob
           sourceMap: true,
           use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
         }),
-        svg(),
         string({
           include: '**/*.md',
         }),
