@@ -43,7 +43,7 @@ documentedStoriesOf('base|tabs/tabs', '')
           <p>Another tab's content.</p>
         </gl-tab>
         <template v-slot:tabs>
-          <li class="nav-item align-self-center">
+          <li class="gl-tab-nav-item">
             Contentless tab
           </li>
         </template>
