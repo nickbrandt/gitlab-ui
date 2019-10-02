@@ -75,7 +75,7 @@ export default {
         <path :d="pathContent" />
       </svg>
     </div>
-    <div ref="label">
+    <div ref="label" class="gl-series-label">
       <slot></slot>
     </div>
   </div>
