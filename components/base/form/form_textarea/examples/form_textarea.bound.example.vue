@@ -5,13 +5,8 @@ export default {
 </script>
 
 <template>
-<div>
-  <gl-form-textarea
-    v-model="text"
-    placeholder="Enter something"
-    :rows="3"
-    :max-rows="6"
-  />
-  <pre>{{ text }}</pre>
+  <div>
+    <gl-form-textarea v-model="text" placeholder="Enter something" :rows="3" :max-rows="6" />
+    <pre>{{ text }}</pre>
   </div>
 </template>

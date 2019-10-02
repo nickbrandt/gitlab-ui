@@ -1,5 +1,12 @@
 <script>
 export default {
+  props: {
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   methods: {
     close($event) {
       this.$emit('close', $event);
@@ -12,7 +19,7 @@ export default {
   <span class="gl-token">
     <span class="gl-token-content">
       <slot></slot>
-      <i class="gl-token-close fa fa-close" @click="close($event)"></i>
+      <i v-if="!viewOnly" class="gl-token-close fa fa-close" @click="close($event)"></i>
     </span>
   </span>
 </template>

@@ -4,12 +4,19 @@ variables:
 
 stages:
   - pre-build
-  - build-and-check
+  - test
   - deploy
-  - release
+  - publish
+
+.puppeteer:
+  image: $PUPPETEER_IMAGE
+
+.node:
+  image: node:12
+  variables:
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
 
 .yarn_install:
-  image: $PUPPETEER_IMAGE
   before_script:
     - yarn install
 
@@ -27,26 +34,31 @@ build_docker_image:
       echo '{"experimental": "enabled"}' > ~/.docker/config.json
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - ./build-docker.sh
+    - ./bin/build-docker.sh
 
 build:
-  extends: .yarn_install
-  stage: build-and-check
+  extends: [.node, .yarn_install]
+  tags:
+    - gitlab-org # This allows us to use higher performance runners
+  stage: test
   script:
     - yarn storybook-static
+    - yarn build
     - mkdir public
     - mv storybook/* public
   artifacts:
     paths:
       - public
+      - dist
+      - scss_to_js/scss_variables.*
 
 lint:
-  extends: .yarn_install
-  dependencies: []
-  stage: build-and-check
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
   script:
     - yarn eslint
-    - yarn prettier --list-different '**/*.{js,vue}'
+    - yarn prettier
     - yarn stylelint
     - >
       grep -r -i '<style' --include \*.vue components
@@ -54,36 +66,63 @@ lint:
       && exit 1
       || echo "No Vue component contains <style tags"
 
+generate_utility_classes:
+  extends: [.node]
+  needs: []
+  stage: test
+  script:
+    - yarn generate-utilities
+
 visual:
-  extends: .yarn_install
+  extends: [.puppeteer, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
-  dependencies: []
-  stage: build-and-check
+  needs:
+    - build_docker_image
+  stage: test
   script:
-    - if ${CSS_URL}; then CSS_URL=${CSS_URL} yarn test; else yarn test; fi
+    - yarn test:visual
   artifacts:
     when: always
     paths:
       - tests/__image_snapshots__/
 
-update_snapshots:
-  extends: .yarn_install
+visual_gitlab_integration:
+  extends: visual
+  script:
+    - yarn test:visual:gitlab
+  allow_failure: true
+
+unit_tests:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
+  script:
+    - yarn test:unit
+
+update_screenshots:
+  extends: [.puppeteer, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
   stage: pre-build
   when: manual
   script:
-    - yarn test --updateSnapshot
+    - yarn test:visual --updateSnapshot
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
     - git add .
     - git commit -m "Update snapshots"
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
 
+## Secure features
+include:
+  - template: License-Management.gitlab-ci.yml
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+
 review:
   stage: deploy
-  dependencies:
+  needs:
     - build
   script:
     - rsync -av --delete public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
@@ -101,8 +140,8 @@ review:
     - deploy
 
 review_stop:
-  dependencies: []
   stage: deploy
+  needs: []
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
   when: manual
@@ -120,7 +159,7 @@ review_stop:
 
 pages:
   stage: deploy
-  dependencies:
+  needs:
     - build
   script:
     - echo "Deploying to Pages"
@@ -131,26 +170,34 @@ pages:
     - master
 
 upload_artifacts:
-  extends: .yarn_install
-  stage: release
-  dependencies: []
+  extends: .node
+  stage: deploy
+  variables:
+    TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+  needs:
+    - build
   script:
-    - yarn build
-    - yarn pack --filename gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
-    - echo "The package.json dependency URL is https://gitlab.com/gitlab-org/gitlab-ui/-/jobs/$CI_JOB_ID/artifacts/raw/gitlab-ui.$CI_COMMIT_REF_SLUG.tgz"
+    - yarn pack --filename $TAR_ARCHIVE_NAME
+    - echo "The package.json dependency URL is $CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
   artifacts:
     when: always
     paths:
-      - gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+      - $TAR_ARCHIVE_NAME
   only:
     - /.+/@gitlab-org/gitlab-ui
 
-publish:
-  extends: .yarn_install
-  stage: release
-  dependencies: []
+publish_to_npm:
+  extends: [.node, .yarn_install]
+  # We need to run `publish` after pages, so that pages will get deployed
+  # properly, as the publish-to-npm step will create a new commit and this
+  # could lead to a side-effect where pages don't get published because of
+  # the commit being made before `pages` had a chance to run
+  stage: publish
+  # This job doesn't use the DAG feature, because we don't want it to
+  # run in case another job in the previous stages fails
+  dependencies:
+    - build
   script:
-    - yarn build
     - $(yarn bin)/semantic-release
   only:
     - master@gitlab-org/gitlab-ui

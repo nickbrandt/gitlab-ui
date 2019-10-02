@@ -15,15 +15,8 @@ export default {
 </script>
 <template>
   <div>
-    <div
-      v-for="(value, label) in tooltipContent"
-      :key="`${label}${value.value}`"
-      class="d-flex"
-    >
-      <series-label
-        :color="value.color"
-        class="flex-grow-1"
-      >
+    <div v-for="(value, label) in tooltipContent" :key="`${label}${value.value}`" class="d-flex">
+      <series-label :color="value.color" class="flex-grow-1">
         {{ label }}
       </series-label>
       <div class="prepend-left-32 pull-right">{{ value.value }}</div>

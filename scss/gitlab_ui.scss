@@ -32,13 +32,14 @@
 @import 'bootstrap/scss/utilities';
 @import 'bootstrap/scss/print';
 
-@import 'bootstrap-vue/src/index';
+@import 'bootstrap-vue/src/index.scss'; // stylelint-disable-line
 
 // Settings
+@import 'functions';
 @import 'variables';
 @import 'variables_overrides';
 @import 'mixins';
-@import 'utilities';
+@import 'utility-mixins';
 
 // Components
 @import 'components';

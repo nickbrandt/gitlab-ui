@@ -9,7 +9,7 @@
    1. Create a story `component.js` in stories/ directory
    1. Import your component to `index.js`
    1. Create documentation.md in `documentation/` directory
-   1. Run the manual CI job (update_snapshots) to generate your image snapshots for diffing
+   1. Run the manual CI job (update_screenshots) to generate your image snapshots for diffing
 
 1. Create a MR to gitlab-ce/ee to replace the scenario implementation (if any) that you previously selected
 1. Update your package.json dependency reference of @gitlab/ui to the URL output of the upload_artifacts ci job in your gitlab-ui MR
@@ -47,6 +47,7 @@ To fix this, run `yarn link "@gitlab/ui"` within the gitlab-ui folder. See https
 We have automated as much of our documentation as possible (for example props, inherited props, links to underlying documentation, etc.) and kept manual tasks (for example name of vue-bootstrap component, slot descriptions, etc.) to an absolute minimum. The target for our documentation components and exports is to have them automatically integrated into [design.gitlab.com](https://design.gitlab.com). The main component for documentation is called `component_documentation_generator.vue`.
 
 ## Automatic deploys
+
 We use [`semantic-release`](https://gitlab.com/gitlab-org/gitlab-ui/wikis/Frequently-asked-questions#2-why-are-we-using-semantic-release) to automatically publish `gitlab-ui`.
 Please follow [this specification](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#specification) to ensure your changes will be automatically deployed.
 
@@ -92,6 +93,18 @@ export default {
   ]
 };
 ```
+
+## Troubleshooting
+
+### What to do when image snapshots cause the pipeline to fail
+
+We use the [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots) addon to generate and compare image snapshots based on [storybook](https://github.com/storybookjs/storybook) stories. Occasionally, component or dependency updates can create visual differences which can cause the pipeline to fail on master because of the failing `visual` job.
+
+Before proceeding make sure that the updated image snapshots a) still comply with the design system guidelines and b) do not include any unexpected visual elements. You can inspect the image snapshots causing the pipeline to fail via browsing the job artifacts from the failing `visual` job. The relevant snapshots are added in the `tests/__image_snapshots__/__diff_output__` directory.
+
+1. Create a branch locally and delete the image snapshots causing the pipeline failure.
+2. Commit and push the changes to create a merge request.
+3. Manually trigger the `update_screenshots` job in the failing pipeline and regenerate snapshots.
 
 ## Contribution guidelines
 

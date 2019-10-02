@@ -47,26 +47,17 @@ export default {
   <div>
     <h3>Examples</h3>
     <gl-form-select
-      v-if="exampleGroups && exampleGroups.length>0"
+      v-if="exampleGroups && exampleGroups.length > 0"
       v-model="selectedExampleId"
       class="mb-3"
     >
       <template v-for="exampleGroup in exampleGroups">
-        <optgroup 
-          :key="exampleGroup.title"
-          :label="exampleGroup.name"
-        ></optgroup>
+        <optgroup :key="exampleGroup.title" :label="exampleGroup.name"></optgroup>
         <template v-for="example in exampleGroup.items">
-          <option
-            :key="example.id"
-            :value="example.id"
-          >{{ example.name }}</option>
+          <option :key="example.id" :value="example.id">{{ example.name }}</option>
         </template>
       </template>
     </gl-form-select>
-    <gl-example-display
-      v-if="selectedExampleId"
-      :example-name="selectedExampleId"
-    />
+    <gl-example-display v-if="selectedExampleId" :example-name="selectedExampleId" />
   </div>
 </template>

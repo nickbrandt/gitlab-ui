@@ -1,0 +1,26 @@
+table.gl-table {
+  @include gl-text-gray-700;
+  @include gl-bg-transparent;
+
+  tr {
+    th,
+    td {
+      @include gl-border-t-none;
+      @include gl-border-b-solid;
+      @include gl-border-b-1;
+      @include gl-p-5;
+      @include gl-bg-transparent;
+      @include gl-line-height-normal;
+      @include gl-font-base;
+    }
+
+    th {
+      @include gl-font-weight-bold;
+      @include gl-border-gray-300;
+    }
+
+    td {
+      @include gl-border-gray-200;
+    }
+  }
+}

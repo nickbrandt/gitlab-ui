@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './single_stat.md';
 import { GlSingleStat } from '../../../charts';
@@ -8,7 +7,6 @@ const components = {
 };
 
 documentedStoriesOf('charts|single-stat', readme)
-  .addDecorator(withKnobs)
   .add('default', () => ({
     components,
     template: `

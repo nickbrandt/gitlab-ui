@@ -19,13 +19,7 @@ export const variantOptions = {
   dark: 'dark',
 };
 
-export const targetOptions = {
-  self: '_self',
-  blank: '_blank',
-  parent: '_parent',
-  top: '_top',
-  null: '',
-};
+export const targetOptions = ['_self', '_blank', '_parent', '_top', null];
 
 export const sizeOptions = {
   default: null,
@@ -36,6 +30,11 @@ export const sizeOptions = {
 export const labelSizeOptions = {
   default: null,
   sm: 'sm',
+};
+
+export const labelColorOptions = {
+  dark: 'dark',
+  light: 'light',
 };
 
 export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
@@ -52,17 +51,41 @@ export const formStateOptions = {
 };
 
 export const buttonVariantOptions = {
+  default: null,
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+  'outline-info': 'outline-info',
+  'outline-success': 'outline-success',
+  'outline-warning': 'outline-warning',
+  'outline-danger': 'outline-danger',
+};
+
+export const newButtonCategoryOptions = {
+  tertiary: 'tertiary',
   primary: 'primary',
   secondary: 'secondary',
+};
+
+export const newButtonVariantOptions = {
+  default: 'default',
+  dashed: 'dashed',
+  info: 'info',
   success: 'success',
   warning: 'warning',
   danger: 'danger',
   link: 'link',
-  'outline-primary': 'outline-primary',
-  'outline-secondary': 'outline-secondary',
-  'outline-success': 'outline-success',
-  'outline-warning': 'outline-warning',
-  'outline-danger': 'outline-danger',
+};
+
+export const newButtonSizeOptions = {
+  small: 'small',
+  medium: 'medium',
+};
+
+export const newButtonSizeOptionsMap = {
+  small: 'sm',
+  medium: 'md',
 };
 
 export const triggerVariantOptions = {

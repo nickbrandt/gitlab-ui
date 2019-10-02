@@ -1,6 +1,7 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlDiscreteScatterChart } from '../../../charts';
+import { getSvgEchartsPath } from '../../../utils/svg_utils';
 import readme from './discrete_scatter.md';
 
 const components = {
@@ -16,7 +17,7 @@ const template = `
   />
 `;
 
-function generateData({
+function generateProps({
   data = [
     {
       type: 'scatter',
@@ -36,19 +37,40 @@ function generateData({
   xAxisTitle = 'Date',
 } = {}) {
   return {
-    data: object('Chart Data', data),
-    option: object('EChart Options', option),
-    yAxisTitle: text('Y Axis Title', yAxisTitle),
-    xAxisTitle: text('X Axis Title', xAxisTitle),
+    data: {
+      default: object('Chart Data', data),
+    },
+    option: {
+      default: object('EChart Options', option),
+    },
+    yAxisTitle: {
+      default: text('Y Axis Title', yAxisTitle),
+    },
+    xAxisTitle: {
+      default: text('X Axis Title', xAxisTitle),
+    },
   };
 }
 
 documentedStoriesOf('charts|discrete-scatter-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    data() {
-      return generateData();
-    },
+    props: generateProps(),
+    components,
+    template,
+  }))
+  .add('with zoom and scroll', () => ({
+    props: generateProps({
+      option: {
+        dataZoom: [
+          {
+            type: 'slider',
+            startValue: 1,
+            handleIcon: getSvgEchartsPath('scroll-handle'),
+          },
+        ],
+      },
+    }),
     components,
     template,
   }));

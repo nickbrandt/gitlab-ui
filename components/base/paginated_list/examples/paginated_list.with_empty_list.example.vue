@@ -1,5 +1,3 @@
 <template>
-  <gl-paginated-list
-    :list="[]"
-  />
+  <gl-paginated-list :list="[]" />
 </template>

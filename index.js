@@ -17,6 +17,7 @@ export {
 } from './components/base/skeleton_loading/skeleton_loading.vue';
 export { default as GlBadge } from './components/base/badge/badge.vue';
 export { default as GlButton } from './components/base/button/button.vue';
+export { default as GlNewButton } from './components/base/new_button/new_button.vue';
 export { default as GlTooltip } from './components/base/tooltip/tooltip.vue';
 export { default as GlToast } from './components/base/toast/toast';
 export {
@@ -54,6 +55,13 @@ export { default as GlFriendlyWrap } from './components/base/friendly_wrap/frien
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
 export { default as GlLabel } from './components/base/label/label.vue';
 export { default as GlDatepicker } from './components/base/datepicker/datepicker.vue';
+export {
+  default as GlDaterangePicker,
+} from './components/base/daterange_picker/daterange_picker.vue';
+export { default as GlIntersperse } from './components/base/intersperse/intersperse.vue';
+export { default as GlToggle } from './components/base/toggle/toggle.vue';
+export { default as GlSorting } from './components/base/sorting/sorting.vue';
+export { default as GlSortingItem } from './components/base/sorting/sorting_item';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';

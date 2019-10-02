@@ -17,7 +17,7 @@
     ]"
   >
     <template #subheader>
-      Dropdown content can go here when like when an action button is clicked 
+      Dropdown content can go here when like when an action button is clicked
     </template>
   </gl-paginated-list>
 </template>

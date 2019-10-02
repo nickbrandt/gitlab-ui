@@ -1,10 +1,53 @@
 .gl-label.badge {
-  padding: 4px 8px;
-  font-size: 12px;
-  line-height: 16px;
-  border: 0;
+  @include gl-p-0;
+  @include gl-bg-white-light;
+  @include gl-overflow-hidden;
 }
 
-.gl-label-sm.badge {
-  padding: 0 8px;
+.gl-label-text {
+  @include gl-px-3;
+  @include gl-py-2;
+  @include gl-font-weight-normal;
+}
+
+.gl-label-link {
+  @include gl-font-sm;
+  @include gl-line-height-normal;
+  @include gl-display-flex;
+
+  &:hover {
+    @include gl-text-decoration-none;
+  }
+}
+
+.gl-label-icon {
+  @include gl-text-gray-500;
+}
+
+.gl-label-scoped {
+  .gl-label-text {
+    &:first-child {
+      @include gl-pr-2;
+    }
+
+    &:last-child {
+      @include gl-bg-transparent;
+      @include gl-pl-2;
+    }
+  }
+}
+
+.gl-label-sm {
+  .gl-label-text {
+    @include gl-px-3;
+    @include gl-py-0;
+  }
+}
+
+.gl-label-text-black {
+  @include gl-text-black-normal;
+}
+
+.gl-label-text-light {
+  @include gl-text-white-light;
 }

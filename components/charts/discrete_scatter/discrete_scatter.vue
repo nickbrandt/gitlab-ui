@@ -3,7 +3,10 @@ import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
-import defaultChartOptions, { mergeSeriesToOptions } from '../../../utils/charts/config';
+import defaultChartOptions, {
+  dataZoomAdjustments,
+  mergeSeriesToOptions,
+} from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 import { gray200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -49,7 +52,7 @@ export default {
       chart: null,
       showTooltip: false,
       tooltipTitle: '',
-      tooltipContent: {},
+      tooltipContent: '',
       tooltipPosition: {
         left: '0',
         top: '0',
@@ -84,21 +87,22 @@ export default {
         {},
         defaultChartOptions,
         {
+          tooltip: {
+            formatter: this.onLabelChange,
+          },
           xAxis: {
             type: 'category',
             name: this.xAxisTitle,
-            axisPointer: {
-              show: true,
-              label: {
-                formatter: this.onLabelChange,
-              },
-            },
             axisTick: {
               alignWithLabel: true,
               show: true,
               lineStyle: {
                 color: gray200,
               },
+            },
+            axisLabel: {
+              margin: 20,
+              verticalAlign: 'bottom',
             },
           },
           yAxis: {
@@ -110,6 +114,7 @@ export default {
           },
         },
         this.option,
+        dataZoomAdjustments(this.option.dataZoom),
         this.toolboxAdjustments
       );
       // All chart options can be merged but series
@@ -119,22 +124,10 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
-      const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, series) => {
-          const [title, value] = series.value || [];
-          acc.tooltipContent[series.seriesName] = value;
-          if (!acc.xLabels.includes(title)) {
-            acc.xLabels.push(title);
-          }
-          return acc;
-        },
-        {
-          xLabels: [],
-          tooltipContent: {},
-        }
-      );
-      this.$set(this, 'tooltipContent', tooltipContent);
-      this.tooltipTitle = xLabels.join(', ');
+      const { data } = params;
+      const [title, content] = data;
+      this.tooltipTitle = title;
+      this.tooltipContent = content;
     },
     showHideTooltip(mouseEvent) {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
@@ -150,12 +143,12 @@ export default {
     },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
-      const { seriesData = [] } = params;
-      // seriesData is an array of nearby data point coordinates
-      // seriesData[0] is the nearest point at which the tooltip is displayed
-      // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
-      if (seriesData.length && seriesData[0].data) {
-        const [left, top] = this.chart.convertToPixel('grid', seriesData[0].data);
+
+      const { data = [] } = params;
+
+      if (data.length) {
+        const [left, top] = this.chart.convertToPixel('grid', data);
+
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
@@ -167,7 +160,13 @@ export default {
 </script>
 <template>
   <div class="position-relative">
-    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" @updated="onUpdated" />
+    <chart
+      v-bind="$attrs"
+      :options="options"
+      v-on="$listeners"
+      @created="onCreated"
+      @updated="onUpdated"
+    />
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -181,9 +180,8 @@ export default {
       </template>
       <template v-else>
         <div slot="title">{{ tooltipTitle }}</div>
-        <div v-for="(value, label) in tooltipContent" :key="label + value">
-          {{ label }}
-          {{ value }}
+        <div>
+          {{ tooltipContent }}
         </div>
       </template>
     </chart-tooltip>

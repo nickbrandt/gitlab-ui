@@ -12,7 +12,9 @@ import { isString, isUndefined } from 'lodash';
 import * as enumConstants from '../../utils/constants';
 import { getValidationInfoText } from '../../utils/validation_utils';
 
-import { gitlabComponents, componentValidator } from '../all_components';
+import { gitlabComponents, gitlabChartComponents, componentValidator } from '../all_components';
+
+import GlTable from '../../components/base/table/table.vue';
 
 import { getDocumentationFor } from '../components_documentation';
 
@@ -39,6 +41,9 @@ function getPropDefaultValue(defaultValue) {
 }
 
 export default {
+  components: {
+    GlTable,
+  },
   props: {
     componentName: {
       type: String,
@@ -52,6 +57,12 @@ export default {
         return Vue.options.components[this.componentName] || {};
       }
       return {};
+    },
+    importSubDir() {
+      if (gitlabChartComponents[this.componentName]) {
+        return '/dist/charts';
+      }
+      return '';
     },
     actualComponentOptions() {
       return this.actualComponent.options || {};
@@ -176,31 +187,24 @@ export default {
   <div v-if="actualComponent.options">
     <div v-if="displayComponentProperties.length > 0">
       <h3>Props</h3>
-      <b-table
+      <gl-table
         :items="displayComponentProperties"
         :fields="componentPropertiesFields"
         small
         head-variant="default"
         striped
       >
-        <template
-          slot="prop"
-          slot-scope="field"
-        >
+        <template slot="prop" slot-scope="field">
           <div>
-            <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">{{ field.value }}</span>
+            <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">{{
+              field.value
+            }}</span>
           </div>
         </template>
-        <template
-          slot="required"
-          slot-scope="data"
-        >
-          <span v-if="data.value===true">✅</span>
+        <template slot="required" slot-scope="data">
+          <span v-if="data.value === true">✅</span>
         </template>
-        <template
-          slot="val"
-          slot-scope="data"
-        >
+        <template slot="val" slot-scope="data">
           <code v-if="data.value">
             {{ data.value }}
           </code>
@@ -211,35 +215,23 @@ export default {
             <i>{{ data.item.additionalInfo }}</i>
           </div>
           <template v-if="data.item.enum">
-            <div>{{ data.item.enum }}: <i>{{ data.item.enumValues.join(', ') }}</i></div>
+            <div>
+              {{ data.item.enum }}: <i>{{ data.item.enumValues.join(', ') }}</i>
+            </div>
           </template>
         </template>
-      </b-table>
+      </gl-table>
     </div>
 
     <div v-if="displaySlots.length > 0">
       <h4>Slots</h4>
-      <b-table
-        :items="displaySlots"
-        small
-        head-variant="default"
-        striped
-      />
+      <b-table :items="displaySlots" small head-variant="default" striped />
     </div>
 
     <div v-if="displayEvents.length > 0">
       <h4>Events</h4>
-      <b-table
-        :items="displayEvents"
-        :fields="eventsFields"
-        small
-        head-variant="default"
-        striped
-      >
-        <template
-          slot="args"
-          slot-scope="field"
-        >
+      <gl-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
+        <template slot="args" slot-scope="field">
           <div
             v-for="argument in field.value"
             :key="`event-${field.item.event}-${argument.arg ? argument.arg : 'none'}`"
@@ -248,28 +240,30 @@ export default {
             <span>{{ argument.description }}</span>
           </div>
         </template>
-      </b-table>
+      </gl-table>
     </div>
 
     <h3>Import</h3>
 
     <p>
-      <code>import { {{ componentName }} } from '@gitlab/ui';</code>
+      <code>import { {{ componentName }} } from '@gitlab/ui{{ importSubDir }}';</code>
     </p>
 
     <template v-if="bootstrapComponentName">
       <h3 id="under-the-hood">vue-bootstrap component</h3>
-      <p>This component uses <a
-        :href="`https://bootstrap-vue.js.org/docs/components/${bootstrapComponentLink}`"
-        target="blank"
-      ><code>&lt;{{ bootstrapComponentName }}&gt;</code></a> from vue-bootstrap internally. So please take a look also there at their extensive documentation.</p>
+      <p>
+        This component uses
+        <a
+          :href="`https://bootstrap-vue.js.org/docs/components/${bootstrapComponentLink}`"
+          target="blank"
+          ><code>&lt;{{ bootstrapComponentName }}&gt;</code></a
+        >
+        from vue-bootstrap internally. So please take a look also there at their extensive
+        documentation.
+      </p>
     </template>
   </div>
-  <b-alert
-    v-else
-    show
-    variant="warning"
-  >
+  <b-alert v-else show variant="warning">
     No gitlab-ui component found with the name {{ componentName }}
   </b-alert>
 </template>

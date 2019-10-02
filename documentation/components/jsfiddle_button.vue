@@ -1,8 +1,5 @@
 <template>
-  <b-button
-    type="button"
-    @click="submit"
-  >
+  <b-button type="button" @click="submit">
     Edit in JSFiddle
   </b-button>
 </template>
@@ -15,7 +12,6 @@ const generateHtml = source => `<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="https://gitlab-org.gitlab.io/gitlab-ce/application.css">
   <script type="module">
   import Vue from 'https://unpkg.com/vue@${Vue.version}/dist/vue.esm.browser.js';
   import * as components from 'https://unpkg.com/@gitlab/ui@latest/dist/index.js';

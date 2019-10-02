@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <b-popover ref="bPopover" v-bind="$attrs" @show="onPopoverShow">
+  <b-popover customClass="gl-popover" ref="bPopover" v-bind="$attrs" @show="onPopoverShow">
     <template slot="title">
       <slot name="title"></slot>
     </template>

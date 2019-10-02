@@ -23,7 +23,7 @@ const template = `
   />
 `;
 
-function generateData({
+function generateProps({
   data = [
     [58, 49, 38, 23, 27, 68, 38, 35, 7, 64, 65, 31],
     [8, 6, 34, 19, 9, 7, 17, 25, 14, 7, 10, 32],
@@ -39,57 +39,65 @@ function generateData({
   presentation = columnOptions.stacked,
 } = {}) {
   return {
-    data: array('Chart Data', data),
-    option: object('Echart Options', option),
-    presentation: select('presentation', columnOptions, presentation),
-    groupBy: array('Group By', groupBy),
-    xAxisType: text('X Axis Type', xAxisType),
-    xAxisTitle: text('X Axis Title', xAxisTitle),
-    yAxisTitle: text('Y Axis Title', yAxisTitle),
-    seriesNames: array('Series Names', seriesNames),
+    data: {
+      default: object('Chart Data', data),
+    },
+    option: {
+      default: object('Echart Options', option),
+    },
+    presentation: {
+      default: select('presentation', columnOptions, presentation),
+    },
+    groupBy: {
+      default: array('Group By', groupBy),
+    },
+    xAxisType: {
+      default: text('X Axis Type', xAxisType),
+    },
+    xAxisTitle: {
+      default: text('X Axis Title', xAxisTitle),
+    },
+    yAxisTitle: {
+      default: text('Y Axis Title', yAxisTitle),
+    },
+    seriesNames: {
+      default: array('Series Names', seriesNames),
+    },
   };
 }
 
 documentedStoriesOf('charts|stacked-column-chart', readme)
   .addDecorator(withKnobs)
   .add('stacked', () => ({
-    data() {
-      return generateData();
-    },
+    props: generateProps(),
     components,
     template,
   }))
   .add('tiled', () => ({
-    data() {
-      return generateData({ presentation: columnOptions.tiled });
-    },
+    props: generateProps({ presentation: columnOptions.tiled }),
     components,
     template,
   }))
   .add('with zoom and scroll', () => ({
-    data() {
-      return generateData({
-        option: {
-          dataZoom: [
-            {
-              startValue: 1,
-              handleIcon: getSvgEchartsPath('scroll-handle'),
-            },
-          ],
-        },
-      });
-    },
+    props: generateProps({
+      option: {
+        dataZoom: [
+          {
+            startValue: 1,
+            handleIcon: getSvgEchartsPath('scroll-handle'),
+          },
+        ],
+      },
+    }),
     components,
     template,
   }))
   .add('with toolbox', () => ({
-    data() {
-      return generateData({
-        option: {
-          toolbox,
-        },
-      });
-    },
+    props: generateProps({
+      option: {
+        toolbox,
+      },
+    }),
     components,
     template,
   }));

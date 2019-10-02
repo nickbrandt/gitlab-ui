@@ -30,6 +30,9 @@ export {
 } from '../components/base/skeleton_loading/skeleton_loading.documentation';
 export { default as GlBadgeDocumentation } from '../components/base/badge/badge.documentation';
 export { default as GlButtonDocumentation } from '../components/base/button/button.documentation';
+export {
+  default as GlNewButtonDocumentation,
+} from '../components/base/new_button/new_button.documentation';
 export { default as GlLinkDocumentation } from '../components/base/link/link.documentation';
 export {
   default as GlLoadingIconDocumentation,
@@ -112,6 +115,20 @@ export {
   default as GlDatepickerDocumentation,
 } from '../components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../components/base/token/token.documentation';
+export { default as GlToggleDocumentation } from '../components/base/toggle/toggle.documentation';
+export {
+  default as GlDaterangePickerDocumentation,
+} from '../components/base/daterange_picker/daterange_picker.documentation';
+export {
+  default as GlSortingDocumentation,
+} from '../components/base/sorting/sorting.documentation';
+export {
+  default as GlSortingItemDocumentation,
+} from '../components/base/sorting/sorting_item.documentation';
+
+export {
+  default as GlIntersperseDocumentation,
+} from '../components/base/intersperse/intersperse.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

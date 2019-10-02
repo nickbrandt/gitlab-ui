@@ -62,6 +62,24 @@ describe('chart legend component', () => {
     expect(legendWrapper.findAll(GlChartSeriesLabel).length).toBe(1);
   });
 
+  it('allows user to override max value label text using props', () => {
+    legendWrapper.setProps({ maxText: 'maxText' });
+    expect(legendWrapper.text()).toMatch('maxText');
+  });
+
+  it('allows user to override average value label text using props', () => {
+    legendWrapper.setProps({ averageText: 'averageText' });
+    expect(legendWrapper.text()).toMatch('averageText');
+  });
+
+  it('displays "Avg" for the average value label by default', () => {
+    expect(legendWrapper.props().averageText).toMatch('Avg');
+  });
+
+  it('displays "Max" for the max value label by default', () => {
+    expect(legendWrapper.props().maxText).toMatch('Max');
+  });
+
   describe('when clicking on a series label', () => {
     it('dispatches a `highlight` action on the chart', () => {
       legendWrapper.find(GlChartSeriesLabel).trigger('click');

@@ -50,6 +50,16 @@ export default {
       required: false,
       default: null,
     },
+    legendAverageText: {
+      type: String,
+      required: false,
+      default: 'Avg',
+    },
+    legendMaxText: {
+      type: String,
+      required: false,
+      default: 'Max',
+    },
   },
   data() {
     return {
@@ -201,7 +211,13 @@ export default {
 
 <template>
   <div class="position-relative">
-    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" @updated="onUpdated"/>
+    <chart
+      v-bind="$attrs"
+      :options="options"
+      v-on="$listeners"
+      @created="onCreated"
+      @updated="onUpdated"
+    />
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
@@ -215,9 +231,7 @@ export default {
       </template>
       <template v-else>
         <div slot="title">{{ tooltipTitle }}</div>
-        <tooltip-default-format 
-          :tooltip-content="tooltipContent"
-        />
+        <tooltip-default-format :tooltip-content="tooltipContent" />
       </template>
     </chart-tooltip>
     <chart-legend
@@ -226,6 +240,8 @@ export default {
       :style="legendStyle"
       :series-info="seriesInfo"
       :text-style="compiledOptions.textStyle"
+      :average-text="legendAverageText"
+      :max-text="legendMaxText"
     />
   </div>
 </template>

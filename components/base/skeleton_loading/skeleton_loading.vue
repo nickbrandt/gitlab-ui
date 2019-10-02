@@ -20,10 +20,6 @@ export default {
 
 <template>
   <div class="animation-container">
-    <div
-      v-for="(css, index) in lineClasses"
-      :key="index"
-      :class="css"
-    ></div>
+    <div v-for="(css, index) in lineClasses" :key="index" :class="css"></div>
   </div>
 </template>
