@@ -19,7 +19,9 @@ export {
 } from '../components/charts/tooltip/tooltip.documentation';
 export { default as GlToastDocumentation } from '../components/base/toast/toast.documentation';
 export { default as GlAvatarDocumentation } from '../components/base/avatar/avatar.documentation';
-export { default as GlAvatarLinkDocumentation } from '../components/base/avatar_link/avatar_link.documentation';
+export {
+  default as GlAvatarLinkDocumentation,
+} from '../components/base/avatar_link/avatar_link.documentation';
 export {
   default as GlAvatarLabeledDocumentation,
 } from '../components/base/avatar_labeled/avatar_labeled.documentation';
