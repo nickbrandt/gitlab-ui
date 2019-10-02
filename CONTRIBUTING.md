@@ -20,6 +20,74 @@
 1. (You or maintainer) will update your integration MR package.json dependency reference to the newly released gitlab-ui version
 1. Maintainer will merge the integration MR
 
+## Conventional commits
+
+We use conventional commits specifications to write meaningful commit messages that are used as part of our semantic release process.
+
+Please read the official specifications for more details: https://www.conventionalcommits.org/
+
+When opening an MR, make sure your changes are descibed by at least one commit message following conventional commit conventions,
+and/or that the MR's title itself follows those conventions. Following these conventions will result in a properly versioned package
+and clear changelogs for every version.
+
+### When should my MR's title follow these conventions?
+
+It's always a good idea to follow the conventions for your MR's title as well as for commit messages, this way, if your MR is squashed
+upon merge, the maintainer will be able to use its title as the final commit message, which will result in a properly formatted history.
+
+### Is it okay that all my commits don't follow the conventions in a single MR?
+
+It's recommended that all commits follow the conventions because we refer to those commits when generating changelogs. Imagine your MR's
+history looks like this:
+
+```
+2b2b2b2 Correcting something in the awesome feature
+1a1a1a1 feat: adding an awesome feature
+```
+
+When generating the changelog for the above, we will reference commit `1a1a1a1` which follows the conventions, but looking at the diff
+for this commit will not give a complete overview of the feature it descibes, which might be confusing. Idealy, commit `2b2b2b2` should
+have been squashed in `1a1a1a1`.
+
+It's okay to not always follow the recommendation above, as long as every meaningful change is described by one properly formatted message.
+Example:
+
+```
+3c3c3c3 Apply review suggestion
+1a1a1a1 feat: adding an awesome feature
+```
+
+In the example above, you might want to keep `1a1a1a1` and `3c3c3c3` separated to help in the review process and that would be fine.
+
+> NOTE: It would NOT be all right for `3c3c3c3` to follow the conventions because it doesn't bring any meaningful change to `master`.
+> Conventional commits should only be used to describe changes that will land in the main branch, NOT for changes to your own branch.
+
+### What types can I use for my commit messages?
+
+Here are the types we recommend you use:
+
+```
+feat:     A new feature
+fix:      A bug fix
+docs:     Documentation only changes
+style:    Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+refactor: A code change that neither fixes a bug nor adds a feature
+perf:     A code change that improves performance
+test:     Adding missing tests or correcting existing tests
+build:    Changes that affect the build system or external dependencies
+ci:       Changes to our CI configuration files and scripts
+chore:    Other changes that don't modify src or test files
+revert:   Reverts a previous commit
+```
+
+> Note that only `feat:` and `fix:` types trigger a new release
+
+### Commitizen
+
+https://commitizen.github.io/cz-cli/
+
+Commitizen is a CLI tool that provides an interactive interface to help you write commit messages following conventional commits specifications.
+
 ## Link local gitlab-ui with gitlab-ce
 
 During development, you can link your local gitlab-ui changes to gitlab-ce. This means you don't need to update `package.json`, and can easily test changes.
