@@ -31,6 +31,8 @@ Import component stylesheets located in components here. i.e.
 @import '../components/charts/heatmap/heatmap';
 @import '../components/charts/legend/legend';
 @import '../components/charts/series_label/series_label';
+@import '../components/charts/tooltip/tooltip';
 @import '../components/base/toggle/toggle';
 @import '../components/base/pagination/pagination';
 @import '../components/base/infinite_scroll/infinite_scroll';
+@import '../components/shared_components/charts/tooltip_default_format';

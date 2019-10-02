@@ -14,12 +14,18 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <div v-for="(value, label) in tooltipContent" :key="`${label}${value.value}`" class="d-flex">
-      <series-label :color="value.color" class="flex-grow-1">
+  <div class="gl-charts-tooltip-default-format">
+    <div
+      v-for="(value, label) in tooltipContent"
+      :key="`${label}${value.value}`"
+      class="gl-charts-tooltip-default-format-series"
+    >
+      <series-label :color="value.color" class="gl-charts-tooltip-default-format-series-label">
         {{ label }}
       </series-label>
-      <div class="prepend-left-32 pull-right">{{ value.value }}</div>
+      <div class="gl-charts-tooltip-default-format-series-value">
+        {{ value.value }}
+      </div>
     </div>
   </div>
 </template>
