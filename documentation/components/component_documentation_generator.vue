@@ -14,6 +14,8 @@ import { getValidationInfoText } from '../../utils/validation_utils';
 
 import { gitlabComponents, gitlabChartComponents, componentValidator } from '../all_components';
 
+import GlTable from '../../components/base/table/table.vue';
+
 import { getDocumentationFor } from '../components_documentation';
 
 Vue.use(BootstrapVue);
@@ -39,6 +41,9 @@ function getPropDefaultValue(defaultValue) {
 }
 
 export default {
+  components: {
+    GlTable,
+  },
   props: {
     componentName: {
       type: String,
@@ -182,7 +187,7 @@ export default {
   <div v-if="actualComponent.options">
     <div v-if="displayComponentProperties.length > 0">
       <h3>Props</h3>
-      <b-table
+      <gl-table
         :items="displayComponentProperties"
         :fields="componentPropertiesFields"
         small
@@ -215,7 +220,7 @@ export default {
             </div>
           </template>
         </template>
-      </b-table>
+      </gl-table>
     </div>
 
     <div v-if="displaySlots.length > 0">
@@ -225,7 +230,7 @@ export default {
 
     <div v-if="displayEvents.length > 0">
       <h4>Events</h4>
-      <b-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
+      <gl-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
         <template slot="args" slot-scope="field">
           <div
             v-for="argument in field.value"
@@ -235,7 +240,7 @@ export default {
             <span>{{ argument.description }}</span>
           </div>
         </template>
-      </b-table>
+      </gl-table>
     </div>
 
     <h3>Import</h3>

@@ -32,11 +32,22 @@ export default {
       default: newButtonSizeOptions.medium,
       validator: value => Object.keys(newButtonSizeOptions).includes(value),
     },
+    selected: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
+    hasText() {
+      return this.$slots.default !== undefined;
+    },
     buttonClasses() {
       return {
-        'btn-inverted': this.category === newButtonCategoryOptions.secondary,
+        'btn-icon': !this.hasText,
+        'btn-secondary': this.category === newButtonCategoryOptions.secondary,
+        'new-gl-button': this.variant !== newButtonVariantOptions.link,
+        selected: this.selected,
       };
     },
     buttonSize() {
@@ -55,6 +66,7 @@ export default {
     :class="buttonClasses"
     v-on="$listeners"
   >
+    <slot name="icon"></slot>
     <slot></slot>
   </b-button>
 </template>

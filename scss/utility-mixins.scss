@@ -26,6 +26,8 @@
 
 @mixin gl-p-1 { padding: $gl-spacing-scale-1; }
 
+@mixin gl-p-2 { padding: $gl-spacing-scale-2; }
+
 @mixin gl-p-3 { padding: $gl-spacing-scale-3; }
 
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
@@ -115,11 +117,15 @@
 
 @mixin gl-mt-5 { margin-top: $gl-spacing-scale-5; }
 
+@mixin gl-mr-0 { margin-right: $gl-spacing-scale-0; }
+
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 
 @mixin gl-mr-3 { margin-right: $gl-spacing-scale-3; }
 
 @mixin gl-mr-5 { margin-right: $gl-spacing-scale-5; }
+
+@mixin gl-mb-0 { margin-bottom: $gl-spacing-scale-0; }
 
 @mixin gl-mb-1 { margin-bottom: $gl-spacing-scale-1; }
 
@@ -406,11 +412,17 @@
 
 @mixin gl-text-green-700 { color: $green-700; }
 
+@mixin gl-text-green-800 { color: $green-800; }
+
 @mixin gl-text-orange-500 { color: $orange-500; }
 
 @mixin gl-text-orange-600 { color: $orange-600; }
 
 @mixin gl-text-orange-700 { color: $orange-700; }
+
+@mixin gl-text-orange-800 { color: $orange-800; }
+
+@mixin gl-text-orange-900 { color: $orange-900; }
 
 @mixin gl-text-red-500 { color: $red-500; }
 
@@ -456,6 +468,8 @@
 /**
 * Vertical align utilities
 */
+@mixin gl-vertical-align-baseline { vertical-align: baseline; }
+
 @mixin gl-vertical-align-middle { vertical-align: middle; }
 
 @mixin gl-vertical-align-top { vertical-align: top; }
@@ -481,6 +495,10 @@
 
 @mixin gl-inset-border-1-gray-400 {
   box-shadow: inset 0 0 0 $gl-border-size-1 $gray-400;
+}
+
+@mixin gl-inset-border-1-gray-600 {
+  box-shadow: inset 0 0 0 $gl-border-size-1 $gray-600;
 }
 
 @mixin gl-inset-border-b-2-gray-200 {
@@ -619,6 +637,10 @@
 * gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
 */
 @mixin gl-overflow-hidden { overflow: hidden; }
+
+@mixin gl-overflow-y-auto { overflow-y: auto; }
+
+@mixin gl-overflow-x-hidden { overflow-x: hidden; }
 
 @mixin gl-relative { position: relative; }
 
@@ -794,7 +816,7 @@
 */
 @mixin gl-fill-gray-700 { fill: $gray-700; }
 
-@mixin gl-fill-current-color { fill: currentColor; };
+@mixin gl-fill-current-color { fill: currentColor; }
 
 /**
 * White-space utilities.
