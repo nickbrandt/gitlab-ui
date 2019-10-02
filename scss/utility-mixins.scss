@@ -676,6 +676,8 @@
 
 @mixin gl-user-select-none { user-select: none; }
 
+@mixin gl-pointer-events-none { pointer-events: none; }
+
 /**
 * Background color utilities.
 *

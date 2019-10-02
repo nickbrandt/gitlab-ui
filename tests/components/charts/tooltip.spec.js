@@ -33,11 +33,11 @@ describe('Chart Tooltip', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe('allow pointer events when selectableText is true', () => {
+  describe('allow pointer events when pointerEvents is true', () => {
     wrapper = shallowMount(Tooltip, {
       propsData: {
         chart,
-        selectableText: true,
+        pointerEvents: true,
       },
     });
 

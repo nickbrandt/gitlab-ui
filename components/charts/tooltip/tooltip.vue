@@ -35,7 +35,7 @@ export default {
       required: false,
       default: null,
     },
-    selectableText: {
+    pointerEvents: {
       type: Boolean,
       required: false,
       default: false,
@@ -72,7 +72,7 @@ export default {
       :style="containerPosition"
       style="width: 1px; height: 1px"
       class="chart-tooltip position-absolute "
-      :class="{ 'gl-pointer-events-none': !selectableText }"
+      :class="{ 'gl-pointer-events-none': !pointerEvents }"
     ></div>
     <!--
       Needs to be triggered programatically using `show` property

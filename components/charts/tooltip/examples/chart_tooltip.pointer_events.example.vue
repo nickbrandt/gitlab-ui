@@ -24,7 +24,7 @@ export default {
       v-if="echartInstance"
       :chart="echartInstance"
       :show="true"
-      :selectable-text="true"
+      :pointer-events="true"
       top="50%"
       left="0px"
     >
