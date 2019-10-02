@@ -26,6 +26,8 @@
 
 @mixin gl-p-1 { padding: $gl-spacing-scale-1; }
 
+@mixin gl-p-2 { padding: $gl-spacing-scale-2; }
+
 @mixin gl-p-3 { padding: $gl-spacing-scale-3; }
 
 @mixin gl-p-4 { padding: $gl-spacing-scale-4; }
@@ -114,6 +116,8 @@
 @mixin gl-mt-3 { margin-top: $gl-spacing-scale-3; }
 
 @mixin gl-mt-5 { margin-top: $gl-spacing-scale-5; }
+
+@mixin gl-mr-0 { margin-right: $gl-spacing-scale-0; }
 
 @mixin gl-mr-2 { margin-right: $gl-spacing-scale-2; }
 

@@ -29,8 +29,16 @@
   @include gl-bg-white;
   @include gl-line-height-normal;
   @include gl-text-gray-900;
+  @include gl-fill-current-color;
   @include gl-inset-border-1-gray-400;
+  @include gl-display-inline-flex;
   @include gl-font-base;
+
+  svg {
+    @include gl-h-5;
+    @include gl-w-5;
+    @include gl-mr-2;
+  }
 
   &:hover {
     @include gl-bg-gray-200;
@@ -246,6 +254,13 @@
     @include gl-px-3;
     @include gl-line-height-normal;
     @include gl-font-base;
+
+    svg {
+      @include gl-h-4;
+      @include gl-w-4;
+      @include gl-mt-1;
+      @include gl-mb-1;
+    }
   }
 
   &.btn-dashed {
@@ -258,6 +273,20 @@
     &:active,
     &.selected {
       outline: none;
+    }
+  }
+
+  &.btn-icon {
+    @include gl-p-3;
+    @include gl-line-height-normal;
+
+    svg {
+      @include gl-mr-0;
+    }
+
+    &.btn-sm {
+      @include gl-py-2;
+      @include gl-px-3;
     }
   }
 

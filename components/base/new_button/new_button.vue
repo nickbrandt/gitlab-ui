@@ -39,8 +39,12 @@ export default {
     },
   },
   computed: {
+    hasText() {
+      return this.$slots.default !== undefined;
+    },
     buttonClasses() {
       return {
+        'btn-icon': !this.hasText,
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
         'new-gl-button': this.variant !== newButtonVariantOptions.link,
         selected: this.selected,
@@ -62,6 +66,7 @@ export default {
     :class="buttonClasses"
     v-on="$listeners"
   >
+    <slot name="icon"></slot>
     <slot></slot>
   </b-button>
 </template>
