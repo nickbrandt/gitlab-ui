@@ -12,7 +12,7 @@ const ExtendedBDropdown = {
 
 describe('Dropdown component', () => {
   let wrapper;
-  
+
   const constructor = props => {
     wrapper = mount(Dropdown, {
       attachToDocument: true,
