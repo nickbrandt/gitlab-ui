@@ -15,6 +15,10 @@ const components = {
   GlDropdownItem,
 };
 
+function showDropdown(component) {
+  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
+}
+
 function generateProps({
   category = newButtonCategoryOptions.tertiary,
   variant = newDropdownVariantOptions.default,
@@ -53,6 +57,7 @@ documentedStoriesOf('base|new-dropdown', readme)
     components,
     template: `
       <gl-new-dropdown 
+        ref="dropdown"
         text="Some dropdown""
         :category="category"
         :variant="variant"
@@ -65,7 +70,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-item>Last item</gl-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      showDropdown(this);
     },
   }))
   .add('with links', () => ({
@@ -85,7 +90,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-item href="https://about.gitlab.com/">Last link</gl-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      showDropdown(this);
     },
   }))
   .add('with divider', () => ({
@@ -105,7 +110,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-item>Below divider</gl-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      showDropdown(this);
     },
   }))
   .add('with header', () => ({
@@ -128,6 +133,6 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-item>Last item</gl-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      showDropdown(this);
     },
   }));
