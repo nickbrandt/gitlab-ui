@@ -14,3 +14,5 @@ export const getResetAnimationsCSS = () => `
   }`;
 
 export default getResetAnimationsCSS;
+
+export const sleep = duration => new Promise(resolve => setTimeout(resolve, duration));

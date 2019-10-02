@@ -61,7 +61,7 @@ export default {
 </script>
 
 <template>
-  <b-dropdown class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners" ref="dropdown">
+  <b-dropdown ref="dropdown" class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners">
     <slot></slot>
     <slot slot="button-content" name="button-content">
       {{ text }}
