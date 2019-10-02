@@ -1,0 +1,15 @@
+.gl-series-label-container {
+  @include gl-display-flex;
+  @include gl-font-base;
+
+  > .gl-series-label {
+    @include gl-flex-shrink-0;
+    @include gl-p-0;
+    @include gl-mr-3;
+    @include gl-text-center;
+
+    svg {
+      @include gl-display-block;
+    }
+  }
+}

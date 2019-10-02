@@ -1,0 +1,16 @@
+.gl-legend {
+  @include gl-display-flex;
+  @include gl-flex-wrap;
+  @include gl-flex-shrink-0;
+  @include gl-text-gray-900;
+
+  .gl-legend-series {
+    @include gl-display-flex;
+    @include gl-mr-3;
+    @include gl-flex-shrink-0;
+
+    .gl-legend-series-label {
+      @include gl-mr-3;
+    }
+  }
+}

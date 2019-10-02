@@ -65,10 +65,9 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex">
-    <div v-if="color.length" class="flex-shrink-0 svg-content p-0 append-right-8">
+  <div class="gl-series-label-container">
+    <div v-if="color.length" class="gl-series-label">
       <svg
-        class="d-block"
         :style="svgStyles"
         :width="formatPixelDimension($options.svgWidth)"
         :height="formatPixelDimension($options.svgHeight)"
@@ -76,7 +75,7 @@ export default {
         <path :d="pathContent" />
       </svg>
     </div>
-    <div ref="label">
+    <div ref="label" class="gl-series-label">
       <slot></slot>
     </div>
   </div>

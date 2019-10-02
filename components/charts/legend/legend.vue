@@ -78,12 +78,12 @@ export default {
 </script>
 
 <template>
-  <div class="d-flex flex-wrap flex-shrink-0">
+  <div class="gl-legend">
     <div
       v-for="(series, key) in seriesInfo"
       :key="key"
       :class="{ 'text-muted': disabledSeries[key] }"
-      class="flex-shrink-0 d-flex append-right-8"
+      class="gl-legend-series"
       :style="fontStyle"
       role="button"
       @click="handleClick(series.name, key)"
@@ -93,7 +93,7 @@ export default {
       <gl-chart-series-label
         :color="getColor(series.color, key)"
         :type="series.type"
-        class="append-right-8"
+        class="gl-legend-series-label"
       >
         <strong>{{ series.name }}</strong>
       </gl-chart-series-label>
