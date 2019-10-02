@@ -25,9 +25,10 @@ const EnableGitLabCssCheckbox = () => {
   const checkboxStyles = { marginRight: '8px' };
 
   return h('div', null, [
-    h(WithTooltip, { placement: 'bottom' }, [
-      h('label', { for: id, title }, [
+    h(WithTooltip, { placement: 'bottom', key: 'gitlab-css-checkbox-tooltip' }, [
+      h('label', { htmlFor: id, title, key: 'gitlab-css-checkbox-label' }, [
         h('input', {
+          key: 'gitlab-css-checkbox',
           type: 'checkbox',
           id,
           checked: state.gitlabCssIncluded,
@@ -47,10 +48,11 @@ const addonStyles = {
   fontSize: '0.875rem',
 };
 
-const GitlabCssPanel = () => h('div', { style: addonStyles }, [h(EnableGitLabCssCheckbox)]);
+const GitlabCssCheckBoxToolbox = () =>
+  h('div', { style: addonStyles }, [h(EnableGitLabCssCheckbox, { key: 'gitlab-css-checkbox' })]);
 
 addons.register(ADDON_ID, () => {
-  const render = () => h(GitlabCssPanel);
+  const render = () => h(GitlabCssCheckBoxToolbox);
   const title = 'GitLab CSS';
 
   addons.add(PANEL_ID, {
