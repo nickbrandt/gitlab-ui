@@ -65,8 +65,8 @@ export default {
 </script>
 
 <template>
-  <div class="gl-series-label">
-    <div v-if="color.length">
+  <div class="gl-series-label-container">
+    <div v-if="color.length" class="gl-series-label">
       <svg
         :style="svgStyles"
         :width="formatPixelDimension($options.svgWidth)"
