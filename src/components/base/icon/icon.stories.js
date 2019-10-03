@@ -3,6 +3,7 @@ import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './icon.md';
 import { GlIcon } from '../../../../index';
+import { iconSizeOptions } from '../../../utils/constants';
 
 const components = {
   GlIcon,
@@ -17,8 +18,8 @@ documentedStoriesOf('base|icon', readme)
         default: select('name', iconSpriteInfo.icons, 'check-circle'),
       },
       size: {
-        type: String,
-        default: select('size', [8, 10, 12, 14, 16, 18, 24, 32, 48, 72], 32),
+        type: Number,
+        default: select('size', iconSizeOptions, 32),
       },
     },
     components,

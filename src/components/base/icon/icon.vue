@@ -1,8 +1,7 @@
 <script>
 import iconsPath from '@gitlab/svgs/dist/icons.svg';
+import { iconSizeOptions } from '../../../utils/constants';
 
-// only allow classes in images.scss e.g. s12
-const validSizes = [8, 10, 12, 14, 16, 18, 24, 32, 48, 72];
 let iconValidator = () => true;
 
 /*
@@ -42,7 +41,7 @@ export default {
       type: Number,
       required: false,
       default: 16,
-      validator: value => validSizes.includes(value),
+      validator: value => iconSizeOptions.includes(value),
     },
   },
 
@@ -61,7 +60,7 @@ export default {
 </script>
 
 <template>
-  <svg :class="[iconSizeClass, iconClass]">
+  <svg :class="['gl-icon', iconClass, iconSizeClass]">
     <use v-bind="{ 'xlink:href': spriteHref }" />
   </svg>
 </template>

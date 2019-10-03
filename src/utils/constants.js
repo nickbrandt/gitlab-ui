@@ -96,6 +96,9 @@ export const newButtonSizeOptionsMap = {
   medium: 'md',
 };
 
+// size options all have corresponding styles (e.g. .s12 defined in icon.scss)
+export const iconSizeOptions = [8, 10, 12, 14, 16, 18, 24, 32, 48, 72];
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',
