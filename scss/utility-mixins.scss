@@ -227,8 +227,6 @@
 
 @mixin gl-h-13 { height: $gl-spacing-scale-13; }
 
-@mixin gl-h-6 { height: $gl-spacing-scale-6; }
-
 /**
 * Outline utilities.
 *
@@ -250,7 +248,6 @@
 @mixin gl-border-b-solid { border-bottom-style: solid; }
 
 @mixin gl-border-t-none { border-top-style: none; }
-.gl-border-t-none { @include gl-border-t-none; }
 
 @mixin gl-outline-none { outline: none; }
 
@@ -268,7 +265,7 @@
 
 @mixin gl-border-gray-300 { border-color: $gray-300; }
 
-@mixin gl-border-blue-600 { border-color: $blue-600;; }
+@mixin gl-border-blue-600 { border-color: $blue-600; }
 
 @mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
 
@@ -359,7 +356,7 @@
 
 @mixin gl-font-3xl { font-size: $gl-type-scale-3xl; }
 
-@mixin gl-font-icon-size {font-size: $default-icon-size; }
+@mixin gl-font-icon-size { font-size: $default-icon-size; }
 
 /**
 * Font-weight utilities.
@@ -430,7 +427,17 @@
 
 @mixin gl-text-red-700 { color: $red-700; }
 
-@mixin gl-text-blue-500 { color: $blue-500; }
+/**
+* SVG fill color utilities.
+*
+* naming convention: gl-fill-{color-palette-variable-name}
+* notes:
+* - Strictly based design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+@mixin gl-fill-blue-500 { fill: $blue-500; }
+
+@mixin gl-fill-gray-600 { fill: $gray-600; }
 
 /**
 * Line height utilities.
@@ -456,8 +463,6 @@
 
 @mixin gl-text-center { text-align: center; }
 
-@mixin gl-text-left { text-align: left; }
-
 /**
 * Text utilities
 */
@@ -473,13 +478,6 @@
 @mixin gl-vertical-align-middle { vertical-align: middle; }
 
 @mixin gl-vertical-align-top { vertical-align: top; }
-
-/**
-* White space utilities
-*/
-@mixin gl-white-space-normal { white-space: normal; }
-
-@mixin gl-white-space-nowrap { white-space: nowrap; }
 
 /**
 * Inset border utilities
@@ -664,14 +662,6 @@
 @mixin gl-left-1 { left: $gl-spacing-scale-1; }
 
 /**
-* Overflow utilities.
-*
-* naming convention: gl-overflow-{property-value} |
-* gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
-*/
-@mixin gl-overflow-hidden { overflow: hidden; }
-
-/**
 * Cursor utilities
 *
 * naming convention: gl-cursor-{property-value}
@@ -679,8 +669,6 @@
 @mixin gl-cursor-default { cursor: default; }
 
 @mixin gl-cursor-pointer { cursor: pointer; }
-
-@mixin gl-cursor-not-allowed { cursor: not-allowed; }
 
 @mixin gl-cursor-not-allowed { cursor: not-allowed; }
 
