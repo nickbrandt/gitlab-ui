@@ -23,6 +23,9 @@
 }
 
 .gl-toggle {
+  @include gl-display-inline-flex;
+  @include gl-align-items-center;
+  @include gl-justify-content-center;
   @include gl-border-0;
   @include gl-cursor-pointer;
   @include gl-bg-gray-600;
@@ -34,6 +37,7 @@
   @include gl-user-select-none;
   @include gl-rounded-pill;
   @include gl-transition-slow;
+  @include gl-line-height-normal;
 
   &::selection,
   &::before::selection,
@@ -43,6 +47,10 @@
 
   &:focus {
     @include gl-outline-none;
+  }
+
+  .toggle-loading {
+    @include gl-h-5;
   }
 
   .toggle-icon {
@@ -65,7 +73,7 @@
     }
 
     path {
-      @include gl-text-gray-600;
+      @include gl-fill-gray-600;
     }
   }
 
@@ -76,7 +84,7 @@
       transform: translateX($gl-spacing-scale-7);
 
       path {
-        @include gl-text-blue-500;
+        @include gl-fill-blue-500;
       }
     }
   }

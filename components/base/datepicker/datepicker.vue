@@ -103,6 +103,7 @@ export default {
     i18n: {
       type: Object,
       required: false,
+      default: null,
     },
     theme: {
       type: String,
