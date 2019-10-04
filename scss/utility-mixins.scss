@@ -476,6 +476,10 @@
 
 @mixin gl-text-decoration-color-inherit { text-decoration-color: inherit; }
 
+@mixin gl-text-decoration-color-gray-700 { text-decoration-color: $gray-700; }
+
+@mixin gl-text-decoration-color-gray-900 { text-decoration-color: $gray-900; }
+
 @mixin gl-text-transform-none { text-transform: none; }
 
 /**
