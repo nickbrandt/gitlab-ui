@@ -1,6 +1,7 @@
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './avatar_link.md';
+import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
 
 function generateProps() {
   const props = {
@@ -14,6 +15,14 @@ function generateProps() {
         'src',
         'https://assets.gitlab-static.net/uploads/-/system/project/avatar/278964/logo-extra-whitespace.png?width=64'
       ),
+    },
+    size: {
+      type: Number,
+      default: select('size', avatarSizeOptions, 32),
+    },
+    shape: {
+      type: String,
+      default: select('shape', avatarShapeOptions, 'circle'),
     },
     label: {
       type: String,
@@ -34,7 +43,7 @@ documentedStoriesOf('base|avatar/avatar-link', readme)
     props: generateProps(),
     template: `
     <gl-avatar-link target="blank" :href="href">
-      <gl-avatar :src="src" :size="32" />
+      <gl-avatar :src="src" :size="size" :shape="shape" />
     </gl-avatar-link>
     `,
   }))
@@ -42,7 +51,7 @@ documentedStoriesOf('base|avatar/avatar-link', readme)
     props: generateProps(),
     template: `
     <gl-avatar-link target="blank" :href="href">
-      <gl-avatar-labeled :src="src" :label="label" :sub-label="subLabel" :size="32" />
+      <gl-avatar-labeled :src="src" :size="size" :shape="shape" :label="label" :sub-label="subLabel" />
     </gl-avatar-link>
     `,
   }))
@@ -50,7 +59,7 @@ documentedStoriesOf('base|avatar/avatar-link', readme)
     props: generateProps(),
     template: `
     <gl-avatar-link target="blank" :href="href">
-      <gl-avatar-labeled :entity-name="label" :label="label" :sub-label="subLabel" :size="32" />
+      <gl-avatar-labeled :entity-name="label" :label="label" :sub-label="subLabel" :size="size" :shape="shape" />
     </gl-avatar-link>
     `,
   }));
