@@ -15,6 +15,14 @@ function generateProps() {
         'https://assets.gitlab-static.net/uploads/-/system/project/avatar/278964/logo-extra-whitespace.png?width=64'
       ),
     },
+    label: {
+      type: String,
+      default: text('label', 'GitLab User'),
+    },
+    subLabel: {
+      type: String,
+      default: text('subLabel', '@gitlab'),
+    },
   };
 
   return props;
@@ -34,7 +42,7 @@ documentedStoriesOf('base|avatar/avatar-link', readme)
     props: generateProps(),
     template: `
     <gl-avatar-link target="blank" :href="href">
-      <gl-avatar-labeled :src="src" label="GitLab User" sub-label="@gitlab" :size="32" />
+      <gl-avatar-labeled :src="src" :label="label" :sub-label="subLabel" :size="32" />
     </gl-avatar-link>
     `,
   }))
@@ -42,7 +50,7 @@ documentedStoriesOf('base|avatar/avatar-link', readme)
     props: generateProps(),
     template: `
     <gl-avatar-link target="blank" :href="href">
-      <gl-avatar-labeled entity-name="GitLab" label="GitLab User" sub-label="@gitlab" :size="32" />
+      <gl-avatar-labeled :entity-name="label" :label="label" :sub-label="subLabel" :size="32" />
     </gl-avatar-link>
     `,
   }));
