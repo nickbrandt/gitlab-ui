@@ -2,15 +2,14 @@
 import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import GlChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
 import { whiteLight, gray100 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { throttle } from '../../../utils/utils';
 
 const defaultOptions = {
-  tooltip: {
-    transitionDuration: 0,
-  },
   visualMap: {
     show: false,
     inRange: {
@@ -43,6 +42,7 @@ export default {
   components: {
     Chart,
     ChartLegend,
+    GlChartTooltip,
   },
   mixins: [ToolboxMixin],
   props: {
@@ -89,6 +89,12 @@ export default {
   data() {
     return {
       chart: null,
+      tooltip: {
+        content: '',
+        show: false,
+        left: '0',
+        top: '0',
+      },
     };
   },
   computed: {
@@ -101,6 +107,11 @@ export default {
           series: {
             data: this.dataSeries,
             z: 2,
+          },
+          tooltip: {
+            formatter: this.setTooltipContent,
+            showContent: true,
+            transitionDuration: 0,
           },
           grid: {
             height: '30%',
@@ -173,13 +184,34 @@ export default {
         return {
           name: `${lowerBound} - ${upperBound}`,
           color,
+          type: 'solid',
         };
       });
     },
   },
+  beforeDestroy() {
+    this.chart.getDom().removeEventListener('mousemove', this.throttledMouseMove);
+    this.chart.getDom().removeEventListener('mouseout', this.hideTooltip);
+  },
   methods: {
     onCreated(chart) {
       this.chart = chart;
+      this.throttledMouseMove = throttle(this.mouseMove);
+      this.chart.getDom().addEventListener('mousemove', this.throttledMouseMove);
+      this.chart.getDom().addEventListener('mouseout', this.hideTooltip);
+    },
+    mouseMove(mouseEvent) {
+      const xOffset = 2;
+      const { zrX: x, zrY: y } = mouseEvent;
+      this.tooltip.left = `${x + xOffset}px`;
+      this.tooltip.top = `${y}px`;
+      this.tooltip.show = this.chart.containPixel('grid', [x, y]);
+    },
+    hideTooltip() {
+      this.tooltip.show = false;
+    },
+    setTooltipContent({ data }) {
+      this.tooltip.content = `${data[2]}`;
     },
   },
 };
@@ -196,5 +228,14 @@ export default {
       :average-text="legendAverageText"
       :max-text="legendMaxText"
     />
+    <gl-chart-tooltip
+      v-if="chart"
+      :chart="chart"
+      :show="tooltip.show"
+      :top="tooltip.top"
+      :left="tooltip.left"
+    >
+      <div>{{ tooltip.content }}</div>
+    </gl-chart-tooltip>
   </div>
 </template>

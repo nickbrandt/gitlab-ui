@@ -9,6 +9,21 @@ export function debounceByAnimationFrame(fn) {
   };
 }
 
+export function throttle(fn) {
+  let frameId = null;
+
+  return (...args) => {
+    if (frameId) {
+      return;
+    }
+
+    frameId = window.requestAnimationFrame(() => {
+      fn(...args);
+      frameId = null;
+    });
+  };
+}
+
 export function hexToRgba(hex, opacity = 1) {
   const cleanHex = hex.replace('#', '');
   const rgb =
