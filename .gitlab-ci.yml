@@ -104,7 +104,6 @@ visual_gitlab_integration:
   extends: visual
   script:
     - yarn test:visual:gitlab
-  allow_failure: true
 
 unit_tests:
   extends: [.node, .yarn_install]
