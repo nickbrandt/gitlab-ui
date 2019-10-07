@@ -78,6 +78,14 @@ export const newButtonVariantOptions = {
   link: 'link',
 };
 
+export const newDropdownVariantOptions = {
+  default: 'default',
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+};
+
 export const newButtonSizeOptions = {
   small: 'small',
   medium: 'medium',
