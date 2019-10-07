@@ -16,7 +16,10 @@
   @include gl-display-flex;
 
   &:hover {
-    @include gl-text-decoration-none;
+    .gl-label-text {
+      @include gl-text-decoration-underline;
+      @include gl-text-decoration-color-inherit;
+    }
   }
 }
 

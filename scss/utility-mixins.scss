@@ -470,6 +470,10 @@
 */
 @mixin gl-text-decoration-none { text-decoration: none; }
 
+@mixin gl-text-decoration-underline { text-decoration: underline; }
+
+@mixin gl-text-decoration-color-inherit { text-decoration-color: inherit; }
+
 @mixin gl-text-transform-none { text-transform: none; }
 
 /**
