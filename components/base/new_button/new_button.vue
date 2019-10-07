@@ -40,11 +40,17 @@ export default {
   },
   computed: {
     hasText() {
-      return this.$slots.default !== undefined;
+      return Boolean(this.$slots.default);
+    },
+    hasIcon() {
+      return Boolean(this.$slots.icon);
+    },
+    hasEmoji() {
+      return Boolean(this.$slots.emoji);
     },
     buttonClasses() {
       return {
-        'btn-icon': !this.hasText,
+        'btn-icon': !this.hasText && !this.hasEmoji && this.hasIcon,
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
         'new-gl-button': this.variant !== newButtonVariantOptions.link,
         selected: this.selected,
@@ -67,6 +73,7 @@ export default {
     v-on="$listeners"
   >
     <slot name="icon"></slot>
+    <slot name="emoji"></slot>
     <slot></slot>
   </b-button>
 </template>

@@ -1,5 +1,6 @@
 import ButtonBasicExample from './new_button.basic.example.vue';
 import ButtonDisabledExample from './new_button.disabled.example.vue';
+import ButtonEmojiExample from './new_button.emoji.example.vue';
 import ButtonIconExample from './new_button.icon.example.vue';
 import ButtonIconAndTextExample from './new_button.icon_and_text.example.vue';
 import ButtonSelectedExample from './new_button.selected.example.vue';
@@ -28,6 +29,12 @@ export default [
         name: 'Disabled',
         description: 'Disabled button',
         component: ButtonDisabledExample,
+      },
+      {
+        id: 'new-button-emoji',
+        name: 'Emoji button',
+        description: 'Button with an emoji and text inside',
+        component: ButtonEmojiExample,
       },
       {
         id: 'new-button-icon',

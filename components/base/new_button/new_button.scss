@@ -40,6 +40,13 @@
     @include gl-mr-2;
   }
 
+  gl-emoji {
+    @include gl-mr-2;
+    @include gl-relative;
+    @include gl-font-lg;
+    top: px-to-rem(1px);
+  }
+
   &:hover {
     @include gl-bg-gray-200;
     @include new-gl-button-secondary-hover($gray-400);
@@ -260,6 +267,10 @@
       @include gl-w-4;
       @include gl-mt-1;
       @include gl-mb-1;
+    }
+
+    gl-emoji {
+      @include gl-font-sm;
     }
   }
 

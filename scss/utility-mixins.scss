@@ -350,6 +350,8 @@
 
 @mixin gl-font-base { font-size: $gl-type-scale-base; }
 
+@mixin gl-font-lg { font-size: $gl-type-scale-lg; }
+
 @mixin gl-font-xl { font-size: $gl-type-scale-xl; }
 
 @mixin gl-font-2xl { font-size: $gl-type-scale-2xl; }
