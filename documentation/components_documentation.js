@@ -92,6 +92,9 @@ export {
 export {
   default as GlDropdownDocumentation,
 } from '../components/base/dropdown/dropdown.documentation';
+export {
+  default as GlNewDropdownDocumentation,
+} from '../components/base/new_dropdown/new_dropdown.documentation';
 export { default as GlTableDocumentation } from '../components/base/table/table.documentation';
 export {
   default as GlBreadcrumbDocumentation,

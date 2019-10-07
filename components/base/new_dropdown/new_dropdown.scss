@@ -1,0 +1,15 @@
+.gl-new-dropdown {
+  .dropdown-toggle::after {
+    // Remove bootstrap's dropdown caret
+    display: none !important;
+  }
+
+  .dropdown-toggle-split::after {
+    // Replace bootstrap's dropdown caret with a chevron icon
+    @include gl-border-0;
+    content: '\f078';
+    display: block !important;
+    font: normal normal normal 8px/1 FontAwesome;
+    -webkit-font-smoothing: antialiased;
+  }
+}
