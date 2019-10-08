@@ -18,9 +18,6 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red,
   @include gl-border-solid;
   @include gl-border-gray-a-08;
   @include gl-overflow-hidden;
-  @include gl-transition-property-border-color;
-  @include gl-transition-duration-slow;
-  @include gl-transition-timing-function-ease;
 }
 
 .gl-avatar-s16 {

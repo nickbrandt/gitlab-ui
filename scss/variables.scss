@@ -223,6 +223,10 @@ $gl-border-radius-base: $gl-spacing-scale-2;
 $gl-border-radius-large: $gl-spacing-scale-3;
 $gl-border-radius-full: 50%;
 
+// transition parameters
+$gl-transition-duration-slow: 0.4s;
+$gl-transition-duration-medium: 0.2s;
+
 // Toasts
 $toast-max-width: px-to-rem(586px);
 $toast-padding-right: px-to-rem(42px);

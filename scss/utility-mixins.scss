@@ -791,13 +791,13 @@
 */
 @mixin gl-transition-property-border-color { transition-property: border-color; }
 
-@mixin gl-transition-duration-slow { transition-duration: 0.4s; }
+@mixin gl-transition-duration-slow { transition-duration: $gl-transition-duration-slow; }
 
 @mixin gl-transition-timing-function-ease { transition-timing-function: ease; }
 
-@mixin gl-transition-slow { transition: all 0.4s ease; }
+@mixin gl-transition-slow { transition: all $gl-transition-duration-slow ease; }
 
-@mixin gl-transition-medium { transition: all 0.2s ease; }
+@mixin gl-transition-medium { transition: all $gl-transition-duration-medium ease; }
 
 /**
 * Opacity utilities
