@@ -1,0 +1,21 @@
+.gl-avatar-labeled {
+  @include gl-display-inline-flex;
+
+  &-labels {
+    @include gl-ml-3;
+    @include gl-display-flex;
+    @include gl-flex-direction-column;
+    @include gl-justify-content-center;
+    @include gl-font-base;
+    @include gl-line-height-normal;
+  }
+
+  &-label {
+    @include gl-text-gray-900;
+    @include gl-font-weight-bold;
+  }
+
+  &-sublabel {
+    @include gl-text-gray-700;
+  }
+}
