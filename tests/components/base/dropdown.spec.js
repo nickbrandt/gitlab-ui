@@ -13,7 +13,7 @@ const MockBDropdown = {
 describe('Dropdown component', () => {
   let wrapper;
 
-  const constructor = props => {
+  const createComponent = props => {
     wrapper = mount(Dropdown, {
       attachToDocument: true,
       ...props,
@@ -42,27 +42,32 @@ describe('Dropdown component', () => {
     });
 
     it('renders a BDropdown', () => {
-      constructor();
+      createComponent();
       expect(wrapper.find(BDropdown).exists()).toBe(true);
     });
 
-    it('hide method does hide the dropdown', async done => {
-      constructor();
+    it('hide method does hide the dropdown', done => {
+      createComponent();
       wrapper.find('.dropdown-toggle').trigger('click');
-      await wrapper.vm.$nextTick();
-      // Vue has rendered the Dropdown. However, browser
-      // hasn't completed painting yet. Hence waiting until
-      // the next Animation frame is done after Vue's nextTick
-      await waitRAF();
-      expect(wrapper.classes('show')).toBe(true);
-      wrapper.vm.hide();
-      await wrapper.vm.$nextTick();
-      expect(wrapper.classes('show')).toBe(false);
-      done();
+      // Bootstrap dropdown waits for the next animation frame
+      // before it is rendered. Hence we need to wait for it as well.
+      // https://github.com/bootstrap-vue/bootstrap-vue/blob/444d8b0704d11a6e169f4f8559491b9291ee53a5/src/mixins/dropdown.js#L293
+      Promise.all([wrapper.vm.$nextTick(), waitRAF()])
+        .then(() => {
+          expect(wrapper.classes('show')).toBe(true);
+          wrapper.vm.hide();
+          wrapper.vm.$nextTick(() => {
+            expect(wrapper.classes('show')).toBe(false);
+            done();
+          });
+        })
+        .catch(e => {
+          throw new Error(e);
+        });
     });
 
     it('hide method called dropdowns hide method', () => {
-      constructor({
+      createComponent({
         stubs: {
           BDropdown: MockBDropdown,
         },
