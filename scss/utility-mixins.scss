@@ -484,6 +484,15 @@
 @mixin gl-text-transform-none { text-transform: none; }
 
 /**
+* Text indent utilities
+*
+* Naming convention: gl-text-indent-{value}
+*/
+@mixin gl-text-indent-0 { text-indent: 0; }
+
+@mixin gl-text-indent-hide { text-indent: -9999px; }
+
+/**
 * Vertical align utilities
 */
 @mixin gl-vertical-align-baseline { vertical-align: baseline; }
@@ -831,3 +840,12 @@
 @mixin gl-white-space-normal { white-space: normal; }
 
 @mixin gl-white-space-nowrap { white-space: nowrap; }
+
+/**
+* z-index utilities
+*
+* naming convention: gl-z-index-{value}
+*/
+@mixin gl-z-index-0 { z-index: 0; }
+
+@mixin gl-z-index-2 { z-index: 2; }
