@@ -35,38 +35,38 @@
       @include gl-text-gray-600;
     }
   }
+}
 
-  &:not(.custom-rendering) {
-    @include media-breakpoint-down(xs) {
-      &:not(.pagination-lg):not(.pagination-sm) {
-        .prev-page-item,
-        .next-page-item {
-          @include gl-px-5;
-          @include gl-py-3;
-        }
-      }
-
+@include media-breakpoint-down(xs) {
+  .gl-pagination:not(.custom-rendering) {
+    &:not(.pagination-lg):not(.pagination-sm) {
       .prev-page-item,
       .next-page-item {
-        text-indent: -9999px;
-
-        &::after {
-          content: '›';
-          @include gl-display-flex;
-          @include gl-absolute;
-          @include gl-top-0;
-          @include gl-right-0;
-          @include gl-bottom-0;
-          @include gl-left-0;
-          @include gl-align-items-center;
-          @include gl-justify-content-center;
-          text-indent: 0;
-        }
+        @include gl-px-5;
+        @include gl-py-3;
       }
+    }
 
-      .prev-page-item::after {
-        content: '‹';
+    .prev-page-item,
+    .next-page-item {
+      text-indent: -9999px;
+
+      &::after {
+        content: '›';
+        @include gl-display-flex;
+        @include gl-absolute;
+        @include gl-top-0;
+        @include gl-right-0;
+        @include gl-bottom-0;
+        @include gl-left-0;
+        @include gl-align-items-center;
+        @include gl-justify-content-center;
+        text-indent: 0;
       }
+    }
+
+    .prev-page-item::after {
+      content: '‹';
     }
   }
 }
