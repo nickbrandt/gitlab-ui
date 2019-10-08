@@ -1,3 +1,5 @@
+- var gitlabCssLink = 'https://gitlab-org.gitlab.io/gitlab/application.css'
+
 link(
   href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
   rel='stylesheet'
@@ -9,5 +11,30 @@ if isGitlabIntegrationTest
     type='text/css'
     rel='stylesheet'
     media='all'
-    href='https://gitlab-org.gitlab.io/gitlab/application.css'
+    href='#{gitlabCssLink}'
   )
+
+script.
+  window.addEventListener('message', (message) => {
+    if (message.data !== 'toggleGitLabCss') {
+      return;
+    }
+
+    const linkStylesheetId = 'gitlab-css';
+    let linkStylesheet = document.querySelector(`#${linkStylesheetId}`);
+
+    if (linkStylesheet) {
+      linkStylesheet.remove();
+    } else {
+      linkStylesheet = document.createElement('link');
+      linkStylesheet.setAttribute('id', linkStylesheetId);
+      linkStylesheet.setAttribute('href', '#{gitlabCssLink}');
+      linkStylesheet.setAttribute('type', 'text/css');
+      linkStylesheet.setAttribute('rel', 'stylesheet');
+      linkStylesheet.setAttribute('media', 'all');
+
+      const gitlabUiStyles = document.querySelector('style[data-gitlab-ui-style]');
+
+      gitlabUiStyles.insertAdjacentElement('afterend', linkStylesheet);
+    }
+  });
