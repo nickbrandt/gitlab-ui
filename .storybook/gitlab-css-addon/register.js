@@ -1,5 +1,8 @@
-// register.js
-
+/**
+ * We wrote this storybook addon using React.
+ * Storybook implements its addon framework using React technologies like hooks and HoCs.
+ * We’d had preferred using Vue <3 instead, but it is not possible at the moment.
+ */
 import React from 'react';
 import { addons, types } from '@storybook/addons';
 import { useAddonState } from '@storybook/api';
