@@ -53,8 +53,8 @@ export default {
     },
   },
   methods: {
-    hide(focus = false) {
-      this.$refs.dropdown.hide(focus);
+    hide(...args) {
+      this.$refs.dropdown.hide(...args);
     },
   },
 };

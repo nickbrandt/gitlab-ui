@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { BDropdown } from 'bootstrap-vue';
 import Dropdown from '../../../components/base/dropdown/dropdown.vue';
-import { waitRAF } from '../../test_utils';
+import { waitForAnimationFrame } from '../../test_utils';
 
 const MockBDropdown = {
   extends: BDropdown,
@@ -46,23 +46,20 @@ describe('Dropdown component', () => {
       expect(wrapper.find(BDropdown).exists()).toBe(true);
     });
 
-    it('hide method does hide the dropdown', done => {
+    it('hide method does hide the dropdown', () => {
       createComponent();
       wrapper.find('.dropdown-toggle').trigger('click');
       // Bootstrap dropdown waits for the next animation frame
       // before it is rendered. Hence we need to wait for it as well.
       // https://github.com/bootstrap-vue/bootstrap-vue/blob/444d8b0704d11a6e169f4f8559491b9291ee53a5/src/mixins/dropdown.js#L293
-      Promise.all([wrapper.vm.$nextTick(), waitRAF()])
+      return Promise.all([wrapper.vm.$nextTick(), waitForAnimationFrame()])
         .then(() => {
           expect(wrapper.classes('show')).toBe(true);
           wrapper.vm.hide();
-          wrapper.vm.$nextTick(() => {
-            expect(wrapper.classes('show')).toBe(false);
-            done();
-          });
+          return wrapper.vm.$nextTick();
         })
-        .catch(e => {
-          throw new Error(e);
+        .then(() => {
+          expect(wrapper.classes('show')).toBe(false);
         });
     });
 
