@@ -54,6 +54,7 @@ export {
 } from './components/base/form/form_checkbox/form_checkbox_group.vue';
 export { default as GlFriendlyWrap } from './components/base/friendly_wrap/friendly_wrap.vue';
 export { default as GlAvatar } from './components/base/avatar/avatar.vue';
+export { default as GlAvatarLabeled } from './components/base/avatar_labeled/avatar_labeled.vue';
 export { default as GlLabel } from './components/base/label/label.vue';
 export { default as GlDatepicker } from './components/base/datepicker/datepicker.vue';
 export {

@@ -20,6 +20,10 @@ export {
 export { default as GlToastDocumentation } from '../components/base/toast/toast.documentation';
 export { default as GlAvatarDocumentation } from '../components/base/avatar/avatar.documentation';
 export {
+  default as GlAvatarLabeledDocumentation,
+} from '../components/base/avatar_labeled/avatar_labeled.documentation';
+
+export {
   default as GlColumnChartDocumentation,
 } from '../components/charts/column/column.documentation';
 export {
