@@ -12,4 +12,8 @@
     font: normal normal normal 8px/1 FontAwesome;
     -webkit-font-smoothing: antialiased;
   }
+
+  .btn {
+    @extend .new-gl-button;
+  }
 }
