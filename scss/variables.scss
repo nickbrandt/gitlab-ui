@@ -173,6 +173,7 @@ $t-gray-a-02: rgba($black, 0.02);
 $t-gray-a-04: rgba($black, 0.04);
 $t-gray-a-06: rgba($black, 0.06);
 $t-gray-a-08: rgba($black, 0.08);
+$t-gray-a-24: rgba($black, 0.24);
 
 // Text
 $gl-font-weight-normal: 400;
@@ -221,6 +222,10 @@ $gl-border-radius-small: $gl-spacing-scale-1;
 $gl-border-radius-base: $gl-spacing-scale-2;
 $gl-border-radius-large: $gl-spacing-scale-3;
 $gl-border-radius-full: 50%;
+
+// transition parameters
+$gl-transition-duration-slow: 0.4s;
+$gl-transition-duration-medium: 0.2s;
 
 // Toasts
 $toast-max-width: px-to-rem(586px);

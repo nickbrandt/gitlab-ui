@@ -267,7 +267,9 @@
 
 @mixin gl-border-blue-600 { border-color: $blue-600; }
 
-@mixin gl-border-t-gray-a-08 { border-color: $t-gray-a-08; }
+@mixin gl-border-gray-a-08 { border-color: $t-gray-a-08; }
+
+@mixin gl-border-gray-a-24 { border-color: $t-gray-a-24; }
 
 @mixin gl-border-t-gray-200 { border-top-color: $gray-200; }
 
@@ -473,6 +475,10 @@
 @mixin gl-text-decoration-underline { text-decoration: underline; }
 
 @mixin gl-text-decoration-color-inherit { text-decoration-color: inherit; }
+
+@mixin gl-text-decoration-color-gray-700 { text-decoration-color: $gray-700; }
+
+@mixin gl-text-decoration-color-gray-900 { text-decoration-color: $gray-900; }
 
 @mixin gl-text-transform-none { text-transform: none; }
 
@@ -783,9 +789,15 @@
 *
 * naming convention: gl-transition-{speed}
 */
-@mixin gl-transition-slow { transition: all 0.4s ease; }
+@mixin gl-transition-property-border-color { transition-property: border-color; }
 
-@mixin gl-transition-medium { transition: all 0.2s ease; }
+@mixin gl-transition-duration-slow { transition-duration: $gl-transition-duration-slow; }
+
+@mixin gl-transition-timing-function-ease { transition-timing-function: ease; }
+
+@mixin gl-transition-slow { transition: all $gl-transition-duration-slow ease; }
+
+@mixin gl-transition-medium { transition: all $gl-transition-duration-medium ease; }
 
 /**
 * Opacity utilities
