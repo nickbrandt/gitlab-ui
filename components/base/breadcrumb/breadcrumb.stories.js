@@ -1,6 +1,7 @@
 import { withKnobs, array } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlBreadcrumb } from '../../../index';
+import readme from './breadcrumb.md';
 
 const components = {
   GlBreadcrumb,
@@ -30,7 +31,7 @@ const getProps = () => {
   };
 };
 
-documentedStoriesOf('base|breadcrumb', '')
+documentedStoriesOf('base|breadcrumb', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
