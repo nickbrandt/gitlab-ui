@@ -7,7 +7,7 @@
 When wrapping an `<gl-avatar>` component, `<gl-avatar-link>` darkens
 the border that surrounds the avatar image or fallback text when hovering over it.
 
-~~~js
+~~~vue
 <gl-avatar-link target="blank" href="https://gitlab.com/gitlab-org/gitlab">
   <gl-avatar
     :size="32"
