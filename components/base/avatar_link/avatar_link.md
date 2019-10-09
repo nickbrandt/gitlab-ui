@@ -20,7 +20,7 @@ When wrapping an `<avatar-labeled>` component, `<avatar-link>` underlines
 the label and sub-label text when hovering over the avatar. It also applies the
 same effects described in the first example.
 
-~~~js
+~~~vue
 <gl-avatar-link target="blank" href="https://gitlab.com/gitlab-org/gitlab">
   <gl-avatar-labeled
     :size="32"
