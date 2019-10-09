@@ -225,7 +225,7 @@ export default {
 
     <div v-if="displaySlots.length > 0">
       <h4>Slots</h4>
-      <b-table :items="displaySlots" small head-variant="default" striped />
+      <gl-table :items="displaySlots" small head-variant="default" striped />
     </div>
 
     <div v-if="displayEvents.length > 0">
