@@ -37,3 +37,7 @@ Here is `limits` default value:
 ```
 
 > Note: The component will not render any UI if the total items available for display is less than the max items per page.
+
+## Internet Explorer 11
+
+This component makes use of the [`Number.isInteger` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger), which is not supported in IE11, make sure it's being polyfilled when using the component. [`core-js`](https://github.com/zloirock/core-js) incudes the appropriate polyfill for this.

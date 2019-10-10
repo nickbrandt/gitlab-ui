@@ -148,6 +148,9 @@ export default {
       if (this.size) {
         classes.push(`pagination-${this.size}`);
       }
+      if (Object.keys(this.$slots).length > 0) {
+        classes.push('custom-rendering');
+      }
       return classes;
     },
     shouldCollapseLeftSide() {
@@ -193,6 +196,7 @@ export default {
         key: 'previous',
         slot: 'previous',
       };
+      prevPageItem.attrs.class.push('prev-page-item');
 
       const nextPageItem = {
         ...this.getPageItem(this.value + 1, this.labelNextPage),
@@ -200,6 +204,7 @@ export default {
         key: 'next',
         slot: 'next',
       };
+      nextPageItem.attrs.class.push('next-page-item');
 
       return [prevPageItem, ...items, nextPageItem];
     },
@@ -218,14 +223,14 @@ export default {
       const commonAttrs = {
         'aria-label': label || this.labelPage(page),
         href: '#',
-        class: '',
+        class: [],
       };
       const isActivePage = page === this.value;
       const isDisabled = page < 1 || page > this.totalPages;
       const attrs = { ...commonAttrs };
       const listeners = {};
       if (isActivePage) {
-        attrs.class += ' active btn-primary';
+        attrs.class.push('active', 'btn-primary');
       }
       // Disable previous and/or next buttons if needed
       if (this.isLinkBased) {

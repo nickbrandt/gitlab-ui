@@ -44,6 +44,11 @@
   padding-right: $gl-spacing-scale-4;
 }
 
+@mixin gl-px-5 {
+  padding-left: $gl-spacing-scale-5;
+  padding-right: $gl-spacing-scale-5;
+}
+
 @mixin gl-pr-2 { padding-right: $gl-spacing-scale-2; }
 
 @mixin gl-pr-3 { padding-right: $gl-spacing-scale-3; }
@@ -265,7 +270,9 @@
 
 @mixin gl-border-gray-300 { border-color: $gray-300; }
 
-@mixin gl-border-blue-600 { border-color: $blue-600; }
+@mixin gl-border-gray-400 { border-color: $gray-400; }
+
+@mixin gl-border-blue-600 { border-color: $blue-600;; }
 
 @mixin gl-border-gray-a-08 { border-color: $t-gray-a-08; }
 
@@ -483,6 +490,15 @@
 @mixin gl-text-transform-none { text-transform: none; }
 
 /**
+* Text indent utilities
+*
+* Naming convention: gl-text-indent-{value}
+*/
+@mixin gl-text-indent-0 { text-indent: 0; }
+
+@mixin gl-text-indent-hide { text-indent: -9999px; }
+
+/**
 * Vertical align utilities
 */
 @mixin gl-vertical-align-baseline { vertical-align: baseline; }
@@ -669,6 +685,8 @@
 
 @mixin gl-right-1 { right: $gl-spacing-scale-1; }
 
+@mixin gl-bottom-0 { bottom: 0; }
+
 @mixin gl-left-0 { left: 0; }
 
 @mixin gl-left-1 { left: $gl-spacing-scale-1; }
@@ -834,3 +852,12 @@
 @mixin gl-white-space-normal { white-space: normal; }
 
 @mixin gl-white-space-nowrap { white-space: nowrap; }
+
+/**
+* z-index utilities
+*
+* naming convention: gl-z-index-{value}
+*/
+@mixin gl-z-index-0 { z-index: 0; }
+
+@mixin gl-z-index-2 { z-index: 2; }
