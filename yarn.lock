@@ -795,10 +795,10 @@
     stylelint "^10.1.0"
     stylelint-scss "^3.8.0"
 
-"@gitlab/svgs@^1.75.0":
-  version "1.75.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.75.0.tgz#93f9e6bdef78dd84ac88d8273711dc1f25e4e5ac"
-  integrity sha512-hOCfF73++yG+KTYxaQNMkbDUg0XKije41g6XR2dgj7466rzZmebG/nt6pUXonmlqy/NLGaRUPBKs0zuM7tcLhA==
+"@gitlab/svgs@^1.78.0":
+  version "1.78.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.78.0.tgz#469493bd6cdd254eb5d1271edeab22bbbee2f4c4"
+  integrity sha512-dBgEB/Q4FRD0NapmNrD86DF1FsV0uSgTx0UOJloHnGE2DNR2P1HQrCmLW2fX+QgN4P9CDAzdi2buVHuholofWw==
 
 "@gitlab/vue-toasted@^1.2.1":
   version "1.2.1"
