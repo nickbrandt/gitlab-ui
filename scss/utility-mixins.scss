@@ -613,7 +613,7 @@
 */
 @mixin gl-shadow-none { box-shadow: none; }
 
-@mixin gl-shadow { box-shadow: 0 2px 3px 1px $gray-200; }
+@mixin gl-shadow { box-shadow: 0 1px 4px 0 rgba($black, 0.3); }
 
 /**
 * Display utilities
