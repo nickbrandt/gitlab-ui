@@ -3,7 +3,7 @@
 1. Decide on a component you'd like to add to gitlab-ui
 1. Determine and document the scenarios (different types of implementations, if any) in which this component is used in gitlab in an issue in gitlab-ui
 1. Select a scenario that is implemented in the main gitlab repo that you will replace with your component
-1. Run `sh bin/addComponentFiles.sh` and follow the instructions, or:
+1. Run `yarn generate:component` and follow the instructions, or:
    1. Create a directory in the relevant `components/` sub-directory
    1. Create `[component].vue`, `[component].stories.js`, and `[component].documentation.js` in the directory you created in the previous step (where `[component]` is the name of your component).
    1. Create at least one example in your component directory.
