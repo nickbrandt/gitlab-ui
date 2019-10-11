@@ -1,5 +1,6 @@
 import TokenExample from './token.basic.example.vue';
 import TokenViewOnlyExample from './token.view_only.example.vue';
+import TokenWithAvatarExample from './token.with_avatar.example.vue';
 
 export default [
   {
@@ -21,6 +22,17 @@ export default [
         name: 'View Only',
         description: 'View Only Token',
         component: TokenViewOnlyExample,
+      },
+    ],
+  },
+  {
+    name: 'With Avatar',
+    items: [
+      {
+        id: 'token-with-avatar',
+        name: 'With Avatar',
+        description: 'Token With Avatar',
+        component: TokenWithAvatarExample,
       },
     ],
   },
