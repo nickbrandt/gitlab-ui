@@ -39,11 +39,6 @@ export default {
       required: false,
       default: '',
     },
-    noCaret: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     split: {
       type: Boolean,
       required: false,
@@ -70,7 +65,7 @@ export default {
   },
   computed: {
     renderCaret() {
-      if (this.split || this.noCaret) {
+      if (this.split) {
         return false;
       }
       return true;
