@@ -15,7 +15,7 @@ cd $d
 mkdir -p $COMPONENT_NAME/examples
 cd $COMPONENT_NAME
 touch $COMPONENT_NAME.{documentation.js,stories.js,vue}
-touch examples/{index,$COMPONENT_NAME.basic.example}.js
+touch examples/{index.js,$COMPONENT_NAME.basic.example.vue}
 
 # Inform the user
 echo "Success! Your starter files for $COMPONENT_NAME.vue were successfully created"
