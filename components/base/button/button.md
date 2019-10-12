@@ -9,4 +9,4 @@ with the necessary classes added to make it look like a button, it shares the sa
 
 #### Legacy implementation
 
-We are implemeting a new button component in https://gitlab.com/gitlab-org/gitlab-ui/tree/master/components/base/new_button that conforms with Pajamas design specs. We decided to create a new component to avoid introducing inadvertent side effects in the gitlab product while implementing a button that follows the design specs. Once the new button component is finished, we’ll replace this legacy implementation with aforementioned one.
+We are implementing a new button component in https://gitlab.com/gitlab-org/gitlab-ui/tree/master/components/base/new_button that conforms with Pajamas design specs. We decided to create a new component to avoid introducing inadvertent side effects in the gitlab product while implementing a button that follows the design specs. Once the new button component is finished, we’ll replace this legacy implementation with aforementioned one.
