@@ -333,6 +333,10 @@
   height: $gl-spacing-scale-0;
 }
 
+@mixin gl-h-3 {
+  height: $gl-spacing-scale-3;
+}
+
 @mixin gl-h-4 {
   height: $gl-spacing-scale-4;
 }
@@ -495,6 +499,10 @@
 
 @mixin gl-border-1 {
   border-width: $gl-border-size-1;
+}
+
+@mixin gl-border-8 {
+  border-width: $gl-border-size-8;
 }
 
 @mixin gl-border-t-1 {

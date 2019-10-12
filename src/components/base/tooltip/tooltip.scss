@@ -1,0 +1,29 @@
+.gl-tooltip {
+  @include gl-font-base;
+  @include gl-font-sm;
+  @include gl-p-3;
+
+  .tooltip-inner {
+    @include gl-rounded-base;
+    @include gl-line-height-normal;
+    @include gl-font-weight-normal;
+    @include gl-py-3;
+    @include gl-px-4;
+  }
+
+  .arrow {
+    @include gl-w-3;
+    @include gl-h-5;
+    &::before {
+      @include gl-border-8;
+    }
+  }
+}
+
+.gl-tooltip.bs-tooltip-top,
+.gl-tooltip.bs-tooltip-bottom {
+  .arrow {
+    @include gl-w-5;
+    @include gl-h-3;
+  }
+}
