@@ -1,7 +1,11 @@
 import { text, withKnobs, select } from '@storybook/addon-knobs';
+import Vue from 'vue';
+import GlTooltipDirective from '../../../directives/tooltip';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './avatar_labeled.md';
-import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
+import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
+
+Vue.directive('gl-tooltip', GlTooltipDirective);
 
 function generateProps() {
   const props = {
@@ -33,13 +37,49 @@ function generateProps() {
   return props;
 }
 
+function generateTooltipProps() {
+  const props = {
+    tooltipText: {
+      type: String,
+      default: text('tooltipText', 'Avatar tooltip'),
+    },
+    placement: {
+      type: String,
+      default: select('placement', tooltipPlacements, 'top'),
+    },
+  };
+
+  return props;
+}
+
 documentedStoriesOf('base|avatar/labeled', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
     template: `
-      <div>
-        <gl-avatar-labeled :shape="shape" :size="size" :src="src" :label="label" :sub-label="subLabel" />
-      </div>
-      `,
+      <gl-avatar-labeled
+        :shape="shape"
+        :size="size"
+        :src="src"
+        :label="label"
+        :sub-label="subLabel"
+      />
+    `,
+  }))
+  .add('with-tooltip', () => ({
+    props: {
+      ...generateProps(),
+      ...generateTooltipProps(),
+    },
+    template: `
+      <gl-avatar-labeled
+        :shape="shape"
+        :size="size"
+        :src="src"
+        :label="label"
+        :sub-label="subLabel"
+        :title="tooltipText"
+        v-gl-tooltip="{ placement }"
+      />
+    `,
   }));

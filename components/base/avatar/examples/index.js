@@ -1,6 +1,7 @@
 import AvatarImageExample from './avatar.image.example.vue';
 import AvatarRectExample from './avatar.rect.example.vue';
 import AvatarProjectFallbackExample from './avatar.fallback.example.vue';
+import AvatarTooltipExample from './avatar.tooltip.example.vue';
 
 export default [
   {
@@ -23,6 +24,12 @@ export default [
         name: 'Project/Group Fallback',
         description: 'A fallback for projects or groups without an image',
         component: AvatarProjectFallbackExample,
+      },
+      {
+        id: 'avatar-with-tooltip',
+        name: 'With tooltip',
+        description: 'Avatar that displays a tooltip on hover',
+        component: AvatarTooltipExample,
       },
     ],
   },

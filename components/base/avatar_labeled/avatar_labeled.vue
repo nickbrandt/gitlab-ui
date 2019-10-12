@@ -5,7 +5,6 @@ export default {
   components: {
     GlAvatar,
   },
-  inheritAttrs: false,
   props: {
     label: {
       type: String,
