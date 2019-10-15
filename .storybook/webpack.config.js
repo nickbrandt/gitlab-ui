@@ -38,19 +38,16 @@ module.exports = ({ config }) => {
       test: /@gitlab\/svgs\/dist\/icons\.svg$/,
       loader: 'raw-loader',
     },
-    // in a test-context this rule breaks the rendering of visual-snapshots
-    // because babel.config sets target to 'node'
-    ...(process.env.NODE_ENV !== 'test'
-      ? [
-          {
-            test: /\.js$/,
-            exclude: /node_modules\/(?!(bootstrap-vue)\/).*/,
-            use: {
-              loader: 'babel-loader',
-            },
-          },
-        ]
-      : []),
+    {
+      test: /\.js$/,
+      exclude: /node_modules\/(?!(bootstrap-vue)\/).*/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          envName: 'storybook',
+        },
+      },
+    },
   ];
 
   config.plugins.push(new webpack.EnvironmentPlugin(['IS_GITLAB_INTEGRATION_TEST']));
