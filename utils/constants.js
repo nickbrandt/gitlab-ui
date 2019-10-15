@@ -137,6 +137,7 @@ export const alignOptions = {
 };
 
 export const resizeDebounceTime = 200;
+export const throttleDuration = 2000;
 
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);

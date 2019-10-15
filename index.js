@@ -65,6 +65,7 @@ export { default as GlIntersperse } from './components/base/intersperse/interspe
 export { default as GlToggle } from './components/base/toggle/toggle.vue';
 export { default as GlSorting } from './components/base/sorting/sorting.vue';
 export { default as GlSortingItem } from './components/base/sorting/sorting_item';
+export { default as GlInfiniteScroll } from './components/base/infinite_scroll/infinite_scroll.vue';
 
 // Directives
 export { default as GlModalDirective } from './directives/modal';

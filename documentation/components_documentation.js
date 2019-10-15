@@ -139,6 +139,9 @@ export {
 export {
   default as GlIntersperseDocumentation,
 } from '../components/base/intersperse/intersperse.documentation';
+export {
+  default as GlInfiniteScrollDocumentation,
+} from '../components/base/infinite_scroll/infinite_scroll.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 
