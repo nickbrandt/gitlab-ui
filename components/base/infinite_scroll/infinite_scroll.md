@@ -1,0 +1,94 @@
+# Infinite Scroll
+
+<!-- STORY -->
+
+## Usage
+
+The infinite scroll component wraps around a results list and emits a message
+(`bottomReached`) when the bottom of the viewport is reached, which should trigger
+a re-fetching. The `gl-infinite-scroll` component expects its parent component to
+manage the re-fetching.
+
+## Implementation Example
+
+This is how a full implementation would look like with paginated results from GitLab's
+`projects` API.
+
+In the component's state, initialize a `pageInfo` object:
+
+```
+pageInfo: {
+  currentPage: 0,
+  nextPage: 0,
+  totalPages: 0,
+  totalResults: 0,
+}
+```
+
+When fetching for the first time, set the state with the header
+information in the mutations:
+
+```vue
+Vue.set(state.pageInfo, 'currentPage', parseInt(headers['X-Page'], 10));
+Vue.set(state.pageInfo, 'nextPage', parseInt(headers['X-Next-Page'], 10));
+Vue.set(state.pageInfo, 'totalPages', parseInt(headers['X-Total-Pages'], 10));
+Vue.set(state.pageInfo, 'totalResults', parseInt(headers['X-Total'], 10));
+```
+
+_Note: There is a function you can use for parsing integers in headers in
+GitLab called `parseIntPagination` in `common/utils.js`_
+
+Every time `bottomReached` happens, update the state in your mutations:
+
+```
+state.searchResults = state.searchResults.concat(results.data);
+Vue.set(state.pageInfo, 'nextPage', parseInt(headers['X-Next-Page'],10));
+Vue.set(state.pageInfo, 'totalPages', parseInt(headers['X-Total-Pages'],10));
+```
+
+Use the state to fetch the next page in the actions. In this case, the `Projects`
+API allows us to send in a `page` parameter to fetch a certain page from the
+list of results.
+
+```
+export const fetchNextPage = ({ state, dispatch }) => {
+  if(state.pageInfo.currentPage < state.pageInfo.totalPages) {
+    Api.projects(searchQuery, { page: state.pageInfo.nextPage })
+      ...
+  }
+};
+```
+
+```vue
+<script>
+exportDefault {
+  components: {
+    GlInfiniteScroll,
+  },
+  computed: {
+    ...mapState([
+      'pageInfo',
+      'searchResults',
+    ]),
+  },
+  methods: {
+    ...mapActions([
+      'fetchNextPage',
+    ]),
+    bottomReached() {
+      this.fetchNextPage();
+    },
+  },
+}
+</script>
+<template>
+  <gl-infinite-scroll
+    @bottomReached="bottomReached"
+    :max-list-height="400"
+    :fetched-items="searchResults.length"
+    :total-items="totalResults"
+  >
+    ...Results in a list, another component, etc ....
+  </gl-infinite-scroll>
+</template>
+```
