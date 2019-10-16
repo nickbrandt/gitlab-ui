@@ -7,9 +7,6 @@ with the necessary classes added to make it look like a button, it shares the sa
 
 [`<gl-link>`]: https://gitlab.com/gitlab-org/gitlab-ui/blob/master/documentation/link.md
 
-### New style
+#### Legacy implementation
 
-The `new-style` prop, when enabled, aligns the `gl-button` styles to the
-[design specifications](https://design.gitlab.com/components/buttons). In order
-to avoid breaking existing usage, this is *not* enabled by default, but you are
-*encouraged to opt-in* to the new styling using the `new-style` prop, if you can.
+We are implementing a new button component in https://gitlab.com/gitlab-org/gitlab-ui/tree/master/components/base/new_button that conforms with Pajamas design specs. We decided to create a new component to avoid introducing inadvertent side effects in the gitlab product while implementing a button that follows the design specs. Once the new button component is finished, we’ll replace this legacy implementation with aforementioned one.
