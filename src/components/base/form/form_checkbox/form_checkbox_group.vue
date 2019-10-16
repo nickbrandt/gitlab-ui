@@ -1,6 +1,6 @@
 <script>
 import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
-import BFormCheckboxGroup from 'bootstrap-vue/src/components/form-checkbox/form-checkbox-group';
+import { BFormCheckboxGroup } from 'bootstrap-vue';
 import GlFormCheckbox from './form_checkbox.vue';
 
 export default {

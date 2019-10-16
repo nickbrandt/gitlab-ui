@@ -1,5 +1,5 @@
 <script>
-import BTable from 'bootstrap-vue/src/components/table/table';
+import { BTable } from 'bootstrap-vue';
 
 export default {
   components: {

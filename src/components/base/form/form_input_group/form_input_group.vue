@@ -1,8 +1,5 @@
 <script>
-import BInputGroup from 'bootstrap-vue/src/components/input-group/input-group';
-import BInputGroupPrepend from 'bootstrap-vue/src/components/input-group/input-group-prepend';
-import BInputGroupAppend from 'bootstrap-vue/src/components/input-group/input-group-append';
-import BFormInput from 'bootstrap-vue/src/components/form-input/form-input';
+import { BInputGroup, BInputGroupPrepend, BInputGroupAppend, BFormInput } from 'bootstrap-vue';
 import GlDropdown from '../../dropdown/dropdown.vue';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import InputGroupMixin from './form_input_group_mixin';

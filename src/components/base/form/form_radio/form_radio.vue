@@ -1,5 +1,5 @@
 <script>
-import BFormRadio from 'bootstrap-vue/src/components/form-radio/form-radio';
+import { BFormRadio } from 'bootstrap-vue';
 
 export default {
   name: 'GlFormRadio',

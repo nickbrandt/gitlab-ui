@@ -1,5 +1,5 @@
 <script>
-import BTooltip from 'bootstrap-vue/src/components/tooltip/tooltip';
+import { BTooltip } from 'bootstrap-vue';
 
 export default {
   components: {

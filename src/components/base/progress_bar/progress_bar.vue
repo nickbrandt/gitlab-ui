@@ -1,5 +1,5 @@
 <script>
-import BProgress from 'bootstrap-vue/src/components/progress/progress';
+import { BProgress } from 'bootstrap-vue';
 
 export default {
   components: {

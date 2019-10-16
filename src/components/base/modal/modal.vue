@@ -1,5 +1,5 @@
 <script>
-import BModal from 'bootstrap-vue/src/components/modal/modal';
+import { BModal } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
 import { modalButtonDefaults } from '../../../utils/constants';
 

@@ -1,6 +1,6 @@
 <script>
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
-import BDropdown from 'bootstrap-vue/src/components/dropdown/dropdown';
+import { BDropdown } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
 
 // Return an Array of visible items

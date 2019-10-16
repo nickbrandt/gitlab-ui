@@ -1,5 +1,5 @@
 <script>
-import BButton from 'bootstrap-vue/src/components/button/button';
+import { BButton } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
 import RelMixin from '../../mixins/rel_mixin';
 import {

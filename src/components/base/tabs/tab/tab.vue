@@ -1,5 +1,5 @@
 <script>
-import BTab from 'bootstrap-vue/src/components/tabs/tab';
+import { BTab } from 'bootstrap-vue';
 
 export default {
   components: {

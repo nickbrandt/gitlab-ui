@@ -1,5 +1,5 @@
 <script>
-import BFormCheckbox from 'bootstrap-vue/src/components/form-checkbox/form-checkbox';
+import { BFormCheckbox } from 'bootstrap-vue';
 
 export default {
   name: 'GlFormCheckbox',

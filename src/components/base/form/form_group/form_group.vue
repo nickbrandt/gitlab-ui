@@ -1,5 +1,5 @@
 <script>
-import BFormGroup from 'bootstrap-vue/src/components/form-group/form-group';
+import { BFormGroup } from 'bootstrap-vue';
 
 export default {
   components: {

@@ -1,5 +1,5 @@
 <script>
-import BFormSelect from 'bootstrap-vue/src/components/form-select/form-select';
+import { BFormSelect } from 'bootstrap-vue';
 
 export default {
   components: {
