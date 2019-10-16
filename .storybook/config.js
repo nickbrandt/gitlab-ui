@@ -1,8 +1,11 @@
 import { configure, addParameters, addDecorator } from '@storybook/vue';
 import { create } from '@storybook/theming';
 
-const req = require.context('../components', true, /\.stories\.js$/);
+const componentsRequireContext = require.context('../components', true, /\.stories\.js$/);
 const docsRequireCtx = require.context('../components', true, /documentation\.js$/);
+const directivesRequireContext = require.context('../directives', true, /\.stories\.js$/);
+const stylesheetsRequireCtx = require.context('../scss', true, /(storybook|bootstrap)\.scss$/);
+
 const testableStories = process.env.IS_GITLAB_INTEGRATION_TEST
   ? docsRequireCtx.keys().reduce((acc, key) => {
       const docModule = docsRequireCtx(key).default;
@@ -11,9 +14,7 @@ const testableStories = process.env.IS_GITLAB_INTEGRATION_TEST
       }
       return acc;
     }, [])
-  : req.keys();
-
-const stylesheetsRequireCtx = require.context('../scss', true, /(storybook|bootstrap)\.scss$/);
+  : componentsRequireContext.keys();
 
 if (!process.env.IS_GITLAB_INTEGRATION_TEST) {
   stylesheetsRequireCtx('./bootstrap.scss');
@@ -22,7 +23,10 @@ if (!process.env.IS_GITLAB_INTEGRATION_TEST) {
 stylesheetsRequireCtx('./storybook.scss');
 
 function loadStories() {
-  testableStories.forEach(filename => req(filename));
+  testableStories.forEach(componentsRequireContext);
+  // directives are excluded from visual snapshot testing for now
+  // more information: https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/810#note_229554541
+  directivesRequireContext.keys().forEach(directivesRequireContext);
 }
 
 function addSbClass(c, a) {

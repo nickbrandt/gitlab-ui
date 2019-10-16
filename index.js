@@ -70,3 +70,4 @@ export { default as GlInfiniteScroll } from './components/base/infinite_scroll/i
 // Directives
 export { default as GlModalDirective } from './directives/modal';
 export { default as GlTooltipDirective } from './directives/tooltip';
+export { default as GlResizeObserverDirective } from './directives/resize_observer/resize_observer';
