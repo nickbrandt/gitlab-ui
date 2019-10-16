@@ -143,6 +143,10 @@ export {
   default as GlInfiniteScrollDocumentation,
 } from '../components/base/infinite_scroll/infinite_scroll.documentation';
 
+export {
+  default as GlResizeObserverDirectiveDocumentation,
+} from '../directives/resize_observer/resize_observer.documentation';
+
 const componentList = Object.getPrototypeOf(module).exports;
 
 export const getDocumentationFor = componentName => {
