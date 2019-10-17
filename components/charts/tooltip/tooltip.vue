@@ -66,7 +66,7 @@ export default {
       :id="containerId"
       :style="containerPosition"
       style="width: 1px; height: 1px"
-      class="chart-tooltip position-absolute"
+      class="gl-chart-tooltip"
     ></div>
     <!--
       Needs to be triggered programatically using `show` property

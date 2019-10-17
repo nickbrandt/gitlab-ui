@@ -130,6 +130,8 @@
 
 @mixin gl-mr-5 { margin-right: $gl-spacing-scale-5; }
 
+@mixin gl-mr-7 { margin-right: $gl-spacing-scale-7; }
+
 @mixin gl-mb-0 { margin-bottom: $gl-spacing-scale-0; }
 
 @mixin gl-mb-1 { margin-bottom: $gl-spacing-scale-1; }
@@ -214,6 +216,8 @@
 
 @mixin gl-w-full { width: 100%; }
 
+@mixin gl-w-max-content { width: max-content; }
+
 @mixin gl-h-auto { height: auto; }
 
 @mixin gl-h-0 { height: $gl-spacing-scale-0; }
@@ -233,6 +237,15 @@
 @mixin gl-h-11 { height: $gl-spacing-scale-11; }
 
 @mixin gl-h-13 { height: $gl-spacing-scale-13; }
+
+/**
+* Minimum dimension (width/height) utilities
+*
+* naming convention: gl-min-{w|h}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+@mixin gl-min-w-0 { min-width: $gl-spacing-scale-0; }
 
 /**
 * Outline utilities.
@@ -600,7 +613,7 @@
 */
 @mixin gl-shadow-none { box-shadow: none; }
 
-@mixin gl-shadow { box-shadow: 0 2px 3px 1px $gray-200; }
+@mixin gl-shadow { box-shadow: 0 1px 4px 0 rgba($black, 0.3); }
 
 /**
 * Display utilities
@@ -629,6 +642,8 @@
 @mixin gl-flex-direction-row { flex-direction: row; }
 
 @mixin gl-flex-shrink-0 { flex-shrink: 0; }
+
+@mixin gl-flex-grow-1 { flex-grow: 1; }
 
 @mixin gl-justify-content-center { justify-content: center; }
 
