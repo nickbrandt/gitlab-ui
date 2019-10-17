@@ -9,12 +9,12 @@ import isFunction from 'lodash/isFunction';
 import isArray from 'lodash/isArray';
 import { isString, isUndefined } from 'lodash';
 
-import * as enumConstants from '../../utils/constants';
-import { getValidationInfoText } from '../../utils/validation_utils';
+import * as enumConstants from '../../src/utils/constants';
+import { getValidationInfoText } from '../../src/utils/validation_utils';
 
 import { gitlabComponents, gitlabChartComponents, componentValidator } from '../all_components';
 
-import GlTable from '../../components/base/table/table.vue';
+import GlTable from '../../src/components/base/table/table.vue';
 
 import { getDocumentationFor } from '../components_documentation';
 

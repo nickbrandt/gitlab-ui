@@ -3,7 +3,7 @@ import {
   getDataZoomConfig,
   getThresholdConfig,
   mergeSeriesToOptions,
-} from '../../../utils/charts/config';
+} from '../../../src/utils/charts/config';
 import { defaultDataZoomConfig, defaultChartOptions } from './data';
 
 describe('chart config helpers', () => {

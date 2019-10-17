@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Avatar from '../../../components/base/avatar/avatar.vue';
-import AvatarLabeled from '../../../components/base/avatar_labeled/avatar_labeled.vue';
+import Avatar from '../../../src/components/base/avatar/avatar.vue';
+import AvatarLabeled from '../../../src/components/base/avatar_labeled/avatar_labeled.vue';
 
 describe('avatar labeled', () => {
   let vm;

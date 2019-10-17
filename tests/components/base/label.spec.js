@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import Label from '../../../components/base/label/label.vue';
-import GlLink from '../../../components/base/link/link.vue';
-import GlTooltip from '../../../components/base/tooltip/tooltip.vue';
+import Label from '../../../src/components/base/label/label.vue';
+import GlLink from '../../../src/components/base/link/link.vue';
+import GlTooltip from '../../../src/components/base/tooltip/tooltip.vue';
 
 const defaultProps = {
   title: 'title',

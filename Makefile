@@ -1,6 +1,6 @@
 bin_dir = bin
 
-scss_dir = scss
+scss_dir = src/scss
 scss_js_dir = scss_to_js
 
 # SCSS variables to JavaScript

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import DaterangePicker from '../../../components/base/daterange_picker/daterange_picker.vue';
-import Datepicker from '../../../components/base/datepicker/datepicker.vue';
+import DaterangePicker from '../../../src/components/base/daterange_picker/daterange_picker.vue';
+import Datepicker from '../../../src/components/base/datepicker/datepicker.vue';
 
 describe('Daterange Picker', () => {
   let wrapper;

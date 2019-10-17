@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import EmptyState from '../../../components/regions/empty_state/empty_state.vue';
-import Button from '../../../components/base/button/button.vue';
+import EmptyState from '../../../src/components/regions/empty_state/empty_state.vue';
+import Button from '../../../src/components/base/button/button.vue';
 
 describe('empty state component', () => {
   let component;

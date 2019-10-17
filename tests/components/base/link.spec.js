@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Link from '../../../components/base/link/link.vue';
+import Link from '../../../src/components/base/link/link.vue';
 
 describe('link component', () => {
   const mountWithOptions = shallowMount.bind(null, Link);

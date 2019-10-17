@@ -14,7 +14,7 @@ testFiles.forEach(file => {
       describe,
       it,
       includePaths: [
-        path.resolve(__dirname, '..', 'scss'),
+        path.resolve(__dirname, '..', 'src', 'scss'),
         path.resolve(__dirname, '..', 'node_modules'),
       ],
     }

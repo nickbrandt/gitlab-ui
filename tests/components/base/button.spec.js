@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Button from '../../../components/base/button/button.vue';
+import Button from '../../../src/components/base/button/button.vue';
 
 describe('button component', () => {
   const mountWithOptions = shallowMount.bind(null, Button);

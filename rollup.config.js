@@ -36,11 +36,11 @@ const isExternalModule = moduleId =>
   externalModules.some(name => moduleId === name || moduleId.startsWith(`${name}/`));
 
 export default glob
-  .sync('+(components|directives)/**/!(*.stories).+(js|vue)')
+  .sync('src/+(components|directives)/**/!(*.stories).+(js|vue)')
   .concat('charts.js')
   .concat('index.js')
   .map(input => {
-    const outputFilename = input.replace(/\.(vue|js)$/, '');
+    const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
     return {
       external: isExternalModule,
@@ -54,7 +54,7 @@ export default glob
           delimiters: ['/* ', ' */'],
           include: 'index.js',
           values: {
-            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
+            'auto-inject-styles': "import './src/scss/gitlab_ui.scss';",
           },
         }),
         postcss({

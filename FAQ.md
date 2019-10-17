@@ -10,4 +10,4 @@ We're [working](https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/644) on a
 
 ## Why don’t we generate utilities?
 
-When looking at [utility-mixins.scss](./scss/utility-mixins.scss), you might wonder _"Why don't we take advantage of SCSS maps, loops and other goodies to generate all those mixins in a more DRY manner?"_. We chose this declarative approach because anyone not familiar with GitLab UI's styles can easily get a grasp of what utilities are available by reading the file, no need to decipher some complex loop.
+When looking at [utility-mixins.scss](src/scss/utility-mixins.scss), you might wonder _"Why don't we take advantage of SCSS maps, loops and other goodies to generate all those mixins in a more DRY manner?"_. We chose this declarative approach because anyone not familiar with GitLab UI's styles can easily get a grasp of what utilities are available by reading the file, no need to decipher some complex loop.

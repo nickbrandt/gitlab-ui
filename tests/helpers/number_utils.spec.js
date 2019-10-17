@@ -1,4 +1,4 @@
-import * as numberUtils from '../../utils/number_utils';
+import * as numberUtils from '../../src/utils/number_utils';
 
 describe('number utils', () => {
   describe('addition', () => {
