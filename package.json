@@ -63,6 +63,7 @@
     "@semantic-release/git": "^7.0.1",
     "@semantic-release/gitlab": "^2.1.4",
     "@semantic-release/npm": "^4.0.1",
+    "@storybook/addon-a11y": "^5.2.4",
     "@storybook/addon-knobs": "^5.2.1",
     "@storybook/addon-storyshots": "^5.2.1",
     "@storybook/addon-storyshots-puppeteer": "^5.2.1",
