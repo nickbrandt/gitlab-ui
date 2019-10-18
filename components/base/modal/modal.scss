@@ -4,8 +4,12 @@ $modal-body-line-height: 1.5;
 $modal-bg-color: rgba(0, 0, 0, 0.3);
 
 // mixins
-@mixin modal-btn-group-ml { margin-left: -1px; }
-@mixin modal-bg { background-color: $modal-bg-color; }
+@mixin modal-btn-group-ml {
+  margin-left: -1px;
+}
+@mixin modal-bg {
+  background-color: $modal-bg-color;
+}
 
 body.modal-open {
   @include gl-overflow-hidden;

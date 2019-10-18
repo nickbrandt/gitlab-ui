@@ -17,8 +17,7 @@
 }
 
 @mixin new-gl-button-focus($color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
-    0 0 0 px-to-rem(1px) $blue-300,
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color, 0 0 0 px-to-rem(1px) $blue-300,
     0 0 px-to-rem(4px) px-to-rem(1px) $blue-300;
 }
 
