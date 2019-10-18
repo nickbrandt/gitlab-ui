@@ -50,6 +50,9 @@ addParameters({
     isFullscreen: false,
     panelPosition: 'right',
   },
+  a11y: {
+    element: '.story-container',
+  },
 });
 
 configure(loadStories, module);
