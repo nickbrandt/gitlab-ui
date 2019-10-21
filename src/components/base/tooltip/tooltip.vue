@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <b-tooltip v-bind="$attrs">
+  <b-tooltip v-bind="$attrs" :delay="{ show: 400 }">
     <slot></slot>
   </b-tooltip>
 </template>
