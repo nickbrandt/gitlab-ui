@@ -3,8 +3,8 @@ This is a temporary measure to ensure custom select styles are not affected by o
 lack of an autoprefixer tool for compiling bootstrap.
 
 TODO: Remove once bootstrap is included in gitlab-ui or we include an autoprefixer
-on gitlab-ce/ee
-See: https://gitlab.com/gitlab-org/gitlab-ce/issues/64455
+on gitlab
+See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 */
 
 /* stylelint-disable property-no-vendor-prefix */
