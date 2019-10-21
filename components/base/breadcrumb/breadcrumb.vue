@@ -34,7 +34,7 @@ export default {
           :key="`index ${item.text}`"
           class="gl-breadcrumb-separator"
         >
-          <slot name="caret"></slot>
+          <slot name="separator"></slot>
         </span>
       </template>
     </b-breadcrumb>
