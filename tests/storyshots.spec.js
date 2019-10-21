@@ -34,7 +34,7 @@ initStoryshots({
   suite: 'Image storyshots',
   storyKindRegex: new RegExp(`^((?!${excludedStoryKinds.join('|')}).+)`),
   test: imageSnapshot({
-    storybookUrl: `file:///${__dirname}/../storybook`,
+    storybookUrl: 'http://localhost:9001',
     beforeScreenshot,
     getGotoOptions,
     getMatchOptions,
