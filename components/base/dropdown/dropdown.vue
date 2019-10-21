@@ -52,11 +52,19 @@ export default {
       return true;
     },
   },
+  methods: {
+    show() {
+      this.$refs.dropdown.show();
+    },
+    hide() {
+      this.$refs.dropdown.hide();
+    },
+  },
 };
 </script>
 
 <template>
-  <b-dropdown class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners">
+  <b-dropdown class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners" ref="dropdown">
     <slot></slot>
     <slot slot="button-content" name="button-content">
       {{ text }}

@@ -1,11 +1,46 @@
-/*
- * To match the design spec, added 3px margin so the icon is even 16px wide now.
- * This can be removed once SVG based icons kick in.
- * Discussion: https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/153#note_133591712
- * See: https://gitlab.com/gitlab-org/gitlab-ui/issues/312
- */
-.gl-search-box {
-  .fa-search {
-    margin: 0 1.5px;
+$gl-search-boxy-by-type-input-padding: 3.5 * $grid-size;
+
+@mixin gl-search-box-by-type-icon {
+  @include gl-m-3;
+  @include gl-h-5;
+}
+
+.gl-search-box-by-type-icon {
+  @include gl-search-box-by-type-icon;
+  @include gl-text-gray-500;
+
+  &.left {
+    @include gl-absolute;
   }
+}
+
+.gl-search-box-by-type {
+  @include gl-display-flex;
+  @include gl-relative;
+}
+
+.gl-search-box-by-type-clear {
+  @include gl-search-box-by-type-icon;
+  @include gl-border-none;
+  @include gl-bg-transparent;
+  @include gl-p-0;
+  @include gl-text-gray-500;
+  @include gl-cursor-pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.gl-search-box-by-type-input {
+  @include gl-h-7;
+  @include gl-pr-7;
+  padding-left: $gl-search-boxy-by-type-input-padding;
+}
+
+.gl-search-box-by-type-right-icons {
+  @include gl-display-flex;
+  @include gl-line-height-0;
+  @include gl-right-0;
+  @include gl-absolute;
 }

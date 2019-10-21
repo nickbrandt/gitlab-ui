@@ -1,11 +1,12 @@
 <script>
+import GlIcon from '../icon/icon.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlTooltip from '../../../directives/tooltip';
 
 export default {
-  iconWrapperClasses: 'position-absolute position-top-0 h-100 d-flex align-items-center text-muted',
   components: {
+    GlIcon,
     GlFormInput,
     GlLoadingIcon,
   },
@@ -13,6 +14,10 @@ export default {
     GlTooltip,
   },
   inheritAttrs: false,
+  model: {
+    prop: 'value',
+    event: 'update',
+  },
   props: {
     value: {
       type: String,
@@ -24,11 +29,6 @@ export default {
       required: false,
       default: false,
     },
-  },
-  data() {
-    return {
-      content: this.value,
-    };
   },
   computed: {
     inputAttributes() {
@@ -47,63 +47,45 @@ export default {
       return attributes;
     },
     hasValue() {
-      return this.content !== '';
-    },
-    hasRightIcon() {
-      return this.isResetButtonVisible || this.isLoading;
-    },
-    isResetButtonVisible() {
-      return !this.$attrs.disabled && this.hasValue;
+      return Boolean(this.value.length);
     },
   },
   methods: {
     clearInput() {
-      this.$refs.input.$emit('input', '');
+      this.$emit('update', '');
       this.focusInput();
     },
     focusInput() {
       this.$refs.input.$el.focus();
-    },
-    onChange() {
-      this.$emit('change', this.content);
-    },
-    onInput() {
-      this.$emit('input', this.content);
     },
   },
 };
 </script>
 
 <template>
-  <div class="position-relative ms-no-clear gl-search-box">
+  <div class="gl-search-box-by-type">
+    <gl-icon name="search" class="gl-search-box-by-type-icon left" />
     <gl-form-input
       ref="input"
-      v-model="content"
+      class="gl-search-box-by-type-input"
       v-bind="inputAttributes"
-      :value="content"
-      class="pl-5"
-      :class="{ 'pr-5': isResetButtonVisible }"
+      :value="value"
       v-on="$listeners"
-      @change="onChange"
-      @input="onInput"
     />
-    <div :class="$options.iconWrapperClasses" class="pl-2 pr-2 position-left-0" @click="focusInput">
-      <i class="fa fa-search" aria-hidden="true"></i>
-    </div>
-    <div
-      v-show="hasRightIcon"
-      :class="$options.iconWrapperClasses"
-      class="pr-2 pl-2 position-right-0"
-    >
-      <gl-loading-icon v-show="isLoading" :inline="true" />
-      <i
-        v-show="isResetButtonVisible"
+    <div class="gl-search-box-by-type-right-icons">
+      <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-icon" />
+
+      <button
+        v-if="hasValue"
         v-gl-tooltip.hover
-        class="fa fa-times fa-lg cursor-pointer"
-        aria-hidden="true"
         title="Clear"
+        aria-hidden="true"
+        class="gl-search-box-by-type-clear"
+        name="clear"
         @click="clearInput"
-      ></i>
+      >
+        <gl-icon name="clear" />
+      </button>
     </div>
   </div>
 </template>
