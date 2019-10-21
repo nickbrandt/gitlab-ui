@@ -1,5 +1,6 @@
 import { configure, addParameters, addDecorator } from '@storybook/vue';
 import { create } from '@storybook/theming';
+import { withA11y } from '@storybook/addon-a11y';
 
 const componentsRequireContext = require.context('../components', true, /\.stories\.js$/);
 const docsRequireCtx = require.context('../components', true, /documentation\.js$/);
@@ -36,6 +37,7 @@ function addSbClass(c, a) {
 }
 
 addDecorator(addSbClass);
+addDecorator(withA11y);
 
 addParameters({
   options: {
@@ -47,6 +49,9 @@ addParameters({
     }),
     isFullscreen: false,
     panelPosition: 'right',
+  },
+  a11y: {
+    element: '.story-container',
   },
 });
 
