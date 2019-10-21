@@ -2,6 +2,7 @@ import PaginationBasicExample from './pagination.basic.example.vue';
 import PaginationSlotsExample from './pagination.slots.example.vue';
 import PaginationLinksExample from './pagination.links.example.vue';
 import PaginationEventExample from './pagination.event.example.vue';
+import PaginationDoubleTruncation from './pagination.double_truncation.example.vue';
 
 export default [
   {
@@ -12,6 +13,12 @@ export default [
         name: 'Basic',
         description: 'Basic Pagination',
         component: PaginationBasicExample,
+      },
+      {
+        id: 'pagination-double-truncation',
+        name: 'Double truncation',
+        description: 'Double truncation',
+        component: PaginationDoubleTruncation,
       },
       {
         id: 'pagination-slots',
