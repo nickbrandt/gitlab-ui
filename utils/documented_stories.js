@@ -61,6 +61,7 @@ const withCustomPreview = withDocs({
         // Style the preview component container
         // Default container forcefully centers the preview element
         styles: {
+          display: 'flex',
           padding: '50px 35px',
           margin: '16px 0',
           border: '1px dashed rgb(229, 229, 229)',
