@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Token from '../../../components/base/token/token.vue';
+import Token from '../../../src/components/base/token/token.vue';
 
 const localVue = createLocalVue();
 

@@ -1,7 +1,7 @@
 <script>
 import { getDocumentationFor } from '../components_documentation';
 import GlExampleDisplay from './example_display.vue';
-import GlFormSelect from '../../components/base/form/form_select/form_select.vue';
+import GlFormSelect from '../../src/components/base/form/form_select/form_select.vue';
 
 export default {
   components: {

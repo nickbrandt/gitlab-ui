@@ -2,7 +2,7 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 
 import ResizeObserverPolyFill from 'resize-observer-polyfill';
 
-import resizeObserver from '../../directives/resize_observer/resize_observer';
+import resizeObserver from '../../src/directives/resize_observer/resize_observer';
 
 jest.mock('resize-observer-polyfill');
 

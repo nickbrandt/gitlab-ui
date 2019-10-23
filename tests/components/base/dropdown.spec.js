@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { BDropdown } from 'bootstrap-vue';
-import Dropdown from '../../../components/base/dropdown/dropdown.vue';
+import Dropdown from '../../../src/components/base/dropdown/dropdown.vue';
 import { waitForAnimationFrame } from '../../test_utils';
 
 const MockBDropdown = {

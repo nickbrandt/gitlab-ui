@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const scssDir = path.join(__dirname, '..', 'scss');
+const scssDir = path.join(__dirname, '..', 'src', 'scss');
 const mixinsPath = path.join(scssDir, 'utility-mixins.scss');
 const utilitiesPath = path.join(scssDir, 'utilities.scss');
 

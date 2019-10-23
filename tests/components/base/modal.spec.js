@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import { BModal } from 'bootstrap-vue';
-import Modal from '../../../components/base/modal/modal.vue';
+import Modal from '../../../src/components/base/modal/modal.vue';
 
 const localVue = createLocalVue();
 
