@@ -22,7 +22,7 @@
 
 ## Conventional commits
 
-We use conventional commits specifications to write meaningful commit messages that are used as part of our semantic release process.
+We use conventional commits specifications to write meaningful commit messages that are used as part of our [semantic release](https://gitlab.com/gitlab-org/gitlab-ui/wikis/Frequently-asked-questions#2-why-are-we-using-semantic-release) process.
 
 Please read the official specifications for more details: https://www.conventionalcommits.org/
 
@@ -81,12 +81,16 @@ revert:   Reverts a previous commit
 ```
 
 > Note that only `feat:` and `fix:` types trigger a new release
+> If you're introducing a breaking change, the message body should start with [`BREAKING CHANGE:`](https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-description-and-breaking-change-footer),
+> this will trigger a major version bump (e.g. `v1.2.3` -> `v2.0.0`)
 
 ### Commitizen
 
 https://commitizen.github.io/cz-cli/
 
 Commitizen is a CLI tool that provides an interactive interface to help you write commit messages following conventional commits specifications.
+
+> Note that we also limit commit messages subject's and body's length with Danger: [Dangerfile](./danger/semantic-commit/Dangerfile)
 
 ## Link local gitlab-ui with gitlab-ce
 
@@ -113,11 +117,6 @@ To fix this, run `yarn link "@gitlab/ui"` within the gitlab-ui folder. See https
 ## Automatic documentation
 
 We have automated as much of our documentation as possible (for example props, inherited props, links to underlying documentation, etc.) and kept manual tasks (for example name of vue-bootstrap component, slot descriptions, etc.) to an absolute minimum. The target for our documentation components and exports is to have them automatically integrated into [design.gitlab.com](https://design.gitlab.com). The main component for documentation is called `component_documentation_generator.vue`.
-
-## Automatic deploys
-
-We use [`semantic-release`](https://gitlab.com/gitlab-org/gitlab-ui/wikis/Frequently-asked-questions#2-why-are-we-using-semantic-release) to automatically publish `gitlab-ui`.
-Please follow [this specification](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#specification) to ensure your changes will be automatically deployed.
 
 ### Component documentation info
 
