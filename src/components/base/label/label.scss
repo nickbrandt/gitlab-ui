@@ -1,7 +1,9 @@
-.gl-label.badge {
+.gl-label {
   @include gl-p-0;
   @include gl-bg-white-light;
   @include gl-overflow-hidden;
+  @include gl-display-inline-block;
+  @include gl-rounded-pill;
 }
 
 .gl-label-text {

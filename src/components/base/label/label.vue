@@ -1,7 +1,6 @@
 <script>
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
-import GlBadge from '../badge/badge.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
@@ -14,7 +13,6 @@ export default {
   components: {
     GlLink,
     GlTooltip,
-    GlBadge,
   },
   props: {
     color: {
@@ -98,11 +96,10 @@ export default {
 </script>
 
 <template>
-  <gl-badge
+  <span
     :class="cssClasses"
     :style="boxShadow"
     class="gl-label"
-    pill
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
@@ -131,5 +128,5 @@ export default {
     >
       {{ description }}
     </gl-tooltip>
-  </gl-badge>
+  </span>
 </template>
