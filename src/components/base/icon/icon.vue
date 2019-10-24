@@ -49,9 +49,6 @@ export default {
     spriteHref() {
       return `${iconsPath}#${this.name}`;
     },
-    iconClass() {
-      return `ic-${this.name}`;
-    },
     iconSizeClass() {
       return this.size ? `s${this.size}` : '';
     },
@@ -60,7 +57,7 @@ export default {
 </script>
 
 <template>
-  <svg :class="['gl-icon', iconClass, iconSizeClass]">
+  <svg :class="['gl-icon', iconSizeClass]">
     <use v-bind="{ 'xlink:href': spriteHref }" />
   </svg>
 </template>
