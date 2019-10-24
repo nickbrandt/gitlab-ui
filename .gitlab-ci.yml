@@ -1,6 +1,7 @@
 variables:
   PUPPETEER_VERSION: '1.18.0'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
+  DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
 
 stages:
   - pre-build
@@ -35,6 +36,19 @@ build_docker_image:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - ./bin/build-docker.sh
+
+danger-review:
+  image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
+  stage: pre-build
+  dependencies: []
+  only:
+    variables:
+      - $DANGER_GITLAB_API_TOKEN
+  except:
+    refs:
+      - master
+  script:
+    - danger --fail-on-errors=true
 
 build:
   extends: [.node, .yarn_install]

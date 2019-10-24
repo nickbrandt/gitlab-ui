@@ -9,9 +9,11 @@
 /public/
 
 # Test & Build
+/danger/
 /tests/
 /.gitlab-ci.yml
 /rollup.config.js
+Dangerfile
 
 # Dot files
 .gitlab/
