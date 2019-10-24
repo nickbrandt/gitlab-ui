@@ -6,7 +6,7 @@ GitLab has its own SVG icons library, explore it here: https://gitlab-org.gitlab
 
 ## How can I import icons from GitLab SVGs into GitLab UI components?
 
-We're [working](https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/644) on adding an `<icon>` component to GitLab UI, which will make it super easy to display icons in any component. In the meantime, you can leverage the `getSvgIconPathContent()` utility to render SVG paths in components' templates. Have a look at the [`<toggle>`](https://gitlab.com/gitlab-org/gitlab-ui/blob/7563c357c37762a6726b3e83ecba12837f36ed10/components/base/toggle/toggle.vue#L81-88) component for an example.
+In most circumstances, you can utilize the [icon](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-icon--default) component to render an SVG from the gitlab-svgs library. ECharts components, however, cannot use SVG sprite references and require the entire `path` content to be passed in via config options.  For now, we are hard-coding these in [svg_paths.js](src/utils/svgs/svg_paths.js), but this will soon be done at build-time through a utility method.
 
 ## Why don’t we generate utilities?
 
