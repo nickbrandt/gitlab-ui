@@ -31,6 +31,7 @@
   @include gl-fill-current-color;
   @include gl-inset-border-1-gray-400;
   @include gl-display-inline-flex;
+  @include gl-align-items-center;
   @include gl-font-base;
 
   svg {
