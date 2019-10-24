@@ -16,7 +16,7 @@ COMMIT_BODY_MAX_LENGTH = 72
 # very helpful, and it doesn't offer the means of ignoring merge commits.
 
 def fail_commit(commit, message)
-  raise("#{commit.sha}: #{message}")
+  fail("#{commit.sha}: #{message}") # rubocop:disable Style/SignalException
 end
 
 def warn_commit(commit, message)
@@ -182,7 +182,7 @@ def lint_commit(commit)
     release = MAJOR_RELEASE
   elsif semantic_commit[:type] == 'feat'
     release = MINOR_RELEASE
-  elsif semantic_commit[:type] == 'perf' || semantic_commit[:type] == 'fix'
+  elsif %w[perf fix].include?(semantic_commit[:type])
     release = PATCH_RELEASE
   end
 
