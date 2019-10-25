@@ -19,8 +19,16 @@ export default {
       additionalInfo:
         'A function that receives the page number and that returns a string representing the page URL',
     },
+    prevPage: {
+      additionalInfo:
+        'When using the compact pagination, use this prop to pass the previous page number',
+    },
     prevText: {
       additionalInfo: 'Text for the previous button (overridden by "previous" slot)',
+    },
+    nextPage: {
+      additionalInfo:
+        'When using the compact pagination, use this prop to pass the next page number',
     },
     nextText: {
       additionalInfo: 'Text for the next button (overridden by "next" slot)',

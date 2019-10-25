@@ -285,4 +285,50 @@ describe('pagination component', () => {
       expect(buttons.at(5).text()).toBe(wrapper.vm.nextText);
     });
   });
+
+  describe('compact navigation', () => {
+    const compactPropsData = {
+      ...propsData,
+      totalItems: 0,
+    };
+
+    it.each`
+      props                           | description
+      ${{ prevPage: 2 }}              | ${'is a previous page'}
+      ${{ nextPage: 2 }}              | ${'is a next page'}
+      ${{ prevPage: 2, nextPage: 4 }} | ${'are previous and next pages'}
+    `(
+      `renders only prev & next buttons when totalItems isn's provided and there $description`,
+      ({ props }) => {
+        createComponent({
+          ...compactPropsData,
+          ...props,
+        });
+        const buttons = findButtons();
+        expect(buttons.length).toBe(2);
+      }
+    );
+
+    it('disables prev button when on first page', () => {
+      createComponent({
+        ...compactPropsData,
+        value: 1,
+        nextPage: 2,
+      });
+      const prevButton = findButtons().at(0);
+      expect(prevButton.is('span')).toBe(true);
+      expect(prevButton.attributes('aria-disabled')).toBe('true');
+    });
+
+    it('disables next button when on last page', () => {
+      createComponent({
+        ...compactPropsData,
+        value: 2,
+        prevPage: 1,
+      });
+      const nextButton = findButtons().at(1);
+      expect(nextButton.is('span')).toBe(true);
+      expect(nextButton.attributes('aria-disabled')).toBe('true');
+    });
+  });
 });

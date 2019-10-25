@@ -34,12 +34,12 @@ export default {
     },
     totalItems: {
       type: Number,
-      required: true,
-      validator: isIntGreaterThanZero,
+      required: false,
+      default: 0,
     },
     limits: {
       type: Object,
-      require: false,
+      required: false,
       default: () => ({
         xs: 0,
         sm: 3,
@@ -56,10 +56,20 @@ export default {
       required: false,
       default: null,
     },
+    prevPage: {
+      type: Number,
+      required: false,
+      default: null,
+    },
     prevText: {
       type: String,
       required: false,
       default: '‹ Prev',
+    },
+    nextPage: {
+      type: Number,
+      required: false,
+      default: null,
     },
     nextText: {
       type: String,
@@ -117,6 +127,9 @@ export default {
     };
   },
   computed: {
+    isVisible() {
+      return this.totalPages > 1 || this.isCompactPagination;
+    },
     isLinkBased() {
       return isFunction(this.linkGen);
     },
@@ -167,27 +180,36 @@ export default {
       return diff > this.maxAdjacentPages && this.totalPages > this.minTotalPagesToCollapse;
     },
     visibleItems() {
-      let firstPage = this.shouldCollapseLeftSide ? this.value - this.maxAdjacentPages : 1;
-      // If we're on last page, show at least one page to the left
-      firstPage = Math.min(firstPage, this.totalPages - 1);
-      let lastPage = this.shouldCollapseRightSide
-        ? this.value + this.maxAdjacentPages
-        : this.totalPages;
-      // If we're on first page, show at least one page to the right
-      lastPage = Math.max(lastPage, 2);
+      let items = [];
 
-      // Default numbered items
-      const items = pageRange(firstPage, lastPage, 1).map(page => this.getPageItem(page));
+      if (!this.isCompactPagination) {
+        let firstPage = this.shouldCollapseLeftSide ? this.value - this.maxAdjacentPages : 1;
+        // If we're on last page, show at least one page to the left
+        firstPage = Math.min(firstPage, this.totalPages - 1);
+        let lastPage = this.shouldCollapseRightSide
+          ? this.value + this.maxAdjacentPages
+          : this.totalPages;
+        // If we're on first page, show at least one page to the right
+        lastPage = Math.max(lastPage, 2);
 
-      if (this.shouldCollapseLeftSide) {
-        items.splice(0, 0, this.getPageItem(1, this.labelFirstPage), this.getEllipsisItem('left'));
-      }
+        // Default numbered items
+        items = pageRange(firstPage, lastPage, 1).map(page => this.getPageItem(page));
 
-      if (this.shouldCollapseRightSide) {
-        items.push(
-          this.getEllipsisItem('right'),
-          this.getPageItem(this.totalPages, this.labelLastPage)
-        );
+        if (this.shouldCollapseLeftSide) {
+          items.splice(
+            0,
+            0,
+            this.getPageItem(1, this.labelFirstPage),
+            this.getEllipsisItem('left')
+          );
+        }
+
+        if (this.shouldCollapseRightSide) {
+          items.push(
+            this.getEllipsisItem('right'),
+            this.getPageItem(this.totalPages, this.labelLastPage)
+          );
+        }
       }
 
       const prevPageItem = {
@@ -208,6 +230,9 @@ export default {
 
       return [prevPageItem, ...items, nextPageItem];
     },
+    isCompactPagination() {
+      return Boolean(!this.totalItems && (this.prevPage || this.nextPage));
+    },
   },
   created() {
     window.addEventListener('resize', debounce(this.setBreakpoint, resizeDebounceTime));
@@ -226,7 +251,11 @@ export default {
         class: [],
       };
       const isActivePage = page === this.value;
-      const isDisabled = page < 1 || page > this.totalPages;
+      const isDisabled =
+        page < 1 ||
+        (this.isCompactPagination && page > this.value && !this.nextPage) ||
+        (!this.isCompactPagination && page > this.totalPages);
+
       const attrs = { ...commonAttrs };
       const listeners = {};
       if (isActivePage) {
@@ -271,7 +300,7 @@ export default {
 
 <template>
   <ul
-    v-if="totalPages > 1"
+    v-if="isVisible"
     role="navigation"
     class="pagination gl-pagination text-nowrap"
     :class="wrapperClasses"
