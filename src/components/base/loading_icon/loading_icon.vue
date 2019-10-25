@@ -79,7 +79,7 @@ export default {
 };
 </script>
 <template>
-  <component :is="rootElementType" class="loading-container text-center">
+  <component :is="rootElementType" class="gl-spinner-container">
     <span :class="cssClasses" :aria-label="label" aria-hidden="true"></span>
   </component>
 </template>
