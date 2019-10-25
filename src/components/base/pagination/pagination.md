@@ -16,10 +16,23 @@ export default {
 </script>
 
 <template>
-  <gl-pagination v-model="page" :per-page="10" :total-items="100"/>
+  <gl-pagination v-model="page" :per-page="10" :total-items="100" />
 </template>
 ```
 
+## Compact pagination
+
+In some cases, you might not be able to provide the total items count because your API doesn't support it or because of performance concerns. For such cases, the pagination component supports a compact mode, where only the previous and next buttons are displayed.
+
+To enable the compact mode, you'll need to provide the previous and/or next page numbers via the `prev-page` and `next-page` props respectively.
+
+> NOTE: If one of the props is omitted, the corresponding button will be disabled. If both properties are omitted the pagination won't render at all.
+
+```vue
+<template>
+  <gl-pagination :value="2" :prev-page="1" :next-page="3" />
+</template>
+```
 
 ## Limits
 

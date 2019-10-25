@@ -8,36 +8,35 @@ const components = {
   GlPagination,
 };
 
-function generateProps({ page = 3, perPage = 10, totalItems = 200 } = {}) {
+function generateBaseProps() {
   return {
-    initialPage: {
-      type: Number,
-      default: number('current page', page),
-    },
-    perPage: {
-      type: Number,
-      default: number('per page', perPage),
-    },
-    totalItems: {
-      type: Number,
-      default: number('total items', totalItems),
-    },
     prevText: {
-      type: String,
       default: text('Prev button text', '‹ Prev'),
     },
     nextText: {
-      type: String,
       default: text('Next button text', 'Next ›'),
     },
     size: {
-      type: String,
       default: select('Buttons size', sizeOptions, null),
     },
     disabled: {
-      type: Boolean,
       default: boolean('Disabled', false),
     },
+  };
+}
+
+function generateFullProps({ page = 3, perPage = 10, totalItems = 200 } = {}) {
+  return {
+    initialPage: {
+      default: number('current page', page),
+    },
+    perPage: {
+      default: number('per page', perPage),
+    },
+    totalItems: {
+      default: number('total items', totalItems),
+    },
+    ...generateBaseProps(),
   };
 }
 
@@ -58,7 +57,7 @@ const defaults = {
 documentedStoriesOf('base|pagination', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -71,8 +70,42 @@ documentedStoriesOf('base|pagination', readme)
       :disabled="disabled"
       />`,
   }))
+  .add('compact', () => ({
+    ...defaults,
+    data() {
+      return {
+        page: 1,
+        alignOptions,
+      };
+    },
+    props: generateBaseProps(),
+    components,
+    computed: {
+      prevPage() {
+        return Math.max(this.page - 1, 0);
+      },
+      nextPage() {
+        const nextPage = this.page + 1;
+        return nextPage > 3 ? 0 : nextPage;
+      },
+    },
+    template: `
+    <div class="text-center">
+      <gl-pagination
+        v-model="page"
+        :prev-page="prevPage"
+        :next-page="nextPage"
+        :prev-text="prevText"
+        :next-text="nextText"
+        :size="size"
+        :disabled="disabled"
+        :align="alignOptions.center"
+      />
+      Page {{ page }} of 3
+    </div>`,
+  }))
   .add('custom rendering', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -108,7 +141,7 @@ documentedStoriesOf('base|pagination', readme)
       </gl-pagination>`,
   }))
   .add('link based', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -122,7 +155,7 @@ documentedStoriesOf('base|pagination', readme)
       />`,
   }))
   .add('align center', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -137,7 +170,7 @@ documentedStoriesOf('base|pagination', readme)
       />`,
   }))
   .add('align right', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -152,7 +185,7 @@ documentedStoriesOf('base|pagination', readme)
       />`,
   }))
   .add('fill', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -167,7 +200,7 @@ documentedStoriesOf('base|pagination', readme)
       />`,
   }))
   .add('small buttons', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
@@ -181,7 +214,7 @@ documentedStoriesOf('base|pagination', readme)
       />`,
   }))
   .add('large buttons', () => ({
-    props: generateProps(),
+    props: generateFullProps(),
     ...defaults,
     components,
     template: `<gl-pagination
