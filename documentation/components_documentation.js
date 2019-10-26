@@ -33,7 +33,6 @@ export {
 export {
   default as GlAvatarLabeledDocumentation,
 } from '../src/components/base/avatar_labeled/avatar_labeled.documentation';
-
 export {
   default as GlColumnChartDocumentation,
 } from '../src/components/charts/column/column.documentation';
@@ -149,14 +148,15 @@ export {
 export {
   default as GlSortingItemDocumentation,
 } from '../src/components/base/sorting/sorting_item.documentation';
-
 export {
   default as GlIntersperseDocumentation,
 } from '../src/components/base/intersperse/intersperse.documentation';
 export {
   default as GlInfiniteScrollDocumentation,
 } from '../src/components/base/infinite_scroll/infinite_scroll.documentation';
-
+export {
+  default as GlSegmentedControlDocumentation,
+} from '../src/components/base/segmented_control/segmented_control.documentation';
 export {
   default as GlResizeObserverDirectiveDocumentation,
 } from '../src/directives/resize_observer/resize_observer.documentation';

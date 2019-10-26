@@ -1,0 +1,9 @@
+.gl-segmented-control {
+  label:not(.disabled) {
+    @include gl-cursor-pointer;
+  }
+
+  > .btn {
+    @extend %new-gl-button;
+  }
+}

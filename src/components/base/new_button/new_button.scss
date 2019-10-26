@@ -21,7 +21,8 @@
     0 0 px-to-rem(4px) px-to-rem(1px) $blue-300;
 }
 
-.new-gl-button {
+.new-gl-button,
+%new-gl-button {
   @include gl-border-0;
   @include gl-py-3;
   @include gl-px-4;
@@ -52,7 +53,8 @@
     @include new-gl-button-secondary-hover($gray-400);
   }
 
-  &:active {
+  &:active,
+  &.active {
     @include gl-bg-gray-300;
     @include new-gl-button-active($gray-500);
   }

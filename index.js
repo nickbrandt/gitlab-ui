@@ -76,6 +76,9 @@ export { default as GlSortingItem } from './src/components/base/sorting/sorting_
 export {
   default as GlInfiniteScroll,
 } from './src/components/base/infinite_scroll/infinite_scroll.vue';
+export {
+  default as GlSegmentedControl,
+} from './src/components/base/segmented_control/segmented_control.vue';
 
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';
