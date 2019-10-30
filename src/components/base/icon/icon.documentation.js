@@ -1,4 +1,4 @@
-import * as description from './icon.md';
+import description from './icon.md';
 import examples from './examples';
 
 export default {
