@@ -1,4 +1,7 @@
-import { glThemes as glThemesVariable } from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import {
+  glThemes as glThemesVariable,
+  glIconSizes as glIconSizesVariable,
+} from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 function appendDefaultOption(options) {
   return Object.assign({}, options, {
@@ -97,7 +100,7 @@ export const newButtonSizeOptionsMap = {
 };
 
 // size options all have corresponding styles (e.g. .s12 defined in icon.scss)
-export const iconSizeOptions = [8, 10, 12, 14, 16, 18, 24, 32, 48, 72];
+export const iconSizeOptions = glIconSizesVariable.split(' ').map(Number);
 
 export const triggerVariantOptions = {
   click: 'click',

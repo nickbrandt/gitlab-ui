@@ -1,14 +1,9 @@
-@mixin svg-size($size) {
-  width: $size;
-  height: $size;
-}
-
-.gl-icon svg {
+.gl-icon {
   fill: currentColor;
-  $svg-sizes: 8 10 12 14 16 18 24 32 48 72;
-  @each $svg-size in $svg-sizes {
-    &.s#{$svg-size} {
-      @include svg-size(#{$svg-size}px);
+  @each $size in $gl-icon-sizes {
+    &.s#{$size} {
+      width: #{$size}px;
+      height: #{$size}px;
     }
   }
 }
