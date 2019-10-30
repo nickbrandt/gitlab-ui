@@ -12,3 +12,7 @@
 @import 'utility-mixins';
 
 @import 'components';
+
+body {
+  @include gl-font-base;
+}
