@@ -15,3 +15,4 @@ export {
   default as GlDiscreteScatterChart,
 } from './src/components/charts/discrete_scatter/discrete_scatter.vue';
 export { default as GlSingleStat } from './src/components/charts/single_stat/single_stat.vue';
+export { default as GlSparklineChart } from './src/components/charts/sparkline/sparkline.vue';
