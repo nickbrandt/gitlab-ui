@@ -5,6 +5,7 @@
 
 // Components
 export { default as GlLink } from './src/components/base/link/link.vue';
+export { default as GlIcon } from './src/components/base/icon/icon.vue';
 export { default as GlLoadingIcon } from './src/components/base/loading_icon/loading_icon.vue';
 export { default as GlModal } from './src/components/base/modal/modal.vue';
 export { default as GlPagination } from './src/components/base/pagination/pagination.vue';

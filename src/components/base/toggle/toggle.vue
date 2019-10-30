@@ -1,9 +1,9 @@
 <script>
-import { getSvgIconPathContent } from '../../../utils/svg_utils';
-import { GlLoadingIcon } from '../../../../index';
+import { GlIcon, GlLoadingIcon } from '../../../../index';
 
 export default {
   components: {
+    GlIcon,
     GlLoadingIcon,
   },
   model: {
@@ -50,9 +50,6 @@ export default {
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
     },
-    path() {
-      return getSvgIconPathContent(this.icon);
-    },
   },
 
   methods: {
@@ -78,9 +75,7 @@ export default {
     >
       <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
       <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-        <svg id="mobile-issue-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-          <path :d="path" />
-        </svg>
+        <gl-icon :name="icon" size="16" />
       </span>
     </button>
   </label>

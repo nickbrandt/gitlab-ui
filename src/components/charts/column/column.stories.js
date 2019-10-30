@@ -1,7 +1,7 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlColumnChart } from '../../../../charts';
-import { getSvgEchartsPath } from '../../../utils/svg_utils';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 import readme from './column.md';
 
@@ -69,7 +69,7 @@ documentedStoriesOf('charts|column-chart', readme)
           {
             type: 'slider',
             startValue: 1,
-            handleIcon: getSvgEchartsPath('scroll-handle'),
+            handleIcon: scrollHandleSvgPath,
           },
         ],
       },

@@ -68,12 +68,8 @@
     > svg {
       @include gl-w-5;
       @include gl-h-5;
-      @include gl-fill-current-color;
-      @include gl-vertical-align-baseline;
-    }
-
-    path {
       @include gl-fill-gray-600;
+      @include gl-vertical-align-baseline;
     }
   }
 
@@ -83,7 +79,7 @@
     .toggle-icon {
       transform: translateX($gl-spacing-scale-7);
 
-      path {
+      > svg {
         @include gl-fill-blue-500;
       }
     }
