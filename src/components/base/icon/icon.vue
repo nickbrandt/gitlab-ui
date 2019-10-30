@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
       return true;
     }
     // eslint-disable-next-line no-console
-    console.warn(`Icon '${value}' is not a known icon of @gitlab/gitlab-svg`);
+    console.warn(`Icon '${value}' is not a known icon of @gitlab/svgs`);
     return false;
   };
 }
