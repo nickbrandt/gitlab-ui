@@ -8,34 +8,26 @@ const components = {
   GlFormCheckboxGroup,
 };
 
-documentedStoriesOf('base|form/form-checkbox', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    template: `
-      <gl-form-checkbox>Checkbox</gl-form-checkbox>
-    `,
-  }))
-  .add('group', () => ({
-    components,
-    props: {
-      isStacked: {
-        default: boolean('Stacked', true),
-      },
-      // Note: options allows an html property, but withKnobs escapes html characters so it won't work
-      // More info here: https://github.com/storybookjs/storybook/tree/v4.0.0-alpha.8/addons/knobs#withknobs-vs-withknobsoptions
-      options: {
-        default: object('Options', [
-          'String option',
-          { text: 'Disabled object option', value: 'disabled value', disabled: true },
-          {
-            text: 'Enabled object option',
-            value: 'html value',
-          },
-        ]),
-      },
+const groupCoponent = isStacked => ({
+  components,
+  props: {
+    isStacked: {
+      default: boolean('Stacked', isStacked),
     },
-    template: `
+    // Note: options allows an html property, but withKnobs escapes html characters so it won't work
+    // More info here: https://github.com/storybookjs/storybook/tree/v4.0.0-alpha.8/addons/knobs#withknobs-vs-withknobsoptions
+    options: {
+      default: object('Options', [
+        'String option',
+        { text: 'Disabled object option', value: 'disabled value', disabled: true },
+        {
+          text: 'Enabled object option',
+          value: 'html value',
+        },
+      ]),
+    },
+  },
+  template: `
       <gl-form-checkbox-group :stacked="isStacked" :options="options">
         <template v-slot:first>
           <gl-form-checkbox value="Slot option">
@@ -48,4 +40,15 @@ documentedStoriesOf('base|form/form-checkbox', readme)
         <gl-form-checkbox value="Last option">Last option</gl-form-checkbox>
       </gl-form-checkbox-group>
     `,
-  }));
+});
+
+documentedStoriesOf('base|form/form-checkbox', readme)
+  .addDecorator(withKnobs)
+  .add('default', () => ({
+    components,
+    template: `
+      <gl-form-checkbox>Checkbox</gl-form-checkbox>
+    `,
+  }))
+  .add('stacked group', () => groupCoponent(true))
+  .add('inline group', () => groupCoponent(false));
