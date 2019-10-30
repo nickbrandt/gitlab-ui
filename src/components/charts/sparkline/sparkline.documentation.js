@@ -1,4 +1,4 @@
-import * as description from './sparkline.md';
+import description from './sparkline.md';
 import examples from './examples';
 
 import { sparkline } from '../../../utils/charts/theme';

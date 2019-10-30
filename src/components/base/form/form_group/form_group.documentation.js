@@ -1,4 +1,4 @@
-import * as description from './form_group.md';
+import description from './form_group.md';
 import examples from './examples/form_group';
 
 export default {

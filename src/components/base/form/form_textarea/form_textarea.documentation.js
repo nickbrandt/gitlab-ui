@@ -1,4 +1,4 @@
-import * as description from './form_textarea.md';
+import description from './form_textarea.md';
 import examples from './examples';
 
 export default {

@@ -1,4 +1,4 @@
-import * as description from './infinite_scroll.md';
+import description from './infinite_scroll.md';
 import examples from './examples';
 
 export default {

@@ -1,4 +1,4 @@
-import * as description from './new_button.md';
+import description from './new_button.md';
 import examples from './examples';
 
 export default {

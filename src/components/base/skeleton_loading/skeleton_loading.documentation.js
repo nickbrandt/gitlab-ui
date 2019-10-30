@@ -1,4 +1,4 @@
-import * as description from './skeleton_loading.md';
+import description from './skeleton_loading.md';
 import examples from './examples';
 
 export default {

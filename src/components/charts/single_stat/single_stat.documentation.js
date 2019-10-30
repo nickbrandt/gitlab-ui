@@ -1,4 +1,4 @@
-import * as description from './single_stat.md';
+import description from './single_stat.md';
 import examples from './examples';
 
 export default {

@@ -1,4 +1,4 @@
-import * as description from './discrete_scatter.md';
+import description from './discrete_scatter.md';
 import examples from './examples';
 
 export default {

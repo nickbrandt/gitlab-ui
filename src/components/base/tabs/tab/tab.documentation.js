@@ -1,4 +1,4 @@
-import * as description from './tab.md';
+import description from './tab.md';
 
 export default {
   description,

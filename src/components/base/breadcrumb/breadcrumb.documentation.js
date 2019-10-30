@@ -1,4 +1,4 @@
-import * as description from './breadcrumb.md';
+import description from './breadcrumb.md';
 import examples from './examples';
 
 export default {
