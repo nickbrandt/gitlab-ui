@@ -11,7 +11,7 @@ function generateProps() {
   return {
     viewOnly: {
       type: Boolean,
-      default: boolean('View-only', false),
+      default: boolean('View-only', true),
     },
   };
 }
