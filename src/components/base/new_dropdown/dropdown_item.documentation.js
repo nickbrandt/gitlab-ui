@@ -1,4 +1,4 @@
-import * as description from './dropdown_item.md';
+import description from './dropdown_item.md';
 
 export default {
   description,

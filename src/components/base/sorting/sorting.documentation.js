@@ -1,4 +1,4 @@
-import * as description from './sorting.md';
+import description from './sorting.md';
 import examples from './examples';
 
 export default {

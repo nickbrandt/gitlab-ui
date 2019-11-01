@@ -1,4 +1,4 @@
-import * as description from './dropdown_header.md';
+import description from './dropdown_header.md';
 
 export default {
   description,

@@ -1,4 +1,4 @@
-import * as description from './form_input.md';
+import description from './form_input.md';
 import examples from './examples/form_input';
 
 export default {

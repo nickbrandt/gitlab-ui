@@ -1,4 +1,4 @@
-import * as description from './avatar.md';
+import description from './avatar.md';
 import examples from './examples';
 
 export default {

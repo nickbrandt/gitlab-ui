@@ -1,4 +1,4 @@
-import * as description from './friendly_wrap.md';
+import description from './friendly_wrap.md';
 import examples from './examples';
 
 export default {

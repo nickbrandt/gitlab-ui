@@ -1,4 +1,4 @@
-import * as description from './sorting_item.md';
+import description from './sorting_item.md';
 
 export default {
   description,

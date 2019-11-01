@@ -1,4 +1,4 @@
-import * as description from './stacked_column.md';
+import description from './stacked_column.md';
 import examples from './examples';
 
 export default {

@@ -1,4 +1,4 @@
-import * as description from './legend.md';
+import description from './legend.md';
 import examples from './examples';
 
 export default {

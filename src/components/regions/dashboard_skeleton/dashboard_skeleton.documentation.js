@@ -1,4 +1,4 @@
-import * as description from './dashboard_skeleton.md';
+import description from './dashboard_skeleton.md';
 import examples from './examples';
 
 export default {

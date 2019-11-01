@@ -1,4 +1,4 @@
-import * as description from './intersperse.md';
+import description from './intersperse.md';
 import examples from './examples';
 
 export default {

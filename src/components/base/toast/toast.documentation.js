@@ -1,4 +1,4 @@
-import * as description from './toast.md';
+import description from './toast.md';
 import examples from './examples';
 
 export default {

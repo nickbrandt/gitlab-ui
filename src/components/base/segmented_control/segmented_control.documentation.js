@@ -1,4 +1,4 @@
-import * as description from './segmented_control.md';
+import description from './segmented_control.md';
 import examples from './examples';
 
 export default {
