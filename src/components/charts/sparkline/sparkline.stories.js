@@ -43,7 +43,7 @@ function generateProps({ showLastYValue = true } = {}) {
     },
     variant: {
       default: shouldShowVariantsKnob
-        ? select('variant', sparkline.variants, sparkline.defaultVariant)
+        ? select('variant', Object.keys(sparkline.variants), sparkline.defaultVariant)
         : sparkline.defaultVariant,
     },
     height: {

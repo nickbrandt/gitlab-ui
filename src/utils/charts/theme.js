@@ -27,7 +27,7 @@ export const colorFromPalette = index => colorPalette[index % colorPalette.lengt
 export const sparkline = {
   // additional colors are TBD - see issue: https://gitlab.com/gitlab-org/gitlab-ui/issues/484
   variants: { gray900 },
-  defaultVariant: gray900,
+  defaultVariant: 'gray900',
 };
 
 const axes = {
