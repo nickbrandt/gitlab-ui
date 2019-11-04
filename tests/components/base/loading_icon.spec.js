@@ -105,18 +105,16 @@ describe('loading icon component', () => {
     it('should handle an invalid size', () => {
       const invalidSize = 6;
 
-      console.error = jest.fn(); // eslint-disable-line no-console
-
       createComponent({ size: invalidSize });
       const spinnerClasses = getSpinnerClasses();
 
-      expect(console.error).toHaveBeenCalledTimes(1); // eslint-disable-line no-console
+      expect(global.console).toHaveLoggedVueErrors();
 
       // default size as fallback
       expect(spinnerClasses).toContain(baseCssClass);
       expect(spinnerClasses).toContain(`${baseCssClass}-sm`);
 
-      console.warn.mockReset(); // eslint-disable-line no-console
+      global.console.error.mockReset();
     });
 
     it('should convert size of 1 to "sm"', () => {

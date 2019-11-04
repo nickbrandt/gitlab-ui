@@ -22,3 +22,19 @@ For example, at the time of writing, this type of warning can be observed for [a
 GitLab always asks to use `<gl-*>` components whenever a suitable component exists. It makes codebase unified and more comfortable to maintain/refactor in the future.
 
 Ensure a [Product Designer](https://about.gitlab.com/company/team/?department=ux-department) reviews the use of the non-conforming component as part of the MR review. Make a follow up issue and attach it to the component implementation epic found within the [Components of Pajamas Design System epic](https://gitlab.com/groups/gitlab-org/-/epics/973).
+
+## I want to write tests cases for invalid uses of my component but they always fail, what's going on?
+
+An example of that would be when you want to make sure that invalid props are handled properly
+(i.e. you defined a custom validator and you want to make sure it errors out when the prop
+doesn't pass the validation). In this kind of situation, Vue will log an error to the console,
+which is forbidden by our global assertion in [Jest's setup](tests/jest_setup.js). To make your
+test pass, make sure you reset `console.error()`'s mock at then of your test:
+
+```js
+it('should log an error', () => {
+  // test you component
+
+  global.console.error.mockReset();
+});
+```

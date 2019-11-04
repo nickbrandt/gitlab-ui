@@ -27,8 +27,8 @@
     "test:unit": "NODE_ENV=test jest --testPathIgnorePatterns storyshots.spec.js",
     "test:unit:watch": "yarn test:unit --watch --notify",
     "test:unit:debug": "NODE_ENV=test node --inspect node_modules/.bin/jest --testPathIgnorePatterns storyshot.spec.js --watch --runInBand",
-    "test:visual": "NODE_ENV=test start-test http-get://localhost:9001 'jest ./tests/storyshots.spec.js'",
-    "test:visual:update": "NODE_ENV=test start-test http-get://localhost:9001 'jest ./tests/storyshots.spec.js --updateSnapshot'",
+    "test:visual": "NODE_ENV=test IS_VISUAL_TEST=true start-test http-get://localhost:9001 'jest ./tests/storyshots.spec.js'",
+    "test:visual:update": "NODE_ENV=test IS_VISUAL_TEST=true start-test http-get://localhost:9001 'jest ./tests/storyshots.spec.js --updateSnapshot'",
     "test:visual:gitlab": "IS_GITLAB_INTEGRATION_TEST=1 yarn test:visual",
     "eslint": "eslint --max-warnings 0 --ext .js,.vue .",
     "eslint:fix": "yarn eslint --fix",
@@ -143,6 +143,9 @@
     ],
     "setupFiles": [
       "jest-localstorage-mock"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/jest_setup.js"
     ]
   },
   "release": {
