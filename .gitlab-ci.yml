@@ -126,7 +126,7 @@ update_screenshots:
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
     - git add .
-    - git commit -m "Update snapshots"
+    - "git commit -m 'chore: update snapshots'"
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
 
 ## Secure features

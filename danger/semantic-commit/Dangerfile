@@ -11,6 +11,13 @@ MAJOR_RELEASE = 4
 COMMIT_SUBJECT_MAX_LENGTH = 72
 COMMIT_BODY_MAX_LENGTH = 72
 
+# Commit messages that start with one of the prefixes below won't be linted
+IGNORED_COMMIT_MESSAGES = [
+  'Merge branch',
+  'Revert "',
+  'chore: update snapshots'
+].freeze
+
 # Perform various checks against commits. We're not using
 # https://github.com/jonallured/danger-commit_lint because its output is not
 # very helpful, and it doesn't offer the means of ignoring merge commits.
@@ -84,7 +91,7 @@ def lint_commit(commit)
   # For now we'll ignore merge commits, as getting rid of those is a problem
   # separate from enforcing good commit messages.
   # We also ignore revert commits as they are well structured by Git already
-  if commit.message.start_with?('Merge branch') || commit.message.start_with?('Revert "')
+  if commit.message.start_with?(*IGNORED_COMMIT_MESSAGES)
     return { failed: false, release: NO_RELEASE }
   end
 
