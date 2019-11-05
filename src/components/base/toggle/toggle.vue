@@ -75,7 +75,7 @@ export default {
     >
       <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
       <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-        <gl-icon :name="icon" size="16" />
+        <gl-icon :name="icon" :size="16" />
       </span>
     </button>
   </label>
