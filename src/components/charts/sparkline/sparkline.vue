@@ -101,14 +101,16 @@ export default {
       return {
         type: 'line',
         symbol: 'circle',
-        animation: false,
+        hoverAnimation: false,
+        animation: true,
         cursor: 'auto',
-        lineStyle: { color: this.variant },
-        itemStyle: { color: this.variant },
+        lineStyle: { color: this.variantColor },
+        itemStyle: { color: this.variantColor },
         symbolSize,
         markPoint: {
           symbol: 'circle',
           cursor: 'auto',
+          animation: false,
           symbolSize,
           data: [
             {
@@ -124,6 +126,9 @@ export default {
       const latestEntry = this.data.slice(-1)[0];
 
       return latestEntry[1];
+    },
+    variantColor() {
+      return variants[this.variant];
     },
   },
   created() {
@@ -201,7 +206,7 @@ export default {
         </template>
       </chart-tooltip>
     </div>
-    <span v-if="showLastYValue" class="js-last-y-value d-inline-flex justify-content-center p-3">{{
+    <span v-if="showLastYValue" class="js-last-y-value d-inline-flex justify-content-center ml-3">{{
       lastYValue
     }}</span>
   </div>
