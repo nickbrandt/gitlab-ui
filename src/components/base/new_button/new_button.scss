@@ -2,23 +2,19 @@
  * Button-specific utilities
  */
 @mixin new-gl-button-hover($color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
-    0 px-to-rem(2px) px-to-rem(2px) 0 rgba(0, 0, 0, 0.2);
+  box-shadow: gl-inset-border-2($color), gl-shadow-0-2-2-0();
 }
 
 @mixin new-gl-button-secondary-hover($color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
-    0 px-to-rem(2px) px-to-rem(2px) 0 rgba(0, 0, 0, 0.1);
+  box-shadow: gl-inset-border-2($color), gl-shadow-0-2-2-0($black-transparent-02);
 }
 
 @mixin new-gl-button-active($color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $color,
-    inset 0 px-to-rem(2px) px-to-rem(4px) 0 rgba(0, 0, 0, 0.2);
+  box-shadow: gl-inset-border-2($color), gl-inset-shadow-0-2-4-0($black-transparent-02);
 }
 
 @mixin new-gl-button-focus($color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $color, 0 0 0 px-to-rem(1px) $blue-300,
-    0 0 px-to-rem(4px) px-to-rem(1px) $blue-300;
+  box-shadow: gl-inset-border-2($color), gl-focus-outer-glow();
 }
 
 .new-gl-button,

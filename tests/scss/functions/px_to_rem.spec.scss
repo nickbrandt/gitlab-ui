@@ -1,4 +1,4 @@
-@import 'src/scss/functions';
+@import 'src/scss/functions/px_to_rem';
 @import 'true';
 
 @include describe('extract-unit') {

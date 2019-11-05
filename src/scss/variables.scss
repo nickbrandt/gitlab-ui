@@ -1,4 +1,5 @@
-@import 'functions';
+@import 'functions/box_shadows';
+@import 'functions/px_to_rem';
 
 // Layout
 $grid-size: px-to-rem(8px);
@@ -22,6 +23,8 @@ $transparent: transparent;
 // Color schema
 $black: #000;
 $black-normal: #333;
+$black-transparent-01: rgba($black, 0.1);
+$black-transparent-02: rgba($black, 0.2);
 
 $white-light: #fff;
 $white-normal: #f0f0f0;
