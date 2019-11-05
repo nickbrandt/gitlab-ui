@@ -1,0 +1,51 @@
+.gl-banner {
+  @include gl-border-1;
+  @include gl-border-gray-200;
+  @include gl-border-solid;
+  @include gl-display-flex;
+  @include gl-font-base;
+  @include gl-px-8;
+  @include gl-py-6;
+  @include gl-rounded-base;
+  @include gl-relative;
+}
+
+.gl-banner-illustration {
+  @include gl-flex-shrink-0;
+  @include gl-mr-6;
+
+  img {
+    width: $grid-size * 15;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
+
+.gl-banner-title {
+  @include gl-font-base;
+  @include gl-font-weight-bold;
+}
+
+.gl-banner-close {
+  @include gl-absolute;
+  @include gl-top-5;
+  @include gl-right-5;
+  @include gl-font-base;
+}
+
+// Introduction variant
+.gl-banner-introduction {
+  @include gl-bg-blue-50;
+  @include gl-border-blue-300;
+
+  .gl-banner-title {
+    @include gl-font-2xl;
+  }
+
+  .gl-banner-close {
+    @include gl-text-blue-500;
+    @include gl-opacity-10;
+  }
+}

@@ -35,7 +35,7 @@ module.exports = ({ config }) => {
       loader: 'vue-loader',
     },
     {
-      test: /@gitlab\/svgs\/dist\/icons\.svg$/,
+      test: /@gitlab\/svgs\/dist\/(icons|illustrations\/.+)\.svg$/,
       loader: 'file-loader',
     },
     {
