@@ -61,6 +61,11 @@
   padding-right: $gl-spacing-scale-5;
 }
 
+@mixin gl-px-8 {
+  padding-left: $gl-spacing-scale-8;
+  padding-right: $gl-spacing-scale-8;
+}
+
 @mixin gl-pr-2 {
   padding-right: $gl-spacing-scale-2;
 }
@@ -184,6 +189,10 @@
 
 @mixin gl-mr-5 {
   margin-right: $gl-spacing-scale-5;
+}
+
+@mixin gl-mr-6 {
+  margin-right: $gl-spacing-scale-6;
 }
 
 @mixin gl-mr-7 {
@@ -436,6 +445,10 @@
 
 @mixin gl-border-gray-400 {
   border-color: $gray-400;
+}
+
+@mixin gl-border-blue-300 {
+  border-color: $blue-300;
 }
 
 @mixin gl-border-blue-600 {
@@ -1069,12 +1082,20 @@
   top: $gl-spacing-scale-1;
 }
 
+@mixin gl-top-5 {
+  top: $gl-spacing-scale-5;
+}
+
 @mixin gl-right-0 {
   right: 0;
 }
 
 @mixin gl-right-1 {
   right: $gl-spacing-scale-1;
+}
+
+@mixin gl-right-5 {
+  right: $gl-spacing-scale-5;
 }
 
 @mixin gl-bottom-0 {
@@ -1148,6 +1169,10 @@
 
 @mixin gl-bg-gray-600 {
   background-color: $gray-600;
+}
+
+@mixin gl-bg-blue-50 {
+  background-color: $blue-50;
 }
 
 @mixin gl-bg-blue-100 {

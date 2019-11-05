@@ -150,3 +150,5 @@ export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
 
 // Datetime constants
 export const defaultDateFormat = 'YYYY-MM-DD';
+
+export const bannerVariants = ['promotion', 'introduction'];

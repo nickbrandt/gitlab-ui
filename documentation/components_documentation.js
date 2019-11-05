@@ -164,7 +164,9 @@ export {
 export {
   default as GlResizeObserverDirectiveDocumentation,
 } from '../src/directives/resize_observer/resize_observer.documentation';
-
+export {
+  default as GlBannerDocumentation,
+} from '../src/components/base/banner/banner.documentation';
 const componentList = Object.getPrototypeOf(module).exports;
 
 export const getDocumentationFor = componentName => {
