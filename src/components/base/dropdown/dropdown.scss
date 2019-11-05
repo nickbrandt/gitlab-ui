@@ -12,4 +12,13 @@
     font: normal normal normal 8px/1 FontAwesome;
     -webkit-font-smoothing: antialiased;
   }
+
+  .dropdown-chevron {
+    @include gl-ml-2;
+  }
+
+  .dropdown-chevron,
+  .dropdown-icon {
+    margin-top: px-to-rem(-3px);
+  }
 }

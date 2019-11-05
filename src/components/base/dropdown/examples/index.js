@@ -5,6 +5,8 @@ import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
 import DropdownWithSearchExample from './dropdown.with_search.example.vue';
 import DropdownNoCaretExample from './dropdown.no_caret.example.vue';
 import DropdownSplitExample from './dropdown.split.example.vue';
+import DropdownWithIconExample from './dropdown.with_icon.example.vue';
+import DropdownWithIconAndTextExample from './dropdown.with_icon_and_text.example.vue';
 
 export default [
   {
@@ -39,6 +41,18 @@ export default [
         name: 'With Search',
         description: 'Dropdown with search field',
         component: DropdownWithSearchExample,
+      },
+      {
+        id: 'dropdown-with-icon',
+        name: 'With Icon',
+        description: 'Icon Dropdown',
+        component: DropdownWithIconExample,
+      },
+      {
+        id: 'dropdown-with-icon-and-text',
+        name: 'With Icon and Text',
+        description: 'Icon Dropdown with text',
+        component: DropdownWithIconAndTextExample,
       },
       {
         id: 'dropdown-no-caret',

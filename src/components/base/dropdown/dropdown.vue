@@ -1,6 +1,7 @@
 <script>
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import BDropdown from 'bootstrap-vue/src/components/dropdown/dropdown';
+import GlIcon from '../icon/icon.vue';
 
 // Return an Array of visible items
 function filterVisible(els) {
@@ -25,6 +26,7 @@ const ExtendedBDropdown = {
 export default {
   components: {
     BDropdown: ExtendedBDropdown,
+    GlIcon,
   },
   inheritAttrs: false,
   props: {
@@ -42,6 +44,10 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    icon: {
+      type: String,
+      required: false,
     },
   },
   computed: {
@@ -64,8 +70,9 @@ export default {
   <b-dropdown ref="dropdown" class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners">
     <slot></slot>
     <slot slot="button-content" name="button-content">
+      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" />
       {{ text }}
-      <i v-if="renderCaret" class="fa fa-chevron-down" aria-hidden="true"></i>
+      <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
 </template>
