@@ -1,24 +1,9 @@
 import sassTrue from 'sass-true';
 import path from 'path';
-import fs from 'fs';
+import glob from 'glob';
 
-const endsWithScss = file => file.endsWith('.scss');
-const resolveRoot = file => path.resolve(__dirname, file);
-const resolveFunctions = file => path.resolve(`${__dirname}/functions`, file);
-
-const rootFiles = fs
-  .readdirSync(__dirname)
-  .filter(endsWithScss)
-  .map(resolveRoot);
-
-const functionFiles = fs
-  .readdirSync(`${__dirname}/functions`)
-  .filter(endsWithScss)
-  .map(resolveFunctions);
-
-const testFiles = rootFiles.concat(functionFiles);
-
-testFiles.forEach(file => {
+const resolvePaths = file => path.resolve(__dirname, file);
+const runTests = file => {
   sassTrue.runSass(
     { file },
     {
@@ -30,4 +15,9 @@ testFiles.forEach(file => {
       ],
     }
   );
-});
+};
+
+glob
+  .sync(`${__dirname}/**/*.scss`)
+  .map(resolvePaths)
+  .forEach(runTests);

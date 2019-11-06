@@ -20,18 +20,18 @@
  * inset | offset-x | offset-y | blur-radius | spread-radius | color
  */
 
-@function gl-shadow-0-2-2-0($color: $black-transparent-01) {
-  @return 0 2px 2px 0 $color;
+@function gl-shadow-0-2-2-0($color: $t-gray-a-01) {
+  @return 0 $gl-border-size-2 $gl-border-size-2 0 $color;
 }
 
-@function gl-inset-shadow-0-2-4-0($color: $black-transparent-01) {
-  @return inset 0 2px 4px 0 $color;
+@function gl-inset-shadow-0-2-4-0($color: $t-gray-a-01) {
+  @return inset 0 $gl-border-size-2 $gl-border-size-4 0 $color;
 }
 
 @function gl-inset-border-2($color) {
-  @return inset 0 0 0 2px $color;
+  @return inset 0 0 0 $gl-border-size-2 $color;
 }
 
 @function gl-focus-outer-glow() {
-  @return 0 0 0 1px $blue-300, 0 0 4px 1px $blue-300;
+  @return 0 0 0 $gl-border-size-1 $blue-300, 0 0 $gl-border-size-4 $gl-border-size-1 $blue-300;
 }

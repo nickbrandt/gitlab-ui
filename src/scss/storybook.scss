@@ -5,8 +5,7 @@
 @import 'bootstrap-vue/src/index.scss'; // stylelint-disable-line
 
 // Settings
-@import 'functions/box_shadows';
-@import 'functions/px_to_rem';
+@import 'functions/index';
 @import 'variables';
 @import 'variables_overrides';
 @import 'mixins';

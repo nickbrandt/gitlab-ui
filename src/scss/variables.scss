@@ -1,5 +1,4 @@
-@import 'functions/box_shadows';
-@import 'functions/px_to_rem';
+@import 'functions/index';
 
 // Layout
 $grid-size: px-to-rem(8px);
@@ -23,8 +22,6 @@ $transparent: transparent;
 // Color schema
 $black: #000;
 $black-normal: #333;
-$black-transparent-01: rgba($black, 0.1);
-$black-transparent-02: rgba($black, 0.2);
 
 $white-light: #fff;
 $white-normal: #f0f0f0;
@@ -172,6 +169,7 @@ $darken-dark-factor: 10%;
 $darken-border-factor: 5%;
 $darken-border-dashed-factor: 25%;
 
+$t-gray-a-01: rgba($black, 0.1);
 $t-gray-a-02: rgba($black, 0.02);
 $t-gray-a-04: rgba($black, 0.04);
 $t-gray-a-06: rgba($black, 0.06);
