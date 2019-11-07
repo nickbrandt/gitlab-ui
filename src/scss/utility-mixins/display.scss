@@ -1,0 +1,20 @@
+/**
+* Display utilities
+*
+* Naming convention gl-display-{property-value}
+*/
+@mixin gl-display-flex {
+  display: flex;
+}
+
+@mixin gl-display-inline-flex {
+  display: inline-flex;
+}
+
+@mixin gl-display-block {
+  display: block;
+}
+
+@mixin gl-display-inline-block {
+  display: inline-block;
+}

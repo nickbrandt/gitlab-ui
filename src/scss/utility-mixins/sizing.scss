@@ -1,0 +1,105 @@
+/**
+* Fixed dimension (width/height) utilities
+*
+* naming convention: gl-{width|height}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+@mixin gl-w-3 {
+  width: $gl-spacing-scale-3;
+}
+
+@mixin gl-w-4 {
+  width: $gl-spacing-scale-4;
+}
+
+@mixin gl-w-5 {
+  width: $gl-spacing-scale-5;
+}
+
+@mixin gl-w-6 {
+  width: $gl-spacing-scale-6;
+}
+
+@mixin gl-w-7 {
+  width: $gl-spacing-scale-7;
+}
+
+@mixin gl-w-9 {
+  width: $gl-spacing-scale-9;
+}
+
+@mixin gl-w-10 {
+  width: $gl-spacing-scale-10;
+}
+
+@mixin gl-w-11 {
+  width: $gl-spacing-scale-11;
+}
+
+@mixin gl-w-13 {
+  width: $gl-spacing-scale-13;
+}
+
+@mixin gl-w-full {
+  width: 100%;
+}
+
+@mixin gl-w-max-content {
+  width: max-content;
+}
+
+@mixin gl-h-auto {
+  height: auto;
+}
+
+@mixin gl-h-0 {
+  height: $gl-spacing-scale-0;
+}
+
+@mixin gl-h-3 {
+  height: $gl-spacing-scale-3;
+}
+
+@mixin gl-h-4 {
+  height: $gl-spacing-scale-4;
+}
+
+@mixin gl-h-5 {
+  height: $gl-spacing-scale-5;
+}
+
+@mixin gl-h-6 {
+  height: $gl-spacing-scale-6;
+}
+
+@mixin gl-h-7 {
+  height: $gl-spacing-scale-7;
+}
+
+@mixin gl-h-8 {
+  height: $gl-spacing-scale-8;
+}
+
+@mixin gl-h-9 {
+  height: $gl-spacing-scale-9;
+}
+
+@mixin gl-h-11 {
+  height: $gl-spacing-scale-11;
+}
+
+@mixin gl-h-13 {
+  height: $gl-spacing-scale-13;
+}
+
+/**
+* Minimum dimension (width/height) utilities
+*
+* naming convention: gl-min-{w|h}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+@mixin gl-min-w-0 {
+  min-width: $gl-spacing-scale-0;
+}

@@ -1,0 +1,16 @@
+/**
+* Opacity utilities
+*
+* naming convention: gl-opacity-{amount}
+*/
+@mixin gl-opacity-10 {
+  opacity: 1;
+}
+
+@mixin gl-opacity-5 {
+  opacity: 0.5;
+}
+
+@mixin gl-opacity-4 {
+  opacity: 0.4;
+}

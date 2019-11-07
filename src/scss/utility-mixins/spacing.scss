@@ -1,0 +1,275 @@
+/**
+* Padding utilities.
+*
+* naming convention: gl-p{position}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+@mixin gl-p-0 {
+  padding: $gl-spacing-scale-0;
+}
+
+@mixin gl-p-1 {
+  padding: $gl-spacing-scale-1;
+}
+
+@mixin gl-p-2 {
+  padding: $gl-spacing-scale-2;
+}
+
+@mixin gl-p-3 {
+  padding: $gl-spacing-scale-3;
+}
+
+@mixin gl-p-4 {
+  padding: $gl-spacing-scale-4;
+}
+
+@mixin gl-p-5 {
+  padding: $gl-spacing-scale-5;
+}
+
+@mixin gl-px-3 {
+  padding-left: $gl-spacing-scale-3;
+  padding-right: $gl-spacing-scale-3;
+}
+
+@mixin gl-px-4 {
+  padding-left: $gl-spacing-scale-4;
+  padding-right: $gl-spacing-scale-4;
+}
+
+@mixin gl-px-5 {
+  padding-left: $gl-spacing-scale-5;
+  padding-right: $gl-spacing-scale-5;
+}
+
+@mixin gl-px-8 {
+  padding-left: $gl-spacing-scale-8;
+  padding-right: $gl-spacing-scale-8;
+}
+
+@mixin gl-pr-2 {
+  padding-right: $gl-spacing-scale-2;
+}
+
+@mixin gl-pr-3 {
+  padding-right: $gl-spacing-scale-3;
+}
+
+@mixin gl-pr-5 {
+  padding-right: $gl-spacing-scale-5;
+}
+
+@mixin gl-pr-7 {
+  padding-right: $gl-spacing-scale-7;
+}
+
+@mixin gl-pr-9 {
+  padding-right: $gl-spacing-scale-9;
+}
+
+@mixin gl-pl-0 {
+  padding-left: $gl-spacing-scale-0;
+}
+
+@mixin gl-pl-2 {
+  padding-left: $gl-spacing-scale-2;
+}
+
+@mixin gl-pl-3 {
+  padding-left: $gl-spacing-scale-3;
+}
+
+@mixin gl-pl-6 {
+  padding-left: $gl-spacing-scale-6;
+}
+
+@mixin gl-py-0 {
+  padding-top: $gl-spacing-scale-0;
+  padding-bottom: $gl-spacing-scale-0;
+}
+
+@mixin gl-py-6 {
+  padding-top: $gl-spacing-scale-6;
+  padding-bottom: $gl-spacing-scale-6;
+}
+
+@mixin gl-pt-5 {
+  padding-top: $gl-spacing-scale-5;
+}
+
+@mixin gl-pb-2 {
+  padding-bottom: $gl-spacing-scale-2;
+}
+
+@mixin gl-pb-3 {
+  padding-bottom: $gl-spacing-scale-3;
+}
+
+@mixin gl-pb-4 {
+  padding-bottom: $gl-spacing-scale-4;
+}
+
+@mixin gl-py-2 {
+  padding-top: $gl-spacing-scale-2;
+  padding-bottom: $gl-spacing-scale-2;
+}
+
+@mixin gl-py-3 {
+  padding-top: $gl-spacing-scale-3;
+  padding-bottom: $gl-spacing-scale-3;
+}
+
+@mixin gl-py-4 {
+  padding-top: $gl-spacing-scale-4;
+  padding-bottom: $gl-spacing-scale-4;
+}
+
+@mixin gl-py-5 {
+  padding-top: $gl-spacing-scale-5;
+  padding-bottom: $gl-spacing-scale-5;
+}
+
+/**
+* Margin utilities.
+*
+* naming convention: gl-m{position}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+@mixin gl-m-0 {
+  margin: $gl-spacing-scale-0;
+}
+
+@mixin gl-m-3 {
+  margin: $gl-spacing-scale-3;
+}
+
+@mixin gl-mt-0 {
+  margin-top: $gl-spacing-scale-0;
+}
+
+@mixin gl-mt-1 {
+  margin-top: $gl-spacing-scale-1;
+}
+
+@mixin gl-mt-2 {
+  margin-top: $gl-spacing-scale-2;
+}
+
+@mixin gl-mt-3 {
+  margin-top: $gl-spacing-scale-3;
+}
+
+@mixin gl-mt-5 {
+  margin-top: $gl-spacing-scale-5;
+}
+
+@mixin gl-mr-0 {
+  margin-right: $gl-spacing-scale-0;
+}
+
+@mixin gl-mr-2 {
+  margin-right: $gl-spacing-scale-2;
+}
+
+@mixin gl-mr-3 {
+  margin-right: $gl-spacing-scale-3;
+}
+
+@mixin gl-mr-5 {
+  margin-right: $gl-spacing-scale-5;
+}
+
+@mixin gl-mr-6 {
+  margin-right: $gl-spacing-scale-6;
+}
+
+@mixin gl-mr-7 {
+  margin-right: $gl-spacing-scale-7;
+}
+
+@mixin gl-mb-0 {
+  margin-bottom: $gl-spacing-scale-0;
+}
+
+@mixin gl-mb-1 {
+  margin-bottom: $gl-spacing-scale-1;
+}
+
+@mixin gl-mb-2 {
+  margin-bottom: $gl-spacing-scale-2;
+}
+
+@mixin gl-mb-3 {
+  margin-bottom: $gl-spacing-scale-3;
+}
+
+@mixin gl-mb-4 {
+  margin-bottom: $gl-spacing-scale-4;
+}
+
+@mixin gl-mb-5 {
+  margin-bottom: $gl-spacing-scale-5;
+}
+
+@mixin gl-ml-auto {
+  margin-left: auto;
+}
+
+@mixin gl-ml-0 {
+  margin-left: $gl-spacing-scale-0;
+}
+
+@mixin gl-ml-1 {
+  margin-left: $gl-spacing-scale-1;
+}
+
+@mixin gl-ml-2 {
+  margin-left: $gl-spacing-scale-2;
+}
+
+@mixin gl-ml-3 {
+  margin-left: $gl-spacing-scale-3;
+}
+
+@mixin gl-my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@mixin gl-my-5 {
+  margin-top: $gl-spacing-scale-5;
+  margin-bottom: $gl-spacing-scale-5;
+}
+
+@mixin gl-my-11 {
+  margin-top: $gl-spacing-scale-11;
+  margin-bottom: $gl-spacing-scale-11;
+}
+
+@mixin gl-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin gl-mx-0 {
+  margin-left: $gl-spacing-scale-0;
+  margin-right: $gl-spacing-scale-0;
+}
+
+@mixin gl-my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@mixin gl-my-2 {
+  margin-top: $gl-spacing-scale-2;
+  margin-bottom: $gl-spacing-scale-2;
+}
+
+@mixin gl-mx-3 {
+  margin-left: $gl-spacing-scale-3;
+  margin-right: $gl-spacing-scale-3;
+}

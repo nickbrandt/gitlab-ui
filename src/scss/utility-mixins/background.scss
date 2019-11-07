@@ -1,0 +1,171 @@
+/**
+* Background color utilities.
+*
+* naming convention: gl-bg-{color-palette-variable-name}
+* notes:
+* - Strictly based design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+@mixin gl-bg-transparent {
+  background-color: $transparent;
+}
+
+@mixin gl-bg-white {
+  background-color: $white;
+}
+
+@mixin gl-bg-white-light {
+  background-color: $white-light;
+}
+
+@mixin gl-bg-gray-50 {
+  background-color: $gray-50;
+}
+
+@mixin gl-bg-gray-100 {
+  background-color: $gray-100;
+}
+
+@mixin gl-bg-gray-200 {
+  background-color: $gray-200;
+}
+
+@mixin gl-bg-gray-300 {
+  background-color: $gray-300;
+}
+
+@mixin gl-bg-gray-600 {
+  background-color: $gray-600;
+}
+
+@mixin gl-bg-blue-50 {
+  background-color: $blue-50;
+}
+
+@mixin gl-bg-blue-100 {
+  background-color: $blue-100;
+}
+
+@mixin gl-bg-blue-200 {
+  background-color: $blue-200;
+}
+
+@mixin gl-bg-blue-500 {
+  background-color: $blue-500;
+}
+
+@mixin gl-bg-blue-600 {
+  background-color: $blue-600;
+}
+
+@mixin gl-bg-blue-700 {
+  background-color: $blue-700;
+}
+
+@mixin gl-bg-green-100 {
+  background-color: $green-100;
+}
+
+@mixin gl-bg-green-200 {
+  background-color: $green-200;
+}
+
+@mixin gl-bg-green-500 {
+  background-color: $green-500;
+}
+
+@mixin gl-bg-green-600 {
+  background-color: $green-600;
+}
+
+@mixin gl-bg-green-700 {
+  background-color: $green-700;
+}
+
+@mixin gl-bg-orange-100 {
+  background-color: $orange-100;
+}
+
+@mixin gl-bg-orange-200 {
+  background-color: $orange-200;
+}
+
+@mixin gl-bg-orange-500 {
+  background-color: $orange-500;
+}
+
+@mixin gl-bg-orange-600 {
+  background-color: $orange-600;
+}
+
+@mixin gl-bg-orange-700 {
+  background-color: $orange-700;
+}
+
+@mixin gl-bg-red-100 {
+  background-color: $red-100;
+}
+
+@mixin gl-bg-red-200 {
+  background-color: $red-200;
+}
+
+@mixin gl-bg-red-500 {
+  background-color: $red-500;
+}
+
+@mixin gl-bg-red-600 {
+  background-color: $red-600;
+}
+
+@mixin gl-bg-red-700 {
+  background-color: $red-700;
+}
+
+@mixin gl-bg-none {
+  background: none;
+}
+
+/**
+* Background position utilities.
+*
+* naming convention: gl-bg-{position}
+*/
+@mixin gl-bg-center {
+  background-position: center;
+}
+
+/**
+* Background size utilities.
+*
+* naming convention: gl-bg-{repeat-pattern}
+*/
+@mixin gl-bg-size-100p {
+  background-size: 100% 100%;
+}
+
+@mixin gl-bg-size-cover {
+  background-size: cover;
+}
+
+/**
+* Background repeat utilities.
+*
+* naming convention: gl-bg-{repeat-pattern}
+*/
+@mixin gl-bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
+/**
+* Background image utilities.
+*
+* naming convention: gl-bg-{image-name}
+*/
+@mixin gl-bg-chevron-left-sm {
+  background-image: url($gl-icon-chevron-left-sm);
+}
+
+@mixin gl-bg-chevron-right-sm {
+  background-image: url($gl-icon-chevron-right-sm);
+}

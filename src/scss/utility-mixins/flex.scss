@@ -1,0 +1,42 @@
+/**
+* Flexbox utilities
+*/
+@mixin gl-align-items-baseline {
+  align-items: baseline;
+}
+
+@mixin gl-align-items-center {
+  align-items: center;
+}
+
+@mixin gl-flex-wrap {
+  flex-wrap: wrap;
+}
+
+@mixin gl-flex-direction-column {
+  flex-direction: column;
+}
+
+@mixin gl-flex-direction-row {
+  flex-direction: row;
+}
+
+@mixin gl-flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+@mixin gl-flex-grow-1 {
+  flex-grow: 1;
+}
+
+@mixin gl-justify-content-center {
+  justify-content: center;
+}
+
+@mixin gl-align-self-start {
+  align-self: flex-start;
+}
+
+@mixin gl-align-self-center {
+  align-self: center;
+}
