@@ -90,7 +90,7 @@ documentedStoriesOf('base|pagination', readme)
       },
     },
     template: `
-    <div class="text-center">
+    <div class="text-center gl-font-base">
       <gl-pagination
         v-model="page"
         :prev-page="prevPage"
