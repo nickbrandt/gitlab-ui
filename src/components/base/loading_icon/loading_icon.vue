@@ -20,7 +20,7 @@ const colors = {
 const defaultSize = sizes.sm;
 const defaultColor = colors.orange;
 
-const baseCssClass = 'gl-spinner';
+const baseCssClass = 'gl-loading-icon';
 
 export default {
   props: {
@@ -79,7 +79,7 @@ export default {
 };
 </script>
 <template>
-  <component :is="rootElementType" class="gl-spinner-container">
+  <component :is="rootElementType" class="gl-loading-icon-container">
     <span :class="cssClasses" :aria-label="label" aria-hidden="true"></span>
   </component>
 </template>

@@ -7,7 +7,7 @@ describe('loading icon component', () => {
     wrapper = shallowMount(LoadingIcon, { propsData });
   };
 
-  const baseCssClass = 'gl-spinner';
+  const baseCssClass = 'gl-loading-icon';
   const findSpinnerEl = () => wrapper.find(`.${baseCssClass}`);
   const getSpinnerClasses = () => findSpinnerEl().classes();
 
