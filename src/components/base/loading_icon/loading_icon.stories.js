@@ -8,7 +8,7 @@ const components = {
 };
 
 const template = `
-  <div :class="['p-2', 'rounded', { 'bg-dark' : color === 'light' } ]" >
+  <div :class="['gl-p-3', 'gl-rounded-base', 'gl-display-flex', { 'bg-dark' : color === 'light' } ]" >
     <gl-loading-icon
       :label="label"
       :size="size"
