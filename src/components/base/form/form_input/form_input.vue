@@ -10,5 +10,5 @@ export default {
 </script>
 
 <template>
-  <b-form-input v-bind="$attrs" v-on="$listeners" />
+  <b-form-input class="gl-form-input" v-bind="$attrs" v-on="$listeners" />
 </template>
