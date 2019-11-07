@@ -1,0 +1,21 @@
+.gl-daterange-picker {
+  @include gl-line-height-normal;
+  @include gl-font-base;
+  @include gl-font-regular;
+
+  label {
+    @include gl-font-weight-bold;
+    @include gl-mr-2;
+    @include gl-ml-2;
+  }
+
+  > div:first-of-type label {
+    @include gl-ml-0;
+  }
+
+  .gl-datepicker-input {
+    @include gl-w-full;
+    @include gl-border-gray-200;
+    @include gl-text-gray-900;
+  }
+}

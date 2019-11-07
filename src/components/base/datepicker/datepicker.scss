@@ -12,8 +12,12 @@ $gl-datepicker-width: $grid-size * 30;
   @include gl-cursor-pointer;
   @include gl-absolute;
   @include gl-top-0;
+  @include gl-bottom-0;
   @include gl-right-0;
-  @include gl-p-4;
+  @include gl-px-4;
+  @include gl-display-flex;
+  @include gl-justify-content-center;
+  @include gl-align-items-center;
 }
 
 .gl-datepicker-theme {

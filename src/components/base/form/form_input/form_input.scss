@@ -1,0 +1,11 @@
+.gl-form-input {
+  @include gl-font-regular;
+  @include gl-font-base;
+  @include gl-line-height-normal;
+  @include gl-py-3;
+  @include gl-px-4;
+  @include gl-h-auto;
+  @include gl-text-black-normal;
+  @include gl-inset-border-1-gray-200;
+  @include gl-border-none;
+}
