@@ -1,0 +1,170 @@
+/**
+* Border style utilities.
+*
+* naming convention: gl-border-{position}-{style}
+*/
+@mixin gl-border-none {
+  border-style: none;
+}
+
+@mixin gl-border-solid {
+  border-style: solid;
+}
+
+@mixin gl-border-t-solid {
+  border-top-style: solid;
+}
+
+@mixin gl-border-b-solid {
+  border-bottom-style: solid;
+}
+
+@mixin gl-border-t-none {
+  border-top-style: none;
+}
+
+/**
+* Border color utilities.
+*
+* naming convention: gl-border-{position}-{color-palette-variable}
+* notes:
+* - Prefer design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+@mixin gl-border-white-light {
+  border-color: $white-light;
+}
+
+@mixin gl-border-gray-200 {
+  border-color: $gray-200;
+}
+
+@mixin gl-border-gray-300 {
+  border-color: $gray-300;
+}
+
+@mixin gl-border-gray-400 {
+  border-color: $gray-400;
+}
+
+@mixin gl-border-blue-300 {
+  border-color: $blue-300;
+}
+
+@mixin gl-border-blue-600 {
+  border-color: $blue-600;
+}
+
+@mixin gl-border-gray-a-08 {
+  border-color: $t-gray-a-08;
+}
+
+@mixin gl-border-gray-a-24 {
+  border-color: $t-gray-a-24;
+}
+
+@mixin gl-border-t-gray-200 {
+  border-top-color: $gray-200;
+}
+
+@mixin gl-border-r-gray-200 {
+  border-right-color: $gray-200;
+}
+
+@mixin gl-border-b-gray-200 {
+  border-bottom-color: $gray-200;
+}
+
+@mixin gl-border-l-gray-200 {
+  border-left-color: $gray-200;
+}
+
+@mixin gl-border-t-blue-600 {
+  border-top-color: $blue-600;
+}
+
+@mixin gl-border-r-blue-600 {
+  border-right-color: $blue-600;
+}
+
+@mixin gl-border-b-blue-600 {
+  border-bottom-color: $blue-600;
+}
+
+@mixin gl-border-l-blue-600 {
+  border-left-color: $blue-600;
+}
+
+/**
+* Border width utilities.
+*
+* naming convention: gl-border-{position}-{border-width}
+* notes:
+* - Base new utilities in this group in the $gl-border-size variable
+*/
+@mixin gl-border-0 {
+  border-width: $gl-border-size-0;
+}
+
+@mixin gl-border-1 {
+  border-width: $gl-border-size-1;
+}
+
+@mixin gl-border-8 {
+  border-width: $gl-border-size-8;
+}
+
+@mixin gl-border-t-1 {
+  border-top-width: $gl-border-size-1;
+}
+
+@mixin gl-border-b-1 {
+  border-bottom-width: $gl-border-size-1;
+}
+
+/**
+* Border radius utilities.
+*
+* naming convention: gl-rounded-{roundness-size}
+* notes:
+* - Base new utilities in this group in the $gl-border-radius variables
+*/
+@mixin gl-rounded-0 {
+  border-radius: 0;
+}
+
+@mixin gl-rounded-base {
+  border-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-full {
+  border-radius: $gl-border-radius-full;
+}
+
+@mixin gl-rounded-small {
+  border-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-lg {
+  border-radius: $gl-border-radius-large;
+}
+
+@mixin gl-rounded-pill {
+  border-radius: $gl-spacing-scale-4;
+}
+
+@mixin gl-rounded-top-left-base {
+  border-top-left-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-top-right-base {
+  border-top-right-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-bottom-left-base {
+  border-bottom-left-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-bottom-right-base {
+  border-bottom-right-radius: $gl-border-radius-base;
+}

@@ -1,0 +1,17 @@
+/**
+* Overflow utilities.
+*
+* naming convention: gl-overflow-{property-value} |
+* gl-overflow-x-{property-value} | gl-overflow-y-{property-value}
+*/
+@mixin gl-overflow-hidden {
+  overflow: hidden;
+}
+
+@mixin gl-overflow-y-auto {
+  overflow-y: auto;
+}
+
+@mixin gl-overflow-x-hidden {
+  overflow-x: hidden;
+}

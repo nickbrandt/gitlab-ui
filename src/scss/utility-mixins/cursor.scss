@@ -1,0 +1,16 @@
+/**
+* Cursor utilities
+*
+* naming convention: gl-cursor-{property-value}
+*/
+@mixin gl-cursor-default {
+  cursor: default;
+}
+
+@mixin gl-cursor-pointer {
+  cursor: pointer;
+}
+
+@mixin gl-cursor-not-allowed {
+  cursor: not-allowed;
+}

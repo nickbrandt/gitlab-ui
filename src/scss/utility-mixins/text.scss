@@ -1,0 +1,63 @@
+/**
+* Text align utilities
+*/
+@mixin gl-text-left {
+  text-align: left;
+}
+
+@mixin gl-text-center {
+  text-align: center;
+}
+
+/**
+* Text utilities
+*/
+@mixin gl-text-decoration-none {
+  text-decoration: none;
+}
+
+@mixin gl-text-decoration-underline {
+  text-decoration: underline;
+}
+
+@mixin gl-text-decoration-color-inherit {
+  text-decoration-color: inherit;
+}
+
+@mixin gl-text-decoration-color-gray-700 {
+  text-decoration-color: $gray-700;
+}
+
+@mixin gl-text-decoration-color-gray-900 {
+  text-decoration-color: $gray-900;
+}
+
+@mixin gl-text-transform-none {
+  text-transform: none;
+}
+
+/**
+* Text indent utilities
+*
+* Naming convention: gl-text-indent-{value}
+*/
+@mixin gl-text-indent-0 {
+  text-indent: 0;
+}
+
+@mixin gl-text-indent-hide {
+  text-indent: -9999px;
+}
+
+/**
+* White-space utilities.
+*
+* naming convention: gl-white-space-{value}
+*/
+@mixin gl-white-space-normal {
+  white-space: normal;
+}
+
+@mixin gl-white-space-nowrap {
+  white-space: nowrap;
+}

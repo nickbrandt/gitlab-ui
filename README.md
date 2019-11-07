@@ -106,7 +106,7 @@ This approach will let us progressively decouple GitLab UI's styles from
 GitLab CE's styles.
 
 Within the components' CSS, you should include utility mixins. See
-[`utility-mixins.scss`](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/scss/utility-mixins.scss)
+[`utility-mixins`](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/scss/utility-mixins/index.scss)
 for a comprehensive list of the available utilities. If what you are
 looking for is not available, add it following the naming conventions
 indicated in that file.
@@ -199,11 +199,10 @@ For more information about utility-first CSS, consider [a post from Mike Critten
 
 Finally, to join in on discussion about HAML components, check out the following ongoing conversations:
 
-* [Remove outdated "Use HAML" section](https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/18894#note_212454769)
-* [Change: HAML to Vue](https://gitlab.com/gitlab-org/frontend/rfcs/issues/14)
+- [Remove outdated "Use HAML" section](https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/18894#note_212454769)
+- [Change: HAML to Vue](https://gitlab.com/gitlab-org/frontend/rfcs/issues/14)
 
-
-###  So wait, when do I add a variable? a utility class? a component class?
+### So wait, when do I add a variable? a utility class? a component class?
 
 **Add a variable** (in `variables.scss`) if you are setting a base value in the design system — this is rare.
 

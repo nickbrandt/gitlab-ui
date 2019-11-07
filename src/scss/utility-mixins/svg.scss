@@ -1,0 +1,23 @@
+/**
+* SVG fill color utilities.
+*
+* naming convention: gl-fill-{color-palette-variable-name}
+* notes:
+* - Strictly based design system color palette. See variables.scss
+* for a comprehensive list.
+*/
+@mixin gl-fill-current-color {
+  fill: currentColor;
+}
+
+@mixin gl-fill-blue-500 {
+  fill: $blue-500;
+}
+
+@mixin gl-fill-gray-600 {
+  fill: $gray-600;
+}
+
+@mixin gl-fill-gray-700 {
+  fill: $gray-700;
+}

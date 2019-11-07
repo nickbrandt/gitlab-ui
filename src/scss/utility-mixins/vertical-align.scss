@@ -1,0 +1,14 @@
+/**
+* Vertical align utilities
+*/
+@mixin gl-vertical-align-baseline {
+  vertical-align: baseline;
+}
+
+@mixin gl-vertical-align-middle {
+  vertical-align: middle;
+}
+
+@mixin gl-vertical-align-top {
+  vertical-align: top;
+}

@@ -1,0 +1,12 @@
+/**
+* z-index utilities
+*
+* naming convention: gl-z-index-{value}
+*/
+@mixin gl-z-index-0 {
+  z-index: 0;
+}
+
+@mixin gl-z-index-2 {
+  z-index: 2;
+}
