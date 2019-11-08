@@ -24,5 +24,12 @@ export default {
       additionalInfo:
         'Specify container as null (default, appends to <body>) to avoid rendering problems in more complex components (like input groups, button groups, etc). You can use container to optionally specify a different element to append the popover to.',
     },
+    cssClasses: {
+      additionalInfo:
+        'Array of additional CSS classes applied to the root popover element. Replaces bootstrap-vue custom-class',
+    },
+    customClass: {
+      additionalInfo: 'Does not work. Use css-classes instead.',
+    },
   },
 };
