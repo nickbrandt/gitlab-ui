@@ -1,5 +1,6 @@
 <script>
 import BButton from 'bootstrap-vue/src/components/button/button';
+import GlIcon from '../icon/icon.vue';
 import RelMixin from '../../mixins/rel_mixin';
 import {
   newButtonCategoryOptions,
@@ -11,6 +12,7 @@ import {
 export default {
   components: {
     BButton,
+    GlIcon,
   },
   mixins: [RelMixin],
   props: {
@@ -37,13 +39,18 @@ export default {
       required: false,
       default: false,
     },
+    icon: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     hasText() {
       return Boolean(this.$slots.default);
     },
     hasIcon() {
-      return Boolean(this.$slots.icon);
+      return this.icon !== null;
     },
     hasEmoji() {
       return Boolean(this.$slots.emoji);
@@ -72,7 +79,7 @@ export default {
     :class="buttonClasses"
     v-on="$listeners"
   >
-    <slot name="icon"></slot>
+    <gl-icon v-if="hasIcon" :name="icon" />
     <slot name="emoji"></slot>
     <slot></slot>
   </b-button>
