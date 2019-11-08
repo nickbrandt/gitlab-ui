@@ -15,14 +15,17 @@ export default {
   props: {
     checked: {
       required: true,
+      validator: () => true,
     },
     options: {
       type: Array,
       required: true,
     },
   },
-  created() {
-    this.checkValue(this.checked);
+  computed: {
+    enabledOptions() {
+      return this.options.filter(option => !option.disabled);
+    },
   },
   watch: {
     checked: {
@@ -37,10 +40,8 @@ export default {
       },
     },
   },
-  computed: {
-    enabledOptions() {
-      return this.options.filter(option => !option.disabled);
-    },
+  created() {
+    this.checkValue(this.checked);
   },
   methods: {
     checkValue(newValue, oldValue = null) {
