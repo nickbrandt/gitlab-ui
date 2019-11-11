@@ -1,5 +1,5 @@
 <script>
-import GlButton from '../button/button.vue';
+import GlButton from '../new_button/new_button.vue';
 import GlIcon from '../icon/icon.vue';
 import { bannerVariants } from '../../../utils/constants';
 
@@ -57,7 +57,7 @@ export default {
     <div class="gl-banner-content">
       <h1 class="gl-banner-title">{{ title }}</h1>
       <slot></slot>
-      <gl-button variant="primary" :href="buttonLink">{{ buttonText }}</gl-button>
+      <gl-button variant="info" :href="buttonLink">{{ buttonText }}</gl-button>
     </div>
     <button type="button" aria-label="Close" class="gl-banner-close close" @click="handleClose">
       <gl-icon name="close" />

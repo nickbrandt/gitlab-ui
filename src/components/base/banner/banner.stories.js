@@ -3,10 +3,11 @@ import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_
 import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.svg';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { bannerVariants } from '../../../utils/constants';
-import { GlBanner } from '../../../../index';
+import { GlBanner, GlLink } from '../../../../index';
 
 const components = {
   GlBanner,
+  GlLink,
 };
 
 const getProps = () => ({
@@ -69,7 +70,7 @@ documentedStoriesOf('base|banner', '')
         variant="${bannerVariants[1]}"
       >
        <p>Auto DevOps can be enabled for this project. It will automatically build, test, and deploy your application based on a predefined CI/CD configuration.</p>
-       <p>Learn more in the <a href="#">Auto DevOps documentation</a>.</p>
+       <p>Learn more in the <gl-link href="#">Auto DevOps documentation</gl-link>.</p>
       </gl-banner>
     `,
   }));
