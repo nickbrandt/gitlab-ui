@@ -7,11 +7,15 @@
   @include gl-mr-0;
 }
 
+.gl-form-checkbox,
+.gl-form-checkbox-group {
+  @include gl-line-height-normal;
+}
+
 .gl-form-checkbox {
   @include gl-mr-5;
   @include gl-mb-3;
   @include gl-font-base;
-  @include gl-line-height-normal;
   @include gl-text-gray-900;
 
   &.form-check {
