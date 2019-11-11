@@ -75,7 +75,7 @@ documentedStoriesOf('base|table', readme)
   }))
   .add('with filter', () => ({
     components,
-    template: `<div>
+    template: `<div class="gl-line-height-normal">
       <gl-form-input v-model="filter" placeholder="Type to search" />
       <br />
       <gl-table :items="$options.items" :fields="$options.fields" :filter=filter />
