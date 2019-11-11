@@ -1,4 +1,4 @@
-import { withKnobs, array } from '@storybook/addon-knobs';
+import { withKnobs, object } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import readme from './infinite_scroll.md';
 
@@ -28,7 +28,7 @@ documentedStoriesOf('base|infinite-scroll', readme)
   .add('default', () => ({
     props: {
       items: {
-        default: array('items', items),
+        default: object('items', items),
       },
     },
     data() {

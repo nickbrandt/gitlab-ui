@@ -1,4 +1,5 @@
-import { withKnobs, array } from '@storybook/addon-knobs/vue';
+import { withKnobs } from '@storybook/addon-knobs/vue';
+import { object } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../utils/documented_stories';
 import { GlBreadcrumb } from '../../../../index';
 import readme from './breadcrumb.md';
@@ -26,7 +27,7 @@ const getProps = () => {
   return {
     items: {
       type: Array,
-      default: array('items', breadcrumbItems),
+      default: object('items', breadcrumbItems),
     },
   };
 };
