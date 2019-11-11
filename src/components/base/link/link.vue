@@ -10,7 +10,7 @@ export default {
 };
 </script>
 <template>
-  <b-link v-bind="$attrs" :rel="relType" :target="target" v-on="$listeners">
+  <b-link v-bind="$attrs" :rel="relType" :target="target" class="gl-link" v-on="$listeners">
     <slot></slot>
   </b-link>
 </template>

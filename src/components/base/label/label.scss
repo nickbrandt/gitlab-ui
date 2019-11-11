@@ -6,14 +6,17 @@
   @include gl-rounded-pill;
 }
 
+.gl-label .gl-link {
+  @include gl-font-sm;
+}
+
 .gl-label-text {
   @include gl-px-3;
   @include gl-py-2;
   @include gl-font-weight-normal;
 }
 
-.gl-label-link {
-  @include gl-font-sm;
+.gl-label > .gl-label-link {
   @include gl-line-height-normal;
   @include gl-display-flex;
 

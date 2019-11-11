@@ -26,6 +26,8 @@
 .gl-banner-title {
   @include gl-font-base;
   @include gl-font-weight-bold;
+  @include gl-mt-0;
+  @include gl-mb-2;
 }
 
 .gl-banner-close {
