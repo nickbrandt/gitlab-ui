@@ -303,10 +303,12 @@
     }
   }
 
-  &.disabled[disabled] {
+  &.disabled,
+  &[disabled] {
     @include gl-bg-gray-50;
     @include gl-text-gray-600;
     @include gl-inset-border-1-gray-200;
+    @include gl-opacity-10;
     cursor: not-allowed !important;
   }
 }
