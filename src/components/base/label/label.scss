@@ -4,58 +4,57 @@
   @include gl-overflow-hidden;
   @include gl-display-inline-block;
   @include gl-rounded-pill;
-}
 
-.gl-label .gl-link {
-  @include gl-font-sm;
-}
+  > .gl-label-link {
+    @include gl-line-height-normal;
+    @include gl-display-flex;
+    @include gl-color-inherit;
 
-.gl-label-text {
-  @include gl-px-3;
-  @include gl-py-2;
-  @include gl-font-weight-normal;
-}
-
-.gl-label > .gl-label-link {
-  @include gl-line-height-normal;
-  @include gl-display-flex;
-
-  &:hover {
-    .gl-label-text {
-      @include gl-text-decoration-underline;
+    &:hover {
       @include gl-text-decoration-color-inherit;
     }
   }
-}
 
-.gl-label-icon {
-  @include gl-text-gray-500;
-}
-
-.gl-label-scoped {
   .gl-label-text {
-    &:first-child {
-      @include gl-pr-2;
-    }
-
-    &:last-child {
-      @include gl-bg-transparent;
-      @include gl-pl-2;
-    }
-  }
-}
-
-.gl-label-sm {
-  .gl-label-text {
+    @include gl-display-inline-flex;
     @include gl-px-3;
-    @include gl-py-0;
+    @include gl-py-2;
+    @include gl-font-weight-normal;
+    @include gl-font-sm;
   }
-}
 
-.gl-label-text-black {
-  @include gl-text-black-normal;
-}
+  .gl-label-icon {
+    @include gl-text-gray-500;
+    @include gl-display-inline-flex;
+    @include gl-align-items-center;
+    @include gl-ml-2;
+  }
 
-.gl-label-text-light {
-  @include gl-text-white-light;
+  &-text-black {
+    @include gl-text-black-normal;
+  }
+
+  &-text-light {
+    @include gl-text-white-light;
+  }
+
+  &-scoped {
+    .gl-label-text {
+      &:first-child {
+        @include gl-pr-2;
+      }
+
+      &:last-child {
+        @include gl-bg-transparent;
+        @include gl-pl-2;
+      }
+    }
+  }
+
+  &-sm {
+    .gl-label-text {
+      @include gl-px-3;
+      @include gl-py-0;
+    }
+  }
 }

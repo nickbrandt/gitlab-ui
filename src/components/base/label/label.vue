@@ -1,6 +1,7 @@
 <script>
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
+import GlIcon from '../icon/icon.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
@@ -13,6 +14,7 @@ export default {
   components: {
     GlLink,
     GlTooltip,
+    GlIcon,
   },
   props: {
     color: {
@@ -97,16 +99,14 @@ export default {
 
 <template>
   <span
-    :class="cssClasses"
+    :class="[titleColorClass, cssClasses]"
     :style="boxShadow"
     class="gl-label"
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
     <gl-link ref="labelTitle" :href="target" class="gl-label-link">
-      <span class="gl-label-text" :class="titleColorClass" :style="{ backgroundColor }">{{
-        scopedKey
-      }}</span>
+      <span class="gl-label-text" :style="{ backgroundColor }">{{ scopedKey }}</span>
       <span
         v-if="scopedValue"
         class="gl-label-text"
@@ -115,8 +115,8 @@ export default {
         }"
       >
         {{ scopedValue }}
-        <gl-link :href="scopedLabelsDocumentationLink">
-          <i class="fa fa-question-circle gl-label-icon"></i>
+        <gl-link class="gl-label-icon" :href="scopedLabelsDocumentationLink">
+          <gl-icon name="question" :size="12" />
         </gl-link>
       </span>
     </gl-link>
