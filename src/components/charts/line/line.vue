@@ -11,6 +11,7 @@ import defaultChartOptions, {
   symbolSize,
   mergeSeriesToOptions,
   lineStyle,
+  getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
@@ -148,24 +149,8 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
-      const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, line) => {
-          const [title, value] = line.value || [];
+      const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.options.yAxis.name);
 
-          acc.tooltipContent[line.seriesName] = {
-            value,
-            color: line.color,
-          };
-          if (!acc.xLabels.includes(title)) {
-            acc.xLabels.push(title);
-          }
-          return acc;
-        },
-        {
-          xLabels: [],
-          tooltipContent: {},
-        }
-      );
       this.$set(this, 'tooltipContent', tooltipContent);
       this.tooltipTitle = xLabels.join(', ');
     },
@@ -220,7 +205,12 @@ export default {
         <slot name="tooltipContent"></slot>
       </template>
       <template v-else>
-        <div slot="title">{{ tooltipTitle }}</div>
+        <div slot="title">
+          {{ tooltipTitle }}
+          <template v-if="options.xAxis.name">
+            ({{ options.xAxis.name }})
+          </template>
+        </div>
         <tooltip-default-format :tooltip-content="tooltipContent" />
       </template>
     </chart-tooltip>

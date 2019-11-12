@@ -2,18 +2,18 @@
   <gl-column-chart
     :data="{
       Full: [
-        ['Mon', 1220],
-        ['Tue', 932],
-        ['Wed', 901],
-        ['Thu', 934],
-        ['Fri', 1290],
-        ['Sat', 1330],
-        ['Sun', 1320],
+        ['Joe', 1220],
+        ['Sarah', 932],
+        ['Tom', 901],
+        ['Mary', 934],
+        ['Mike', 1290],
+        ['Ben', 1330],
+        ['Jane', 1320],
       ],
     }"
     :option="{}"
     y-axis-title="Pushes by day"
-    x-axis-title="Username"
+    x-axis-title="User"
     x-axis-type="category"
   />
 </template>

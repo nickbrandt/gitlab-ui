@@ -22,18 +22,18 @@ const template = `
 function generateProps({
   data = {
     Full: [
-      ['Mon', 1220],
-      ['Tue', 932],
-      ['Wed', 901],
-      ['Thu', 934],
-      ['Fri', 1290],
-      ['Sat', 1330],
-      ['Sun', 1320],
+      ['Joe', 1220],
+      ['Sarah', 932],
+      ['Tom', 901],
+      ['Mary', 934],
+      ['Mike', 1290],
+      ['Ben', 1330],
+      ['Jane', 1320],
     ],
   },
   option = {},
   yAxisTitle = 'Pushes per day',
-  xAxisTitle = 'Username',
+  xAxisTitle = 'User',
   xAxisType = 'category',
 } = {}) {
   return {
