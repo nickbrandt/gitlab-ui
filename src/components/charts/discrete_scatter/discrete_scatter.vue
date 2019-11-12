@@ -10,11 +10,13 @@ import defaultChartOptions, {
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
   components: {
     Chart,
     ChartTooltip,
+    TooltipDefaultFormat,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -52,7 +54,7 @@ export default {
       chart: null,
       showTooltip: false,
       tooltipTitle: '',
-      tooltipContent: '',
+      tooltipContent: {},
       tooltipPosition: {
         left: '0',
         top: '0',
@@ -127,7 +129,14 @@ export default {
       const { data } = params;
       const [title, content] = data;
       this.tooltipTitle = title;
-      this.tooltipContent = content;
+      const seriesName = this.yAxisTitle;
+      const tooltipContent = {
+        [seriesName]: {
+          value: content,
+          color: '',
+        },
+      };
+      this.$set(this, 'tooltipContent', tooltipContent);
     },
     showHideTooltip(mouseEvent) {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
@@ -179,10 +188,8 @@ export default {
         <slot name="tooltipContent"></slot>
       </template>
       <template v-else>
-        <div slot="title">{{ tooltipTitle }}</div>
-        <div>
-          {{ tooltipContent }}
-        </div>
+        <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
+        <tooltip-default-format :tooltip-content="tooltipContent" />
       </template>
     </chart-tooltip>
   </div>

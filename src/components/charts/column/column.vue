@@ -6,14 +6,17 @@ import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   dataZoomAdjustments,
   mergeSeriesToOptions,
+  getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
   components: {
     Chart,
     ChartTooltip,
+    TooltipDefaultFormat,
   },
   mixins: [ToolboxMixin],
   inheritAttrs: false,
@@ -142,20 +145,8 @@ export default {
       this.$emit('created', chart);
     },
     onLabelChange(params) {
-      const { xLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, bar) => {
-          const [title, value] = bar.value || [];
-          acc.tooltipContent[bar.seriesName] = value;
-          if (!acc.xLabels.includes(title)) {
-            acc.xLabels.push(title);
-          }
-          return acc;
-        },
-        {
-          xLabels: [],
-          tooltipContent: {},
-        }
-      );
+      const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.yAxisTitle);
+
       this.$set(this, 'tooltipContent', tooltipContent);
       this.tooltipTitle = xLabels.join(', ');
     },
@@ -181,8 +172,8 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <div slot="title">{{ tooltipTitle }}</div>
-      <div v-for="(value, label) in tooltipContent" :key="label + value">{{ value }}</div>
+      <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
+      <tooltip-default-format :tooltip-content="tooltipContent" />
     </chart-tooltip>
   </div>
 </template>

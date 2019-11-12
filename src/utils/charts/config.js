@@ -168,6 +168,33 @@ export function getThresholdConfig(thresholds) {
   };
 }
 
+export const getDefaultTooltipContent = (params, yAxisTitle = null) => {
+  const seriesDataLength = params.seriesData.length;
+  const { xLabels, tooltipContent } = params.seriesData.reduce(
+    (acc, chartItem) => {
+      const [title, value] = chartItem.value || [];
+      // Let's use the y axis title as series name when only one series exists
+      // This way, TooltipDefaultFormat will display the y axis title as label
+      const seriesName = seriesDataLength === 1 && yAxisTitle ? yAxisTitle : chartItem.seriesName;
+      const color = seriesDataLength === 1 ? '' : chartItem.color;
+      acc.tooltipContent[seriesName] = {
+        value,
+        color,
+      };
+      if (!acc.xLabels.includes(title)) {
+        acc.xLabels.push(title);
+      }
+      return acc;
+    },
+    {
+      xLabels: [],
+      tooltipContent: {},
+    }
+  );
+
+  return { xLabels, tooltipContent };
+};
+
 export default {
   grid,
   xAxis,
