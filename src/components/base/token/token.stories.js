@@ -22,5 +22,5 @@ documentedStoriesOf('base|token', readme)
     props: generateProps(),
     components,
     template: `
-      <gl-token :view-only="viewOnly">Token</gl-token>`,
+      <div class="gl-display-flex"><gl-token :view-only="viewOnly">Token</gl-token></div>`,
   }));

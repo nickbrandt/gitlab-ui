@@ -1,9 +1,10 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Token from '../../../src/components/base/token/token.vue';
+import GlIcon from '../../../src/components/base/icon/icon.vue';
 
 const localVue = createLocalVue();
 
-const findIcon = wrapper => wrapper.find('i');
+const findIcon = wrapper => wrapper.find(GlIcon);
 
 describe('Token component', () => {
   let wrapper;
@@ -20,7 +21,7 @@ describe('Token component', () => {
 
   it('emits close when "x" is clicked', () => {
     wrapper = createComponent();
-    findIcon(wrapper).trigger('click');
+    findIcon(wrapper).vm.$emit('click');
     expect(wrapper.emitted().close).toBeTruthy();
   });
 

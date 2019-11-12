@@ -1,5 +1,10 @@
 <script>
+import GlIcon from '../icon/icon.vue';
+
 export default {
+  components: {
+    GlIcon,
+  },
   props: {
     viewOnly: {
       type: Boolean,
@@ -19,7 +24,7 @@ export default {
   <span class="gl-token">
     <span class="gl-token-content">
       <slot></slot>
-      <i v-if="!viewOnly" class="gl-token-close fa fa-close" @click="close($event)"></i>
+      <gl-icon v-if="!viewOnly" class="gl-token-close" name="close" :size="12" @click="close" />
     </span>
   </span>
 </template>
