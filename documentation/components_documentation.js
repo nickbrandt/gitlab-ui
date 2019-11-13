@@ -158,6 +158,7 @@ export {
 export {
   default as GlInfiniteScrollDocumentation,
 } from '../src/components/base/infinite_scroll/infinite_scroll.documentation';
+export { default as GlAlertDocumentation } from '../src/components/base/alert/alert.documentation';
 export {
   default as GlSegmentedControlDocumentation,
 } from '../src/components/base/segmented_control/segmented_control.documentation';

@@ -85,16 +85,6 @@
   padding-left: $gl-spacing-scale-6;
 }
 
-@mixin gl-py-0 {
-  padding-top: $gl-spacing-scale-0;
-  padding-bottom: $gl-spacing-scale-0;
-}
-
-@mixin gl-py-6 {
-  padding-top: $gl-spacing-scale-6;
-  padding-bottom: $gl-spacing-scale-6;
-}
-
 @mixin gl-pt-5 {
   padding-top: $gl-spacing-scale-5;
 }
@@ -109,6 +99,11 @@
 
 @mixin gl-pb-4 {
   padding-bottom: $gl-spacing-scale-4;
+}
+
+@mixin gl-py-0 {
+  padding-top: $gl-spacing-scale-0;
+  padding-bottom: $gl-spacing-scale-0;
 }
 
 @mixin gl-py-2 {
@@ -129,6 +124,11 @@
 @mixin gl-py-5 {
   padding-top: $gl-spacing-scale-5;
   padding-bottom: $gl-spacing-scale-5;
+}
+
+@mixin gl-py-6 {
+  padding-top: $gl-spacing-scale-6;
+  padding-bottom: $gl-spacing-scale-6;
 }
 
 /**
