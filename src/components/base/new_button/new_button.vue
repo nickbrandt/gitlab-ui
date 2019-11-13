@@ -42,22 +42,20 @@ export default {
     icon: {
       type: String,
       required: false,
-      default: null,
+      default: '',
     },
   },
   computed: {
-    hasText() {
-      return Boolean(this.$slots.default);
-    },
     hasIcon() {
-      return this.icon !== null;
+      return this.icon !== '';
     },
-    hasEmoji() {
-      return Boolean(this.$slots.emoji);
+    hasIconOnly() {
+      return Object.keys(this.$slots).length === 0 && this.hasIcon;
     },
     buttonClasses() {
       return {
-        'btn-icon': !this.hasText && !this.hasEmoji && this.hasIcon,
+        'btn-icon': this.hasIconOnly,
+        'button-ellipsis-horizontal': this.hasIconOnly && this.icon === 'ellipsis_h',
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
         'new-gl-button': this.variant !== newButtonVariantOptions.link,
         selected: this.selected,
