@@ -40,8 +40,8 @@ describe('sorting item component', () => {
   it('does not show the check icon when the active prop is not provided', () => {
     createComponent();
 
-    expect(findActiveIcon()).toBeTruthy();
-    expect(findActiveIcon().attributes('class')).toContain('invisible');
+    expect(findActiveIcon().exists()).toBeTruthy();
+    expect(findActiveIcon().classes()).toContain('inactive');
   });
 
   it('does render a check icon when the active prop is provided', () => {
@@ -50,7 +50,7 @@ describe('sorting item component', () => {
     });
 
     expect(findActiveIcon().exists()).toBeTruthy();
-    expect(findActiveIcon().attributes('class')).not.toContain('invisible');
+    expect(findActiveIcon().classes()).not.toContain('inactive');
   });
 
   it('passes the props down to the gl-dropdown-item component', () => {

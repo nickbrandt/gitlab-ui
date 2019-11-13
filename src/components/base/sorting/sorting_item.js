@@ -1,4 +1,5 @@
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlIcon from '../icon/icon.vue';
 
 /**
  * Sorting Item
@@ -27,14 +28,13 @@ export default {
     },
   },
   render(createElement, { children, data, props = {} }) {
-    const classNames = `fa fa-check flex-shrink-0 append-right-4 js-active-icon ${
-      props.active ? '' : 'invisible'
-    }`;
-
-    const activeIcon = createElement('i', {
+    const classNames = `gl-sorting-item js-active-icon ${props.active ? '' : 'inactive'}`;
+    const icon = createElement(GlIcon, {
       class: classNames,
       attrs: {
-        'aria-label': 'Selected',
+        name: 'mobile-issue-close',
+        size: 16,
+        ariaLabel: 'Selected',
       },
     });
 
@@ -46,7 +46,7 @@ export default {
           ...props,
         },
       },
-      [activeIcon, children]
+      [icon, children]
     );
   },
 };

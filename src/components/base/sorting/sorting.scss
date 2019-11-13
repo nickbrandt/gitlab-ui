@@ -1,5 +1,14 @@
 .gl-sorting {
   .sorting-direction-button {
-    color: $gray-600;
+    @include gl-text-gray-600;
+  }
+}
+
+.gl-sorting-item {
+  @include gl-flex-shrink-0;
+  @include gl-mr-2;
+
+  &.inactive {
+    @include gl-visibility-hidden;
   }
 }
