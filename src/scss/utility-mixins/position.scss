@@ -39,6 +39,10 @@
 *
 * naming convention: gl-{position}-{value}
 */
+@mixin gl-top-auto {
+  top: auto;
+}
+
 @mixin gl-top-0 {
   top: 0;
 }
