@@ -1,12 +1,21 @@
 import Toasted from '@gitlab/vue-toasted';
+import iconsPath from '@gitlab/svgs/dist/icons.svg';
 
 const DEFAULT_OPTIONS = {
   action: {
-    text: '×',
-    class: 'font-weight-light text-white text-decoration-none toast-close',
+    text: null,
+    icon: () => {
+      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      icon.appendChild(path);
+      icon.setAttribute('class', 'gl-icon s14');
+      path.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `${iconsPath}#close`);
+      return icon;
+    },
+    class: 'toast-close',
     onClick: (e, toastObject) => toastObject.goAway(0),
   },
-  iconPack: 'custom-class',
+  iconPack: 'callback',
   position: 'bottom-left',
   duration: 5000,
   singleton: true,

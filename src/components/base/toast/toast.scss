@@ -43,6 +43,7 @@
 
     .toast-close {
       @include gl-font-icon-size;
+      @include gl-text-white;
       @include gl-ml-3;
     }
   }
