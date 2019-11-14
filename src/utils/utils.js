@@ -34,3 +34,9 @@ export function hexToRgba(hex, opacity = 1) {
 
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
+
+export function uid() {
+  return Math.random()
+    .toString(36)
+    .substring(2);
+}
