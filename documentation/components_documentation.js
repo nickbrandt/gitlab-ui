@@ -163,6 +163,9 @@ export {
   default as GlSegmentedControlDocumentation,
 } from '../src/components/base/segmented_control/segmented_control.documentation';
 export {
+  default as GlSkeletonLoaderDocumentation,
+} from '../src/components/base/skeleton_loader/skeleton_loader.documentation';
+export {
   default as GlResizeObserverDirectiveDocumentation,
 } from '../src/directives/resize_observer/resize_observer.documentation';
 export {

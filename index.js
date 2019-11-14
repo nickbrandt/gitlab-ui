@@ -82,6 +82,9 @@ export { default as GlAlert } from './src/components/base/alert/alert.vue';
 export {
   default as GlSegmentedControl,
 } from './src/components/base/segmented_control/segmented_control.vue';
+export {
+  default as GlSkeletonLoader,
+} from './src/components/base/skeleton_loader/skeleton_loader.vue';
 
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';
