@@ -1,5 +1,6 @@
 import ButtonBasicExample from './new_button.basic.example.vue';
 import ButtonDisabledExample from './new_button.disabled.example.vue';
+import ButtonEllipsisExample from './new_button.ellipsis.example.vue';
 import ButtonEmojiExample from './new_button.emoji.example.vue';
 import ButtonIconExample from './new_button.icon.example.vue';
 import ButtonIconAndTextExample from './new_button.icon_and_text.example.vue';
@@ -47,6 +48,12 @@ export default [
         name: 'Icon and text button',
         description: 'Button with an icon and text inside',
         component: ButtonIconAndTextExample,
+      },
+      {
+        id: 'new-button-ellipsis',
+        name: 'Ellipsis button',
+        description: 'Button with an ellipsis inside',
+        component: ButtonEllipsisExample,
       },
       {
         id: 'new-button-link',

@@ -2,6 +2,7 @@
 Import component stylesheets located in components here. i.e.
 @import '../components/base/dropdown/dropdown'
 */
+@import '../components/base/alert/alert';
 @import '../components/base/avatar/avatar';
 @import '../components/base/avatar_labeled/avatar_labeled';
 @import '../components/base/avatar_link/avatar_link';
@@ -42,3 +43,4 @@ Import component stylesheets located in components here. i.e.
 @import '../components/base/infinite_scroll/infinite_scroll';
 @import '../components/shared_components/charts/tooltip_default_format';
 @import '../components/base/segmented_control/segmented_control';
+@import '../components/base/skeleton_loader/skeleton_loader';

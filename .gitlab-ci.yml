@@ -3,6 +3,12 @@ variables:
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
 
+include:
+  - template: Code-Quality.gitlab-ci.yml
+  - template: License-Management.gitlab-ci.yml
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+
 stages:
   - pre-build
   - test
@@ -124,12 +130,6 @@ update_screenshots:
     - git add .
     - "git commit -m 'chore: update snapshots'"
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
-
-## Secure features
-include:
-  - template: License-Management.gitlab-ci.yml
-  - template: Dependency-Scanning.gitlab-ci.yml
-  - template: SAST.gitlab-ci.yml
 
 review:
   stage: deploy

@@ -82,6 +82,10 @@
   background-color: $green-700;
 }
 
+@mixin gl-bg-theme-green-100 {
+  background-color: $theme-green-100;
+}
+
 @mixin gl-bg-orange-100 {
   background-color: $orange-100;
 }

@@ -39,6 +39,10 @@
 *
 * naming convention: gl-{position}-{value}
 */
+@mixin gl-top-auto {
+  top: auto;
+}
+
 @mixin gl-top-0 {
   top: 0;
 }
@@ -73,4 +77,8 @@
 
 @mixin gl-left-1 {
   left: $gl-spacing-scale-1;
+}
+
+@mixin gl-left-5 {
+  left: $gl-spacing-scale-5;
 }

@@ -3,6 +3,7 @@ import GlButton from '../button/button.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import GlDropdown from '../dropdown/dropdown.vue';
 import GlTooltip from '../../../directives/tooltip';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   name: 'GlSorting',
@@ -10,6 +11,7 @@ export default {
     GlButton,
     GlButtonGroup,
     GlDropdown,
+    GlIcon,
   },
   directives: {
     GlTooltip,
@@ -33,7 +35,7 @@ export default {
   },
   computed: {
     localSortDirection() {
-      return this.isAscending ? 'fa-sort-amount-asc' : 'fa-sort-amount-desc';
+      return this.isAscending ? 'sort-lowest' : 'sort-highest';
     },
     sortDirectionAriaLabel() {
       return this.isAscending ? 'Sorting Direction: Ascending' : 'Sorting Direction: Descending';
@@ -59,8 +61,7 @@ export default {
       class="sorting-direction-button"
       @click="toggleSortDirection"
     >
-      <!-- TODO: Replace with GitLab UI icon when available -->
-      <i class="fa" :class="localSortDirection" :aria-label="sortDirectionAriaLabel"></i>
+      <gl-icon :name="localSortDirection" :aria-label="sortDirectionAriaLabel" :size="16" />
     </gl-button>
   </gl-button-group>
 </template>
