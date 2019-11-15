@@ -114,7 +114,7 @@ export default {
             transitionDuration: 0,
           },
           grid: {
-            height: '30%',
+            height: '62.5%',
             left: '68px',
             show: true,
             borderWidth: 0,
@@ -218,7 +218,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-heatmap-container">
+  <div>
     <chart :options="computedOptions" class="gl-heatmap" @created="onCreated" />
     <chart-legend
       v-if="compiledOptions"
