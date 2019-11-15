@@ -6,6 +6,11 @@
 * - Strictly based design system color palette. See variables.scss
 * for a comprehensive list.
 */
+
+@mixin gl-color-inherit {
+  color: inherit;
+}
+
 @mixin gl-text-white {
   color: $white;
 }
