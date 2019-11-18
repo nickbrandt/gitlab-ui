@@ -49,6 +49,11 @@
   padding-right: $gl-spacing-scale-5;
 }
 
+@mixin gl-px-6 {
+  padding-left: $gl-spacing-scale-6;
+  padding-right: $gl-spacing-scale-6;
+}
+
 @mixin gl-px-8 {
   padding-left: $gl-spacing-scale-8;
   padding-right: $gl-spacing-scale-8;

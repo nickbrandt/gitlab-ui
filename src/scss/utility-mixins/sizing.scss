@@ -93,6 +93,10 @@
   height: $gl-spacing-scale-13;
 }
 
+@mixin gl-h-full {
+  height: 100%;
+}
+
 /**
 * Minimum dimension (width/height) utilities
 *
