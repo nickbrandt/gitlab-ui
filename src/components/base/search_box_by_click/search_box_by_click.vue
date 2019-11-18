@@ -19,11 +19,6 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {
-      content: this.value,
-    };
-  },
   computed: {
     inputAttributes() {
       const attributes = Object.assign(
@@ -44,7 +39,15 @@ export default {
       return this.$attrs.disabled;
     },
     hasValue() {
-      return this.content !== '';
+      return this.localValue !== '';
+    },
+    localValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit('input', value);
+      },
     },
     isResetButtonVisible() {
       return !this.isDisabled && this.hasValue;
@@ -52,17 +55,14 @@ export default {
   },
   methods: {
     clearInput() {
-      this.content = '';
+      this.localValue = '';
       this.focusInput();
     },
     focusInput() {
       this.$refs.input.$el.focus();
     },
-    onInput() {
-      this.$emit('input', this.content);
-    },
     onSearch() {
-      this.$emit('submit', this.content);
+      this.$emit('submit', this.localValue);
     },
   },
 };
@@ -73,12 +73,10 @@ export default {
     <div class="position-relative ms-no-clear d-flex flex-fill">
       <gl-form-input
         ref="input"
-        v-model="content"
+        v-model="localValue"
         v-bind="inputAttributes"
-        :value="content"
         :class="{ 'pr-5': !isResetButtonVisible, 'pr-6': isResetButtonVisible }"
         v-on="$listeners"
-        @input="onInput"
         @keyup.enter.native="onSearch"
       />
       <div
@@ -86,6 +84,7 @@ export default {
       >
         <i
           v-show="isResetButtonVisible"
+          ref="clearInput"
           v-gl-tooltip.hover
           class="fa fa-times fa-lg pl-2 pr-2 cursor-pointer"
           aria-hidden="true"

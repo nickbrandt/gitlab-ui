@@ -1,4 +1,5 @@
 import SearchBoxByClickDefaultExample from './search_box_by_click.default.example.vue';
+import SearchBoxByClickVModelExample from './search_box_by_click.v_model.example.vue';
 
 export default [
   {
@@ -8,6 +9,11 @@ export default [
         id: 'search-box-by-click',
         name: 'default',
         component: SearchBoxByClickDefaultExample,
+      },
+      {
+        id: 'search-box-by-click-v-model',
+        name: 'Using v-model',
+        component: SearchBoxByClickVModelExample,
       },
     ],
   },

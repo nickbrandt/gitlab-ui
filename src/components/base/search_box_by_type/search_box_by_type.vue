@@ -14,10 +14,6 @@ export default {
     GlTooltip,
   },
   inheritAttrs: false,
-  model: {
-    prop: 'value',
-    event: 'update',
-  },
   props: {
     value: {
       type: String,
@@ -47,12 +43,20 @@ export default {
       return attributes;
     },
     hasValue() {
-      return Boolean(this.value.length);
+      return Boolean(this.localValue.length);
+    },
+    localValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit('input', value);
+      },
     },
   },
   methods: {
     clearInput() {
-      this.$emit('update', '');
+      this.localValue = '';
       this.focusInput();
     },
     focusInput() {
@@ -67,9 +71,9 @@ export default {
     <gl-icon name="search" class="gl-search-box-by-type-search-icon" />
     <gl-form-input
       ref="input"
+      v-model="localValue"
       class="gl-search-box-by-type-input"
       v-bind="inputAttributes"
-      :value="value"
       v-on="$listeners"
     />
     <div class="gl-search-box-by-type-right-icons">
