@@ -166,6 +166,9 @@ export {
   default as GlSkeletonLoaderDocumentation,
 } from '../src/components/base/skeleton_loader/skeleton_loader.documentation';
 export {
+  default as GlDrawerDocumentation,
+} from '../src/components/base/drawer/drawer.documentation';
+export {
   default as GlResizeObserverDirectiveDocumentation,
 } from '../src/directives/resize_observer/resize_observer.documentation';
 export {

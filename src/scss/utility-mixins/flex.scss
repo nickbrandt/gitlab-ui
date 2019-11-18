@@ -33,6 +33,10 @@
   justify-content: center;
 }
 
+@mixin gl-justify-content-space-between {
+  justify-content: space-between;
+}
+
 @mixin gl-align-self-start {
   align-self: flex-start;
 }

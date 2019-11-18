@@ -1,0 +1,13 @@
+/**
+* Transform utilities
+*
+* naming convention: gl-transform-{position}-value
+*/
+
+@mixin gl-transform-x-0 {
+  transform: translateX(0);
+}
+
+@mixin gl-transform-x-100 {
+  transform: translateX(100%);
+}

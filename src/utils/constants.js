@@ -178,3 +178,5 @@ export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
 export const defaultDateFormat = 'YYYY-MM-DD';
 
 export const bannerVariants = ['promotion', 'introduction'];
+
+export const maxZIndex = 10;
