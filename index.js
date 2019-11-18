@@ -85,6 +85,7 @@ export {
 export {
   default as GlSkeletonLoader,
 } from './src/components/base/skeleton_loader/skeleton_loader.vue';
+export { default as GlSprintf } from './src/components/base/sprintf/sprintf.vue';
 
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';
