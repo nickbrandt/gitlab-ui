@@ -171,6 +171,9 @@ export {
 export {
   default as GlBannerDocumentation,
 } from '../src/components/base/banner/banner.documentation';
+export {
+  default as GlSprintfDocumentation,
+} from '../src/components/base/sprintf/sprintf.documentation';
 const componentList = Object.getPrototypeOf(module).exports;
 
 export const getDocumentationFor = componentName => {
