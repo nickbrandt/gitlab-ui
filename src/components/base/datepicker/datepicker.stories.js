@@ -58,7 +58,6 @@ documentedStoriesOf('base|datepicker', readme)
         <div class="dropdown">
           <button type="button" class="dropdown-menu-toggle">
             <span class="dropdown-toggle-text"> Start date: {{value}} </span>
-            <i class="fa fa-chevron-down" aria-hidden="true"> </i>
           </button>
         </div>
         <gl-datepicker v-model="value" target=".dropdown-menu-toggle" />
