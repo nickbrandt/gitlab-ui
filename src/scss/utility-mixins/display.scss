@@ -3,6 +3,10 @@
 *
 * Naming convention gl-display-{property-value}
 */
+@mixin gl-display-none {
+  display: none;
+}
+
 @mixin gl-display-flex {
   display: flex;
 }
