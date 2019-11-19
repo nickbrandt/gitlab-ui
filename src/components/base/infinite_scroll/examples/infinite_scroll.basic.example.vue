@@ -1,32 +1,20 @@
 <script>
 export default {
   data() {
-    const items = [
-      { name: 'One' },
-      { name: 'Two' },
-      { name: 'Tres' },
-      { name: 'Quattro' },
-      { name: 'Funf' },
-      { name: 'Seis' },
-      { name: 'Seven' },
-      { name: 'Huit' },
-      { name: 'Neun' },
-      { name: 'Ten' },
-      { name: 'Elf' },
-    ];
     return {
-      items,
-      fetchedItems: 6,
+      isLoading: false,
+      fetchedItems: 10,
+      loadTimer: null,
     };
-  },
-  computed: {
-    visibleItems() {
-      return this.items.slice(0, this.fetchedItems);
-    },
   },
   methods: {
     bottomReached() {
-      this.fetchedItems = this.items.length;
+      clearTimeout(this.loadTimer);
+      this.isLoading = true;
+      this.loadTimer = setTimeout(() => {
+        this.fetchedItems += 10;
+        this.isLoading = false;
+      }, 500);
     },
   },
 };
@@ -34,14 +22,20 @@ export default {
 <template>
   <gl-infinite-scroll
     :max-list-height="285"
-    :total-items="items.length"
     :fetched-items="fetchedItems"
     @bottomReached="bottomReached"
   >
-    <ul slot="items" class="list-group list-group-flushed list-unstyled">
-      <li v-for="item in visibleItems" :key="item.name" class="list-group-item">
-        {{ item.name }}
-      </li>
-    </ul>
+    <template #items>
+      <ul class="list-group list-group-flushed list-unstyled">
+        <li v-for="item in fetchedItems" :key="item" class="list-group-item">Item #{{ item }}</li>
+      </ul>
+    </template>
+
+    <template #default>
+      <div class="gl-mt-3">
+        <gl-loading-icon v-if="isLoading" />
+        <span v-else>{{ fetchedItems }} items loaded</span>
+      </div>
+    </template>
   </gl-infinite-scroll>
 </template>
