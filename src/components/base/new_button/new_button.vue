@@ -44,6 +44,11 @@ export default {
       required: false,
       default: '',
     },
+    label: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     hasIcon() {
@@ -58,6 +63,7 @@ export default {
         'button-ellipsis-horizontal': this.hasIconOnly && this.icon === 'ellipsis_h',
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
         'new-gl-button': this.variant !== newButtonVariantOptions.link,
+        'btn-label': this.label,
         selected: this.selected,
       };
     },

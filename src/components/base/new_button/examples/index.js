@@ -5,6 +5,7 @@ import ButtonEmojiExample from './new_button.emoji.example.vue';
 import ButtonIconExample from './new_button.icon.example.vue';
 import ButtonIconAndTextExample from './new_button.icon_and_text.example.vue';
 import ButtonSelectedExample from './new_button.selected.example.vue';
+import ButtonLabelExample from './new_button.label.example.vue';
 import ButtonLinkExample from './new_button.link.example.vue';
 import ButtonVariantsExample from './new_button.variants.example.vue';
 import ButtonSizesExample from './new_button.sizes.example.vue';
@@ -54,6 +55,12 @@ export default [
         name: 'Ellipsis button',
         description: 'Button with an ellipsis inside',
         component: ButtonEllipsisExample,
+      },
+      {
+        id: 'new-button-label',
+        name: 'Label button',
+        description: 'Button used as a label - normally in a button group',
+        component: ButtonLabelExample,
       },
       {
         id: 'new-button-link',
