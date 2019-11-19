@@ -19,4 +19,20 @@ describe('new button component', () => {
       expect(button.classes()).toContain('button-ellipsis-horizontal');
     });
   });
+
+  describe('label button', () => {
+    let button;
+
+    beforeEach(() => {
+      button = mountWithOptions({
+        propsData: {
+          label: true,
+        },
+      });
+    });
+
+    it('should add `btn-label` class', () => {
+      expect(button.classes()).toContain('btn-label');
+    });
+  });
 });
