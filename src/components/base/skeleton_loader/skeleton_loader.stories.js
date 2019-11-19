@@ -10,22 +10,18 @@ documentedStoriesOf('base|skeleton-loader', readme).add('default', () => ({
   props: {},
   components,
   template: `
-      <div style="width: 1246px; height: 40px;">
-        <gl-skeleton-loader :width="1246" :height="40"">
-          <rect x="127" y="12" width="76" height="16" rx="4" />
-          <rect x="1093" width="153" height="36" rx="4" />
-          <rect x="375" width="142" height="16" rx="4" />
-          <rect x="403" y="22" width="209" height="16" rx="4" />
-          <rect y="8" width="86" height="24" rx="4" />
-          <circle cx="282" cy="20" r="12" />
-          <circle cx="637" cy="20" r="12" />
-          <circle cx="665" cy="20" r="12" />
-          <circle cx="693" cy="20" r="12" />
-          <circle cx="721" cy="20" r="12" />
-          <circle cx="749" cy="20" r="12" />
-          <circle cx="777" cy="20" r="12" />
-          <circle cx="385" cy="30" r="10" />
-          <rect x="629" y="18" width="141" height="2" />
+    <div style="background: #fff; border: 1px solid #dfdfdf; box-shadow: 0 1px 2px rgba(0,0,0,0.1); width: 375px; height: 140px; padding: 1rem; border-radius: 0.25rem;">
+      <div style="width: 327px; height: 104px;">
+        <gl-skeleton-loader :width="327" :height="104">
+          <rect width="276" height="16" rx="4"/>
+          <rect y="18" width="237" height="16" rx="4"/>
+          <rect y="41" width="118" height="16" rx="8"/>
+          <rect x="122" y="41" width="130" height="16" rx="8"/>
+          <rect y="61" width="106" height="16" rx="8"/>
+          <rect x="110" y="61" width="56" height="16" rx="8"/>
+          <rect x="256" y="41" width="71" height="16" rx="8"/>
+          <rect y="88" width="38" height="16" rx="4"/>
         </gl-skeleton-loader >
-      </div>`,
+      </div>
+    </div>`,
 }));

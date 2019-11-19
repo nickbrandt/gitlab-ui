@@ -1,16 +1,16 @@
 import JobLogSkeletonBasicExample from './job_log_skeleton.basic.example.vue';
 import CiHeaderSkeletonBasicExample from './ci_header_skeleton.basic.example.vue';
-import PipelineRowSkeletonBasicExample from './pipeline_row_skeleton.basic.example.vue';
+import IssueCardSkeletonBasicExample from './issue_card_skeleton.basic.example.vue';
 
 export default [
   {
     name: 'Basic',
     items: [
       {
-        id: 'pipeline-row-skeleton-basic',
-        name: 'Pipeline Row',
-        description: 'Basic Pipeline Row Skeleton',
-        component: PipelineRowSkeletonBasicExample,
+        id: 'issue-card-skeleton-basic',
+        name: 'Issue Board Card',
+        description: 'Basic Issue Card Skeleton',
+        component: IssueCardSkeletonBasicExample,
       },
       {
         id: 'job-log-skeleton-basic',
