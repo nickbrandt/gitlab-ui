@@ -236,8 +236,9 @@ $toast-background-opacity: 0.95;
 // Chart tooltip
 $chart-tooltip-max-width: px-to-rem(512px);
 
-$gl-icon-chevron-left-sm: 'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icn/chevron-left</title><path d="M7.414 7.989l2.295 2.306a1 1 0 1 1-1.418 1.41l-3-3.015a1 1 0 0 1 .004-1.414l3-2.985a1 1 0 1 1 1.41 1.418l-2.29 2.28z" id="a"/></svg>';
-$gl-icon-chevron-right-sm: 'data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icn/chevron-right</title><path d="M8.586 7.989l-2.291-2.28a1 1 0 1 1 1.41-1.418l3 2.985a1 1 0 0 1 .004 1.414l-3 3.015a1 1 0 0 1-1.418-1.41l2.295-2.306z" id="a"/></svg>';
+$gl-icon-chevron-left: 'data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 0 0 0 1.414l3 3a1 1 0 0 0 1.414-1.414L7.414 8l2.293-2.293a1 1 0 0 0-1.414-1.414l-3 3z"/></svg>';
+$gl-icon-chevron-right: 'data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill-rule="evenodd" d="M10.707 7.293a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L8.586 8 6.293 5.707a1 1 0 0 1 1.414-1.414l3 3z"/></svg>';
+$gl-icon-chevron-down: 'data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill-rule="evenodd" d="M7.293 10.707a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0-1.414-1.414L8 8.586 5.707 6.293a1 1 0 0 0-1.414 1.414l3 3z"/></svg>';
 
 // Icons
 $default-icon-size: px-to-rem(18px);

@@ -56,11 +56,11 @@ $gl-datepicker-width: $grid-size * 30;
   }
 
   .pika-next {
-    @include gl-bg-chevron-right-sm;
+    @include gl-bg-chevron-right;
   }
 
   .pika-prev {
-    @include gl-bg-chevron-left-sm;
+    @include gl-bg-chevron-left;
   }
 
   .pika-label {
