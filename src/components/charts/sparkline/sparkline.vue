@@ -199,8 +199,8 @@ export default {
       >
         <template>
           <div slot="title" class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
-          <div slot="default" class="js-tooltip-content text-nowrap">
-            <span v-if="tooltipLabel" class="d-inline-block mr-4">{{ tooltipLabel }}</span>
+          <div slot="default" class="js-tooltip-content d-flex">
+            <span v-if="tooltipLabel" class="pr-4 mr-auto">{{ tooltipLabel }}</span>
             <strong>{{ tooltip.content }}</strong>
           </div>
         </template>
