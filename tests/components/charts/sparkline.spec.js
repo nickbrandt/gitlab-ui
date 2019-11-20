@@ -100,6 +100,11 @@ describe('sparkline chart component', () => {
     jest.clearAllMocks();
   });
 
+  it('emits `chartCreated`, which passes on the chart instance', () => {
+    expect(wrapper.emitted('chartCreated').length).toBe(1);
+    expect(wrapper.emitted('chartCreated')[0][0]).toBe(mockChartInstance);
+  });
+
   it('renders a chart', () => {
     expect(wrapper.find(Chart).exists()).toBe(true);
   });

@@ -141,6 +141,7 @@ export default {
     onChartCreated(chartInstance) {
       this.chartInstance = chartInstance;
       this.chartInstance.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
+      this.$emit('chartCreated', chartInstance);
     },
     onComponentMouseLeave() {
       this.tooltip.show = false;
