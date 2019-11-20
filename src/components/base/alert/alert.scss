@@ -9,6 +9,7 @@
   @include gl-font-base;
   @include gl-font-weight-bold;
   @include gl-text-inherit;
+  @include gl-line-height-normal;
   @include gl-mt-0;
   @include gl-mb-3;
 }
@@ -24,6 +25,10 @@
 
 .gl-alert-icon-no-title {
   @include gl-mt-1;
+}
+
+.gl-alert-body {
+  @include gl-line-height-20;
 }
 
 .gl-alert-actions {
