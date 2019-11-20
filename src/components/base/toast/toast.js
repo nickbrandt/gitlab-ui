@@ -9,7 +9,7 @@ const DEFAULT_OPTIONS = {
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'use');
       icon.appendChild(path);
       icon.setAttribute('class', 'gl-icon s14');
-      path.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `${iconsPath}#close`);
+      path.setAttribute('href', `${iconsPath}#close`);
       return icon;
     },
     class: 'toast-close',
