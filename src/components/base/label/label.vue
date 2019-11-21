@@ -1,6 +1,6 @@
 <script>
 import GlLink from '../link/link.vue';
-import GlTooltip from '../tooltip/tooltip.vue';
+import GlPopover from '../popover/popover.vue';
 import GlIcon from '../icon/icon.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -13,7 +13,7 @@ const titleColorClassMap = {
 export default {
   components: {
     GlLink,
-    GlTooltip,
+    GlPopover,
     GlIcon,
   },
   props: {
@@ -99,6 +99,7 @@ export default {
 
 <template>
   <span
+    :id="title"
     :class="[titleColorClass, cssClasses]"
     :style="boxShadow"
     class="gl-label"
@@ -120,13 +121,13 @@ export default {
         </gl-link>
       </span>
     </gl-link>
-    <gl-tooltip
+    <gl-popover
       v-if="description"
-      :target="$refs.labelTitle"
+      :target="title"
       :placement="tooltipPlacement"
-      boundary="viewport"
-    >
-      {{ description }}
-    </gl-tooltip>
+      :title="scopedValue"
+      triggers="hover focus"
+      :content="description"
+    />
   </span>
 </template>

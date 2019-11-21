@@ -12,6 +12,7 @@ const generateProps = ({
   title = 'Label title',
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
+  description = '',
 } = {}) => {
   const props = {
     color: {
@@ -24,7 +25,7 @@ const generateProps = ({
       default: text('Label title', title),
     },
     description: {
-      default: text('Label description', ''),
+      default: text('Label description', description),
     },
     size: {
       type: String,
@@ -46,7 +47,11 @@ const generateProps = ({
 };
 
 documentedStoriesOf('base|label', readme)
-  .addDecorator(withKnobs)
+  .addDecorator(
+    withKnobs({
+      escapeHTML: false,
+    })
+  )
   .add('default', () => ({
     props: generateProps(),
     components,
@@ -64,6 +69,21 @@ documentedStoriesOf('base|label', readme)
   }))
   .add('scoped', () => ({
     props: generateProps({ title: 'scoped::label' }),
+    components,
+    template: `
+      <gl-label
+        :color="color"
+        :background-color="backgroundColor"
+        :size="size"
+        :title="title"
+        :description="description"
+        :tooltip-placement="tooltipPlacement"
+        :target="target"
+        :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
+      />`,
+  }))
+  .add('with link', () => ({
+    props: generateProps({ description: 'Link: http://www.gitlab.com' }),
     components,
     template: `
       <gl-label

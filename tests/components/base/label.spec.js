@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import Label from '../../../src/components/base/label/label.vue';
 import GlLink from '../../../src/components/base/link/link.vue';
-import GlTooltip from '../../../src/components/base/tooltip/tooltip.vue';
+import GlPopover from '../../../src/components/base/popover/popover.vue';
 
 const defaultProps = {
   title: 'title',
@@ -27,7 +27,7 @@ describe('Label component', () => {
   const findDocLink = () => wrapper.findAll(GlLink).at(1);
   const findTitle = () => wrapper.find('.gl-label-text');
   const findSubTitle = () => wrapper.findAll('.gl-label-text').at(1);
-  const findTooltipText = () => wrapper.find(GlTooltip).text();
+  const findPopoverText = () => wrapper.find(GlPopover).attributes('content');
 
   describe('basic label', () => {
     it('renders the label title', () => {
@@ -125,7 +125,7 @@ describe('Label component', () => {
 
       createComponent(props);
 
-      expect(findTooltipText()).toEqual(props.description);
+      expect(findPopoverText()).toEqual(props.description);
     });
 
     it('links to label target', () => {

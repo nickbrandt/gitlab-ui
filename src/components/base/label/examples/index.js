@@ -1,5 +1,6 @@
 import LabelBasicExample from './label.basic.example.vue';
 import LabelScopedExample from './label.scoped.example.vue';
+import LabelWithLinkExample from './label.with_link.example.vue';
 
 export default [
   {
@@ -16,6 +17,12 @@ export default [
         name: 'scoped',
         description: 'Scoped::Label',
         component: LabelScopedExample,
+      },
+      {
+        id: 'label-with-link',
+        name: 'with link',
+        description: 'Label with link in description',
+        component: LabelWithLinkExample,
       },
     ],
   },
