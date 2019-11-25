@@ -166,11 +166,17 @@ export {
   default as GlSkeletonLoaderDocumentation,
 } from '../src/components/base/skeleton_loader/skeleton_loader.documentation';
 export {
+  default as GlDrawerDocumentation,
+} from '../src/components/base/drawer/drawer.documentation';
+export {
   default as GlResizeObserverDirectiveDocumentation,
 } from '../src/directives/resize_observer/resize_observer.documentation';
 export {
   default as GlBannerDocumentation,
 } from '../src/components/base/banner/banner.documentation';
+export {
+  default as GlSprintfDocumentation,
+} from '../src/components/base/sprintf/sprintf.documentation';
 const componentList = Object.getPrototypeOf(module).exports;
 
 export const getDocumentationFor = componentName => {

@@ -1,6 +1,7 @@
 <script>
 import Pikaday from 'pikaday';
 import GlFormInput from '../form/form_input/form_input.vue';
+import GlIcon from '../icon/icon.vue';
 import { defaultDateFormat } from '../../../utils/constants';
 
 export const pad = (val, len = 2) => `0${val}`.slice(-len);
@@ -38,6 +39,7 @@ const highlightPastDates = pikaday => {
 export default {
   components: {
     GlFormInput,
+    GlIcon,
   },
   props: {
     target: {
@@ -211,8 +213,9 @@ export default {
         :value="formattedDate"
         :placeholder="format"
       />
-      <!-- TODO: Replace font-awesome icon with gitlab/svg icon once gitlab-ui has svg-icon support  -->
-      <span ref="calendarTriggerBtn" class="gl-datepicker-trigger fa fa-calendar"></span>
+      <span ref="calendarTriggerBtn" class="gl-datepicker-trigger">
+        <gl-icon name="calendar" :size="16" />
+      </span>
     </div>
   </div>
 </template>

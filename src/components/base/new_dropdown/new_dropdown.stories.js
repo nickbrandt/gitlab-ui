@@ -24,6 +24,10 @@ function showDropdown(component) {
   component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
 }
 
+function addClass(component) {
+  component.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
+}
+
 function generateProps({
   category = newButtonCategoryOptions.tertiary,
   variant = newDropdownVariantOptions.default,
@@ -61,7 +65,7 @@ documentedStoriesOf('base|new-dropdown', readme)
     props: generateProps(),
     components,
     template: `
-      <gl-new-dropdown 
+      <gl-new-dropdown
         ref="dropdown"
         text="Some dropdown""
         :category="category"
@@ -77,12 +81,15 @@ documentedStoriesOf('base|new-dropdown', readme)
     mounted() {
       showDropdown(this);
     },
+    updated() {
+      addClass(this);
+    },
   }))
   .add('with links', () => ({
     props: generateProps(),
     components,
     template: `
-      <gl-new-dropdown 
+      <gl-new-dropdown
         text="Some dropdown"
         :category="category"
         :variant="variant"
@@ -97,12 +104,15 @@ documentedStoriesOf('base|new-dropdown', readme)
     mounted() {
       showDropdown(this);
     },
+    updated() {
+      addClass(this);
+    },
   }))
   .add('with divider', () => ({
     props: generateProps(),
     components,
     template: `
-      <gl-new-dropdown 
+      <gl-new-dropdown
         text="Some dropdown"
         :category="category"
         :variant="variant"
@@ -117,12 +127,15 @@ documentedStoriesOf('base|new-dropdown', readme)
     mounted() {
       showDropdown(this);
     },
+    updated() {
+      addClass(this);
+    },
   }))
   .add('with header', () => ({
     props: generateProps(),
     components,
     template: `
-      <gl-new-dropdown 
+      <gl-new-dropdown
         text="Some dropdown"
         :category="category"
         :variant="variant"
@@ -139,5 +152,8 @@ documentedStoriesOf('base|new-dropdown', readme)
       </gl-new-dropdown>`,
     mounted() {
       showDropdown(this);
+    },
+    updated() {
+      addClass(this);
     },
   }));

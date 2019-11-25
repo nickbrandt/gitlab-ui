@@ -1,10 +1,12 @@
 <script>
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import BDropdown from 'bootstrap-vue/src/components/dropdown/dropdown';
+import GlIcon from '../icon/icon.vue';
 import {
   newButtonCategoryOptions,
   newDropdownVariantOptions,
   newButtonSizeOptions,
+  dropdownIconSizeOptions,
 } from '../../../utils/constants';
 import ButtonMixin from '../../mixins/button_mixin';
 
@@ -31,6 +33,7 @@ const ExtendedBDropdown = {
 export default {
   components: {
     BDropdown: ExtendedBDropdown,
+    GlIcon,
   },
   mixins: [ButtonMixin],
   props: {
@@ -62,6 +65,11 @@ export default {
       default: newButtonSizeOptions.medium,
       validator: value => Object.keys(newButtonSizeOptions).includes(value),
     },
+    icon: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     renderCaret() {
@@ -70,9 +78,25 @@ export default {
       }
       return true;
     },
-    categoryHandler() {
-      return this.category === 'secondary' ? 'btn-secondary' : null;
+    iconSize() {
+      return this.size === newButtonSizeOptions.small
+        ? dropdownIconSizeOptions[0]
+        : dropdownIconSizeOptions[1];
     },
+    toggleButtonClasses() {
+      return {
+        'btn-secondary': this.category === 'secondary',
+        'dropdown-icon-only': !this.text.length && this.icon,
+        'dropdown-icon-text': this.text.length && this.icon,
+      };
+    },
+  },
+  mounted() {
+    if (this.split) {
+      this.$el.childNodes[0].classList.add('split-content-button');
+    }
+
+    this.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
   },
 };
 </script>
@@ -84,13 +108,14 @@ export default {
     :split="split"
     :variant="variant"
     :size="buttonSize"
-    :toggle-class="categoryHandler"
+    :toggle-class="[toggleButtonClasses]"
     v-on="$listeners"
   >
     <slot></slot>
     <slot slot="button-content" name="button-content">
+      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
       {{ text }}
-      <i v-if="renderCaret" class="fa fa-chevron-down" aria-hidden="true"></i>
+      <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
 </template>

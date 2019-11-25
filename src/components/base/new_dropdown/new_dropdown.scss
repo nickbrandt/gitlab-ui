@@ -13,7 +13,38 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .btn {
-    @extend .new-gl-button;
+  .new-gl-button {
+    @include gl-pr-3;
+
+    &.btn-sm .gl-icon {
+      @include gl-mt-0;
+      @include gl-mb-0;
+
+      &.dropdown-chevron {
+        @include gl-h-5;
+        @include gl-w-5;
+      }
+    }
+
+    .dropdown-chevron {
+      @include gl-ml-2;
+      @include gl-mr-0;
+    }
+  }
+
+  .dropdown-icon-text,
+  .dropdown-icon-only {
+    @include gl-pl-3;
+  }
+
+  .dropdown-icon-only {
+    .dropdown-icon {
+      @include gl-mr-0;
+    }
+  }
+
+  .dropdown-toggle-split,
+  .split-content-button {
+    @include gl-px-4;
   }
 }

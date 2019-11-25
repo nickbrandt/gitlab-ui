@@ -1,4 +1,5 @@
-.gl-form-input {
+.gl-form-input,
+.gl-form-input.form-control {
   @include gl-font-regular;
   @include gl-font-base;
   @include gl-line-height-normal;

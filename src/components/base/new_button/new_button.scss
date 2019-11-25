@@ -316,6 +316,17 @@
     }
   }
 
+  &.btn-label,
+  &.btn-label:hover,
+  &.btn-label:focus,
+  &.btn-label:active {
+    @include gl-bg-gray-50;
+    @include gl-text-gray-900;
+    @include gl-fill-current-color;
+    @include gl-inset-border-1-gray-400;
+    @include gl-cursor-default;
+  }
+
   &.disabled,
   &[disabled] {
     @include gl-bg-gray-50;
