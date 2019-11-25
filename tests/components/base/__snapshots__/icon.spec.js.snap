@@ -2,6 +2,6 @@
 
 exports[`Icon component when created shows svg class "s8" and path "/path/to/icons.svg#check-circle" 1`] = `
 <svg class="gl-icon s8">
-  <use xlink:href="/path/to/icons.svg#check-circle"></use>
+  <use href="/path/to/icons.svg#check-circle"></use>
 </svg>
 `;

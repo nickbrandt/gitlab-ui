@@ -58,6 +58,6 @@ export default {
 
 <template>
   <svg :class="['gl-icon', iconSizeClass]">
-    <use v-bind="{ 'xlink:href': spriteHref }" />
+    <use :href="spriteHref" />
   </svg>
 </template>
