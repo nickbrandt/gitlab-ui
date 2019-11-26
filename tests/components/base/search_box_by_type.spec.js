@@ -35,8 +35,28 @@ describe('search box by type component', () => {
 
     it('emits empty value when clicked', () => {
       createComponent({ value: 'somevalue' });
-      wrapper.find('button[name="clear"]').trigger('click');
-      expect(wrapper.emitted().update).toEqual([['']]);
+
+      findClearIcon().trigger('click');
+
+      expect(wrapper.emitted().input).toEqual([['']]);
+    });
+  });
+
+  describe('v-model', () => {
+    beforeEach(() => {
+      createComponent({ value: 'somevalue' });
+    });
+
+    it('syncs localValue to value prop', () => {
+      wrapper.setProps({ value: 'new value' });
+
+      expect(wrapper.vm.localValue).toEqual('new value');
+    });
+
+    it('emits input event when localValue changes', () => {
+      wrapper.vm.localValue = 'new value';
+
+      expect(wrapper.emitted().input).toEqual([['new value']]);
     });
   });
 
