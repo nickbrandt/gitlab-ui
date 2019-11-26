@@ -9,18 +9,9 @@ import SparklineChart from '../../../src/components/charts/sparkline/sparkline.v
 import ChartTooltip from '../../../src/components/charts/tooltip/tooltip.vue';
 
 const mockResize = jest.fn();
-const mockRemoveEventListener = jest.fn();
 const mockChartInstance = {
   subscribedEvents: {},
-  getDom() {
-    return {
-      addEventListener: (eventName, handler) => {
-        this.subscribedEvents[eventName] = handler.bind(null, []);
-      },
-      removeEventListener: mockRemoveEventListener,
-    };
-  },
-  containPixel: () => true,
+  getDom: () => {},
   convertToPixel: () => [],
   resize: mockResize,
 };
@@ -75,7 +66,7 @@ describe('sparkline chart component', () => {
   const getVariantPropValidator = () => getVariantPropConfig().validator;
 
   const getChartOptions = () => getChart().props('options');
-  const getLabelFormatter = () => {
+  const getXAxisLabelFormatter = () => {
     const {
       xAxis: {
         axisPointer: {
@@ -140,14 +131,6 @@ describe('sparkline chart component', () => {
     expect(getVariantPropConfig().default).toBe(sparkline.defaultVariant);
   });
 
-  it('unsubscribes the mouse events when the component is destroyed', () => {
-    expect(mockRemoveEventListener).toHaveBeenCalledTimes(0);
-
-    wrapper.destroy();
-
-    expect(mockRemoveEventListener).toHaveBeenCalledTimes(1);
-  });
-
   it('triggers the chart to resize when the containing elements size changes', () => {
     expect(mockChartInstance.resize).toHaveBeenCalledTimes(0);
 
@@ -170,41 +153,37 @@ describe('sparkline chart component', () => {
     });
   });
 
-  it('shows the tooltip when the mouse moves over the chart', () => {
-    mockChartInstance.containPixel = () => true;
-    mockChartInstance.subscribedEvents.mousemove();
-
+  it('shows the tooltip when the mouse enters the component', () => {
     expect(getTooltip().attributes('show')).toBeFalsy();
 
-    return waitForAnimationFrame().then(() => {
-      expect(getTooltip().attributes('show')).toBeTruthy();
+    wrapper.trigger('mouseenter');
+
+    return wrapper.vm.$nextTick().then(() => {
+      expect(getTooltip().attributes('show')).toBe('true');
     });
   });
 
-  it('hides the tooltip when the mouse leaves the root component', () => {
-    mockChartInstance.containPixel = () => true;
-    mockChartInstance.subscribedEvents.mousemove();
+  it('hides the tooltip when the mouse leaves the component', () => {
+    wrapper.setData({ tooltip: { show: true } });
 
-    return waitForAnimationFrame()
+    return wrapper.vm
+      .$nextTick()
       .then(() => {
         expect(getTooltip().attributes('show')).toBe('true');
-
         wrapper.trigger('mouseleave');
       })
-      .then(waitForAnimationFrame())
+      .then(wrapper.vm.$nextTick)
       .then(() => {
         expect(getTooltip().attributes('show')).toBeFalsy();
       });
   });
 
   it('adds the right content to the tooltip', () => {
-    const labelFormatter = getLabelFormatter();
-
     const xValue = 'foo';
     const yValue = 'bar';
     const mockData = { seriesData: [{ data: [xValue, yValue] }] };
 
-    labelFormatter(mockData);
+    getXAxisLabelFormatter()(mockData);
 
     expect(getTooltipTitle().text()).toBe('');
     expect(getTooltipContent().text()).toBe('');
@@ -216,7 +195,7 @@ describe('sparkline chart component', () => {
   });
 
   it(`shows the last entry's y-value per default`, () => {
-    const data = [['foo', 'bar'], ['baz', 'biz']];
+    const data = [['foo', 'bar'], ['baz', 'qux']];
     const latestEntryYValue = data[1][1];
 
     wrapper.setProps({ data });

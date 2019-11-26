@@ -7,7 +7,6 @@ import defaultChartOptions, {
   mergeSeriesToOptions,
   symbolSize,
 } from '../../../utils/charts/config';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import resizeObserver from '../../../directives/resize_observer/resize_observer';
 
 import { sparkline } from '../../../utils/charts/theme';
@@ -131,26 +130,19 @@ export default {
       return variants[this.variant];
     },
   },
-  created() {
-    this.debouncedShowHideTooltip = debounceByAnimationFrame(this.showHideTooltip);
-  },
-  beforeDestroy() {
-    this.chartInstance.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
-  },
   methods: {
     onChartCreated(chartInstance) {
       this.chartInstance = chartInstance;
-      this.chartInstance.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
       this.$emit('chartCreated', chartInstance);
-    },
-    onComponentMouseLeave() {
-      this.tooltip.show = false;
-    },
-    showHideTooltip(mouseEvent) {
-      this.tooltip.show = this.chartInstance.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     handleResize() {
       this.chartInstance.resize();
+    },
+    showTooltip() {
+      this.tooltip.show = true;
+    },
+    hideTooltip() {
+      this.tooltip.show = false;
     },
     formatTooltipText([xValue, yValue]) {
       this.tooltip.title = xValue;
@@ -167,11 +159,10 @@ export default {
       // seriesData is an array of nearby data point coordinates
       // seriesData[0] is the nearest point at which the tooltip is displayed
       // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
-      const [firstDataPoint] = seriesData;
+      const [firstEntry = {}] = seriesData;
+      const { data } = firstEntry;
 
-      if (firstDataPoint && firstDataPoint.data) {
-        const { data } = firstDataPoint;
-
+      if (data) {
         this.formatTooltipText(data);
         this.setTooltipPosition(data);
       }
@@ -184,7 +175,8 @@ export default {
   <div
     v-resize-observer="handleResize"
     class="d-flex align-items-center"
-    @mouseleave="onComponentMouseLeave"
+    @mouseenter="showTooltip"
+    @mouseleave="hideTooltip"
   >
     <slot name="default"></slot>
     <div class="flex-grow-1 position-relative">
