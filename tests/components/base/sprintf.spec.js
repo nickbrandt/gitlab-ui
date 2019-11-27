@@ -19,6 +19,7 @@ describe('sprintf component', () => {
     ${'Foo'}
     ${'%{author}'}
     ${'Written by %{author}'}
+    ${'Written by %{author-name}'}
   `('should return message if slots have no data', ({ message }) => {
     createComponent(`<sprintf message="${message}"/>`);
 
@@ -26,17 +27,21 @@ describe('sprintf component', () => {
   });
 
   it.each`
-    message                   | html
-    ${'%{author}'}            | ${'<span>Author</span>'}
-    ${'Written by %{author}'} | ${'Written by <span>Author</span>'}
-    ${'Foo %{author} bar'}    | ${'Foo <span>Author</span> bar'}
-    ${'  %{author}  '}        | ${'  <span>Author</span>  '}
-    ${'%{author}%{author}'}   | ${'<span>Author</span><span>Author</span>'}
+    message                                | html
+    ${'%{author}'}                         | ${'<span>Author</span>'}
+    ${'Written by %{author}'}              | ${'Written by <span>Author</span>'}
+    ${'Foo %{author} bar'}                 | ${'Foo <span>Author</span> bar'}
+    ${'  %{author}  '}                     | ${'  <span>Author</span>  '}
+    ${'%{author}%{author}'}                | ${'<span>Author</span><span>Author</span>'}
+    ${'%{author} known as %{author-name}'} | ${'<span>Author</span> known as <span>John Doe</span>'}
   `('should replace placeholder with component', ({ message, html }) => {
     createComponent(
       `<sprintf message="${message}">
         <template #author>
           <span>Author</span>
+        </template>
+        <template #author-name>
+          <span>John Doe</span>
         </template>
       </sprintf>`
     );
