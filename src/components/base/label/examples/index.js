@@ -1,6 +1,6 @@
 import LabelBasicExample from './label.basic.example.vue';
 import LabelScopedExample from './label.scoped.example.vue';
-import LabelWithLinkExample from './label.with_link.example.vue';
+import LabelWithPopoverExample from './label.with_popover.example.vue';
 
 export default [
   {
@@ -19,10 +19,10 @@ export default [
         component: LabelScopedExample,
       },
       {
-        id: 'label-with-link',
-        name: 'with link',
-        description: 'Label with link in description',
-        component: LabelWithLinkExample,
+        id: 'label-with-popover',
+        name: 'with popover',
+        description: 'Label with popover',
+        component: LabelWithPopoverExample,
       },
     ],
   },

@@ -83,7 +83,7 @@ documentedStoriesOf('base|label', readme)
       />`,
   }))
   .add('with link', () => ({
-    props: generateProps({ description: 'Link: http://www.gitlab.com' }),
+    props: generateProps({ description: 'Basic description' }),
     components,
     template: `
       <gl-label
