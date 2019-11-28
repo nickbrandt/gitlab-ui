@@ -6,11 +6,11 @@ The `GlSprintf` component lets you do string interpolation with child components
 
 ```html
 <div>
-  <sprintf message="Written by %{author}">
+  <gl-sprintf message="Written by %{author}">
     <template #author>
       <span>Author</span>
     </template>
-  </sprintf>
+  </gl-sprintf>
 </div>
 ```
 
@@ -24,11 +24,11 @@ While it would be possible to achieve the same result with a Js-only solution, t
 
 ```html
 <div>
-  <sprintf message="Written by %{author}">
+  <gl-sprintf message="Written by %{author}">
     <template #author>
       <my-vue-component :foo="bar" @event="handleEvent" />
     </template>
-  </sprintf>
+  </gl-sprintf>
 </div>
 ```
 
