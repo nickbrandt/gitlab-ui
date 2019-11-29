@@ -11,3 +11,14 @@ In most circumstances, you can utilize the [icon](https://gitlab-org.gitlab.io/g
 ## Why don’t we generate utilities?
 
 When looking at [utility-mixins](src/scss/utility-mixins/index.scss), you might wonder _"Why don't we take advantage of SCSS maps, loops and other goodies to generate all those mixins in a more DRY manner?"_. We chose this declarative approach because anyone not familiar with GitLab UI's styles can easily get a grasp of what utilities are available by reading the file, no need to decipher some complex loop.
+
+## Some gitlab-ui components are not conforming to [Pajamas Design System](https://design.gitlab.com/), can I still use them?
+Some [Pajamas Design System](https://design.gitlab.com/) components implemented in gitlab-ui do not conform with the design system specs because they lack some planned features or are not correctly styled yet. In the Pajamas website, a banner on top of the component examples indicates that:
+
+> This component does not yet conform to the correct styling defined in our Design System. Refer to the Design System documentation when referencing visuals for this component.
+
+For example, at the time of writing, this type of warning can be observed for [all form components](https://design.gitlab.com/components/forms). It, however, doesn’t imply that the component should not be used.
+
+GitLab always asks to use `<gl-*>` components whenever a suitable component exists. It makes codebase unified and more comfortable to maintain/refactor in the future.
+
+Ensure a [Product Designer](https://about.gitlab.com/company/team/?department=ux-department) reviews the use of the non-conforming component as part of the MR review. Make a follow up issue and attach it to the component implementation epic found within the [Components of Pajamas Design System epic](https://gitlab.com/groups/gitlab-org/-/epics/973).
