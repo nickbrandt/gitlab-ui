@@ -23,6 +23,11 @@
 
     span {
       @include gl-pr-3;
+
+      a {
+        @include gl-text-blue-300;
+        @include gl-font-weight-bold;
+      }
     }
 
     @include media-breakpoint-down(xs) {
