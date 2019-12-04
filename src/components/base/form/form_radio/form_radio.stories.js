@@ -1,6 +1,5 @@
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../../utils/documented_stories';
-import { sizeOptions, variantOptions } from '../../../../utils/constants';
 import readme from './form_radio.md';
 import { GlFormRadio, GlFormRadioGroup } from '../../../../../index';
 
@@ -9,27 +8,28 @@ const components = {
   GlFormRadioGroup,
 };
 
-function generateProps({ stacked = false, buttons = false, groupName = 'radio-group-name' } = {}) {
+const defaultOptions = [
+  { value: 'Pizza', text: 'Pizza' },
+  { value: 'Tacos', text: 'Tacos' },
+  { value: 'Burger', text: 'Burger', disabled: true },
+];
+
+function generateProps({
+  stacked = false,
+  groupName = 'radio-group-name',
+  options = defaultOptions,
+} = {}) {
   return {
-    size: {
-      type: String,
-      default: select('size', sizeOptions, sizeOptions.sm),
-    },
     stacked: {
       type: Boolean,
       default: boolean('stacked', stacked),
     },
-    buttons: {
-      type: Boolean,
-      default: boolean('buttons', buttons),
-    },
-    buttonVariant: {
-      type: String,
-      default: select('button-variant', variantOptions, variantOptions.secondary),
-    },
     name: {
       type: String,
       default: text('name', groupName),
+    },
+    options: {
+      default: object('options', options),
     },
   };
 }
@@ -42,25 +42,28 @@ documentedStoriesOf('base|form/form-radio', readme)
     data() {
       return {
         selected: 'Pizza',
-        options: [
-          { value: 'Pizza', text: 'Pizza' },
-          { value: 'Tacos', text: 'Tacos' },
-          { value: 'Burger', text: 'Burguer', disabled: boolean('disabled', false) },
-        ],
       };
     },
     template: `
-      <gl-form-radio-group 
-        id="food-radios"
-        v-model="selected"
-        :options="options"
-        :size="size"
-        :stacked="stacked"
-        :buttons="buttons"
-        :button-variant="buttonVariant"
-        :name="name"
-        :checked="selected"
-      >
-      </gl-form-radio-group>
+      <div>
+        <gl-form-radio-group 
+          id="food-radios"
+          v-model="selected"
+          :options="options"
+          :stacked="stacked"
+          :name="name"
+          :checked="selected"
+        >
+          <template v-slot:first>
+            <gl-form-radio value="Slot option">
+              Slot option with help text
+              <template v-slot:help>
+                Help text
+              </template>
+            </gl-form-radio>
+          </template>
+          <gl-form-radio value="Last option">Last option</gl-form-radio>
+        </gl-form-radio-group>
+      </div>
     `,
   }));
