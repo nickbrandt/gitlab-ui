@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+import Breakpoints from '../../../src/utils/breakpoints';
 import {
   getDataZoomConfig,
   getThresholdConfig,
@@ -67,11 +68,39 @@ describe('chart config helpers', () => {
   });
 
   describe('getDataZoomConfig', () => {
-    it('creates a basic dataZoomConfig', () => {
-      const actual = getDataZoomConfig();
-      const expected = defaultDataZoomConfig;
+    describe('on large viewports (lg, xl)', () => {
+      it('creates a basic dataZoomConfig with inside scrolling being disabled', () => {
+        const actual = getDataZoomConfig();
+        const expected = defaultDataZoomConfig;
 
-      expect(actual).toEqual(expected);
+        expect(actual).toEqual(expected);
+      });
+    });
+
+    describe('on small viewports', () => {
+      it('creates a basic dataZoomConfig with inside scrolling being enabled', () => {
+        jest.spyOn(Breakpoints, 'getBreakpointSize').mockImplementationOnce(() => 'sm');
+        const actual = getDataZoomConfig();
+        const dataZoomWithInsideEnabled = [
+          {
+            bottom: 22,
+            filterMode: 'none',
+            minSpan: 0.01,
+            type: 'slider',
+          },
+          {
+            type: 'inside',
+            filterMode: 'none',
+            minSpan: 0.01,
+            disabled: false,
+          },
+        ];
+        const expected = merge(defaultDataZoomConfig, {
+          dataZoom: dataZoomWithInsideEnabled,
+        });
+
+        expect(actual).toEqual(expected);
+      });
     });
 
     it('allows the filterMode to be set', () => {
@@ -89,6 +118,7 @@ describe('chart config helpers', () => {
           type: 'inside',
           filterMode: 'filter',
           minSpan: null,
+          disabled: true,
         },
       ];
       const expected = merge(defaultDataZoomConfig, {
