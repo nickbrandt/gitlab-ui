@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 import castArray from 'lodash/castArray';
 import isArray from 'lodash/isArray';
+import Breakpoints from '../breakpoints';
 import { engineeringNotation } from '../number_utils';
 
 export const defaultAreaOpacity = 0.2;
@@ -43,30 +44,41 @@ export const lineStyle = {
 
 export const symbolSize = 6;
 
-// After https://gitlab.com/gitlab-org/gitlab-ui/issues/240
-// all default dataZoom configs will have slider & inside.
-// inside is specifically to enable touch zoom for mobile devices
-export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => ({
-  grid: {
-    bottom: 81,
-  },
-  xAxis: {
-    nameGap: 67,
-  },
-  dataZoom: [
-    {
-      type: 'slider',
-      bottom: 22,
-      filterMode,
-      minSpan: filterMode === 'none' ? 0.01 : null,
+/**
+ * All default dataZoom configs will have slider & inside
+ * (for reference, see https://gitlab.com/gitlab-org/gitlab-ui/issues/240)
+ * Inside is disabled for larger viewports (lg and xl)
+ * and is specifically to enable touch zoom for mobile devices
+ * @param {Object} options
+ */
+export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => {
+  const disabledBreakpoints = ['lg', 'xl'];
+  const disabled = disabledBreakpoints.includes(Breakpoints.getBreakpointSize());
+  const minSpan = filterMode === 'none' ? 0.01 : null;
+
+  return {
+    grid: {
+      bottom: 81,
     },
-    {
-      type: 'inside',
-      filterMode,
-      minSpan: filterMode === 'none' ? 0.01 : null,
+    xAxis: {
+      nameGap: 67,
     },
-  ],
-});
+    dataZoom: [
+      {
+        type: 'slider',
+        bottom: 22,
+        filterMode,
+        minSpan,
+      },
+      {
+        type: 'inside',
+        filterMode,
+        minSpan,
+        disabled,
+      },
+    ],
+  };
+};
 
 // All chart options can be merged but series
 // needs to be concatenated.

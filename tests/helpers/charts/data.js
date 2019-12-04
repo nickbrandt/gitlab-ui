@@ -10,6 +10,7 @@ export const defaultDataZoomConfig = {
       type: 'inside',
       filterMode: 'none',
       minSpan: 0.01,
+      disabled: true,
     },
   ],
   grid: {
