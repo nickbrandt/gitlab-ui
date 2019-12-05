@@ -1,5 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import GlDrawer from './drawer.vue';
 import { GlNewButton } from '../../../../index';
 import readme from './drawer.md';

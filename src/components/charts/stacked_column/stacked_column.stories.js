@@ -1,5 +1,5 @@
 import { withKnobs, object, text, array, select } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { GlStackedColumnChart } from '../../../../charts';
 import readme from './stacked_column.md';
 import { columnOptions } from '../../../utils/constants';

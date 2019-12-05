@@ -1,4 +1,4 @@
-import documentedStoriesOf from '../../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../../documentation/documented_stories';
 import readme from './form_textarea.md';
 import { GlFormTextarea } from '../../../../../index';
 

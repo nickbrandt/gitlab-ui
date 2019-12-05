@@ -1,5 +1,5 @@
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import {
   sizeOptionsWithNoDefault,
   buttonVariantOptions,

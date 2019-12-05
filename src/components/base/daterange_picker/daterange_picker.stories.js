@@ -1,5 +1,5 @@
 import { withKnobs, date } from '@storybook/addon-knobs/dist/deprecated';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';
 

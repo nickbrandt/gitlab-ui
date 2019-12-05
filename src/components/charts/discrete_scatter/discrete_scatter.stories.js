@@ -1,5 +1,5 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { GlDiscreteScatterChart } from '../../../../charts';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './discrete_scatter.md';

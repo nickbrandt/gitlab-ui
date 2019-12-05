@@ -1,5 +1,5 @@
 import { withKnobs, object, boolean } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { GlLineChart } from '../../../../charts';
 import readme from './line.md';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved

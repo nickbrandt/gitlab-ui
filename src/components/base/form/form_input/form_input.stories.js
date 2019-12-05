@@ -1,5 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../../documentation/documented_stories';
 import readme from './form_input.md';
 import { GlFormInput } from '../../../../../index';
 

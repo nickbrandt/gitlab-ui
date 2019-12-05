@@ -1,5 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs/dist/deprecated';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import readme from './dropdown.md';
 import { GlDropdown, GlDropdownDivider, GlDropdownHeader, GlDropdownItem } from '../../../../index';
 

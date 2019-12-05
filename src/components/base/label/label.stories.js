@@ -1,5 +1,5 @@
 import { withKnobs, text, color, select } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { labelSizeOptions, labelColorOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './label.md';
 import { GlLabel } from '../../../../index';

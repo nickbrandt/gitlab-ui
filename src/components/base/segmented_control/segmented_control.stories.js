@@ -1,5 +1,5 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs/vue';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import readme from './segmented_control.md';
 import { GlSegmentedControl } from '../../../../index';
 
