@@ -1,0 +1,58 @@
+.gl-badge {
+  @include gl-bg-gray-200;
+  @include gl-font-sm;
+  @include gl-font-weight-bold;
+  @include gl-px-3;
+  @include gl-py-2;
+  @include gl-rounded-pill;
+  @include gl-text-gray-900;
+}
+
+.gl-badge-variant-neutral-average {
+  @include gl-bg-gray-200;
+  @include gl-text-gray-900;
+}
+.gl-badge-variant-neutral-soft {
+  @include gl-bg-gray-100;
+  @include gl-text-gray-700;
+}
+.gl-badge-variant-neutral-loud {
+  @include gl-bg-gray-700;
+  @include gl-text-white;
+}
+
+.gl-badge-variant-info-average {
+  @include gl-bg-blue-100;
+  @include gl-text-blue-500;
+}
+.gl-badge-variant-info-loud {
+  @include gl-bg-blue-500;
+  @include gl-text-white;
+}
+
+.gl-badge-variant-success-average {
+  @include gl-bg-green-100;
+  @include gl-text-green-600;
+}
+.gl-badge-variant-success-loud {
+  @include gl-bg-green-500;
+  @include gl-text-white;
+}
+
+.gl-badge-variant-warning-average {
+  @include gl-bg-orange-100;
+  @include gl-text-orange-700;
+}
+.gl-badge-variant-warning-loud {
+  @include gl-bg-orange-700;
+  @include gl-text-white;
+}
+
+.gl-badge-variant-danger-average {
+  @include gl-bg-red-100;
+  @include gl-text-red-500;
+}
+.gl-badge-variant-danger-loud {
+  @include gl-bg-red-500;
+  @include gl-text-white;
+}

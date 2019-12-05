@@ -47,6 +47,9 @@ export {
 } from '../src/components/base/skeleton_loading/skeleton_loading.documentation';
 export { default as GlBadgeDocumentation } from '../src/components/base/badge/badge.documentation';
 export {
+  default as GlNewBadgeDocumentation,
+} from '../src/components/base/new_badge/new_badge.documentation';
+export {
   default as GlButtonDocumentation,
 } from '../src/components/base/button/button.documentation';
 export {
