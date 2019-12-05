@@ -1,5 +1,5 @@
 import { withKnobs, object, select, text, number, boolean } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { sparkline } from '../../../utils/charts/theme';
 import { GlSparklineChart } from '../../../../charts';
 import { GlButton, GlButtonGroup } from '../../../../index';

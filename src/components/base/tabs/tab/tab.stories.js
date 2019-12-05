@@ -1,4 +1,4 @@
-import documentedStoriesOf from '../../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../../documentation/documented_stories';
 
 const template = `
   <div>

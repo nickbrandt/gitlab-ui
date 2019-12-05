@@ -1,5 +1,5 @@
 import { array, text, withKnobs } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import readme from './intersperse.md';
 
 import { GlIntersperse } from '../../../../index';

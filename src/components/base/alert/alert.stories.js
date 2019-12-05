@@ -1,5 +1,5 @@
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs/vue';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { alertVariantOptions } from '../../../utils/constants';
 import readme from './alert.md';
 import { GlAlert } from '../../../../index';

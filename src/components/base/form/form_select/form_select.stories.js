@@ -1,5 +1,5 @@
 import { withKnobs, boolean, select, number, object } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../../documentation/documented_stories';
 import readme from './form_select.md';
 import { GlFormSelect } from '../../../../../index';
 import { sizeOptions, formStateOptions } from '../../../../utils/constants';

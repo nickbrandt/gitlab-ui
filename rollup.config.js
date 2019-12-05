@@ -36,7 +36,7 @@ const isExternalModule = moduleId =>
   externalModules.some(name => moduleId === name || moduleId.startsWith(`${name}/`));
 
 export default glob
-  .sync('src/+(components|directives)/**/!(*.stories).+(js|vue)')
+  .sync('src/**/!(*.stories).+(js|vue)')
   .concat('charts.js')
   .concat('index.js')
   .map(input => {

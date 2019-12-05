@@ -1,5 +1,5 @@
 import { withKnobs, number } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../utils/documented_stories';
+import documentedStoriesOf from '../../../../documentation/documented_stories';
 import readme from './skeleton_loading.md';
 import { GlSkeletonLoading } from '../../../../index';
 
