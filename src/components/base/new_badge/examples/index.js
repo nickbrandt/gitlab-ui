@@ -1,5 +1,6 @@
 import NewBadgeBasicExample from './new_badge.basic.example.vue';
 import NewBadgeVariantExample from './new_badge.variant.example.vue';
+import NewBadgeSizeExample from './new_badge.size.example.vue';
 
 export default [
   {
@@ -16,6 +17,12 @@ export default [
         name: 'Variants',
         description: 'Badge variants',
         component: NewBadgeVariantExample,
+      },
+      {
+        id: 'new-badge-size-example',
+        name: 'Sizes',
+        description: 'Badge sizes',
+        component: NewBadgeSizeExample,
       },
     ],
   },

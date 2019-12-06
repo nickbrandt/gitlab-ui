@@ -81,6 +81,26 @@ export const newButtonVariantOptions = {
   link: 'link',
 };
 
+export const newBadgeVariantOptions = {
+  'Neutral average': 'neutral-average',
+  'Neutral soft': 'neutral-soft',
+  'Neutral loud': 'neutral-loud',
+  'Info average': 'info-average',
+  'Info loud': 'info-loud',
+  'Success average': 'success-average',
+  'Success loud': 'success-loud',
+  'Warning average': 'warning-average',
+  'Warning loud': 'warning-loud',
+  'Danger average': 'danger-average',
+  'Danger loud': 'danger-loud',
+};
+
+export const newBadgeSizeOptions = {
+  small: 'small',
+  default: 'default',
+  large: 'large',
+};
+
 export const newDropdownVariantOptions = {
   default: 'default',
   info: 'info',

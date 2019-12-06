@@ -150,7 +150,7 @@
 }
 
 @mixin gl-rounded-pill {
-  border-radius: $gl-spacing-scale-4;
+  border-radius: 9999px;
 }
 
 @mixin gl-rounded-top-left-base {
