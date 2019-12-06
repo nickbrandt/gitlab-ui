@@ -38,6 +38,14 @@
   background-color: $gray-600;
 }
 
+@mixin gl-bg-gray-700 {
+  background-color: $gray-700;
+}
+
+@mixin gl-bg-gray-800 {
+  background-color: $gray-800;
+}
+
 @mixin gl-bg-blue-50 {
   background-color: $blue-50;
 }
@@ -104,6 +112,10 @@
 
 @mixin gl-bg-orange-700 {
   background-color: $orange-700;
+}
+
+@mixin gl-bg-orange-800 {
+  background-color: $orange-800;
 }
 
 @mixin gl-bg-red-100 {

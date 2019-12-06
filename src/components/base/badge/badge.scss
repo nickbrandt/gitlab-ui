@@ -1,0 +1,49 @@
+@import './badge-neutral';
+@import './badge-info';
+@import './badge-success';
+@import './badge-warning';
+@import './badge-danger';
+
+.gl-badge {
+  @include gl-font-weight-bold;
+  @include gl-font-sm;
+  @include gl-line-height-normal;
+  @include gl-py-1;
+  @include gl-px-b6;
+  @include gl-outline-none;
+  @include gl-border-solid;
+  @include gl-border-2;
+
+  // Sizes
+  &.sm {
+    @include gl-py-0;
+  }
+
+  &.lg {
+    @include gl-py-3;
+    @include gl-font-base;
+  }
+
+  &.normal {
+    @include gl-font-weight-normal;
+  }
+}
+
+a,
+button {
+  &.gl-badge {
+    &:focus {
+      @include gl-focus-glow;
+      @include gl-outline-none;
+    }
+
+    &:hover {
+      @include gl-drop-shadow;
+    }
+
+    &.active,
+    &:active {
+      @include gl-inset-shadow;
+    }
+  }
+}
