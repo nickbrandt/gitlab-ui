@@ -13,6 +13,7 @@ Import component stylesheets located in components here. i.e.
 @import '../components/base/drawer/drawer';
 @import '../components/base/dropdown/dropdown';
 @import '../components/base/new_dropdown/new_dropdown';
+@import '../components/base/new_dropdown/dropdown_text';
 @import '../components/base/dropdown/dropdown_divider';
 @import '../components/base/dropdown/dropdown_header';
 @import '../components/base/dropdown/dropdown_item';
@@ -28,6 +29,7 @@ Import component stylesheets located in components here. i.e.
 @import '../components/base/new_button/new_button';
 @import '../components/base/popover/popover';
 @import '../components/base/search_box_by_type/search_box_by_type';
+@import '../components/base/search_box_by_click/search_box_by_click';
 @import '../components/base/skeleton_loading/skeleton_loading';
 @import '../components/base/sorting/sorting';
 @import '../components/base/tabs/tabs/tabs';

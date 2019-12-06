@@ -1,33 +1,77 @@
 <script>
+import BInputGroup from 'bootstrap-vue/src/components/input-group/input-group';
+import GlIcon from '../icon/icon.vue';
+import GlButton from '../new_button/new_button.vue';
+import GlDropdown from '../new_dropdown/new_dropdown.vue';
+import GlDropdownItem from '../new_dropdown/dropdown_item.vue';
+import GlDropdownDivider from '../new_dropdown/dropdown_divider.vue';
+import GlDropdownText from '../new_dropdown/dropdown_text.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
-import GlButton from '../button/button.vue';
 import GlTooltip from '../../../directives/tooltip';
 
 export default {
   components: {
-    GlFormInput,
+    GlIcon,
     GlButton,
+    GlFormInput,
+    GlDropdown,
+    GlDropdownText,
+    GlDropdownItem,
+    GlDropdownDivider,
+    BInputGroup,
   },
   directives: {
     GlTooltip,
   },
-  inheritAttrs: false,
   props: {
     value: {
       type: String,
       required: false,
       default: '',
     },
+    historyItems: {
+      type: Array,
+      required: false,
+      default: null,
+    },
+    placeholder: {
+      type: String,
+      required: false,
+      default: 'Search',
+    },
+    recentSearchesHeader: {
+      type: String,
+      required: false,
+      default: 'Recent searches',
+    },
+    clearButtonTitle: {
+      type: String,
+      required: false,
+      default: 'Clear',
+    },
+    closeButtonTitle: {
+      type: String,
+      required: false,
+      default: 'Close',
+    },
+    clearRecentSearchesText: {
+      type: String,
+      required: false,
+      default: 'Clear recent searches',
+    },
+  },
+  data() {
+    return {
+      currentValue: null,
+      isFocused: false,
+    };
   },
   computed: {
     inputAttributes() {
-      const attributes = Object.assign(
-        {
-          type: 'text',
-          placeholder: 'Search',
-        },
-        this.$attrs
-      );
+      const attributes = {
+        placeholder: this.placeholder,
+        ...this.$attrs,
+      };
 
       if (!attributes['aria-label']) {
         attributes['aria-label'] = attributes.placeholder;
@@ -35,68 +79,113 @@ export default {
 
       return attributes;
     },
-    isDisabled() {
-      return this.$attrs.disabled;
-    },
     hasValue() {
-      return this.localValue !== '';
+      return Boolean(this.currentValue);
     },
-    localValue: {
-      get() {
-        return this.value;
+  },
+  watch: {
+    value: {
+      handler(newValue) {
+        this.currentValue = newValue;
       },
-      set(value) {
-        this.$emit('input', value);
-      },
+      immediate: true,
     },
-    isResetButtonVisible() {
-      return !this.isDisabled && this.hasValue;
+    currentValue(newValue) {
+      this.$emit('input', newValue);
     },
   },
   methods: {
+    closeHistoryDropdown() {
+      this.$refs.historyDropdown.hide();
+    },
+    search(value) {
+      this.$emit('submit', value);
+    },
+    selectHistoryItem(item) {
+      this.currentValue = item;
+      this.search(item);
+      setTimeout(() => {
+        document.activeElement.blur();
+      });
+    },
     clearInput() {
-      this.localValue = '';
-      this.focusInput();
-    },
-    focusInput() {
+      this.currentValue = null;
       this.$refs.input.$el.focus();
-    },
-    onSearch() {
-      this.$emit('submit', this.localValue);
     },
   },
 };
 </script>
 
 <template>
-  <div>
-    <div class="position-relative ms-no-clear d-flex flex-fill">
+  <b-input-group class="gl-search-box-by-click">
+    <template v-if="historyItems" #prepend>
+      <gl-dropdown
+        v-if="historyItems"
+        ref="historyDropdown"
+        class="gl-search-box-by-click-history"
+        menu-class="gl-search-box-by-click-menu"
+      >
+        <template slot="button-content">
+          <gl-icon name="history" class="gl-search-box-by-click-history-icon" />
+          <gl-icon name="chevron-down" class="gl-search-box-by-click-history-icon-chevron" />
+        </template>
+        <gl-dropdown-text class="gl-text-center">
+          {{ recentSearchesHeader }}
+          <button
+            ref="closeHistory"
+            v-gl-tooltip.hover
+            :title="closeButtonTitle"
+            class="gl-search-box-by-click-icon-button gl-search-box-by-click-close-history-button"
+            name="close"
+            @click="closeHistoryDropdown"
+          >
+            <gl-icon name="close" />
+          </button>
+        </gl-dropdown-text>
+        <gl-dropdown-divider />
+        <gl-dropdown-item
+          v-for="(item, idx) in historyItems"
+          :key="idx"
+          class="gl-search-box-by-click-history-item"
+          @click="selectHistoryItem(item)"
+        >
+          <slot name="history-item" :historyItem="item">{{ item }}</slot>
+        </gl-dropdown-item>
+        <gl-dropdown-divider />
+        <gl-dropdown-item ref="clearHistory" @click="$emit('clear-history')">
+          {{ clearRecentSearchesText }}
+        </gl-dropdown-item>
+      </gl-dropdown>
+    </template>
+    <slot name="input">
       <gl-form-input
         ref="input"
-        v-model="localValue"
+        v-model="currentValue"
+        class="gl-search-box-by-click-input"
         v-bind="inputAttributes"
-        :class="{ 'pr-5': !isResetButtonVisible, 'pr-6': isResetButtonVisible }"
-        v-on="$listeners"
-        @keyup.enter.native="onSearch"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
+        @keydown.enter="search(currentValue)"
       />
-      <div
-        class="position-absolute position-top-0 h-100 d-flex align-items-center text-muted position-right-0"
+      <button
+        v-if="hasValue"
+        v-gl-tooltip.hover
+        :title="clearButtonTitle"
+        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
+        name="clear"
+        @click="clearInput"
       >
-        <i
-          v-show="isResetButtonVisible"
-          ref="clearInput"
-          v-gl-tooltip.hover
-          class="fa fa-times fa-lg pl-2 pr-2 cursor-pointer"
-          aria-hidden="true"
-          title="Clear"
-          @click="clearInput"
-        ></i>
-        <div class="border-left">
-          <gl-button class="btn-transparent" aria-label="Search Button" :disabled="isDisabled">
-            <i class="fa fa-search" aria-hidden="true" @click="onSearch"></i>
-          </gl-button>
-        </div>
-      </div>
-    </div>
-  </div>
+        <gl-icon name="clear" />
+      </button>
+    </slot>
+    <template #append>
+      <gl-button
+        ref="searchButton"
+        class="gl-search-box-by-click-icon-button"
+        @click="search(currentValue)"
+      >
+        <gl-icon name="search" />
+      </gl-button>
+    </template>
+  </b-input-group>
 </template>

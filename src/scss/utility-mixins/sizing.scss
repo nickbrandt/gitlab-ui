@@ -107,3 +107,7 @@
 @mixin gl-min-w-0 {
   min-width: $gl-spacing-scale-0;
 }
+
+@mixin gl-min-h-7 {
+  min-height: $gl-spacing-scale-7;
+}

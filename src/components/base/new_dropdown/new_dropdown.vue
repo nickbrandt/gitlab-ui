@@ -98,11 +98,17 @@ export default {
 
     this.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
   },
+  methods: {
+    hide(...args) {
+      this.$refs.dropdown.hide(...args);
+    },
+  },
 };
 </script>
 
 <template>
   <b-dropdown
+    ref="dropdown"
     class="gl-new-dropdown"
     v-bind="$attrs"
     :split="split"

@@ -36,4 +36,22 @@ documentedStoriesOf('base|search-box-by-click', readme)
         :placeholder="placeholder"
       />
     `,
+  }))
+  .add('with history', () => ({
+    props: {
+      ...generateProps(),
+      history: {
+        type: Array,
+        default: ['author:@admin', 'assignee:@admin milestone:%12.5', 'label:~test'],
+      },
+    },
+    components,
+    template: `
+      <gl-search-box-by-click
+        :value="value"
+        :disabled="disabled"
+        :placeholder="placeholder"
+        :history-items="history"
+      />
+    `,
   }));

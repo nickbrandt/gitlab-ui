@@ -1,43 +1,89 @@
 import { shallowMount } from '@vue/test-utils';
+import BInputGroup from 'bootstrap-vue/src/components/input-group/input-group';
 import SearchBoxByClick from '../../../src/components/base/search_box_by_click/search_box_by_click.vue';
+import GlDropdownItem from '../../../src/components/base/new_dropdown/dropdown_item.vue';
+import GlFormInput from '../../../src/components/base/form/form_input/form_input.vue';
 
 describe('search box by click component', () => {
   let wrapper;
 
   const createComponent = propsData => {
-    wrapper = shallowMount(SearchBoxByClick, { sync: false, propsData });
+    wrapper = shallowMount(SearchBoxByClick, {
+      sync: false,
+      propsData,
+      stubs: { BInputGroup },
+    });
   };
 
   afterEach(() => {
     wrapper.destroy();
   });
 
-  describe('clear button', () => {
-    it('emits empty value when clicked', () => {
-      createComponent({ value: 'somevalue' });
+  it('emits input event when input changes', () => {
+    createComponent({ value: 'somevalue' });
 
-      const clear = wrapper.find({ ref: 'clearInput' });
-      clear.trigger('click');
+    wrapper.find({ ref: 'input' }).vm.$emit('input', 'new value');
 
-      expect(wrapper.emitted().input).toEqual([['']]);
+    return wrapper.vm.$nextTick().then(() => {
+      expect(wrapper.emitted().input).toEqual([['new value']]);
     });
   });
 
-  describe('v-model', () => {
+  it('does not displays history dropdown by default', () => {
+    createComponent();
+    expect(wrapper.find({ ref: 'historyDropdown' }).exists()).toBe(false);
+  });
+
+  describe('when historyItems prop is provided', () => {
     beforeEach(() => {
-      createComponent({ value: 'somevalue' });
+      createComponent({ historyItems: ['one', 'two', 'three'] });
     });
 
-    it('syncs localValue to value prop', () => {
-      wrapper.setProps({ value: 'new value' });
-
-      expect(wrapper.vm.localValue).toEqual('new value');
+    it('displays history dropdown', () => {
+      expect(wrapper.find({ ref: 'historyDropdown' }).exists()).toBe(true);
     });
 
-    it('emits input event when localValue changes', () => {
-      wrapper.vm.localValue = 'new value';
+    it('hides dropdown when close buton is clicked', () => {
+      wrapper.vm.$refs.historyDropdown.hide = jest.fn();
 
-      expect(wrapper.emitted().input).toEqual([['new value']]);
+      wrapper.find({ ref: 'closeHistory' }).trigger('click');
+
+      expect(wrapper.vm.$refs.historyDropdown.hide).toHaveBeenCalled();
+    });
+
+    it('emits clear-history event when clear button is clicked', () => {
+      wrapper.find({ ref: 'clearHistory' }).vm.$emit('click');
+
+      expect(wrapper.emitted()['clear-history'].length).toBe(1);
+    });
+
+    it('emits proper events when history item is clicked', () => {
+      wrapper.find(GlDropdownItem).vm.$emit('click');
+
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.emitted().input[0]).toEqual(['one']);
+        expect(wrapper.emitted().submit[0]).toEqual(['one']);
+      });
+    });
+  });
+
+  it('emits submit event when Enter key is pressed', () => {
+    createComponent({ value: 'some-input' });
+
+    wrapper.find(GlFormInput).vm.$emit('keydown', { type: 'key', keyCode: 13 });
+
+    return wrapper.vm.$nextTick().then(() => {
+      expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
+    });
+  });
+
+  it('emits submit event when search button is pressed', () => {
+    createComponent({ value: 'some-input' });
+
+    wrapper.find({ ref: 'searchButton' }).vm.$emit('click');
+
+    return wrapper.vm.$nextTick().then(() => {
+      expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
     });
   });
 });
