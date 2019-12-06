@@ -33,6 +33,10 @@ function generateProps() {
       type: Boolean,
       default: boolean('foot-clone', false),
     },
+    stacked: {
+      type: [String, Boolean],
+      default: select('stacked', ['sm', 'md', 'lg', 'xl', true, false], false),
+    },
   };
 
   return props;
@@ -44,10 +48,11 @@ documentedStoriesOf('base|table', readme)
     components,
     props: generateProps(),
     template: `
-      <gl-table 
+      <gl-table
         :items="$options.items"
         :fields="$options.fields"
         :fixed="fixed"
+        :stacked="stacked"
         :foot-clone="footClone"
       />
     `,
