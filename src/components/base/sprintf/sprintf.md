@@ -39,6 +39,11 @@ This is very useful because it lets you build full translation strings that prop
 - Since `GlSprintf` typically renders multiple elements, it can't be used as a component's root, it must be wrapped with at least one other root element, otherwise Vue will throw a `Multiple root nodes returned from render function` error.
 - If a slot for a given named interpolation _isn't_ provided, the interpolation will be rendered as-is, e.g., literally `Written by %{author}` if the `author` slot _isn't_ provided.
 - If there's no named interpolation in the message for a provided named slot, the content of that slot is silently thrown away.
+- To be successfully used in `GlSprintf`, slot names sould:
+  * start with a letter (`[A-Za-z]`)
+  * only contain alpha-numeric characters (`[A-Za-z0-9]`), underscore (`_`) and dash (`-`),
+  * should not end with underscore (`_`) or dash (`-`)
+  So for example: `%{author}`, `%{author_name}`, `%{authorName}` or `%{author-name-100}` are all valid placeholders.
 
 ## Internet Explorer 11
 
