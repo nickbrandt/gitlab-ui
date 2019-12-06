@@ -1,23 +1,26 @@
-## How to add a new component to gitlab-ui
+## How to add a new component to `gitlab-ui`
 
-1. Decide on a component you'd like to add to gitlab-ui
-1. Determine and document the scenarios (different types of implementations, if any) in which this component is used in gitlab-ce/ee in an issue in gitlab-ui
-1. Select a scenario that is implemented in gitlab-ce/ee that you will replace with your component
-1. Create a merge request (MR) in gitlab-ui implementing your new component
-   1. Be sure to name your MR `feat: <commit message>` as that is needed for our npm release CI job (don't forget to set the MR to squash commit)
-   1. Create a directory and component.vue in `components/` directory
-   1. Create a story `component.js` in stories/ directory
-   1. Import your component to `index.js`
-   1. Create documentation.md in `documentation/` directory
-   1. Run the manual CI job (update_screenshots) to generate your image snapshots for diffing
-
-1. Create a MR to gitlab-ce/ee to replace the scenario implementation (if any) that you previously selected
-1. Update your package.json dependency reference of @gitlab/ui to the URL output of the upload_artifacts ci job in your gitlab-ui MR
-1. Run yarn install to make sure that the gitlab-ui contents are installed
-1. If your new component is used on every page, import to app/assets/javascripts/commons/gitlab_ui.js so that your component is globally registered
-1. Once you've verified that your integration MR to gitlab-ce/ee is working, assign a maintainer to review both gitlab-ui and gitlab-ce/ee MRs (a list of maintainers can be found on the [team](https://about.gitlab.com/team/) page)
-1. Maintainer will merge the gitlab-ui MR, the publish CI job will automatically create a new release on NPM
-1. (You or maintainer) will update your integration MR package.json dependency reference to the newly released gitlab-ui version
+1. Decide on a component you'd like to add to `gitlab-ui`
+1. Determine and document the scenarios (different types of implementations, if any) in which this component is used in `gitlab` in an issue in `gitlab-ui`
+1. Select a scenario that is implemented in `gitlab` that you will replace with your component
+1. Run `yarn generate:component` and follow the instructions, or create the files structure manually as follows (where `[component]` is the name of your component):
+    1. Create a `[component]/` directory in the relevant `components/` sub-directory
+    1. In this new directory, create the following:
+        1. `[component].vue` which is the component itself.
+        1. `[component].stories.js` for registering Storybook's stories.
+        1. `[component].documentation.js` for registering usage examples.
+        1. `[component].md` for documenting the component.
+        1. An `examples/` sub-directory where you'll place your examples and an `index.js` file for exposing those examples.
+1. Create a merge request (MR) in `gitlab-ui` implementing your new component
+    1. Be sure to name your MR `feat: <commit message>` as that is needed for our npm release CI job (don't forget to set the MR to squash commit)
+    1. Run the manual CI job (`update_screenshots`) to generate your image snapshots for diffing.
+1. Create a MR to `gitlab` to replace the scenario implementation (if any) that you previously selected
+1. Update your `package.json` dependency reference of `@gitlab/ui` to the URL output of the `upload_artifacts` CI job in your `gitlab-ui` MR
+1. Run `yarn install` to make sure that the `gitlab-ui` contents are installed
+1. If your new component is used on every page, import to `app/assets/javascripts/commons/gitlab_ui.js` so that your component is globally registered
+1. Once you've verified that your integration MR to `gitlab` is working, assign a maintainer to review both `gitlab-ui` and `gitlab` MRs (a list of maintainers can be found on the [team](https://about.gitlab.com/team/) page)
+1. Maintainer will merge the `gitlab-ui` MR, the `publish` CI job will automatically create a new release on NPM
+1. You (or maintainer) will update your integration MR's `package.json` dependency reference to the newly released `gitlab-ui` version
 1. Maintainer will merge the integration MR
 
 ## Conventional commits
@@ -92,19 +95,22 @@ Commitizen is a CLI tool that provides an interactive interface to help you writ
 
 > Note that we also limit commit messages subject's and body's length with Danger: [Dangerfile](./danger/semantic-commit/Dangerfile)
 
-## Link local gitlab-ui with gitlab-ce
+## Link local `gitlab-ui` with `gitlab`
 
-During development, you can link your local gitlab-ui changes to gitlab-ce. This means you don't need to update `package.json`, and can easily test changes.
+During development, you can link your local `gitlab-ui` package changes to the `gitlab` project. This means you don't need to update `package.json`, and can easily test changes.
 
+Run the following commands to link the `gitlab-ui` package:
 1. `yarn link`
 1. `yarn build -w`
-1. (in gitab-ce directory) `yarn link "@gitlab/ui"`
 
-When you are finished, run `yarn unlink` in gitlab-ce directory.
+Then, run the following command in the `gitlab` project:
+1. `yarn link @gitlab/ui`
+
+Once you are done run `yarn unlink @gitlab/ui` within the `gitlab` project.
 
 ### Edge-case: Importing specific bundles
 
-If you load a gitlab-ce/ee page that imports a specific gitlab-ui bundle (e.g. `import { x } from '@gitlab/ui/dist/charts;'`, you must also link gitlab-ui to itself.
+If you load a `gitlab` page that imports a specific `gitlab-ui` bundle (e.g. `import { x } from '@gitlab/ui/dist/charts;'`, you must also link `gitlab-ui` to itself.
 
 If you don't, you will see an error like this:
 
@@ -112,7 +118,7 @@ If you don't, you will see an error like this:
 Module not found: Error: Can't resolve '@gitlab/ui' in '/<path-to-checked-out-gitlab-ui>/dist'
 ```
 
-To fix this, run `yarn link "@gitlab/ui"` within the gitlab-ui folder. See https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/179 for more detail.
+To fix this, run `yarn link @gitlab/ui` within the `gitlab-ui` folder. See https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/179 for more detail.
 
 ## Automatic documentation
 
@@ -175,4 +181,4 @@ Before proceeding make sure that the updated image snapshots a) still comply wit
 
 ## Contribution guidelines
 
-Please refer to [gitlab-ce's CONTRIBUTING.md](https://gitlab.com/gitlab-org/gitlab-ce/blob/master/CONTRIBUTING.md) for details on our guidelines.
+Please refer to [gitlab's CONTRIBUTING.md](https://gitlab.com/gitlab-org/gitlab/blob/master/CONTRIBUTING.md) for details on our guidelines.
