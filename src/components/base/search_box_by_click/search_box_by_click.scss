@@ -1,0 +1,32 @@
+.gl-search-box-by-click-icon-button {
+  @include gl-display-flex;
+  @include gl-align-items-center;
+  @include gl-justify-content-center;
+  @include gl-flex-shrink-0;
+  @include gl-border-none;
+  @include gl-p-0;
+  @include gl-bg-transparent;
+  svg {
+    @include gl-m-3;
+  }
+}
+
+.gl-search-box-by-click .gl-search-box-by-click-input {
+  @include gl-pr-7;
+}
+
+.gl-search-box-by-click-close-history-button {
+  @include gl-absolute;
+  @include gl-top-0;
+  @include gl-right-0;
+}
+
+.gl-search-box-by-click-clear-button {
+  @include gl-absolute;
+  @include gl-right-7;
+  @include gl-z-index-3;
+}
+
+.gl-search-box-by-click-menu {
+  width: $gl-dropdown-width-wide;
+}

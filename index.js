@@ -48,6 +48,14 @@ export { default as GlDropdownItem } from './src/components/base/dropdown/dropdo
 export { default as GlDropdownHeader } from './src/components/base/dropdown/dropdown_header.vue';
 export { default as GlDropdownDivider } from './src/components/base/dropdown/dropdown_divider.vue';
 export { default as GlDropdown } from './src/components/base/dropdown/dropdown.vue';
+export { default as GlNewDropdownItem } from './src/components/base/new_dropdown/dropdown_item.vue';
+export {
+  default as GlNewDropdownHeader,
+} from './src/components/base/new_dropdown/dropdown_header.vue';
+export {
+  default as GlNewDropdownDivider,
+} from './src/components/base/new_dropdown/dropdown_divider.vue';
+export { default as GlNewDropdownText } from './src/components/base/new_dropdown/dropdown_text.vue';
 export { default as GlNewDropdown } from './src/components/base/new_dropdown/new_dropdown.vue';
 export { default as GlTable } from './src/components/base/table/table.vue';
 export { default as GlBreadcrumb } from './src/components/base/breadcrumb/breadcrumb.vue';

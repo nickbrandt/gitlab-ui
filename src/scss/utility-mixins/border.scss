@@ -30,6 +30,15 @@
 @mixin gl-border-l-solid {
   border-left-style: solid;
 }
+
+@mixin gl-border-l-none {
+  border-left-style: none;
+}
+
+@mixin gl-border-r-none {
+  border-right-style: none;
+}
+
 /**
 * Border color utilities.
 *
@@ -172,14 +181,30 @@
   border-top-left-radius: $gl-border-radius-base;
 }
 
+@mixin gl-rounded-top-left-none {
+  border-top-left-radius: 0;
+}
+
 @mixin gl-rounded-top-right-base {
   border-top-right-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-top-right-none {
+  border-top-right-radius: 0;
 }
 
 @mixin gl-rounded-bottom-left-base {
   border-bottom-left-radius: $gl-border-radius-base;
 }
 
+@mixin gl-rounded-bottom-left-none {
+  border-bottom-left-radius: 0;
+}
+
 @mixin gl-rounded-bottom-right-base {
   border-bottom-right-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-bottom-right-none {
+  border-bottom-right-radius: 0;
 }
