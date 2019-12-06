@@ -15,6 +15,9 @@ const BreakpointInstance = {
 
     return breakpoint;
   },
+  isDesktop() {
+    return ['xl', 'lg'].includes(this.getBreakpointSize());
+  },
 };
 
 export default BreakpointInstance;
