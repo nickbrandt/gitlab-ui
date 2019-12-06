@@ -23,4 +23,56 @@ table.gl-table {
       @include gl-border-gray-200;
     }
   }
+
+  @mixin stacked-override {
+    tbody > tr {
+      &::after {
+        @include gl-content-empty;
+        @include gl-h-6;
+        @include gl-w-full;
+        @include gl-display-block;
+      }
+
+      > td[data-label] {
+        @include gl-border-l-1;
+        @include gl-border-r-1;
+        @include gl-border-l-solid;
+        @include gl-border-r-solid;
+
+        &::before {
+          @include gl-text-left;
+        }
+
+        &:first-child {
+          @include gl-border-t-solid;
+          @include gl-border-t-1;
+        }
+      }
+      div {
+        @include gl-text-right;
+        @include gl-overflow-wrap-break;
+      }
+    }
+  }
+
+  $stacked-table-breakpoints: (
+    'sm': 'xs',
+    'md': 'sm',
+    'lg': 'md',
+    'xl': 'lg',
+  );
+
+  &.b-table {
+    &.b-table-stacked {
+      @include stacked-override();
+    }
+
+    @each $class, $mq in $stacked-table-breakpoints {
+      &.b-table-stacked-#{$class} {
+        @include media-breakpoint-down(#{$mq}) {
+          @include stacked-override();
+        }
+      }
+    }
+  }
 }

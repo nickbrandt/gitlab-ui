@@ -7,6 +7,10 @@
   border-style: none;
 }
 
+@mixin gl-border-t-none {
+  border-top-style: none;
+}
+
 @mixin gl-border-solid {
   border-style: solid;
 }
@@ -15,14 +19,17 @@
   border-top-style: solid;
 }
 
+@mixin gl-border-r-solid {
+  border-right-style: solid;
+}
+
 @mixin gl-border-b-solid {
   border-bottom-style: solid;
 }
 
-@mixin gl-border-t-none {
-  border-top-style: none;
+@mixin gl-border-l-solid {
+  border-left-style: solid;
 }
-
 /**
 * Border color utilities.
 *
@@ -118,8 +125,16 @@
   border-top-width: $gl-border-size-1;
 }
 
+@mixin gl-border-r-1 {
+  border-right-width: $gl-border-size-1;
+}
+
 @mixin gl-border-b-1 {
   border-bottom-width: $gl-border-size-1;
+}
+
+@mixin gl-border-l-1 {
+  border-left-width: $gl-border-size-1;
 }
 
 /**
