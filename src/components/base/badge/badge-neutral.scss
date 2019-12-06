@@ -1,0 +1,73 @@
+// Variants
+.gl-badge.badge-neutral {
+  // Modifier: soft
+  &.soft {
+    @include gl-bg-gray-100;
+    @include gl-border-gray-100;
+    @include gl-text-gray-700;
+  }
+
+  // Modifier: average
+  &.average {
+    @include gl-bg-gray-200;
+    @include gl-border-gray-200;
+    @include gl-text-gray-900;
+  }
+
+  // Modifier: loud
+  &.loud {
+    @include gl-bg-gray-700;
+    @include gl-border-gray-700;
+    @include gl-text-white;
+  }
+}
+
+a,
+button {
+  &.gl-badge.badge-neutral {
+    // Modifier: soft
+    &.soft {
+      // States
+      &:focus,
+      &:hover {
+        @include gl-border-gray-200;
+      }
+
+      &.active,
+      &:active {
+        @include gl-bg-gray-200;
+        @include gl-border-gray-300;
+      }
+    }
+
+    // Modifier: average
+    &.average {
+      // States
+      &:focus,
+      &:hover {
+        @include gl-border-gray-400;
+      }
+
+      &.active,
+      &:active {
+        @include gl-bg-gray-300;
+        @include gl-border-gray-500;
+      }
+    }
+
+    // Modifier: loud
+    &.loud {
+      // States
+      &.active,
+      &:active {
+        @include gl-bg-gray-800;
+        @include gl-border-gray-900;
+      }
+
+      &:focus,
+      &:hover {
+        @include gl-border-gray-800;
+      }
+    }
+  }
+}
