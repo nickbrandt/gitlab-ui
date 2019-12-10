@@ -108,17 +108,19 @@ Then, run the following command in the `gitlab` project:
 
 Once you are done run `yarn unlink @gitlab/ui` within the `gitlab` project.
 
-### Edge-case: Importing specific bundles
+### Edge-case: `gitlab-ui` bundles that import other `gitlab-ui` files
 
-If you load a `gitlab` page that imports a specific `gitlab-ui` bundle (e.g. `import { x } from '@gitlab/ui/dist/charts;'`, you must also link `gitlab-ui` to itself.
+The `gitlab-ui` build process produces a number of bundles, importable via `@gitlab/ui/dist/<module-name>` Some of these bundles will import other `gitlab-ui` files (e.g. `@gitlab/ui/dist/charts`). This poses a problem when using `yarn link`.
 
-If you don't, you will see an error like this:
+**In this case, you must also link `gitlab-ui` to itself.**
+
+If you don't, you will see an error like this when you try to load a page in `gitlab` that imports such a bundle:
 
 ```
 Module not found: Error: Can't resolve '@gitlab/ui' in '/<path-to-checked-out-gitlab-ui>/dist'
 ```
 
-To fix this, run `yarn link @gitlab/ui` within the `gitlab-ui` folder. See https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/179 for more detail.
+To link `gitlab-ui` to itself, run `yarn link @gitlab/ui` within the `gitlab-ui` folder. See https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/217 for more detail.
 
 ## Automatic documentation
 
