@@ -1,5 +1,5 @@
 <script>
-const PLACE_HOLDER_REGEX = /(%{\w+})/g;
+const PLACE_HOLDER_REGEX = /(%{[A-Z]+[\w|-]*[A-Z0-9]+})/gi;
 
 export default {
   functional: true,
