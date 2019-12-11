@@ -5,10 +5,12 @@
 @import './badge-danger';
 
 .gl-badge {
+  @include gl-display-inline-flex;
+  @include gl-align-items-center;
+  @include gl-h-6;
   @include gl-font-weight-bold;
   @include gl-font-sm;
   @include gl-line-height-normal;
-  @include gl-py-1;
   @include gl-px-b6;
   @include gl-outline-none;
   @include gl-border-solid;
@@ -16,11 +18,11 @@
 
   // Sizes
   &.sm {
-    @include gl-py-0;
+    @include gl-h-5;
   }
 
   &.lg {
-    @include gl-py-3;
+    @include gl-h-7;
     @include gl-font-base;
   }
 
