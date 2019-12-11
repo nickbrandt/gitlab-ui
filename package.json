@@ -61,6 +61,7 @@
     "@gitlab/eslint-config": "^2.0.0",
     "@gitlab/stylelint-config": "^1.1.0",
     "@gitlab/svgs": "^1.86.0",
+    "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.0.18",
     "@semantic-release/gitlab": "^4.0.4",
     "@semantic-release/npm": "^5.3.4",
@@ -150,11 +151,13 @@
   },
   "release": {
     "verifyConditions": [
+      "@semantic-release/changelog",
       "@semantic-release/npm",
       "@semantic-release/git",
       "@semantic-release/gitlab"
     ],
     "prepare": [
+      "@semantic-release/changelog",
       "@semantic-release/npm",
       "@semantic-release/git"
     ],
