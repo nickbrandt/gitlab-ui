@@ -1,5 +1,6 @@
 <script>
-import { GlIcon, GlNewButton } from '@gitlab/ui';
+import GlIcon from '../icon/icon.vue';
+import GlNewButton from '../new_button/new_button.vue';
 import {
   alertVariantOptions,
   alertButtonVariantMap,
