@@ -1,9 +1,11 @@
 <script>
+const ITEMS_BATCH_SIZE = 20;
+
 export default {
   data() {
     return {
       isLoading: false,
-      fetchedItems: 10,
+      fetchedItems: ITEMS_BATCH_SIZE,
       loadTimer: null,
     };
   },
@@ -12,7 +14,7 @@ export default {
       clearTimeout(this.loadTimer);
       this.isLoading = true;
       this.loadTimer = setTimeout(() => {
-        this.fetchedItems += 10;
+        this.fetchedItems += ITEMS_BATCH_SIZE;
         this.isLoading = false;
       }, 500);
     },
