@@ -169,6 +169,26 @@ export default {
 };
 ```
 
+## Miscellaneous
+
+### Declaring component dependencies
+
+When importing a gitlab-ui component from another gitlab-ui component, use relative path imports. Do not reference gitlab-ui package within gitlab-ui itself:
+
+```
+// alert.vue
+
+// good
+import GlIcon from '../icon/icon.vue';
+
+// bad
+import { GlIcon } from '@gitlab/ui;
+
+//
+```
+
+The latter generates a circular dependency problem that do not allow gitlab-ui consumers to mock a subset of the library’s components in test environments.
+
 ## Troubleshooting
 
 ### What to do when image snapshots cause the pipeline to fail
