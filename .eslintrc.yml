@@ -3,8 +3,6 @@ extends:
   - '@gitlab'
 parserOptions:
   parser: babel-eslint
-settings:
-  import/core-modules: [ '@gitlab/ui' ]
 rules:
   filenames/match-regex:
   - error
