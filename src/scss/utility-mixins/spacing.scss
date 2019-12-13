@@ -59,11 +59,6 @@
   padding-right: $gl-spacing-scale-8;
 }
 
-@mixin gl-px-b6 {
-  padding-left: $gl-border-size-6;
-  padding-right: $gl-border-size-6;
-}
-
 @mixin gl-pr-2 {
   padding-right: $gl-spacing-scale-2;
 }
@@ -119,11 +114,6 @@
 @mixin gl-py-0 {
   padding-top: $gl-spacing-scale-0;
   padding-bottom: $gl-spacing-scale-0;
-}
-
-@mixin gl-py-1 {
-  padding-top: $gl-spacing-scale-1;
-  padding-bottom: $gl-spacing-scale-1;
 }
 
 @mixin gl-py-2 {

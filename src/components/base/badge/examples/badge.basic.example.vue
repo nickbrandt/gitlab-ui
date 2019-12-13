@@ -1,3 +1,3 @@
 <template>
-  <gl-badge>Testbadge</gl-badge>
+  <gl-badge variant="primary">Testbadge</gl-badge>
 </template>

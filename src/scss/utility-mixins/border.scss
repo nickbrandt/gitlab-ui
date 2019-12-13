@@ -51,10 +51,6 @@
   border-color: $white-light;
 }
 
-@mixin gl-border-gray-100 {
-  border-color: $gray-100;
-}
-
 @mixin gl-border-gray-200 {
   border-color: $gray-200;
 }
@@ -67,108 +63,12 @@
   border-color: $gray-400;
 }
 
-@mixin gl-border-gray-500 {
-  border-color: $gray-500;
-}
-
-@mixin gl-border-gray-800 {
-  border-color: $gray-800;
-}
-
-@mixin gl-border-gray-700 {
-  border-color: $gray-700;
-}
-
-@mixin gl-border-gray-900 {
-  border-color: $gray-900;
-}
-
-@mixin gl-border-blue-100 {
-  border-color: $blue-100;
-}
-
 @mixin gl-border-blue-300 {
   border-color: $blue-300;
 }
 
-@mixin gl-border-blue-500 {
-  border-color: $blue-500;
-}
-
 @mixin gl-border-blue-600 {
   border-color: $blue-600;
-}
-
-@mixin gl-border-blue-700 {
-  border-color: $blue-700;
-}
-
-@mixin gl-border-blue-800 {
-  border-color: $blue-800;
-}
-
-@mixin gl-border-green-100 {
-  border-color: $green-100;
-}
-
-@mixin gl-border-green-500 {
-  border-color: $green-500;
-}
-
-@mixin gl-border-green-600 {
-  border-color: $green-600;
-}
-
-@mixin gl-border-green-700 {
-  border-color: $green-700;
-}
-
-@mixin gl-border-green-800 {
-  border-color: $green-800;
-}
-
-@mixin gl-border-orange-100 {
-  border-color: $orange-100;
-}
-
-@mixin gl-border-orange-500 {
-  border-color: $orange-500;
-}
-
-@mixin gl-border-orange-600 {
-  border-color: $orange-600;
-}
-
-@mixin gl-border-orange-700 {
-  border-color: $orange-700;
-}
-
-@mixin gl-border-orange-900 {
-  border-color: $orange-900;
-}
-
-@mixin gl-border-orange-950 {
-  border-color: $orange-950;
-}
-
-@mixin gl-border-red-100 {
-  border-color: $red-100;
-}
-
-@mixin gl-border-red-500 {
-  border-color: $red-500;
-}
-
-@mixin gl-border-red-600 {
-  border-color: $red-600;
-}
-
-@mixin gl-border-red-700 {
-  border-color: $red-700;
-}
-
-@mixin gl-border-red-800 {
-  border-color: $red-800;
 }
 
 @mixin gl-border-gray-a-08 {
@@ -224,10 +124,6 @@
 
 @mixin gl-border-1 {
   border-width: $gl-border-size-1;
-}
-
-@mixin gl-border-2 {
-  border-width: $gl-border-size-2;
 }
 
 @mixin gl-border-8 {
