@@ -1,3 +1,10 @@
+## [8.6.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.6.2...v8.6.3) (2019-12-16)
+
+
+### Bug Fixes
+
+* **search:** fix search components with gitlab CSS ([4c65fdd](https://gitlab.com/gitlab-org/gitlab-ui/commit/4c65fdd1485a0eb7f18eca09903309e8f34e60f0))
+
 ## [8.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.6.1...v8.6.2) (2019-12-13)
 
 
