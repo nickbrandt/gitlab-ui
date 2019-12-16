@@ -1,4 +1,4 @@
-> Note: This component is still being developed. Please use [`<gl-button>`] instead.
+> Note: This component is a prototype not intended for use, but will be integrated with [`<gl-button>`]. Please use [`<gl-button>`] instead.
 
 ### Button
 
