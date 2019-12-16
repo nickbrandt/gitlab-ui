@@ -1,5 +1,7 @@
 <script>
 import BInputGroup from 'bootstrap-vue/src/components/input-group/input-group';
+import BInputGroupPrepend from 'bootstrap-vue/src/components/input-group/input-group-prepend';
+import BInputGroupAppend from 'bootstrap-vue/src/components/input-group/input-group-append';
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../new_button/new_button.vue';
 import GlDropdown from '../new_dropdown/new_dropdown.vue';
@@ -19,6 +21,8 @@ export default {
     GlDropdownItem,
     GlDropdownDivider,
     BInputGroup,
+    BInputGroupPrepend,
+    BInputGroupAppend,
   },
   directives: {
     GlTooltip,
@@ -58,6 +62,11 @@ export default {
       type: String,
       required: false,
       default: 'Clear recent searches',
+    },
+    noRecentSearchesText: {
+      type: String,
+      required: false,
+      default: "You don't have any recent searches",
     },
   },
   data() {
@@ -118,7 +127,7 @@ export default {
 
 <template>
   <b-input-group class="gl-search-box-by-click">
-    <template v-if="historyItems" #prepend>
+    <b-input-group-prepend v-if="historyItems" class="gl-search-box-by-click-input-group-control">
       <gl-dropdown
         v-if="historyItems"
         ref="historyDropdown"
@@ -129,34 +138,38 @@ export default {
           <gl-icon name="history" class="gl-search-box-by-click-history-icon" />
           <gl-icon name="chevron-down" class="gl-search-box-by-click-history-icon-chevron" />
         </template>
-        <gl-dropdown-text class="gl-text-center">
+        <gl-dropdown-text class="gl-search-box-by-click-history-header">
           {{ recentSearchesHeader }}
-          <button
+          <gl-button
             ref="closeHistory"
             v-gl-tooltip.hover
             :title="closeButtonTitle"
-            class="gl-search-box-by-click-icon-button gl-search-box-by-click-close-history-button"
+            class="gl-search-box-by-click-close-history-button"
             name="close"
+            icon="close"
             @click="closeHistoryDropdown"
-          >
-            <gl-icon name="close" />
-          </button>
+          />
         </gl-dropdown-text>
         <gl-dropdown-divider />
-        <gl-dropdown-item
-          v-for="(item, idx) in historyItems"
-          :key="idx"
-          class="gl-search-box-by-click-history-item"
-          @click="selectHistoryItem(item)"
-        >
-          <slot name="history-item" :historyItem="item">{{ item }}</slot>
-        </gl-dropdown-item>
-        <gl-dropdown-divider />
-        <gl-dropdown-item ref="clearHistory" @click="$emit('clear-history')">
-          {{ clearRecentSearchesText }}
-        </gl-dropdown-item>
+        <template v-if="historyItems.length">
+          <gl-dropdown-item
+            v-for="(item, idx) in historyItems"
+            :key="idx"
+            class="gl-search-box-by-click-history-item"
+            @click="selectHistoryItem(item)"
+          >
+            <slot name="history-item" :historyItem="item">{{ item }}</slot>
+          </gl-dropdown-item>
+          <gl-dropdown-divider />
+          <gl-dropdown-item ref="clearHistory" @click="$emit('clear-history')">
+            {{ clearRecentSearchesText }}
+          </gl-dropdown-item>
+        </template>
+        <gl-dropdown-text v-else class="gl-search-box-by-click-history-no-searches">
+          {{ noRecentSearchesText }}
+        </gl-dropdown-text>
       </gl-dropdown>
-    </template>
+    </b-input-group-prepend>
     <slot name="input">
       <gl-form-input
         ref="input"
@@ -178,14 +191,13 @@ export default {
         <gl-icon name="clear" />
       </button>
     </slot>
-    <template #append>
+    <b-input-group-append class="gl-search-box-by-click-input-group-control">
       <gl-button
         ref="searchButton"
-        class="gl-search-box-by-click-icon-button"
+        class="gl-search-box-by-click-search-button"
+        icon="search"
         @click="search(currentValue)"
-      >
-        <gl-icon name="search" />
-      </gl-button>
-    </template>
+      />
+    </b-input-group-append>
   </b-input-group>
 </template>

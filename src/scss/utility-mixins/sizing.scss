@@ -5,6 +5,10 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+@mixin gl-w-auto {
+  width: auto;
+}
+
 @mixin gl-w-3 {
   width: $gl-spacing-scale-3;
 }
