@@ -67,9 +67,8 @@ main advantage of including it: An implicit integration test which ensures that
 when we style components, they look the same in and outside of the gitlab application.
 
 To avoid losing this advantage completely, we created a CI job that runs gitlab-ui 
-visual tests including GitLab CSS. visual tests including GitLab CSS. This job 
-makes sure that GitLab CSS leaks do not affect gitlab-ui components’ styles when 
-they are used in the GitLab application.
+visual tests including GitLab CSS. This job makes sure that GitLab CSS leaks do not 
+affect gitlab-ui components’ styles when they are used in the GitLab application.
 
 We should ensure that GitLab CSS  does not affect gitlab-ui’s component styles 
 before indicating that it follows the design system specs. When styling a 
