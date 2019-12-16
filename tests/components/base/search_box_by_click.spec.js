@@ -46,7 +46,7 @@ describe('search box by click component', () => {
     it('hides dropdown when close buton is clicked', () => {
       wrapper.vm.$refs.historyDropdown.hide = jest.fn();
 
-      wrapper.find({ ref: 'closeHistory' }).trigger('click');
+      wrapper.find({ ref: 'closeHistory' }).vm.$emit('click');
 
       expect(wrapper.vm.$refs.historyDropdown.hide).toHaveBeenCalled();
     });
