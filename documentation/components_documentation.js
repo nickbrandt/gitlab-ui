@@ -168,6 +168,7 @@ export {
 export {
   default as GlDrawerDocumentation,
 } from '../src/components/base/drawer/drawer.documentation';
+export { default as GlCardDocumentation } from '../src/components/base/card/card.documentation';
 export {
   default as GlResizeObserverDirectiveDocumentation,
 } from '../src/directives/resize_observer/resize_observer.documentation';
