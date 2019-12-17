@@ -1,3 +1,10 @@
+# [8.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.6.3...v8.7.0) (2019-12-17)
+
+
+### Features
+
+* Init card component ([783121d](https://gitlab.com/gitlab-org/gitlab-ui/commit/783121dcb68a7d6d6b28b09ba29869de6610df46))
+
 ## [8.6.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.6.2...v8.6.3) (2019-12-16)
 
 
