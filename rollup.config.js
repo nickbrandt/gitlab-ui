@@ -39,6 +39,7 @@ export default glob
   .sync('src/**/!(*.stories).+(js|vue)')
   .concat('charts.js')
   .concat('index.js')
+  .concat('utils.js')
   .map(input => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
