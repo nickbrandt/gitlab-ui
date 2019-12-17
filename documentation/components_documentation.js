@@ -10,6 +10,7 @@ export { default as GlSingleStatDocumentation } from '../src/components/charts/s
 export { default as GlChartTooltipDocumentation } from '../src/components/charts/tooltip/tooltip.documentation';
 export { default as GlToastDocumentation } from '../src/components/base/toast/toast.documentation';
 export { default as GlAvatarDocumentation } from '../src/components/base/avatar/avatar.documentation';
+export { default as GlAvatarsInlineDocumentation } from '../src/components/base/avatars_inline/avatars_inline.documentation';
 export { default as GlAvatarLinkDocumentation } from '../src/components/base/avatar_link/avatar_link.documentation';
 export { default as GlAvatarLabeledDocumentation } from '../src/components/base/avatar_labeled/avatar_labeled.documentation';
 export { default as GlColumnChartDocumentation } from '../src/components/charts/column/column.documentation';
