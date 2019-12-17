@@ -11,4 +11,4 @@ const jsExports = scssJson.variables.reduce((acc, { name, compiledValue }) => {
 }, {});
 const file = Object.values(jsExports).join('\n');
 
-fs.writeFileSync(`${__dirname}/../scss_to_js/scss_variables.js`, file);
+fs.writeFileSync('scss_to_js/scss_variables.js', file);
