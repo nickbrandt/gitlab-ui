@@ -95,7 +95,7 @@ export {
 } from './src/components/base/skeleton_loader/skeleton_loader.vue';
 export { default as GlSprintf } from './src/components/base/sprintf/sprintf.vue';
 export { default as GlDrawer } from './src/components/base/drawer/drawer.vue';
-
+export { default as GlCard } from './src/components/base/card/card.vue';
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';
 export { default as GlTooltipDirective } from './src/directives/tooltip';
