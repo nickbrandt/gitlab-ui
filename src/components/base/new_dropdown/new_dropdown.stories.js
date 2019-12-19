@@ -20,10 +20,6 @@ const components = {
   GlDropdownItem,
 };
 
-function showDropdown(component) {
-  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
-}
-
 function addClass(component) {
   component.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
 }
@@ -78,9 +74,6 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-item>Second item</gl-dropdown-item>
         <gl-dropdown-item>Last item</gl-dropdown-item>
       </gl-new-dropdown>`,
-    mounted() {
-      showDropdown(this);
-    },
     updated() {
       addClass(this);
     },
@@ -101,9 +94,6 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-item href="https://about.gitlab.com/">Second link</gl-dropdown-item>
         <gl-dropdown-item href="https://about.gitlab.com/">Last link</gl-dropdown-item>
       </gl-new-dropdown>`,
-    mounted() {
-      showDropdown(this);
-    },
     updated() {
       addClass(this);
     },
@@ -124,9 +114,6 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-divider />
         <gl-dropdown-item>Below divider</gl-dropdown-item>
       </gl-new-dropdown>`,
-    mounted() {
-      showDropdown(this);
-    },
     updated() {
       addClass(this);
     },
@@ -150,9 +137,6 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-dropdown-header>Second group</gl-dropdown-header>
         <gl-dropdown-item>Last item</gl-dropdown-item>
       </gl-new-dropdown>`,
-    mounted() {
-      showDropdown(this);
-    },
     updated() {
       addClass(this);
     },
