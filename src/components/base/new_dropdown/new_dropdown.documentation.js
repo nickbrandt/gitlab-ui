@@ -5,4 +5,5 @@ export default {
   description,
   bootstrapComponent: 'b-dropdown',
   examples,
+  followsDesignSystem: true,
 };
