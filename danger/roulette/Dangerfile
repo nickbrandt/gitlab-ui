@@ -1,0 +1,104 @@
+# frozen_string_literal: true
+
+require 'digest/md5'
+
+GITLAB_PROJECT_ID = 'gitlab'
+GITLAB_UI_PROJECT_ID = 'gitlab-ui'
+GITLAB_UI_LABEL = '~gitlab-ui-wg'
+
+MESSAGE = <<~MARKDOWN
+  ## Reviewer roulette
+
+  Changes that require review have been detected! A merge request is normally
+  reviewed by both a reviewer and a maintainer in its primary category (e.g.
+  ~frontend or ~backend), and by a maintainer in all other categories.
+MARKDOWN
+
+CATEGORY_TABLE_HEADER = <<~MARKDOWN
+
+  To spread load more evenly across eligible reviewers, Danger has randomly picked
+  a candidate for each review slot. Feel free to override this selection if you
+  think someone else would be better-suited, or the chosen person is unavailable.
+
+  Once you've decided who will review this merge request, mention them as you
+  normally would! Danger does not (yet?) automatically notify them for you.
+
+  | Category | Reviewer | Maintainer |
+  | -------- | -------- | ---------- |
+MARKDOWN
+
+UNKNOWN_FILES_MESSAGE = <<~MARKDOWN
+
+  These files couldn't be categorised, so Danger was unable to suggest a reviewer.
+  Please consider creating a merge request to
+  [add support](https://gitlab.com/gitlab-org/gitlab-foss/blob/master/lib/gitlab/danger/helper.rb)
+  for them.
+MARKDOWN
+
+NO_REVIEWER = 'No reviewer available'
+NO_MAINTAINER = 'No maintainer available'
+
+def team_for_project(project)
+  roulette.project_team(project)
+rescue StandardError => e
+  warn("Reviewer roulette failed to load #{project} team data: #{e.message}")
+  []
+end
+
+def spin_for_category(team, project, category, branch_name)
+  random = roulette.new_random(branch_name)
+
+  reviewers, traintainers, maintainers =
+    %i[reviewer? traintainer? maintainer?].map do |kind|
+      team.select do |member|
+        member.public_send(kind, project, category)
+      end
+    end
+
+  # Make traintainers have triple the chance to be picked as a reviewer
+  reviewer = roulette.spin_for_person(reviewers + traintainers + traintainers, random: random)
+  maintainer = roulette.spin_for_person(maintainers, random: random)
+
+  {
+    "label": helper.label_for_category(category),
+    "reviewer": reviewer&.markdown_name,
+    "maintainer": maintainer&.markdown_name
+  }
+end
+
+def rows_contain_maintainer?(rows)
+  rows.any? { |row| !row[:maintainer].nil? }
+end
+
+changes = helper.changes_by_category
+
+# Ignore any files that are known but uncategorized. Prompt for any unknown files
+changes.delete(:none)
+categories = changes.keys - [:unknown]
+
+if changes.any?
+  branch_name = gitlab.mr_json['source_branch']
+
+  gitlab_team = team_for_project(GITLAB_PROJECT_ID)
+  gitlab_ui_team = team_for_project(GITLAB_UI_PROJECT_ID)
+
+  unknown = changes.fetch(:unknown, [])
+
+  gitlab_team_rows = categories.map do |category|
+    spin_for_category(gitlab_team, GITLAB_PROJECT_ID, category, branch_name)
+  end
+  gitlab_ui_team_row = spin_for_category(gitlab_ui_team, GITLAB_UI_PROJECT_ID, :frontend, branch_name)
+  # Pick a GitLab UI maintainer if no other maintainer was picked in the roulette
+  gitlab_ui_maintainer = !rows_contain_maintainer?(gitlab_team_rows) ?
+    gitlab_ui_team_row[:maintainer] :
+    '-'
+
+  roulette_rows = gitlab_team_rows.map do |row|
+    "| #{row[:label]} | #{row[:reviewer] || NO_REVIEWER} | #{row[:maintainer] || NO_MAINTAINER} |"
+  end
+  roulette_rows.push("| #{GITLAB_UI_LABEL} | #{gitlab_ui_team_row[:reviewer]} | #{gitlab_ui_maintainer} |")
+
+  markdown(MESSAGE)
+  markdown(CATEGORY_TABLE_HEADER + roulette_rows.join("\n"))
+  markdown(UNKNOWN_FILES_MESSAGE + helper.markdown_list(unknown)) unless unknown.empty?
+end
