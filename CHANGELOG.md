@@ -1,3 +1,10 @@
+## [8.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.8.0...v8.8.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* Fix empty tooltip on sparklines ([a74c6e1](https://gitlab.com/gitlab-org/gitlab-ui/commit/a74c6e169d73b1ca15e64ed23a0a557ebae9fda6))
+
 # [8.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.7.0...v8.8.0) (2019-12-17)
 
 
