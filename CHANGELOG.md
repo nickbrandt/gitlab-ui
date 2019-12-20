@@ -1,3 +1,10 @@
+# [8.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.8.1...v8.9.0) (2019-12-20)
+
+
+### Features
+
+* update dropdown examples ([ba6d9d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/ba6d9d7b52bad22687db9f95b97eb06e37aebb8a))
+
 ## [8.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.8.0...v8.8.1) (2019-12-20)
 
 
