@@ -153,10 +153,11 @@ describe('sparkline chart component', () => {
     });
   });
 
-  it('shows the tooltip when the mouse enters the component', () => {
+  it('shows the tooltip when mousing over an axis point in the component', () => {
     expect(getTooltip().attributes('show')).toBeFalsy();
 
-    wrapper.trigger('mouseenter');
+    const mockData = { seriesData: [{ data: [5, 8] }] };
+    getXAxisLabelFormatter()(mockData);
 
     return wrapper.vm.$nextTick().then(() => {
       expect(getTooltip().attributes('show')).toBe('true');

@@ -138,9 +138,6 @@ export default {
     handleResize() {
       this.chartInstance.resize();
     },
-    showTooltip() {
-      this.tooltip.show = true;
-    },
     hideTooltip() {
       this.tooltip.show = false;
     },
@@ -155,6 +152,9 @@ export default {
         top: `${top}px`,
       };
     },
+    // This function is called any time the axis pointer is changed (the black bubble showing which
+    // point on the line is selected). Note that it will not trigger if the axis pointer is removed,
+    // only when it changes from one point to another or is shown for the first time.
     xAxisLabelFormatter({ seriesData = [] }) {
       // seriesData is an array of nearby data point coordinates
       // seriesData[0] is the nearest point at which the tooltip is displayed
@@ -163,6 +163,7 @@ export default {
       const { data } = firstEntry;
 
       if (data) {
+        this.tooltip.show = true;
         this.formatTooltipText(data);
         this.setTooltipPosition(data);
       }
@@ -172,12 +173,7 @@ export default {
 </script>
 
 <template>
-  <div
-    v-resize-observer="handleResize"
-    class="d-flex align-items-center"
-    @mouseenter="showTooltip"
-    @mouseleave="hideTooltip"
-  >
+  <div v-resize-observer="handleResize" class="d-flex align-items-center" @mouseleave="hideTooltip">
     <slot name="default"></slot>
     <div class="flex-grow-1 position-relative">
       <chart :height="height" :options="options" @created="onChartCreated" />
