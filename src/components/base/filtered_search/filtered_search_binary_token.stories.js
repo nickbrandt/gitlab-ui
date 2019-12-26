@@ -36,6 +36,11 @@ documentedStoriesOf('base|filtered-search/binary-token', readme)
         value: 'demo1',
       };
     },
+    mounted() {
+      this.$nextTick(() => {
+        document.activeElement.blur();
+      });
+    },
     template: `
       <div>
         <div> {{ value }} </div>

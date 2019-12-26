@@ -10,4 +10,8 @@
   @include gl-absolute;
   @include gl-overflow-y-auto;
   @include gl-dropdown-max-height;
+
+  .gl-filtered-search-suggestion {
+    @include gl-p-0;
+  }
 }

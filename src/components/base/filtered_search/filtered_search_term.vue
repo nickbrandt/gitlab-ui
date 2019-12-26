@@ -65,7 +65,6 @@ export default {
       ref="input"
       type="text"
       :value="value"
-      :placeholder="placeholder"
       class="gl-filtered-search-term-input"
       @input="$emit('input', $event.target.value)"
       @keydown="handleInput"
@@ -90,7 +89,6 @@ export default {
           v-for="(item, idx) in suggestedTokens"
           :key="idx"
           :value="item.type"
-          @click="selectType(item)"
         >
           <gl-icon v-if="item.icon" :name="item.icon" class="gl-filtered-search-term-icon" />{{
             item.hint
