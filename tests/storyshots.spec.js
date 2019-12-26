@@ -11,12 +11,11 @@ registerRequireContextHook();
 // more information: https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core#storykindregex
 const excludedStoryKinds = ['directives'];
 
-const beforeScreenshot = page => {
+const beforeScreenshot = page =>
   // Fixing the Animation by inlining, previous approach with external file was flaky for the animation
   page.addStyleTag({
     content: getResetAnimationsCSS(),
   });
-};
 
 const getGotoOptions = () => ({
   waitUntil: 'networkidle0',
