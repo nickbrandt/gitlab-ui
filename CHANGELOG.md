@@ -1,3 +1,10 @@
+# [8.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.9.0...v8.10.0) (2019-12-30)
+
+
+### Features
+
+* Export breakpoints from utils ([b6e4ace](https://gitlab.com/gitlab-org/gitlab-ui/commit/b6e4ace54fec274e0de213c030eb42af1b0306a4))
+
 # [8.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.8.1...v8.9.0) (2019-12-20)
 
 
