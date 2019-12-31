@@ -42,13 +42,17 @@ describe('pagination component', () => {
   it('should change pagination limits on resize', () => {
     createComponent();
 
-    mockResizeWidth(breakpoints.sm);
+    mockResizeWidth(breakpoints.xs);
     expect(wrapper.vm.paginationLimit).toBe(0);
     expect(wrapper.vm.maxAdjacentPages).toBe(0);
 
-    mockResizeWidth(breakpoints.md);
+    mockResizeWidth(breakpoints.sm);
     expect(wrapper.vm.paginationLimit).toBe(3);
     expect(wrapper.vm.maxAdjacentPages).toBe(1);
+
+    mockResizeWidth(breakpoints.md);
+    expect(wrapper.vm.paginationLimit).toBe(9);
+    expect(wrapper.vm.maxAdjacentPages).toBe(4);
 
     mockResizeWidth(breakpoints.lg);
     expect(wrapper.vm.paginationLimit).toBe(9);
@@ -229,7 +233,7 @@ describe('pagination component', () => {
     });
 
     it('shows page 8 and collapses both sides on mobile', () => {
-      mockResizeWidth(breakpoints.sm);
+      mockResizeWidth(breakpoints.xs);
       const buttons = findButtons();
       expect(buttons.length).toBe(7);
       expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);

@@ -11,7 +11,7 @@ const BreakpointInstance = {
   getBreakpointSize() {
     const windowWidth = this.windowWidth();
 
-    const breakpoint = Object.keys(breakpoints).find(key => windowWidth > breakpoints[key]);
+    const breakpoint = Object.keys(breakpoints).find(key => windowWidth >= breakpoints[key]);
 
     return breakpoint;
   },
