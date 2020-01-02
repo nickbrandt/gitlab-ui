@@ -6,7 +6,7 @@ The skeleton loader component accepts shapes which in return will create a skele
 
 ## Progressive Loading
 
-Determine if progressive loading is available, if it is break apart the skeleton to load data as it becomes readily available. If progessive loading is not avaliable, replace the entire skeleton when the data is available.
+Determine if progressive loading is available, if it is break apart the skeleton to load data as it becomes readily available. If progessive loading is not available, replace the entire skeleton when the data is available.
 
 
 ## Under the hood
