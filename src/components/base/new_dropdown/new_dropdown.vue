@@ -92,8 +92,11 @@ export default {
     },
   },
   mounted() {
-    if (this.split) {
+    if (this.split && this.text) {
       this.$el.childNodes[0].classList.add('split-content-button');
+    }
+    if (this.split && this.icon) {
+      this.$el.childNodes[0].classList.add('icon-split-content-button');
     }
 
     this.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
