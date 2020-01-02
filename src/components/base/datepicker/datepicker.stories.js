@@ -3,7 +3,7 @@ import documentedStoriesOf from '../../../../documentation/documented_stories';
 import readme from './datepicker.md';
 import GlDatepicker from './datepicker.vue';
 
-const currentYear = new Date().getFullYear();
+const currentYear = 2020;
 
 const defaultDate = new Date(currentYear, 0, 15);
 const defaultMinDate = new Date(currentYear, 0, 1);
