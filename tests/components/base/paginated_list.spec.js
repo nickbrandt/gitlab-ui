@@ -66,7 +66,7 @@ describe('Paginated List', () => {
   describe('Search states', () => {
     const list = [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }];
 
-    it('renders the list flitered by search results', () => {
+    it('renders the list filtered by search results', () => {
       createComponent({ list });
 
       const search = wrapper.find(GlSearchBoxByType);

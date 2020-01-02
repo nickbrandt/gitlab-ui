@@ -655,7 +655,7 @@ exports[`Paginated List Search states renders the default empty search message w
 </div>
 `;
 
-exports[`Paginated List Search states renders the list flitered by search results 1`] = `
+exports[`Paginated List Search states renders the list filtered by search results 1`] = `
 <div>
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"

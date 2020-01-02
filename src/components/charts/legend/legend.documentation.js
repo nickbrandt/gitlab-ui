@@ -7,10 +7,10 @@ export default {
   propsInfo: {
     averageText: {
       additionalInfo:
-        'Text for data average (overriden by prop if needed for internationalization)',
+        'Text for data average (overridden by prop if needed for internationalization)',
     },
     maxText: {
-      additionalInfo: 'Text for max amount (overriden by prop if needed for internationalization)',
+      additionalInfo: 'Text for max amount (overridden by prop if needed for internationalization)',
     },
   },
 };

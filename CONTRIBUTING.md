@@ -29,7 +29,7 @@ We use conventional commits specifications to write meaningful commit messages t
 
 Please read the official specifications for more details: https://www.conventionalcommits.org/
 
-When opening an MR, make sure your changes are descibed by at least one commit message following conventional commit conventions,
+When opening an MR, make sure your changes are described by at least one commit message following conventional commit conventions,
 and/or that the MR's title itself follows those conventions. Following these conventions will result in a properly versioned package
 and clear changelogs for every version.
 
