@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <gl-search-box-by-click v-model="text" />
+  <div id="tooltipcontainer">
+    <gl-search-box-by-click v-model="text" tooltip-container="#tooltipcontainer" />
     <button class="btn" @click="setText">Set text to "Something else"</button>
   </div>
 </template>

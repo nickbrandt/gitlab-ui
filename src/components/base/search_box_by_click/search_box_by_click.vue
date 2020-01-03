@@ -68,6 +68,12 @@ export default {
       required: false,
       default: "You don't have any recent searches",
     },
+    tooltipContainer: {
+      required: false,
+      default: false,
+      validator: value =>
+        value === false || typeof value === 'string' || value instanceof HTMLElement,
+    },
   },
   data() {
     return {
@@ -142,7 +148,7 @@ export default {
           {{ recentSearchesHeader }}
           <gl-button
             ref="closeHistory"
-            v-gl-tooltip.hover
+            v-gl-tooltip.hover="{ container: tooltipContainer }"
             :title="closeButtonTitle"
             class="gl-search-box-by-click-close-history-button"
             name="close"
@@ -182,7 +188,7 @@ export default {
       />
       <button
         v-if="hasValue"
-        v-gl-tooltip.hover
+        v-gl-tooltip.hover="{ container: tooltipContainer }"
         :title="clearButtonTitle"
         class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
         name="clear"

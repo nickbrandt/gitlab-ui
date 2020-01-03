@@ -8,5 +8,7 @@ export default {
 };
 </script>
 <template>
-  <gl-search-box-by-click v-model="value" />
+  <div id="tooltipcontainer">
+    <gl-search-box-by-click v-model="value" tooltip-container="#tooltipcontainer" />
+  </div>
 </template>

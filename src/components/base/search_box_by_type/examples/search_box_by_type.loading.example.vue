@@ -24,5 +24,11 @@ export default {
 };
 </script>
 <template>
-  <gl-search-box-by-type v-model="value" :is-loading="isLoading" />
+  <div id="tooltipcontainer">
+    <gl-search-box-by-type
+      v-model="value"
+      :is-loading="isLoading"
+      tooltip-container="#tooltipcontainer"
+    />
+  </div>
 </template>
