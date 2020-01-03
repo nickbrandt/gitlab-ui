@@ -25,6 +25,12 @@ export default {
       required: false,
       default: false,
     },
+    tooltipContainer: {
+      required: false,
+      default: false,
+      validator: value =>
+        value === false || typeof value === 'string' || value instanceof HTMLElement,
+    },
   },
   computed: {
     inputAttributes() {
@@ -81,7 +87,7 @@ export default {
 
       <button
         v-if="hasValue"
-        v-gl-tooltip.hover
+        v-gl-tooltip.hover="{ container: tooltipContainer }"
         title="Clear"
         aria-hidden="true"
         class="gl-search-box-by-type-clear"

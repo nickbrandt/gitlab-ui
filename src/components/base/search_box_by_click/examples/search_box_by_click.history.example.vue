@@ -9,9 +9,15 @@ export default {
 };
 </script>
 <template>
-  <gl-search-box-by-click v-model="value" :history-items="history">
-    <template #history-item="{ historyItem }">
-      {{ historyItem }}
-    </template>
-  </gl-search-box-by-click>
+  <div id="tooltipcontainer">
+    <gl-search-box-by-click
+      v-model="value"
+      :history-items="history"
+      tooltip-container="#tooltipcontainer"
+    >
+      <template #history-item="{ historyItem }">
+        {{ historyItem }}
+      </template>
+    </gl-search-box-by-click>
+  </div>
 </template>
