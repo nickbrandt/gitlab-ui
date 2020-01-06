@@ -196,7 +196,10 @@ describe('sparkline chart component', () => {
   });
 
   it(`shows the last entry's y-value per default`, () => {
-    const data = [['foo', 'bar'], ['baz', 'qux']];
+    const data = [
+      ['foo', 'bar'],
+      ['baz', 'qux'],
+    ];
     const latestEntryYValue = data[1][1];
 
     wrapper.setProps({ data });

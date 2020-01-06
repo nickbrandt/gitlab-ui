@@ -207,9 +207,7 @@ export default {
       <template v-else>
         <div slot="title">
           {{ tooltipTitle }}
-          <template v-if="options.xAxis.name">
-            ({{ options.xAxis.name }})
-          </template>
+          <template v-if="options.xAxis.name">({{ options.xAxis.name }})</template>
         </div>
         <tooltip-default-format :tooltip-content="tooltipContent" />
       </template>
