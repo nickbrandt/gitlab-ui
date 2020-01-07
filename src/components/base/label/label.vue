@@ -3,6 +3,7 @@ import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 import GlIcon from '../icon/icon.vue';
 import { labelColorOptions } from '../../../utils/constants';
+import { colorFromBackground } from '../../../utils/utils';
 import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const titleColorClassMap = {
@@ -17,16 +18,10 @@ export default {
     GlIcon,
   },
   props: {
-    color: {
-      type: String,
-      required: true,
-      validator(value) {
-        return labelColorOptions[value];
-      },
-    },
     backgroundColor: {
       type: String,
       required: true,
+      validator: value => /^(#|rgb|rgba)/.test(value),
     },
     title: {
       type: String,
@@ -72,7 +67,7 @@ export default {
       };
     },
     titleColorClass() {
-      return titleColorClassMap[this.color];
+      return titleColorClassMap[colorFromBackground(this.backgroundColor)];
     },
     scopedKey() {
       return this.splitScopedLabel.length > 1 ? this.splitScopedLabel[0] : this.title;
@@ -81,7 +76,9 @@ export default {
       return this.splitScopedLabel[1];
     },
     scopedValueColor() {
-      return this.color === 'dark' ? blackNormal : this.backgroundColor;
+      return colorFromBackground(this.backgroundColor) === 'dark'
+        ? blackNormal
+        : this.backgroundColor;
     },
     boxShadow() {
       return {

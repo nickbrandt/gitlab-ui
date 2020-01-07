@@ -3,10 +3,26 @@ import Label from '../../../src/components/base/label/label.vue';
 import GlLink from '../../../src/components/base/link/link.vue';
 import GlTooltip from '../../../src/components/base/tooltip/tooltip.vue';
 
+// Light color
+const grey = {
+  hex: '#CCCCCC',
+  rgb: 'rgb(204, 204, 204)',
+};
+// Dark color
+const navy = {
+  hex: '#000080',
+  rgb: 'rgb(0, 0, 128)',
+};
+
+const white = {
+  shorthex: '#FFF',
+  rgb: 'rgb(255, 255, 255)',
+  rgba: 'rgba(255, 255, 255, 1)',
+};
+
 const defaultProps = {
   title: 'title',
-  backgroundColor: 'red',
-  color: 'dark',
+  backgroundColor: grey.rgb,
 };
 
 describe('Label component', () => {
@@ -50,10 +66,24 @@ describe('Label component', () => {
       expect(wrapper.classes()).toContain('gl-label-text-black');
     });
 
-    it('renders a white label if color is light', () => {
-      createComponent({ ...defaultProps, color: 'light' });
+    it('renders a white label if background color is dark', () => {
+      createComponent({ ...defaultProps, backgroundColor: navy.hex });
 
       expect(wrapper.classes()).toContain('gl-label-text-light');
+    });
+
+    it('supports short hex for background color to infer text color', () => {
+      createComponent({ ...defaultProps, backgroundColor: white.shorthex });
+
+      expect(findTitle().attributes('style')).toContain(`background-color: ${white.rgb}`);
+      expect(wrapper.classes()).toContain('gl-label-text-black');
+    });
+
+    it('supports rgba for background color to infer text color', () => {
+      createComponent({ ...defaultProps, backgroundColor: white.rgba });
+
+      expect(findTitle().attributes('style')).toContain(`background-color: ${white.rgb}`);
+      expect(wrapper.classes()).toContain('gl-label-text-black');
     });
 
     it('renders the label description', () => {
@@ -100,22 +130,20 @@ describe('Label component', () => {
       expect(wrapper.classes()).toContain('gl-label-text-black');
     });
 
-    it('renders a white label if color is light', () => {
-      createComponent({ ...defaultProps, color: 'light' });
+    it('renders a white label if background color is dark', () => {
+      createComponent({ ...defaultProps, backgroundColor: navy.hex });
 
       expect(wrapper.classes()).toContain('gl-label-text-light');
     });
 
-    it('renders the right side color as background color of left side if color is light', () => {
-      createComponent({ ...scopedProps, color: 'light' });
+    it('renders the right side color as background color of left side if background color is dark', () => {
+      createComponent({ ...scopedProps, backgroundColor: navy.hex });
 
-      expect(findSubTitle().attributes('style')).toContain(
-        `color: ${defaultProps.backgroundColor}`
-      );
+      expect(findSubTitle().attributes('style')).toContain(`color: ${navy.rgb}`);
     });
 
-    it('renders the right side color as black if color is set to dark', () => {
-      createComponent({ ...scopedProps, color: 'dark' });
+    it('renders the right side color as black if background color is light', () => {
+      createComponent({ ...scopedProps, color: grey.hex });
 
       expect(findSubTitle().attributes('style')).toContain('rgb(51, 51, 51)');
     });

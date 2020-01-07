@@ -1,3 +1,5 @@
+import { labelColorOptions } from './constants';
+
 export function debounceByAnimationFrame(fn) {
   let requestId;
 
@@ -24,15 +26,45 @@ export function throttle(fn) {
   };
 }
 
-export function hexToRgba(hex, opacity = 1) {
+export function rgbFromHex(hex) {
   const cleanHex = hex.replace('#', '');
   const rgb =
     cleanHex.length === 3
       ? cleanHex.split('').map(val => val + val)
       : cleanHex.match(/[\da-f]{2}/gi);
   const [r, g, b] = rgb.map(val => parseInt(val, 16));
+  return [r, g, b];
+}
+
+export function rgbFromString(color, sub) {
+  const rgb = color.substring(sub, color.length - 1).split(',');
+  const [r, g, b] = rgb.map(i => parseInt(i, 10));
+  return [r, g, b];
+}
+
+export function hexToRgba(hex, opacity = 1) {
+  const [r, g, b] = rgbFromHex(hex);
 
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+
+export function colorFromBackground(backgroundColor) {
+  let r;
+  let g;
+  let b;
+
+  if (backgroundColor.startsWith('#')) {
+    [r, g, b] = rgbFromHex(backgroundColor);
+  } else if (backgroundColor.startsWith('rgba(')) {
+    [r, g, b] = rgbFromString(backgroundColor, 5);
+  } else if (backgroundColor.startsWith('rgb(')) {
+    [r, g, b] = rgbFromString(backgroundColor, 4);
+  }
+
+  if (r + g + b <= 500) {
+    return labelColorOptions.light;
+  }
+  return labelColorOptions.dark;
 }
 
 export function uid() {
