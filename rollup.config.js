@@ -1,11 +1,11 @@
 import path from 'path';
 import babel from 'rollup-plugin-babel';
 import vue from 'rollup-plugin-vue';
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import { string } from 'rollup-plugin-string';
 import postcss from 'rollup-plugin-postcss';
-import commonjs from 'rollup-plugin-commonjs';
-import replace from 'rollup-plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
 import glob from 'glob';
 
 import { dependencies as bootstrapVueDependencies } from 'bootstrap-vue/package.json';
