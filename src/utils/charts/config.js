@@ -147,7 +147,10 @@ export function getThresholdConfig(thresholds) {
       switch (alert.operator) {
         case '>':
         case '&gt;':
-          acc.areas.push([{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: Infinity }]);
+          acc.areas.push([
+            { xAxis: 'min', yAxis: threshold },
+            { xAxis: 'max', yAxis: Infinity },
+          ]);
           break;
 
         case '<':
@@ -162,7 +165,10 @@ export function getThresholdConfig(thresholds) {
           break;
       }
 
-      acc.lines.push([{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }]);
+      acc.lines.push([
+        { xAxis: 'min', yAxis: threshold },
+        { xAxis: 'max', yAxis: threshold },
+      ]);
 
       return acc;
     },

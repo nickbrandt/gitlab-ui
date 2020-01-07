@@ -24,10 +24,16 @@ describe('chart config helpers', () => {
       const threshold = 3;
       const thresholds = makeThreshold(threshold, '<');
       const expectedLineData = [
-        [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }],
+        [
+          { xAxis: 'min', yAxis: threshold },
+          { xAxis: 'max', yAxis: threshold },
+        ],
       ];
       const expectedAreaData = [
-        [{ xAxis: 'min', yAxis: Number.NEGATIVE_INFINITY }, { xAxis: 'max', yAxis: threshold }],
+        [
+          { xAxis: 'min', yAxis: Number.NEGATIVE_INFINITY },
+          { xAxis: 'max', yAxis: threshold },
+        ],
       ];
 
       const { markLine, markArea } = getThresholdConfig(thresholds);
@@ -40,7 +46,10 @@ describe('chart config helpers', () => {
       const threshold = 7;
       const thresholds = makeThreshold(threshold, '=');
       const expectedLineData = [
-        [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }],
+        [
+          { xAxis: 'min', yAxis: threshold },
+          { xAxis: 'max', yAxis: threshold },
+        ],
       ];
       const expectedAreaData = [];
 
@@ -54,10 +63,16 @@ describe('chart config helpers', () => {
       const threshold = 9000;
       const thresholds = makeThreshold(threshold, '>');
       const expectedLineData = [
-        [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: threshold }],
+        [
+          { xAxis: 'min', yAxis: threshold },
+          { xAxis: 'max', yAxis: threshold },
+        ],
       ];
       const expectedAreaData = [
-        [{ xAxis: 'min', yAxis: threshold }, { xAxis: 'max', yAxis: Infinity }],
+        [
+          { xAxis: 'min', yAxis: threshold },
+          { xAxis: 'max', yAxis: Infinity },
+        ],
       ];
 
       const { markLine, markArea } = getThresholdConfig(thresholds);
@@ -146,7 +161,11 @@ describe('chart config helpers', () => {
       type: 'line',
       width: 2,
       name: 'Values',
-      data: [[0, 5], [4, 3], [8, 10]],
+      data: [
+        [0, 5],
+        [4, 3],
+        [8, 10],
+      ],
     };
 
     it('create chart options with invalid series props', () => {
