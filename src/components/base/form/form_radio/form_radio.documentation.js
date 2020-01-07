@@ -1,5 +1,5 @@
 import description from './form_radio.md';
-import examples from './examples/form_radio';
+import examples from './examples';
 
 export default {
   description,
