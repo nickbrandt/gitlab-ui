@@ -1,6 +1,6 @@
 import { withKnobs, text, color, select } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../../documentation/documented_stories';
-import { labelSizeOptions, labelColorOptions, tooltipPlacements } from '../../../utils/constants';
+import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './label.md';
 import { GlLabel } from '../../../../index';
 
@@ -14,9 +14,6 @@ const generateProps = ({
   tooltipPlacement = tooltipPlacements.top,
 } = {}) => {
   const props = {
-    color: {
-      default: select('color', labelColorOptions, labelColorOptions.dark),
-    },
     backgroundColor: {
       default: color('Background color', '#D9C2EE'),
     },
@@ -52,7 +49,6 @@ documentedStoriesOf('base|label', readme)
     components,
     template: `
       <gl-label
-        :color="color"
         :background-color="backgroundColor"
         :size="size"
         :title="title"
@@ -67,7 +63,6 @@ documentedStoriesOf('base|label', readme)
     components,
     template: `
       <gl-label
-        :color="color"
         :background-color="backgroundColor"
         :size="size"
         :title="title"
