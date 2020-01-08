@@ -90,6 +90,9 @@ export default {
         'dropdown-icon-text': this.text.length && this.icon,
       };
     },
+    buttonText() {
+      return this.split && this.icon ? null : this.text;
+    },
   },
   mounted() {
     if (this.split && this.text) {
@@ -123,7 +126,7 @@ export default {
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
-      {{ text }}
+      {{ buttonText }}
       <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
