@@ -50,7 +50,9 @@ module.exports = ({ config }) => {
     },
   ];
 
-  config.plugins.push(new webpack.EnvironmentPlugin(['IS_GITLAB_INTEGRATION_TEST']));
+  config.plugins.push(
+    new webpack.EnvironmentPlugin(['IS_GITLAB_INTEGRATION_TEST', 'IS_VISUAL_TEST'])
+  );
 
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
 
