@@ -7,6 +7,7 @@ import DropdownWithSearchExample from './new_dropdown.with_search.example.vue';
 import DropdownSplitExample from './new_dropdown.split.example.vue';
 import DropdownWithIconExample from './new_dropdown.with_icon.example.vue';
 import DropdownWithIconAndTextExample from './new_dropdown.with_icon_and_text.example.vue';
+import DropdownWithIconAndSplitExample from './new_dropdown.with_icon_and_split.example.vue';
 
 export default [
   {
@@ -59,6 +60,12 @@ export default [
         name: 'With Icon and Text',
         description: 'Icon Dropdown with text',
         component: DropdownWithIconAndTextExample,
+      },
+      {
+        id: 'new-dropdown-with-icon-and-split',
+        name: 'With Icon and Split',
+        description: 'Icon Dropdown with split',
+        component: DropdownWithIconAndSplitExample,
       },
       {
         id: 'new-dropdown-split',

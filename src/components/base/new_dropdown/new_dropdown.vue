@@ -90,10 +90,16 @@ export default {
         'dropdown-icon-text': this.text.length && this.icon,
       };
     },
+    buttonText() {
+      return this.split && this.icon ? null : this.text;
+    },
   },
   mounted() {
-    if (this.split) {
+    if (this.split && this.text) {
       this.$el.childNodes[0].classList.add('split-content-button');
+    }
+    if (this.split && this.icon) {
+      this.$el.childNodes[0].classList.add('icon-split-content-button');
     }
 
     this.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
@@ -120,7 +126,7 @@ export default {
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
-      {{ text }}
+      {{ buttonText }}
       <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
