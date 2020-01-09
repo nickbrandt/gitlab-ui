@@ -42,7 +42,7 @@ documentedStoriesOf('base|tabs/tabs', '')
         <gl-tab title="Another tab">
           <p>Another tab's content.</p>
         </gl-tab>
-        <template v-slot:tabs>
+        <template #tabs>
           <li class="gl-tab-nav-item">
             Contentless tab
           </li>
@@ -54,7 +54,7 @@ documentedStoriesOf('base|tabs/tabs', '')
     ...createBaseStory(),
     template: `
       <gl-tabs :theme="theme">
-        <template v-slot:empty>
+        <template #empty>
           This content is only displayed when there are no tabs. Useful for dynamically added/removed tabs.
         </template>
       </gl-tabs>

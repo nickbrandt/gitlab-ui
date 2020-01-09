@@ -29,10 +29,10 @@ const groupCoponent = isStacked => ({
   },
   template: `
       <gl-form-checkbox-group :stacked="isStacked" :options="options">
-        <template v-slot:first>
+        <template #first>
           <gl-form-checkbox value="Slot option">
             Slot option with help text
-            <template v-slot:help>
+            <template #help>
               Help text
             </template>
           </gl-form-checkbox>

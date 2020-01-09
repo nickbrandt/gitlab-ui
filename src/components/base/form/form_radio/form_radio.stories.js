@@ -54,10 +54,10 @@ documentedStoriesOf('base|form/form-radio', readme)
           :name="name"
           :checked="selected"
         >
-          <template v-slot:first>
+          <template #first>
             <gl-form-radio value="Slot option">
               Slot option with help text
-              <template v-slot:help>
+              <template #help>
                 Help text
               </template>
             </gl-form-radio>

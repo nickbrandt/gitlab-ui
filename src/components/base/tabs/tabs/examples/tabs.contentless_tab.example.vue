@@ -10,7 +10,7 @@
     <gl-tab title="Another tab">
       <p>Another tab's content.</p>
     </gl-tab>
-    <template v-slot:tabs>
+    <template #tabs>
       <li class="nav-item align-self-center">
         Contentless tab
       </li>
