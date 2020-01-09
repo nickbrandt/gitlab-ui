@@ -1,3 +1,17 @@
+# [8.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.10.0...v8.11.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* prevent text prop when icon/split are used ([ad5e9ec](https://gitlab.com/gitlab-org/gitlab-ui/commit/ad5e9ec59c23d89638d5552558ec3edb91b96f5d))
+* Set current year to fixed value ([789b612](https://gitlab.com/gitlab-org/gitlab-ui/commit/789b612487a987f5be2f45449461b2596b804812))
+
+
+### Features
+
+* Add icon and split to new dropdown ([b9dc446](https://gitlab.com/gitlab-org/gitlab-ui/commit/b9dc446c040e00008d47df28babf629e33f5a404))
+* **search:** Add tooltip container support for search components ([2ce9b7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ce9b7c22e8edf152ea1a67101e3d6dd585c894e))
+
 # [8.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.9.0...v8.10.0) (2019-12-30)
 
 
