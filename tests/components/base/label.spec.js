@@ -30,7 +30,6 @@ describe('Label component', () => {
 
   const createComponent = propsData => {
     wrapper = shallowMount(Label, {
-      sync: false,
       propsData,
     });
   };

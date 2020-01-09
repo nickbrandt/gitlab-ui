@@ -74,7 +74,7 @@
     "@storybook/addon-storyshots-puppeteer": "^5.2.1",
     "@storybook/theming": "^5.2.1",
     "@storybook/vue": "^5.2.1",
-    "@vue/test-utils": "^1.0.0-beta.29",
+    "@vue/test-utils": "^1.0.0-beta.30",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-require-context-hook": "^1.0.0",

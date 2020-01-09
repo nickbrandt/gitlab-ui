@@ -16,7 +16,6 @@ describe('Alert component', () => {
 
   const createComponent = options => {
     wrapper = shallowMount(GlAlert, {
-      sync: false,
       ...options,
     });
   };

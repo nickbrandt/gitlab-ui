@@ -23,19 +23,21 @@ describe('avatar labeled', () => {
     expect(vm.find(Avatar).props('alt')).not.toEqual(altText);
   });
 
-  it('displays the avatar label', () => {
+  it('displays the avatar label', async () => {
     const label = 'avatar label';
 
     vm.setProps({ label });
 
+    await vm.vm.$nextTick();
     expect(vm.find('.gl-avatar-labeled-label').text()).toEqual(label);
   });
 
-  it('displays the avatar sub label', () => {
+  it('displays the avatar sub label', async () => {
     const subLabel = 'avatar label';
 
     vm.setProps({ subLabel });
 
+    await vm.vm.$nextTick();
     expect(vm.find('.gl-avatar-labeled-sublabel').text()).toEqual(subLabel);
   });
 });

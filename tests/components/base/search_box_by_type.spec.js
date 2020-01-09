@@ -7,7 +7,7 @@ describe('search box by type component', () => {
   let wrapper;
 
   const createComponent = propsData => {
-    wrapper = shallowMount(SearchBoxByType, { sync: false, propsData });
+    wrapper = shallowMount(SearchBoxByType, { propsData });
   };
 
   const findClearIcon = () => {

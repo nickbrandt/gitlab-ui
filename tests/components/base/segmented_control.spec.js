@@ -23,7 +23,6 @@ describe('segmented control', () => {
         ...defaultProps,
         ...propsData,
       },
-      sync: false,
       shouldProxy: true,
     };
 
@@ -90,10 +89,10 @@ describe('segmented control', () => {
   });
 
   describe('when updated with bad value', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       createComponent();
       wrapper.setProps({ checked: 'nonexistent-value' });
-      return wrapper.vm.$nextTick();
+      await wrapper.vm.$nextTick();
     });
 
     it('should log warning', () => {
@@ -106,10 +105,10 @@ describe('segmented control', () => {
   });
 
   describe('when updated with bad options', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       createComponent();
       wrapper.setProps({ options: [{ value: 'bogus' }] });
-      return wrapper.vm.$nextTick();
+      await wrapper.vm.$nextTick();
     });
 
     it('should log warning', () => {

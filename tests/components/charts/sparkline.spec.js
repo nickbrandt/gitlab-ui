@@ -48,7 +48,6 @@ describe('sparkline chart component', () => {
         variant: null,
       },
       scopedSlots: { latestSeriesEntry: jest.fn() },
-      sync: false,
     };
 
     wrapper = shallowMount(SparklineChart, componentOptions);
@@ -104,15 +103,15 @@ describe('sparkline chart component', () => {
     expect(getChart().props('height')).toBe(50);
   });
 
-  it('accepts a custom height', () => {
+  it('accepts a custom height', async () => {
     const newHeight = 1000;
     wrapper.setProps({ height: newHeight });
 
     expect(getChart().props('height')).not.toBe(newHeight);
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(getChart().props('height')).toBe(newHeight);
-    });
+    await wrapper.vm.$nextTick();
+
+    expect(getChart().props('height')).toBe(newHeight);
   });
 
   it.each(Object.keys(sparkline.variants))(
@@ -143,40 +142,35 @@ describe('sparkline chart component', () => {
     expect(getTooltip().exists()).toBe(true);
   });
 
-  it('displays the given tooltip label', () => {
+  it('displays the given tooltip label', async () => {
     const tooltipLabel = 'foo';
 
     wrapper.setProps({ tooltipLabel: 'foo' });
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(getTooltipContent().text()).toContain(tooltipLabel);
-    });
+    await wrapper.vm.$nextTick();
+    expect(getTooltipContent().text()).toContain(tooltipLabel);
   });
 
-  it('shows the tooltip when mousing over an axis point in the component', () => {
+  it('shows the tooltip when mousing over an axis point in the component', async () => {
     expect(getTooltip().attributes('show')).toBeFalsy();
 
     const mockData = { seriesData: [{ data: [5, 8] }] };
     getXAxisLabelFormatter()(mockData);
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(getTooltip().attributes('show')).toBe('true');
-    });
+    await wrapper.vm.$nextTick();
+    expect(getTooltip().attributes('show')).toBe('true');
   });
 
-  it('hides the tooltip when the mouse leaves the component', () => {
+  it('hides the tooltip when the mouse leaves the component', async () => {
     wrapper.setData({ tooltip: { show: true } });
+    await wrapper.vm.$nextTick();
 
-    return wrapper.vm
-      .$nextTick()
-      .then(() => {
-        expect(getTooltip().attributes('show')).toBe('true');
-        wrapper.trigger('mouseleave');
-      })
-      .then(wrapper.vm.$nextTick)
-      .then(() => {
-        expect(getTooltip().attributes('show')).toBeFalsy();
-      });
+    expect(getTooltip().attributes('show')).toBe('true');
+
+    wrapper.trigger('mouseleave');
+    await wrapper.vm.$nextTick();
+
+    expect(getTooltip().attributes('show')).toBeFalsy();
   });
 
   it('adds the right content to the tooltip', () => {
@@ -195,7 +189,7 @@ describe('sparkline chart component', () => {
     });
   });
 
-  it(`shows the last entry's y-value per default`, () => {
+  it(`shows the last entry's y-value per default`, async () => {
     const data = [
       ['foo', 'bar'],
       ['baz', 'qux'],
@@ -204,9 +198,8 @@ describe('sparkline chart component', () => {
 
     wrapper.setProps({ data });
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(getLastYValue().text()).toBe(latestEntryYValue);
-    });
+    await wrapper.vm.$nextTick();
+    expect(getLastYValue().text()).toBe(latestEntryYValue);
   });
 
   it(`does not show the last entry's y-value if 'showLastYValue' is false`, () => {

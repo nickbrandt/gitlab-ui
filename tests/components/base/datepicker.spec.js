@@ -73,10 +73,12 @@ describe('datepicker component', () => {
     ${'setMaxDate'} | ${'maxDate'}     | ${'maxDate'}      | ${[]}
   `(
     'sets $calendarProperty calendar property when $componentProperty component property changes',
-    ({ calendarSetter, componentProperty, extraParams }) => {
+    async ({ calendarSetter, componentProperty, extraParams }) => {
       const wrapper = mountWithOptions();
 
       wrapper.setProps({ [componentProperty]: currentDate });
+
+      await wrapper.vm.$nextTick();
       expect(Pikaday.prototype[calendarSetter]).toHaveBeenCalledWith(currentDate, ...extraParams);
     }
   );
