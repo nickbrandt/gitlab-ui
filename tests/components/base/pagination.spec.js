@@ -59,12 +59,14 @@ describe('pagination component', () => {
     expect(wrapper.vm.maxAdjacentPages).toBe(4);
   });
 
-  it('should not render when one page fits all items', () => {
+  it('should not render when one page fits all items', async () => {
     createComponent({
       ...propsData,
       totalItems: 5,
     });
-    expect(wrapper.html()).toBeUndefined();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.html()).toBeFalsy();
   });
 
   it('supports slots customization', () => {
@@ -191,8 +193,11 @@ describe('pagination component', () => {
       expect(buttons.at(8).text()).toBe(wrapper.vm.nextText);
     });
 
-    it('shows first 2 pages and collapses right side mobile', () => {
+    it('shows first 2 pages and collapses right side mobile', async () => {
       mockResizeWidth(breakpoints.sm);
+
+      await wrapper.vm.$nextTick();
+
       const buttons = findButtons();
       expect(buttons.length).toBe(6);
       expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
@@ -228,8 +233,11 @@ describe('pagination component', () => {
       expect(buttons.at(14).text()).toBe(wrapper.vm.nextText);
     });
 
-    it('shows page 8 and collapses both sides on mobile', () => {
+    it('shows page 8 and collapses both sides on mobile', async () => {
       mockResizeWidth(breakpoints.sm);
+
+      await wrapper.vm.$nextTick();
+
       const buttons = findButtons();
       expect(buttons.length).toBe(7);
       expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);
@@ -273,8 +281,11 @@ describe('pagination component', () => {
       expect(buttons.at(8).text()).toBe(wrapper.vm.nextText);
     });
 
-    it('shows pages 14 to 15 and collapses left side on mobile', () => {
+    it('shows pages 14 to 15 and collapses left side on mobile', async () => {
       mockResizeWidth(breakpoints.sm);
+
+      await wrapper.vm.$nextTick();
+
       const buttons = findButtons();
       expect(buttons.length).toBe(6);
       expect(buttons.at(0).text()).toBe(wrapper.vm.prevText);

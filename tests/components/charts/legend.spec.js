@@ -62,13 +62,17 @@ describe('chart legend component', () => {
     expect(legendWrapper.findAll(GlChartSeriesLabel).length).toBe(1);
   });
 
-  it('allows user to override max value label text using props', () => {
+  it('allows user to override max value label text using props', async () => {
     legendWrapper.setProps({ maxText: 'maxText' });
+
+    await legendWrapper.vm.$nextTick();
     expect(legendWrapper.text()).toMatch('maxText');
   });
 
-  it('allows user to override average value label text using props', () => {
+  it('allows user to override average value label text using props', async () => {
     legendWrapper.setProps({ averageText: 'averageText' });
+
+    await legendWrapper.vm.$nextTick();
     expect(legendWrapper.text()).toMatch('averageText');
   });
 

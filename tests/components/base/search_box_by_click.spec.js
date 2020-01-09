@@ -9,7 +9,6 @@ describe('search box by click component', () => {
 
   const createComponent = propsData => {
     wrapper = shallowMount(SearchBoxByClick, {
-      sync: false,
       propsData,
       stubs: { BInputGroup },
     });
@@ -19,14 +18,13 @@ describe('search box by click component', () => {
     wrapper.destroy();
   });
 
-  it('emits input event when input changes', () => {
+  it('emits input event when input changes', async () => {
     createComponent({ value: 'somevalue' });
 
     wrapper.find({ ref: 'input' }).vm.$emit('input', 'new value');
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().input).toEqual([['new value']]);
-    });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted().input).toEqual([['new value']]);
   });
 
   it('does not displays history dropdown by default', () => {
@@ -57,33 +55,30 @@ describe('search box by click component', () => {
       expect(wrapper.emitted()['clear-history'].length).toBe(1);
     });
 
-    it('emits proper events when history item is clicked', () => {
+    it('emits proper events when history item is clicked', async () => {
       wrapper.find(GlDropdownItem).vm.$emit('click');
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.emitted().input[0]).toEqual(['one']);
-        expect(wrapper.emitted().submit[0]).toEqual(['one']);
-      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.emitted().input[0]).toEqual(['one']);
+      expect(wrapper.emitted().submit[0]).toEqual(['one']);
     });
   });
 
-  it('emits submit event when Enter key is pressed', () => {
+  it('emits submit event when Enter key is pressed', async () => {
     createComponent({ value: 'some-input' });
 
     wrapper.find(GlFormInput).vm.$emit('keydown', { type: 'key', keyCode: 13 });
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
-    });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
   });
 
-  it('emits submit event when search button is pressed', () => {
+  it('emits submit event when search button is pressed', async () => {
     createComponent({ value: 'some-input' });
 
     wrapper.find({ ref: 'searchButton' }).vm.$emit('click');
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
-    });
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
   });
 });

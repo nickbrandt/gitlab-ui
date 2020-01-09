@@ -30,7 +30,6 @@ describe('Paginated List', () => {
         list: [],
         ...props,
       },
-      sync: false,
     });
   };
 
@@ -66,32 +65,30 @@ describe('Paginated List', () => {
   describe('Search states', () => {
     const list = [{ id: 'foo' }, { id: 'bar' }, { id: 'baz' }];
 
-    it('renders the list filtered by search results', () => {
+    it('renders the list filtered by search results', async () => {
       createComponent({ list });
 
       const search = wrapper.find(GlSearchBoxByType);
       search.vm.$emit('input', 'ba');
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.findAll('.item').length).toEqual(2);
-        expect(wrapper.element).toMatchSnapshot();
-      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findAll('.item').length).toBe(2);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('renders the default empty search message when there are no search results', () => {
+    it('renders the default empty search message when there are no search results', async () => {
       createComponent({ list });
 
       const search = wrapper.find(GlSearchBoxByType);
       search.vm.$emit('input', 'qux');
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.findAll('.item').length).toEqual(0);
-        expect(wrapper.findAll('.empty-search').length).toEqual(1);
-        expect(wrapper.element).toMatchSnapshot();
-      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findAll('.item').length).toEqual(0);
+      expect(wrapper.findAll('.empty-search').length).toEqual(1);
+      expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('renders the custom empty search message when there are no search results', () => {
+    it('renders the custom empty search message when there are no search results', async () => {
       const msg = 'Custom empty message';
 
       createComponent({ list, emptySearchMessage: msg });
@@ -99,11 +96,10 @@ describe('Paginated List', () => {
       const search = wrapper.find(GlSearchBoxByType);
       search.vm.$emit('input', 'qux');
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.findAll('.item').length).toEqual(0);
-        expect(wrapper.find('.empty-search').text()).toEqual(msg);
-        expect(wrapper.element).toMatchSnapshot();
-      });
+      await wrapper.vm.$nextTick();
+      expect(wrapper.findAll('.item').length).toEqual(0);
+      expect(wrapper.find('.empty-search').text()).toEqual(msg);
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
@@ -184,41 +180,38 @@ describe('Paginated List', () => {
     describe('filter', () => {
       const list = [{ id: 'foo' }, { id: 'bar' }];
 
-      it('filters on default "id" key', () => {
+      it('filters on default "id" key', async () => {
         createComponent({ list });
 
         wrapper.setData({ queryStr: 'ba' });
 
-        return wrapper.vm.$nextTick().then(() => {
-          expect(wrapper.findAll('.item').length).toEqual(1);
-          expect(wrapper.element).toMatchSnapshot();
-        });
+        await wrapper.vm.$nextTick();
+        expect(wrapper.findAll('.item').length).toEqual(1);
+        expect(wrapper.element).toMatchSnapshot();
       });
 
-      it('filters on provided "myKey" key', () => {
+      it('filters on provided "myKey" key', async () => {
         createComponent({ list: [{ myKey: 'foo' }, { myKey: 'bar' }], filter: 'myKey' });
 
         wrapper.setData({ queryStr: 'ba' });
 
-        return wrapper.vm.$nextTick().then(() => {
-          expect(wrapper.findAll('.item').length).toEqual(1);
-          expect(wrapper.element).toMatchSnapshot();
-        });
+        await wrapper.vm.$nextTick();
+        expect(wrapper.findAll('.item').length).toEqual(1);
+        expect(wrapper.element).toMatchSnapshot();
       });
 
-      it('filters with provided filter function', () => {
+      it('filters with provided filter function', async () => {
         const filter = (item, queryStr) => item.id.includes(queryStr);
 
         createComponent({ list, filter });
 
         wrapper.setData({ queryStr: 'ba' });
 
-        return wrapper.vm.$nextTick().then(() => {
-          const elem = wrapper.findAll('.item');
-          expect(elem.length).toEqual(1);
-          expect(elem.at(0).text()).toBe('Item Name: bar');
-          expect(wrapper.element).toMatchSnapshot();
-        });
+        await wrapper.vm.$nextTick();
+        const elem = wrapper.findAll('.item');
+        expect(elem.length).toEqual(1);
+        expect(elem.at(0).text()).toBe('Item Name: bar');
+        expect(wrapper.element).toMatchSnapshot();
       });
     });
   });
