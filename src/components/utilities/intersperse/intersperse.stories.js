@@ -30,7 +30,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|intersperse', readme)
+documentedStoriesOf('utilities|intersperse', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

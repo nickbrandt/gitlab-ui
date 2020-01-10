@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import sprintf from '../../../src/components/base/sprintf/sprintf.vue';
+import sprintf from '../../../src/components/utilities/sprintf/sprintf.vue';
 
 describe('sprintf component', () => {
   let wrapper;

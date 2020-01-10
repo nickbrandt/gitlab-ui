@@ -47,14 +47,12 @@ export { default as GlTab } from './src/components/base/tabs/tab/tab.vue';
 export { default as GlButtonGroup } from './src/components/base/button_group/button_group.vue';
 export { default as GlFormCheckbox } from './src/components/base/form/form_checkbox/form_checkbox.vue';
 export { default as GlFormCheckboxGroup } from './src/components/base/form/form_checkbox/form_checkbox_group.vue';
-export { default as GlFriendlyWrap } from './src/components/base/friendly_wrap/friendly_wrap.vue';
 export { default as GlAvatar } from './src/components/base/avatar/avatar.vue';
 export { default as GlAvatarLabeled } from './src/components/base/avatar_labeled/avatar_labeled.vue';
 export { default as GlAvatarLink } from './src/components/base/avatar_link/avatar_link.vue';
 export { default as GlLabel } from './src/components/base/label/label.vue';
 export { default as GlDatepicker } from './src/components/base/datepicker/datepicker.vue';
 export { default as GlDaterangePicker } from './src/components/base/daterange_picker/daterange_picker.vue';
-export { default as GlIntersperse } from './src/components/base/intersperse/intersperse.vue';
 export { default as GlToggle } from './src/components/base/toggle/toggle.vue';
 export { default as GlSorting } from './src/components/base/sorting/sorting.vue';
 export { default as GlSortingItem } from './src/components/base/sorting/sorting_item';
@@ -62,9 +60,12 @@ export { default as GlInfiniteScroll } from './src/components/base/infinite_scro
 export { default as GlAlert } from './src/components/base/alert/alert.vue';
 export { default as GlSegmentedControl } from './src/components/base/segmented_control/segmented_control.vue';
 export { default as GlSkeletonLoader } from './src/components/base/skeleton_loader/skeleton_loader.vue';
-export { default as GlSprintf } from './src/components/base/sprintf/sprintf.vue';
 export { default as GlDrawer } from './src/components/base/drawer/drawer.vue';
 export { default as GlCard } from './src/components/base/card/card.vue';
+// Utilities
+export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
+export { default as GlIntersperse } from './src/components/utilities/intersperse/intersperse.vue';
+export { default as GlSprintf } from './src/components/utilities/sprintf/sprintf.vue';
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';
 export { default as GlTooltipDirective } from './src/directives/tooltip';
