@@ -1,3 +1,10 @@
+# [8.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.12.0...v8.13.0) (2020-01-10)
+
+
+### Features
+
+* **filtered_search:** Implement filtered search suggestions ([8b67b12](https://gitlab.com/gitlab-org/gitlab-ui/commit/8b67b12313df23a3b576f4f6f5a8d7a95d682631))
+
 # [8.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.11.0...v8.12.0) (2020-01-10)
 
 
