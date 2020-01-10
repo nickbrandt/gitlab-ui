@@ -30,6 +30,7 @@ export { default as GlTooltipDocumentation } from '../src/components/base/toolti
 export { default as GlDashboardSkeletonDocumentation } from '../src/components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
 export { default as GlEmptyStateDocumentation } from '../src/components/regions/empty_state/empty_state.documentation';
 export { default as GlFormInputDocumentation } from '../src/components/base/form/form_input/form_input.documentation';
+export { default as GlFormInputGroupDocumentation } from '../src/components/base/form/form_input_group/form_input_group.documentation';
 export { default as GlFormTextareaDocumentation } from '../src/components/base/form/form_textarea/form_textarea.documentation';
 export { default as GlFormGroupDocumentation } from '../src/components/base/form/form_group/form_group.documentation';
 export { default as GlFormRadioDocumentation } from '../src/components/base/form/form_radio/form_radio.documentation';

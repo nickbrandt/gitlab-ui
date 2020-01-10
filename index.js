@@ -23,6 +23,7 @@ export { default as GlToast } from './src/components/base/toast/toast';
 export { default as GlDashboardSkeleton } from './src/components/regions/dashboard_skeleton/dashboard_skeleton.vue';
 export { default as GlEmptyState } from './src/components/regions/empty_state/empty_state.vue';
 export { default as GlFormInput } from './src/components/base/form/form_input/form_input.vue';
+export { default as GlFormInputGroup } from './src/components/base/form/form_input_group/form_input_group.vue';
 export { default as GlFormRadio } from './src/components/base/form/form_radio/form_radio.vue';
 export { default as GlFormRadioGroup } from './src/components/base/form/form_radio/form_radio_group.vue';
 export { default as GlFormSelect } from './src/components/base/form/form_select/form_select.vue';
