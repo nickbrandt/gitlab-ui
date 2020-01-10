@@ -1,3 +1,10 @@
+# [8.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.11.0...v8.12.0) (2020-01-10)
+
+
+### Features
+
+* Add Input Group component ([16fa807](https://gitlab.com/gitlab-org/gitlab-ui/commit/16fa807113dc0faf847577e5e0b8953e3d940537))
+
 # [8.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.10.0...v8.11.0) (2020-01-09)
 
 
