@@ -7,7 +7,7 @@ const components = {
   GlFriendlyWrap,
 };
 
-documentedStoriesOf('base|friendly-wrap', readme)
+documentedStoriesOf('utilities|friendly-wrap', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {

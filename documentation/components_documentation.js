@@ -49,7 +49,6 @@ export { default as GlTabsDocumentation } from '../src/components/base/tabs/tabs
 export { default as GlTabDocumentation } from '../src/components/base/tabs/tab/tab.documentation';
 export { default as GlButtonGroupDocumentation } from '../src/components/base/button_group/button_group.documentation';
 export { default as GlFormCheckboxDocumentation } from '../src/components/base/form/form_checkbox/form_checkbox.documentation';
-export { default as GlFriendlyWrapDocumentation } from '../src/components/base/friendly_wrap/friendly_wrap.documentation';
 export { default as GlLabelDocumentation } from '../src/components/base/label/label.documentation';
 export { default as GlDatepickerDocumentation } from '../src/components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../src/components/base/token/token.documentation';
@@ -57,7 +56,6 @@ export { default as GlToggleDocumentation } from '../src/components/base/toggle/
 export { default as GlDaterangePickerDocumentation } from '../src/components/base/daterange_picker/daterange_picker.documentation';
 export { default as GlSortingDocumentation } from '../src/components/base/sorting/sorting.documentation';
 export { default as GlSortingItemDocumentation } from '../src/components/base/sorting/sorting_item.documentation';
-export { default as GlIntersperseDocumentation } from '../src/components/base/intersperse/intersperse.documentation';
 export { default as GlInfiniteScrollDocumentation } from '../src/components/base/infinite_scroll/infinite_scroll.documentation';
 export { default as GlAlertDocumentation } from '../src/components/base/alert/alert.documentation';
 export { default as GlSegmentedControlDocumentation } from '../src/components/base/segmented_control/segmented_control.documentation';
@@ -66,7 +64,11 @@ export { default as GlDrawerDocumentation } from '../src/components/base/drawer/
 export { default as GlCardDocumentation } from '../src/components/base/card/card.documentation';
 export { default as GlResizeObserverDirectiveDocumentation } from '../src/directives/resize_observer/resize_observer.documentation';
 export { default as GlBannerDocumentation } from '../src/components/base/banner/banner.documentation';
-export { default as GlSprintfDocumentation } from '../src/components/base/sprintf/sprintf.documentation';
+
+export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
+export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';
+export { default as GlSprintfDocumentation } from '../src/components/utilities/sprintf/sprintf.documentation';
+
 const componentList = Object.getPrototypeOf(module).exports;
 
 export const getDocumentationFor = componentName => {

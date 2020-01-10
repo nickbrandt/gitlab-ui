@@ -18,7 +18,7 @@ function generateProps() {
   return props;
 }
 
-documentedStoriesOf('base|sprintf', readme)
+documentedStoriesOf('utilities|sprintf', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
