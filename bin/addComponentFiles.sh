@@ -7,7 +7,7 @@ read COMPONENT_NAME;
 
 # Ask use which directory they want to put the component in
 printf "Which folder best categorizes your component?:\n"
-cd "components"
+cd "src/components"
 select d in */; do test -n "$d" && break; echo ">>> Invalid Selection"; done
 cd $d
 
