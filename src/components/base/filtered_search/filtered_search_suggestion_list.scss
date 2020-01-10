@@ -1,0 +1,8 @@
+.gl-filtered-search-suggestion-list {
+  @include gl-display-block;
+  @include gl-absolute;
+  @include gl-overflow-y-auto;
+
+  @include gl-dropdown-width;
+  @include gl-dropdown-max-height;
+}

@@ -64,6 +64,8 @@ export { default as GlDrawerDocumentation } from '../src/components/base/drawer/
 export { default as GlCardDocumentation } from '../src/components/base/card/card.documentation';
 export { default as GlResizeObserverDirectiveDocumentation } from '../src/directives/resize_observer/resize_observer.documentation';
 export { default as GlBannerDocumentation } from '../src/components/base/banner/banner.documentation';
+export { default as GlFilteredSearchSuggestionDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion.documentation';
+export { default as GlFilteredSearchSuggestionListDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion_list.documentation';
 
 export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
 export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';

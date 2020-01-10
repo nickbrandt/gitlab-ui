@@ -62,6 +62,8 @@ export { default as GlSegmentedControl } from './src/components/base/segmented_c
 export { default as GlSkeletonLoader } from './src/components/base/skeleton_loader/skeleton_loader.vue';
 export { default as GlDrawer } from './src/components/base/drawer/drawer.vue';
 export { default as GlCard } from './src/components/base/card/card.vue';
+export { default as GlFilteredSearchSuggestion } from './src/components/base/filtered_search/filtered_search_suggestion.vue';
+export { default as GlFilteredSearchSuggestionList } from './src/components/base/filtered_search/filtered_search_suggestion_list.vue';
 // Utilities
 export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
 export { default as GlIntersperse } from './src/components/utilities/intersperse/intersperse.vue';
