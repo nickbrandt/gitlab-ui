@@ -91,7 +91,7 @@ module Gitlab
         %r{\Adoc/} => :docs,
         /\.md\z/ => :docs,
 
-        /\.(vue|js)\z/ => :frontend,
+        /\.(vue|js|scss)\z/ => :frontend,
         %r{(\A|/)(
           \.babelrc |
           \.eslintignore |
@@ -104,6 +104,7 @@ module Gitlab
           package\.json |
           yarn\.lock |
         )\z}x => :frontend,
+        %r{\Atests/__image_snapshots__} => :frontend,
 
         /Dangerfile\z/ => :engineering_productivity,
         %r{\A(danger/|lib/gitlab[/_]danger)} => :engineering_productivity,
