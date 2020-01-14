@@ -1,3 +1,10 @@
+# [8.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.14.0...v8.15.0) (2020-01-14)
+
+
+### Features
+
+* **filtered_search:** Implement filtered search term ([1d0bc82](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d0bc82f3e74159e9572ba96a8af60ab701fc860))
+
 # [8.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.13.0...v8.14.0) (2020-01-14)
 
 
