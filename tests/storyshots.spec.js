@@ -12,6 +12,11 @@ registerRequireContextHook();
 const excludedStoryKinds = ['directives'];
 
 const beforeScreenshot = page => {
+  // Reset SVG animations
+  document.querySelectorAll('animate').forEach(el => {
+    el.endElement();
+  });
+
   // Fixing the Animation by inlining, previous approach with external file was flaky for the animation
   page.addStyleTag({
     content: getResetAnimationsCSS(),
