@@ -1,3 +1,10 @@
+# [8.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.13.0...v8.14.0) (2020-01-14)
+
+
+### Features
+
+* add broadcast message component ([aaf98e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/aaf98e65aa01bc3607069eaa9b0d3209f02e680e))
+
 # [8.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.12.0...v8.13.0) (2020-01-10)
 
 
