@@ -15,6 +15,7 @@
     1. Be sure to name your MR `feat: <commit message>` as that is needed for our npm release CI job (don't forget to set the MR to squash commit)
     1. Run the manual CI job (`update_screenshots`) to generate your image snapshots for diffing.
 1. Create a MR to `gitlab` to replace the scenario implementation (if any) that you previously selected
+  1. To make this process easier, GitLab UI has a manual CI job called `create_integration_branch` that you can run to automatically create or update an integration branch in GitLab. You would then only need to create a new MR from that branch by following the link in the job's output.
 1. Update your `package.json` dependency reference of `@gitlab/ui` to the URL output of the `upload_artifacts` CI job in your `gitlab-ui` MR
 1. Run `yarn install` to make sure that the `gitlab-ui` contents are installed
 1. If your new component is used on every page, import to `app/assets/javascripts/commons/gitlab_ui.js` so that your component is globally registered

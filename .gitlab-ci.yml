@@ -14,6 +14,7 @@ stages:
   - test
   - deploy
   - publish
+  - deployed
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
@@ -188,11 +189,34 @@ upload_artifacts:
     - build
   script:
     - yarn pack --filename $TAR_ARCHIVE_NAME
-    - echo "The package.json dependency URL is $CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
+    - DEPENDENCY_URL="$CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
+    - echo "The package.json dependency URL is $DEPENDENCY_URL"
+    - echo $DEPENDENCY_URL > .dependency_url
   artifacts:
     when: always
     paths:
       - $TAR_ARCHIVE_NAME
+      - .dependency_url
+  only:
+    - /.+/@gitlab-org/gitlab-ui
+
+create_integration_branch:
+  when: manual
+  extends: .node
+  stage: deployed
+  needs:
+    - upload_artifacts
+  script:
+    - INTEGRATION_BRANCH="$CI_COMMIT_REF_NAME-gitlab-ui-integration-test"
+    - git config --global user.email "gitlab-bot@gitlab.com"
+    - git config --global user.name "GitLab Bot"
+    - git clone https://gitlab.com/gitlab-org/gitlab.git gitlab --depth=1
+    - cd gitlab
+    - (git remote set-branches origin '*' && git fetch origin $INTEGRATION_BRANCH && git checkout $INTEGRATION_BRANCH) || git checkout -b $INTEGRATION_BRANCH
+    - yarn add @gitlab/ui@`cat ../.dependency_url`
+    - git add package.json yarn.lock
+    - 'git commit -m "GitLab UI: $CI_COMMIT_REF_NAME integration test"'
+    - git push -u https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab.git HEAD
   only:
     - /.+/@gitlab-org/gitlab-ui
 
