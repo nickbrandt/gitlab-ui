@@ -64,10 +64,13 @@ export { default as GlDrawer } from './src/components/base/drawer/drawer.vue';
 export { default as GlCard } from './src/components/base/card/card.vue';
 export { default as GlFilteredSearchSuggestion } from './src/components/base/filtered_search/filtered_search_suggestion.vue';
 export { default as GlFilteredSearchSuggestionList } from './src/components/base/filtered_search/filtered_search_suggestion_list.vue';
+export { default as GlBroadcastMessage } from './src/components/base/broadcast_message/broadcast_message.vue';
+
 // Utilities
 export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
 export { default as GlIntersperse } from './src/components/utilities/intersperse/intersperse.vue';
 export { default as GlSprintf } from './src/components/utilities/sprintf/sprintf.vue';
+
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';
 export { default as GlTooltipDirective } from './src/directives/tooltip';

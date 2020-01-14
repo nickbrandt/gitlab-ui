@@ -1,0 +1,106 @@
+.gl-broadcast-message {
+  @include gl-text-white;
+  @include gl-relative;
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+  @include gl-font-base;
+  @include gl-line-height-normal;
+  @include gl-p-5;
+  @include gl-inset-border-b-1-gray-900;
+  @include gl-bg-theme-indigo-700;
+
+  &.light-indigo {
+    @include gl-bg-theme-indigo-500;
+  }
+
+  &.blue {
+    @include gl-bg-theme-blue-700;
+  }
+
+  &.light-blue {
+    @include gl-bg-theme-blue-500;
+  }
+
+  &.green {
+    @include gl-bg-theme-green-700;
+  }
+
+  &.light-green {
+    @include gl-bg-theme-green-500;
+  }
+
+  &.red {
+    @include gl-bg-theme-red-700;
+  }
+
+  &.light-red {
+    @include gl-bg-theme-red-500;
+  }
+
+  &.dark {
+    @include gl-bg-gray-700;
+  }
+
+  &.light {
+    @include gl-bg-gray-500;
+  }
+
+  @include media-breakpoint-up(sm) {
+    @include gl-py-3;
+    @include gl-pr-8;
+    @include gl-pl-5;
+  }
+
+  &-content {
+    @include gl-display-flex;
+    @include gl-justify-content-center;
+  }
+
+  &-text {
+    max-width: $gl-broadcast-message-text-max-width;
+  }
+
+  &-icon {
+    @include gl-mr-3;
+
+    > svg {
+      @include gl-vertical-align-baseline;
+    }
+  }
+
+  &-dismiss {
+    @include gl-text-inherit;
+    @include gl-bg-none;
+    @include gl-border-none;
+    @include gl-p-0;
+  }
+
+  &-footer {
+    @include gl-text-right;
+    @include gl-mt-5;
+
+    @include media-breakpoint-up(sm) {
+      @include gl-absolute;
+      @include gl-top-3;
+      @include gl-right-5;
+      @include gl-mt-0;
+    }
+  }
+
+  &-dismiss-icon {
+    @include gl-display-none;
+  }
+
+  &-dismiss-label {
+    @include gl-font-weight-bold;
+  }
+
+  @include media-breakpoint-up(sm) {
+    &-dismiss-icon {
+      @include gl-display-block;
+    }
+    &-dismiss-label {
+      @include gl-display-none;
+    }
+  }
+}

@@ -168,6 +168,19 @@ export const alertVariantIconMap = {
   tip: 'bulb',
 };
 
+export const colorThemes = {
+  indigo: 'theme-indigo-900',
+  'light-indigo': 'theme-indigo-700',
+  blue: 'theme-blue-900',
+  'light-blue': 'theme-blue-700',
+  green: 'theme-green-900',
+  'light-green': 'theme-green-700',
+  red: 'theme-red-900',
+  'light-red': 'theme-red-700',
+  dark: 'gray-900',
+  light: 'gray-700',
+};
+
 export const resizeDebounceTime = 200;
 export const throttleDuration = 2000;
 

@@ -26,6 +26,10 @@
   box-shadow: inset 0 ($gl-border-size-1 * -1) 0 0 $gray-300;
 }
 
+@mixin gl-inset-border-b-1-gray-900 {
+  box-shadow: inset 0 ($gl-border-size-1 * -1) 0 0 $gray-900;
+}
+
 @mixin gl-inset-border-1-blue-500 {
   box-shadow: inset 0 0 0 $gl-border-size-1 $blue-500;
 }

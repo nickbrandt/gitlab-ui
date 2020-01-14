@@ -34,8 +34,20 @@
   background-color: $gray-300;
 }
 
+@mixin gl-bg-gray-500 {
+  background-color: $gray-600;
+}
+
 @mixin gl-bg-gray-600 {
   background-color: $gray-600;
+}
+
+@mixin gl-bg-gray-700 {
+  background-color: $gray-700;
+}
+
+@mixin gl-bg-gray-900 {
+  background-color: $gray-900;
 }
 
 @mixin gl-bg-blue-50 {
@@ -124,6 +136,54 @@
 
 @mixin gl-bg-red-700 {
   background-color: $red-700;
+}
+
+@mixin gl-bg-theme-indigo-500 {
+  background-color: $theme-indigo-500;
+}
+
+@mixin gl-bg-theme-indigo-700 {
+  background-color: $theme-indigo-700;
+}
+
+@mixin gl-bg-theme-indigo-900 {
+  background-color: $theme-indigo-900;
+}
+
+@mixin gl-bg-theme-blue-500 {
+  background-color: $theme-blue-500;
+}
+
+@mixin gl-bg-theme-blue-700 {
+  background-color: $theme-blue-700;
+}
+
+@mixin gl-bg-theme-blue-900 {
+  background-color: $theme-blue-900;
+}
+
+@mixin gl-bg-theme-green-500 {
+  background-color: $theme-green-500;
+}
+
+@mixin gl-bg-theme-green-700 {
+  background-color: $theme-green-700;
+}
+
+@mixin gl-bg-theme-green-900 {
+  background-color: $theme-green-900;
+}
+
+@mixin gl-bg-theme-red-500 {
+  background-color: $theme-red-500;
+}
+
+@mixin gl-bg-theme-red-700 {
+  background-color: $theme-red-700;
+}
+
+@mixin gl-bg-theme-red-900 {
+  background-color: $theme-red-900;
 }
 
 @mixin gl-bg-none {
