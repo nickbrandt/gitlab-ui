@@ -1,0 +1,11 @@
+.gl-filtered-search-term-input {
+  @include gl-p-0;
+  @include gl-pl-2;
+  @include gl-border-none;
+  @include gl-outline-none;
+  min-width: $gl-dropdown-width;
+}
+
+.gl-filtered-search-term-icon {
+  @include gl-mr-2;
+}
