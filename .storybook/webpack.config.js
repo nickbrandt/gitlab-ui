@@ -17,7 +17,7 @@ module.exports = ({ config }) => {
         {
           loader: 'style-loader',
           options: {
-            attrs: {
+            attributes: {
               'data-gitlab-ui-style': true,
             },
           },
