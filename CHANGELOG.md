@@ -1,3 +1,10 @@
+# [8.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.15.0...v8.16.0) (2020-01-16)
+
+
+### Features
+
+* Inline avatars component ([688feba](https://gitlab.com/gitlab-org/gitlab-ui/commit/688febaf7cdb145165042a06a2b2fab8d7ad2f11))
+
 # [8.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.14.0...v8.15.0) (2020-01-14)
 
 
