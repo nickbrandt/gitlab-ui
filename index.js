@@ -48,6 +48,7 @@ export { default as GlButtonGroup } from './src/components/base/button_group/but
 export { default as GlFormCheckbox } from './src/components/base/form/form_checkbox/form_checkbox.vue';
 export { default as GlFormCheckboxGroup } from './src/components/base/form/form_checkbox/form_checkbox_group.vue';
 export { default as GlAvatar } from './src/components/base/avatar/avatar.vue';
+export { default as GlAvatarsInline } from './src/components/base/avatars_inline/avatars_inline.vue';
 export { default as GlAvatarLabeled } from './src/components/base/avatar_labeled/avatar_labeled.vue';
 export { default as GlAvatarLink } from './src/components/base/avatar_link/avatar_link.vue';
 export { default as GlLabel } from './src/components/base/label/label.vue';

@@ -1,0 +1,34 @@
+.gl-avatars-inline {
+  @include gl-display-inline-flex;
+
+  &-child {
+    @include gl-display-inline-flex;
+    @include gl-mr-3;
+  }
+
+  &.collapsed {
+    @include gl-relative;
+
+    .gl-avatars-inline-child {
+      @include gl-absolute;
+      @include gl-mr-0;
+    }
+  }
+
+  &-badge {
+    @include gl-bg-gray-200;
+    @include gl-text-gray-900;
+    @include gl-font-sm;
+    @include gl-py-2;
+    @include gl-px-3;
+    @include gl-line-height-normal;
+    @include gl-rounded-pill;
+    @include gl-font-weight-bold;
+
+    &.lg {
+      @include gl-font-base;
+      @include gl-p-3;
+      @include gl-rounded-full;
+    }
+  }
+}
