@@ -30,10 +30,6 @@ function generateProps({
       type: Boolean,
       default: boolean('disabled', false),
     },
-    newStyle: {
-      type: Boolean,
-      default: boolean('new style', true),
-    },
   };
 
   if (withLink) {
@@ -63,7 +59,6 @@ documentedStoriesOf('base|button', readme)
         :variant="variant"
         :size="size"
         :disabled="disabled"
-        :new-style="newStyle"
       >
         This is a button
       </gl-button>
@@ -79,7 +74,6 @@ documentedStoriesOf('base|button', readme)
         :disabled="disabled"
         :href="href"
         :target="target"
-        :new-style="newStyle"
       >
         This is a link button
       </gl-button>
