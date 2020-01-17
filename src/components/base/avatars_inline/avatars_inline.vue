@@ -31,6 +31,9 @@ export default {
     hiddenAvatars() {
       return this.avatars.length - this.maxVisible;
     },
+    collapsable() {
+      return this.hiddenAvatars > 0;
+    },
     visibleAvatars() {
       return this.collapsed ? this.avatars.slice(0, this.maxVisible) : this.avatars;
     },
@@ -61,7 +64,10 @@ export default {
 };
 </script>
 <template>
-  <div :class="['gl-avatars-inline', { collapsed: collapsed }]" :style="containerSizeStyles">
+  <div
+    :class="['gl-avatars-inline', { collapsed: collapsed && collapsable }]"
+    :style="containerSizeStyles"
+  >
     <div
       v-for="(avatar, index) in visibleAvatars"
       :key="index"
@@ -73,7 +79,7 @@ export default {
       </slot>
     </div>
     <div
-      v-if="collapsed"
+      v-if="collapsed && collapsable"
       class="gl-avatars-inline-child"
       :style="calcAvatarPosition(visibleAvatars.length)"
     >
