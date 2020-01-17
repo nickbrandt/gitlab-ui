@@ -68,6 +68,7 @@ export { default as GlBannerDocumentation } from '../src/components/base/banner/
 export { default as GlFilteredSearchSuggestionDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion.documentation';
 export { default as GlFilteredSearchSuggestionListDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion_list.documentation';
 export { default as GlFilteredSearchTermDocumentation } from '../src/components/base/filtered_search/filtered_search_term.documentation';
+export { default as GlFilteredSearchBinaryTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_binary_token.documentation';
 export { default as GlBroadcastMessageDocumentation } from '../src/components/base/broadcast_message/broadcast_message.documentation';
 
 export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
