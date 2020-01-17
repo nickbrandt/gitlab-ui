@@ -1,3 +1,10 @@
+# [8.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.16.0...v8.17.0) (2020-01-17)
+
+
+### Features
+
+* **filtered_search:** Implement filtered search binary token ([6b14c21](https://gitlab.com/gitlab-org/gitlab-ui/commit/6b14c21077cf60f601c715baa4b943e2b278327d))
+
 # [8.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.15.0...v8.16.0) (2020-01-16)
 
 
