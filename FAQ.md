@@ -75,3 +75,10 @@ before indicating that it follows the design system specs. When styling a
 gitlab-ui component, use the “include GitLab CSS bundle” storybook addon to test 
 your component against GitLab CSS. Correct the visual differences by applying the 
 utility-mixins to overwrite GitLab CSS leaks.
+
+## Does GitLab UI have a changelog/version history?
+
+Yes! We generate changelogs automatically based on GitLab UI's
+[conventional commits](https://www.conventionalcommits.org/) history.
+Changelogs can be found in the [releases page](https://gitlab.com/gitlab-org/gitlab-ui/-/releases)
+or in the [CHANGELOG.md](./CHANGELOG.md) file.

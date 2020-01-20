@@ -32,7 +32,7 @@ Please read the official specifications for more details: https://www.convention
 
 When opening an MR, make sure your changes are described by at least one commit message following conventional commit conventions,
 and/or that the MR's title itself follows those conventions. Following these conventions will result in a properly versioned package
-and clear changelogs for every version.
+and clear [changelogs](./CHANGELOG.md) for every version.
 
 ### When should my MR's title follow these conventions?
 
