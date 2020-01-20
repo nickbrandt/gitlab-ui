@@ -119,7 +119,7 @@ export default {
     </gl-link>
     <gl-tooltip
       v-if="description"
-      :target="$refs.labelTitle"
+      :target="() => $refs.labelTitle"
       :placement="tooltipPlacement"
       boundary="viewport"
     >
