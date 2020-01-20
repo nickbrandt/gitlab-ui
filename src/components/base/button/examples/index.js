@@ -2,6 +2,7 @@ import ButtonBasicExample from './button.basic.example.vue';
 import ButtonLinkExample from './button.link.example.vue';
 import ButtonVariantsExample from './button.variants.example.vue';
 import ButtonSizesExample from './button.sizes.example.vue';
+import ButtonDisabledExample from './button.disabled.example.vue';
 
 export default [
   {
@@ -26,7 +27,7 @@ export default [
     items: [
       {
         id: 'button-variants',
-        name: 'Variants',
+        name: 'Button Variants',
         description: 'Different button variants',
         component: ButtonVariantsExample,
       },
@@ -35,6 +36,12 @@ export default [
         name: 'Button Sizes',
         description: 'Different button sizes',
         component: ButtonSizesExample,
+      },
+      {
+        id: 'button-disabled',
+        name: 'Button Disabled',
+        description: 'Button that is disabled',
+        component: ButtonDisabledExample,
       },
     ],
   },

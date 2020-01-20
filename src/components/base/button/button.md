@@ -7,6 +7,19 @@ with the necessary classes added to make it look like a button, it shares the sa
 
 [`<gl-link>`]: https://gitlab.com/gitlab-org/gitlab-ui/blob/master/documentation/link.md
 
-#### Legacy implementation
+#### Deprecated Prop Values
 
-We are implementing a new button component in https://gitlab.com/gitlab-org/gitlab-ui/tree/master/components/base/new_button that conforms with Pajamas design specs. We decided to create a new component to avoid introducing inadvertent side effects in the gitlab product while implementing a button that follows the design specs. Once the new button component is finished, we’ll replace this legacy implementation with aforementioned one.
+We are deprecating certain `variant` values in order to align this component with the [Pajamas design specs]. The following `variant` values have been deprecated:
+
+| Deprecated Value  | Current Equivalent                |
+| ----------------- | --------------------------------- |
+| `primary`         | `info` (category: `primary`)      |
+| `secondary`       | `null` (category: `tertiary`)     |
+| `outline-info`    | `info` (category: `secondary`)    |
+| `outline-success` | `success` (category: `secondary`) |
+| `outline-warning` | `warning` (category: `secondary`) |
+| `outline-danger`  | `danger` (category: `secondary`)  |
+| `dark`            | _no equivalent_                   |
+| `light`           | _no equivalent_                   |
+
+[pajamas design specs]: https://design.gitlab.com/components/buttons

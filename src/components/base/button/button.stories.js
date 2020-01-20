@@ -1,8 +1,11 @@
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../../documentation/documented_stories';
 import {
-  sizeOptionsWithNoDefault,
+  buttonCategoryOptions,
+  buttonSizeOptions,
   buttonVariantOptions,
+  deprecatedButtonVariantOptions,
+  deprecatedButtonOutlineVariantOptions,
   targetOptions,
 } from '../../../utils/constants';
 import readme from './button.md';
@@ -13,18 +16,45 @@ const components = {
 };
 
 function generateProps({
+  category = buttonCategoryOptions.tertiary,
   variant = buttonVariantOptions.info,
-  size = sizeOptionsWithNoDefault.default,
+  size = buttonSizeOptions.medium,
   withLink = false,
+  withDeprecatedValues = false,
 } = {}) {
+  if (withDeprecatedValues) {
+    return {
+      variant: {
+        type: String,
+        default: select(
+          'variant',
+          { ...deprecatedButtonVariantOptions, ...deprecatedButtonOutlineVariantOptions },
+          variant
+        ),
+      },
+      size: {
+        type: String,
+        default: select('size', buttonSizeOptions, size),
+      },
+      disabled: {
+        type: Boolean,
+        default: boolean('disabled', false),
+      },
+    };
+  }
+
   let props = {
+    category: {
+      type: String,
+      default: select('category', buttonCategoryOptions, category),
+    },
     variant: {
       type: String,
       default: select('variant', buttonVariantOptions, variant),
     },
     size: {
       type: String,
-      default: select('size', sizeOptionsWithNoDefault, size),
+      default: select('size', buttonSizeOptions, size),
     },
     disabled: {
       type: Boolean,
@@ -56,6 +86,7 @@ documentedStoriesOf('base|button', readme)
     components,
     template: `
       <gl-button
+        :category="category"
         :variant="variant"
         :size="size"
         :disabled="disabled"
@@ -69,6 +100,7 @@ documentedStoriesOf('base|button', readme)
     components,
     template: `
       <gl-button
+        :category="category"
         :variant="variant"
         :size="size"
         :disabled="disabled"
@@ -76,6 +108,23 @@ documentedStoriesOf('base|button', readme)
         :target="target"
       >
         This is a link button
+      </gl-button>
+    `,
+  }))
+  .add('deprecated variants', () => ({
+    props: generateProps({
+      variant: deprecatedButtonVariantOptions.primary,
+      withDeprecatedValues: true,
+    }),
+    components,
+    template: `
+      <gl-button
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :disabled="disabled"
+      >
+        This is a button
       </gl-button>
     `,
   }));
