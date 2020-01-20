@@ -12,7 +12,12 @@ export default {
 </script>
 
 <template>
-  <component :is="bootstrapComponent" v-bind="$attrs" v-on="$listeners">
+  <component
+    :is="bootstrapComponent"
+    class="gl-new-dropdown-item"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot></slot>
   </component>
 </template>

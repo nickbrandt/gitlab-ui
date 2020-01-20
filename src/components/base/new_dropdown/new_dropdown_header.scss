@@ -1,0 +1,23 @@
+$dropdown-header-padding-x: $grid-size;
+$dropdown-header-padding-y: $grid-size * 1.5;
+
+@mixin gl-new-dropdown-header-style {
+  @include gl-font-base;
+  @include gl-text-gray-900;
+  @include gl-line-height-normal;
+  @include gl-text-left;
+  @include gl-font-weight-bold;
+  padding: $dropdown-header-padding-x $dropdown-header-padding-y;
+}
+
+/* Styling when the component is used on its own */
+.gl-new-dropdown-header {
+  @include gl-new-dropdown-header-style;
+}
+
+/* Styling to override the vue-bootstrap CSS included in GitLab CSS */
+.gl-new-dropdown {
+  .gl-new-dropdown-header {
+    @include gl-new-dropdown-header-style;
+  }
+}

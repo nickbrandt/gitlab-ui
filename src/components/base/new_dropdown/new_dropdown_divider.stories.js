@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './dropdown_divider.md';
+import readme from './new_dropdown_divider.md';
 import { GlDropdownDivider } from '../../../../index';
 
 const components = {
@@ -12,5 +12,5 @@ documentedStoriesOf('base|new_dropdown/dropdown-divider', readme)
   .add('default', () => ({
     props: {},
     components,
-    template: '<ul class="list-unstyled"><gl-dropdown-divider /></ul>',
+    template: '<ul class="list-unstyled"><gl-new-dropdown-divider /></ul>',
   }));

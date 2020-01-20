@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './dropdown_text.md';
+import readme from './new_dropdown_text.md';
 import { GlNewDropdownText } from '../../../../index';
 
 const components = {
@@ -12,5 +12,6 @@ documentedStoriesOf('base|new_dropdown/dropdown-text', readme)
   .add('default', () => ({
     props: {},
     components,
-    template: '<gl-new-dropdown-text>Some header</gl-new-dropdown-text>',
+    template:
+      '<ul class="list-unstyled"><gl-new-dropdown-text>Some header</gl-new-dropdown-text></ul>',
   }));

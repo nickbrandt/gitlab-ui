@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import Vue from 'vue';
 import FilteredSearchSuggestion from '../../../src/components/base/filtered_search/filtered_search_suggestion.vue';
-import GlDropdownItem from '../../../src/components/base/new_dropdown/dropdown_item.vue';
+import GlDropdownItem from '../../../src/components/base/new_dropdown/new_dropdown_item.vue';
 
 describe('Filtered search suggestion component', () => {
   let wrapper;

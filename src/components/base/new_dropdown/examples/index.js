@@ -1,5 +1,6 @@
 import DropdownDefaultExample from './new_dropdown.default.example.vue';
 import DropdownLinksExample from './new_dropdown.links.example.vue';
+import DropdownWithCheckedItemsExample from './new_dropdown.with_checked_items.example.vue';
 import DropdownWithDividerExample from './new_dropdown.with_divider.example.vue';
 import DropdownWithHeaderExample from './new_dropdown.with_header.example.vue';
 import DropdownWithSectionHeadersExample from './new_dropdown.with_section_headers.example.vue';
@@ -24,6 +25,12 @@ export default [
         name: 'With Links',
         description: 'Dropdown with links as items',
         component: DropdownLinksExample,
+      },
+      {
+        id: 'new-dropdown-with-checked-items',
+        name: 'With Checked Items',
+        description: 'Dropdown with checked items',
+        component: DropdownWithCheckedItemsExample,
       },
       {
         id: 'new-dropdown-with-divider',
