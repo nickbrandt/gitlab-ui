@@ -1,6 +1,6 @@
 <template>
   <div>
-    <gl-button>default</gl-button>
     <gl-button size="sm">small</gl-button>
+    <gl-button>medium</gl-button>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import { withKnobs, select, boolean } from '@storybook/addon-knobs/vue';
 import documentedStoriesOf from '../../../../documentation/documented_stories';
-import { sizeOptionsWithNoDefault, buttonVariantOptions } from '../../../utils/constants';
+import { buttonSizeOptions, availableButtonVariantOptions } from '../../../utils/constants';
 import readme from './button_group.md';
 import { GlButtonGroup } from '../../../../index';
 
@@ -9,17 +9,17 @@ const components = {
 };
 
 function generateProps({
-  variant = buttonVariantOptions.primary,
-  size = sizeOptionsWithNoDefault.default,
+  variant = availableButtonVariantOptions.secondary,
+  size = buttonSizeOptions.medium,
 } = {}) {
   const props = {
     variant: {
       type: String,
-      default: select('variant', buttonVariantOptions, variant),
+      default: select('variant', availableButtonVariantOptions, variant),
     },
     size: {
       type: String,
-      default: select('size', sizeOptionsWithNoDefault, size),
+      default: select('size', buttonSizeOptions, size),
     },
     vertical: {
       type: Boolean,
