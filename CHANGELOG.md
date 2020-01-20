@@ -1,3 +1,15 @@
+# [8.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.17.0...v8.18.0) (2020-01-20)
+
+
+### Bug Fixes
+
+* Tooltip on Label for gitlab ([10a9507](https://gitlab.com/gitlab-org/gitlab-ui/commit/10a95070d63ad11b51e02eb115a5b92ca120bdd6))
+
+
+### Features
+
+* update button props ([95f971c](https://gitlab.com/gitlab-org/gitlab-ui/commit/95f971c1be00045769ea91281e1967951efbed76))
+
 # [8.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.16.0...v8.17.0) (2020-01-17)
 
 
