@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import camelCase from 'lodash/camelCase';
 import upperFirst from 'lodash/upperFirst';
 
@@ -110,4 +111,4 @@ function documentedStoriesOf(storyName, readme) {
   return story;
 }
 
-export default documentedStoriesOf;
+export { documentedStoriesOf };

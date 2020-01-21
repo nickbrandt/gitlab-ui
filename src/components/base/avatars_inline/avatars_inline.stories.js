@@ -1,5 +1,5 @@
 import { number, boolean, object, select, withKnobs } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { avatarsInlineSizeOptions } from '../../../utils/constants';
 
 import readme from './avatars_inline.md';

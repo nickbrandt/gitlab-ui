@@ -1,5 +1,5 @@
 import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_radio.md';
 import { GlFormRadio, GlFormRadioGroup } from '../../../../../index';
 

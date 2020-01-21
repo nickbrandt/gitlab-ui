@@ -1,4 +1,4 @@
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChart, GlChartLegend } from '../../../../charts';
 import readme from './legend.md';
 

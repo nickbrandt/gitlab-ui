@@ -1,5 +1,5 @@
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
   newButtonCategoryOptions,
   newDropdownVariantOptions,

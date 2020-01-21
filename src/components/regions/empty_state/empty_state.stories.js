@@ -1,5 +1,5 @@
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './empty_state.md';
 import { GlEmptyState } from '../../../../index';
 

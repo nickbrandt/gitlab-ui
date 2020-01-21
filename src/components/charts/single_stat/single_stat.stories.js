@@ -1,4 +1,4 @@
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './single_stat.md';
 import { GlSingleStat } from '../../../../charts';
 

@@ -1,5 +1,5 @@
 import { withKnobs, select, boolean } from '@storybook/addon-knobs/vue';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { buttonSizeOptions, availableButtonVariantOptions } from '../../../utils/constants';
 import readme from './button_group.md';
 import { GlButtonGroup } from '../../../../index';

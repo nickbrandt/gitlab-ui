@@ -1,5 +1,5 @@
 import { withKnobs, number, text, select, boolean } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import GlPagination from './pagination.vue';
 import readme from './pagination.md';
 import { sizeOptions, alignOptions } from '../../../utils/constants';

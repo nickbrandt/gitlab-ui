@@ -1,5 +1,5 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './tooltip.md';
 import { tooltipPlacements } from '../../../utils/constants';
 import { GlTooltip, GlTooltipDirective } from '../../../../index';

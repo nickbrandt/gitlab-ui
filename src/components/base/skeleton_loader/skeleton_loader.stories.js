@@ -1,4 +1,4 @@
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './skeleton_loader.md';
 import { GlSkeletonLoader } from '../../../../index';
 
