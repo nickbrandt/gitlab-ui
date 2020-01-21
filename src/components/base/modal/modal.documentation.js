@@ -21,15 +21,22 @@ export default {
     },
     {
       name: 'modal-footer',
-      description: 'Entire modal footer contents (including the default OK and CANCEL buttons)',
+      description:
+        'Populated via props: modal-action-primary, modal-action-cancel and modal-action-secondary.',
+    },
+  ],
+  events: [
+    {
+      event: '@primary',
+      description: 'Emitted when clicked on modal-action-primary',
     },
     {
-      name: 'modal-ok',
-      description: 'Modal OK button content.',
+      event: '@secondary',
+      description: 'Emitted when clicked on modal-action-secondary',
     },
     {
-      name: 'modal-cancel',
-      description: 'Modal CANCEL button content.',
+      event: '@canceled',
+      description: 'Emitted when clicked on modal-action-cancel',
     },
   ],
 };

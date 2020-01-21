@@ -2,6 +2,7 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 import documentedStoriesOf from '../../../../documentation/documented_stories';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import { GlModal, GlModalDirective } from '../../../../index';
+import readme from './modal.md';
 
 const components = {
   GlModal,
@@ -30,6 +31,9 @@ function generateTemplate({ visible = false } = {}) {
         :footer-border-variant="footerBorderVariant"
         :footer-text-variant="footerTextVariant"
         :visible="${visible}"
+        :action-primary="{text: 'OK'}"
+        :action-secondary="{text: 'Discard Changes'}"
+        :action-cancel="{text: 'Cancel'}"
         modal-id="test-modal-id"
         title="Example title"
         no-fade
@@ -77,7 +81,7 @@ function generateProps({ variant = variantOptionsWithNoDefault.default } = {}) {
   };
 }
 
-documentedStoriesOf('base|modal', '')
+documentedStoriesOf('base|modal', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

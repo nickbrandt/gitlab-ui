@@ -171,6 +171,18 @@ export const colorThemes = {
   light: 'gray-700',
 };
 
+export const modalButtonDefaults = {
+  actionPrimary: {
+    variant: 'success',
+  },
+  actionSecondary: {
+    variant: 'outline-warning',
+  },
+  actionCancel: {
+    variant: 'secondary',
+  },
+};
+
 export const resizeDebounceTime = 200;
 export const throttleDuration = 2000;
 
