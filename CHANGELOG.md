@@ -1,3 +1,10 @@
+# [8.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.18.0...v8.19.0) (2020-01-21)
+
+
+### Features
+
+* Introduce new modal API ([65d8135](https://gitlab.com/gitlab-org/gitlab-ui/commit/65d81352be7f42256b3f27a52b8b90b5a4a80d6a))
+
 # [8.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.17.0...v8.18.0) (2020-01-20)
 
 
