@@ -30,6 +30,7 @@ export { default as GlProgressBarDocumentation } from '../src/components/base/pr
 export { default as GlTooltipDocumentation } from '../src/components/base/tooltip/tooltip.documentation';
 export { default as GlDashboardSkeletonDocumentation } from '../src/components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
 export { default as GlEmptyStateDocumentation } from '../src/components/regions/empty_state/empty_state.documentation';
+export { default as GlFormDocumentation } from '../src/components/base/form/form.documentation';
 export { default as GlFormInputDocumentation } from '../src/components/base/form/form_input/form_input.documentation';
 export { default as GlFormInputGroupDocumentation } from '../src/components/base/form/form_input_group/form_input_group.documentation';
 export { default as GlFormTextareaDocumentation } from '../src/components/base/form/form_textarea/form_textarea.documentation';
