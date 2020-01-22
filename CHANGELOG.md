@@ -1,3 +1,10 @@
+## [8.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.19.0...v8.19.1) (2020-01-22)
+
+
+### Bug Fixes
+
+* **avatars-inline:** Fix collapsible behavior ([bb60fdb](https://gitlab.com/gitlab-org/gitlab-ui/commit/bb60fdb2a8c23982467ccfabfaf85d93ea865d36))
+
 # [8.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.18.0...v8.19.0) (2020-01-21)
 
 
