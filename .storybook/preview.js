@@ -1,5 +1,6 @@
 import { addParameters, addDecorator } from '@storybook/vue';
 import { withA11y } from '@storybook/addon-a11y';
+import { addReadme } from 'storybook-readme/vue';
 
 const stylesheetsRequireCtx = require.context('../src/scss', true, /(storybook|bootstrap)\.scss$/);
 
@@ -17,6 +18,7 @@ function addSbClass(c, a) {
 
 addDecorator(addSbClass);
 addDecorator(withA11y);
+addDecorator(addReadme);
 
 addParameters({
   a11y: {

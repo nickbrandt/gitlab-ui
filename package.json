@@ -110,7 +110,7 @@
     "sass-true": "^5.0.0",
     "semantic-release": "^15.13.31",
     "start-server-and-test": "^1.10.6",
-    "storybook-readme": "^4.0.5",
+    "storybook-readme": "^5.0.8",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-prettier": "^1.1.1",
     "vue-jest": "^4.0.0-beta.2",

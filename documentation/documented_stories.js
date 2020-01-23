@@ -3,6 +3,7 @@ import upperFirst from 'lodash/upperFirst';
 
 import { storiesOf } from '@storybook/vue';
 import { withDocs } from 'storybook-readme';
+import { configureReadme } from 'storybook-readme';
 
 import 'url-search-params-polyfill';
 
@@ -54,8 +55,8 @@ function getComponentName() {
   return componentName;
 }
 
-const withCustomPreview = withDocs({
-  PreviewComponent: {
+configureReadme({
+  StoryPreview: {
     data() {
       return {
         // Style the preview component container
@@ -70,7 +71,7 @@ const withCustomPreview = withDocs({
     template: '<div class="story-container" v-bind:style="styles"><slot></slot></div>',
   },
   // Disable default footer's dashed bottom border
-  FooterComponent: {
+  FooterPreview: {
     data() {
       return {
         componentName: null,
@@ -104,7 +105,7 @@ function documentedStoriesOf(storyName, readme) {
   const story = storiesOf(storyName, module);
 
   if (process.env.NODE_ENV !== 'test') {
-    story.addDecorator(withCustomPreview(readme));
+    story.addDecorator(withDocs(readme));
   }
 
   return story;
