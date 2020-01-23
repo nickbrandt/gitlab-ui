@@ -1,7 +1,5 @@
 <script>
-import BInputGroup from 'bootstrap-vue/src/components/input-group/input-group';
-import BInputGroupPrepend from 'bootstrap-vue/src/components/input-group/input-group-prepend';
-import BInputGroupAppend from 'bootstrap-vue/src/components/input-group/input-group-append';
+import { BInputGroup, BInputGroupPrepend, BInputGroupAppend } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../new_button/new_button.vue';
 import GlDropdown from '../new_dropdown/new_dropdown.vue';
@@ -167,13 +165,13 @@ export default {
             <slot name="history-item" :historyItem="item">{{ item }}</slot>
           </gl-dropdown-item>
           <gl-dropdown-divider />
-          <gl-dropdown-item ref="clearHistory" @click="$emit('clear-history')">
-            {{ clearRecentSearchesText }}
-          </gl-dropdown-item>
+          <gl-dropdown-item ref="clearHistory" @click="$emit('clear-history')">{{
+            clearRecentSearchesText
+          }}</gl-dropdown-item>
         </template>
-        <gl-dropdown-text v-else class="gl-search-box-by-click-history-no-searches">
-          {{ noRecentSearchesText }}
-        </gl-dropdown-text>
+        <gl-dropdown-text v-else class="gl-search-box-by-click-history-no-searches">{{
+          noRecentSearchesText
+        }}</gl-dropdown-text>
       </gl-dropdown>
     </b-input-group-prepend>
     <slot name="input">

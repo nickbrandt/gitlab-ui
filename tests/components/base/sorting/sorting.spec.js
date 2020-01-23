@@ -22,6 +22,7 @@ describe('sorting component', () => {
 
   const createComponent = propsData => {
     wrapper = mount(GlSort, {
+      attachToDocument: true,
       components: {
         GlSortingItem,
       },
@@ -109,6 +110,6 @@ describe('sorting component', () => {
     });
 
     expect(wrapper.vm.sortDirectionToolTip).toBe(newDirectionTooltip);
-    expect(selectDirectionButton().attributes('data-original-title')).toBe(newDirectionTooltip);
+    expect(selectDirectionButton().attributes('title')).toBe(newDirectionTooltip);
   });
 });

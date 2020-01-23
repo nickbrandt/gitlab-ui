@@ -1,5 +1,5 @@
 <script>
-import BLink from 'bootstrap-vue/src/components/link/link';
+import { BLink } from 'bootstrap-vue';
 import RelMixin from '../../mixins/rel_mixin';
 
 export default {

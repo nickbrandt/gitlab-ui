@@ -26,7 +26,7 @@ function makeTooltip(modifier = '') {
       </div>
     `,
     mounted() {
-      this.$el.querySelector('button').focus();
+      this.$nextTick(() => this.$el.querySelector('button').focus());
     },
   });
 }
@@ -47,18 +47,16 @@ function generateTooltip() {
     template: `
       <div class="d-flex align-items-center justify-content-center p-5 m-5">
         <gl-new-button id="btn1">Tooltip</gl-new-button>
-        <gl-tooltip 
+        <gl-tooltip
           target="btn1"
           triggers="hover focus click"
+          show
           :placement="placement"
         >
           Hello <strong>World!</strong>
         </gl-tooltip>
       </div>
     `,
-    mounted() {
-      this.$nextTick(() => this.$el.querySelector('button').focus());
-    },
   });
 }
 

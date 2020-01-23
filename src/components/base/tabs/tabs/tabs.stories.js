@@ -42,7 +42,7 @@ documentedStoriesOf('base|tabs/tabs', '')
         <gl-tab title="Another tab">
           <p>Another tab's content.</p>
         </gl-tab>
-        <template #tabs>
+        <template #tabs-end>
           <li class="gl-tab-nav-item">
             Contentless tab
           </li>

@@ -85,19 +85,19 @@ export default {
       return bootstrapComponent && bootstrapComponent.options ? bootstrapComponent.options : {};
     },
     componentPropertiesFields() {
-      return {
-        prop: { label: 'Property' },
-        type: { label: 'Type' },
-        required: { label: 'Required' },
-        val: { label: 'Value' },
-      };
+      return [
+        { key: 'prop', label: 'Property' },
+        { key: 'type', label: 'Type' },
+        { key: 'required', label: 'Required' },
+        { key: 'val', label: 'Value' },
+      ];
     },
     eventsFields() {
-      return {
-        event: { label: 'Event' },
-        args: { label: 'Arguments' },
-        description: { label: 'Description' },
-      };
+      return [
+        { key: 'event', label: 'Event' },
+        { key: 'args', label: 'Arguments' },
+        { key: 'description', label: 'Description' },
+      ];
     },
     componentProperties() {
       const { props } = this.actualComponentOptions;

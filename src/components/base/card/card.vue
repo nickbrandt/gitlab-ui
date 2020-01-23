@@ -1,5 +1,5 @@
 <script>
-import BCard from 'bootstrap-vue/src/components/card/card';
+import { BCard } from 'bootstrap-vue';
 
 export default {
   components: {

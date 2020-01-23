@@ -1,6 +1,5 @@
 import Vue from 'vue';
-import BVConfig from 'bootstrap-vue/src/bv-config';
-import Tooltip from 'bootstrap-vue/src/directives/tooltip/tooltip';
+import { VBTooltip, BVConfigPlugin } from 'bootstrap-vue';
 
 const tooltipGlobalConfig = {
   customClass: 'gl-tooltip',
@@ -11,8 +10,8 @@ if (glTooltipDelay) {
   tooltipGlobalConfig.delay = JSON.parse(glTooltipDelay);
 }
 
-Vue.use(BVConfig, {
+Vue.use(BVConfigPlugin, {
   BTooltip: tooltipGlobalConfig,
 });
 
-export default Tooltip;
+export default VBTooltip;

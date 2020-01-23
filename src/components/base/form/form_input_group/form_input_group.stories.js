@@ -1,5 +1,5 @@
 import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
-import BInputGroupText from 'bootstrap-vue/src/components/input-group/input-group-text';
+import { BInputGroupText } from 'bootstrap-vue';
 import documentedStoriesOf from '../../../../../documentation/documented_stories';
 import readme from './form_input_group.md';
 import { GlFormInputGroup, GlButton } from '../../../../../index';

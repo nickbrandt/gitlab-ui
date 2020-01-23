@@ -1,5 +1,5 @@
 <script>
-import BBadge from 'bootstrap-vue/src/components/badge/badge';
+import { BBadge } from 'bootstrap-vue';
 
 export default {
   components: {
