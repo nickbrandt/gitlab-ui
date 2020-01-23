@@ -1,3 +1,10 @@
+# [8.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.20.0...v8.21.0) (2020-01-23)
+
+
+### Features
+
+* **avatars:** Detach collapsed state from badge ([a24270b](https://gitlab.com/gitlab-org/gitlab-ui/commit/a24270bcae6ca70cfe0fb651c9a9aa5349f7933d))
+
 # [8.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.19.1...v8.20.0) (2020-01-23)
 
 
