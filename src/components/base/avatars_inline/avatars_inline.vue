@@ -64,10 +64,7 @@ export default {
 };
 </script>
 <template>
-  <div
-    :class="['gl-avatars-inline', { collapsed: collapsed && collapsable }]"
-    :style="containerSizeStyles"
-  >
+  <div :class="['gl-avatars-inline', { collapsed: collapsed }]" :style="containerSizeStyles">
     <div
       v-for="(avatar, index) in visibleAvatars"
       :key="index"

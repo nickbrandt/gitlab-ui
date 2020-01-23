@@ -15,18 +15,16 @@ describe('avatars inline', () => {
 
   afterEach(() => wrapper.destroy());
 
-  describe('when component is collapsed and maxVisible is less than the number of avatars', () => {
-    it('adds collapsed class selector', () => {
-      buildWrapper({ avatars, maxVisible: 1, avatarSize: 24, collapsed: true });
-
-      expect(wrapper.classes()).toContain('collapsed');
-    });
-  });
-
   it('displays all avatars when component is not collapsed', () => {
     buildWrapper({ avatars, maxVisible: 1, avatarSize: 24, collapsed: false });
 
     expect(wrapper.findAll(Avatar).length).toBe(avatars.length);
+  });
+
+  it('adds collapsed class selector when collapsed=true', () => {
+    buildWrapper({ avatars, maxVisible: 2, avatarSize: 24, collapsed: true });
+
+    expect(wrapper.classes()).toContain('collapsed');
   });
 
   describe('when component is collapsed and maxVisible is the number of avatars', () => {
@@ -36,10 +34,6 @@ describe('avatars inline', () => {
 
     it('displays all avatars', () => {
       expect(wrapper.findAll(Avatar).length).toBe(avatars.length);
-    });
-
-    it('does not add a collapsed class selector', () => {
-      expect(wrapper.classes()).not.toContain('collapsed');
     });
   });
 
