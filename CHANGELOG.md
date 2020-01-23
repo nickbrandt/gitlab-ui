@@ -1,3 +1,10 @@
+# [8.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.19.1...v8.20.0) (2020-01-23)
+
+
+### Features
+
+* **color:** adding $purple color variables ([9310e3f](https://gitlab.com/gitlab-org/gitlab-ui/commit/9310e3f0d48e32ab3fcfb83cbfe628ced2f95988))
+
 ## [8.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.19.0...v8.19.1) (2020-01-22)
 
 
