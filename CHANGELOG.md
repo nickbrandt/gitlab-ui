@@ -1,3 +1,24 @@
+# [9.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.21.0...v9.0.0) (2020-01-23)
+
+
+### Code Refactoring
+
+* Upgrade BootstrapVue to 2.1.0 ([6d6ef5b](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d6ef5bfaade2dc13f86f5f27311aaaebef2df69))
+
+
+### BREAKING CHANGES
+
+* Upgrade bootstrap-vue dependency to version 2.1.0. This
+upgrade contains the following breaking changes:
+
+- Import statements for bootstrap-vue components changed.
+- BTable component has a new slot syntax for custom content.
+- BTabs component has a new slot syntax for contentless tabs
+- BPopover and BTooltip components were completely rewritten
+
+For more information about this upgrade, check BootstrapVue changelog
+page https://bootstrap-vue.js.org/docs/misc/changelog
+
 # [8.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.20.0...v8.21.0) (2020-01-23)
 
 
