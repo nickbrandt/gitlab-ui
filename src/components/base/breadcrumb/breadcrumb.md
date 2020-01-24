@@ -12,7 +12,7 @@ breadcrumb.
 You can use any kind of separator you want in the slot, like below, which uses `<svg>`
 to draw a `/`
 
-```vue
+```html
 <gl-breadcrumb :items="items">
   <template #avatar>
     <img

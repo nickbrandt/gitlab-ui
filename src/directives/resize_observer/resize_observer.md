@@ -15,7 +15,7 @@ The directive accepts a callback as a value and passes on the received
 [contentRect](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry/contentRect) and the target element whenever a resize
 event gets triggered.
 
-```vue
+```html
 <script>
 export default {
   data() {

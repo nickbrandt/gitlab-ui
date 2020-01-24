@@ -8,7 +8,7 @@ The drawer is used to show more information about a certain resource in the UI a
 
 ### By default
 
-```vue
+```html
 <gl-drawer :open="open" @close="close">
   <template #header>Your Title</template>
   <template>
