@@ -1,5 +1,6 @@
 <script>
 import GlDatepicker from '../datepicker/datepicker.vue';
+import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 
 export default {
   components: {
@@ -46,6 +47,11 @@ export default {
       required: false,
       default: null,
     },
+    maxDateRange: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     startPickerClass: {
       type: String,
       required: false,
@@ -64,15 +70,33 @@ export default {
   },
   data() {
     return {
-      fromCalendarStartRange: this.defaultStartDate,
-      fromCalendarEndRange: this.defaultEndDate,
-      toCalendarStartRange: this.defaultStartDate,
-      toCalendarEndRange: this.defaultEndDate,
-      fromCalendarMaxDate: this.defaultMaxDate,
-      toCalendarMinDate: this.defaultMinDate,
+      fromCalendarMaxDate: this.defaultMaxDate ? getDateInPast(this.defaultMaxDate, 1) : null,
+      toCalendarMinDate: this.defaultStartDate ? getDateInFuture(this.defaultStartDate, 1) : null,
       startDate: this.defaultStartDate,
       endDate: this.defaultEndDate,
+      openToCalendar: false,
     };
+  },
+  computed: {
+    toCalendarMaxDate() {
+      if (!this.startDate || !this.maxDateRange) return this.defaultMaxDate;
+
+      const computedMaxEndDate = getDateInFuture(this.startDate, this.maxDateRange);
+      return new Date(Math.min(computedMaxEndDate, this.defaultMaxDate));
+    },
+    dateRangeViolation() {
+      return this.startDate >= this.endDate || this.exceedsDateRange;
+    },
+    exceedsDateRange() {
+      const numberOfDays = getDayDifference(this.startDate, this.endDate);
+      return this.maxDateRange ? numberOfDays > this.maxDateRange : false;
+    },
+    toCalendarDefaultDate() {
+      return this.endDate || this.toCalendarMinDate;
+    },
+    numericStartTime() {
+      return this.startDate ? this.startDate.getTime() : null;
+    },
   },
   watch: {
     value(val) {
@@ -84,18 +108,16 @@ export default {
   methods: {
     onStartDateSelected(startDate) {
       this.startDate = startDate;
-      this.fromCalendarStartRange = startDate;
-      this.toCalendarStartRange = startDate;
-      this.toCalendarMinDate = startDate;
+      this.toCalendarMinDate = startDate ? getDateInFuture(startDate, 1) : null;
 
-      this.$emit('input', { startDate, endDate: this.endDate });
+      if (this.dateRangeViolation) {
+        this.openToCalendar = true;
+        this.endDate = null;
+      } else this.$emit('input', { startDate, endDate: this.endDate });
     },
     onEndDateSelected(endDate) {
+      this.openToCalendar = false;
       this.endDate = endDate;
-      this.fromCalendarEndRange = endDate;
-      this.fromCalendarMaxDate = endDate;
-      this.toCalendarEndRange = endDate;
-
       this.$emit('input', { startDate: this.startDate, endDate });
     },
   },
@@ -110,8 +132,8 @@ export default {
         v-model="startDate"
         :min-date="defaultMinDate"
         :max-date="fromCalendarMaxDate"
-        :start-range="fromCalendarStartRange"
-        :end-range="fromCalendarEndRange"
+        :start-range="defaultMinDate"
+        :end-range="fromCalendarMaxDate"
         :theme="theme"
         :i18n="i18n"
         @input="onStartDateSelected"
@@ -120,13 +142,16 @@ export default {
     <div :class="endPickerClass">
       <label>{{ toLabel }}</label>
       <gl-datepicker
+        :key="numericStartTime"
         v-model="endDate"
         :min-date="toCalendarMinDate"
-        :max-date="defaultMaxDate"
-        :start-range="toCalendarStartRange"
-        :end-range="toCalendarEndRange"
+        :max-date="toCalendarMaxDate"
+        :start-range="toCalendarMinDate"
+        :end-range="toCalendarMaxDate"
         :theme="theme"
         :i18n="i18n"
+        :start-opened="openToCalendar"
+        :default-date="toCalendarDefaultDate"
         @input="onEndDateSelected"
       />
     </div>
