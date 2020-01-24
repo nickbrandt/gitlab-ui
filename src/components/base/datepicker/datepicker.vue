@@ -102,6 +102,11 @@ export default {
       required: false,
       default: false,
     },
+    defaultDate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
     i18n: {
       type: Object,
       required: false,
@@ -155,7 +160,7 @@ export default {
       trigger,
       container,
       theme: `gl-datepicker-theme ${this.theme}`,
-      defaultDate: this.value,
+      defaultDate: this.value || this.defaultDate,
       setDefaultDate: Boolean(this.value),
       minDate: this.minDate,
       maxDate: this.maxDate,

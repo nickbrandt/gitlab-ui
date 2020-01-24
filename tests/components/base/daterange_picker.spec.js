@@ -5,9 +5,16 @@ import Datepicker from '../../../src/components/base/datepicker/datepicker.vue';
 describe('Daterange Picker', () => {
   let wrapper;
 
-  const factory = (options = {}) => {
+  const startDate = new Date('2020-08-27');
+  const endDate = new Date('2020-08-29');
+
+  const factory = (props = {}) => {
     wrapper = shallowMount(DaterangePicker, {
-      ...options,
+      propsData: {
+        defaultStartDate: startDate,
+        defaultEndDate: endDate,
+        ...props,
+      },
     });
   };
 
@@ -24,59 +31,80 @@ describe('Daterange Picker', () => {
     expect(findEndPicker().exists()).toBe(true);
   });
 
-  describe('when the start picker emits the input event', () => {
-    const startDate = new Date();
-    const attributes = [
-      'startDate',
-      'fromCalendarStartRange',
-      'toCalendarStartRange',
-      'toCalendarMinDate',
-    ];
+  describe('from date picker', () => {
+    describe('emits the input event', () => {
+      beforeEach(() => {
+        factory();
+        findStartPicker().vm.$emit('input', startDate);
+      });
 
-    beforeEach(() => {
-      factory();
-      findStartPicker().vm.$emit('input', startDate);
-    });
+      it('updates startDate correctly', () => {
+        expect(wrapper.vm.startDate).toBe(startDate);
+      });
 
-    it.each(attributes)(`updates %s correctly`, attribute => {
-      expect(wrapper.vm[attribute]).toBe(startDate);
-    });
+      it('sets the toCalendarMinDate to one day after the startDate', () => {
+        const toCalendarMinDate = new Date('2020-08-28');
 
-    it('emits the "input" event', () => {
-      expect(wrapper.emittedByOrder()).toEqual([
-        {
-          name: 'input',
-          args: [{ startDate, endDate: wrapper.vm.endDate }],
-        },
-      ]);
+        expect(wrapper.vm.toCalendarMinDate).toEqual(toCalendarMinDate);
+      });
+
+      describe('with a date range violation', () => {
+        beforeEach(() => {
+          factory({
+            defaultEndDate: new Date('2020-08-26'),
+          });
+          findStartPicker().vm.$emit('input', startDate);
+        });
+
+        it('does not emit the "input" event when there is a date range violation', () => {
+          expect(wrapper.emittedByOrder()).toEqual([]);
+        });
+
+        it('sets openToCalendar=true', () => {
+          expect(wrapper.vm.openToCalendar).toBe(true);
+        });
+
+        it('sets endDate=null', () => {
+          expect(wrapper.vm.endDate).toBe(null);
+        });
+      });
+
+      describe('with no date range violation', () => {
+        it('emits the "input" event', () => {
+          expect(wrapper.emittedByOrder()).toEqual([
+            {
+              name: 'input',
+              args: [{ startDate, endDate: wrapper.vm.endDate }],
+            },
+          ]);
+        });
+      });
     });
   });
 
-  describe('when the end picker emits the input event', () => {
-    const endDate = new Date();
-    const attributes = [
-      'endDate',
-      'fromCalendarEndRange',
-      'fromCalendarMaxDate',
-      'toCalendarEndRange',
-    ];
+  describe('end date picker', () => {
+    describe('emits the input event', () => {
+      beforeEach(() => {
+        factory();
+        findEndPicker().vm.$emit('input', endDate);
+      });
 
-    beforeEach(() => {
-      factory();
-      findEndPicker().vm.$emit('input', endDate);
-    });
+      it('updates endDate correctly', () => {
+        expect(wrapper.vm.endDate).toBe(endDate);
+      });
 
-    it.each(attributes)(`updates %s correctly`, attribute => {
-      expect(wrapper.vm[attribute]).toBe(endDate);
-    });
+      it('sets openToCalendar=false', () => {
+        expect(wrapper.vm.openToCalendar).toBe(false);
+      });
 
-    it('calls the event handler', () => {
-      expect(wrapper.emittedByOrder()).toEqual([
-        {
-          name: 'input',
-          args: [{ startDate: wrapper.vm.startDate, endDate }],
-        },
-      ]);
+      it('calls the event handler', () => {
+        expect(wrapper.emittedByOrder()).toEqual([
+          {
+            name: 'input',
+            args: [{ startDate: wrapper.vm.startDate, endDate }],
+          },
+        ]);
+      });
     });
   });
 });
