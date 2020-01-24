@@ -1,5 +1,6 @@
 <script>
-import { GlIcon, GlLoadingIcon } from '../../../../index';
+import GlIcon from '../icon/icon.vue';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
 export default {
   components: {
