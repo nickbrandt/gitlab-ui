@@ -1,3 +1,10 @@
+## [9.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.0.0...v9.0.1) (2020-01-24)
+
+
+### Bug Fixes
+
+* Enhance daterange_picker range selection ([fa2c4c1](https://gitlab.com/gitlab-org/gitlab-ui/commit/fa2c4c1cbc0fbc4c3b4744c31b63470322f120e7))
+
 # [9.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.21.0...v9.0.0) (2020-01-23)
 
 
