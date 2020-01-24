@@ -64,7 +64,7 @@
     @include gl-mr-3;
 
     > svg {
-      @include gl-vertical-align-baseline;
+      @include gl-vertical-align-bottom;
     }
   }
 
