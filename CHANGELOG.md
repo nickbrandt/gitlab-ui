@@ -1,3 +1,10 @@
+## [9.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.0.1...v9.0.2) (2020-01-24)
+
+
+### Bug Fixes
+
+* **broadcast message:** adjust vertical spacing ([82d5cca](https://gitlab.com/gitlab-org/gitlab-ui/commit/82d5cca46526f6c2118e113edca9ea04e173b432))
+
 ## [9.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.0.0...v9.0.1) (2020-01-24)
 
 
