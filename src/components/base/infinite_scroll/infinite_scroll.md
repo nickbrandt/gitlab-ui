@@ -28,7 +28,7 @@ pageInfo: {
 When fetching for the first time, set the state with the header
 information in the mutations:
 
-```vue
+```html
 Vue.set(state.pageInfo, 'currentPage', parseInt(headers['X-Page'], 10));
 Vue.set(state.pageInfo, 'nextPage', parseInt(headers['X-Next-Page'], 10));
 Vue.set(state.pageInfo, 'totalPages', parseInt(headers['X-Total-Pages'], 10));
@@ -59,7 +59,7 @@ export const fetchNextPage = ({ state, dispatch }) => {
 };
 ```
 
-```vue
+```html
 <script>
 exportDefault {
   components: {

@@ -6,7 +6,7 @@
 
 The current page's value should be bound using `v-model`, e.g.:
 
-```vue
+```html
 <script>
 export default {
   data: () => ({
@@ -28,7 +28,7 @@ To enable the compact mode, you'll need to provide the previous and/or next page
 
 > NOTE: If one of the props is omitted, the corresponding button will be disabled. If both properties are omitted the pagination won't render at all.
 
-```vue
+```html
 <template>
   <gl-pagination :value="2" :prev-page="1" :next-page="3" />
 </template>

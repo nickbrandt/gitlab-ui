@@ -25,7 +25,7 @@ wbr {
 
 By default, `GlFriendlyWrap` wraps text with slashes (`/`) as the break-symbol, which is especially useful when displaying paths or URLs:
 
-```vue
+```html
 <gl-friendly-wrap text="/some/file/path" />
 ```
 
@@ -39,7 +39,7 @@ The code above renders to the following HTML:
 
 Multiple custom break-symbols can be defined via the `GlFriendlyWrap` prop:
 
-```vue
+```html
 <gl-friendly-wrap
   :symbols="[';', '-', '.']"
   text="some;text-that.needs;to-be.wrapped"
@@ -56,7 +56,7 @@ Which renders to:
 
 Symbols can be words too:
 
-```vue
+```html
 <gl-friendly-wrap
   :symbols="['and']"
   text="it goes on and on and on and on"

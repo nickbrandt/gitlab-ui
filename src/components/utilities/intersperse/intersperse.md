@@ -25,7 +25,7 @@ Also, whitespace elements that are direct children of the default-slot get remov
 
 ### Default
 
-```vue
+```html
 <gl-intersperse>
     <span>Item 1</span>
     <span>Item 2</span>
@@ -43,7 +43,7 @@ This renders to the following HTML:
 
 A custom separator can be defined via the `separator` prop:
 
-```vue
+```html
 <gl-intersperse separator="/">
     <span>Item 1</span>
     <span>Item 2</span>
@@ -61,7 +61,7 @@ This renders to the following HTML:
 
 A custom last separator can be defined via the `lastSeparator` prop:
 
-```vue
+```html
 <gl-intersperse last-separator=" and ">
     <span>Item 1</span>
     <span>Item 2</span>
@@ -77,7 +77,7 @@ This renders to the following HTML:
 
 A custom last separator used on two items will only place `lastSeparator` between them:
 
-```vue
+```html
 <gl-intersperse last-separator=" and ">
     <span>Item 1</span>
     <span>Item 2</span>
