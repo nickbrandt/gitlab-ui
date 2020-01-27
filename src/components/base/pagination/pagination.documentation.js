@@ -35,7 +35,7 @@ export default {
     },
     ellipsisText: {
       additionalInfo:
-        'Text for the ellipsis (overridden by "ellipsis_left" and "ellipsis_right" slots)',
+        'Text for the ellipsis (overridden by "ellipsis-left" and "ellipsis-right" slots)',
     },
     labelFirstPage: {
       additionalInfo: 'aria-label for the first page item',
@@ -62,4 +62,29 @@ export default {
         'Controls the component\'s horizontal alignment, value should be one of "left", "center", "right" or "fill"',
     },
   },
+  slots: [
+    {
+      name: 'previous',
+      description: `Content for the "previous" button. Overrides the "prevText" prop.`,
+      scopedProps: `{ active: boolean, disabled: boolean, page: number }`,
+    },
+    {
+      name: 'next',
+      description: `Content for the "next" button. Overrides the "nextText" prop.`,
+      scopedProps: `{ active: boolean, disabled: boolean, page: number }`,
+    },
+    {
+      name: 'page-number',
+      description: `Content for page number buttons.`,
+      scopedProps: `{ active: boolean, disabled: boolean, page: number }`,
+    },
+    {
+      name: 'ellipsis-left',
+      description: `Content for the left ellipsis. Overrides the "ellipsisText" prop.`,
+    },
+    {
+      name: 'ellipsis-right',
+      description: `Content for the right ellipsis. Overrides the "ellipsisText" prop.`,
+    },
+  ],
 };
