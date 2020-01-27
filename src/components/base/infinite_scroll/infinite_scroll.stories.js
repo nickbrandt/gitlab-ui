@@ -1,5 +1,5 @@
 import { withKnobs, object } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './infinite_scroll.md';
 
 const items = [

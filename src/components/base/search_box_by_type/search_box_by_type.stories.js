@@ -1,5 +1,5 @@
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './search_box_by_type.md';
 import { GlSearchBoxByType } from '../../../../index';
 

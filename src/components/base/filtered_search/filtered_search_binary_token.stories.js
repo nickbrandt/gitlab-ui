@@ -1,7 +1,7 @@
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import GlFilteredSearchBinaryToken from './filtered_search_binary_token.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_binary_token.md';

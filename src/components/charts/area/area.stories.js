@@ -1,6 +1,6 @@
 import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
 import { times } from 'lodash';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlAreaChart } from '../../../../charts';
 import readme from './area.md';
 import { generateTimeSeries } from '../../../utils/data_utils';

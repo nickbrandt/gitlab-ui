@@ -1,5 +1,5 @@
 import { withKnobs, text } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChartSeriesLabel } from '../../../../charts';
 import readme from './series_label.md';
 import { colorPalette } from '../../../utils/charts/theme';

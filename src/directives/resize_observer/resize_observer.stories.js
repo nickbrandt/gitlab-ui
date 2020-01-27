@@ -1,5 +1,5 @@
 import { withKnobs, select } from '@storybook/addon-knobs/dist/deprecated';
-import documentedStoriesOf from '../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import readme from './resize_observer.md';
 import { GlResizeObserverDirective } from '../../../index';
 

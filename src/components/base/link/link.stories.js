@@ -1,5 +1,5 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { targetOptions } from '../../../utils/constants';
 import readme from './link.md';
 import { GlLink } from '../../../../index';

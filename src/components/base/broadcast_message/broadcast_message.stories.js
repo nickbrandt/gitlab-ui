@@ -1,6 +1,6 @@
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs/vue';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './broadcast_message.md';
 import { GlBroadcastMessage } from '../../../../index';
 import { colorThemes } from '../../../utils/constants';

@@ -1,7 +1,7 @@
 import { select, text, number, withKnobs } from '@storybook/addon-knobs';
 import Vue from 'vue';
 import GlTooltipDirective from '../../../directives/tooltip';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './avatar.md';
 

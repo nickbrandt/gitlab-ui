@@ -1,5 +1,5 @@
 import { withKnobs, boolean, object } from '@storybook/addon-knobs/vue';
-import documentedStoriesOf from '../../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_checkbox.md';
 import { GlFormCheckbox, GlFormCheckboxGroup } from '../../../../../index';
 

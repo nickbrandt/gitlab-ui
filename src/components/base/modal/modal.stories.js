@@ -1,5 +1,5 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
-import documentedStoriesOf from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import { GlModal, GlModalDirective } from '../../../../index';
 import readme from './modal.md';
