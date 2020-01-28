@@ -1,3 +1,10 @@
+## [9.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.0...v9.2.1) (2020-01-28)
+
+
+### Bug Fixes
+
+* **popover:** Expose popover event listeners ([684c786](https://gitlab.com/gitlab-org/gitlab-ui/commit/684c7862bdac3f38edf05ba5ef2dcc533202b44d))
+
 # [9.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.1.0...v9.2.0) (2020-01-28)
 
 
