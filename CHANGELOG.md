@@ -1,3 +1,10 @@
+## [9.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.1...v9.2.2) (2020-01-28)
+
+
+### Bug Fixes
+
+* Help text font size being overridden ([3bb7d41](https://gitlab.com/gitlab-org/gitlab-ui/commit/3bb7d4199edf93999a3a46767fe943b3c6a63526))
+
 ## [9.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.0...v9.2.1) (2020-01-28)
 
 
