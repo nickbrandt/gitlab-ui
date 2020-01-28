@@ -1,5 +1,12 @@
 <script>
-const PLACE_HOLDER_REGEX = /(%{[A-Z]+[\w|-]*[A-Z0-9]+})/gi;
+/* eslint-disable no-continue */
+import has from 'lodash/has';
+
+const PREFIX = '%{';
+const SUFFIX = '}';
+const START_SUFFIX = `Start${SUFFIX}`;
+const END_SUFFIX = `End${SUFFIX}`;
+const PLACE_HOLDER_REGEX = new RegExp(`(${PREFIX}[a-z]+[\\w-]*[a-z0-9]+${SUFFIX})`, 'gi');
 
 export default {
   functional: true,
@@ -9,24 +16,60 @@ export default {
       required: true,
     },
   },
+  /**
+   * While a functional style is generally preferred, an imperative style is
+   * used here, as it lends itself better to the message parsing algorithm.
+   * This approach is also more performant, as it minimizes (relatively) object
+   * creation/garbage collection, which is important given how frequently this
+   * code may run on a given page.
+   */
   render(createElement, context) {
-    const slots = context.slots();
+    let i = 0;
+    const vnodes = [];
+    const slots = context.scopedSlots;
+    const chunks = context.props.message.split(PLACE_HOLDER_REGEX);
 
-    const keys = Object.keys(slots);
+    while (i < chunks.length) {
+      const chunk = chunks[i];
+      // Skip past this chunk now we have it
+      i += 1;
 
-    if (keys.length > 0) {
-      // Replace all named interpolations with content from slots with the same names
-      return context.props.message.split(PLACE_HOLDER_REGEX).map(chunk => {
-        if (chunk.startsWith('%{') && chunk.endsWith('}')) {
-          // Strip interpolation start/end markers
-          const slotName = chunk.slice(2, -1);
-          return slotName in slots ? slots[slotName] : chunk;
+      if (!PLACE_HOLDER_REGEX.test(chunk)) {
+        // Not a placeholder, so pass through as-is
+        vnodes.push(chunk);
+        continue;
+      }
+
+      if (chunk.endsWith(START_SUFFIX)) {
+        const slotName = chunk.slice(PREFIX.length, -START_SUFFIX.length);
+
+        // Peek ahead to find end placeholder, if any
+        const indexOfEnd = chunks.indexOf(`${PREFIX}${slotName}${END_SUFFIX}`, i);
+        if (indexOfEnd > -1) {
+          // We have a valid start/end placeholder pair! Extract the content
+          // between them and skip past the end placeholder
+          const content = chunks.slice(i, indexOfEnd);
+          i = indexOfEnd + 1;
+
+          if (!has(slots, slotName)) {
+            // Slot hasn't been provided; return placeholders and content as-is
+            vnodes.push(chunk, ...content, chunks[indexOfEnd]);
+            continue;
+          }
+
+          // Provide content to provided scoped slot
+          vnodes.push(slots[slotName]({ content: content.join('') }));
+          continue;
         }
-        return chunk;
-      });
+      }
+
+      // By process of elimination, chunk must be a plain placeholder
+      const slotName = chunk.slice(PREFIX.length, -SUFFIX.length);
+      vnodes.push(has(slots, slotName) ? slots[slotName]() : chunk);
+      continue;
     }
 
-    return [context.props.message];
+    return vnodes;
   },
 };
 </script>
