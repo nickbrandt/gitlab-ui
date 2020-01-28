@@ -1,3 +1,10 @@
+# [9.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.1.0...v9.2.0) (2020-01-28)
+
+
+### Features
+
+* **filtered_search:** Implement static binary token ([591ced0](https://gitlab.com/gitlab-org/gitlab-ui/commit/591ced08a21be587cf8ac7ac3395d859c2721511))
+
 # [9.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.0.2...v9.1.0) (2020-01-28)
 
 
