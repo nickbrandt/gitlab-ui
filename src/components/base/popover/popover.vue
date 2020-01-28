@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <b-popover ref="bPopover" :custom-class="customClass" v-bind="$attrs">
+  <b-popover ref="bPopover" :custom-class="customClass" v-bind="$attrs" v-on="$listeners">
     <template slot="title">
       <slot name="title"></slot>
     </template>
