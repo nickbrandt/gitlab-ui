@@ -68,6 +68,7 @@ export { default as GlFilteredSearchSuggestionList } from './src/components/base
 export { default as GlFilteredSearchTerm } from './src/components/base/filtered_search/filtered_search_term.vue';
 export { default as GlFilteredSearchBinaryToken } from './src/components/base/filtered_search/filtered_search_binary_token.vue';
 export { default as GlBroadcastMessage } from './src/components/base/broadcast_message/broadcast_message.vue';
+export { default as GlCollapse } from './src/components/base/collapse/collapse.vue';
 
 // Utilities
 export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
@@ -78,3 +79,4 @@ export { default as GlSprintf } from './src/components/utilities/sprintf/sprintf
 export { default as GlModalDirective } from './src/directives/modal';
 export { default as GlTooltipDirective } from './src/directives/tooltip';
 export { default as GlResizeObserverDirective } from './src/directives/resize_observer/resize_observer';
+export { default as GlCollapseToggleDirective } from './src/directives/collapse_toggle';

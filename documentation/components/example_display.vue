@@ -32,6 +32,7 @@ Object.keys(gitlabComponents).forEach(comp => {
 Vue.directive('gl-tooltip', gitlabComponents.GlTooltipDirective);
 Vue.directive('gl-modal-directive', gitlabComponents.GlModalDirective);
 Vue.directive('gl-resize-observer-directive', gitlabComponents.GlResizeObserverDirective);
+Vue.directive('gl-collapse-toggle', gitlabComponents.GlCollapseToggleDirective);
 
 function findComponentExample(exampleName) {
   /* eslint-disable no-restricted-syntax */
