@@ -1,3 +1,11 @@
+# [9.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.0.2...v9.1.0) (2020-01-28)
+
+
+### Features
+
+* Add Collapse component ([6be57d0](https://gitlab.com/gitlab-org/gitlab-ui/commit/6be57d07628b717b65f4df51a477ca577d2d068a))
+* **sprintf:** Allow full sentence interpolation ([af82918](https://gitlab.com/gitlab-org/gitlab-ui/commit/af82918633eaf19d40ea2da36e98401496f6e27a)), closes [/gitlab.com/gitlab-org/gitlab/issues/21344#note_221778896](https://gitlab.com//gitlab.com/gitlab-org/gitlab/issues/21344/issues/note_221778896)
+
 ## [9.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.0.1...v9.0.2) (2020-01-24)
 
 
