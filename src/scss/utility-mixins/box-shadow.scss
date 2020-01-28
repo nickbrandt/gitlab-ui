@@ -99,6 +99,10 @@
   box-shadow: 0 1px 4px 0 rgba($black, 0.3);
 }
 
+@mixin gl-shadow-dropdown {
+  box-shadow: 0 2px 4px 0 rgba($black, 0.1);
+}
+
 @mixin gl-shadow-drawer {
   box-shadow: -4px 0 8px $gray-200;
 }

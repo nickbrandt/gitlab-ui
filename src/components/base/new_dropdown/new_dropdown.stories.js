@@ -55,6 +55,10 @@ function generateProps({
   return props;
 }
 
+function clickDropdown(component) {
+  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
+}
+
 documentedStoriesOf('base|new-dropdown', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
@@ -75,7 +79,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      clickDropdown(this);
     },
     updated() {
       addClass(this);
@@ -98,7 +102,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-new-dropdown-item href="https://about.gitlab.com/">Last link</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      clickDropdown(this);
     },
     updated() {
       addClass(this);
@@ -121,7 +125,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-new-dropdown-item>Below divider</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      clickDropdown(this);
     },
     updated() {
       addClass(this);
@@ -147,7 +151,7 @@ documentedStoriesOf('base|new-dropdown', readme)
         <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+      clickDropdown(this);
     },
     updated() {
       addClass(this);
