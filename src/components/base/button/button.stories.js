@@ -119,7 +119,6 @@ documentedStoriesOf('base|button', readme)
     components,
     template: `
       <gl-button
-        :category="category"
         :variant="variant"
         :size="size"
         :disabled="disabled"
