@@ -1,4 +1,5 @@
 import SprintfBasicExample from './sprintf.basic.example.vue';
+import SprintfInterpolatedExample from './sprintf.interpolated.example.vue';
 
 export default [
   {
@@ -9,6 +10,12 @@ export default [
         name: 'Basic',
         description: 'Basic sprintf',
         component: SprintfBasicExample,
+      },
+      {
+        id: 'sprintf-interpolated-content',
+        name: 'Interpolated content',
+        description: 'Interpolated content passed to scoped slots',
+        component: SprintfInterpolatedExample,
       },
     ],
   },

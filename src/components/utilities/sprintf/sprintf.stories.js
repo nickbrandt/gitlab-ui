@@ -8,10 +8,10 @@ const components = {
   GlButton: GlNewButton,
 };
 
-function generateProps() {
+function generateProps({ message = 'Written by %{author}' } = {}) {
   const props = {
     message: {
-      default: text('Message', 'Written by %{author}'),
+      default: text('Message', message),
     },
   };
 
@@ -41,6 +41,21 @@ documentedStoriesOf('utilities|sprintf', readme)
         <gl-sprintf :message="message">
           <template #author>
             <gl-button>Author</gl-button>
+          </template>
+        </gl-sprintf>
+      </div>
+    `,
+  }))
+  .add('interpolated content', () => ({
+    props: generateProps({
+      message: 'Click %{linkStart}here%{linkEnd} to reticulate splines.',
+    }),
+    components,
+    template: `
+      <div class="gl-font-base">
+        <gl-sprintf :message="message">
+          <template #link="{ content }">
+            <gl-link href="#" target="_blank">{{ content }}</gl-link>
           </template>
         </gl-sprintf>
       </div>
