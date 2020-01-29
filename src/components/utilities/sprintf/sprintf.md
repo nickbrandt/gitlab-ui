@@ -4,11 +4,19 @@
 
 ## Basic
 
-The `GlSprintf` component lets you do string interpolation with child components. Each placeholder in the translation string becomes a slot that you can use to insert any component in the rendered string.
+The `GlSprintf` component lets you do `sprintf`-style string interpolation with
+child components. Each placeholder in the translated string, provided via the
+`message` prop, becomes a slot that you can use to insert any component in the
+rendered output.
+
+> NOTE: `gl-sprintf` does not translate the message for you; you must provide
+> it already translated. In the following examples, it is assumed that
+> a `gettext`-style `__` translation function is available in your Vue
+> templates.
 
 ```html
 <div>
-  <gl-sprintf message="Written by %{author}">
+  <gl-sprintf :message="__('Written by %{author}')">
     <template #author>
       <span>Author</span>
     </template>
@@ -34,7 +42,7 @@ For example:
 
 ```html
 <div>
-  <gl-sprintf message="Learn more about %{linkStart}zones%{linkEnd}">
+  <gl-sprintf :message="__('Learn more about %{linkStart}zones%{linkEnd}')">
     <template #link="{ content }">
       <gl-link
         href="https://cloud.google.com/compute/docs/regions-zones/regions-zones"
@@ -70,7 +78,7 @@ Here's a more complex example, which `<gl-sprintf>` lets you do in a breeze:
 
 ```html
 <div>
-  <gl-sprintf message="Written by %{authorStart}someone%{authorEnd}">
+  <gl-sprintf :message="__('Written by %{authorStart}someone%{authorEnd}')">
     <template #author="{ content }">
       <my-vue-component v-gl-tooltip="content" @event="handleEvent(content)">
         {{ content }}
