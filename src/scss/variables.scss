@@ -2,7 +2,6 @@
 
 // Layout
 $grid-size: px-to-rem(8px);
-$gl-spacing-scale-0: 0;
 $gl-spacing-scale-1: 0.25 * $grid-size;
 $gl-spacing-scale-2: 0.5 * $grid-size;
 $gl-spacing-scale-3: $grid-size;
@@ -223,7 +222,6 @@ $gl-fonts: (
   'regular': $gl-regular-font,
 );
 
-$gl-border-size-0: 0;
 $gl-border-size-1: px-to-rem(1px);
 $gl-border-size-2: px-to-rem(2px);
 $gl-border-size-3: px-to-rem(3px);

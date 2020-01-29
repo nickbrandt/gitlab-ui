@@ -119,7 +119,7 @@
 * - Base new utilities in this group in the $gl-border-size variable
 */
 @mixin gl-border-0 {
-  border-width: $gl-border-size-0;
+  border-width: 0;
 }
 
 @mixin gl-border-1 {

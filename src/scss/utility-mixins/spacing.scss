@@ -6,7 +6,7 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 @mixin gl-p-0 {
-  padding: $gl-spacing-scale-0;
+  padding: 0;
 }
 
 @mixin gl-p-1 {
@@ -84,7 +84,7 @@
 }
 
 @mixin gl-pl-0 {
-  padding-left: $gl-spacing-scale-0;
+  padding-left: 0;
 }
 
 @mixin gl-pl-2 {
@@ -120,8 +120,8 @@
 }
 
 @mixin gl-py-0 {
-  padding-top: $gl-spacing-scale-0;
-  padding-bottom: $gl-spacing-scale-0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 @mixin gl-py-2 {
@@ -157,7 +157,7 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 @mixin gl-m-0 {
-  margin: $gl-spacing-scale-0;
+  margin: 0;
 }
 
 @mixin gl-m-3 {
@@ -165,7 +165,7 @@
 }
 
 @mixin gl-mt-0 {
-  margin-top: $gl-spacing-scale-0;
+  margin-top: 0;
 }
 
 @mixin gl-mt-1 {
@@ -185,7 +185,7 @@
 }
 
 @mixin gl-mr-0 {
-  margin-right: $gl-spacing-scale-0;
+  margin-right: 0;
 }
 
 @mixin gl-mr-2 {
@@ -209,7 +209,7 @@
 }
 
 @mixin gl-mb-0 {
-  margin-bottom: $gl-spacing-scale-0;
+  margin-bottom: 0;
 }
 
 @mixin gl-mb-1 {
@@ -237,7 +237,7 @@
 }
 
 @mixin gl-ml-0 {
-  margin-left: $gl-spacing-scale-0;
+  margin-left: 0;
 }
 
 @mixin gl-ml-1 {
@@ -273,8 +273,8 @@
 }
 
 @mixin gl-mx-0 {
-  margin-left: $gl-spacing-scale-0;
-  margin-right: $gl-spacing-scale-0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @mixin gl-my-0 {
