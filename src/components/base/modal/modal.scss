@@ -18,6 +18,18 @@ body.modal-open {
 .gl-modal {
   @include modal-bg;
 
+  .modal-sm {
+    max-width: $gl-modal-small-width;
+  }
+
+  .modal-md {
+    max-width: $gl-modal-medium-width;
+  }
+
+  .modal-lg {
+    max-width: $gl-modal-large-width;
+  }
+
   .modal-xl {
     max-width: 98%;
   }
