@@ -1,3 +1,10 @@
+## [9.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.2...v9.2.3) (2020-01-29)
+
+
+### Bug Fixes
+
+* add @gitlab/svgs to peerDependencies ([00381c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/00381c285d557142e4569b7d4e03d28478896237))
+
 ## [9.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.1...v9.2.2) (2020-01-28)
 
 
