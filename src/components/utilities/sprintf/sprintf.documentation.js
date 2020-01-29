@@ -5,6 +5,11 @@ export default {
   followsDesignSystem: false,
   description,
   examples,
+  propsInfo: {
+    message: {
+      additionalInfo: 'A translated string with named placeholders, e.g., "Written by %{author}".',
+    },
+  },
   slots: [
     {
       name: '* (arbitrary)',
