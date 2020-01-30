@@ -194,17 +194,17 @@ export default {
         head-variant="default"
         striped
       >
-        <template slot="prop" slot-scope="field">
+        <template #cell(prop)="field">
           <div>
             <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">{{
               field.value
             }}</span>
           </div>
         </template>
-        <template slot="required" slot-scope="data">
+        <template #cell(required)="data">
           <span v-if="data.value === true">✅</span>
         </template>
-        <template slot="val" slot-scope="data">
+        <template #cell(val)="data">
           <code v-if="data.value">
             {{ data.value }}
           </code>
@@ -229,7 +229,7 @@ export default {
     <div v-if="displayEvents.length > 0">
       <h4>Events</h4>
       <gl-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
-        <template slot="args" slot-scope="field">
+        <template #cell(args)="field">
           <div
             v-for="argument in field.value"
             :key="`event-${field.item.event}-${argument.arg ? argument.arg : 'none'}`"
