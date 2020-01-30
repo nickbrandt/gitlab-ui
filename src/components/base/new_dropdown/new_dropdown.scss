@@ -13,7 +13,12 @@
     @include gl-bg-chevron-down;
   }
 
-  .new-gl-button {
+  .btn {
+    @extend %new-gl-button;
+  }
+
+  // The `&.dropdown` is necessary to strengthen the specifity of these selectors
+  &.dropdown %new-gl-button {
     @include gl-pr-3;
 
     &.btn-sm .gl-icon {

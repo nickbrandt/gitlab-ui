@@ -19,6 +19,11 @@ export default {
       required: false,
       additionalInfo: 'If provided, used as history items for this component',
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      additionalInfo: 'If provided and true, disables the input and controls',
+    },
     recentSearchesHeader: {
       type: String,
       required: false,

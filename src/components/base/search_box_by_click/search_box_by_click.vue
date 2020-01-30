@@ -41,6 +41,11 @@ export default {
       required: false,
       default: 'Search',
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     recentSearchesHeader: {
       type: String,
       required: false,
@@ -137,6 +142,7 @@ export default {
         ref="historyDropdown"
         class="gl-search-box-by-click-history"
         menu-class="gl-search-box-by-click-menu"
+        :disabled="disabled"
       >
         <template slot="button-content">
           <gl-icon name="history" class="gl-search-box-by-click-history-icon" />
@@ -180,12 +186,13 @@ export default {
         v-model="currentValue"
         class="gl-search-box-by-click-input"
         v-bind="inputAttributes"
+        :disabled="disabled"
         @focus="isFocused = true"
         @blur="isFocused = false"
         @keydown.enter="search(currentValue)"
       />
       <button
-        v-if="hasValue"
+        v-if="hasValue && !disabled"
         v-gl-tooltip.hover="{ container: tooltipContainer }"
         :title="clearButtonTitle"
         class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
@@ -200,6 +207,7 @@ export default {
         ref="searchButton"
         class="gl-search-box-by-click-search-button"
         icon="search"
+        :disabled="disabled"
         @click="search(currentValue)"
       />
     </b-input-group-append>
