@@ -101,8 +101,6 @@ export default {
     if (this.split && this.icon) {
       this.$el.childNodes[0].classList.add('icon-split-content-button');
     }
-
-    this.$el.querySelectorAll('.btn').forEach(el => el.classList.add('new-gl-button'));
   },
   methods: {
     hide(...args) {

@@ -3,6 +3,7 @@ import { BInputGroup } from 'bootstrap-vue';
 import SearchBoxByClick from '../../../src/components/base/search_box_by_click/search_box_by_click.vue';
 import GlDropdownItem from '../../../src/components/base/new_dropdown/dropdown_item.vue';
 import GlFormInput from '../../../src/components/base/form/form_input/form_input.vue';
+import Icon from '../../../src/components/base/icon/icon.vue';
 
 describe('search box by click component', () => {
   let wrapper;
@@ -12,6 +13,14 @@ describe('search box by click component', () => {
       propsData,
       stubs: { BInputGroup },
     });
+  };
+
+  const findClearIcon = () => {
+    const result = wrapper.findAll(Icon).filter(c => c.props('name') === 'clear');
+    if (result.length > 1) {
+      throw new Error('Multiple clear icons found');
+    }
+    return result.length === 1 ? result.at(0) : result;
   };
 
   afterEach(() => {
@@ -30,6 +39,27 @@ describe('search box by click component', () => {
   it('does not displays history dropdown by default', () => {
     createComponent();
     expect(wrapper.find({ ref: 'historyDropdown' }).exists()).toBe(false);
+  });
+
+  describe('clear button', () => {
+    it('is not rendered when value is empty', () => {
+      createComponent({ value: '' });
+      expect(findClearIcon().exists()).toBe(false);
+    });
+
+    it('is rendered when value is provided', () => {
+      createComponent({ value: 'somevalue' });
+      expect(findClearIcon().exists()).toBe(true);
+    });
+
+    it('emits empty value when clicked', async () => {
+      createComponent({ value: 'somevalue' });
+
+      findClearIcon().trigger('click');
+
+      await wrapper.vm.$nextTick();
+      expect(wrapper.emitted().input).toEqual([[null]]);
+    });
   });
 
   describe('when historyItems prop is provided', () => {
@@ -61,6 +91,35 @@ describe('search box by click component', () => {
       await wrapper.vm.$nextTick();
       expect(wrapper.emitted().input[0]).toEqual(['one']);
       expect(wrapper.emitted().submit[0]).toEqual(['one']);
+    });
+  });
+
+  describe('disabled state', () => {
+    beforeEach(() => {
+      createComponent({
+        value: 'somevalue',
+        historyItems: ['one', 'two', 'three'],
+        disabled: true,
+      });
+    });
+
+    it('displays disabled history dropdown', () => {
+      expect(wrapper.find({ ref: 'historyDropdown' }).exists()).toBe(true);
+      expect(wrapper.find({ ref: 'historyDropdown' }).attributes('disabled')).toBe('true');
+    });
+
+    it('displays disabled input', () => {
+      expect(wrapper.find({ ref: 'input' }).exists()).toBe(true);
+      expect(wrapper.find({ ref: 'input' }).attributes('disabled')).toBe('true');
+    });
+
+    it('displays disabled search button', () => {
+      expect(wrapper.find({ ref: 'searchButton' }).exists()).toBe(true);
+      expect(wrapper.find({ ref: 'searchButton' }).attributes('disabled')).toBe('true');
+    });
+
+    it('does not render clear icon even with value', () => {
+      expect(findClearIcon().exists()).toBe(false);
     });
   });
 
