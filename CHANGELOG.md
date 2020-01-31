@@ -1,3 +1,10 @@
+## [9.2.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.5...v9.2.6) (2020-01-31)
+
+
+### Bug Fixes
+
+* Make classes for gl-filtered-search-suggestion more specific in order to override styles in GitLab ([d475389](https://gitlab.com/gitlab-org/gitlab-ui/commit/d4753891600e6c7ba89f45581b757b207f09fb44))
+
 ## [9.2.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.4...v9.2.5) (2020-01-31)
 
 
