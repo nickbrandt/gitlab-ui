@@ -1,3 +1,10 @@
+## [9.2.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.4...v9.2.5) (2020-01-31)
+
+
+### Reverts
+
+* fix(bootstrap-vue): Upgrade bootstrap-vue ([f20c5e1](https://gitlab.com/gitlab-org/gitlab-ui/commit/f20c5e1006fe95e5687621956d6d15fc776a6c3d))
+
 ## [9.2.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.3...v9.2.4) (2020-01-30)
 
 
