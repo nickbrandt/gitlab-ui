@@ -1,8 +1,13 @@
-.gl-filtered-search-suggestion-list {
+// This selector is used to override boostrap styles when using the component in
+// GitLab
+
+.gl-filtered-search-suggestion-list.dropdown-menu {
   @include gl-display-block;
+  @include gl-dropdown-width;
+}
+
+.gl-filtered-search-suggestion-list {
   @include gl-absolute;
   @include gl-overflow-y-auto;
-
-  @include gl-dropdown-width;
   @include gl-dropdown-max-height;
 }
