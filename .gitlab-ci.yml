@@ -78,6 +78,7 @@ lint:
   extends: [.node, .yarn_install]
   stage: test
   script:
+    - yarn build-scss-variables
     - yarn eslint
     - yarn prettier
     - yarn stylelint
