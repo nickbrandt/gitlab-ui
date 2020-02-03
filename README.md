@@ -59,7 +59,7 @@ There is a visual snapshot of every component’s storybook story. To run the te
 
 #### Updating visual snapshot baseline images
 
-In some occasions, the changes in a component’s appearance are justified. In those cases, we have to update the baseline images to match the new look. To do that, follow this [troubleshooting guide](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/CONTRIBUTING.md#what-to-do-when-image-snapshots-cause-the-pipeline-to-fail)
+In some occasions, the changes in a component’s appearance are justified. In those cases, we have to update the baseline images to match the new look. To do that, follow this [troubleshooting guide](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/doc/contributing/troubleshooting.md#what-to-do-when-image-snapshots-cause-the-pipeline-to-fail)
 
 #### Gitlab visual regression tests
 
