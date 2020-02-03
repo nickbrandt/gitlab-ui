@@ -58,7 +58,7 @@
 }
 
 @mixin gl-h-0 {
-  height: $gl-spacing-scale-0;
+  height: 0;
 }
 
 @mixin gl-h-3 {
@@ -109,7 +109,7 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 @mixin gl-min-w-0 {
-  min-width: $gl-spacing-scale-0;
+  min-width: 0;
 }
 
 @mixin gl-min-h-7 {
