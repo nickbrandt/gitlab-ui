@@ -11,10 +11,13 @@ registerRequireContextHook();
 // more information: https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core#storykindregex
 const excludedStoryKinds = ['directives'];
 
-const beforeScreenshot = page => {
+const beforeScreenshot = async page => {
   // Reset SVG animations
-  document.querySelectorAll('animate').forEach(el => {
-    el.endElement();
+  await page.evaluate(() => {
+    document.querySelectorAll('animate').forEach(el => {
+      el.setAttribute('repeatCount', 'indefinite');
+      el.setAttribute('dur', 'indefinite');
+    });
   });
 
   // Fixing the Animation by inlining, previous approach with external file was flaky for the animation
