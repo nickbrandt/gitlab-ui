@@ -24,7 +24,6 @@ export default {
     <gl-form-group label="Name">
       <gl-form-input
         v-model="name"
-        name="input-name"
         type="text"
         required
       />

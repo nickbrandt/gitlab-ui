@@ -26,8 +26,8 @@ export default {
 
 <template>
   <gl-form @submit="onSubmit">
-    <gl-form-group label="Name" label-for="input-name" class="gl-mr-2">
-      <gl-form-input v-model="name" name="input-name" type="text" required />
+    <gl-form-group label="Name">
+      <gl-form-input v-model="name" type="text" required />
     </gl-form-group>
 
     <gl-button :disabled="formClean || submitDisabled" type="submit" variant="success"
