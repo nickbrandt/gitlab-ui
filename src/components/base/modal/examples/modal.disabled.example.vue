@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button v-gl-modal-directive="'basic-modal-id'" type="button">
+    <gl-button v-gl-modal-directive="'basic-modal-id'" variant="info">
       Open modal
-    </button>
+    </gl-button>
     <gl-modal
       modal-id="basic-modal-id"
       title="Example title"
@@ -14,7 +14,7 @@
       @secondary="clearInput"
       @cancel="clearInput"
     >
-      Enter "gitlab" to change the button state.
+      <p>Enter "gitlab" to change the button state.</p>
       <input v-model="enteredText" type="text" />
     </gl-modal>
   </div>

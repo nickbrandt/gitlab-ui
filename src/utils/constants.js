@@ -253,3 +253,9 @@ export const buttonSizeOptions = {
   md: 'md',
   lg: 'lg',
 };
+
+export const modalSizeOptions = {
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg',
+};

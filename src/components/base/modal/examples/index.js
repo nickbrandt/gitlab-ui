@@ -1,5 +1,6 @@
 import ModalBasicExample from './modal.basic.example.vue';
 import ModalDisabledExample from './modal.disabled.example.vue';
+import ModalSizesExample from './modal.sizes.example.vue';
 
 export default [
   {
@@ -21,6 +22,17 @@ export default [
         name: 'Disabled',
         description: 'Disabled Modal',
         component: ModalDisabledExample,
+      },
+    ],
+  },
+  {
+    name: 'Sizes',
+    items: [
+      {
+        id: 'modal-sizes',
+        name: 'Sizes',
+        description: 'Modal Sizes',
+        component: ModalSizesExample,
       },
     ],
   },

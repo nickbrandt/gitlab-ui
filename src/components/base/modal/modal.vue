@@ -1,7 +1,7 @@
 <script>
 import { BModal } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
-import { modalButtonDefaults } from '../../../utils/constants';
+import { modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
 
 function validatorHelper(obj) {
   return Object.keys(obj).every(val => val === 'text' || val === 'attributes');
@@ -45,6 +45,12 @@ export default {
       required: false,
       default: null,
       validator: obj => validatorHelper(obj),
+    },
+    size: {
+      type: String,
+      required: false,
+      default: modalSizeOptions.md,
+      validator: val => Object.keys(modalSizeOptions).includes(val),
     },
   },
   methods: {
@@ -91,6 +97,7 @@ export default {
     :id="modalId"
     ref="modal"
     :title-tag="titleTag"
+    :size="size"
     v-bind="$attrs"
     lazy
     :modal-class="['gl-modal', modalClass]"
