@@ -3,9 +3,9 @@ import { BInputGroup, BInputGroupPrepend, BInputGroupAppend } from 'bootstrap-vu
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../new_button/new_button.vue';
 import GlDropdown from '../new_dropdown/new_dropdown.vue';
-import GlDropdownItem from '../new_dropdown/dropdown_item.vue';
-import GlDropdownDivider from '../new_dropdown/dropdown_divider.vue';
-import GlDropdownText from '../new_dropdown/dropdown_text.vue';
+import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
+import GlDropdownDivider from '../new_dropdown/new_dropdown_divider.vue';
+import GlDropdownText from '../new_dropdown/new_dropdown_text.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlTooltip from '../../../directives/tooltip';
 

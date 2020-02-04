@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { BInputGroup } from 'bootstrap-vue';
 import SearchBoxByClick from '../../../src/components/base/search_box_by_click/search_box_by_click.vue';
-import GlDropdownItem from '../../../src/components/base/new_dropdown/dropdown_item.vue';
+import GlDropdownItem from '../../../src/components/base/new_dropdown/new_dropdown_item.vue';
 import GlFormInput from '../../../src/components/base/form/form_input/form_input.vue';
 import Icon from '../../../src/components/base/icon/icon.vue';
 

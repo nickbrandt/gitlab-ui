@@ -55,6 +55,10 @@ function generateProps({
   return props;
 }
 
+function clickDropdown(component) {
+  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
+}
+
 documentedStoriesOf('base|new-dropdown', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
@@ -63,17 +67,20 @@ documentedStoriesOf('base|new-dropdown', readme)
     template: `
       <gl-new-dropdown
         ref="dropdown"
-        text="Some dropdown""
+        text="Some dropdown"
         :category="category"
         :variant="variant"
         :size="size"
         :block="block"
         :disabled="disabled"
       >
-        <gl-dropdown-item>First item</gl-dropdown-item>
-        <gl-dropdown-item>Second item</gl-dropdown-item>
-        <gl-dropdown-item>Last item</gl-dropdown-item>
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
     updated() {
       addClass(this);
     },
@@ -90,10 +97,13 @@ documentedStoriesOf('base|new-dropdown', readme)
         :block="block"
         :disabled="disabled"
       >
-        <gl-dropdown-item href="https://about.gitlab.com/">First link</gl-dropdown-item>
-        <gl-dropdown-item href="https://about.gitlab.com/">Second link</gl-dropdown-item>
-        <gl-dropdown-item href="https://about.gitlab.com/">Last link</gl-dropdown-item>
+        <gl-new-dropdown-item href="https://about.gitlab.com/">First link</gl-new-dropdown-item>
+        <gl-new-dropdown-item href="https://about.gitlab.com/">Second link</gl-new-dropdown-item>
+        <gl-new-dropdown-item href="https://about.gitlab.com/">Last link</gl-new-dropdown-item>
       </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
     updated() {
       addClass(this);
     },
@@ -110,10 +120,13 @@ documentedStoriesOf('base|new-dropdown', readme)
         :block="block"
         :disabled="disabled"
       >
-        <gl-dropdown-item>Above divider</gl-dropdown-item>
-        <gl-dropdown-divider />
-        <gl-dropdown-item>Below divider</gl-dropdown-item>
+        <gl-new-dropdown-item>Above divider</gl-new-dropdown-item>
+        <gl-new-dropdown-divider />
+        <gl-new-dropdown-item>Below divider</gl-new-dropdown-item>
       </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
     updated() {
       addClass(this);
     },
@@ -130,13 +143,16 @@ documentedStoriesOf('base|new-dropdown', readme)
         :block="block"
         :disabled="disabled"
       >
-        <gl-dropdown-header>First group</gl-dropdown-header>
-        <gl-dropdown-item>First item</gl-dropdown-item>
-        <gl-dropdown-item>Second item</gl-dropdown-item>
-        <gl-dropdown-divider />
-        <gl-dropdown-header>Second group</gl-dropdown-header>
-        <gl-dropdown-item>Last item</gl-dropdown-item>
+        <gl-new-dropdown-header>First group</gl-new-dropdown-header>
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
+        <gl-new-dropdown-divider />
+        <gl-new-dropdown-header>Second group</gl-new-dropdown-header>
+        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
     updated() {
       addClass(this);
     },

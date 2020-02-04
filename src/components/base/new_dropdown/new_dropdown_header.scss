@@ -1,0 +1,20 @@
+@mixin gl-new-dropdown-header-style {
+  @include gl-font-base;
+  @include gl-text-gray-900;
+  @include gl-line-height-normal;
+  @include gl-text-left;
+  @include gl-font-weight-bold;
+  @include gl-dropdown-header-padding;
+}
+
+/* Styling when the component is used on its own */
+.gl-new-dropdown-header .dropdown-header {
+  @include gl-new-dropdown-header-style;
+}
+
+/* Styling to override the vue-bootstrap CSS included in GitLab CSS */
+.gl-new-dropdown {
+  .gl-new-dropdown-header .dropdown-header {
+    @include gl-new-dropdown-header-style;
+  }
+}

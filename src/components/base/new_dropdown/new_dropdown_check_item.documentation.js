@@ -1,4 +1,4 @@
-import description from './dropdown_item.md';
+import description from './new_dropdown_check_item.md';
 
 export default {
   description,

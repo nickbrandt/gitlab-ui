@@ -1,7 +1,7 @@
 <template>
   <gl-new-dropdown text="Some dropdown">
-    <gl-dropdown-item>Above divider</gl-dropdown-item>
-    <gl-dropdown-divider />
-    <gl-dropdown-item>Below divider</gl-dropdown-item>
+    <gl-new-dropdown-item>Above divider</gl-new-dropdown-item>
+    <gl-new-dropdown-divider />
+    <gl-new-dropdown-item>Below divider</gl-new-dropdown-item>
   </gl-new-dropdown>
 </template>

@@ -15,7 +15,7 @@
 * - Size is optional or one of narrow|wide
 */
 @mixin gl-dropdown-width {
-  width: px-to-rem(260px);
+  width: px-to-rem(240px);
 }
 
 @mixin gl-dropdown-width-narrow {
@@ -28,4 +28,8 @@
 
 @mixin gl-dropdown-max-height {
   max-height: px-to-rem(312px);
+}
+
+@mixin gl-dropdown-header-padding {
+  padding: $gl-spacing-scale-3 $gl-spacing-scale-4;
 }

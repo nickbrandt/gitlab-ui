@@ -13,11 +13,15 @@ Import component stylesheets located in components here. i.e.
 @import '../components/base/daterange_picker/daterange_picker';
 @import '../components/base/drawer/drawer';
 @import '../components/base/dropdown/dropdown';
-@import '../components/base/new_dropdown/new_dropdown';
-@import '../components/base/new_dropdown/dropdown_text';
 @import '../components/base/dropdown/dropdown_divider';
 @import '../components/base/dropdown/dropdown_header';
 @import '../components/base/dropdown/dropdown_item';
+@import '../components/base/new_dropdown/new_dropdown';
+@import '../components/base/new_dropdown/new_dropdown_check_item';
+@import '../components/base/new_dropdown/new_dropdown_divider';
+@import '../components/base/new_dropdown/new_dropdown_header';
+@import '../components/base/new_dropdown/new_dropdown_item';
+@import '../components/base/new_dropdown/new_dropdown_text';
 @import '../components/base/form/form_input/form_input';
 @import '../components/base/form/form_checkbox/form_checkbox';
 @import '../components/base/form/form_group/form_group';
