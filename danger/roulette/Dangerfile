@@ -3,8 +3,6 @@
 require 'digest/md5'
 
 GITLAB_PROJECT_ID = 'gitlab'
-GITLAB_UI_PROJECT_ID = 'gitlab-ui'
-GITLAB_UI_LABEL = '~gitlab-ui-wg'
 
 MESSAGE = <<~MARKDOWN
   ## Reviewer roulette
@@ -80,23 +78,16 @@ if changes.any?
   branch_name = gitlab.mr_json['source_branch']
 
   gitlab_team = team_for_project(GITLAB_PROJECT_ID)
-  gitlab_ui_team = team_for_project(GITLAB_UI_PROJECT_ID)
 
   unknown = changes.fetch(:unknown, [])
 
   gitlab_team_rows = categories.map do |category|
     spin_for_category(gitlab_team, GITLAB_PROJECT_ID, category, branch_name)
   end
-  gitlab_ui_team_row = spin_for_category(gitlab_ui_team, GITLAB_UI_PROJECT_ID, :frontend, branch_name)
-  # Pick a GitLab UI maintainer if no other maintainer was picked in the roulette
-  gitlab_ui_maintainer = !rows_contain_maintainer?(gitlab_team_rows) ?
-    gitlab_ui_team_row[:maintainer] :
-    '-'
 
   roulette_rows = gitlab_team_rows.map do |row|
     "| #{row[:label]} | #{row[:reviewer] || NO_REVIEWER} | #{row[:maintainer] || NO_MAINTAINER} |"
   end
-  roulette_rows.push("| #{GITLAB_UI_LABEL} | #{gitlab_ui_team_row[:reviewer]} | #{gitlab_ui_maintainer} |")
 
   markdown(MESSAGE)
   markdown(CATEGORY_TABLE_HEADER + roulette_rows.join("\n"))
