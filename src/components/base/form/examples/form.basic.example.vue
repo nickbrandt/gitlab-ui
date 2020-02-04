@@ -30,7 +30,6 @@ export default {
         name="input-name"
         type="text"
         required
-        placeholder="Your name"
       />
     </gl-form-group>
 

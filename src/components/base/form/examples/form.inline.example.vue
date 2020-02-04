@@ -23,6 +23,7 @@ export default {
 
 <template>
   <gl-form inline @submit="onSubmit">
+    <!-- using plain label instead of gl-form-group to avoid margin layout issues -->
     <label for="input-name" class="gl-mr-3">First name</label>
     <gl-form-input
       v-model="name.first"
@@ -30,7 +31,6 @@ export default {
       class="ml-1"
       type="text"
       required
-      placeholder="Grace"
     />
     <label for="input-surname" class="gl-mx-3">Surname</label>
     <gl-form-input
@@ -39,7 +39,6 @@ export default {
       class="ml-1"
       type="text"
       required
-      placeholder="Jones"
     />
 
     <gl-button class="gl-ml-3" small :disabled="submitDisabled" type="submit" variant="success">Save</gl-button>
