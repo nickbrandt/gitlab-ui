@@ -1,3 +1,10 @@
+# [9.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.6...v9.3.0) (2020-02-04)
+
+
+### Features
+
+* update size prop to match ds ([ec1400f](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec1400f49f311463919630da6015b8ea0a8f60ef))
+
 ## [9.2.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.5...v9.2.6) (2020-01-31)
 
 
