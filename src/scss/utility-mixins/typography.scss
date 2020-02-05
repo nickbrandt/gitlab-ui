@@ -74,7 +74,7 @@
 }
 
 @mixin gl-line-height-normal {
-  line-height: $gl-line-height;
+  line-height: $gl-line-height-16;
 }
 
 @mixin gl-line-height-20 {
