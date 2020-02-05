@@ -96,13 +96,14 @@ export default {
 
 <template>
   <span
+    ref="labelTitle"
     :class="[titleColorClass, cssClasses]"
     :style="boxShadow"
     class="gl-label"
     v-bind="$attrs"
     @click="$emit('click', $event)"
   >
-    <gl-link ref="labelTitle" :href="target" class="gl-label-link">
+    <gl-link :href="target" class="gl-label-link">
       <span class="gl-label-text" :style="{ backgroundColor }">{{ scopedKey }}</span>
       <span
         v-if="scopedValue"
