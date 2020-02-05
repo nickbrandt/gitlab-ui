@@ -1,7 +1,7 @@
 <script>
 import { BModal } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
-import { modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
+import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
 
 function validatorHelper(obj) {
   return Object.keys(obj).every(val => val === 'text' || val === 'attributes');
@@ -53,6 +53,20 @@ export default {
       validator: val => Object.keys(modalSizeOptions).includes(val),
     },
   },
+  data() {
+    return {
+      shouldCallFocus: false,
+    };
+  },
+  watch: {
+    shouldCallFocus(val) {
+      if (val) {
+        this.$nextTick(() => {
+          this.setFocus();
+        });
+      }
+    },
+  },
   methods: {
     show() {
       this.$refs.modal.show();
@@ -88,6 +102,49 @@ export default {
       }
       return prop.attributes;
     },
+    // Check all the children of default slot and as soon a one of them is focusable,
+    // set the focus of the user on that.
+    setFocus() {
+      // Reset the value to allow the focus to re-occur if it's closed and reopened.
+      this.shouldCallFocus = false;
+
+      const scopeChildren = this.$scopedSlots.default()[0].children || [];
+      const btnElts = document.querySelectorAll(`#${this.modalId} button`);
+
+      const modalElts = scopeChildren.map(node =>
+        document.querySelector(`#${this.modalId} ${node.tag}`)
+      );
+      // ModalElts are the first choice, the btnElts are a backup
+      const potentialElts = [...modalElts, ...btnElts];
+
+      for (let i = 0; i < potentialElts.length; i += 1) {
+        const elt = potentialElts[i];
+
+        if (this.isFocusable(elt)) {
+          setTimeout(() => {
+            elt.focus();
+          }, 100);
+          break;
+        }
+      }
+    },
+    isFocusable(elt) {
+      // To determine if an element is focusable, we need to check the tag type
+      // and some special attributes such as `type="hidden"` or `disabled`
+      if (!elt) return false;
+
+      const tag = elt.tagName;
+
+      const isTagFocusable = focusableTags.indexOf(tag) !== -1;
+      const hasValidType = elt.getAttribute('type') !== 'hidden';
+      const isNotDisabled = !elt.getAttribute('disabled');
+      const hasValidZIndex = elt.getAttribute('z-index') !== '-1';
+      const isInvalidAnchorTag = tag === 'A' && !elt.getAttribute('href');
+
+      return (
+        isTagFocusable && hasValidType && isNotDisabled && hasValidZIndex && !isInvalidAnchorTag
+      );
+    },
   },
 };
 </script>
@@ -102,6 +159,7 @@ export default {
     lazy
     :modal-class="['gl-modal', modalClass]"
     v-on="$listeners"
+    @show="shouldCallFocus = true"
     @ok="primary"
     @cancel="canceled"
     @close="secondary"
@@ -118,25 +176,22 @@ export default {
         class="gl-button js-modal-action-cancel"
         v-bind="buttonBinding(actionCancel, 'actionCancel')"
         @click="cancel"
+        >{{ actionCancel.text }}</gl-button
       >
-        {{ actionCancel.text }}
-      </gl-button>
       <gl-button
         v-if="actionSecondary"
         class="gl-button js-modal-action-secondary"
         v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
         @click="close"
+        >{{ actionSecondary.text }}</gl-button
       >
-        {{ actionSecondary.text }}
-      </gl-button>
       <gl-button
         v-if="actionPrimary"
         class="gl-button js-modal-action-primary"
         v-bind="buttonBinding(actionPrimary, 'actionPrimary')"
         @click="ok"
+        >{{ actionPrimary.text }}</gl-button
       >
-        {{ actionPrimary.text }}
-      </gl-button>
     </slot>
   </b-modal>
 </template>

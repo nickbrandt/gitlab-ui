@@ -14,8 +14,10 @@
       @secondary="clearInput"
       @cancel="clearInput"
     >
-      <p>Enter "gitlab" to change the button state.</p>
-      <input v-model="enteredText" type="text" />
+      <div>
+        <p>Enter "gitlab" to change the button state.</p>
+        <input v-model="enteredText" type="text" />
+      </div>
     </gl-modal>
   </div>
 </template>
