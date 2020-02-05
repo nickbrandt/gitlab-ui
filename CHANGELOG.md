@@ -1,3 +1,15 @@
+# [9.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.3.0...v9.4.0) (2020-02-05)
+
+
+### Bug Fixes
+
+* **labels:** moved ref from link ([7bc45d0](https://gitlab.com/gitlab-org/gitlab-ui/commit/7bc45d03734814d1d7fc255585a7dec09a240b1e))
+
+
+### Features
+
+* **carousel:** Build carousel component ([f29e8fe](https://gitlab.com/gitlab-org/gitlab-ui/commit/f29e8fe0a8d1a0e72a3555b37697058a29068350))
+
 # [9.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.2.6...v9.3.0) (2020-02-04)
 
 
