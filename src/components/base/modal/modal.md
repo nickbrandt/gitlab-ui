@@ -1,3 +1,5 @@
+> Note: For this component to align with the design system specs the subcomponent [`<gl-button>`] still needs to be replaced with [`<gl-new-button>`]. [#20229](https://gitlab.com/gitlab-org/gitlab/issues/202209) tracks this effort.
+
 # Modal
 
 <!-- STORY -->
