@@ -22,13 +22,9 @@ export default {
 <template>
   <gl-form novalidate @submit="onSubmit">
     <gl-form-group label="Name">
-      <gl-form-input
-        v-model="name"
-        type="text"
-        required
-      />
+      <gl-form-input v-model="name" type="text" required />
     </gl-form-group>
-    <p class="text-danger">{{errorText}}</p>
+    <p class="text-danger">{{ errorText }}</p>
     <gl-button type="submit" variant="success">Submit</gl-button>
   </gl-form>
 </template>

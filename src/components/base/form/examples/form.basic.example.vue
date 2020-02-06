@@ -25,11 +25,7 @@ export default {
 <template>
   <gl-form @submit="onSubmit" @reset="onReset">
     <gl-form-group label="Name">
-      <gl-form-input
-        v-model="name"
-        type="text"
-        required
-      />
+      <gl-form-input v-model="name" type="text" required />
     </gl-form-group>
 
     <gl-button type="submit" variant="success">Submit</gl-button>
