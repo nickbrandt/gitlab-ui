@@ -1,4 +1,4 @@
-import { withKnobs, text, color, select } from '@storybook/addon-knobs';
+import { withKnobs, text, color, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './label.md';
@@ -12,6 +12,7 @@ const generateProps = ({
   title = 'Label title',
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
+  scoped = false,
 } = {}) => {
   const props = {
     backgroundColor: {
@@ -25,7 +26,7 @@ const generateProps = ({
     },
     size: {
       type: String,
-      default: select('size', labelSizeOptions, size),
+      default: select('Size', labelSizeOptions, size),
     },
     tooltipPlacement: {
       type: String,
@@ -33,6 +34,9 @@ const generateProps = ({
     },
     target: {
       default: text('Link to label target', '#'),
+    },
+    scoped: {
+      default: boolean('Label is scoped', scoped),
     },
     scopedLabelsDocumentationLink: {
       default: text('Link to Scoped Labels Documentation', '#'),
@@ -55,11 +59,12 @@ documentedStoriesOf('base|label', readme)
         :description="description"
         :tooltip-placement="tooltipPlacement"
         :target="target"
+        :scoped="scoped"
         :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
       />`,
   }))
   .add('scoped', () => ({
-    props: generateProps({ title: 'scoped::label' }),
+    props: generateProps({ title: 'scoped::label', scoped: true }),
     components,
     template: `
       <gl-label
@@ -69,6 +74,7 @@ documentedStoriesOf('base|label', readme)
         :description="description"
         :tooltip-placement="tooltipPlacement"
         :target="target"
+        :scoped="scoped"
         :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
       />`,
   }));
