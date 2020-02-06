@@ -103,7 +103,7 @@ export default {
           // eslint-disable-next-line vue/no-side-effects-in-computed-properties
           this.source = compiled.template;
 
-          return Object.assign({}, base, compiled);
+          return { ...base, ...compiled };
         } catch (e) {
           // eslint-disable-next-line no-console
           console.log('ERR : ', e);
