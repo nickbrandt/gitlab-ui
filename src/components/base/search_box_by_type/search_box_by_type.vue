@@ -34,13 +34,11 @@ export default {
   },
   computed: {
     inputAttributes() {
-      const attributes = Object.assign(
-        {
-          type: 'text',
-          placeholder: 'Search',
-        },
-        this.$attrs
-      );
+      const attributes = {
+        type: 'text',
+        placeholder: 'Search',
+        ...this.$attrs,
+      };
 
       if (!attributes['aria-label']) {
         attributes['aria-label'] = attributes.placeholder;
