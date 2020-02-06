@@ -62,7 +62,7 @@ describe('Label component', () => {
     it('renders a black label', () => {
       createComponent({ ...defaultProps });
 
-      expect(wrapper.classes()).toContain('gl-label-text-black');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('renders a white label if background color is dark', () => {
@@ -75,14 +75,14 @@ describe('Label component', () => {
       createComponent({ ...defaultProps, backgroundColor: white.shorthex });
 
       expect(findTitle().attributes('style')).toContain(`background-color: ${white.rgb}`);
-      expect(wrapper.classes()).toContain('gl-label-text-black');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('supports rgba for background color to infer text color', () => {
       createComponent({ ...defaultProps, backgroundColor: white.rgba });
 
       expect(findTitle().attributes('style')).toContain(`background-color: ${white.rgb}`);
-      expect(wrapper.classes()).toContain('gl-label-text-black');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('renders the label description', () => {
@@ -126,7 +126,7 @@ describe('Label component', () => {
     it('renders a black label', () => {
       createComponent({ ...defaultProps });
 
-      expect(wrapper.classes()).toContain('gl-label-text-black');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('renders a white label if background color is dark', () => {

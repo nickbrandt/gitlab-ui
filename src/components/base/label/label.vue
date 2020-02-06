@@ -7,7 +7,7 @@ import { colorFromBackground } from '../../../utils/utils';
 import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const titleColorClassMap = {
-  [labelColorOptions.dark]: 'gl-label-text-black',
+  [labelColorOptions.dark]: 'gl-label-text-dark',
   [labelColorOptions.light]: 'gl-label-text-light',
 };
 
