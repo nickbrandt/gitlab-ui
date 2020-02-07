@@ -1,3 +1,10 @@
+# [9.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.4.1...v9.5.0) (2020-02-07)
+
+
+### Features
+
+* **filtered_search:** Implement filtered search ([7ff1ee2](https://gitlab.com/gitlab-org/gitlab-ui/commit/7ff1ee2f1d847b002bad215fdfc03a0b088de507))
+
 ## [9.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.4.0...v9.4.1) (2020-02-07)
 
 
