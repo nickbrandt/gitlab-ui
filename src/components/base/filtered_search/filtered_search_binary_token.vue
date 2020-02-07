@@ -29,9 +29,6 @@ export default {
       default: '',
     },
   },
-  mounted() {
-    this.$nextTick(() => document.activeElement.blur());
-  },
   methods: {
     applySuggestion(value) {
       this.$emit('input', value);

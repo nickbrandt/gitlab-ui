@@ -69,6 +69,7 @@ export { default as GlFilteredSearchSuggestionList } from './src/components/base
 export { default as GlFilteredSearchTerm } from './src/components/base/filtered_search/filtered_search_term.vue';
 export { default as GlFilteredSearchBinaryToken } from './src/components/base/filtered_search/filtered_search_binary_token.vue';
 export { default as GlFilteredSearchStaticBinaryToken } from './src/components/base/filtered_search/filtered_search_static_binary_token.vue';
+export { default as GlFilteredSearch } from './src/components/base/filtered_search/filtered_search.vue';
 export { default as GlBroadcastMessage } from './src/components/base/broadcast_message/broadcast_message.vue';
 export { default as GlCollapse } from './src/components/base/collapse/collapse.vue';
 export { default as GlCarousel } from './src/components/base/carousel/carousel.vue';

@@ -7,9 +7,7 @@ describe('Filtered search suggestion list component', () => {
 
   describe('suggestions API', () => {
     beforeEach(() => {
-      wrapper = shallowMount(FilteredSearchSuggestionList, {
-        sync: false,
-      });
+      wrapper = shallowMount(FilteredSearchSuggestionList);
     });
 
     afterEach(() => {
@@ -99,7 +97,6 @@ describe('Filtered search suggestion list component', () => {
     };
     beforeEach(() => {
       wrapper = mount(FilteredSearchSuggestionList, {
-        sync: false,
         slots: {
           default: list,
         },
