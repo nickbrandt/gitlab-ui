@@ -1,3 +1,10 @@
+## [9.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.4.0...v9.4.1) (2020-02-07)
+
+
+### Bug Fixes
+
+* **form-input:** apply form-control-focus mixin ([5f2f686](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f2f6860348a499879b3ce925b82a773cfe79904))
+
 # [9.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.3.0...v9.4.0) (2020-02-05)
 
 
