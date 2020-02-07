@@ -52,29 +52,34 @@ documentedStoriesOf('base|label', readme)
     props: generateProps(),
     components,
     template: `
-      <gl-label
-        :background-color="backgroundColor"
-        :size="size"
-        :title="title"
-        :description="description"
-        :tooltip-placement="tooltipPlacement"
-        :target="target"
-        :scoped="scoped"
-        :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
-      />`,
+      <div class="gl-display-flex">
+        <gl-label
+          :background-color="backgroundColor"
+          :size="size"
+          :title="title"
+          :description="description"
+          :tooltip-placement="tooltipPlacement"
+          :target="target"
+          :scoped="scoped"
+          :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
+        />
+      </div>`,
   }))
   .add('scoped', () => ({
     props: generateProps({ title: 'scoped::label', scoped: true }),
     components,
     template: `
-      <gl-label
-        :background-color="backgroundColor"
-        :size="size"
-        :title="title"
-        :description="description"
-        :tooltip-placement="tooltipPlacement"
-        :target="target"
-        :scoped="scoped"
-        :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
-      />`,
+      <div class="gl-display-flex">
+        <gl-label
+          :background-color="backgroundColor"
+          :size="size"
+          :title="title"
+          :description="description"
+          :tooltip-placement="tooltipPlacement"
+          :target="target"
+          :scoped="scoped"
+          :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
+        />
+      </div>
+      `,
   }));
