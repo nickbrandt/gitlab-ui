@@ -17,4 +17,5 @@
 // Storybook-specific styles
 .story-container {
   @include gl-font-base;
+  @include gl-line-height-normal;
 }
