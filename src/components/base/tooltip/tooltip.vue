@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <b-tooltip v-bind="$attrs">
+  <b-tooltip v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </b-tooltip>
 </template>
