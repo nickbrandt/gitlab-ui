@@ -102,10 +102,24 @@ describe('Label component', () => {
     });
   });
 
+  describe('basic label with scoped title', () => {
+    const props = {
+      ...defaultProps,
+      title: 'scoped::label',
+    };
+
+    it('renders title as basic label', () => {
+      createComponent({ ...props });
+
+      expect(findTitle().text()).toEqual('scoped::label');
+    });
+  });
+
   describe('scoped label', () => {
     const scopedProps = {
       ...defaultProps,
       title: 'scoped::label',
+      scoped: true,
     };
 
     it('renders the scoped title', () => {

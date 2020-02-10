@@ -48,6 +48,11 @@ export default {
       required: false,
       default: '#',
     },
+    scoped: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     scopedLabelsDocumentationLink: {
       type: String,
       required: false,
@@ -63,14 +68,16 @@ export default {
     cssClasses() {
       return {
         'gl-label-sm': this.size === 'sm',
-        'gl-label-scoped': this.scopedValue,
+        'gl-label-scoped': this.scoped,
       };
     },
     titleColorClass() {
       return titleColorClassMap[colorFromBackground(this.backgroundColor)];
     },
     scopedKey() {
-      return this.splitScopedLabel.length > 1 ? this.splitScopedLabel[0] : this.title;
+      return this.scoped && this.splitScopedLabel.length > 1
+        ? this.splitScopedLabel[0]
+        : this.title;
     },
     scopedValue() {
       return this.splitScopedLabel[1];
@@ -106,7 +113,7 @@ export default {
     <gl-link :href="target" class="gl-label-link">
       <span class="gl-label-text" :style="{ backgroundColor }">{{ scopedKey }}</span>
       <span
-        v-if="scopedValue"
+        v-if="scoped && scopedValue"
         class="gl-label-text"
         :style="{
           color: scopedValueColor,
