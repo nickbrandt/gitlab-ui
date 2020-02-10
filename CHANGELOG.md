@@ -1,3 +1,10 @@
+# [9.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.5.0...v9.6.0) (2020-02-10)
+
+
+### Features
+
+* add visible label to gl-toggle ([d57be1e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d57be1eccb5c5b19702d30c650f0e0f97cfc2c22))
+
 # [9.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.4.1...v9.5.0) (2020-02-07)
 
 
