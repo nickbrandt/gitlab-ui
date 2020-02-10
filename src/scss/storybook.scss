@@ -13,3 +13,8 @@
 @import 'utilities';
 
 @import 'components';
+
+// Storybook-specific styles
+.story-container {
+  @include gl-font-base;
+}
