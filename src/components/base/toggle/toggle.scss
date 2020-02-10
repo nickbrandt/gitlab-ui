@@ -19,7 +19,25 @@
 */
 
 .gl-toggle-wrapper {
+  @include gl-font-lg;
   @include gl-line-height-normal;
+  @include gl-font-weight-normal;
+  @include gl-display-inline-flex;
+  @include gl-flex-direction-column;
+}
+
+.gl-toggle-label-inline {
+  @include gl-flex-direction-row-reverse;
+  @include gl-align-items-center;
+
+  .gl-toggle-label {
+    @include gl-mb-0;
+    @include gl-ml-3;
+  }
+}
+
+.gl-toggle-label {
+  @include gl-mb-3;
 }
 
 .gl-toggle {

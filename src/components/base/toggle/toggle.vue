@@ -42,11 +42,27 @@ export default {
       required: false,
       default: 'Toggle Status: OFF',
     },
+    ariaDescribedby: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    labelPosition: {
+      type: String,
+      required: false,
+      default: 'hidden',
+      validator(position) {
+        return ['hidden', 'top', 'right'].includes(position);
+      },
+    },
   },
 
   computed: {
-    ariaLabel() {
+    labelText() {
       return this.value ? this.labelOn : this.labelOff;
+    },
+    ariaLabel() {
+      return this.labelPosition === 'hidden' ? this.labelText : undefined;
     },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
@@ -62,10 +78,15 @@ export default {
 </script>
 
 <template>
-  <label class="gl-toggle-wrapper">
+  <label class="gl-toggle-wrapper" :class="{ 'gl-toggle-label-inline': labelPosition === 'right' }">
+    <span v-if="labelPosition !== 'hidden'" class="gl-toggle-label">
+      <slot v-if="value" name="labelOn">{{ labelText }}</slot>
+      <slot v-else name="labelOff">{{ labelText }}</slot>
+    </span>
     <input v-if="name" :name="name" :value="value" type="hidden" />
     <button
       :aria-label="ariaLabel"
+      :aria-describedby="ariaDescribedby"
       :class="{
         'gl-toggle': true,
         'is-checked': value,
