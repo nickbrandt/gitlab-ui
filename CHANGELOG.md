@@ -1,3 +1,10 @@
+## [9.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.6.0...v9.6.1) (2020-02-11)
+
+
+### Bug Fixes
+
+* Bind bootstrap-vue tooltip events ([bee4bec](https://gitlab.com/gitlab-org/gitlab-ui/commit/bee4bec39fca86c667fcf5c1f1a60985459d05d8))
+
 # [9.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.5.0...v9.6.0) (2020-02-10)
 
 
