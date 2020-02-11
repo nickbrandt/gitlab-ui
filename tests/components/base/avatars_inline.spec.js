@@ -2,16 +2,26 @@ import { shallowMount } from '@vue/test-utils';
 
 import Avatar from '../../../src/components/base/avatar/avatar.vue';
 import AvatarsInline from '../../../src/components/base/avatars_inline/avatars_inline.vue';
+import GlTooltip from '../../../src/components/base/tooltip/tooltip.vue';
 
 describe('avatars inline', () => {
   let wrapper;
-  const avatars = [{ src: 'avatar 1' }, { src: 'avatar 2' }, { src: 'avatar 3' }];
+  const avatars = [
+    { src: 'avatar 1', tooltip: 'Avatar 1' },
+    { src: 'avatar 2', tooltip: 'Avatar 2' },
+    { src: 'avatar 3', tooltip: 'Avatar 3' },
+  ];
 
   const buildWrapper = (propsData = {}) => {
     wrapper = shallowMount(AvatarsInline, {
       propsData,
+      stubs: {
+        GlTooltip,
+      },
     });
   };
+
+  const findBadgeTooltip = () => wrapper.find(GlTooltip);
 
   afterEach(() => wrapper.destroy());
 
@@ -53,5 +63,50 @@ describe('avatars inline', () => {
     buildWrapper({ avatars, maxVisible: 1, avatarSize: 32, collapsed: true });
 
     expect(wrapper.find('.gl-avatars-inline-badge').classes()).toContain('lg');
+  });
+
+  describe('badge tooltips', () => {
+    describe('when badgeTooltipProp is not set', () => {
+      beforeEach(() => {
+        buildWrapper({ avatars, maxVisible: 1, avatarSize: 24, collapsed: true });
+      });
+
+      it('does not render the tooltip', () => {
+        expect(findBadgeTooltip().exists()).toBe(false);
+      });
+    });
+
+    describe('when badge tooltip prop is set but no max characters are set', () => {
+      beforeEach(() => {
+        buildWrapper({
+          avatars,
+          maxVisible: 1,
+          avatarSize: 24,
+          collapsed: true,
+          badgeTooltipProp: 'tooltip',
+        });
+      });
+
+      it('renders the tooltip with the names of the hidden avatars', () => {
+        expect(findBadgeTooltip().text()).toBe('Avatar 2, Avatar 3');
+      });
+    });
+
+    describe('when badge tooltip prop and max characters are set', () => {
+      beforeEach(() => {
+        buildWrapper({
+          avatars,
+          maxVisible: 1,
+          avatarSize: 24,
+          collapsed: true,
+          badgeTooltipProp: 'tooltip',
+          badgeTooltipMaxChars: 11,
+        });
+      });
+
+      it('renders the tooltip with the truncated names of the hidden avatars', () => {
+        expect(findBadgeTooltip().text()).toBe('Avatar 2...');
+      });
+    });
   });
 });

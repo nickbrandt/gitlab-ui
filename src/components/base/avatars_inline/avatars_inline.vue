@@ -1,11 +1,14 @@
 <script>
+import { get, truncate } from 'lodash';
 import { avatarsInlineSizeOptions } from '../../../utils/constants';
 import GlAvatar from '../avatar/avatar.vue';
+import GlTooltip from '../tooltip/tooltip.vue';
 
 export default {
   name: 'AvatarsInline',
   components: {
     GlAvatar,
+    GlTooltip,
   },
   props: {
     avatars: {
@@ -26,13 +29,23 @@ export default {
       required: false,
       default: false,
     },
+    badgeTooltipProp: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    badgeTooltipMaxChars: {
+      type: Number,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     hiddenAvatars() {
-      return this.avatars.length - this.maxVisible;
+      return this.avatars.slice(this.maxVisible);
     },
     collapsable() {
-      return this.hiddenAvatars > 0;
+      return this.hiddenAvatars.length > 0;
     },
     visibleAvatars() {
       return this.collapsed ? this.avatars.slice(0, this.maxVisible) : this.avatars;
@@ -47,7 +60,22 @@ export default {
       return this.avatarSize === 24 ? 'md' : 'lg';
     },
     badgeLabel() {
-      return `+${this.hiddenAvatars}`;
+      return `+${this.hiddenAvatars.length}`;
+    },
+    badgeTooltipTitle() {
+      if (!this.badgeTooltipProp) {
+        return '';
+      }
+
+      const tooltipTitle = this.hiddenAvatars
+        .map(avatar => get(avatar, this.badgeTooltipProp, '').trim())
+        .join(', ');
+
+      // truncate will append '...'
+      // we need to take these extra 3 characters into account in badgeTooltipMaxChars
+      return this.badgeTooltipMaxChars
+        ? truncate(tooltipTitle, { length: this.badgeTooltipMaxChars })
+        : tooltipTitle;
     },
   },
   methods: {
@@ -80,7 +108,10 @@ export default {
       class="gl-avatars-inline-child"
       :style="calcAvatarPosition(visibleAvatars.length)"
     >
-      <span :class="['gl-avatars-inline-badge', badgeSize]">
+      <gl-tooltip v-if="badgeTooltipProp" :target="() => $refs.badge">
+        {{ badgeTooltipTitle }}
+      </gl-tooltip>
+      <span ref="badge" :class="['gl-avatars-inline-badge', badgeSize]">
         {{ badgeLabel }}
       </span>
     </div>

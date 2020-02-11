@@ -1,6 +1,7 @@
 import AvatarsInlineExample from './avatars.inline.example.vue';
 import AvatarsInlineLargeExample from './avatars.inline_large.example.vue';
 import AvatarsInlineLinksAndTooltipsExample from './avatars.inline_links_and_tooltips.example.vue';
+import AvatarsInlineLinksAndTooltipsBadgeExample from './avatars.inline_links_and_tooltips_badge.example.vue';
 
 export default [
   {
@@ -21,8 +22,14 @@ export default [
       {
         id: 'avatars-inline-links-and-tooltips',
         name: 'Avatars inline with links and tooltips',
-        description: 'Inline Avatars Large',
+        description: 'Inline Avatars with Links and Tooltips',
         component: AvatarsInlineLinksAndTooltipsExample,
+      },
+      {
+        id: 'avatars-inline-links-and-tooltips-badge',
+        name: 'Avatars inline with tooltip on badge',
+        description: 'Inline Avatars with Tooltip on Badge',
+        component: AvatarsInlineLinksAndTooltipsBadgeExample,
       },
     ],
   },
