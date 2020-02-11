@@ -1,3 +1,10 @@
+# [9.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.7.0...v9.8.0) (2020-02-11)
+
+
+### Features
+
+* Add tooltip to badge for GlAvatarsInline ([81c5495](https://gitlab.com/gitlab-org/gitlab-ui/commit/81c5495852a38fea8bc920e74700aea8c9035105))
+
 # [9.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.6.1...v9.7.0) (2020-02-11)
 
 
