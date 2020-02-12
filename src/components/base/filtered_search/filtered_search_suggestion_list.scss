@@ -3,13 +3,13 @@
 
 .gl-filtered-search-suggestion-list.dropdown-menu {
   @include gl-display-block;
-  @include gl-dropdown-width;
+  width: $gl-dropdown-width;
 }
 
 .gl-filtered-search-suggestion-list {
   @include gl-absolute;
   @include gl-overflow-y-auto;
-  @include gl-dropdown-max-height;
+  max-height: $gl-max-dropdown-max-height;
 
   .gl-filtered-search-suggestion {
     @include gl-p-0;
