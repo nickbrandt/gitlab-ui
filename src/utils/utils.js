@@ -1,4 +1,4 @@
-import { labelColorOptions } from './constants';
+import { labelColorOptions, focusableTags } from './constants';
 
 export function debounceByAnimationFrame(fn) {
   let requestId;
@@ -71,4 +71,36 @@ export function uid() {
   return Math.random()
     .toString(36)
     .substring(2);
+}
+
+/**
+ * Receives an element and validates that it can be focused
+ * @param { HTMLElement } The element we want to validate
+ * @return { boolean } Is the element focusable
+ */
+
+export function isElementFocusable(elt) {
+  if (!elt) return false;
+
+  const { tagName } = elt;
+
+  const isValidTag = focusableTags.includes(tagName);
+  const hasValidType = elt.getAttribute('type') !== 'hidden';
+  const isDisabled = elt.getAttribute('disabled') === '' || elt.getAttribute('disabled');
+  const hasValidZIndex = elt.getAttribute('z-index') !== '-1';
+  const isInvalidAnchorTag = tagName === 'A' && !elt.getAttribute('href');
+
+  return isValidTag && hasValidType && !isDisabled && hasValidZIndex && !isInvalidAnchorTag;
+}
+
+/**
+ * Receives an array of HTML elements and focus the first one possible
+ * @param { Array.<HTMLElement> } An array of element to potentially focus
+ * @return { undefined }
+ */
+
+export function focusFirstFocusableElement(elts) {
+  const focusableElt = elts.find(el => isElementFocusable(el));
+
+  if (focusableElt) focusableElt.focus();
 }
