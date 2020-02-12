@@ -1,3 +1,10 @@
+# [9.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.8.0...v9.9.0) (2020-02-12)
+
+
+### Features
+
+* Add autofocus in modal component ([a1f0c8d](https://gitlab.com/gitlab-org/gitlab-ui/commit/a1f0c8dc30de6f525925cae8ad32897a434d42d9))
+
 # [9.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.7.0...v9.8.0) (2020-02-11)
 
 
