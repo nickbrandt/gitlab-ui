@@ -120,10 +120,10 @@ export default {
         }"
       >
         {{ scopedValue }}
-        <gl-link class="gl-label-icon" :href="scopedLabelsDocumentationLink">
-          <gl-icon name="question" :size="12" />
-        </gl-link>
       </span>
+    </gl-link>
+    <gl-link v-if="scoped" class="gl-label-icon" :href="scopedLabelsDocumentationLink">
+      <gl-icon name="question" :size="12" />
     </gl-link>
     <gl-tooltip
       v-if="description"

@@ -102,9 +102,9 @@
 }
 
 /**
-* Minimum dimension (width/height) utilities
+* Minimum/Maximun dimension (width/height) utilities
 *
-* naming convention: gl-min-{w|h}-{spacing-scale-index}
+* naming convention: gl-{min|max}-{w|h}-{spacing-scale-index}
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
@@ -114,4 +114,8 @@
 
 @mixin gl-min-h-7 {
   min-height: $gl-spacing-scale-7;
+}
+
+@mixin gl-max-w-full {
+  max-width: 100%;
 }
