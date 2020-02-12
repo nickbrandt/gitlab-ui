@@ -9,3 +9,13 @@ Before proceeding make sure that the updated image snapshots a) still comply wit
 1. Create a branch locally and delete the image snapshots causing the pipeline failure.
 2. Commit and push the changes to create a merge request.
 3. Manually trigger the `update_screenshots` job in the failing pipeline and regenerate snapshots.
+
+## `yarn build -w` results a "JavaScript heap out of memory error"
+
+Watching for changes in `gitlab-ui` files can be memory intensive. You can increase the amount of memory you can use to run the process.
+
+```sh
+NODE_OPTIONS="--max-old-space-size=4096" yarn build -w
+```
+
+We are keeping track of this problem at https://gitlab.com/gitlab-org/gitlab-ui/issues/614
