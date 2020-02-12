@@ -257,3 +257,5 @@ export const modalSizeOptions = {
   md: 'md',
   lg: 'lg',
 };
+
+export const focusableTags = ['INPUT', 'TEXTAREA', 'A', 'BUTTON', 'SELECT'];

@@ -1,7 +1,8 @@
 <script>
 import { BModal } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
-import { modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
+import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
+import { focusFirstFocusableElement } from '../../../utils/utils';
 
 function validatorHelper(obj) {
   return Object.keys(obj).every(val => val === 'text' || val === 'attributes');
@@ -88,6 +89,21 @@ export default {
       }
       return prop.attributes;
     },
+    setFocus() {
+      const btnElts = Array.from(this.$refs.modal.$refs.modal.querySelectorAll('button'));
+      const modalElts = [...this.$refs.modal.$refs.body.querySelectorAll(focusableTags.join(','))];
+
+      // Iterate over the array and if you find the close button,
+      // move it to the end
+      btnElts.forEach((elt, index) => {
+        if (elt === this.$refs.modal.$refs['close-button']) {
+          btnElts.push(btnElts.splice(index, 1));
+        }
+      });
+
+      // ModalElts are the first choice, the btnElts are a backup
+      focusFirstFocusableElement([...modalElts, ...btnElts]);
+    },
   },
 };
 </script>
@@ -102,6 +118,7 @@ export default {
     lazy
     :modal-class="['gl-modal', modalClass]"
     v-on="$listeners"
+    @shown="setFocus"
     @ok="primary"
     @cancel="canceled"
     @close="secondary"
