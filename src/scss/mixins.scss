@@ -7,6 +7,48 @@
   max-width: $max-width;
 }
 
+$breakpoint-md: px-to-rem(map-get($grid-breakpoints, 'md'));
+$breakpoint-xl: px-to-rem(map-get($grid-breakpoints, 'xl'));
+
+@mixin gl-font-size($min, $max, $breakpoint-min: $breakpoint-md, $breakpoint-max: $breakpoint-xl) {
+  @include gl-responsive-property('font-size', $min, $max, $breakpoint-min, $breakpoint-max);
+}
+
+@mixin gl-line-height(
+  $min,
+  $max,
+  $breakpoint-min: $breakpoint-md,
+  $breakpoint-max: $breakpoint-xl
+) {
+  @include gl-responsive-property('line-height', $min, $max, $breakpoint-min, $breakpoint-max);
+}
+
+/**
+* Declares a property with a fluid value that decreases or
+* rises depending on the viewport’s size. The property type
+* should be numeric.
+*
+* @param $property Property name, i.e. line-height, font-size, width, height, etc.
+* @param $property-min Property value lower bound.
+* @param $property-max Property value upper bound.
+* @param $breakpoint-min Responsive breakpoint
+*/
+@mixin gl-responsive-property(
+  $property,
+  $property-min,
+  $property-max,
+  $breakpoint-min,
+  $breakpoint-max
+) {
+  // This mixin assumes that all values are provided in rem
+  $breakpoint-range: ($breakpoint-max - $breakpoint-min) / 1rem;
+  $property-range: ($property-max - $property-min) / 1rem;
+
+  #{$property}: calc(
+    #{$property-min} + #{$property-range} * ((100vw - #{$breakpoint-min}) / #{$breakpoint-range})
+  );
+}
+
 /**
 * Dropdown dimension (width/height) utilities
 *
