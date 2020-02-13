@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = ({ config }) => {
   config.module.rules = [
     {
-      test: /\.md$/,
+      test: /\.(md|html)$/,
       loader: 'raw-loader',
     },
     {

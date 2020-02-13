@@ -137,7 +137,7 @@
       "^.+\\.js$": "babel-jest",
       ".*\\.example.(vue)$": "vue-jest",
       ".*\\.(vue)$": "vue-jest",
-      "\\.svg$": "jest-raw-loader",
+      "\\.(svg|html)$": "jest-raw-loader",
       "^.+\\.md?$": "markdown-loader-jest"
     },
     "transformIgnorePatterns": [
