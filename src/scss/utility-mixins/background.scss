@@ -138,6 +138,10 @@
   background-color: $red-700;
 }
 
+@mixin gl-bg-theme-indigo-50 {
+  background-color: $theme-indigo-50;
+}
+
 @mixin gl-bg-theme-indigo-500 {
   background-color: $theme-indigo-500;
 }
