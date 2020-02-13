@@ -1,3 +1,10 @@
+# [9.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.9.0...v9.10.0) (2020-02-13)
+
+
+### Features
+
+* **css:** Expose gl-bg-theme-indigo-50 utility class ([3a364e2](https://gitlab.com/gitlab-org/gitlab-ui/commit/3a364e25fe18c915642d6458f5318ae401c629d5))
+
 # [9.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.8.0...v9.9.0) (2020-02-12)
 
 
