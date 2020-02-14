@@ -1,10 +1,21 @@
 .gl-dropdown {
   .gl-dropdown-caret {
     @include gl-ml-2;
+    @include gl-flex-shrink-0;
   }
 
-  .dropdown-toggle::after {
-    @include gl-display-none;
+  .gl-dropdown-toggle-text {
+    @include gl-overflow-hidden;
+    @include gl-text-overflow-ellipsis;
+  }
+
+  .dropdown-toggle {
+    @include gl-display-inline-flex;
+    @include gl-justify-content-space-between;
+
+    &::after {
+      @include gl-display-none;
+    }
   }
 
   .dropdown-toggle-split::after {

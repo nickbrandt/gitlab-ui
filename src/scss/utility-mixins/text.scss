@@ -41,6 +41,15 @@
 }
 
 /**
+* Text overflow utilities
+*
+* Naming convention: gl-text-overflow-{value}
+*/
+@mixin gl-text-overflow-ellipsis {
+  text-overflow: ellipsis;
+}
+
+/**
 * Text indent utilities
 *
 * Naming convention: gl-text-indent-{value}
