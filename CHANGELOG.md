@@ -1,3 +1,10 @@
+## [9.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.10.0...v9.10.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **radio:** Explicitly set line height ([7d58f43](https://gitlab.com/gitlab-org/gitlab-ui/commit/7d58f438e530cc08a051273dc0a35bcb68c84aac))
+
 # [9.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.9.0...v9.10.0) (2020-02-13)
 
 
