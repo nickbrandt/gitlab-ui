@@ -4,5 +4,6 @@ import examples from './examples';
 export default {
   description,
   examples,
+  followsDesignSystem: true,
   bootstrapComponent: 'b-form-radio',
 };
