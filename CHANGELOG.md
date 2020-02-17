@@ -1,3 +1,10 @@
+# [9.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.10.1...v9.11.0) (2020-02-17)
+
+
+### Features
+
+* **css:** Add pajamas typescale variables ([bd9ed44](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd9ed447d81c790b488ddb0364fbdd4fca72e241))
+
 ## [9.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.10.0...v9.10.1) (2020-02-14)
 
 
