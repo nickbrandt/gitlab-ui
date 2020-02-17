@@ -43,7 +43,7 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red, $gl-avatar-identicon-purple,
 .gl-avatar-s48 {
   @include gl-w-9;
   @include gl-h-9;
-  @include gl-font-xl;
+  @include gl-font-size-h2;
   @include gl-line-height-24;
   @include gl-rounded-lg;
 }
@@ -51,7 +51,7 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red, $gl-avatar-identicon-purple,
 .gl-avatar-s64 {
   @include gl-w-11;
   @include gl-h-11;
-  @include gl-font-2xl;
+  @include gl-font-size-h-display;
   @include gl-line-height-32;
   @include gl-rounded-lg;
 }
@@ -59,7 +59,7 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red, $gl-avatar-identicon-purple,
 .gl-avatar-s96 {
   @include gl-w-13;
   @include gl-h-13;
-  @include gl-font-3xl;
+  @include gl-font-size-h-display-xl;
   @include gl-line-height-52;
   @include gl-rounded-lg;
 }
