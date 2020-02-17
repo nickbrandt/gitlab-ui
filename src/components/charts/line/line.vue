@@ -173,7 +173,9 @@ export default {
       // seriesData[0] is the nearest point at which the tooltip is displayed
       // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
       if (seriesData.length && seriesData[0].data) {
-        const [left, top] = this.chart.convertToPixel('grid', seriesData[0].data);
+        const { seriesId, data } = seriesData[0];
+        const [left, top] = this.chart.convertToPixel({ seriesId }, data);
+
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
