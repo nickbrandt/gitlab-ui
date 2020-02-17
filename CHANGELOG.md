@@ -1,3 +1,10 @@
+## [9.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.11.0...v9.11.1) (2020-02-17)
+
+
+### Bug Fixes
+
+* Show all tooltips when multiple series ([ed022dc](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed022dc036dba2629907a002f898df43e8ed2d84))
+
 # [9.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.10.1...v9.11.0) (2020-02-17)
 
 
