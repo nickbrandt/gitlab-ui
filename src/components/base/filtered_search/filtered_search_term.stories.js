@@ -31,7 +31,7 @@ documentedStoriesOf('base|filtered-search/term', readme)
     },
     data() {
       return {
-        value: 'demo1',
+        value: { data: 'demo1' },
         availableTokens,
       };
     },

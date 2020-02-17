@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filtered search token renders token and input with value in active mode 1`] = `
+<div class="gl-filtered-search-token gl-filtered-search-token-active">
+  <gl-token-stub viewonly="true" class="gl-filtered-search-token-type">
+    testTitle
+  </gl-token-stub>
+  <gl-token-stub viewonly="true" class="gl-filtered-search-token-operator gl-cursor-pointer">
+    =
+  </gl-token-stub> <input class="gl-filtered-search-token-input">
+  <portal-stub name="1" order="0" slotprops="[object Object]" tag="DIV" to="stub">
+    <div initial-value="test-value">
+      <div>
+        <gl-filtered-search-suggestion-stub value="test1">1</gl-filtered-search-suggestion-stub>
+        <gl-filtered-search-suggestion-stub value="test2">2</gl-filtered-search-suggestion-stub>
+      </div>
+    </div>
+  </portal-stub>
+</div>
+`;
+
+exports[`Filtered search token renders tokens in inactive mode 1`] = `
+<div class="gl-filtered-search-token">
+  <gl-token-stub viewonly="true" class="gl-filtered-search-token-type">
+    testTitle
+  </gl-token-stub>
+  <gl-token-stub viewonly="true" class="gl-filtered-search-token-operator">
+    =
+  </gl-token-stub>
+  <gl-token-stub class="gl-filtered-search-token-data">test-value</gl-token-stub>
+</div>
+`;

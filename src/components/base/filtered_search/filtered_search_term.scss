@@ -1,9 +1,8 @@
 .gl-filtered-search-term-input {
   @include gl-p-0;
-  @include gl-pl-2;
   @include gl-border-none;
   @include gl-outline-none;
-  @include gl-h-full;
+  @include gl-h-6;
   min-width: $gl-dropdown-width;
 }
 

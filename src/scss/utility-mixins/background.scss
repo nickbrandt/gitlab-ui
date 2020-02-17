@@ -14,6 +14,10 @@
   background-color: $white;
 }
 
+@mixin gl-bg-white-normal {
+  background-color: $white-normal;
+}
+
 @mixin gl-bg-white-light {
   background-color: $white-light;
 }

@@ -17,10 +17,10 @@ Vue.use(PortalVue);
 
 let portalUuid = 0;
 
-function createTerm(value = '') {
+function createTerm(data = '') {
   return {
     type: TERM_TOKEN_TYPE,
-    value,
+    value: { data },
   };
 }
 
@@ -87,6 +87,20 @@ export default {
     termPlaceholder() {
       return this.hasValue ? null : this.placeholder;
     },
+
+    currentAvailableTokens() {
+      return this.availableTokens.filter(token => {
+        if (token.disabled) {
+          return false;
+        }
+
+        if (token.unique) {
+          return !this.tokens.find(t => t.type === token.type);
+        }
+
+        return true;
+      });
+    },
   },
   watch: {
     value: {
@@ -146,10 +160,11 @@ export default {
       if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx || this.activeToken.type !== type) {
         return;
       }
+
       if (
         !this.isLastTokenActive &&
         this.activeToken.type === TERM_TOKEN_TYPE &&
-        this.activeToken.value.trim() === ''
+        this.activeToken.value.data.trim() === ''
       ) {
         this.tokens.splice(tokenIdx, 1);
       }
@@ -169,7 +184,7 @@ export default {
     },
 
     replaceToken(idx, token) {
-      this.$set(this.tokens, idx, { value: '', ...token });
+      this.$set(this.tokens, idx, { ...token, value: { data: '', ...token.value } });
       this.activeTokenIdx = idx;
     },
 
@@ -187,7 +202,11 @@ export default {
     },
 
     completeToken() {
-      this.activeTokenIdx = this.lastTokenIdx;
+      if (this.activeTokenIdx === this.lastTokenIdx - 1) {
+        this.activeTokenIdx = this.lastTokenIdx;
+      } else {
+        this.activeTokenIdx = null;
+      }
     },
 
     submit() {
@@ -216,7 +235,7 @@ export default {
             v-model="token.value"
             v-bind="tokenConfig(token.type)"
             :active="activeTokenIdx === idx"
-            :available-tokens="availableTokens"
+            :available-tokens="currentAvailableTokens"
             :current-value="tokens"
             :index="idx"
             :placeholder="termPlaceholder"

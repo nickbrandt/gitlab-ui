@@ -25,9 +25,9 @@ export default {
       default: false,
     },
     value: {
-      type: String,
+      type: Object,
       required: false,
-      default: '',
+      default: () => ({ data: '' }),
     },
     placeholder: {
       type: String,
@@ -38,16 +38,17 @@ export default {
   computed: {
     suggestedTokens() {
       return this.availableTokens.filter(item =>
-        item.hint.toLowerCase().includes(this.value.toLowerCase())
+        item.hint.toLowerCase().includes(this.value.data.toLowerCase())
       );
     },
   },
+
   methods: {
     getSuggestionsContainer() {
       return this.$refs.suggestions;
     },
 
-    getInputContainer() {
+    getActiveInput() {
       return this.$refs.input;
     },
 
@@ -64,9 +65,9 @@ export default {
       v-if="active"
       ref="input"
       type="text"
-      :value="value"
+      :value="value.data"
       class="gl-filtered-search-term-input"
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('input', { data: $event.target.value })"
       @keydown="handleInput"
       @blur="deactivate"
     />
@@ -76,7 +77,7 @@ export default {
         class="gl-filtered-search-term-input gl-w-full"
         :placeholder="placeholder"
       />
-      <template v-else>{{ value }}</template>
+      <template v-else>{{ value.data }}</template>
     </div>
 
     <portal v-if="active && suggestedTokens.length" :to="portalName">

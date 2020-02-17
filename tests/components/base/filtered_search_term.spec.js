@@ -30,7 +30,6 @@ describe('Filtered search term', () => {
 
   const defaultProps = {
     availableTokens: [],
-    value: '',
   };
 
   let alignSuggestionsMock;
@@ -62,12 +61,12 @@ describe('Filtered search term', () => {
   });
 
   it('renders value in inactive mode', () => {
-    createComponent({ value: 'test-value' });
+    createComponent({ value: { data: 'test-value' } });
     expect(wrapper.text()).toContain('test-value');
   });
 
   it('renders input with value in active mode', () => {
-    createComponent({ value: 'test-value', active: true });
+    createComponent({ value: { data: 'test-value' }, active: true });
     expect(wrapper.find('input').element.value).toBe('test-value');
   });
 
@@ -98,7 +97,9 @@ describe('Filtered search term', () => {
   it('emits deactivate event when blurred', () => {
     createComponent({ placeholder: 'placeholder-stub', active: true });
     wrapper.find('input').trigger('blur');
-    expect(wrapper.emitted().deactivate).toBeDefined();
+    return wrapper.vm.$nextTick().then(() => {
+      expect(wrapper.emitted().deactivate).toBeDefined();
+    });
   });
 
   it('renders suggestions when token is active', () => {
@@ -108,7 +109,7 @@ describe('Filtered search term', () => {
   });
 
   it('filters suggestions by input', () => {
-    createComponent({ availableTokens, active: true, value: 'test1' });
+    createComponent({ availableTokens, active: true, value: { data: 'test1' } });
     wrapper.find('input').setValue('test1');
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.findAll(GlFilteredSearchSuggestion).length).toBe(2);
@@ -117,15 +118,15 @@ describe('Filtered search term', () => {
 
   it('emits submit event if no suggestion is selected and Enter is pressed', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.find('input').trigger('keydown.enter');
+    wrapper.find('input').trigger('keydown', { key: 'Enter' });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().submit.length).toBe(1);
     });
   });
 
   it('emits submit event if no suggestions are available and Enter is pressed', () => {
-    createComponent({ availableTokens, active: true, value: 'other' });
-    wrapper.find('input').trigger('keydown.enter');
+    createComponent({ availableTokens, active: true, value: { data: 'other' } });
+    wrapper.find('input').trigger('keydown', { key: 'Enter' });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().submit.length).toBe(1);
     });
@@ -134,7 +135,7 @@ describe('Filtered search term', () => {
   it('emits replace event if suggestion is selected and Enter is pressed', () => {
     createComponent({ availableTokens, active: true });
     suggestionsMock.methods.getValue.mockReturnValue('token-type');
-    wrapper.find('input').trigger('keydown.enter');
+    wrapper.find('input').trigger('keydown', { key: 'Enter' });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().replace.length).toBe(1);
       expect(wrapper.emitted().replace[0]).toEqual([{ type: 'token-type' }]);
@@ -143,7 +144,7 @@ describe('Filtered search term', () => {
 
   it('emits destroy event if value is empty and Backspace is pressed', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.find('input').trigger('keydown.backspace');
+    wrapper.find('input').trigger('keydown', { key: 'Backspace' });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().destroy.length).toBe(1);
     });
@@ -151,16 +152,18 @@ describe('Filtered search term', () => {
 
   it('emits create when value is changed to ending with single space', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'test ' });
+    wrapper.setProps({ value: { data: 'test ' } });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().create.length).toBe(1);
-      expect(wrapper.emitted().create[0]).toEqual([[{ type: TERM_TOKEN_TYPE, value: '' }]]);
+      expect(wrapper.emitted().create[0]).toEqual([
+        [{ type: TERM_TOKEN_TYPE, value: { data: '' } }],
+      ]);
     });
   });
 
   it('does not emit create when value is changed to contain multiple spaces and has unclosed quotes', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'foo "bar baz' });
+    wrapper.setProps({ value: { data: 'foo "bar baz' } });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().create).toBeUndefined();
     });
@@ -168,30 +171,34 @@ describe('Filtered search term', () => {
 
   it('emits create and truncates current token when value is changed to contain multiple spaces and has no quotes', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'foo bar baz' });
+    wrapper.setProps({ value: { data: 'foo bar baz' } });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().create[0]).toEqual([
         [
-          { type: TERM_TOKEN_TYPE, value: 'bar' },
-          { type: TERM_TOKEN_TYPE, value: 'baz' },
+          { type: TERM_TOKEN_TYPE, value: { data: 'bar' } },
+          { type: TERM_TOKEN_TYPE, value: { data: 'baz' } },
         ],
       ]);
-      expect(wrapper.emitted().input[0]).toEqual(['foo']);
+      const lastEmit = wrapper.emitted().input[wrapper.emitted().input.length - 1];
+      expect(lastEmit).toEqual([{ data: 'foo' }]);
     });
   });
 
   it('emits create and truncates current token when value is changed to contain multiple spaces and has paired quotes', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: '"foo bar" baz' });
+    wrapper.setProps({ value: { data: '"foo bar" baz' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create[0]).toEqual([[{ type: TERM_TOKEN_TYPE, value: 'baz' }]]);
-      expect(wrapper.emitted().input[0]).toEqual(['"foo bar"']);
+      expect(wrapper.emitted().create[0]).toEqual([
+        [{ type: TERM_TOKEN_TYPE, value: { data: 'baz' } }],
+      ]);
+      const lastEmit = wrapper.emitted().input[wrapper.emitted().input.length - 1];
+      expect(lastEmit).toEqual([{ data: '"foo bar"' }]);
     });
   });
 
   it('does not emit create event if there are no spaces in input', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'foo' });
+    wrapper.setProps({ value: { data: 'foo' } });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().create).toBeUndefined();
     });
@@ -199,13 +206,13 @@ describe('Filtered search term', () => {
 
   it('selects next suggestion if down arrow is pressed', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.find('input').trigger('keydown.down');
+    wrapper.find('input').trigger('keydown', { key: 'ArrowDown' });
     expect(suggestionsMock.methods.nextItem).toHaveBeenCalled();
   });
 
   it('selects previous suggestion if up arrow is pressed', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.find('input').trigger('keydown.up');
+    wrapper.find('input').trigger('keydown', { key: 'ArrowUp' });
     expect(suggestionsMock.methods.prevItem).toHaveBeenCalled();
   });
 });

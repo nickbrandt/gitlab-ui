@@ -208,3 +208,19 @@
 @mixin gl-rounded-bottom-right-none {
   border-bottom-right-radius: 0;
 }
+
+@mixin gl-rounded-top-left-small {
+  border-top-left-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-top-right-small {
+  border-top-right-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-bottom-left-small {
+  border-bottom-left-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-bottom-right-small {
+  border-bottom-right-radius: $gl-border-radius-small;
+}

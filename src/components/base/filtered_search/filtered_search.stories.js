@@ -3,37 +3,16 @@ import { documentedStoriesOf } from '../../../../documentation/documented_storie
 import readme from './filtered_search.md';
 import {
   GlFilteredSearch,
-  GlFilteredSearchBinaryToken,
+  GlFilteredSearchToken,
   GlFilteredSearchSuggestion,
   GlDropdownDivider,
   GlLoadingIcon,
   GlAvatar,
 } from '../../../../index';
 
-const staticToken = {
-  components: {
-    GlFilteredSearchBinaryToken,
-    GlFilteredSearchSuggestion,
-  },
-  props: ['value', 'active'],
-  template: `
-    <gl-filtered-search-binary-token
-      title="Confidential"
-      :active="active"
-      :value="value"
-      v-on="$listeners"
-    >
-      <template #suggestions>
-        <gl-filtered-search-suggestion value="Yes"><gl-icon name="eye-slash" :size="16"/> Yes</gl-filtered-search-suggestion>
-        <gl-filtered-search-suggestion value="No"><gl-icon name="eye" :size="16"/> No</gl-filtered-search-suggestion>
-      </template>
-    </gl-filtered-search-binary-token>
-  `,
-};
-
 const dynamicToken = {
   components: {
-    GlFilteredSearchBinaryToken,
+    GlFilteredSearchToken,
     GlFilteredSearchSuggestion,
     GlDropdownDivider,
     GlLoadingIcon,
@@ -64,7 +43,7 @@ const dynamicToken = {
     },
   },
   watch: {
-    value(newValue) {
+    'value.data': function update(newValue) {
       if (newValue.length) {
         this.loadSuggestions();
       }
@@ -76,7 +55,7 @@ const dynamicToken = {
     },
   },
   template: `
-    <gl-filtered-search-binary-token
+    <gl-filtered-search-token
       title="Dynamic"
       :active="active"
       :value="value"
@@ -84,8 +63,8 @@ const dynamicToken = {
     >
       <template #view>
         <gl-loading-icon size="sm" v-if="loadingView" class="gl-mr-2" />
-        <gl-avatar :size="16" :entity-name="value" shape="circle" class="gl-mr-2" v-else />
-        {{ value }}
+        <gl-avatar :size="16" :entity-name="value.data" shape="circle" class="gl-mr-2" v-else />
+        {{ value.data }}
       </template>
       <template #suggestions>
         <template v-if="loadingSuggestions">
@@ -98,12 +77,23 @@ const dynamicToken = {
         <gl-filtered-search-suggestion :key="idx" v-for="(suggestion, idx) in suggestions" :value="suggestion">{{ suggestion }}</gl-filtered-search-suggestion>
         </template>
       </template>
-    </gl-filtered-search-binary-token>
+    </gl-filtered-search-token>
   `,
 };
 
 const testTokens = [
-  { type: 'static', icon: 'label', hint: 'static:token', token: staticToken },
+  {
+    type: 'static',
+    icon: 'label',
+    hint: 'static:token',
+    token: GlFilteredSearchToken,
+    options: [
+      { icon: 'eye-slash', value: true, title: 'Yes' },
+      { icon: 'eye', value: false, title: 'No' },
+    ],
+    unique: true,
+    title: 'Unique',
+  },
   { type: 'dynamic', icon: 'rocket', hint: 'dynamic:~token', token: dynamicToken },
 ];
 
@@ -118,9 +108,9 @@ documentedStoriesOf('base|filtered-search', readme)
       return {
         tokens: testTokens,
         value: [
-          { type: 'static', value: 'static' },
-          'other term',
-          { type: 'dynamic', value: 'dynamic' },
+          { type: 'static', value: { operator: '=', data: true } },
+          'text',
+          { type: 'dynamic', value: { operator: '!=', data: 'dynamic' } },
         ],
       };
     },

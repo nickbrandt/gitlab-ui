@@ -2,19 +2,19 @@ import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import GlFilteredSearchBinaryToken from './filtered_search_binary_token.vue';
+import GlFilteredSearchToken from './filtered_search_token.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
-import readme from './filtered_search_binary_token.md';
+import readme from './filtered_search_token.md';
 
 Vue.use(PortalVue);
 
 const noop = () => {};
 
-documentedStoriesOf('base|filtered-search/binary-token', readme)
+documentedStoriesOf('base|filtered-search/token', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components: {
-      GlFilteredSearchBinaryToken,
+      GlFilteredSearchToken,
       GlFilteredSearchSuggestion,
     },
     provide: {
@@ -33,7 +33,7 @@ documentedStoriesOf('base|filtered-search/binary-token', readme)
     },
     data() {
       return {
-        value: 'demo1',
+        value: { operator: '=', data: 'Yes' },
       };
     },
     mounted() {
@@ -45,7 +45,7 @@ documentedStoriesOf('base|filtered-search/binary-token', readme)
       <div>
         <div> {{ value }} </div>
         <div class="gl-border-1 gl-border-solid gl-border-gray-400">
-          <gl-filtered-search-binary-token
+          <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
             :title="title"
@@ -55,7 +55,7 @@ documentedStoriesOf('base|filtered-search/binary-token', readme)
               <gl-filtered-search-suggestion value="Yes"><gl-icon name="eye-slash" :size="16"/> Yes</gl-filtered-search-suggestion>
               <gl-filtered-search-suggestion value="No"><gl-icon name="eye" :size="16"/> No</gl-filtered-search-suggestion>
             </template>
-          </gl-filtered-search-binary-token>
+          </gl-filtered-search-token>
         </div>
         <div>
           <portal-target name="portal" class="gl-relative" />

@@ -37,7 +37,7 @@ const complexToken = {
     },
   },
   template: `
-    <gl-filtered-search-binary-token
+    <gl-filtered-search-token
       title="Dynamic"
       :active="active"
       :value="value"
@@ -45,8 +45,8 @@ const complexToken = {
     >
       <template #view>
         <gl-loading-icon size="sm" v-if="loadingView" class="gl-mr-2" />
-        <gl-avatar :size="16" :entity-name="value" shape="circle" class="gl-mr-2" v-else />
-        {{ value }}
+        <gl-avatar :size="16" :entity-name="value.data" shape="circle" class="gl-mr-2" v-else />
+        {{ value.data }}
       </template>
       <template #suggestions>
         <template v-if="loadingSuggestions">
@@ -59,7 +59,7 @@ const complexToken = {
         <gl-filtered-search-suggestion :key="idx" v-for="(suggestion, idx) in suggestions" :value="suggestion">{{ suggestion }}</gl-filtered-search-suggestion>
         </template>
       </template>
-    </gl-filtered-search-binary-token>
+    </gl-filtered-search-token>
   `,
 };
 
@@ -68,15 +68,39 @@ const testTokens = [
     type: 'static',
     icon: 'label',
     hint: 'static:token',
-    token: 'gl-filtered-search-static-binary-token',
+    token: 'gl-filtered-search-token',
     title: 'Static',
-    items: [
+    operators: [
+      { operator: '^', description: 'caret' },
+      { operator: '|', description: 'pipe ' },
+    ],
+    options: [
       { icon: 'hourglass', title: 'first', value: 'one' },
       { title: 'second-without-icon', value: 'two' },
       { icon: 'issues', title: 'third', value: 'three' },
     ],
   },
   { type: 'dynamic', icon: 'rocket', hint: 'dynamic:~token', token: complexToken },
+  {
+    type: 'unique',
+    title: 'Unique',
+    icon: 'document',
+    hint: 'unique:token',
+    token: 'gl-filtered-search-token',
+    options: [
+      { icon: 'heart', title: 'heart', value: 1 },
+      { icon: 'hook', title: 'hook', value: 2 },
+    ],
+    unique: true,
+  },
+  {
+    type: 'will-not-see',
+    icon: 'import',
+    hint: 'disabled:token',
+    token: 'gl-filtered-search-token',
+    options: [{ icon: 'heart', title: 'heart', value: 1 }],
+    disabled: true,
+  },
 ];
 
 export default {
@@ -84,9 +108,9 @@ export default {
     return {
       tokens: testTokens,
       value: [
-        { type: 'static', value: 'static' },
+        { type: 'static', value: { data: 'static' } },
         'term other',
-        { type: 'dynamic', value: 'dynamic' },
+        { type: 'dynamic', value: { data: 'dynamic' } },
       ],
     };
   },

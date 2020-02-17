@@ -1,0 +1,58 @@
+.gl-filtered-search-token {
+  &.gl-filtered-search-token-active {
+    @include gl-cursor-default;
+  }
+
+  @include gl-display-inline-flex;
+  @include gl-white-space-nowrap;
+  @include gl-cursor-pointer;
+
+  &:hover {
+    .gl-filtered-search-token-type {
+      background-color: #ebebeb;
+    }
+
+    .gl-filtered-search-token-operator,
+    .gl-filtered-search-token-data {
+      box-shadow: inset 0 0 0 100px rgba(0, 0, 0, 0.09);
+    }
+  }
+}
+
+.gl-filtered-search-token-type {
+  background-color: #f8f8f8;
+  @include gl-rounded-0;
+  @include gl-rounded-top-left-small;
+  @include gl-rounded-bottom-left-small;
+  margin-right: 1px;
+}
+
+.gl-filtered-search-token-operator {
+  @include gl-bg-white-normal;
+  @include gl-rounded-0;
+  margin-right: 1px;
+}
+
+.gl-filtered-search-token-data {
+  @include gl-bg-white-normal;
+  @include gl-rounded-0;
+  @include gl-rounded-top-right-small;
+  @include gl-rounded-bottom-right-small;
+}
+
+.gl-filtered-search-operator-description {
+  @include gl-text-gray-600;
+  @include gl-ml-auto;
+}
+
+.gl-filtered-search-token-input {
+  @include gl-p-0;
+  @include gl-pl-2;
+  @include gl-border-none;
+  @include gl-outline-none;
+  min-width: $gl-dropdown-width;
+}
+
+.gl-filtered-search-token-icon {
+  @include gl-mr-2;
+}

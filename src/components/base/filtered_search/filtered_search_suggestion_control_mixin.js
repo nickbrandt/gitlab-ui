@@ -1,4 +1,3 @@
-import KeyCodes from 'bootstrap-vue/src/utils/key-codes';
 import { TERM_TOKEN_TYPE } from './filtered_search_utils';
 
 function splitOnQuotes(str) {
@@ -43,7 +42,11 @@ export default {
   inject: ['portalName', 'alignSuggestions'],
   methods: {
     hasValue() {
-      return this.value.trim().length > 0;
+      return this.value.data.trim().length > 0;
+    },
+
+    shouldHandleSpacesInData() {
+      return true;
     },
 
     getSuggestionsContainer() {
@@ -52,46 +55,68 @@ export default {
       );
     },
 
-    getInputContainer() {
+    getActiveInput() {
       throw new Error(
         'getInputContainer is not implemented. Please return ref to active element of token here'
       );
     },
 
     destroyToken() {
-      if (!this.hasValue()) {
-        this.$emit('destroy');
-      }
+      this.$emit('destroy');
     },
 
     applySuggestion() {
       throw new Error('applySuggestion not implemented in this component');
     },
 
+    focusActiveInput() {
+      this.$nextTick(() => {
+        const input = this.getActiveInput();
+        if (!input) {
+          return;
+        }
+        input.focus();
+        input.scrollIntoView({ block: 'nearest', inline: 'end' });
+        this.alignSuggestions(input);
+      });
+    },
+
+    applyCurrentSuggestion() {
+      const suggestions = this.getSuggestionsContainer();
+      const suggestionValue = suggestions.getValue();
+      if (suggestionValue !== undefined) {
+        this.applySuggestion(suggestionValue);
+        return true;
+      }
+
+      return false;
+    },
+
     handleInput(evt) {
       const suggestions = this.getSuggestionsContainer();
       const handlers = {
-        [KeyCodes.ENTER]: () => this.$emit('submit'),
+        Enter: () => this.$emit('submit'),
       };
 
       const suggestionsHandlers = {
-        [KeyCodes.ENTER]: () => {
-          const suggestionValue = suggestions.getValue();
-          if (suggestionValue) {
-            this.applySuggestion(suggestionValue);
-          } else {
-            this.$emit('submit');
+        Enter: () => {
+          if (this.applyCurrentSuggestion()) {
+            return;
           }
+
+          this.$emit('submit');
         },
-        [KeyCodes.DOWN]: () => suggestions.nextItem(),
-        [KeyCodes.UP]: () => suggestions.prevItem(),
+        ArrowDown: () => suggestions.nextItem(),
+        Down: () => suggestions.nextItem(),
+        ArrowUp: () => suggestions.prevItem(),
+        Up: () => suggestions.prevItem(),
       };
 
       if (suggestions) {
         Object.assign(handlers, suggestionsHandlers);
       }
 
-      const key = evt.keyCode;
+      const { key } = evt;
 
       if (Object.keys(handlers).includes(key.toString())) {
         evt.preventDefault();
@@ -99,9 +124,12 @@ export default {
         return true;
       }
 
-      if (key === KeyCodes.BACKSPACE && !this.hasValue()) {
-        evt.preventDefault();
-        this.destroyToken();
+      if (key === 'Backspace') {
+        if (!this.hasValue()) {
+          evt.preventDefault();
+          this.destroyToken();
+        }
+
         return true;
       }
 
@@ -112,26 +140,35 @@ export default {
       const suggestions = this.getSuggestionsContainer();
 
       if (this.active && (!suggestions || !suggestions.$el.contains($evt.relatedTarget))) {
-        this.$emit('deactivate');
+        this.$nextTick(() => {
+          if (this.getActiveInput() === $evt.target) {
+            this.$emit('deactivate');
+          }
+        });
       }
     },
   },
   watch: {
+    value: {
+      deep: true,
+      handler(v) {
+        this.$emit('input', v);
+      },
+    },
     active: {
       handler(newValue) {
         if (newValue) {
-          this.$nextTick(() => {
-            const input = this.getInputContainer();
-            input.focus();
-            input.scrollIntoView({ block: 'nearest', inline: 'end' });
-            this.alignSuggestions(input);
-          });
+          this.focusActiveInput();
         }
       },
       immediate: true,
     },
-    value: {
+    'value.data': {
       handler(newValue) {
+        if (!this.shouldHandleSpacesInData()) {
+          return;
+        }
+
         const hasUnclosedQuote = newValue.split('"').length % 2 === 0;
         if (newValue.indexOf(' ') === -1 || hasUnclosedQuote) {
           return;
@@ -140,14 +177,14 @@ export default {
         const [firstWord, ...otherWords] = splitOnQuotes(newValue).filter(
           (w, idx, arr) => Boolean(w) || idx === arr.length - 1
         );
-        this.$emit('input', firstWord);
+        this.$emit('input', { ...this.value, data: firstWord });
 
         if (otherWords.length) {
           this.$emit(
             'create',
             otherWords.map(w => ({
               type: TERM_TOKEN_TYPE,
-              value: w,
+              value: { data: w },
             }))
           );
         }
