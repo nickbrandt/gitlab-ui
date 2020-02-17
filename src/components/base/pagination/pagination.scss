@@ -20,6 +20,11 @@
   &:not(.pagination-lg):not(.pagination-sm) .page-link {
     @include gl-px-4;
     @include gl-py-3;
+
+    &.prev-page-item,
+    &.next-page-item {
+      @include gl-px-3;
+    }
   }
 
   .page-item {
@@ -35,38 +40,22 @@
       @include gl-text-gray-600;
     }
   }
+
+  .prev-page-item,
+  .next-page-item {
+    .gl-icon {
+      vertical-align: bottom;
+    }
+  }
 }
 
 @include media-breakpoint-down(xs) {
   .gl-pagination:not(.custom-rendering) {
-    &:not(.pagination-lg):not(.pagination-sm) {
-      .prev-page-item,
-      .next-page-item {
-        @include gl-px-5;
-        @include gl-py-3;
-      }
-    }
-
     .prev-page-item,
     .next-page-item {
-      @include gl-text-indent-hide;
-
-      &::after {
-        content: '›';
-        @include gl-display-flex;
-        @include gl-absolute;
-        @include gl-top-0;
-        @include gl-right-0;
-        @include gl-bottom-0;
-        @include gl-left-0;
-        @include gl-align-items-center;
-        @include gl-justify-content-center;
-        @include gl-text-indent-0;
+      span {
+        display: none;
       }
-    }
-
-    .prev-page-item::after {
-      content: '‹';
     }
   }
 }

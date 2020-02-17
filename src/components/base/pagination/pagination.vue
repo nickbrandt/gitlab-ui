@@ -3,6 +3,7 @@ import range from 'lodash/range';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import GlLink from '../link/link.vue';
+import GlIcon from '../icon/icon.vue';
 import Breakpoints, { breakpoints } from '../../../utils/breakpoints';
 import { isIntGreaterThan } from '../../../utils/number_utils';
 import { sizeOptions, alignOptions, resizeDebounceTime } from '../../../utils/constants';
@@ -14,6 +15,7 @@ export default {
   name: 'Pagination',
   components: {
     GlLink,
+    GlIcon,
   },
   model: {
     prop: 'value',
@@ -64,7 +66,7 @@ export default {
     prevText: {
       type: String,
       required: false,
-      default: '‹ Prev',
+      default: 'Prev',
     },
     nextPage: {
       type: Number,
@@ -74,7 +76,7 @@ export default {
     nextText: {
       type: String,
       required: false,
-      default: 'Next ›',
+      default: 'Next',
     },
     ellipsisText: {
       type: String,
@@ -212,26 +214,16 @@ export default {
         }
       }
 
-      const prevPageItem = {
-        ...this.getPageItem(this.value - 1, this.labelPrevPage),
-        content: this.prevText,
-        key: 'previous',
-        slot: 'previous',
-      };
-      prevPageItem.attrs.class.push('prev-page-item');
-
-      const nextPageItem = {
-        ...this.getPageItem(this.value + 1, this.labelNextPage),
-        content: this.nextText,
-        key: 'next',
-        slot: 'next',
-      };
-      nextPageItem.attrs.class.push('next-page-item');
-
-      return [prevPageItem, ...items, nextPageItem];
+      return items;
     },
     isCompactPagination() {
       return Boolean(!this.totalItems && (this.prevPage || this.nextPage));
+    },
+    prevPageIsDisabled() {
+      return this.pageIsDisabled(this.value - 1);
+    },
+    nextPageIsDisabled() {
+      return this.pageIsDisabled(this.value + 1);
     },
   },
   created() {
@@ -244,6 +236,13 @@ export default {
     setBreakpoint() {
       this.breakpoint = Breakpoints.getBreakpointSize();
     },
+    pageIsDisabled(page) {
+      return (
+        page < 1 ||
+        (this.isCompactPagination && page > this.value && !this.nextPage) ||
+        (!this.isCompactPagination && page > this.totalPages)
+      );
+    },
     getPageItem(page, label = null) {
       const commonAttrs = {
         'aria-label': label || this.labelPage(page),
@@ -251,10 +250,7 @@ export default {
         class: [],
       };
       const isActivePage = page === this.value;
-      const isDisabled =
-        page < 1 ||
-        (this.isCompactPagination && page > this.value && !this.nextPage) ||
-        (!this.isCompactPagination && page > this.totalPages);
+      const isDisabled = this.pageIsDisabled(page);
 
       const attrs = { ...commonAttrs };
       const listeners = {};
@@ -307,6 +303,27 @@ export default {
     aria-label="Pagination"
   >
     <li
+      class="page-item"
+      :class="{
+        disabled: prevPageIsDisabled,
+        'flex-fill': isFillAlign,
+      }"
+    >
+      <component
+        :is="prevPageIsDisabled ? 'span' : 'a'"
+        class="page-link prev-page-item"
+        :aria-disabled="prevPageIsDisabled || disabled"
+        :aria-label="labelPrevPage || labelPage(value - 1)"
+        :href="isLinkBased ? linkGen(value - 1) : '#'"
+        @click.prevent="$emit('input', value - 1)"
+      >
+        <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
+          <gl-icon name="chevron-left" />
+          <span>{{ prevText }}</span>
+        </slot>
+      </component>
+    </li>
+    <li
       v-for="item in visibleItems"
       :key="item.key"
       class="page-item"
@@ -324,6 +341,28 @@ export default {
         v-on="item.listeners"
       >
         <slot :name="item.slot" v-bind="item.slotData">{{ item.content }}</slot>
+      </component>
+    </li>
+
+    <li
+      class="page-item"
+      :class="{
+        disabled: nextPageIsDisabled,
+        'flex-fill': isFillAlign,
+      }"
+    >
+      <component
+        :is="nextPageIsDisabled ? 'span' : 'a'"
+        class="page-link next-page-item"
+        :aria-disabled="nextPageIsDisabled || disabled"
+        :aria-label="labelNextPage || labelPage(value + 1)"
+        :href="isLinkBased ? linkGen(value + 1) : '#'"
+        @click.prevent="$emit('input', value + 1)"
+      >
+        <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
+          <span>{{ nextText }}</span>
+          <gl-icon name="chevron-right" />
+        </slot>
       </component>
     </li>
   </ul>
