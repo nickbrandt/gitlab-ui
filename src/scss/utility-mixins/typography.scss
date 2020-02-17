@@ -69,23 +69,6 @@
   font-size: $gl-font-size-monospace-lg;
 }
 
-/*
-* DEPRECATION NOTICE
-* These font size utilities are deprecated. Use the utilities
-* above instead.
-*/
-@mixin gl-font-xl {
-  font-size: $gl-type-scale-xl;
-}
-
-@mixin gl-font-2xl {
-  font-size: $gl-type-scale-2xl;
-}
-
-@mixin gl-font-3xl {
-  font-size: $gl-type-scale-3xl;
-}
-
 @mixin gl-font-icon-size {
   font-size: $default-icon-size;
 }

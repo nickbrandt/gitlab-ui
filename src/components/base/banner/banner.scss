@@ -43,7 +43,7 @@
   @include gl-border-blue-300;
 
   .gl-banner-title {
-    @include gl-font-2xl;
+    @include gl-font-size-h-display;
   }
 
   .gl-banner-close {
