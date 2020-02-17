@@ -1,9 +1,9 @@
 .gl-form-group {
-  margin-bottom: $gl-line-height;
+  @include gl-mb-5;
 
   .col-form-label {
-    line-height: $gl-line-height;
-    padding-top: 0;
-    padding-bottom: $gl-spacing-scale-3;
+    @include gl-line-height-normal;
+    @include gl-pt-0;
+    @include gl-pb-3;
   }
 }
