@@ -18,6 +18,7 @@ stages:
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
+  needs: ['build_docker_image']
 
 .node:
   image: node:12
@@ -47,7 +48,7 @@ build_docker_image:
 danger-review:
   image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
   stage: pre-build
-  dependencies: []
+  needs: []
   only:
     variables:
       - $DANGER_GITLAB_API_TOKEN
@@ -59,6 +60,7 @@ danger-review:
 
 build:
   extends: [.node, .yarn_install]
+  needs: []
   tags:
     - gitlab-org # This allows us to use higher performance runners
   stage: test
@@ -76,6 +78,7 @@ build:
 
 lint:
   extends: [.node, .yarn_install]
+  needs: []
   stage: test
   script:
     - yarn build-scss-variables
@@ -90,6 +93,7 @@ lint:
 
 generate_utility_classes:
   extends: [.node]
+  needs: []
   stage: test
   script:
     - yarn generate-utilities
@@ -115,12 +119,14 @@ visual_gitlab_integration:
 
 unit_tests:
   extends: [.node, .yarn_install]
+  needs: []
   stage: test
   script:
     - yarn test:unit
 
 update_screenshots:
   extends: [.puppeteer, .yarn_install]
+  needs: []
   tags:
     - gitlab-org # This allows us to use higher performance runners
   stage: pre-build
