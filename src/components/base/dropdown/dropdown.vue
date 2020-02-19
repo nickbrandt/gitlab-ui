@@ -66,7 +66,7 @@ export default {
   <b-dropdown ref="dropdown" class="gl-dropdown" v-bind="$attrs" :split="split" v-on="$listeners">
     <slot></slot>
     <slot slot="button-content" name="button-content">
-      {{ text }}
+      <span class="gl-dropdown-toggle-text">{{ text }}</span>
       <gl-icon
         v-if="renderCaret"
         class="gl-dropdown-caret"

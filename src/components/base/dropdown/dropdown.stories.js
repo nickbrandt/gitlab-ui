@@ -25,6 +25,27 @@ documentedStoriesOf('base|dropdown', readme)
       this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
     },
   }))
+  .add('with short text and wide width', () => ({
+    components,
+    template: `
+      <gl-dropdown :style="{ width: '400px' }" text="Some dropdown">
+        <gl-dropdown-item>First item</gl-dropdown-item>
+      </gl-dropdown>`,
+  }))
+  .add('with long text and narrow width', () => ({
+    components,
+    template: `
+      <gl-dropdown :style="{ maxWidth: '160px' }" toggle-class="gl-w-full" text="This is a dropdown with a long toggle text">
+        <gl-dropdown-item>First item</gl-dropdown-item>
+      </gl-dropdown>`,
+  }))
+  .add('with empty text', () => ({
+    components,
+    template: `
+      <gl-dropdown :style="{ width: '400px' }" toggle-class="gl-w-full">
+        <gl-dropdown-item>First item</gl-dropdown-item>
+      </gl-dropdown>`,
+  }))
   .add('with links', () => ({
     props: {},
     components,
