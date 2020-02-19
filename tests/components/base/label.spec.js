@@ -166,7 +166,8 @@ describe('Label component', () => {
 
       createComponent(props);
 
-      expect(findTooltipText()).toEqual(props.description);
+      expect(findTooltipText()).toContain(props.description);
+      expect(findTooltipText()).toContain('Scoped label');
     });
 
     it('links to label target', () => {

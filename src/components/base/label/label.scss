@@ -75,3 +75,9 @@ $label-max-width: 100%;
     }
   }
 }
+
+.gl-label-tooltip-title {
+  @include gl-display-block;
+  @include gl-text-theme-indigo-300;
+  @include gl-font-weight-bold;
+}
