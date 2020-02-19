@@ -1,3 +1,10 @@
+## [9.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.11.1...v9.11.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* **dropdown:** Fix dropdown caret alignment ([fc9126c](https://gitlab.com/gitlab-org/gitlab-ui/commit/fc9126c591bc61f09ab907f1b688c21e56cfd355))
+
 ## [9.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.11.0...v9.11.1) (2020-02-17)
 
 
