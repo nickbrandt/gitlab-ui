@@ -15,7 +15,7 @@ stages:
   - build
   - deploy
   - publish
-  - deployed
+  - manual
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
@@ -146,10 +146,9 @@ unit_tests:
 
 update_screenshots:
   extends: [.puppeteer, .yarn_install]
-  needs: []
   tags:
     - gitlab-org # This allows us to use higher performance runners
-  stage: pre-build
+  stage: manual
   when: manual
   script:
     - yarn test:visual:update
@@ -179,7 +178,9 @@ review:
     - deploy
 
 review_stop:
-  stage: deploy
+  stage: manual
+  needs: 
+    - review
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
   when: manual
@@ -210,7 +211,7 @@ pages:
 create_integration_branch:
   when: manual
   extends: .node
-  stage: deployed
+  stage: manual
   needs:
     - build_package
   script:
