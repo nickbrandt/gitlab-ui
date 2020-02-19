@@ -50,12 +50,14 @@ export default {
 </script>
 
 <template>
-  <section class="gl-banner" :class="{ 'gl-banner-introduction': isIntroducing }">
+  <section class="gl-typescale-ui gl-banner" :class="{ 'gl-banner-introduction': isIntroducing }">
     <div v-if="svgPath" class="gl-banner-illustration">
       <img :src="svgPath" alt="" role="presentation" />
     </div>
     <div class="gl-banner-content">
-      <h1 class="gl-banner-title">{{ title }}</h1>
+      <div :class="['gl-banner-title', { 'gl-h2': isIntroducing, 'gl-h4': !isIntroducing }]">
+        {{ title }}
+      </div>
       <slot></slot>
       <gl-button variant="info" :href="buttonLink">{{ buttonText }}</gl-button>
     </div>
