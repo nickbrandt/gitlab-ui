@@ -55,21 +55,25 @@
     @include new-gl-button-secondary-hover($gray-400);
   }
 
+  &:focus {
+    @include gl-bg-gray-200;
+    @include new-gl-button-focus($gray-400);
+  }
+
   &:active,
   &.active {
     @include gl-bg-gray-300;
     @include new-gl-button-active($gray-500);
+
+    &:focus {
+      @include new-gl-button-focus($gray-500);
+    }
   }
 
   &.selected {
     @include gl-bg-gray-50;
     box-shadow: inset 0 0 0 px-to-rem(1px) $gray-400,
       inset 0 px-to-rem(1px) px-to-rem(4px) px-to-rem(1px) rgba(0, 0, 0, 0.2);
-  }
-
-  &:focus {
-    @include gl-bg-gray-200;
-    @include new-gl-button-focus($gray-400);
   }
 
   &.btn-info,
@@ -88,14 +92,18 @@
       @include new-gl-button-hover($blue-700);
     }
 
+    &:focus {
+      @include new-gl-button-focus($blue-700);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-blue-600;
       @include new-gl-button-active($blue-800);
-    }
 
-    &:focus {
-      @include new-gl-button-focus($blue-700);
+      &:focus {
+        @include new-gl-button-focus($blue-800);
+      }
     }
   }
 
@@ -111,17 +119,21 @@
       @include new-gl-button-secondary-hover($blue-500);
     }
 
+    &:focus {
+      @include gl-bg-blue-100;
+      @include gl-text-blue-600;
+      @include new-gl-button-focus($blue-500);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-blue-200;
       @include gl-text-blue-700;
       @include new-gl-button-active($blue-600);
-    }
 
-    &:focus {
-      @include gl-bg-blue-100;
-      @include gl-text-blue-600;
-      @include new-gl-button-focus($blue-500);
+      &:focus {
+        @include new-gl-button-focus($blue-600);
+      }
     }
   }
 
@@ -133,14 +145,18 @@
       @include new-gl-button-hover($green-700);
     }
 
+    &:focus {
+      @include new-gl-button-focus($green-700);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-green-600;
       @include new-gl-button-active($green-800);
-    }
 
-    &:focus {
-      @include new-gl-button-focus($green-700);
+      &:focus {
+        @include new-gl-button-focus($green-800);
+      }
     }
   }
 
@@ -156,17 +172,21 @@
       @include new-gl-button-secondary-hover($green-500);
     }
 
+    &:focus {
+      @include gl-bg-green-100;
+      @include gl-text-green-700;
+      @include new-gl-button-focus($green-500);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-green-200;
       @include gl-text-green-800;
       @include new-gl-button-active($green-600);
-    }
 
-    &:focus {
-      @include gl-bg-green-100;
-      @include gl-text-green-700;
-      @include new-gl-button-focus($green-500);
+      &:focus {
+        @include new-gl-button-focus($green-600);
+      }
     }
   }
 
@@ -178,14 +198,18 @@
       @include new-gl-button-hover($orange-700);
     }
 
+    &:focus {
+      @include new-gl-button-focus($orange-700);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-orange-600;
       @include new-gl-button-active($orange-800);
-    }
 
-    &:focus {
-      @include new-gl-button-focus($orange-700);
+      &:focus {
+        @include new-gl-button-focus($orange-800);
+      }
     }
   }
 
@@ -201,17 +225,21 @@
       @include new-gl-button-secondary-hover($orange-500);
     }
 
+    &:focus {
+      @include gl-bg-orange-100;
+      @include gl-text-orange-800;
+      @include new-gl-button-focus($orange-500);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-orange-200;
       @include gl-text-orange-900;
       @include new-gl-button-active($orange-600);
-    }
 
-    &:focus {
-      @include gl-bg-orange-100;
-      @include gl-text-orange-800;
-      @include new-gl-button-focus($orange-500);
+      &:focus {
+        @include new-gl-button-focus($orange-600);
+      }
     }
   }
 
@@ -223,14 +251,18 @@
       @include new-gl-button-hover($red-700);
     }
 
+    &:focus {
+      @include new-gl-button-focus($red-700);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-red-600;
       @include new-gl-button-active($red-800);
-    }
 
-    &:focus {
-      @include new-gl-button-focus($red-700);
+      &:focus {
+        @include new-gl-button-focus($red-800);
+      }
     }
   }
 
@@ -246,17 +278,21 @@
       @include new-gl-button-secondary-hover($red-500);
     }
 
+    &:focus {
+      @include gl-bg-red-100;
+      @include gl-text-red-600;
+      @include new-gl-button-focus($red-500);
+    }
+
     &:active,
     &.selected {
       @include gl-bg-red-200;
       @include gl-text-red-700;
       @include new-gl-button-active($red-600);
-    }
 
-    &:focus {
-      @include gl-bg-red-100;
-      @include gl-text-red-600;
-      @include new-gl-button-focus($red-500);
+      &:focus {
+        @include new-gl-button-focus($red-600);
+      }
     }
   }
 
