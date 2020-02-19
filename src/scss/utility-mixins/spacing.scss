@@ -99,6 +99,10 @@
   padding-left: $gl-spacing-scale-3;
 }
 
+@mixin gl-pl-4 {
+  padding-left: $gl-spacing-scale-4;
+}
+
 @mixin gl-pl-5 {
   padding-left: $gl-spacing-scale-5;
 }
