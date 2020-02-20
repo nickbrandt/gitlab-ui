@@ -12,7 +12,7 @@ documentedStoriesOf('base|carousel', readme).add('default carousel', () => ({
   components,
   template: `
     <gl-carousel
-      :interval="4000"
+      :interval="0"
       controls
       indicators
       background="#ababab"
