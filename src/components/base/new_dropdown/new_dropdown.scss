@@ -1,6 +1,4 @@
-/* Include .dropdown.show to override the vue-bootstrap CSS included in GitLab CSS */
-.gl-new-dropdown,
-.gl-new-dropdown.dropdown.show {
+.gl-new-dropdown {
   .dropdown-menu {
     @include gl-bg-white;
     @include gl-border-1;
@@ -36,7 +34,13 @@
     @extend %new-gl-button;
   }
 
-  // The `&.dropdown` is necessary to strengthen the specifity of these selectors
+  // Fix rounded split dropdown button: https://gitlab.com/gitlab-org/gitlab-ui/issues/626
+  &.dropdown.show .dropdown-toggle-split {
+    @include gl-rounded-top-left-none;
+    @include gl-rounded-bottom-left-none;
+  }
+
+  // The `&.dropdown` is necessary to strengthen the specificity of these selectors
   &.dropdown %new-gl-button {
     @include gl-pr-3;
 
