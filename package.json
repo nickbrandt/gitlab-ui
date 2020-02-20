@@ -35,7 +35,7 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "prestylelint": "yarn generate-utilities",
     "stylelint:fix": "yarn stylelint --fix",
-    "generate:component": "sh ./bin/addComponentFiles.sh"
+    "generate:component": "plop"
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
@@ -97,6 +97,7 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.11.0",
     "pikaday": "^1.8.0",
+    "plop": "^2.5.4",
     "prettier": "1.19.1",
     "pug": "^2.0.3",
     "puppeteer": "^1.18.0",
