@@ -238,6 +238,7 @@ export default {
     },
     pageIsDisabled(page) {
       return (
+        this.disabled ||
         page < 1 ||
         (this.isCompactPagination && page > this.value && !this.nextPage) ||
         (!this.isCompactPagination && page > this.totalPages)
@@ -312,7 +313,7 @@ export default {
       <component
         :is="prevPageIsDisabled ? 'span' : 'a'"
         class="page-link prev-page-item"
-        :aria-disabled="prevPageIsDisabled || disabled"
+        :aria-disabled="prevPageIsDisabled"
         :aria-label="labelPrevPage || labelPage(value - 1)"
         :href="isLinkBased ? linkGen(value - 1) : '#'"
         @click.prevent="$emit('input', value - 1)"
@@ -328,14 +329,14 @@ export default {
       :key="item.key"
       class="page-item"
       :class="{
-        disabled: item.disabled || disabled,
+        disabled: item.disabled,
         'flex-fill': isFillAlign,
       }"
     >
       <component
         :is="item.component"
         :size="size"
-        :aria-disabled="item.disabled || disabled"
+        :aria-disabled="item.disabled"
         class="page-link"
         v-bind="item.attrs"
         v-on="item.listeners"
@@ -354,7 +355,7 @@ export default {
       <component
         :is="nextPageIsDisabled ? 'span' : 'a'"
         class="page-link next-page-item"
-        :aria-disabled="nextPageIsDisabled || disabled"
+        :aria-disabled="nextPageIsDisabled"
         :aria-label="labelNextPage || labelPage(value + 1)"
         :href="isLinkBased ? linkGen(value + 1) : '#'"
         @click.prevent="$emit('input', value + 1)"
