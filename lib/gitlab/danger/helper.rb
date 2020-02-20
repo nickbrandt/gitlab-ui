@@ -88,9 +88,8 @@ module Gitlab
         engineering_productivity: '~"Engineering Productivity" for CI, Danger'
       }.freeze
       CATEGORIES = {
-        %r{\Adoc/} => :docs,
-        /\.md\z/ => :docs,
-
+        %r{\Adoc/} => :frontend,
+        /\.md\z/ => :frontend,
         /\.(vue|js|scss)\z/ => :frontend,
         %r{(\A|/)(
           \.babelrc |
