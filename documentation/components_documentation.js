@@ -1,4 +1,5 @@
 // Component documentation
+// ADD EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlChartDocumentation } from '../src/components/charts/chart/chart.documentation';
 export { default as GlAreaChartDocumentation } from '../src/components/charts/area/area.documentation';
 export { default as GlChartLegendDocumentation } from '../src/components/charts/legend/legend.documentation';
