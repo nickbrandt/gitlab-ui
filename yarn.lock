@@ -909,10 +909,10 @@
     stylelint "^10.1.0"
     stylelint-scss "^3.12.0"
 
-"@gitlab/svgs@^1.99.0":
-  version "1.99.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.99.0.tgz#bcf971c3a14920218e86da71ca115244b23a4a3f"
-  integrity sha512-bxYFxnmuoWPBU9isL3/CYFlr+k2YWU47Pq0vfmSmL7uLnb/vYymfZZF5p3erlZ62WGwuT3kp4GnuoZBMfmannA==
+"@gitlab/svgs@^1.100.0":
+  version "1.100.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.100.0.tgz#ac1b89a59f80525363ab3fb380cb6ac547c5bfbb"
+  integrity sha512-LfoDJiHWaZpZkWXEEPQI10NtDcjMb20JkhWfRpETgglef62o9AGganw7WFTmBsn1z8IcufYAMrF5fx8WdgW0Sw==
 
 "@gitlab/vue-toasted@^1.3.0":
   version "1.3.0"
@@ -1726,7 +1726,7 @@
     qs "^6.6.0"
     util-deprecate "^1.0.2"
 
-"@storybook/theming@5.3.12", "@storybook/theming@^5.3.12":
+"@storybook/theming@5.3.12":
   version "5.3.12"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-5.3.12.tgz#70908dc23c0635765256fc4dbb7cd6d318886dfe"
   integrity sha512-LwyFBbxYtm2rr86mA0d+oYisIpW2GrDqmv0ZGEmx9EqKK1JwG3N99VSK7iHig6vpNu42LHLakuaqK55H2Q7YcA==
@@ -1744,7 +1744,7 @@
     resolve-from "^5.0.0"
     ts-dedent "^1.1.0"
 
-"@storybook/theming@5.3.13":
+"@storybook/theming@5.3.13", "@storybook/theming@^5.3.12":
   version "5.3.13"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-5.3.13.tgz#17e8101e2d3ad3fb6245b2cb15b07e9f2a9881cd"
   integrity sha512-Zb07pDt8Sv5uq+xDW3TsiTXS9IGwUNwpkR6UQgKILFJ7HX2q4Tt9r+wIi1QCwozcROx4w/bP/8MAKpEAT212lw==
