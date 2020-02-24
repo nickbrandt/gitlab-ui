@@ -1,3 +1,10 @@
+# [9.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.11.2...v9.12.0) (2020-02-24)
+
+
+### Features
+
+* Adds a new button variation ([a9f95c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/a9f95c91d4b1d4079ba4236ea5b055346b5fd99f))
+
 ## [9.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.11.1...v9.11.2) (2020-02-19)
 
 
