@@ -21,6 +21,7 @@ function generateProps({
   size = buttonSizeOptions.medium,
   withLink = false,
   withDeprecatedValues = false,
+  loading = false,
 } = {}) {
   if (withDeprecatedValues) {
     return {
@@ -61,6 +62,16 @@ function generateProps({
       default: boolean('disabled', false),
     },
   };
+
+  if (loading) {
+    props = {
+      ...props,
+      loading: {
+        type: Boolean,
+        default: boolean('loading', true),
+      },
+    };
+  }
 
   if (withLink) {
     props = {
@@ -108,6 +119,20 @@ documentedStoriesOf('base|button', readme)
         :target="target"
       >
         This is a link button
+      </gl-button>
+    `,
+  }))
+  .add('loading button', () => ({
+    props: generateProps({ loading: true }),
+    components,
+    template: `
+      <gl-button
+        :loading="loading"
+        :variant="variant"
+        :size="size"
+        :disabled="disabled"
+      >
+        This is a loading button
       </gl-button>
     `,
   }))

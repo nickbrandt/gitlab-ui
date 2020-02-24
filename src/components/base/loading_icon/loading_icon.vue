@@ -80,6 +80,11 @@ export default {
 </script>
 <template>
   <component :is="rootElementType" class="gl-spinner-container">
-    <span :class="cssClasses" :aria-label="label" aria-hidden="true"></span>
+    <span
+      :class="cssClasses"
+      class="align-text-bottom"
+      :aria-label="label"
+      aria-hidden="true"
+    ></span>
   </component>
 </template>

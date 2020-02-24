@@ -3,6 +3,7 @@ import ButtonLinkExample from './button.link.example.vue';
 import ButtonVariantsExample from './button.variants.example.vue';
 import ButtonSizesExample from './button.sizes.example.vue';
 import ButtonDisabledExample from './button.disabled.example.vue';
+import ButtonLoadingExample from './button.loading.example.vue';
 
 export default [
   {
@@ -42,6 +43,12 @@ export default [
         name: 'Button Disabled',
         description: 'Button that is disabled',
         component: ButtonDisabledExample,
+      },
+      {
+        id: 'button-loading',
+        name: 'Button Loading',
+        description: 'Button that is loading',
+        component: ButtonLoadingExample,
       },
     ],
   },
