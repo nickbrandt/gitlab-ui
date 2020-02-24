@@ -1,3 +1,10 @@
+# [9.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.12.0...v9.13.0) (2020-02-24)
+
+
+### Features
+
+* **label:** Add title to scoped label tooltip ([47d96d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/47d96d5a70e412f62d3f67ba60af98ee3c6d9fad))
+
 # [9.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.11.2...v9.12.0) (2020-02-24)
 
 
