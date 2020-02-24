@@ -121,6 +121,15 @@ describe('pagination component', () => {
     expect(wrapper.emitted('input')[0]).toEqual([2]);
   });
 
+  it('disables all items if disabled prop is true', () => {
+    createComponent({
+      ...propsData,
+      disabled: true,
+    });
+
+    expect(findButtons().is('span')).toBe(true);
+  });
+
   describe('with a total of 4 pages and 3rd page active', () => {
     beforeEach(() => {
       mockResizeWidth(breakpoints.lg);

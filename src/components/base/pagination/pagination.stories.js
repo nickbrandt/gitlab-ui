@@ -11,10 +11,10 @@ const components = {
 function generateBaseProps() {
   return {
     prevText: {
-      default: text('Prev button text', '‹ Prev'),
+      default: text('Prev button text', 'Prev'),
     },
     nextText: {
-      default: text('Next button text', 'Next ›'),
+      default: text('Next button text', 'Next'),
     },
     size: {
       default: select('Buttons size', sizeOptions, null),
