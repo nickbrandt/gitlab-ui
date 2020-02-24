@@ -1,5 +1,6 @@
 <script>
 import { BButton } from 'bootstrap-vue';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import RelMixin from '../../mixins/rel_mixin';
 import {
   buttonCategoryOptions,
@@ -11,6 +12,7 @@ import {
 export default {
   components: {
     BButton,
+    GlLoadingIcon,
   },
   mixins: [RelMixin],
   props: {
@@ -31,6 +33,16 @@ export default {
       default: buttonSizeOptions.md,
     },
     selected: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       required: false,
       default: false,
@@ -63,8 +75,10 @@ export default {
     :size="size"
     :variant="variant"
     :class="buttonClasses"
+    :disabled="loading || disabled"
     v-on="$listeners"
   >
+    <gl-loading-icon v-if="loading" inline />
     <slot></slot>
   </b-button>
 </template>

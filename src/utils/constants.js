@@ -238,6 +238,7 @@ export const buttonVariantOptions = {
   warning: 'warning',
   danger: 'danger',
   link: 'link',
+  loading: 'loading',
 };
 
 export const availableButtonVariantOptions = {
