@@ -5,13 +5,13 @@
     @include gl-bg-white;
     @include gl-border-1;
     @include gl-border-gray-200;
-    @include gl-dropdown-max-height;
-    @include gl-dropdown-width;
     @include gl-mt-2;
     @include gl-p-0;
     @include gl-py-3;
     @include gl-rounded-base;
     @include gl-shadow-x0-y2-b4-s0;
+    width: $gl-dropdown-width;
+    max-height: $gl-max-dropdown-max-height;
   }
 
   .dropdown-menu li {

@@ -335,10 +335,10 @@ $default-icon-size: px-to-rem(18px);
 $gl-icon-sizes: 8 10 12 14 16 18 24 32 48 72;
 
 // Dropdowns
-$gl-dropdown-width: px-to-rem(260px);
+$gl-dropdown-width: px-to-rem(240px);
 $gl-dropdown-width-narrow: px-to-rem(160px);
 $gl-dropdown-width-wide: px-to-rem(400px);
-$gl-max-dropdown-height: px-to-rem(312px);
+$gl-max-dropdown-max-height: px-to-rem(312px);
 
 // Broadcast messages
 $gl-broadcast-message-text-max-width: px-to-rem(934px);

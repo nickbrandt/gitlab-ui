@@ -4,7 +4,8 @@
   @include gl-line-height-normal;
   @include gl-text-left;
   @include gl-font-weight-bold;
-  @include gl-dropdown-header-padding;
+  @include gl-py-3;
+  @include gl-px-4;
 }
 
 /* Styling when the component is used on its own */
