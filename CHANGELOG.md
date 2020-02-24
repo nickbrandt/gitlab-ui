@@ -1,3 +1,10 @@
+# [9.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.13.0...v9.14.0) (2020-02-24)
+
+
+### Features
+
+* **pagination:** use gl-icon in prev and next page items ([6d42aff](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d42aff7beb73a7b4adc065cb7fb86f918da73d6))
+
 # [9.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.12.0...v9.13.0) (2020-02-24)
 
 
