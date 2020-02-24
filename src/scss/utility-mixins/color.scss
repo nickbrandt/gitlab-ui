@@ -127,6 +127,10 @@
   color: $red-800;
 }
 
+@mixin gl-text-theme-indigo-300 {
+  color: $theme-indigo-300;
+}
+
 @mixin gl-text-inherit {
   color: inherit;
 }

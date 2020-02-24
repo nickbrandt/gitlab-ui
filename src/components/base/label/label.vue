@@ -131,6 +131,7 @@ export default {
       :placement="tooltipPlacement"
       boundary="viewport"
     >
+      <span v-if="scoped" class="gl-label-tooltip-title">Scoped label</span>
       {{ description }}
     </gl-tooltip>
   </span>
