@@ -1,3 +1,10 @@
+# [9.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.15.0...v9.16.0) (2020-02-25)
+
+
+### Features
+
+* **typescale:** Implement UI typescale ([4fc0e56](https://gitlab.com/gitlab-org/gitlab-ui/commit/4fc0e56217800069bf85a4a2e25b4acd2047bfb9))
+
 # [9.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.14.0...v9.15.0) (2020-02-25)
 
 
