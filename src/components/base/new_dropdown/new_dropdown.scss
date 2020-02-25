@@ -18,6 +18,21 @@
     @include gl-p-0;
   }
 
+  .gl-new-dropdown-header-top {
+    @include gl-border-1;
+    @include gl-border-b-solid;
+    @include gl-border-gray-200;
+    @include gl-display-flex;
+    @include gl-font-base;
+    @include gl-font-weight-bold;
+    @include gl-justify-content-center;
+    @include gl-line-height-normal;
+    @include gl-m-0;
+    @include gl-pb-5;
+    @include gl-pt-3;
+    @include gl-px-4;
+  }
+
   .dropdown-toggle::after {
     // Remove bootstrap's dropdown caret
     @include gl-display-none;

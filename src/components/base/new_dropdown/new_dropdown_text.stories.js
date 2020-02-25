@@ -13,5 +13,5 @@ documentedStoriesOf('base|new_dropdown/dropdown-text', readme)
     props: {},
     components,
     template:
-      '<ul class="list-unstyled"><gl-new-dropdown-text>Some header</gl-new-dropdown-text></ul>',
+      '<ul class="list-unstyled"><gl-new-dropdown-text>Some text</gl-new-dropdown-text></ul>',
   }));

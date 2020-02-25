@@ -1,8 +1,10 @@
 import DropdownDefaultExample from './new_dropdown.default.example.vue';
 import DropdownLinksExample from './new_dropdown.links.example.vue';
+import DropdownWithAvatarAndSecondaryText from './new_dropdown.with_avatar_and_secondary_text.example.vue';
 import DropdownWithCheckedItemsExample from './new_dropdown.with_checked_items.example.vue';
 import DropdownWithDividerExample from './new_dropdown.with_divider.example.vue';
 import DropdownWithHeaderExample from './new_dropdown.with_header.example.vue';
+import DropdownWithIcons from './new_dropdown.with_icons.example.vue';
 import DropdownWithSectionHeadersExample from './new_dropdown.with_section_headers.example.vue';
 import DropdownWithSearchExample from './new_dropdown.with_search.example.vue';
 import DropdownSplitExample from './new_dropdown.split.example.vue';
@@ -27,12 +29,6 @@ export default [
         component: DropdownLinksExample,
       },
       {
-        id: 'new-dropdown-with-checked-items',
-        name: 'With Checked Items',
-        description: 'Dropdown with checked items',
-        component: DropdownWithCheckedItemsExample,
-      },
-      {
         id: 'new-dropdown-with-divider',
         name: 'With Divider',
         description: 'Dropdown with divider',
@@ -43,6 +39,24 @@ export default [
         name: 'With Header',
         description: 'Dropdown with section header',
         component: DropdownWithHeaderExample,
+      },
+      {
+        id: 'new-dropdown-with-checked-items',
+        name: 'With Checked Items',
+        description: 'Dropdown with checked items',
+        component: DropdownWithCheckedItemsExample,
+      },
+      {
+        id: 'new-dropdown-with-avatar-and-secondary-text',
+        name: 'With Avatar and Secondary Text',
+        description: 'Dropdown with avatar and secondary text',
+        component: DropdownWithAvatarAndSecondaryText,
+      },
+      {
+        id: 'new-dropdown-with-icons',
+        name: 'With Icons',
+        description: 'Dropdown with icons',
+        component: DropdownWithIcons,
       },
       {
         id: 'new-dropdown-with-section-headers',
