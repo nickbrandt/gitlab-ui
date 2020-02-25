@@ -1,3 +1,10 @@
+# [9.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.14.0...v9.15.0) (2020-02-25)
+
+
+### Features
+
+* update tooltip delay speed ([f127fe2](https://gitlab.com/gitlab-org/gitlab-ui/commit/f127fe2979a1b4381afeaf000ff97bf83f378ae6))
+
 # [9.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.13.0...v9.14.0) (2020-02-24)
 
 
