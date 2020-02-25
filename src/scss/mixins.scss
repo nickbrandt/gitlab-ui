@@ -6,3 +6,43 @@
   white-space: nowrap;
   max-width: $max-width;
 }
+
+@mixin gl-fluid-font-size($min, $max) {
+  @include gl-responsive-property('font-size', $min, $max);
+}
+
+@mixin gl-fluid-line-height($min, $max) {
+  @include gl-responsive-property('line-height', $min, $max);
+}
+
+/**
+* Declares a property with a fluid value that decreases or
+* rises depending on the viewport’s size. The property type
+* should be numeric.
+*
+* Values are expected in rem units.
+*
+* @param $property Property name, i.e. line-height, font-size, width, height, etc.
+* @param $property-min Property value lower bound.
+* @param $property-max Property value upper bound.
+*/
+@mixin gl-responsive-property(
+  $property,
+  $property-min,
+  $property-max,
+  $breakpoint-min: $breakpoint-md,
+  $breakpoint-max: $breakpoint-xl
+) {
+  $breakpoint-range: ($breakpoint-max - $breakpoint-min) / 1rem;
+  $property-range: ($property-max - $property-min) / 1rem;
+
+  @media (min-width: $breakpoint-min) {
+    #{$property}: calc(
+      #{$property-min} + #{$property-range} * ((100vw - #{$breakpoint-min}) / #{$breakpoint-range})
+    );
+  }
+
+  @media (min-width: $breakpoint-max) {
+    #{$property}: $property-max;
+  }
+}

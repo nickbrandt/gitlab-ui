@@ -1,0 +1,37 @@
+import has from 'lodash/has';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import uiTypescaleDemoStyles from './ui_typescale_demo.scss';
+import uiTypescaleDemoContent from './ui_typescale_demo.html';
+
+const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) => {
+  if (!has(window, 'customElements') || customElements.get(componentName)) {
+    return;
+  }
+  class TypescaleDemo extends HTMLElement {
+    constructor() {
+      super();
+
+      const shadow = this.attachShadow({ mode: 'open' });
+      const style = document.createElement('style');
+      const wrapper = document.createElement('body');
+
+      style.textContent = typescaleCSS;
+      wrapper.innerHTML = demoContent;
+
+      shadow.appendChild(style);
+      shadow.appendChild(wrapper);
+    }
+  }
+
+  customElements.define(componentName, TypescaleDemo);
+};
+
+createTypescaleDemoComponent('ui-typescale-demo', uiTypescaleDemoStyles, uiTypescaleDemoContent);
+
+const component = {
+  template: '<ui-typescale-demo />',
+};
+
+documentedStoriesOf('base|typescale/ui', '').add('default', () => component, {
+  viewport: { defaultViewport: 'breakpointExtraLarge' },
+});

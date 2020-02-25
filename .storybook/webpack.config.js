@@ -1,10 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const sassLoaderOptions = {
+  includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
+};
+
 module.exports = ({ config }) => {
   config.module.rules = [
     {
-      test: /\.md$/,
+      test: /\.(md|html)$/,
       loader: 'raw-loader',
     },
     {
@@ -12,7 +16,22 @@ module.exports = ({ config }) => {
       loader: 'raw-loader',
     },
     {
+      /*
+       * This rule is used to load the typescale demo CSS
+       * in a isolated shadow root
+       */
+      test: /typescale\/\w+_demo\.scss$/,
+      loaders: [
+        'raw-loader',
+        {
+          loader: 'sass-loader',
+          options: sassLoaderOptions,
+        },
+      ],
+    },
+    {
       test: /\.s?css$/,
+      exclude: /typescale\/\w+_demo\.scss$/, // skip typescale demo stylesheets
       loaders: [
         {
           loader: 'style-loader',
@@ -25,7 +44,7 @@ module.exports = ({ config }) => {
         'css-loader',
         {
           loader: 'sass-loader',
-          options: { includePaths: [require('path').resolve(__dirname, '..', 'node_modules')] },
+          options: sassLoaderOptions,
         },
       ],
     },
