@@ -16,12 +16,19 @@ $gl-spacing-scale-11: 8 * $grid-size;
 $gl-spacing-scale-12: 10 * $grid-size;
 $gl-spacing-scale-13: 12 * $grid-size;
 
+// Responsive breakpoints
+$breakpoint-sm: px-to-rem(576px);
+$breakpoint-md: px-to-rem(768px);
+$breakpoint-lg: px-to-rem(992px);
+$breakpoint-xl: px-to-rem(1200px);
+
 $transparent: transparent;
 
 // Color schema
 $black: #000;
 $black-normal: #333;
 
+$white: #fff;
 $white-light: #fff;
 $white-normal: #f0f0f0;
 $white-dark: #eaeaea;
@@ -199,9 +206,6 @@ $gl-font-weights: (
 * DEPRECATION NOTICE: This typescale variables are obsolete and will
 * be removed soon. Avoid usage.
 */
-$gl-type-scale-sm: px-to-rem(12px);
-$gl-type-scale-base: px-to-rem(14px);
-$gl-type-scale-lg: px-to-rem(16px);
 $gl-type-scale-xl: px-to-rem(20px);
 $gl-type-scale-2xl: px-to-rem(28px);
 $gl-type-scale-3xl: px-to-rem(42px);
@@ -226,13 +230,9 @@ $gl-font-size-lg: px-to-rem(16px);
 $gl-font-size-h-display: px-to-rem(28px);
 $gl-font-size-h1: px-to-rem(23px);
 $gl-font-size-h2: px-to-rem(19px);
-$gl-font-size-h3: px-to-rem(16px);
-
-// headers h4, h5, h6 share the same size
-$gl-font-size-hn: px-to-rem(14px);
 
 // breakpoint (min-width: 768px)
-$gl-font-size-h-display-lg: px-to-rem(38px);
+$gl-font-size-h-display-md: px-to-rem(31px);
 $gl-font-size-h1-md: px-to-rem(25px);
 $gl-font-size-h2-md: px-to-rem(20px);
 

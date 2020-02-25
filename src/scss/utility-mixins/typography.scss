@@ -22,17 +22,58 @@
 * $gl-type-scale for further references.
 */
 @mixin gl-font-sm {
-  font-size: $gl-type-scale-sm;
+  font-size: $gl-font-size-sm;
 }
 
 @mixin gl-font-base {
-  font-size: $gl-type-scale-base;
+  font-size: $gl-font-size;
 }
 
 @mixin gl-font-lg {
-  font-size: $gl-type-scale-lg;
+  font-size: $gl-font-size-lg;
 }
 
+@mixin gl-font-size-h-display {
+  font-size: $gl-font-size-h-display;
+}
+
+@mixin gl-font-size-h1 {
+  font-size: $gl-font-size-h1;
+}
+
+@mixin gl-font-size-h2 {
+  font-size: $gl-font-size-h2;
+}
+
+@mixin gl-font-size-h-display-xl {
+  font-size: $gl-font-size-h-display-xl;
+}
+
+@mixin gl-font-size-h1-xl {
+  font-size: $gl-font-size-h1-xl;
+}
+
+@mixin gl-font-size-h2-xl {
+  font-size: $gl-font-size-h2-xl;
+}
+
+@mixin gl-font-size-monospace {
+  font-size: $gl-font-size-monospace;
+}
+
+@mixin gl-font-size-monospace-sm {
+  font-size: $gl-font-size-monospace-sm;
+}
+
+@mixin gl-font-size-monospace-lg {
+  font-size: $gl-font-size-monospace-lg;
+}
+
+/*
+* DEPRECATION NOTICE
+* These font size utilities are deprecated. Use the utilities
+* above instead.
+*/
 @mixin gl-font-xl {
   font-size: $gl-type-scale-xl;
 }
@@ -85,8 +126,16 @@
   line-height: $gl-line-height-24;
 }
 
+@mixin gl-line-height-28 {
+  line-height: $gl-line-height-28;
+}
+
 @mixin gl-line-height-32 {
   line-height: $gl-line-height-32;
+}
+
+@mixin gl-line-height-36 {
+  line-height: $gl-line-height-36;
 }
 
 @mixin gl-line-height-52 {
