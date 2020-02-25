@@ -1,5 +1,7 @@
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { tokenVariants } from '../../../utils/constants';
+
 import readme from './token.md';
 import { GlToken } from '../../../../index';
 
@@ -13,6 +15,10 @@ function generateProps() {
       type: Boolean,
       default: boolean('View-only', false),
     },
+    variant: {
+      type: String,
+      default: select('Variant', tokenVariants, GlToken.props.variant.default),
+    },
   };
 }
 
@@ -22,5 +28,15 @@ documentedStoriesOf('base|token', readme)
     props: generateProps(),
     components,
     template: `
-      <div class="gl-display-flex"><gl-token :view-only="viewOnly">Token</gl-token></div>`,
+      <div class="gl-display-flex"><gl-token :variant="variant" :view-only="viewOnly">Token</gl-token></div>`,
+  }))
+  .add('search-type', () => ({
+    components,
+    template: `
+      <div class="gl-display-flex"><gl-token variant="search-type">Token search type</gl-token></div>`,
+  }))
+  .add('search-value', () => ({
+    components,
+    template: `
+      <div class="gl-display-flex"><gl-token variant="search-value">Token search value</gl-token></div>`,
   }));

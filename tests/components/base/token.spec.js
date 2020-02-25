@@ -29,4 +29,13 @@ describe('Token component', () => {
     wrapper = createComponent({ viewOnly: true });
     expect(findIcon(wrapper).exists()).toBe(false);
   });
+
+  it.each`
+    variant           | cssClass
+    ${'search-type'}  | ${'gl-token-search-type-variant'}
+    ${'search-value'} | ${'gl-token-search-value-variant'}
+  `('sets class .$cssClass when variant is $variant', ({ variant, cssClass }) => {
+    wrapper = createComponent({ viewOnly: true, variant });
+    expect(wrapper.classes()).toContain(cssClass);
+  });
 });

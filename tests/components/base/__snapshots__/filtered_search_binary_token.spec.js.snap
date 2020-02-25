@@ -2,7 +2,7 @@
 
 exports[`Filtered search binary token renders token and input with value in active mode 1`] = `
 <div class="gl-filtered-search-binary-token">
-  <gl-token-stub viewonly="true" class="gl-filtered-search-binary-token-type"> testTitle</gl-token-stub> <input type="text" class="gl-filtered-search-binary-token-input">
+  <gl-token-stub viewonly="true" variant="search-type"> testTitle</gl-token-stub> <input type="text" class="gl-filtered-search-binary-token-input">
   <portal-stub name="1" order="0" slotprops="[object Object]" tag="DIV" to="stub">
     <div>
       <div>
@@ -16,8 +16,8 @@ exports[`Filtered search binary token renders token and input with value in acti
 
 exports[`Filtered search binary token renders tokens in inactive mode 1`] = `
 <div class="gl-filtered-search-binary-token">
-  <gl-token-stub viewonly="true" class="gl-filtered-search-binary-token-type"> testTitle</gl-token-stub>
-  <gl-token-stub class="gl-filtered-search-binary-token-value">test-value</gl-token-stub>
+  <gl-token-stub viewonly="true" variant="search-type"> testTitle</gl-token-stub>
+  <gl-token-stub variant="search-value">test-value</gl-token-stub>
   <!---->
 </div>
 `;
