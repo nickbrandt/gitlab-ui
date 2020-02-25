@@ -105,6 +105,12 @@ export const tooltipPlacements = {
   bottom: 'bottom',
 };
 
+// in milliseconds
+export const tooltipDelay = {
+  show: 200,
+  hide: 0,
+};
+
 export const popoverPlacements = {
   top: 'top',
   topleft: 'topleft',
