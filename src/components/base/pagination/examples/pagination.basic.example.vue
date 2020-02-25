@@ -11,7 +11,7 @@ export default {
     v-model="page"
     :per-page="10"
     :total-items="100"
-    prev-text="‹ Prev"
-    next-text="Next ›"
+    prev-text="Prev"
+    next-text="Next"
   />
 </template>

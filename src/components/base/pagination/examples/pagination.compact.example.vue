@@ -24,8 +24,8 @@ export default {
       v-model="page"
       :prev-page="prevPage"
       :next-page="nextPage"
-      prev-text="‹ Prev"
-      next-text="Next ›"
+      prev-text="Prev"
+      next-text="Next"
       align="center"
     />
     Page {{ page }} of {{ $options.lastPage }}
