@@ -183,5 +183,12 @@ describe('Label component', () => {
 
       expect(findDocLink().attributes('href')).toEqual(props.scopedLabelsDocumentationLink);
     });
+
+    it('supports title with multiple occurences of ::', () => {
+      const props = { ...scopedProps, title: 'one::two::three' };
+      createComponent(props);
+      expect(findTitle().text()).toEqual('one::two');
+      expect(findSubTitle().text()).toEqual('three');
+    });
   });
 });

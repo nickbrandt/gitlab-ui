@@ -61,7 +61,7 @@ export default {
   },
   data() {
     return {
-      splitScopedLabel: this.title.split('::'),
+      splitScopedLabelIndex: this.title.lastIndexOf('::'),
     };
   },
   computed: {
@@ -75,12 +75,10 @@ export default {
       return titleColorClassMap[colorFromBackground(this.backgroundColor)];
     },
     scopedKey() {
-      return this.scoped && this.splitScopedLabel.length > 1
-        ? this.splitScopedLabel[0]
-        : this.title;
+      return this.scoped ? this.title.slice(0, this.splitScopedLabelIndex) : this.title;
     },
     scopedValue() {
-      return this.splitScopedLabel[1];
+      return this.title.slice(this.splitScopedLabelIndex + 2);
     },
     scopedValueColor() {
       return colorFromBackground(this.backgroundColor) === 'dark'
@@ -95,7 +93,7 @@ export default {
   },
   watch: {
     title() {
-      this.splitScopedLabel = this.title.split('::');
+      this.splitScopedLabelIndex = this.title.lastIndexOf('::');
     },
   },
 };
