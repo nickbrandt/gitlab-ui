@@ -202,14 +202,6 @@ $gl-font-weights: (
   'bold': $gl-font-weight-bold,
 );
 
-/*
-* DEPRECATION NOTICE: This typescale variables are obsolete and will
-* be removed soon. Avoid usage.
-*/
-$gl-type-scale-xl: px-to-rem(20px);
-$gl-type-scale-2xl: px-to-rem(28px);
-$gl-type-scale-3xl: px-to-rem(42px);
-
 // Line height
 $gl-line-height-16: px-to-rem(16px);
 $gl-line-height-20: px-to-rem(20px);
