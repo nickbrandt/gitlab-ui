@@ -3,6 +3,8 @@ import InfiniteScrollWithFiniteTotalItemsExample from './infinite_scroll.finite_
 import InfiniteScrollWithSmallNumberOfFetchedItemsExample from './infinite_scroll.small_fetched_items.example.vue';
 import InfiniteScrollWithLargeNumberOfFetchedItemsExample from './infinite_scroll.large_fetched_items.example.vue';
 import InfiniteScrollAllItemsExample from './infinite_scroll.all_items.example.vue';
+import InfiniteScrollReverseExample from './infinite_scroll.reverse.example.vue';
+import InfiniteScrollTwoWayExample from './infinite_scroll.two_way.example.vue';
 
 export default [
   {
@@ -37,6 +39,18 @@ export default [
         name: 'Showing all items',
         description: 'Infinite Scroll with all items',
         component: InfiniteScrollAllItemsExample,
+      },
+      {
+        id: 'infinite-scroll-reverse',
+        name: 'Reversed',
+        description: 'Infinite Scroll with items added at the top',
+        component: InfiniteScrollReverseExample,
+      },
+      {
+        id: 'infinite-scroll-two-way',
+        name: 'Two way Infinite Scroll',
+        description: 'Infinite Scroll with items added in two directions',
+        component: InfiniteScrollTwoWayExample,
       },
     ],
   },
