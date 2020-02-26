@@ -8,12 +8,12 @@ const commonActions = [
   {
     type: 'add',
     path: `${baseFolder}/examples/{{name}}.basic.example.vue`,
-    templateFile: `${templateFolder}/basic.example.vue`,
+    templateFile: `${templateFolder}/basic.example.vue.hbs`,
   },
   {
     type: 'add',
     path: `${baseFolder}/examples/index.js`,
-    templateFile: `${templateFolder}/example.index.js`,
+    templateFile: `${templateFolder}/example.index.js.hbs`,
   },
   {
     type: 'append',
@@ -36,7 +36,7 @@ const commonActions = [
   {
     type: 'add',
     path: `${baseFolder}/{{name}}.stories.js`,
-    templateFile: `${templateFolder}/story.js`,
+    templateFile: `${templateFolder}/story.js.hbs`,
   },
   {
     type: 'add',
@@ -60,7 +60,7 @@ module.exports = plop => {
         {
           type: 'add',
           path: `${baseFolder}/{{name}}.vue`,
-          templateFile: `${templateFolder}/component.vue`,
+          templateFile: `${templateFolder}/component.vue.hbs`,
         },
         {
           type: 'add',
@@ -70,7 +70,7 @@ module.exports = plop => {
         {
           type: 'add',
           path: `${baseFolder}/{{name}}.documentation.js`,
-          templateFile: `${templateFolder}/documentation.js`,
+          templateFile: `${templateFolder}/documentation.js.hbs`,
         },
       ];
 
@@ -96,17 +96,17 @@ module.exports = plop => {
         {
           type: 'add',
           path: `${baseFolder}/{{name}}.vue`,
-          templateFile: `${templateFolder}/bs_component.vue`,
+          templateFile: `${templateFolder}/bs_component.vue.hbs`,
         },
         {
           type: 'add',
           path: `${baseFolder}/{{name}}.md`,
-          templateFile: `${templateFolder}/bs_documentation.md`,
+          templateFile: `${templateFolder}/bs_documentation.md.hbs`,
         },
         {
           type: 'add',
           path: `${baseFolder}/{{name}}.documentation.js`,
-          templateFile: `${templateFolder}/bs_documentation.js`,
+          templateFile: `${templateFolder}/bs_documentation.js.hbs`,
         },
       ];
 
