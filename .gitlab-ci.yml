@@ -12,12 +12,14 @@ include:
 stages:
   - pre-build
   - test
+  - build
   - deploy
   - publish
-  - deployed
+  - manual
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
+  needs: ['build_docker_image']
 
 .node:
   image: node:12
@@ -46,8 +48,8 @@ build_docker_image:
 
 danger-review:
   image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
-  stage: pre-build
-  dependencies: []
+  stage: test
+  needs: []
   only:
     variables:
       - $DANGER_GITLAB_API_TOKEN
@@ -57,25 +59,46 @@ danger-review:
   script:
     - danger --fail-on-errors=true
 
-build:
+build_package:
   extends: [.node, .yarn_install]
+  variables:
+    TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+  needs: []
   tags:
     - gitlab-org # This allows us to use higher performance runners
-  stage: test
+  stage: build
+  script:
+    - yarn build
+    - yarn pack --filename $TAR_ARCHIVE_NAME
+    - DEPENDENCY_URL="$CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
+    - echo "The package.json dependency URL is $DEPENDENCY_URL"
+    - echo $DEPENDENCY_URL > .dependency_url
+  artifacts:
+    when: always
+    paths:
+      - dist
+      - src/scss/utilities.scss
+      - scss_to_js/scss_variables.*
+      - $TAR_ARCHIVE_NAME
+      - .dependency_url
+
+build_storybook:
+  extends: [.node, .yarn_install]
+  needs: []
+  tags:
+    - gitlab-org # This allows us to use higher performance runners
+  stage: build
   script:
     - yarn storybook-static
-    - yarn build
     - mkdir public
     - mv storybook/* public
   artifacts:
     paths:
       - public
-      - dist
-      - src/scss/utilities.scss
-      - scss_to_js/scss_variables.*
 
 lint:
   extends: [.node, .yarn_install]
+  needs: []
   stage: test
   script:
     - yarn build-scss-variables
@@ -90,6 +113,7 @@ lint:
 
 generate_utility_classes:
   extends: [.node]
+  needs: []
   stage: test
   script:
     - yarn generate-utilities
@@ -115,6 +139,7 @@ visual_gitlab_integration:
 
 unit_tests:
   extends: [.node, .yarn_install]
+  needs: []
   stage: test
   script:
     - yarn test:unit
@@ -123,7 +148,7 @@ update_screenshots:
   extends: [.puppeteer, .yarn_install]
   tags:
     - gitlab-org # This allows us to use higher performance runners
-  stage: pre-build
+  stage: manual
   when: manual
   script:
     - yarn test:visual:update
@@ -136,7 +161,7 @@ update_screenshots:
 review:
   stage: deploy
   needs:
-    - build
+    - build_storybook
   script:
     - rsync -av --delete public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
   environment:
@@ -153,7 +178,9 @@ review:
     - deploy
 
 review_stop:
-  stage: deploy
+  stage: manual
+  needs: 
+    - review
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
   when: manual
@@ -172,7 +199,7 @@ review_stop:
 pages:
   stage: deploy
   needs:
-    - build
+    - build_storybook
   script:
     - echo "Deploying to Pages"
   artifacts:
@@ -181,32 +208,12 @@ pages:
   only:
     - master
 
-upload_artifacts:
-  extends: .node
-  stage: deploy
-  variables:
-    TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
-  needs:
-    - build
-  script:
-    - yarn pack --filename $TAR_ARCHIVE_NAME
-    - DEPENDENCY_URL="$CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
-    - echo "The package.json dependency URL is $DEPENDENCY_URL"
-    - echo $DEPENDENCY_URL > .dependency_url
-  artifacts:
-    when: always
-    paths:
-      - $TAR_ARCHIVE_NAME
-      - .dependency_url
-  only:
-    - /.+/@gitlab-org/gitlab-ui
-
 create_integration_branch:
   when: manual
   extends: .node
-  stage: deployed
+  stage: manual
   needs:
-    - upload_artifacts
+    - build_package
   script:
     - INTEGRATION_BRANCH="$CI_COMMIT_REF_NAME-gitlab-ui-integration-test"
     - git config --global user.email "gitlab-bot@gitlab.com"
@@ -231,7 +238,7 @@ publish_to_npm:
   # This job doesn't use the DAG feature, because we don't want it to
   # run in case another job in the previous stages fails
   dependencies:
-    - build
+    - build_package
   script:
     - $(yarn bin)/semantic-release
   only:
