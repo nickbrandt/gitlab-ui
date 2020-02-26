@@ -1,3 +1,10 @@
+# [9.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.16.0...v9.17.0) (2020-02-26)
+
+
+### Features
+
+* **avatar:** Use correct avatar font sizes ([e6a149a](https://gitlab.com/gitlab-org/gitlab-ui/commit/e6a149a986782252e911384cd7c8d073f8769abf))
+
 # [9.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.15.0...v9.16.0) (2020-02-25)
 
 
