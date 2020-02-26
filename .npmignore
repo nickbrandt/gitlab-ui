@@ -15,6 +15,10 @@
 /rollup.config.js
 Dangerfile
 
+# Plop
+plopfile.js
+templates/
+
 # Dot files
 .gitlab/
 .eslintrc
