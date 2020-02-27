@@ -1,5 +1,5 @@
 variables:
-  PUPPETEER_VERSION: '1.18.0'
+  PUPPETEER_VERSION: '2.1.1'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
 
@@ -179,7 +179,7 @@ review:
 
 review_stop:
   stage: manual
-  needs: 
+  needs:
     - review
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
