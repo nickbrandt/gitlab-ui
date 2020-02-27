@@ -7,17 +7,23 @@ import {
 } from '../../../utils/constants';
 import readme from './new_dropdown.md';
 import {
+  GlAvatar,
+  GlIcon,
   GlNewDropdown,
-  GlDropdownDivider,
-  GlDropdownHeader,
-  GlDropdownItem,
+  GlNewDropdownDivider,
+  GlNewDropdownHeader,
+  GlNewDropdownItem,
+  GlNewDropdownText,
 } from '../../../../index';
 
 const components = {
+  GlAvatar,
+  GlIcon,
   GlNewDropdown,
-  GlDropdownDivider,
-  GlDropdownHeader,
-  GlDropdownItem,
+  GlNewDropdownDivider,
+  GlNewDropdownHeader,
+  GlNewDropdownItem,
+  GlNewDropdownText,
 };
 
 function addClass(component) {
@@ -85,29 +91,6 @@ documentedStoriesOf('base|new-dropdown', readme)
       addClass(this);
     },
   }))
-  .add('with links', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-new-dropdown
-        text="Some dropdown"
-        :category="category"
-        :variant="variant"
-        :size="size"
-        :block="block"
-        :disabled="disabled"
-      >
-        <gl-new-dropdown-item href="https://about.gitlab.com/">First link</gl-new-dropdown-item>
-        <gl-new-dropdown-item href="https://about.gitlab.com/">Second link</gl-new-dropdown-item>
-        <gl-new-dropdown-item href="https://about.gitlab.com/">Last link</gl-new-dropdown-item>
-      </gl-new-dropdown>`,
-    mounted() {
-      clickDropdown(this);
-    },
-    updated() {
-      addClass(this);
-    },
-  }))
   .add('with divider', () => ({
     props: generateProps(),
     components,
@@ -120,9 +103,11 @@ documentedStoriesOf('base|new-dropdown', readme)
         :block="block"
         :disabled="disabled"
       >
-        <gl-new-dropdown-item>Above divider</gl-new-dropdown-item>
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
         <gl-new-dropdown-divider />
-        <gl-new-dropdown-item>Below divider</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Third item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Fourth item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
       clickDropdown(this);
@@ -143,12 +128,133 @@ documentedStoriesOf('base|new-dropdown', readme)
         :block="block"
         :disabled="disabled"
       >
-        <gl-new-dropdown-header>First group</gl-new-dropdown-header>
+        <gl-new-dropdown-header>Header title</gl-new-dropdown-header>
         <gl-new-dropdown-item>First item</gl-new-dropdown-item>
         <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
-        <gl-new-dropdown-divider />
-        <gl-new-dropdown-header>Second group</gl-new-dropdown-header>
-        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with checked items', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-new-dropdown-item :is-check-item="true" :is-checked="true">Checked item</gl-new-dropdown-item>
+        <gl-new-dropdown-item :is-check-item="true">Unchecked item</gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with avatar and secondary text', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-new-dropdown-item
+          avatar-url="https://secure.gravatar.com/avatar/78b060780d36f51a6763ac9831a4f022?s=180&d=identicon"
+          secondary-text="@sytses"
+        >
+          Sid Sijbrandij
+        </gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with icons', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-new-dropdown-item
+          icon-color="info"
+          icon-name="status_running"
+          icon-right-name="retry"
+        >
+          Status running
+        </gl-new-dropdown-item>
+        <gl-new-dropdown-item
+          icon-color="success"
+          icon-name="status_success"
+          icon-right-name="cancel"
+        >
+          Status success
+        </gl-new-dropdown-item>
+        <gl-new-dropdown-item 
+          icon-color="warning"
+          icon-name="status_warning"
+          icon-right-name="cancel"
+        >
+          Status warning
+        </gl-new-dropdown-item>
+        <gl-new-dropdown-item 
+          icon-color="danger"
+          icon-name="status_failed"
+          icon-right-name="cancel"
+        >
+          Status failed
+        </gl-new-dropdown-item>
+        <gl-new-dropdown-item 
+          icon-name="status_manual"
+          icon-right-name="cancel"
+        >
+          Status manual
+        </gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with menu header', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        header-text="Header"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-new-dropdown-text><gl-search-box-by-type /></gl-new-dropdown-text>
       </gl-new-dropdown>`,
     mounted() {
       clickDropdown(this);

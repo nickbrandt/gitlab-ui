@@ -20,6 +20,13 @@ export const variantOptions = {
   dark: 'dark',
 };
 
+export const variantCssColorMap = {
+  info: 'gl-text-blue-500',
+  success: 'gl-text-green-500',
+  warning: 'gl-text-orange-500',
+  danger: 'gl-text-red-500',
+};
+
 export const targetOptions = ['_self', '_blank', '_parent', '_top', null];
 
 export const sizeOptions = {

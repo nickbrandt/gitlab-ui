@@ -37,6 +37,11 @@ export default {
   },
   mixins: [ButtonMixin],
   props: {
+    headerText: {
+      type: String,
+      required: false,
+      default: '',
+    },
     text: {
       type: String,
       required: false,
@@ -121,6 +126,7 @@ export default {
     :toggle-class="[toggleButtonClasses]"
     v-on="$listeners"
   >
+    <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />

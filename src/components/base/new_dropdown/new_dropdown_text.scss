@@ -1,3 +1,5 @@
-.gl-new-dropdown-text .b-dropdown-text {
-  @include gl-font-weight-bold;
+.gl-new-dropdown-text {
+  .b-dropdown-text {
+    @include gl-dropdown-item-style;
+  }
 }

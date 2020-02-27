@@ -1,10 +1,10 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './new_dropdown_header.md';
-import { GlDropdownHeader } from '../../../../index';
+import { GlNewDropdownHeader } from '../../../../index';
 
 const components = {
-  GlDropdownHeader,
+  GlNewDropdownHeader,
 };
 
 documentedStoriesOf('base|new_dropdown/dropdown-header', readme)

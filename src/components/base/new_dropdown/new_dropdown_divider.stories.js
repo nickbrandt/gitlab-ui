@@ -1,10 +1,10 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './new_dropdown_divider.md';
-import { GlDropdownDivider } from '../../../../index';
+import { GlNewDropdownDivider } from '../../../../index';
 
 const components = {
-  GlDropdownDivider,
+  GlNewDropdownDivider,
 };
 
 documentedStoriesOf('base|new_dropdown/dropdown-divider', readme)
