@@ -13,5 +13,6 @@
 
   &:disabled {
     @include gl-bg-gray-100;
+    @include gl-text-gray-700;
   }
 }
