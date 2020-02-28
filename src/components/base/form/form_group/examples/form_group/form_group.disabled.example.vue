@@ -16,6 +16,6 @@ export default {
     description="This feature is disabled"
     label-for="input1"
   >
-    <gl-form-input id="input1"  type="text" :disabled="disabled" value="Disabled" />
+    <gl-form-input id="input1" type="text" :disabled="disabled" value="Disabled" />
   </gl-form-group>
 </template>
