@@ -8,32 +8,90 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import glob from 'glob';
 
-import { dependencies as bootstrapVueDependencies } from 'bootstrap-vue/package.json';
-import { dependencies, peerDependencies } from './package.json';
-
-/*
- List of all external modules. At the moment we consider every dependency to be a external,
- except bootstrap-vue which we bundle. See:
- https://gitlab.com/gitlab-org/gitlab-ui/issues/140
+/**
+ * Returns true if an import is not considered for inlining into the current file.
  */
-const externalModules = [
-  '@gitlab/ui',
-  '@gitlab/svgs/dist/icons.svg',
-  ...Object.keys(peerDependencies),
-  ...Object.keys(dependencies).filter(name => name !== 'bootstrap-vue'),
-  ...Object.keys(bootstrapVueDependencies),
-];
+const isExternalModule = moduleId => {
+  if (
+    /*
+    SCSS files are considered to be included, because they will be extracted
+    later with the help of rollup-plugin-postcss
+     */
+    moduleId.endsWith('.scss') ||
+    /**
+     * We want to inline markdown in our documentation, in order to be able to
+     * use it directly in Pajamas
+     */
+    moduleId.endsWith('.md') ||
+    /**
+     * scss_to_js/ contains generated variables from our scss.
+     * All of the variables would blow up the build size, so inlining only the
+     * variables actually used in our JavaScript
+     */
+    moduleId.includes('scss_to_js/') ||
+    /**
+     * We want to inline the `<script>` portion of our Vue Single File components
+     * Those are added as `modules` with an url like filename:
+     * `component.js?rollup-plugin-vue=script.js`
+     */
+    moduleId.includes('?rollup-plugin-vue=')
+  ) {
+    return false;
+  }
+
+  /**
+   * Everything else is an "external module", this means we do not roll up external
+   * dependencies (bootstrap-vue / lodash / ...) or internal imports (e.g. ./button)
+   *
+   * This allows us to make @gitlab/ui treeshakeable.
+   */
+  return true;
+};
 
 /**
- * Returns true if an import is considered an external module.
+ * Fixes import files of compiled files
  *
- * We consider an import to be an external module, if:
- *
- *   1. The import name matches completely, e.g. import _ from 'lodash'
- *   2. The import name matches partially and is a path, e.g. import isA from 'lodash/isArray'
+ * @param {String} code Compiled code of the file
  */
-const isExternalModule = moduleId =>
-  externalModules.some(name => moduleId === name || moduleId.startsWith(`${name}/`));
+const fixImports = code => {
+  return (
+    code
+      /**
+       * Replace the imports of our entries point with their correct relative
+       * path that they will have in JS, e.g.
+       * from './src/components/base/icon/icon.vue';
+       * =>
+       * from './components/base/icon/icon.vue';
+       */
+      .replace(/(from\s+(["']).\/)src\/(.+?\2)/g, '$1$3')
+      /**
+       * Remove `.vue` from imports, as we are compiling them to JS
+       *
+       * from './components/base/icon/icon.vue';
+       * =>
+       * from './components/base/icon/icon';
+       */
+      .replace(/(from\s+(["']).+?)\.vue(\2)/g, '$1$3')
+      /**
+       * Replace direct imports from bootstrap-vue/src with bootstrap-vue/esm,
+       * as it is a pre-compiled, treeshakeable version we can use in GitLab
+       *
+       * from 'bootstrap-vue/src';
+       * =>
+       * from 'bootstrap-vue/esm/';
+       */
+      .replace(/(from\s+["'])bootstrap-vue\/src\//g, '$1bootstrap-vue/esm/')
+      /**
+       * Replace direct imports from bootstrap-vue with bootstrap-vue/esm,
+       * as it is a pre-compiled, treeshakeable version we can use in GitLab
+       *
+       * from 'bootstrap-vue';
+       * =>
+       * from 'bootstrap-vue/esm/index.js';
+       */
+      .replace(/(from\s+(["']))bootstrap-vue(\2)/g, '$1bootstrap-vue/esm/index.js$3')
+  );
+};
 
 export default glob
   .sync('src/**/!(*.stories).+(js|vue)')
@@ -67,7 +125,14 @@ export default glob
         string({
           include: '**/*.md',
         }),
-        vue(),
+        vue({
+          /**
+           * Per default rollup-plugin-vue includes a `.mjs` version of
+           * the component normalizer, which doesn't play well with jest
+           * For this reason we include the common js version
+           */
+          normalizer: '~vue-runtime-helpers/dist/normalize-component.js',
+        }),
         babel({
           exclude: ['node_modules/!(bootstrap-vue)/**'],
         }),
@@ -77,6 +142,17 @@ export default glob
             echarts: ['echarts'],
           },
         }),
+        {
+          name: 'fix-imports',
+          generateBundle(options, bundle) {
+            Object.keys(bundle).forEach(key => {
+              if (bundle[key].code) {
+                // eslint-disable-next-line no-param-reassign
+                bundle[key].code = fixImports(bundle[key].code);
+              }
+            });
+          },
+        },
       ],
     };
   });
