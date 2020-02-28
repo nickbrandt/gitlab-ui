@@ -10,4 +10,8 @@
   @include gl-inset-border-1-gray-200;
   @include gl-border-none;
   @include form-control-focus;
+
+  &:disabled {
+    @include gl-bg-gray-100;
+  }
 }

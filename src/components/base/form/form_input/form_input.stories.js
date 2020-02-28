@@ -14,4 +14,10 @@ documentedStoriesOf('base|form/form-input', readme)
     template: `
       <gl-form-input type="text" />
     `,
+  }))
+  .add('disabled', () => ({
+    components,
+    template: `
+      <gl-form-input type="text" :disabled="true" value="some text" />
+    `,
   }));
