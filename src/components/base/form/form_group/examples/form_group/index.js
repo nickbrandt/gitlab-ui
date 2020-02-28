@@ -1,4 +1,5 @@
 import FormGroupBasicExample from './form_group.basic.example.vue';
+import FormGroupDisabledExample from './form_group.disabled.example.vue';
 import FormGroupValidationExample from './form_group.validation.example.vue';
 
 export default [
@@ -14,6 +15,11 @@ export default [
         id: 'form-group-validations',
         name: 'with validations',
         component: FormGroupValidationExample,
+      },
+      {
+        id: 'form-group-disabled',
+        name: 'disabled',
+        component: FormGroupDisabledExample,
       },
     ],
   },
