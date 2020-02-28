@@ -1,0 +1,5 @@
+.gl-form-textarea,
+.gl-form-textarea.form-control {
+  @include gl-py-3;
+  @include gl-px-4;
+}
