@@ -1,3 +1,10 @@
+# [9.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.17.0...v9.18.0) (2020-02-28)
+
+
+### Features
+
+* Make gitlab-ui tree-shakeable ([6fd7f1f](https://gitlab.com/gitlab-org/gitlab-ui/commit/6fd7f1fdc12d731d87f75148a1688fba18a3d974))
+
 # [9.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.16.0...v9.17.0) (2020-02-26)
 
 
