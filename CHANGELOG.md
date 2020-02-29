@@ -1,3 +1,10 @@
+## [9.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.18.0...v9.18.1) (2020-02-29)
+
+
+### Bug Fixes
+
+* **avatar:** Fix avatar styles SASS error ([5df627a](https://gitlab.com/gitlab-org/gitlab-ui/commit/5df627a5b13d27c71d9135264d55405f23ca992a))
+
 # [9.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.17.0...v9.18.0) (2020-02-28)
 
 
