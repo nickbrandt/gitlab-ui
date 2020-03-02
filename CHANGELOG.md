@@ -1,3 +1,10 @@
+# [9.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.19.0...v9.20.0) (2020-03-02)
+
+
+### Features
+
+* **css:** add 'gl-pl-4' spacing mixin ([7ff8bab](https://gitlab.com/gitlab-org/gitlab-ui/commit/7ff8babf2d1d2278724e2d19f9b661293c7757a7))
+
 # [9.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.18.2...v9.19.0) (2020-03-02)
 
 
