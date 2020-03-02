@@ -52,7 +52,7 @@ export default {
 
 <template>
   <div class="gl-filtered-search-binary-token" @click="$emit('activate')">
-    <gl-token class="gl-filtered-search-binary-token-type" view-only> {{ title }}</gl-token>
+    <gl-token variant="search-type" view-only> {{ title }}</gl-token>
     <input
       v-if="active"
       ref="input"
@@ -63,7 +63,7 @@ export default {
       @keydown="handleInput"
       @blur="deactivate"
     />
-    <gl-token v-else class="gl-filtered-search-binary-token-value" @close="$emit('destroy')">
+    <gl-token v-else variant="search-value" @close="$emit('destroy')">
       <slot name="view">{{ value }}</slot>
     </gl-token>
 

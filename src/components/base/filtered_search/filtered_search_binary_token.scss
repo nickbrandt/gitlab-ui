@@ -3,18 +3,6 @@
   @include gl-white-space-nowrap;
 }
 
-.gl-filtered-search-binary-token-type {
-  @include gl-bg-gray-100;
-  @include gl-rounded-top-right-none;
-  @include gl-rounded-bottom-right-none;
-}
-
-.gl-filtered-search-binary-token-value {
-  @include gl-bg-gray-200;
-  @include gl-rounded-top-left-none;
-  @include gl-rounded-bottom-left-none;
-}
-
 .gl-filtered-search-binary-token-input {
   @include gl-p-0;
   @include gl-pl-2;
