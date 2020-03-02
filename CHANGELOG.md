@@ -1,3 +1,10 @@
+# [9.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.18.2...v9.19.0) (2020-03-02)
+
+
+### Features
+
+* **token:** Add new token variants ([603e909](https://gitlab.com/gitlab-org/gitlab-ui/commit/603e909752598ebcd144873dca575ecb1b645b32))
+
 ## [9.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.18.1...v9.18.2) (2020-03-02)
 
 
