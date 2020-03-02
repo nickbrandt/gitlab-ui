@@ -1,3 +1,10 @@
+## [9.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.18.1...v9.18.2) (2020-03-02)
+
+
+### Bug Fixes
+
+* Add border to invalid input ([e245506](https://gitlab.com/gitlab-org/gitlab-ui/commit/e245506e2f45a7354a207de32103d58afc0d7b27))
+
 ## [9.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.18.0...v9.18.1) (2020-02-29)
 
 
