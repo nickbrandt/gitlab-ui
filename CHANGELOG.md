@@ -1,3 +1,10 @@
+# [9.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.20.0...v9.21.0) (2020-03-03)
+
+
+### Features
+
+* Allow input examples to display ([496f979](https://gitlab.com/gitlab-org/gitlab-ui/commit/496f9798d3e9c926851aaa5ce03f916cd2f1a7ea))
+
 # [9.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.19.0...v9.20.0) (2020-03-02)
 
 
