@@ -1,3 +1,10 @@
+## [9.21.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.21.0...v9.21.1) (2020-03-03)
+
+
+### Bug Fixes
+
+* **label:** Style fix for labels without link ([0807e47](https://gitlab.com/gitlab-org/gitlab-ui/commit/0807e472f92b423b0894b33e5b336fa54959ad55))
+
 # [9.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.20.0...v9.21.0) (2020-03-03)
 
 
