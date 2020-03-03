@@ -44,15 +44,30 @@ documentedStoriesOf('base|form/form-group', readme)
     props: generateProps(),
     components,
     template: `
-      <gl-form-group 
+      <gl-form-group
         :id="id"
-        :label="label" 
-        :label-size="labelSize" 
+        :label="label"
+        :label-size="labelSize"
         :description="description"
         :horizontal="horizontal"
         label-for="label1"
       >
         <gl-form-input id="input1" />
+      </gl-form-group>
+    `,
+  }))
+  .add('disabled', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-form-group
+        id="group-id"
+        label="Label Name"
+        label-size="sm"
+        description="This feature is disabled"
+        label-for="input1"
+      >
+        <gl-form-input id="input1"  type="text" :disabled="true" value="Disabled" />
       </gl-form-group>
     `,
   }))
@@ -84,10 +99,10 @@ documentedStoriesOf('base|form/form-group', readme)
       };
     },
     template: `
-    <gl-form-group 
+    <gl-form-group
       :id="id"
-      :label="label" 
-      :label-size="labelSize" 
+      :label="label"
+      :label-size="labelSize"
       :description="description"
       :valid-feedback="validFeedback"
       :invalid-feedback="invalidFeedback"
