@@ -9,6 +9,18 @@ The infinite scroll component wraps around a results list and emits a message
 a re-fetching. The `gl-infinite-scroll` component expects its parent component to
 manage the re-fetching.
 
+Additionally it emits a `topReached` message when the top of the viewport is reached, which
+can be useful to load items on top of the available data. If only `topReached` is present, the
+viewport will be scrolled to the bottom the first time this component is mounted.
+
+## Public methods
+
+Useful public methods you can call via `$refs`:
+
+- `.scrollUp()`: Scrolls to the top of the container.
+- `.scrollDown()`: Scrolls to the bottom of the container.
+- `.scrollTo({ top })`: Scrolls to a number of pixels along the Y axis of the container.
+
 ## Implementation Example
 
 This is how a full implementation would look like with paginated results from GitLab's
