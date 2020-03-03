@@ -197,7 +197,6 @@ export const modalButtonDefaults = {
 export const tokenVariants = ['default', 'search-type', 'search-value'];
 
 export const resizeDebounceTime = 200;
-export const throttleDuration = 2000;
 
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);

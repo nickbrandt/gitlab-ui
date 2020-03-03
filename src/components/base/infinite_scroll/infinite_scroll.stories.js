@@ -21,6 +21,8 @@ const items = [
   { name: 'Seize' },
   { name: 'Seventeen' },
   { name: 'Atten' },
+  { name: '십구' },
+  { name: '二十' },
 ];
 
 documentedStoriesOf('base|infinite-scroll', readme)
@@ -43,12 +45,14 @@ documentedStoriesOf('base|infinite-scroll', readme)
     },
     methods: {
       bottomReached() {
-        this.fetchedItems = this.items.length;
+        setTimeout(() => {
+          this.fetchedItems = this.items.length;
+        }, 1000);
       },
     },
     template: `
       <gl-infinite-scroll
-        :max-list-height=470
+        :max-list-height=300
         :fetched-items=fetchedItems
         :total-items=items.length
         @bottomReached=bottomReached
