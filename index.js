@@ -10,6 +10,7 @@ setConfigs();
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlIntersectionObserver } from './src/components/utilities/intersection_observer/intersection_observer.vue';
 export { default as GlLink } from './src/components/base/link/link.vue';
 export { default as GlIcon } from './src/components/base/icon/icon.vue';
 export { default as GlLoadingIcon } from './src/components/base/loading_icon/loading_icon.vue';
