@@ -1,7 +1,7 @@
 <template>
   <gl-form-group
     id="group-id"
-    label="label"
+    label="Label"
     label-size="sm"
     description="Form group description"
     label-for="input1"
