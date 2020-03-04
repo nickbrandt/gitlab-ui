@@ -1,3 +1,15 @@
+# [9.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.21.2...v9.22.0) (2020-03-04)
+
+
+### Bug Fixes
+
+* **rollup:** include config.js in dist/ ([d0792d8](https://gitlab.com/gitlab-org/gitlab-ui/commit/d0792d8b4857dc7424c941ef3b5ca119c74c12ab))
+
+
+### Features
+
+* Adds an observer component ([314dda4](https://gitlab.com/gitlab-org/gitlab-ui/commit/314dda4b7e37ba103daaa797c37a718d504a5b3c))
+
 ## [9.21.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.21.1...v9.21.2) (2020-03-04)
 
 
