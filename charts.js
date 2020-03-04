@@ -1,3 +1,8 @@
+// Add config files
+import setConfigs from './config';
+
+setConfigs();
+
 export { default as GlChart } from './src/components/charts/chart/chart.vue';
 export { default as GlAreaChart } from './src/components/charts/area/area.vue';
 export { default as GlLineChart } from './src/components/charts/line/line.vue';
