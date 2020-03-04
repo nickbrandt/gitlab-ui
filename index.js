@@ -3,6 +3,11 @@
 // The line above serves as a token for rollup-plugin-replace to inject styles in production
 // builds. We do this to avoid having the stylesheet included multiple times in Storybook.
 
+// Add config files
+import setConfigs from './config';
+
+setConfigs();
+
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlLink } from './src/components/base/link/link.vue';
