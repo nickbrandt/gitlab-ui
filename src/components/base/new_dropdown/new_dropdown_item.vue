@@ -1,8 +1,12 @@
 <script>
 import { BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
 import { variantCssColorMap } from '../../../utils/constants';
+import GlIcon from '../icon/icon.vue';
 
 export default {
+  components: {
+    GlIcon,
+  },
   inheritAttrs: false,
   props: {
     avatarUrl: {
