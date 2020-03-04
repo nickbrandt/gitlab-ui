@@ -1,3 +1,10 @@
+## [9.21.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.21.1...v9.21.2) (2020-03-04)
+
+
+### Bug Fixes
+
+* Registers GlIcon for the GlNewDropdownItems component ([91ae2a3](https://gitlab.com/gitlab-org/gitlab-ui/commit/91ae2a30ab78d8bebdd5989f39655e07f166cfac))
+
 ## [9.21.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.21.0...v9.21.1) (2020-03-03)
 
 
