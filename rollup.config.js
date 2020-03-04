@@ -98,6 +98,7 @@ export default glob
   .concat('charts.js')
   .concat('index.js')
   .concat('utils.js')
+  .concat('config.js')
   .map(input => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
