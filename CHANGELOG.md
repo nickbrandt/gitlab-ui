@@ -1,3 +1,10 @@
+## [9.22.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.22.0...v9.22.1) (2020-03-04)
+
+
+### Bug Fixes
+
+* Reverting flag until it’s true ([21139f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/21139f09f1dfcf4e5e8529b0075f84b089bcb26e))
+
 # [9.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.21.2...v9.22.0) (2020-03-04)
 
 
