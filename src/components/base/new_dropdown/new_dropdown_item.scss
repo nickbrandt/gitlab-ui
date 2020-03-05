@@ -60,6 +60,7 @@
     .gl-new-dropdown-item-text-wrapper {
       @include gl-flex-grow-1;
       @include gl-mr-3;
+      @include gl-display-inline-flex;
     }
 
     // make sure the text color is not overridden

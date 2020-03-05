@@ -44,6 +44,11 @@ export default {
       isRequired: false,
       default: '',
     },
+    containerClasses: {
+      type: String,
+      isRequired: false,
+      default: '',
+    },
   },
   computed: {
     bootstrapComponent() {
@@ -62,7 +67,7 @@ export default {
 <template>
   <component
     :is="bootstrapComponent"
-    class="gl-new-dropdown-item"
+    :class="['gl-new-dropdown-item', ...containerClasses]"
     v-bind="$attrs"
     v-on="$listeners"
   >
