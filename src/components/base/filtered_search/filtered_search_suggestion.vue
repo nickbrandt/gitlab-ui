@@ -25,7 +25,10 @@ export default {
     this.filteredSearchSuggestionListInstance.unregister(this);
   },
   methods: {
-    emitValue() {
+    emitValue(e) {
+      // We need to use href argument to use a instead of button
+      // due to https://bugs.webkit.org/show_bug.cgi?id=22261
+      e.preventDefault();
       this.filteredSearchSuggestionListInstance.$emit('suggestion', this.value);
     },
   },
@@ -37,6 +40,7 @@ export default {
     class="dropdown-item gl-filtered-search-suggestion"
     :class="{ 'gl-filtered-search-suggestion-active': isActive }"
     v-bind="$attrs"
+    href="#"
     v-on="$listeners"
     @click="emitValue"
   >

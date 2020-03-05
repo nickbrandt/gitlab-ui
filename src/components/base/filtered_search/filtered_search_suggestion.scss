@@ -1,6 +1,8 @@
 .gl-filtered-search-suggestion {
   > .dropdown-item {
     @include gl-display-flex;
+    align-items: stretch;
+    justify-content: stretch;
   }
 
   @include gl-p-0;

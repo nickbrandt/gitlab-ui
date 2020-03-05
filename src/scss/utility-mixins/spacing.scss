@@ -29,6 +29,11 @@
   padding: $gl-spacing-scale-5;
 }
 
+@mixin gl-px-1 {
+  padding-left: $gl-spacing-scale-1;
+  padding-right: $gl-spacing-scale-1;
+}
+
 @mixin gl-px-2 {
   padding-left: $gl-spacing-scale-2;
   padding-right: $gl-spacing-scale-2;

@@ -82,7 +82,7 @@ export default {
       return this.activeTokenIdx === this.lastTokenIdx;
     },
     hasValue() {
-      return this.tokens.length > 1 || this.tokens[0].value !== '';
+      return this.tokens.length > 1 || this.tokens[0].value.data !== '';
     },
     termPlaceholder() {
       return this.hasValue ? null : this.placeholder;
@@ -188,17 +188,26 @@ export default {
       this.activeTokenIdx = idx;
     },
 
-    insertToken(idx, newTokens = [createTerm()]) {
+    createTokens(idx, newStrings = []) {
       if (
         this.activeTokenIdx !== this.lastTokenIdx &&
-        newTokens.length === 1 &&
-        isEmptyTerm(newTokens[0])
+        newStrings.length === 1 &&
+        newStrings[0] === ''
       ) {
         this.activeTokenIdx = this.lastTokenIdx;
         return;
       }
-      this.tokens.splice(idx + 1, 0, ...newTokens);
-      this.activeTokenIdx = idx + newTokens.length;
+
+      this.tokens.splice(
+        idx + 1,
+        0,
+        ...newStrings.map(data => ({
+          type: TERM_TOKEN_TYPE,
+          value: { data },
+        }))
+      );
+
+      this.activeTokenIdx = idx + newStrings.length;
     },
 
     completeToken() {
@@ -239,17 +248,17 @@ export default {
             :current-value="tokens"
             :index="idx"
             :placeholder="termPlaceholder"
-            class="gl-filtered-search-token"
+            class="gl-filtered-search-item"
             :class="{
-              'gl-filtered-search-last-token': isLastToken(idx),
+              'gl-filtered-search-last-item': isLastToken(idx),
             }"
             @activate="activate(idx)"
             @deactivate="deactivate(idx, token.type)"
             @destroy="destroyToken(idx)"
             @replace="replaceToken(idx, $event)"
-            @create="insertToken(idx, $event)"
             @complete="completeToken"
             @submit="submit"
+            @split="createTokens(idx, $event)"
           />
         </template>
       </div>

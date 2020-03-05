@@ -8,11 +8,11 @@
   @include gl-inset-border-1-gray-200;
 }
 
-.gl-filtered-search-token {
-  @include gl-p-1;
+.gl-filtered-search-item {
+  @include gl-px-1;
 }
 
-.gl-filtered-search-last-token {
+.gl-filtered-search-last-item {
   .gl-filtered-search-term-value {
     @include gl-w-full;
     @include gl-align-items-center;
