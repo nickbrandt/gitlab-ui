@@ -39,6 +39,8 @@ export default {
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
+    <template v-for="slot in Object.keys($slots)" #[slot]>
+      <slot :name="slot"></slot>
+    </template>
   </b-tabs>
 </template>

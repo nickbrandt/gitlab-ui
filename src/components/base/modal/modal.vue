@@ -124,36 +124,45 @@ export default {
     @cancel="canceled"
   >
     <slot></slot>
-    <slot slot="modal-header" name="modal-header"></slot>
-    <slot slot="modal-title" name="modal-title"></slot>
-    <slot slot="modal-header-close" name="modal-header-close"></slot>
-    <slot slot="modal-ok" name="modal-ok"></slot>
-    <slot slot="modal-cancel" name="modal-cancel"></slot>
-    <slot slot="modal-footer" name="modal-footer">
-      <gl-button
-        v-if="actionCancel"
-        class="gl-button js-modal-action-cancel"
-        v-bind="buttonBinding(actionCancel, 'actionCancel')"
-        @click="cancel"
-      >
-        {{ actionCancel.text }}
-      </gl-button>
-      <gl-button
-        v-if="actionSecondary"
-        class="gl-button js-modal-action-secondary"
-        v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
-        @click="secondary"
-      >
-        {{ actionSecondary.text }}
-      </gl-button>
-      <gl-button
-        v-if="actionPrimary"
-        class="gl-button js-modal-action-primary"
-        v-bind="buttonBinding(actionPrimary, 'actionPrimary')"
-        @click="ok"
-      >
-        {{ actionPrimary.text }}
-      </gl-button>
-    </slot>
+    <template v-if="$slots['modal-header']" #modal-header>
+      <slot name="modal-header"></slot>
+    </template>
+    <template v-if="$slots['modal-title']" #modal-title>
+      <slot name="modal-title"></slot>
+    </template>
+    <template v-if="$slots['modal-header']" #modal-header-close>
+      <slot name="modal-header-close"></slot>
+    </template>
+    <template v-if="$slots['modal-ok']" #modal-ok>
+      <slot name="modal-ok"></slot>
+    </template>
+    <template v-if="$slots['modal-cancel']" #modal-cancel>
+      <slot name="modal-cancel"></slot>
+    </template>
+    <template #modal-footer>
+      <slot name="modal-footer">
+        <gl-button
+          v-if="actionCancel"
+          class="gl-button js-modal-action-cancel"
+          v-bind="buttonBinding(actionCancel, 'actionCancel')"
+          @click="cancel"
+          >{{ actionCancel.text }}</gl-button
+        >
+        <gl-button
+          v-if="actionSecondary"
+          class="gl-button js-modal-action-secondary"
+          v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
+          @click="secondary"
+          >{{ actionSecondary.text }}</gl-button
+        >
+        <gl-button
+          v-if="actionPrimary"
+          class="gl-button js-modal-action-primary"
+          v-bind="buttonBinding(actionPrimary, 'actionPrimary')"
+          @click="ok"
+          >{{ actionPrimary.text }}</gl-button
+        >
+      </slot>
+    </template>
   </b-modal>
 </template>

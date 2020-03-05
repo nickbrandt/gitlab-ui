@@ -57,11 +57,13 @@ documentedStoriesOf('base|infinite-scroll', readme)
         :total-items=items.length
         @bottomReached=bottomReached
       >
-        <ul slot="items" class="list-group list-group-flush list-unstyled">
-          <li v-for="item in visibleItems" :key="item.name" class="list-group-item">
-            {{ item.name }}
-          </li>
-        </ul>
+        <template #items>
+          <ul class="list-group list-group-flush list-unstyled">
+            <li v-for="item in visibleItems" :key="item.name" class="list-group-item">
+              {{ item.name }}
+            </li>
+          </ul>
+        </template>
       </gl-infinite-scroll>
     `,
   }));

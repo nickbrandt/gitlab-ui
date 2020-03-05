@@ -9,12 +9,8 @@ export default {
 </script>
 <template>
   <b-card v-bind="$attrs" v-on="$listeners">
-    <template slot="header">
-      <slot name="header"></slot>
-    </template>
-    <slot></slot>
-    <template slot="footer">
-      <slot name="footer"></slot>
+    <template v-for="slot in Object.keys($slots)" #[slot]>
+      <slot :name="slot"></slot>
     </template>
   </b-card>
 </template>

@@ -174,7 +174,7 @@ export default {
 
 <template>
   <div v-resize-observer="handleResize" class="d-flex align-items-center" @mouseleave="hideTooltip">
-    <slot name="default"></slot>
+    <slot></slot>
     <div class="flex-grow-1 position-relative">
       <chart :height="height" :options="options" @created="onChartCreated" />
       <chart-tooltip
@@ -186,9 +186,11 @@ export default {
         :style="{ pointerEvents: 'none' }"
         placement="top"
       >
-        <template>
-          <div slot="title" class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
-          <div slot="default" class="js-tooltip-content d-flex">
+        <template #title>
+          <div class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
+        </template>
+        <template #default>
+          <div class="js-tooltip-content d-flex">
             <span v-if="tooltipLabel" class="pr-4 mr-auto">{{ tooltipLabel }}</span>
             <strong>{{ tooltip.content }}</strong>
           </div>

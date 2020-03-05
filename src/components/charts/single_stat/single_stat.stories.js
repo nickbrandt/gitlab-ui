@@ -18,7 +18,7 @@ documentedStoriesOf('charts|single-stat', readme)
     components,
     template: `
       <gl-single-stat title="Single stat" value="100%">
-        <span slot="icon">:)</span>
+        <template #icon><span>:)</span></template>
       </gl-single-stat>
     `,
   }));

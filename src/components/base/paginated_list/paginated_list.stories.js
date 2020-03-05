@@ -91,7 +91,7 @@ const templateWithRow = `
 :emptySearchMessage="emptySearchMessage"
 >
 
-  <template slot-scope="{ listItem }"  >
+  <template #default="{ listItem }"  >
     <gl-button
     variant="success"
     class="order-1"

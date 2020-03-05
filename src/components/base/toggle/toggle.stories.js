@@ -39,8 +39,12 @@ documentedStoriesOf('base|toggle', '')
         <gl-toggle v-model="toggleTrue3" label-position="right" />
         <h4 class="gl-font-lg gl-font-weight-bold gl-mb-2 mt-2">Visible custom label using slots</h4>
         <gl-toggle v-model="toggleTrue4" label-position="right">
-          <span slot="labelOn"><span class="sr-only">Keyboard shortcuts</span>Enabled</span>
-          <span slot="labelOff"><span class="sr-only">Keyboard shortcuts</span>Disabled</span>
+          <template #labelOn>
+            <span><span class="sr-only">Keyboard shortcuts</span>Enabled</span>
+          </template>
+          <template #labelOff>
+            <span><span class="sr-only">Keyboard shortcuts</span>Disabled</span>
+          </template>
         </gl-toggle>
       </div>
     `,

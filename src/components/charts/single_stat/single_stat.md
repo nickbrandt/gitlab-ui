@@ -8,6 +8,6 @@ An example of using an icon:
 
 ```html
 <gl-single-stat variant="success" title="Ecstatic" value="1000%">
-  <gl-icon slot="icon" name="arrow-up" />
+  <template #icon><gl-icon name="arrow-up" /></template>
 </gl-single-stat>
 ```

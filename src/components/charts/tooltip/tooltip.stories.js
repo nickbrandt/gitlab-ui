@@ -37,9 +37,11 @@ documentedStoriesOf('charts|chart-tooltip', readme).add('default', () => ({
       :top="top"
       :left="left"
     >
-      <div slot="title">
-        Example Title
-      </div>
+      <template #title>
+        <div>
+          Example Title
+        </div>
+      </template>
       Example Content
     </gl-chart-tooltip>
   </div>`,

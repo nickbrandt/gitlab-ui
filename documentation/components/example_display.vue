@@ -181,20 +181,22 @@ export default {
   <div>
     <div v-if="currentExampleComponent">
       <b-card no-body>
-        <div slot="header">
-          <b-row>
-            <b-col>
-              <strong>{{ exampleName }}</strong>
-            </b-col>
-            <b-col class="text-right">
-              <b-button-group size="sm" class="mx-1">
-                <b-btn v-b-toggle.collapseSource>Source</b-btn>
-                <b-btn v-b-toggle.collapseHTML>HTML</b-btn>
-                <jsfiddle-button :example-name="exampleName" :source="source" />
-              </b-button-group>
-            </b-col>
-          </b-row>
-        </div>
+        <template #header>
+          <div>
+            <b-row>
+              <b-col>
+                <strong>{{ exampleName }}</strong>
+              </b-col>
+              <b-col class="text-right">
+                <b-button-group size="sm" class="mx-1">
+                  <b-btn v-b-toggle.collapseSource>Source</b-btn>
+                  <b-btn v-b-toggle.collapseHTML>HTML</b-btn>
+                  <jsfiddle-button :example-name="exampleName" :source="source" />
+                </b-button-group>
+              </b-col>
+            </b-row>
+          </div>
+        </template>
         <b-card-body>
           <div :is="currentExampleComponent" ref="compiled" />
         </b-card-body>

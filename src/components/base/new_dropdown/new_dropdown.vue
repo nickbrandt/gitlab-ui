@@ -128,10 +128,12 @@ export default {
   >
     <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
     <slot></slot>
-    <slot slot="button-content" name="button-content">
-      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
-      {{ buttonText }}
-      <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
-    </slot>
+    <template #button-content>
+      <slot name="button-content">
+        <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
+        {{ buttonText }}
+        <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
+      </slot>
+    </template>
   </b-dropdown>
 </template>

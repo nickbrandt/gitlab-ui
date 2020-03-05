@@ -10,6 +10,8 @@ export default {
 </script>
 <template>
   <b-form-group v-bind="$attrs" class="gl-form-group" label-class="col-form-label">
-    <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
+    <template v-for="slot in Object.keys($slots)" #[slot]>
+      <slot :name="slot"></slot>
+    </template>
   </b-form-group>
 </template>
