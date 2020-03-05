@@ -7,8 +7,8 @@ export default {
     imageUrl() {
       // If the image is in view, return the high res one. If not return nothing, or a low res one
       return this.isInView
-        ? 'https://www.placecage.com/gif/720/405'
-        : 'https://www.placecage.com/720/405';
+        ? '../../img/gitlab-summit-south-africa.jpg'
+        : '../../img/gitlab-summit-south-africa-min.jpg';
     },
   },
   methods: {
@@ -24,6 +24,6 @@ export default {
 
 <template>
   <gl-intersection-observer @appear="appear" @disappear="disappear">
-    <img :src="imageUrl" />
+    <img :src="imageUrl" style="max-width: 100%; height: auto;" />
   </gl-intersection-observer>
 </template>

@@ -65,8 +65,8 @@ documentedStoriesOf('utilities|intersection-observer', readme)
       imageUrl() {
         // If the image is in view, return the high res one. If not return nothing, or a low res one
         return this.isInView
-          ? '/img/gitlab-summit-south-africa.jpg'
-          : '/img/gitlab-summit-south-africa-min.jpg';
+          ? '../../img/gitlab-summit-south-africa.jpg'
+          : '../../img/gitlab-summit-south-africa-min.jpg';
       },
     },
     template: `
