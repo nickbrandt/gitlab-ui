@@ -1,3 +1,10 @@
+# [9.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.22.1...v9.23.0) (2020-03-05)
+
+
+### Features
+
+* Adds an navbar component ([3c3d97e](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c3d97e4904b41732aaa355095f6f421d5e03cc6))
+
 ## [9.22.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.22.0...v9.22.1) (2020-03-04)
 
 
