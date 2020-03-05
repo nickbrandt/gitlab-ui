@@ -1,3 +1,5 @@
+> Note: For this component to align with the design system specs, all changes made in [`<gl-new-button>`] need to be merged into [`gl-button`]. [#20229](https://gitlab.com/gitlab-org/gitlab/issues/202209) tracks this effort.
+
 # Modal
 
 <!-- STORY -->
