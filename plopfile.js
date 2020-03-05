@@ -1,6 +1,7 @@
 const snakecase = require('lodash.snakecase');
 
 const baseFolder = 'src/components/base/{{name}}';
+const testsFolder = 'tests/components/base';
 const scssFolder = '../components/base/{{name}}';
 const templateFolder = 'templates';
 
@@ -9,6 +10,11 @@ const commonActions = [
     type: 'add',
     path: `${baseFolder}/examples/{{name}}.basic.example.vue`,
     templateFile: `${templateFolder}/basic.example.vue.hbs`,
+  },
+  {
+    type: 'add',
+    path: `${testsFolder}/{{name}}.spec.js`,
+    templateFile: `${templateFolder}/spec.js.hbs`,
   },
   {
     type: 'add',
