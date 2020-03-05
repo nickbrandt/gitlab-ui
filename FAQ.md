@@ -82,3 +82,9 @@ Yes! We generate changelogs automatically based on GitLab UI's
 [conventional commits](https://www.conventionalcommits.org/) history.
 Changelogs can be found in the [releases page](https://gitlab.com/gitlab-org/gitlab-ui/-/releases)
 or in the [CHANGELOG.md](./CHANGELOG.md) file.
+
+## I've added some files to GitLab UI but they aren't published in the NPM package, why is that?
+
+The files that we want published are listed in the [`files`](https://docs.npmjs.com/files/package.json#files)
+field in the `package.json`. You might need to add your files to the field if its path isn't covered
+by the current setup.

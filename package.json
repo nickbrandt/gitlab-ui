@@ -13,6 +13,17 @@
   "repository": "git@gitlab.com:gitlab-org/gitlab-ui.git",
   "author": "GitLab",
   "private": false,
+  "files": [
+    "dist",
+    "src",
+    "scss_to_js",
+    "documentation",
+    "documentation.js",
+    "index.js",
+    "charts.js",
+    "utils.js",
+    "config.js"
+  ],
   "scripts": {
     "build": "yarn build-scss-variables && NODE_ENV=production rollup -c",
     "prebuild": "yarn generate-utilities",
