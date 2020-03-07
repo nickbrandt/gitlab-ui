@@ -1,43 +1,5 @@
 import KeyCodes from 'bootstrap-vue/src/utils/key-codes';
-import { TERM_TOKEN_TYPE } from './filtered_search_utils';
-
-function splitOnQuotes(str) {
-  const queue = str.split(' ');
-  const result = [];
-  let waitingForMatchingQuote = false;
-  let quoteContent = '';
-
-  while (queue.length) {
-    const part = queue.shift();
-    const quoteIndex = part.indexOf('"');
-    if (quoteIndex === -1) {
-      if (waitingForMatchingQuote) {
-        quoteContent += ` ${part}`;
-      } else {
-        result.push(part);
-      }
-    } else {
-      const [firstPart, secondPart] = part.split('"', 2);
-
-      if (waitingForMatchingQuote) {
-        waitingForMatchingQuote = false;
-        quoteContent += ` ${firstPart}"`;
-        result.push(quoteContent);
-        quoteContent = '';
-        if (secondPart.length) {
-          queue.unshift(secondPart);
-        }
-      } else {
-        waitingForMatchingQuote = true;
-        if (firstPart.length) {
-          result.push(firstPart);
-        }
-        quoteContent = `"${secondPart}`;
-      }
-    }
-  }
-  return result;
-}
+import { TERM_TOKEN_TYPE, splitOnQuotes } from './filtered_search_utils';
 
 export default {
   inject: ['portalName', 'alignSuggestions'],
