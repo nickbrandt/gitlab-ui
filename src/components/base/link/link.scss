@@ -1,4 +1,4 @@
 .gl-link {
-  @include gl-font-base;
+  @include gl-font-inherit;
   @include gl-text-blue-600;
 }

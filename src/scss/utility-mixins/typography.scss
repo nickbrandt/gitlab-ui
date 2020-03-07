@@ -29,6 +29,10 @@
   font-size: $gl-font-size;
 }
 
+@mixin gl-font-inherit {
+  font-size: inherit;
+}
+
 @mixin gl-font-lg {
   font-size: $gl-font-size-lg;
 }
