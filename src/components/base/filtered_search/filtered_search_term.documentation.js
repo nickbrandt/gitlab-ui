@@ -27,11 +27,11 @@ export default {
       description: 'Emitted when autocomplete entry is selected',
     },
     {
-      event: 'create',
+      event: 'split',
       args: [
         {
           arg: 'newTokens',
-          description: '(Array) Token configurations',
+          description: '(Array) Strings',
         },
       ],
       description: 'Emitted when Space is pressed in-between term text',

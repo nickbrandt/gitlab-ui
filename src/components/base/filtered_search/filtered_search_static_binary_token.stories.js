@@ -41,7 +41,7 @@ documentedStoriesOf('base|filtered-search/static-binary-token', readme)
     },
     data() {
       return {
-        value: 'demo1',
+        value: { data: 'demo1' },
       };
     },
     mounted() {
@@ -49,7 +49,7 @@ documentedStoriesOf('base|filtered-search/static-binary-token', readme)
     },
     template: `
       <div>
-        <div>Value: {{ value }} </div>
+        <div>Value: {{ value.data }} </div>
         <div class="gl-border-1 gl-border-solid gl-border-gray-400">
           <gl-filtered-search-static-binary-token
             v-model="value"

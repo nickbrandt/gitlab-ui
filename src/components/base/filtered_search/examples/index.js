@@ -1,4 +1,5 @@
 import FilteredSearchDefaultExample from './filtered_search.default.example.vue';
+import FilteredSearchSingleUniqueExample from './filtered_search.single_unique.example.vue';
 
 export default [
   {
@@ -8,6 +9,11 @@ export default [
         id: 'filtered-search',
         name: 'default',
         component: FilteredSearchDefaultExample,
+      },
+      {
+        id: 'filtered-search-single-unique',
+        name: 'single-unique',
+        component: FilteredSearchSingleUniqueExample,
       },
     ],
   },

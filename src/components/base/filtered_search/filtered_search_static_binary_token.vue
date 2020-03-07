@@ -28,12 +28,12 @@ export default {
   computed: {
     binaryTokenValue: {
       get() {
-        const currentItem = this.items.find(({ value }) => value === this.value);
-        return currentItem ? currentItem.title : this.value;
+        const currentItem = this.items.find(({ value }) => value === this.value.data);
+        return { data: currentItem ? currentItem.title : this.value.data };
       },
       set(newValue) {
-        const newItem = this.items.find(({ title }) => title === newValue);
-        this.$emit('input', newItem ? newItem.value : newValue);
+        const newItem = this.items.find(({ title }) => title === newValue.data);
+        this.$emit('input', newItem ? { data: newItem.value } : newValue);
       },
     },
   },

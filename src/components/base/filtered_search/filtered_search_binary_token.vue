@@ -24,14 +24,14 @@ export default {
       default: false,
     },
     value: {
-      type: String,
+      type: Object,
       required: false,
-      default: '',
+      default: () => ({ data: '' }),
     },
   },
   methods: {
     applySuggestion(value) {
-      this.$emit('input', value);
+      this.$emit('input', { data: value });
       this.$emit('complete');
     },
 
@@ -58,13 +58,13 @@ export default {
       ref="input"
       class="gl-filtered-search-binary-token-input"
       type="text"
-      :value="value"
-      @input="$emit('input', $event.target.value)"
+      :value="value.data"
+      @input="$emit('input', { data: $event.target.value })"
       @keydown="handleInput"
       @blur="deactivate"
     />
     <gl-token v-else variant="search-value" @close="$emit('destroy')">
-      <slot name="view">{{ value }}</slot>
+      <slot name="view">{{ value.data }}</slot>
     </gl-token>
 
     <portal v-if="active" :to="portalName">
