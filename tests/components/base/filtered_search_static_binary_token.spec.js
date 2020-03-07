@@ -11,7 +11,7 @@ describe('Filtered search static binary token component', () => {
       { icon: 'test1', title: 'first', value: 'one' },
       { title: 'second', value: 'two' },
     ],
-    value: '',
+    value: { data: '' },
   };
 
   const createComponent = props => {
@@ -26,25 +26,26 @@ describe('Filtered search static binary token component', () => {
   });
 
   it('renders binary token', () => {
-    createComponent({ value: 'test-value' });
+    createComponent({ value: { data: 'test-value' } });
 
-    expect(wrapper.attributes()).toEqual({
-      title: 'Confidential',
-      value: 'test-value',
-    });
+    expect(wrapper.attributes()).toEqual(
+      expect.objectContaining({
+        title: 'Confidential',
+      })
+    );
   });
 
   it('correctly maps existing value to one of items', () => {
-    createComponent({ value: '' });
-    wrapper.find(GlFilteredSearchBinaryToken).vm.$emit('input', 'first');
+    createComponent({ value: { data: '' } });
+    wrapper.find(GlFilteredSearchBinaryToken).vm.$emit('input', { data: 'first' });
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().input.length).toBe(1);
-      expect(wrapper.emitted().input[0]).toStrictEqual(['one']);
+      expect(wrapper.emitted().input[0]).toStrictEqual([{ data: 'one' }]);
     });
   });
 
   it('emits unchanged value when mapping not exists', () => {
-    createComponent({ value: '' });
+    createComponent({ value: { data: '' } });
     wrapper.find(GlFilteredSearchBinaryToken).vm.$emit('input', 'other-value');
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().input.length).toBe(1);
@@ -53,7 +54,9 @@ describe('Filtered search static binary token component', () => {
   });
 
   it('passes mapped value to underlyiung binary token when mapping exists', () => {
-    createComponent({ value: 'one' });
-    expect(wrapper.find(GlFilteredSearchBinaryToken).props('value')).toBe('first');
+    createComponent({ value: { data: 'one' } });
+    expect(wrapper.find(GlFilteredSearchBinaryToken).props('value')).toStrictEqual({
+      data: 'first',
+    });
   });
 });

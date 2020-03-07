@@ -14,6 +14,11 @@ export default {
       required: false,
       additionalInfo: 'If provided, used as history items for this component',
     },
+    availableTokens: {
+      type: Array,
+      required: true,
+      additionalInfo: 'Available tokens',
+    },
     placeholder: {
       type: String,
       required: false,

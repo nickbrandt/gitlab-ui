@@ -41,7 +41,9 @@ describe('Filtered search', () => {
   describe('value manipulation', () => {
     it('creates term when empty', () => {
       createComponent();
-      expect(wrapper.emitted().input[0][0]).toStrictEqual([{ type: TERM_TOKEN_TYPE, value: '' }]);
+      expect(wrapper.emitted().input[0][0]).toStrictEqual([
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
     it('adds empty term to the end when not empty', () => {
@@ -51,7 +53,7 @@ describe('Filtered search', () => {
 
       expect(wrapper.emitted().input[0][0].pop()).toStrictEqual({
         type: TERM_TOKEN_TYPE,
-        value: '',
+        value: { data: '' },
       });
     });
 
@@ -62,7 +64,7 @@ describe('Filtered search', () => {
 
       const inputEventArgs = wrapper.emitted().input[0][0];
       expect(inputEventArgs.every(t => t.type === TERM_TOKEN_TYPE)).toBe(true);
-      expect(inputEventArgs.map(t => t.value)).toStrictEqual(['one', 'two']);
+      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two']);
     });
 
     it('splits strings if needed', () => {
@@ -72,7 +74,7 @@ describe('Filtered search', () => {
 
       const inputEventArgs = wrapper.emitted().input[0][0];
       expect(inputEventArgs.every(t => t.type === TERM_TOKEN_TYPE)).toBe(true);
-      expect(inputEventArgs.map(t => t.value)).toStrictEqual(['one', 'two']);
+      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two']);
     });
   });
 
@@ -125,13 +127,13 @@ describe('Filtered search', () => {
     it('removes empty term tokens on deactivate', () => {
       const findSecondTerm = () => wrapper.findAll(GlFilteredSearchTerm).at(1);
       createComponent({
-        value: [{ type: 'faketoken', value: '' }, 'one', 'two', 'three'],
+        value: [{ type: 'faketoken', value: { data: '' } }, 'one', 'two', 'three'],
       });
       return wrapper.vm
         .$nextTick()
         .then(() => {
           findSecondTerm().vm.$emit('activate');
-          findSecondTerm().vm.$emit('input', '');
+          findSecondTerm().vm.$emit('input', { data: '' });
           return wrapper.vm.$nextTick();
         })
         .then(() => {
@@ -140,22 +142,22 @@ describe('Filtered search', () => {
         })
         .then(() => {
           expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-            { type: 'faketoken', value: '' },
-            { type: TERM_TOKEN_TYPE, value: 'one' },
-            { type: TERM_TOKEN_TYPE, value: 'three' },
+            { type: 'faketoken', value: { data: '' } },
+            { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+            { type: TERM_TOKEN_TYPE, value: { data: 'three' } },
           ]);
         });
     });
 
     it('destroys token if requested', () => {
       createComponent({
-        value: [{ type: 'faketoken', value: '' }, 'one'],
+        value: [{ type: 'faketoken', value: { data: '' } }, 'one'],
       });
 
       wrapper.find(FakeToken).vm.$emit('destroy');
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: 'one' },
+          { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         ]);
       });
     });
@@ -177,19 +179,21 @@ describe('Filtered search', () => {
 
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: '' },
+          { type: TERM_TOKEN_TYPE, value: { data: '' } },
         ]);
       });
     });
 
     it('replaces token when requested', () => {
       createComponent();
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('replace', { type: 'faketoken', value: 'test' });
+      wrapper
+        .find(GlFilteredSearchTerm)
+        .vm.$emit('replace', { type: 'faketoken', value: { data: 'test' } });
 
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: 'faketoken', value: 'test' },
-          { type: TERM_TOKEN_TYPE, value: '' },
+          { type: 'faketoken', value: { data: 'test' } },
+          { type: TERM_TOKEN_TYPE, value: { data: '' } },
         ]);
       });
     });
@@ -197,11 +201,11 @@ describe('Filtered search', () => {
     it('inserts single token when requested', () => {
       createComponent({ value: ['one'] });
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('create');
+      wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: 'one' },
-          { type: TERM_TOKEN_TYPE, value: '' },
+          { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+          { type: TERM_TOKEN_TYPE, value: { data: '' } },
         ]);
       });
     });
@@ -209,7 +213,7 @@ describe('Filtered search', () => {
     it('jumps to last token when insert of empty term requested', () => {
       createComponent({ value: ['one', 'two'] });
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('create');
+      wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
       return wrapper.vm.$nextTick().then(() => {
         expect(
           wrapper
@@ -218,8 +222,8 @@ describe('Filtered search', () => {
             .props('active')
         ).toBe(true);
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: 'one' },
-          { type: TERM_TOKEN_TYPE, value: 'two' },
+          { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+          { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
         ]);
       });
     });
@@ -230,34 +234,16 @@ describe('Filtered search', () => {
       return wrapper.vm
         .$nextTick()
         .then(() => {
-          wrapper.find(GlFilteredSearchTerm).vm.$emit('create', [
-            { type: TERM_TOKEN_TYPE, value: 'foo' },
-            { type: TERM_TOKEN_TYPE, value: 'bar' },
-          ]);
+          wrapper.find(GlFilteredSearchTerm).vm.$emit('split', ['foo', 'bar']);
           return wrapper.vm.$nextTick();
         })
         .then(() => {
           expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-            { type: TERM_TOKEN_TYPE, value: 'one' },
-            { type: TERM_TOKEN_TYPE, value: 'foo' },
-            { type: TERM_TOKEN_TYPE, value: 'bar' },
+            { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+            { type: TERM_TOKEN_TYPE, value: { data: 'foo' } },
+            { type: TERM_TOKEN_TYPE, value: { data: 'bar' } },
           ]);
         });
-    });
-
-    it('activates last token when complete is emitted', () => {
-      createComponent({
-        value: [{ type: 'faketoken', value: '' }, 'one', 'two'],
-      });
-      wrapper.find(FakeToken).vm.$emit('complete');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(
-          wrapper
-            .findAll(GlFilteredSearchTerm)
-            .at(1)
-            .props('active')
-        ).toBe(true);
-      });
     });
 
     it('submits entire search when submit is requested', () => {
