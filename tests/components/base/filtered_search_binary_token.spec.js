@@ -105,14 +105,14 @@ describe('Filtered search binary token', () => {
   it('renders suggestions when token is active', () => {
     createComponent({ active: true });
     expect(wrapper.find(suggestionsMock).exists()).toBe(true);
-    expect(wrapper.findAll(GlFilteredSearchSuggestion).length).toBe(2);
+    expect(wrapper.findAll(GlFilteredSearchSuggestion)).toHaveLength(2);
   });
 
   it('emits submit event if no suggestion is selected and Enter is pressed', () => {
     createComponent({ active: true });
     wrapper.find('input').trigger('keydown.enter');
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().submit.length).toBe(1);
+      expect(wrapper.emitted().submit).toHaveLength(1);
     });
   });
 
@@ -120,7 +120,7 @@ describe('Filtered search binary token', () => {
     createComponent({ active: true, value: { data: 'other' } });
     wrapper.find('input').trigger('keydown.enter');
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().submit.length).toBe(1);
+      expect(wrapper.emitted().submit).toHaveLength(1);
     });
   });
 
@@ -129,7 +129,7 @@ describe('Filtered search binary token', () => {
     suggestionsMock.methods.getValue.mockReturnValue('token-type');
     wrapper.find('input').trigger('keydown.enter');
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().complete.length).toBe(1);
+      expect(wrapper.emitted().complete).toHaveLength(1);
     });
   });
 
@@ -137,7 +137,7 @@ describe('Filtered search binary token', () => {
     createComponent({ active: true });
     wrapper.find('input').trigger('keydown.backspace');
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().replace.length).toBe(1);
+      expect(wrapper.emitted().replace).toHaveLength(1);
     });
   });
 
@@ -145,7 +145,7 @@ describe('Filtered search binary token', () => {
     createComponent({ active: true });
     wrapper.setProps({ value: { data: 'test ' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().split.length).toBe(1);
+      expect(wrapper.emitted().split).toHaveLength(1);
       expect(wrapper.emitted().split[0]).toEqual([['']]);
     });
   });
