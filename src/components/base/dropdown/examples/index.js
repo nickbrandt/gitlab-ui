@@ -1,4 +1,5 @@
 import DropdownDefaultExample from './dropdown.default.example.vue';
+import DropdownDisabledItemExample from './dropdown.disabled_item.example.vue';
 import DropdownLinksExample from './dropdown.links.example.vue';
 import DropdownWithDividerExample from './dropdown.with_divider.example.vue';
 import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
@@ -27,6 +28,12 @@ export default [
         name: 'With Divider',
         description: 'Dropdown with divider',
         component: DropdownWithDividerExample,
+      },
+      {
+        id: 'dropdown-with-disabled-item',
+        name: 'With Disabled Item',
+        description: 'Dropdown with disabled item',
+        component: DropdownDisabledItemExample,
       },
       {
         id: 'dropdown-with-header',

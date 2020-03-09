@@ -41,5 +41,10 @@
     .avatar {
       @include gl-border-white-light;
     }
+
+    &:disabled {
+      @include gl-cursor-not-allowed;
+      @include gl-text-gray-700;
+    }
   }
 }
