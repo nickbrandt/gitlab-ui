@@ -326,8 +326,8 @@ describe('Filtered search integration tests', () => {
     wrapper
       .findAll(GlFilteredSearchTerm)
       .at(idx)
-      .find('div.gl-filtered-search-term-value')
-      .trigger('click');
+      .find('.gl-filtered-search-token-segment')
+      .trigger('mousedown.left');
 
   const findInput = () =>
     wrapper
@@ -405,11 +405,11 @@ describe('Filtered search integration tests', () => {
 
     it('replaces term with token when suggestion is selected', () => {
       const input = findInput();
-      input.trigger('keydown.down');
+      input.trigger('keydown', { key: 'Down' });
       return wrapper.vm
         .$nextTick()
         .then(() => {
-          input.trigger('keydown.enter');
+          input.trigger('keydown', { key: 'Enter' });
           return wrapper.vm.$nextTick();
         })
         .then(() => {
@@ -420,12 +420,12 @@ describe('Filtered search integration tests', () => {
 
     it('calls alignSuggestion for new tokens', () => {
       const input = findInput();
-      input.trigger('keydown.down');
+      input.trigger('keydown', { key: 'Down' });
       const alignSuggestionsSpy = jest.spyOn(wrapper.vm, 'alignSuggestions');
       return wrapper.vm
         .$nextTick()
         .then(() => {
-          input.trigger('keydown.enter');
+          input.trigger('keydown', { key: 'Enter' });
           return wrapper.vm.$nextTick();
         })
         .then(() => {

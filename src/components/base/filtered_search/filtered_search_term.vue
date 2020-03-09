@@ -1,18 +1,14 @@
 <script>
-import { Portal } from 'portal-vue';
+import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
-import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
-import FilteredSearchSuggestionControlMixin from './filtered_search_suggestion_control_mixin';
 import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
     GlIcon,
-    GlFilteredSearchSuggestionList,
+    GlFilteredSearchTokenSegment,
     GlFilteredSearchSuggestion,
-    Portal,
   },
-  mixins: [FilteredSearchSuggestionControlMixin],
   inheritAttrs: false,
   props: {
     availableTokens: {
@@ -41,50 +37,32 @@ export default {
         item.hint.toLowerCase().includes(this.value.data.toLowerCase())
       );
     },
-  },
-  methods: {
-    getSuggestionsContainer() {
-      return this.$refs.suggestions;
-    },
-
-    getInputContainer() {
-      return this.$refs.input;
-    },
-
-    applySuggestion(type) {
-      this.$emit('replace', { type });
+    internalValue: {
+      get() {
+        return this.value.data;
+      },
+      set(data) {
+        this.$emit('input', { data });
+      },
     },
   },
 };
 </script>
 
 <template>
-  <div>
-    <input
-      v-if="active"
-      ref="input"
-      type="text"
-      :value="value.data"
-      class="gl-filtered-search-term-input"
-      @input="$emit('input', { data: $event.target.value })"
-      @keydown="handleInput"
-      @blur="deactivate"
-    />
-    <div v-else class="gl-filtered-search-term-value" @click="$emit('activate')">
-      <input
-        v-if="placeholder"
-        class="gl-filtered-search-term-input gl-w-full"
-        :placeholder="placeholder"
-      />
-      <template v-else>{{ value.data }}</template>
-    </div>
-
-    <portal v-if="active && suggestedTokens.length" :to="portalName">
-      <gl-filtered-search-suggestion-list
-        :key="_uid"
-        ref="suggestions"
-        @suggestion="applySuggestion"
-      >
+  <div class="gl-h-auto">
+    <gl-filtered-search-token-segment
+      v-model="internalValue"
+      :active="active"
+      :class="{ 'gl-w-full': placeholder }"
+      @activate="$emit('activate')"
+      @deactivate="$emit('deactivate')"
+      @complete="$emit('replace', { type: $event })"
+      @backspace="$emit('destroy')"
+      @submit="$emit('submit')"
+      @split="$emit('split', $event)"
+    >
+      <template #suggestions>
         <gl-filtered-search-suggestion
           v-for="(item, idx) in suggestedTokens"
           :key="idx"
@@ -94,7 +72,15 @@ export default {
             item.hint
           }}
         </gl-filtered-search-suggestion>
-      </gl-filtered-search-suggestion-list>
-    </portal>
+      </template>
+      <template #view>
+        <input
+          v-if="placeholder"
+          class="gl-filtered-search-term-input"
+          :placeholder="placeholder"
+        />
+        <template v-else>{{ value.data }}</template>
+      </template>
+    </gl-filtered-search-token-segment>
   </div>
 </template>
