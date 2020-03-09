@@ -117,5 +117,19 @@ describe('Filtered search suggestion list component', () => {
         expect(wrapper.vm.getValue()).toBe('2');
       });
     });
+
+    it('highlights suggestion if initial-value is provided', () => {
+      wrapper.setProps({ initialValue: '2' });
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('2');
+      });
+    });
+
+    it('does not highlight anything if initial-value matches nothing', () => {
+      wrapper.setProps({ initialValue: 'missing' });
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.find('.gl-filtered-search-suggestion-active').exists()).toBe(false);
+      });
+    });
   });
 });
