@@ -1,4 +1,4 @@
-@mixin inline-styles {
+@mixin gl-tmp-form-checkbox-inline-styles {
   @include gl-mt-1;
   @include gl-ml-0;
   @include gl-align-self-start;
@@ -29,7 +29,7 @@
   }
 
   .form-check-input {
-    @include inline-styles;
+    @include gl-tmp-form-checkbox-inline-styles;
   }
 
   .form-check-label {

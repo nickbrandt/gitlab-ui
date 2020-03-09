@@ -24,7 +24,7 @@ table.gl-table {
     }
   }
 
-  @mixin stacked-override {
+  @mixin gl-tmp-stacked-override {
     tbody > tr {
       &::after {
         @include gl-content-empty;
@@ -64,13 +64,13 @@ table.gl-table {
 
   &.b-table {
     &.b-table-stacked {
-      @include stacked-override();
+      @include gl-tmp-stacked-override();
     }
 
     @each $class, $mq in $stacked-table-breakpoints {
       &.b-table-stacked-#{$class} {
         @include media-breakpoint-down(#{$mq}) {
-          @include stacked-override();
+          @include gl-tmp-stacked-override();
         }
       }
     }

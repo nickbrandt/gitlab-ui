@@ -4,10 +4,10 @@ $modal-body-line-height: 1.5;
 $modal-bg-color: rgba(0, 0, 0, 0.3);
 
 // mixins
-@mixin modal-btn-group-ml {
+@mixin gl-tmp-modal-btn-group-ml {
   margin-left: -1px;
 }
-@mixin modal-bg {
+@mixin gl-tmp-modal-bg {
   background-color: $modal-bg-color;
 }
 
@@ -16,7 +16,7 @@ body.modal-open {
 }
 
 .gl-modal {
-  @include modal-bg;
+  @include gl-tmp-modal-bg;
 
   .modal-sm {
     max-width: $gl-modal-small-width;
@@ -88,7 +88,7 @@ body.modal-open {
     }
 
     .btn-group .btn + .btn {
-      @include modal-btn-group-ml;
+      @include gl-tmp-modal-btn-group-ml;
     }
 
     @include media-breakpoint-down(xs) {
@@ -102,7 +102,7 @@ body.modal-open {
       }
 
       .btn-group .btn + .btn {
-        @include modal-btn-group-ml;
+        @include gl-tmp-modal-btn-group-ml;
         @include gl-mt-0;
       }
     }
