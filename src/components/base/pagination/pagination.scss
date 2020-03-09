@@ -12,7 +12,7 @@
     &:not(.active):hover {
       @include gl-text-gray-900;
       @include gl-bg-gray-200;
-      @include new-gl-button-secondary-hover($gray-400);
+      @include gl-tmp-new-button-secondary-hover($gray-400);
       @include gl-z-index-0;
     }
   }

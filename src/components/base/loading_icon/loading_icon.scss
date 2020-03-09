@@ -1,9 +1,9 @@
-@mixin gl-spinner-color($color) {
+@mixin gl-tmp-spinner-color($color) {
   border-color: rgba($color, 0.25);
   border-top-color: $color;
 }
 
-@mixin gl-spinner-size($size, $border-width) {
+@mixin gl-tmp-spinner-size($size, $border-width) {
   width: $size;
   height: $size;
   border-width: $border-width;
@@ -40,27 +40,27 @@
   animation-iteration-count: infinite;
 
   // default size
-  @include gl-spinner-size($gl-spacing-scale-5, $gl-border-size-2);
+  @include gl-tmp-spinner-size($gl-spacing-scale-5, $gl-border-size-2);
   // default colour
-  @include gl-spinner-color($orange-600);
+  @include gl-tmp-spinner-color($orange-600);
 
   &.gl-spinner-md {
-    @include gl-spinner-size($gl-spacing-scale-6, $gl-border-size-3);
+    @include gl-tmp-spinner-size($gl-spacing-scale-6, $gl-border-size-3);
   }
 
   &.gl-spinner-lg {
-    @include gl-spinner-size($gl-spacing-scale-7, $gl-border-size-3);
+    @include gl-tmp-spinner-size($gl-spacing-scale-7, $gl-border-size-3);
   }
 
   &.gl-spinner-xl {
-    @include gl-spinner-size($gl-spacing-scale-11, $gl-border-size-4);
+    @include gl-tmp-spinner-size($gl-spacing-scale-11, $gl-border-size-4);
   }
 
   &.gl-spinner-dark {
-    @include gl-spinner-color($gray-700);
+    @include gl-tmp-spinner-color($gray-700);
   }
 
   &.gl-spinner-light {
-    @include gl-spinner-color($white);
+    @include gl-tmp-spinner-color($white);
   }
 }

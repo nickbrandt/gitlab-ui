@@ -110,6 +110,44 @@ Finally, to join in on discussion about HAML components, check out the following
 
 **Add or apply a utility class** the rest of the time.
 
+## Component-agnostic
+
+We are aiming to build a set of styles that are easily reusable and component-agnostic.
+To help accomplish this:
+
+- Place new mixins in the `src/scss/utility-mixins/` directory.
+- Give new mixins a generic name that describes what they do rather than what component
+  they target.
+
+For example:
+
+```scss
+// Bad
+@mixin gl-alert-borders {
+  border-style: none;
+}
+
+// Good
+@mixin gl-border-none {
+  border-style: none;
+}
+
+// Bad
+@mixin gl-avatar-transitions {
+  transition-property: border-color;
+}
+
+// Good
+@mixin gl-transition-property-border-color {
+  transition-property: border-color;
+}
+```
+
+Time constraints or lack of stable design specifications might require you to create
+component-specific mixins. In such cases, mixins should be defined in the component's
+stylesheet and their names should be prefixed with `gl-tmp-` instead of `gl-` to make them easily
+identifiable when paying technical debt in later development stages.
+
 ## Other Style Questions
 
 More answers and details can be found in the [SCSS style guide](https://docs.gitlab.com/ee/development/fe_guide/style_guide_scss.html)
