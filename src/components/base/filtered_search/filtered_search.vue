@@ -5,7 +5,6 @@ import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlIcon from '../icon/icon.vue';
 import {
-  isEmptyTerm,
   TERM_TOKEN_TYPE,
   normalizeTokens,
   denormalizeTokens,
@@ -17,10 +16,10 @@ Vue.use(PortalVue);
 
 let portalUuid = 0;
 
-function createTerm(value = '') {
+function createTerm(data = '') {
   return {
     type: TERM_TOKEN_TYPE,
-    value,
+    value: { data },
   };
 }
 
@@ -82,10 +81,23 @@ export default {
       return this.activeTokenIdx === this.lastTokenIdx;
     },
     hasValue() {
-      return this.tokens.length > 1 || this.tokens[0].value !== '';
+      return this.tokens.length > 1 || this.tokens[0].value.data !== '';
     },
     termPlaceholder() {
       return this.hasValue ? null : this.placeholder;
+    },
+    currentAvailableTokens() {
+      return this.availableTokens.filter(token => {
+        if (token.disabled) {
+          return false;
+        }
+
+        if (token.unique) {
+          return !this.tokens.find(t => t.type === token.type);
+        }
+
+        return true;
+      });
     },
   },
   watch: {
@@ -146,10 +158,11 @@ export default {
       if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx || this.activeToken.type !== type) {
         return;
       }
+
       if (
         !this.isLastTokenActive &&
         this.activeToken.type === TERM_TOKEN_TYPE &&
-        this.activeToken.value.trim() === ''
+        this.activeToken.value.data.trim() === ''
       ) {
         this.tokens.splice(tokenIdx, 1);
       }
@@ -169,25 +182,36 @@ export default {
     },
 
     replaceToken(idx, token) {
-      this.$set(this.tokens, idx, { value: '', ...token });
+      this.$set(this.tokens, idx, { ...token, value: { data: '', ...token.value } });
       this.activeTokenIdx = idx;
     },
 
-    insertToken(idx, newTokens = [createTerm()]) {
+    createTokens(idx, newStrings = ['']) {
       if (
         this.activeTokenIdx !== this.lastTokenIdx &&
-        newTokens.length === 1 &&
-        isEmptyTerm(newTokens[0])
+        newStrings.length === 1 &&
+        newStrings[0] === ''
       ) {
         this.activeTokenIdx = this.lastTokenIdx;
         return;
       }
+
+      const newTokens = newStrings.map(data => ({
+        type: TERM_TOKEN_TYPE,
+        value: { data },
+      }));
+
       this.tokens.splice(idx + 1, 0, ...newTokens);
-      this.activeTokenIdx = idx + newTokens.length;
+
+      this.activeTokenIdx = idx + newStrings.length;
     },
 
     completeToken() {
-      this.activeTokenIdx = this.lastTokenIdx;
+      if (this.activeTokenIdx === this.lastTokenIdx - 1) {
+        this.activeTokenIdx = this.lastTokenIdx;
+      } else {
+        this.activeTokenIdx = null;
+      }
     },
 
     submit() {
@@ -216,21 +240,21 @@ export default {
             v-model="token.value"
             v-bind="tokenConfig(token.type)"
             :active="activeTokenIdx === idx"
-            :available-tokens="availableTokens"
+            :available-tokens="currentAvailableTokens"
             :current-value="tokens"
             :index="idx"
             :placeholder="termPlaceholder"
-            class="gl-filtered-search-token"
+            class="gl-filtered-search-item"
             :class="{
-              'gl-filtered-search-last-token': isLastToken(idx),
+              'gl-filtered-search-last-item': isLastToken(idx),
             }"
             @activate="activate(idx)"
             @deactivate="deactivate(idx, token.type)"
             @destroy="destroyToken(idx)"
             @replace="replaceToken(idx, $event)"
-            @create="insertToken(idx, $event)"
             @complete="completeToken"
             @submit="submit"
+            @split="createTokens(idx, $event)"
           />
         </template>
       </div>

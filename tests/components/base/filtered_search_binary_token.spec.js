@@ -2,7 +2,6 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import PortalVue from 'portal-vue';
 import GlFilteredSearchBinaryToken from '../../../src/components/base/filtered_search/filtered_search_binary_token.vue';
 import GlFilteredSearchSuggestion from '../../../src/components/base/filtered_search/filtered_search_suggestion.vue';
-import { TERM_TOKEN_TYPE } from '../../../src/components/base/filtered_search/filtered_search_utils';
 
 const localVue = createLocalVue();
 localVue.use(PortalVue);
@@ -24,7 +23,7 @@ describe('Filtered search binary token', () => {
 
   const defaultProps = {
     title: 'testTitle',
-    value: '',
+    value: { data: '' },
   };
 
   let alignSuggestionsMock;
@@ -67,12 +66,12 @@ describe('Filtered search binary token', () => {
   });
 
   it('renders tokens in inactive mode', () => {
-    createComponent({ value: 'test-value' });
+    createComponent({ value: { data: 'test-value' } });
     expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders token and input with value in active mode', () => {
-    createComponent({ value: 'test-value', active: true });
+    createComponent({ value: { data: 'test-value' }, active: true });
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -117,8 +116,8 @@ describe('Filtered search binary token', () => {
     });
   });
 
-  it('emits token-submit event if no suggestions are available and Enter is pressed', () => {
-    createComponent({ active: true, value: 'other' });
+  it('emits submit event if no suggestions are available and Enter is pressed', () => {
+    createComponent({ active: true, value: { data: 'other' } });
     wrapper.find('input').trigger('keydown.enter');
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().submit.length).toBe(1);
@@ -142,26 +141,21 @@ describe('Filtered search binary token', () => {
     });
   });
 
-  it('emits token-create when value is changed to ending with single space', () => {
+  it('emits split when value is changed to ending with single space', () => {
     createComponent({ active: true });
-    wrapper.setProps({ value: 'test ' });
+    wrapper.setProps({ value: { data: 'test ' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create.length).toBe(1);
-      expect(wrapper.emitted().create[0]).toEqual([[{ type: TERM_TOKEN_TYPE, value: '' }]]);
+      expect(wrapper.emitted().split.length).toBe(1);
+      expect(wrapper.emitted().split[0]).toEqual([['']]);
     });
   });
 
-  it('emits token-create and truncates current token when value is changed to contain multiple spaces', () => {
+  it('emits split and truncates current token when value is changed to contain multiple spaces', () => {
     createComponent({ active: true });
-    wrapper.setProps({ value: 'foo bar baz' });
+    wrapper.setProps({ value: { data: 'foo bar baz' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create[0]).toEqual([
-        [
-          { type: TERM_TOKEN_TYPE, value: 'bar' },
-          { type: TERM_TOKEN_TYPE, value: 'baz' },
-        ],
-      ]);
-      expect(wrapper.emitted().input[0]).toEqual(['foo']);
+      expect(wrapper.emitted().split[0]).toEqual([['bar', 'baz']]);
+      expect(wrapper.emitted().input[0]).toEqual([{ data: 'foo' }]);
     });
   });
 

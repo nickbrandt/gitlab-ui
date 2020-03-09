@@ -20,7 +20,7 @@ The token should emit the following events:
 - `deactivate`: when token requests deactivation (for example due to losing blur on input).
 - `destroy`: when token requests self-destruction (for instance for clicking "X" sign).
 - `replace`: token requests its replacement with another token.
-- `create`: token requests creation of new tokens.
+- `split`: token requests adding string values after the current token.
 - `complete`: token indicates its editing is completed.
 
 ## Examples

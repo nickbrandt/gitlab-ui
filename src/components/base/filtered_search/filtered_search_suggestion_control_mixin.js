@@ -1,11 +1,11 @@
 import KeyCodes from 'bootstrap-vue/src/utils/key-codes';
-import { TERM_TOKEN_TYPE, splitOnQuotes } from './filtered_search_utils';
+import { splitOnQuotes } from './filtered_search_utils';
 
 export default {
   inject: ['portalName', 'alignSuggestions'],
   methods: {
     hasValue() {
-      return this.value.trim().length > 0;
+      return this.value.data.trim().length > 0;
     },
 
     getSuggestionsContainer() {
@@ -92,8 +92,12 @@ export default {
       },
       immediate: true,
     },
-    value: {
+    'value.data': {
       handler(newValue) {
+        if (typeof newValue !== 'string') {
+          return;
+        }
+
         const hasUnclosedQuote = newValue.split('"').length % 2 === 0;
         if (newValue.indexOf(' ') === -1 || hasUnclosedQuote) {
           return;
@@ -102,16 +106,10 @@ export default {
         const [firstWord, ...otherWords] = splitOnQuotes(newValue).filter(
           (w, idx, arr) => Boolean(w) || idx === arr.length - 1
         );
-        this.$emit('input', firstWord);
+        this.$emit('input', { data: firstWord });
 
         if (otherWords.length) {
-          this.$emit(
-            'create',
-            otherWords.map(w => ({
-              type: TERM_TOKEN_TYPE,
-              value: w,
-            }))
-          );
+          this.$emit('split', otherWords);
         }
       },
     },

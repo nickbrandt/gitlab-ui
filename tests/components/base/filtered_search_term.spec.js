@@ -2,7 +2,6 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import PortalVue from 'portal-vue';
 import FilteredSearchTerm from '../../../src/components/base/filtered_search/filtered_search_term.vue';
 import GlFilteredSearchSuggestion from '../../../src/components/base/filtered_search/filtered_search_suggestion.vue';
-import { TERM_TOKEN_TYPE } from '../../../src/components/base/filtered_search/filtered_search_utils';
 
 const localVue = createLocalVue();
 localVue.use(PortalVue);
@@ -30,7 +29,7 @@ describe('Filtered search term', () => {
 
   const defaultProps = {
     availableTokens: [],
-    value: '',
+    value: { data: '' },
   };
 
   let alignSuggestionsMock;
@@ -62,12 +61,12 @@ describe('Filtered search term', () => {
   });
 
   it('renders value in inactive mode', () => {
-    createComponent({ value: 'test-value' });
+    createComponent({ value: { data: 'test-value' } });
     expect(wrapper.text()).toContain('test-value');
   });
 
   it('renders input with value in active mode', () => {
-    createComponent({ value: 'test-value', active: true });
+    createComponent({ value: { data: 'test-value' }, active: true });
     expect(wrapper.find('input').element.value).toBe('test-value');
   });
 
@@ -108,7 +107,7 @@ describe('Filtered search term', () => {
   });
 
   it('filters suggestions by input', () => {
-    createComponent({ availableTokens, active: true, value: 'test1' });
+    createComponent({ availableTokens, active: true, value: { data: 'test1' } });
     wrapper.find('input').setValue('test1');
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.findAll(GlFilteredSearchSuggestion).length).toBe(2);
@@ -124,7 +123,7 @@ describe('Filtered search term', () => {
   });
 
   it('emits submit event if no suggestions are available and Enter is pressed', () => {
-    createComponent({ availableTokens, active: true, value: 'other' });
+    createComponent({ availableTokens, active: true, value: { data: 'other' } });
     wrapper.find('input').trigger('keydown.enter');
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.emitted().submit.length).toBe(1);
@@ -149,51 +148,46 @@ describe('Filtered search term', () => {
     });
   });
 
-  it('emits create when value is changed to ending with single space', () => {
+  it('emits split when value is changed to ending with single space', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'test ' });
+    wrapper.setProps({ value: { data: 'test ' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create.length).toBe(1);
-      expect(wrapper.emitted().create[0]).toEqual([[{ type: TERM_TOKEN_TYPE, value: '' }]]);
+      expect(wrapper.emitted().split.length).toBe(1);
+      expect(wrapper.emitted().split[0]).toEqual([['']]);
     });
   });
 
-  it('does not emit create when value is changed to contain multiple spaces and has unclosed quotes', () => {
+  it('does not emit split when value is changed to contain multiple spaces and has unclosed quotes', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'foo "bar baz' });
+    wrapper.setProps({ value: { data: 'foo "bar baz' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create).toBeUndefined();
+      expect(wrapper.emitted().split).toBeUndefined();
     });
   });
 
-  it('emits create and truncates current token when value is changed to contain multiple spaces and has no quotes', () => {
+  it('emits split and truncates current token when value is changed to contain multiple spaces and has no quotes', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'foo bar baz' });
+    wrapper.setProps({ value: { data: 'foo bar baz' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create[0]).toEqual([
-        [
-          { type: TERM_TOKEN_TYPE, value: 'bar' },
-          { type: TERM_TOKEN_TYPE, value: 'baz' },
-        ],
-      ]);
-      expect(wrapper.emitted().input[0]).toEqual(['foo']);
+      expect(wrapper.emitted().split[0]).toEqual([['bar', 'baz']]);
+      expect(wrapper.emitted().input[0]).toEqual([{ data: 'foo' }]);
     });
   });
 
-  it('emits create and truncates current token when value is changed to contain multiple spaces and has paired quotes', () => {
+  it('emits split and truncates current token when value is changed to contain multiple spaces and has paired quotes', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: '"foo bar" baz' });
+    wrapper.setProps({ value: { data: '"foo bar" baz' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create[0]).toEqual([[{ type: TERM_TOKEN_TYPE, value: 'baz' }]]);
-      expect(wrapper.emitted().input[0]).toEqual(['"foo bar"']);
+      expect(wrapper.emitted().split[0]).toEqual([['baz']]);
+      expect(wrapper.emitted().input[0]).toEqual([{ data: '"foo bar"' }]);
     });
   });
 
-  it('does not emit create event if there are no spaces in input', () => {
+  it('does not emit split event if there are no spaces in input', () => {
     createComponent({ availableTokens, active: true });
-    wrapper.setProps({ value: 'foo' });
+    wrapper.setProps({ value: { data: 'foo' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.emitted().create).toBeUndefined();
+      expect(wrapper.emitted().split).toBeUndefined();
     });
   });
 

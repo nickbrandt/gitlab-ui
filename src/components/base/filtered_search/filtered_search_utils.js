@@ -1,7 +1,7 @@
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
 export function isEmptyTerm(token) {
-  return token.type === TERM_TOKEN_TYPE && token.value.trim() === '';
+  return token.type === TERM_TOKEN_TYPE && token.value.data.trim() === '';
 }
 
 export function normalizeTokens(tokens) {
@@ -14,9 +14,9 @@ export function normalizeTokens(tokens) {
     if (token.type !== TERM_TOKEN_TYPE) {
       result.push({ ...token });
     } else if (result.length > 0 && typeof result[result.length - 1] === 'string') {
-      result[result.length - 1] += ` ${token.value}`;
+      result[result.length - 1] += ` ${token.value.data}`;
     } else {
-      result.push(token.value);
+      result.push(token.value.data);
     }
   });
   return result;
@@ -31,7 +31,9 @@ export function denormalizeTokens(tokens) {
   tokens.forEach(t => {
     if (typeof t === 'string') {
       const stringTokens = t.split(' ').filter(Boolean);
-      stringTokens.forEach(strToken => result.push({ type: TERM_TOKEN_TYPE, value: strToken }));
+      stringTokens.forEach(strToken =>
+        result.push({ type: TERM_TOKEN_TYPE, value: { data: strToken } })
+      );
     } else {
       result.push(t);
     }
