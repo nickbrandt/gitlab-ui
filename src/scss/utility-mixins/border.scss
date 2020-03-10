@@ -51,6 +51,10 @@
   border-color: $white-light;
 }
 
+@mixin gl-border-gray-100 {
+  border-color: $gray-100;
+}
+
 @mixin gl-border-gray-200 {
   border-color: $gray-200;
 }
