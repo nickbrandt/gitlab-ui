@@ -1,3 +1,10 @@
+## [9.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.0...v9.23.1) (2020-03-10)
+
+
+### Bug Fixes
+
+* add gl-border-gray-100 utility ([bd2897c](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd2897cc499dde7edf08838300ab1413a0971660))
+
 # [9.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.22.1...v9.23.0) (2020-03-05)
 
 
