@@ -31,7 +31,7 @@ export default {
       args: [
         {
           arg: 'newTokens',
-          description: '(Array) Strings',
+          description: '(Array) Token configurations',
         },
       ],
       description: 'Emitted when Space is pressed in-between term text',
