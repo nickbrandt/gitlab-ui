@@ -4,7 +4,7 @@ import { TERM_TOKEN_TYPE } from '../../../src/components/base/filtered_search/fi
 import GlFilteredSearchTerm from '../../../src/components/base/filtered_search/filtered_search_term.vue';
 import GlFilteredSearchSuggestionList from '../../../src/components/base/filtered_search/filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from '../../../src/components/base/filtered_search/filtered_search_suggestion.vue';
-import GlFilteredSearchStaticBinaryToken from '../../../src/components/base/filtered_search/filtered_search_static_binary_token.vue';
+import GlFilteredSearchToken from '../../../src/components/base/filtered_search/filtered_search_token.vue';
 
 jest.mock('../../../src/directives/tooltip');
 
@@ -293,21 +293,26 @@ describe('Filtered search integration tests', () => {
       type: 'static',
       icon: 'label',
       hint: 'static:token',
-      token: GlFilteredSearchStaticBinaryToken,
+      token: GlFilteredSearchToken,
       title: 'Static',
-      items: [
-        { icon: 'hourglass', title: 'first', value: 'one' },
-        { title: 'second-without-icon', value: 'two' },
-        { icon: 'issues', title: 'third', value: 'three' },
+      options: [
+        { title: 'first', value: 'one' },
+        { title: 'second', value: 'two' },
+        { title: 'third', value: 'three' },
       ],
     },
-    { type: 'dynamic', icon: 'rocket', hint: 'dynamic:~token', token: FakeToken },
+    { type: 'dynamic!token', icon: 'rocket', hint: 'dynamic:~token', token: FakeToken },
     {
       type: 'unique',
       unique: true,
       icon: 'document',
       hint: 'unique:~token',
-      token: FakeToken,
+      token: GlFilteredSearchToken,
+      title: 'Unique',
+      options: [
+        { title: 'first', value: 'one' },
+        { title: 'second', value: 'two' },
+      ],
     },
     { type: 'disabled', icon: 'document', hint: 'unique:~token', token: FakeToken, disabled: true },
   ];
@@ -326,8 +331,8 @@ describe('Filtered search integration tests', () => {
     wrapper
       .findAll(GlFilteredSearchTerm)
       .at(idx)
-      .find('.gl-filtered-search-token-segment')
-      .trigger('mousedown.left');
+      .find('div.gl-filtered-search-token-segment')
+      .trigger('mousedown');
 
   const findInput = () =>
     wrapper
@@ -405,7 +410,7 @@ describe('Filtered search integration tests', () => {
 
     it('replaces term with token when suggestion is selected', () => {
       const input = findInput();
-      input.trigger('keydown', { key: 'Down' });
+      input.trigger('keydown', { key: 'ArrowDown' });
       return wrapper.vm
         .$nextTick()
         .then(() => {
@@ -413,14 +418,14 @@ describe('Filtered search integration tests', () => {
           return wrapper.vm.$nextTick();
         })
         .then(() => {
-          const token = wrapper.find(GlFilteredSearchStaticBinaryToken);
+          const token = wrapper.find(GlFilteredSearchToken);
           expect(token.exists()).toBe(true);
         });
     });
 
     it('calls alignSuggestion for new tokens', () => {
       const input = findInput();
-      input.trigger('keydown', { key: 'Down' });
+      input.trigger('keydown', { key: 'ArrowDown' });
       const alignSuggestionsSpy = jest.spyOn(wrapper.vm, 'alignSuggestions');
       return wrapper.vm
         .$nextTick()

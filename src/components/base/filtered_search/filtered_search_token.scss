@@ -13,17 +13,23 @@
   @include gl-rounded-0;
 
   &.gl-filtered-search-token-type {
+    @include gl-h-6;
+    @include gl-bg-gray-100;
     @include gl-rounded-top-left-small;
     @include gl-rounded-bottom-left-small;
     @include gl-p-2;
-    margin-right: 1px;
+    @include gl-mr-1;
   }
 
   &.gl-filtered-search-token-operator {
-    margin-right: 1px;
+    @include gl-h-6;
+    @include gl-bg-gray-100;
+    @include gl-mr-1;
   }
 
   &.gl-filtered-search-token-data {
+    @include gl-h-6;
+    @include gl-bg-gray-200;
     @include gl-rounded-top-right-small;
     @include gl-rounded-bottom-right-small;
   }

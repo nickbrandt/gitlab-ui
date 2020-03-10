@@ -27,7 +27,7 @@ describe('Filtered search token', () => {
   describe('when activated', () => {
     it('emits activate when operator segment is clicked', () => {
       createComponent();
-      findOperatorSegment().vm.$emit('mousedown');
+      findOperatorSegment().vm.$emit('activate');
 
       return nextTick().then(() => {
         expect(wrapper.emitted().activate).toHaveLength(1);
@@ -50,7 +50,7 @@ describe('Filtered search token', () => {
   it('activates operator segment when clicked', () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-    findOperatorSegment().vm.$emit('mousedown');
+    findOperatorSegment().vm.$emit('activate');
 
     return nextTick().then(() => {
       expect(findOperatorSegment().props().active).toBe(true);
@@ -60,7 +60,7 @@ describe('Filtered search token', () => {
   it('activates data segment when clicked', () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-    findOperatorSegment().vm.$emit('mousedown');
+    findOperatorSegment().vm.$emit('activate');
 
     return nextTick().then(() => {
       expect(findOperatorSegment().props().active).toBe(true);

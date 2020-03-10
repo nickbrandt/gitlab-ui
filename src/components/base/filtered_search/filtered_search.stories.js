@@ -3,8 +3,8 @@ import { documentedStoriesOf } from '../../../../documentation/documented_storie
 import readme from './filtered_search.md';
 import {
   GlFilteredSearch,
+  GlFilteredSearchToken,
   GlFilteredSearchSuggestion,
-  GlFilteredSearchStaticBinaryToken,
   GlDropdownDivider,
   GlLoadingIcon,
   GlAvatar,
@@ -12,6 +12,7 @@ import {
 
 const dynamicToken = {
   components: {
+    GlFilteredSearchToken,
     GlFilteredSearchSuggestion,
     GlDropdownDivider,
     GlLoadingIcon,
@@ -54,7 +55,7 @@ const dynamicToken = {
     },
   },
   template: `
-    <gl-filtered-search-binary-token
+    <gl-filtered-search-token
       title="Dynamic"
       :active="active"
       :value="value"
@@ -76,7 +77,7 @@ const dynamicToken = {
         <gl-filtered-search-suggestion :key="idx" v-for="(suggestion, idx) in suggestions" :value="suggestion">{{ suggestion }}</gl-filtered-search-suggestion>
         </template>
       </template>
-    </gl-filtered-search-binary-token>
+    </gl-filtered-search-token>
   `,
 };
 
@@ -85,8 +86,8 @@ const testTokens = [
     type: 'static',
     icon: 'label',
     hint: 'static:token',
-    token: GlFilteredSearchStaticBinaryToken,
-    items: [
+    token: GlFilteredSearchToken,
+    options: [
       { icon: 'eye-slash', value: true, title: 'Yes' },
       { icon: 'eye', value: false, title: 'No' },
     ],
@@ -107,9 +108,9 @@ documentedStoriesOf('base|filtered-search', readme)
       return {
         tokens: testTokens,
         value: [
-          { type: 'static', value: { data: 'static' } },
+          { type: 'static', value: { operator: '=', data: true } },
           'text',
-          { type: 'dynamic', value: { data: 'dynamic' } },
+          { type: 'dynamic', value: { operator: '!=', data: 'dynamic' } },
         ],
       };
     },
