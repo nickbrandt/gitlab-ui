@@ -72,8 +72,6 @@ export { default as GlBannerDocumentation } from '../src/components/base/banner/
 export { default as GlFilteredSearchSuggestionDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion.documentation';
 export { default as GlFilteredSearchSuggestionListDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion_list.documentation';
 export { default as GlFilteredSearchTermDocumentation } from '../src/components/base/filtered_search/filtered_search_term.documentation';
-export { default as GlFilteredSearchBinaryTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_binary_token.documentation';
-export { default as GlFilteredSearchStaticBinaryTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_static_binary_token.documentation';
 export { default as GlFilteredSearchTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_token.documentation';
 export { default as GlFilteredSearchTokenSegmentDocumentation } from '../src/components/base/filtered_search/filtered_search_token_segment.documentation';
 export { default as GlFilteredSearchDocumentation } from '../src/components/base/filtered_search/filtered_search.documentation';
