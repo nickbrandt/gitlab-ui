@@ -154,7 +154,7 @@ export default {
       :options="operators"
       :custom-input-keydown-handler="handleOperatorKeydown"
       view-only
-      @mousedown="activateSegment($options.segments.SEGMENT_OPERATOR)"
+      @activate="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @backspace="replaceWithTermIfEmpty"
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
       @deactivate="$emit('deactivate')"
@@ -185,7 +185,7 @@ export default {
       :active="isSegmentActive($options.segments.SEGMENT_DATA)"
       :options="options"
       option-text-field="title"
-      @mousedown="activateSegment($options.segments.SEGMENT_DATA)"
+      @activate="activateSegment($options.segments.SEGMENT_DATA)"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="$emit('complete')"
       @submit="$emit('submit')"
