@@ -41,8 +41,11 @@ When a change to GitLab UI is made, it will not be reflected in
 the package is updated. We are using [Renovate GitLab Bot](https://gitlab.com/leipert-projects/renovate-gitlab-bot)
 to automate this process.
 
-Once an MR is created to bump the version, it will need to be merged by a maintainer.
-At this time, the changes should be viewable on the Pajamas site.
+Once an MR is created to bump the version, it will need to be merged into both [Pajamas](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com) and [GitLab](https://gitlab.com/gitlab-org/gitlab).
+
+For Pajamas, once the generated MR is approved, Renovate GitLab Bot will automatically merge the update. At this time, the changes should be viewable on the Pajamas site.
+
+For Gitlab, the MR needs to be merged by a maintainer.
 
 # Component status
 
