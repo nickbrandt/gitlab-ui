@@ -1,3 +1,10 @@
+## [9.23.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.1...v9.23.2) (2020-03-11)
+
+
+### Bug Fixes
+
+* Update pagination scss to remove custom bootstrap breakpoint ([adc5c55](https://gitlab.com/gitlab-org/gitlab-ui/commit/adc5c550e82177bd02cd5b42e5e2a434cd32eaef))
+
 ## [9.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.0...v9.23.1) (2020-03-10)
 
 
