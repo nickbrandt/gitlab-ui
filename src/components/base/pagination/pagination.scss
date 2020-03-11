@@ -49,7 +49,7 @@
   }
 }
 
-@include media-breakpoint-down(xs) {
+@media (max-width: $breakpoint-sm) {
   .gl-pagination:not(.custom-rendering) {
     .prev-page-item,
     .next-page-item {
