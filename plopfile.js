@@ -71,7 +71,7 @@ module.exports = plop => {
         {
           type: 'add',
           path: `${baseFolder}/{{name}}.md`,
-          template: '',
+          templateFile: `${templateFolder}/component.md.hbs`,
         },
         {
           type: 'add',
