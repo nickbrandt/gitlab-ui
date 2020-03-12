@@ -98,6 +98,9 @@ Install with NPM:
 npm install @gitlab/ui
 ```
 
+## Releases
+Please see [Updating Gitlab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how updated packages are included in Gitlab and Pajamas.
+
 ## Contributing guide
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to add new components and contribute in general to `gitlab-ui`.
