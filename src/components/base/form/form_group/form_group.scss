@@ -8,6 +8,12 @@
     @include gl-pb-3;
   }
 
+  .invalid-feedback,
+  .text-gl-muted {
+    @include gl-font-base;
+    @include gl-line-height-normal;
+  }
+
   .text-gl-muted {
     @include gl-text-gray-700;
   }
