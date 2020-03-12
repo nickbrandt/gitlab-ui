@@ -1,3 +1,11 @@
+# [9.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.2...v9.24.0) (2020-03-12)
+
+
+### Features
+
+* **filters:** Sync filters implementation with draft spec ([436eb51](https://gitlab.com/gitlab-org/gitlab-ui/commit/436eb5139e90ec4a096e033454553ca81eee6348))
+* **utilities:** Add missing utilities ([fd029b2](https://gitlab.com/gitlab-org/gitlab-ui/commit/fd029b28aba2fec62453e3f01f6cc658ec0cf1fc))
+
 ## [9.23.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.1...v9.23.2) (2020-03-11)
 
 
