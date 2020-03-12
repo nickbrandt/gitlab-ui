@@ -57,9 +57,9 @@ To view which components have been implemented into the product, view our
 
 There are a few cases where components have been migrated from GitLab to
 GitLab UI but do not yet reflect Pajamas documentation. When a complex component
-is difficult to style or update because many features use it, we recommend creating a migration plan and coordinating with the Gitlab UI Working Group on its rollout.
+is difficult to style or update because many features use it, we recommend creating a migration plan and coordinating with the [Gitlab UI Working Group](https://about.gitlab.com/company/team/structure/working-groups/gitlab-ui/) on its rollout.
 
 In the past, a `New` version of the component has been created to allow the team to build and style the component according to design specs without causing inadvertent side effects to features
 that are already using the migrated Vue component.
 
-However, this has led to confusion about which components to use; technical debt involved in migrating the component and not allowing them both to flourish; and follow-on effects keeping other complex components up-to-date. Until there is an officially determined path, we recommend coordinating a plan with the wider group. 
+However, this has led to confusion about which components to use; technical debt involved in migrating the component and not allowing them both to flourish; and follow-on effects keeping other complex components up-to-date. Until there is an officially determined path, we recommend coordinating a plan with the wider group.
