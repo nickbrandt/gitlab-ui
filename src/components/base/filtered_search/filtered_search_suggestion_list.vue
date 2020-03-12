@@ -53,11 +53,15 @@ export default {
     nextItem() {
       if (this.activeIdx < this.registeredItems.length) {
         this.activeIdx += 1;
+      } else {
+        this.activeIdx = 0;
       }
     },
     prevItem() {
       if (this.activeIdx >= 0) {
         this.activeIdx -= 1;
+      } else {
+        this.activeIdx = this.registeredItems.length - 1;
       }
     },
     getValue() {

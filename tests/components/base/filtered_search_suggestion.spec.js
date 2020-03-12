@@ -30,6 +30,18 @@ describe('Filtered search suggestion component', () => {
     wrapper = null;
   });
 
+  beforeAll(() => {
+    if (!HTMLElement.prototype.scrollIntoView) {
+      HTMLElement.prototype.scrollIntoView = jest.fn();
+    }
+  });
+
+  afterAll(() => {
+    if (HTMLElement.prototype.scrollIntoView.mock) {
+      delete HTMLElement.prototype.scrollIntoView;
+    }
+  });
+
   it('registers in list instance when mounted', () => {
     createComponent();
     expect(listMock.register).toHaveBeenCalledWith(wrapper.vm);

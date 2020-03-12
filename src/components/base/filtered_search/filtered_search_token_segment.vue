@@ -131,8 +131,8 @@ export default {
         if (input) {
           input.focus();
           input.scrollIntoView({ block: 'nearest', inline: 'end' });
+          this.alignSuggestions(input);
         }
-        this.alignSuggestions(input);
       });
     },
 

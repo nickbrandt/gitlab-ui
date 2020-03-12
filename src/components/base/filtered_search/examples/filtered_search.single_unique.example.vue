@@ -4,7 +4,6 @@ const testTokens = [
     type: 'unique',
     title: 'Unique',
     icon: 'document',
-    hint: 'unique:token',
     token: 'gl-filtered-search-token',
     options: [
       { icon: 'heart', title: 'heart', value: 1 },

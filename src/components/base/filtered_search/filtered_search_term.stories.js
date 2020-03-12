@@ -9,8 +9,8 @@ Vue.use(PortalVue);
 const noop = () => {};
 
 const availableTokens = [
-  { type: 'demo1', icon: 'label', hint: 'demo1:token', token: {} },
-  { type: 'demo2', icon: 'rocket', hint: 'demo2:~token', token: {} },
+  { title: 'Demo1', type: 'demo1', icon: 'label', token: {} },
+  { title: 'Demo2', type: 'demo2', icon: 'rocket', token: {} },
 ];
 
 documentedStoriesOf('base|filtered-search/term', readme)
@@ -31,7 +31,7 @@ documentedStoriesOf('base|filtered-search/term', readme)
     },
     data() {
       return {
-        value: { data: 'demo1' },
+        value: { data: 'demo' },
         availableTokens,
       };
     },

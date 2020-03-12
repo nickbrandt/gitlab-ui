@@ -3,6 +3,7 @@ import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import { TERM_TOKEN_TYPE } from './filtered_search_utils';
 
+const SEGMENT_TITLE = 'TYPE';
 const SEGMENT_OPERATOR = 'OPERATOR';
 const SEGMENT_DATA = 'DATA';
 const TOKEN_CLOSE_SELECTOR = '.gl-token-close';
@@ -19,9 +20,15 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    title: {
-      type: String,
-      required: true,
+    availableTokens: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    config: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
     active: {
       type: Boolean,
@@ -54,8 +61,16 @@ export default {
     hasDataOrDataSegmentIsCurrentlyActive() {
       return this.value.data !== '' || this.isSegmentActive(SEGMENT_DATA);
     },
+
+    availableTokensWithSelf() {
+      return [this.config, this.availableTokens.filter(t => t !== this.config)].map(t => ({
+        ...t,
+        value: t.title,
+      }));
+    },
   },
   segments: {
+    SEGMENT_TITLE,
     SEGMENT_DATA,
     SEGMENT_OPERATOR,
   },
@@ -97,13 +112,30 @@ export default {
       }
     },
 
+    getAdditionalSegmentClasses(segment) {
+      return { 'gl-cursor-pointer': !this.isSegmentActive(segment) };
+    },
+
     isSegmentActive(segment) {
       return this.active && this.activeSegment === segment;
     },
 
     replaceWithTermIfEmpty() {
       if (this.value.operator === '' && this.value.data === '') {
-        this.$emit('replace', { type: TERM_TOKEN_TYPE, value: { data: this.title } });
+        this.$emit('replace', { type: TERM_TOKEN_TYPE, value: { data: this.config.title } });
+      }
+    },
+
+    replaceToken(newTitle) {
+      const newTokenConfig = this.availableTokens.find(t => t.title === newTitle);
+
+      if (newTokenConfig) {
+        const isCompatible =
+          this.config.dataType && this.config.dataType === newTokenConfig.dataType;
+        this.$emit('replace', {
+          type: newTokenConfig.type,
+          value: isCompatible ? this.value : { data: '' },
+        });
       }
     },
 
@@ -139,14 +171,32 @@ export default {
 
 <template>
   <div class="gl-filtered-search-token" :class="{ 'gl-filtered-search-token-active': active }">
-    <gl-token
-      class="gl-filtered-search-token-type"
-      view-only
-      variant="search-type"
-      @click="activateSegment($options.segments.SEGMENT_DATA)"
+    <gl-filtered-search-token-segment
+      key="title-segment"
+      :value="config.title"
+      :active="isSegmentActive($options.segments.SEGMENT_TITLE)"
+      :options="availableTokensWithSelf"
+      @activate="activateSegment($options.segments.SEGMENT_TITLE)"
+      @deactivate="$emit('deactivate')"
+      @complete="replaceToken"
+      @backspace="$emit('destroy')"
+      @submit="$emit('submit')"
     >
-      {{ title }}
-    </gl-token>
+      <template #view="{ inputValue }">
+        <gl-token
+          class="gl-filtered-search-token-type"
+          :class="getAdditionalSegmentClasses($options.segments.SEGMENT_TITLE)"
+          view-only
+        >
+          {{ inputValue }}
+        </gl-token>
+      </template>
+      <template #option="{ option }">
+        <gl-icon v-if="option.icon" :name="option.icon" class="gl-filtered-search-term-icon" />{{
+          option.value
+        }}
+      </template>
+    </gl-filtered-search-token-segment>
     <gl-filtered-search-token-segment
       key="operator-segment"
       v-model="value.operator"
@@ -163,7 +213,7 @@ export default {
         <gl-token
           class="gl-filtered-search-token-operator"
           variant="search-value"
-          :class="{ 'gl-cursor-pointer': !isSegmentActive($options.segments.SEGMENT_OPERATOR) }"
+          :class="getAdditionalSegmentClasses($options.segments.SEGMENT_OPERATOR)"
           view-only
         >
           {{ inputValue }}
@@ -183,7 +233,7 @@ export default {
       key="data-segment"
       v-model="value.data"
       :active="isSegmentActive($options.segments.SEGMENT_DATA)"
-      :options="options"
+      :options="config.options"
       option-text-field="title"
       @activate="activateSegment($options.segments.SEGMENT_DATA)"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
@@ -199,7 +249,7 @@ export default {
         <gl-token
           class="gl-filtered-search-token-data"
           variant="search-value"
-          :class="{ 'gl-cursor-pointer': !isSegmentActive($options.segments.SEGMENT_DATA) }"
+          :class="getAdditionalSegmentClasses($options.segments.SEGMENT_DATA)"
           @mousedown="destroyByClose"
         >
           <slot name="view" v-bind="{ inputValue }"> {{ inputValue }}</slot>
