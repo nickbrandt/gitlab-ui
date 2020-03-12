@@ -161,7 +161,7 @@
   border-radius: 0;
 }
 
-@mixin gl-rounded-base {
+@mixin gl-rounded-base($hover: true) {
   border-radius: $gl-border-radius-base;
 }
 
