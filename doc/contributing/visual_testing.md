@@ -57,4 +57,3 @@ documentedStoriesOf('directives|intersection-observer', readme)
 ```
 
 In the example above, `foobar` is omitted from visual testing, but `default` is not.
-
