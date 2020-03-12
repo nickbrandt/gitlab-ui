@@ -58,16 +58,6 @@ describe('Filtered search suggestion list component', () => {
         });
       });
 
-      it('selects first item on multiple out-of-order prevItem calls', () => {
-        wrapper.vm.nextItem();
-        wrapper.vm.prevItem();
-        wrapper.vm.prevItem();
-        wrapper.vm.nextItem();
-        return wrapper.vm.$nextTick().then(() => {
-          expect(wrapper.vm.getValue()).toBe(stubs[0].value);
-        });
-      });
-
       it('remove selection if suggestion is unregistered', () => {
         wrapper.vm.nextItem();
         return wrapper.vm
@@ -95,6 +85,19 @@ describe('Filtered search suggestion list component', () => {
         </div>
       `,
     };
+
+    beforeAll(() => {
+      if (!HTMLElement.prototype.scrollIntoView) {
+        HTMLElement.prototype.scrollIntoView = jest.fn();
+      }
+    });
+
+    afterAll(() => {
+      if (HTMLElement.prototype.scrollIntoView.mock) {
+        delete HTMLElement.prototype.scrollIntoView;
+      }
+    });
+
     beforeEach(() => {
       wrapper = mount(FilteredSearchSuggestionList, {
         slots: {
@@ -115,6 +118,42 @@ describe('Filtered search suggestion list component', () => {
       wrapper.vm.nextItem();
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.vm.getValue()).toBe('2');
+      });
+    });
+
+    it('deselects first suggestion after list end', () => {
+      wrapper.vm.nextItem();
+      wrapper.vm.nextItem();
+      wrapper.vm.nextItem();
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.vm.getValue()).toBe(null);
+      });
+    });
+
+    it('deselects first suggestion after list start', () => {
+      wrapper.vm.nextItem();
+      wrapper.vm.prevItem();
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.vm.getValue()).toBe(null);
+      });
+    });
+
+    it('selects last suggestion in circle when selecting previous item', () => {
+      wrapper.vm.nextItem();
+      wrapper.vm.prevItem();
+      wrapper.vm.prevItem();
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.vm.getValue()).toBe('2');
+      });
+    });
+
+    it('selects first suggestion in circle when selecting next item', () => {
+      wrapper.vm.nextItem();
+      wrapper.vm.nextItem();
+      wrapper.vm.nextItem();
+      wrapper.vm.nextItem();
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.vm.getValue()).toBe('1');
       });
     });
 

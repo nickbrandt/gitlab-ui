@@ -5,6 +5,7 @@ import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlIcon from '../icon/icon.vue';
 import {
+  isEmptyTerm,
   TERM_TOKEN_TYPE,
   normalizeTokens,
   denormalizeTokens,
@@ -42,7 +43,8 @@ export default {
     },
     availableTokens: {
       type: Array,
-      required: true,
+      required: false,
+      default: () => [],
     },
     placeholder: {
       type: String,
@@ -105,7 +107,8 @@ export default {
       immediate: true,
       handler(newValue) {
         this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
-        if (this.tokens.length === 0 || this.tokens[this.lastTokenIdx].type !== TERM_TOKEN_TYPE) {
+
+        if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
           this.tokens.push(createTerm());
         }
       },
@@ -124,23 +127,16 @@ export default {
       return !this.activeTokenIdx && idx === this.lastTokenIdx;
     },
 
+    isLastTokenEmpty() {
+      return isEmptyTerm(this.tokens[this.lastTokenIdx]);
+    },
+
     getTokenEntry(type) {
       return this.availableTokens.find(t => t.type === type);
     },
 
     getTokenComponent(type) {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
-    },
-
-    tokenConfig(type) {
-      const cmp = this.getTokenEntry(type);
-      if (!cmp) {
-        return null;
-      }
-
-      const { token, ...config } = cmp;
-
-      return config;
     },
 
     activate(token) {
@@ -159,11 +155,11 @@ export default {
         return;
       }
 
-      if (
-        !this.isLastTokenActive &&
-        this.activeToken.type === TERM_TOKEN_TYPE &&
-        this.activeToken.value.data.trim() === ''
-      ) {
+      if (!this.isLastTokenEmpty()) {
+        this.tokens.push(createTerm());
+      }
+
+      if (!this.isLastTokenActive && isEmptyTerm(this.activeToken)) {
         this.tokens.splice(tokenIdx, 1);
       }
 
@@ -238,7 +234,7 @@ export default {
             ref="tokens"
             :key="`${token.type}-${idx}`"
             v-model="token.value"
-            v-bind="tokenConfig(token.type)"
+            :config="getTokenEntry(token.type)"
             :active="activeTokenIdx === idx"
             :available-tokens="currentAvailableTokens"
             :current-value="tokens"

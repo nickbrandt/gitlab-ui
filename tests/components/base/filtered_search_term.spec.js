@@ -3,9 +3,9 @@ import FilteredSearchTerm from '../../../src/components/base/filtered_search/fil
 import GlFilteredSearchSuggestion from '../../../src/components/base/filtered_search/filtered_search_suggestion.vue';
 
 const availableTokens = [
-  { type: 'foo', hint: 'test1-foo', token: 'stub', icon: 'eye' },
-  { type: 'bar', hint: 'test2-bar', token: 'stub', icon: 'eye' },
-  { type: 'baz', hint: 'test1-baz', token: 'stub', icon: 'eye' },
+  { type: 'foo', title: 'test1-foo', token: 'stub', icon: 'eye' },
+  { type: 'bar', title: 'test2-bar', token: 'stub', icon: 'eye' },
+  { type: 'baz', title: 'test1-baz', token: 'stub', icon: 'eye' },
 ];
 
 describe('Filtered search term', () => {
@@ -67,7 +67,7 @@ describe('Filtered search term', () => {
   `(
     'emits $emittedEvent when token segment emits $originalEvent',
     ({ originalEvent, emittedEvent }) => {
-      createComponent({ active: true, value: { data: ' something' } });
+      createComponent({ active: true, value: { data: 'something' } });
 
       wrapper.find(segmentStub).vm.$emit(originalEvent);
 

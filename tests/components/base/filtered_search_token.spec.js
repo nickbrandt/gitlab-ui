@@ -6,11 +6,30 @@ import GlFilteredSearchTokenSegment from '../../../src/components/base/filtered_
 describe('Filtered search token', () => {
   let wrapper;
 
-  const findOperatorSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(0);
-  const findDataSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(1);
+  const findTitleSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(0);
+  const findOperatorSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(1);
+  const findDataSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(2);
+  const availableTokens = [
+    {
+      type: 'compatible1',
+      dataType: 'compatible',
+      title: 'test1-foo',
+      token: 'stub',
+      icon: 'eye',
+    },
+    {
+      type: 'complatible2',
+      dataType: 'compatible',
+      title: 'test2-bar',
+      token: 'stub',
+      icon: 'eye',
+    },
+    { type: 'incompatible', title: 'test3-baz', token: 'stub', icon: 'eye' },
+  ];
 
   const defaultProps = {
-    title: 'testTitle',
+    config: { title: 'testTitle' },
+    availableTokens,
   };
 
   const createComponent = props => {
@@ -67,13 +86,13 @@ describe('Filtered search token', () => {
     });
   });
 
-  it('activates data segment when title is clicked', () => {
+  it('activates title segment when title is clicked', () => {
     createComponent({ active: true, value: { operator: '=' } });
 
-    wrapper.find('.gl-filtered-search-token-type').vm.$emit('click');
+    findTitleSegment().vm.$emit('activate');
 
     return nextTick().then(() => {
-      expect(findDataSegment().props().active).toBe(true);
+      expect(findTitleSegment().props().active).toBe(true);
     });
   });
 
@@ -135,7 +154,7 @@ describe('Filtered search token', () => {
   });
 
   it('activates operator segment when backspace is pressed in data segmented', () => {
-    createComponent({ active: true, value: { operator: '=', data: ' something' } });
+    createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
     findDataSegment().vm.$emit('backspace');
 
@@ -147,7 +166,7 @@ describe('Filtered search token', () => {
   it.each(['complete', 'split', 'submit'])(
     'passes-through %s event when data segment emits it',
     event => {
-      createComponent({ active: true, value: { operator: '=', data: ' something' } });
+      createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
       findDataSegment().vm.$emit(event);
 
@@ -156,6 +175,38 @@ describe('Filtered search token', () => {
       });
     }
   );
+
+  it('keeps value when replaced by compatible token', () => {
+    const originalValue = { operator: '=', data: 'something' };
+    createComponent({
+      active: true,
+      value: originalValue,
+      config: availableTokens[0],
+    });
+
+    findTitleSegment().vm.$emit('complete', availableTokens[1].title);
+
+    return nextTick().then(() => {
+      expect(wrapper.emitted().replace).toHaveLength(1);
+      expect(wrapper.emitted().replace[0][0].value).toStrictEqual(originalValue);
+    });
+  });
+
+  it('resets value when replaced by incompatible token', () => {
+    const originalValue = { operator: '=', data: 'something' };
+    createComponent({
+      active: true,
+      value: originalValue,
+      config: availableTokens[0],
+    });
+
+    findTitleSegment().vm.$emit('complete', availableTokens[2].title);
+
+    return nextTick().then(() => {
+      expect(wrapper.emitted().replace).toHaveLength(1);
+      expect(wrapper.emitted().replace[0][0].value).toStrictEqual({ data: '' });
+    });
+  });
 
   describe('integration tests', () => {
     beforeAll(() => {
@@ -187,7 +238,7 @@ describe('Filtered search token', () => {
             },
           },
         },
-        propsData: { title: 'Demo', ...props },
+        propsData: { ...defaultProps, ...props },
       });
     };
 

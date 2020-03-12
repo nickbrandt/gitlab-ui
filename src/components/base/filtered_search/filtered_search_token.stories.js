@@ -1,4 +1,4 @@
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
@@ -22,10 +22,6 @@ documentedStoriesOf('base|filtered-search/token', readme)
       alignSuggestions: noop,
     },
     props: {
-      title: {
-        type: String,
-        default: text('title', 'Confidential'),
-      },
       active: {
         type: Boolean,
         default: boolean('active', true),
@@ -34,6 +30,9 @@ documentedStoriesOf('base|filtered-search/token', readme)
     data() {
       return {
         value: { operator: '=', data: 'Yes' },
+        config: {
+          title: 'Confidential',
+        },
       };
     },
     mounted() {
@@ -48,7 +47,7 @@ documentedStoriesOf('base|filtered-search/token', readme)
           <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
-            :title="title"
+            :config="config"
             :active="active"
           >
             <template #suggestions>
@@ -73,10 +72,6 @@ documentedStoriesOf('base|filtered-search/token', readme)
       alignSuggestions: noop,
     },
     props: {
-      title: {
-        type: String,
-        default: text('title', 'Confidential'),
-      },
       active: {
         type: Boolean,
         default: boolean('active', true),
@@ -85,6 +80,9 @@ documentedStoriesOf('base|filtered-search/token', readme)
     data() {
       return {
         value: { operator: '=', data: 'Yes' },
+        config: {
+          title: 'Confidential',
+        },
         operators: [
           { value: '^', description: 'or' },
           { value: '!', description: 'is not', default: 'true' },
@@ -103,7 +101,7 @@ documentedStoriesOf('base|filtered-search/token', readme)
           <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
-            :title="title"
+            :config="config"
             :active="active"
             :operators="operators"
           >
@@ -128,10 +126,6 @@ documentedStoriesOf('base|filtered-search/token', readme)
       alignSuggestions: noop,
     },
     props: {
-      title: {
-        type: String,
-        default: text('title', 'Confidential'),
-      },
       active: {
         type: Boolean,
         default: boolean('active', true),
@@ -140,6 +134,9 @@ documentedStoriesOf('base|filtered-search/token', readme)
     data() {
       return {
         value: { operator: '=', data: 'first' },
+        config: {
+          title: 'Confidential',
+        },
         options: [
           { icon: 'hourglass', title: 'first', value: 'one' },
           { title: 'second-without-icon', value: 'two' },
@@ -159,7 +156,7 @@ documentedStoriesOf('base|filtered-search/token', readme)
           <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
-            :title="title"
+            :config="config"
             :active="active"
             :options="options"
           />

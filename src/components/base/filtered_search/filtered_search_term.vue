@@ -34,7 +34,7 @@ export default {
   computed: {
     suggestedTokens() {
       return this.availableTokens.filter(item =>
-        item.hint.toLowerCase().includes(this.value.data.toLowerCase())
+        item.title.toLowerCase().includes(this.value.data.toLowerCase())
       );
     },
     internalValue: {
@@ -69,7 +69,7 @@ export default {
           :value="item.type"
         >
           <gl-icon v-if="item.icon" :name="item.icon" class="gl-filtered-search-term-icon" />{{
-            item.hint
+            item.title
           }}
         </gl-filtered-search-suggestion>
       </template>

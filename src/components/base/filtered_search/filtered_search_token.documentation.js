@@ -25,6 +25,10 @@ export default {
     value: {
       additionalInfo: 'Current value',
     },
+    replace: {
+      args: [{ arg: 'token', description: '(Object) Replacement token configuration' }],
+      description: 'Emitted when this token is converted to another type',
+    },
   },
   slots: [
     { name: 'view', description: 'Template for token value in inactive state' },

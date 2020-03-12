@@ -20,7 +20,7 @@ localVue.directive('GlTooltip', () => {});
 let wrapper;
 describe('Filtered search', () => {
   const defaultProps = {
-    availableTokens: [{ type: 'faketoken', hint: 'faketoken', token: FakeToken }],
+    availableTokens: [{ type: 'faketoken', token: FakeToken }],
   };
 
   const createComponent = props => {
@@ -64,7 +64,7 @@ describe('Filtered search', () => {
 
       const inputEventArgs = wrapper.emitted().input[0][0];
       expect(inputEventArgs.every(t => t.type === TERM_TOKEN_TYPE)).toBe(true);
-      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two']);
+      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
 
     it('splits strings if needed', () => {
@@ -74,7 +74,7 @@ describe('Filtered search', () => {
 
       const inputEventArgs = wrapper.emitted().input[0][0];
       expect(inputEventArgs.every(t => t.type === TERM_TOKEN_TYPE)).toBe(true);
-      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two']);
+      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
   });
 
@@ -145,6 +145,7 @@ describe('Filtered search', () => {
             { type: 'faketoken', value: { data: '' } },
             { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
             { type: TERM_TOKEN_TYPE, value: { data: 'three' } },
+            { type: TERM_TOKEN_TYPE, value: { data: '' } },
           ]);
         });
     });
@@ -158,6 +159,7 @@ describe('Filtered search', () => {
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
           { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+          { type: TERM_TOKEN_TYPE, value: { data: '' } },
         ]);
       });
     });
@@ -218,12 +220,13 @@ describe('Filtered search', () => {
         expect(
           wrapper
             .findAll(GlFilteredSearchTerm)
-            .at(1)
+            .at(2)
             .props('active')
         ).toBe(true);
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
           { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
           { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
+          { type: TERM_TOKEN_TYPE, value: { data: '' } },
         ]);
       });
     });
@@ -242,6 +245,7 @@ describe('Filtered search', () => {
             { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
             { type: TERM_TOKEN_TYPE, value: { data: 'foo' } },
             { type: TERM_TOKEN_TYPE, value: { data: 'bar' } },
+            { type: TERM_TOKEN_TYPE, value: { data: '' } },
           ]);
         });
     });
@@ -282,7 +286,7 @@ describe('Filtered search', () => {
     const fakeTokenInstance = wrapper.find(FakeToken);
     expect(fakeTokenInstance.exists()).toBe(true);
     expect(Object.keys(fakeTokenInstance.attributes())).toEqual(
-      expect.arrayContaining(['current-value', 'index', 'type', 'hint', 'value'])
+      expect.arrayContaining(['current-value', 'index', 'config', 'value'])
     );
   });
 });
@@ -292,29 +296,33 @@ describe('Filtered search integration tests', () => {
     {
       type: 'static',
       icon: 'label',
-      hint: 'static:token',
       token: GlFilteredSearchToken,
-      title: 'Static',
+      title: 'Static-token',
       options: [
         { title: 'first', value: 'one' },
         { title: 'second', value: 'two' },
         { title: 'third', value: 'three' },
       ],
     },
-    { type: 'dynamic!token', icon: 'rocket', hint: 'dynamic:~token', token: FakeToken },
+    { type: 'dynamic!token', icon: 'rocket', title: 'Fake-token', token: FakeToken },
     {
       type: 'unique',
       unique: true,
       icon: 'document',
-      hint: 'unique:~token',
       token: GlFilteredSearchToken,
-      title: 'Unique',
+      title: 'Unique-token',
       options: [
         { title: 'first', value: 'one' },
         { title: 'second', value: 'two' },
       ],
     },
-    { type: 'disabled', icon: 'document', hint: 'unique:~token', token: FakeToken, disabled: true },
+    {
+      type: 'disabled',
+      icon: 'document',
+      title: 'Disabled-token',
+      token: FakeToken,
+      disabled: true,
+    },
   ];
 
   const mountComponent = props => {
