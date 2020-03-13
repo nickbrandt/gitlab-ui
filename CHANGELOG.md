@@ -1,3 +1,10 @@
+# [9.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.26.0...v9.27.0) (2020-03-13)
+
+
+### Features
+
+* **filters:** Fix error when scrolling to suggestion ([4595b2b](https://gitlab.com/gitlab-org/gitlab-ui/commit/4595b2bd2f5496bcef1dd51d7f62f1bd3c314d55))
+
 # [9.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.25.0...v9.26.0) (2020-03-13)
 
 
