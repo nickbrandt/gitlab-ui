@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_input_clear_icon.md';
-import { GlFormInputClearIcon } from '../../../../index';
+import { GlFormInputClearIcon } from '../../../../../index';
 
 const components = {
   GlFormInputClearIcon,
