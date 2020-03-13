@@ -1,29 +1,44 @@
 <script>
+import { memoize } from 'lodash';
+
+const getObserver = memoize(
+  options =>
+    new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.$_gl_intersectionHandler(entry);
+      });
+    }, options || {})
+);
+
 export default {
   name: 'GlIntersectionObserver',
   props: {
     options: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: null,
     },
   },
-  data: () => ({
-    observer: null,
-  }),
   mounted() {
-    this.observer = new IntersectionObserver(([entry]) => {
-      if (entry && entry.isIntersecting) {
+    const observer = getObserver(this.options);
+
+    this.$el.$_gl_intersectionHandler = entry => {
+      this.$emit('update', entry);
+
+      if (entry.isIntersecting) {
         this.$emit('appear');
       } else {
         this.$emit('disappear');
       }
-    }, this.options);
+    };
+    this.$el.$_gl_intersectionObserver = observer;
 
-    this.observer.observe(this.$el);
+    observer.observe(this.$el);
   },
   destroyed() {
-    this.observer.disconnect();
+    this.$el.$_gl_intersectionObserver.unobserve(this.$el);
+    delete this.$el.$_gl_intersectionHandler;
+    delete this.$el.$_gl_intersectionObserver;
   },
 };
 </script>
