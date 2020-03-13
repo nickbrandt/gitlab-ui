@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     hasValue() {
-      return Boolean(this.value.length);
+      return Boolean(this.value && this.value.length);
     },
   },
   methods: {

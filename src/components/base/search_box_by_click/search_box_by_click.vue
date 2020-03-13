@@ -199,9 +199,9 @@ export default {
         v-gl-tooltip.hover="{ container: tooltipContainer }"
         :title="clearButtonTitle"
         @button-clicked="clearInput"
-        :value="localValue"
+        :value="currentValue"
         aria-hidden="true"
-        buttonClass="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
+        buttonClass="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
         name="clear"
       />
     </slot>
