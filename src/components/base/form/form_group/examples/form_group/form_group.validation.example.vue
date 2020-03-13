@@ -9,9 +9,6 @@ export default {
     state() {
       return this.name.length >= 4;
     },
-    validFeedback() {
-      return this.state === true ? 'Thank you' : '';
-    },
     invalidFeedback() {
       let feedbackText = 'Please enter something';
 
@@ -30,7 +27,6 @@ export default {
   <gl-form-group
     label="Name"
     description="Please enter your name"
-    :valid-feedback="validFeedback"
     :invalid-feedback="invalidFeedback"
     :state="state"
     label-for="input1"

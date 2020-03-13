@@ -72,14 +72,11 @@ documentedStoriesOf('base|form/form-group', readme)
     `,
   }))
   .add('with validations', () => ({
-    props: generateProps({ label: 'Name', description: 'please enter your name' }),
+    props: generateProps({ label: 'Name', description: 'Please enter your name' }),
     components,
     computed: {
       state() {
         return this.name.length >= 4;
-      },
-      validFeedback() {
-        return this.state === true ? 'Thank you' : '';
       },
       invalidFeedback() {
         let feedbackText = 'Please enter something';
@@ -104,7 +101,6 @@ documentedStoriesOf('base|form/form-group', readme)
       :label="label"
       :label-size="labelSize"
       :description="description"
-      :valid-feedback="validFeedback"
       :invalid-feedback="invalidFeedback"
       :state="state"
       label-for="label1"
