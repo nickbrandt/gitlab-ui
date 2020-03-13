@@ -1,5 +1,6 @@
 <script>
 import { BInputGroup, BInputGroupPrepend, BInputGroupAppend } from 'bootstrap-vue';
+import ClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../new_button/new_button.vue';
 import GlDropdown from '../new_dropdown/new_dropdown.vue';
@@ -11,6 +12,7 @@ import GlTooltip from '../../../directives/tooltip';
 
 export default {
   components: {
+    ClearIconButton,
     GlIcon,
     GlButton,
     GlFormInput,
@@ -191,16 +193,17 @@ export default {
         @blur="isFocused = false"
         @keydown.enter="search(currentValue)"
       />
-      <button
-        v-if="hasValue && !disabled"
+
+      <clear-icon-button
+        v-if="!disabled"
         v-gl-tooltip.hover="{ container: tooltipContainer }"
         :title="clearButtonTitle"
-        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
+        @button-clicked="clearInput"
+        :value="localValue"
+        aria-hidden="true"
+        buttonClass="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
         name="clear"
-        @click="clearInput"
-      >
-        <gl-icon name="clear" />
-      </button>
+      />
     </slot>
     <b-input-group-append class="gl-search-box-by-click-input-group-control">
       <gl-button
