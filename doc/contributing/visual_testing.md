@@ -19,9 +19,13 @@ manual CI job `update_screenshots` to regenerate the snapshots.
 
 ## Excluding stories from visual testing
 
-If your story has some random elements, or if it doesn't showcase any relevant UI components, you
-may want to exclude it from visual regressions tests. For that use case, storyshots lets you skip
-visual tests for specific stories, or for a whole component, using the `storyshots` parameter.
+If your story doesn't showcase any relevant UI components, you may want to exclude it from visual
+regressions tests. For that use case, storyshots lets you skip visual tests for specific stories,
+or for a whole component, using the `storyshots` parameter.
+
+> **Note:** While skipping visual tests on given stories is a possibility, it is not meant to skip
+> non-deterministic tests. If a story contains random elements, or any other variable that could
+> lead to flakiness, you should make sure that it is deterministic in the test environment.
 
 ### Excluding a whole component
 
