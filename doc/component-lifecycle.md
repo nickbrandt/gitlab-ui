@@ -34,15 +34,11 @@ D-->|Existing| Q[Update existing component to match new specs]
 Q-->H
 ```
 
-## Updating GitLab Packages
+## Viewing changes in Pajamas
 
 When a change to GitLab UI is made, it will not be reflected in
 [Pajamas](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com) until
-the package is updated. We are using [Renovate GitLab Bot](https://gitlab.com/leipert-projects/renovate-gitlab-bot)
-to automate this process.
-
-Once an MR is created to bump the version, it will need to be merged by a maintainer.
-At this time, the changes should be viewable on the Pajamas site.
+the package is updated. See [Updating Gitlab Packages](./updating-gitlab-ui-packages.md) for details.
 
 # Component status
 
