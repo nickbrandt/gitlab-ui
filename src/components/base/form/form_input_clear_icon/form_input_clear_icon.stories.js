@@ -7,7 +7,7 @@ const components = {
   GlFormInputClearIcon,
 };
 
-documentedStoriesOf('base|form_input_clear_icon', readme)
+documentedStoriesOf('base|form/form_input_clear_icon', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
