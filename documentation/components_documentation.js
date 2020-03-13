@@ -35,6 +35,7 @@ export { default as GlDashboardSkeletonDocumentation } from '../src/components/r
 export { default as GlEmptyStateDocumentation } from '../src/components/regions/empty_state/empty_state.documentation';
 export { default as GlFormDocumentation } from '../src/components/base/form/form.documentation';
 export { default as GlFormInputDocumentation } from '../src/components/base/form/form_input/form_input.documentation';
+export { default as GlFormInputClearIconDocumentation } from '../src/components/base/form/form_input_clear_icon/form_input_clear_icon.documentation';
 export { default as GlFormInputGroupDocumentation } from '../src/components/base/form/form_input_group/form_input_group.documentation';
 export { default as GlFormTextareaDocumentation } from '../src/components/base/form/form_textarea/form_textarea.documentation';
 export { default as GlFormGroupDocumentation } from '../src/components/base/form/form_group/form_group.documentation';
