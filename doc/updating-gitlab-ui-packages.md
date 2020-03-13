@@ -17,7 +17,7 @@ In the case of `major` releases (breaking changes), the MR will need to be merge
 
 ## Customer Portal
 
-The [Customer Portal](https://gitlab.com/gitlab-org/customers-gitlab-com) is updated using [Renovate GitLab Bot](https://gitlab.com/leipert-projects/renovate-gitlab-bot) as well. The MRs are managed by the customer portal assignee(s) listed in the [assignees list](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot/-/blob/master/config.js).
+The [Customer Portal](https://gitlab.com/gitlab-org/customers-gitlab-com) is updated using [Renovate GitLab Bot](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot) as well. The MRs are managed by the customer portal assignee(s) listed in the [assignees list](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot/-/blob/master/config.js).
 
 ## Status Page
 
