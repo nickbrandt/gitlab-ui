@@ -22,5 +22,9 @@
 
   &.is-invalid {
     @include gl-inset-border-1-red-500;
+
+    &:focus {
+      box-shadow: 0 0 5px 1px $blue-600, inset 0 0 0 0.5px $red-500;
+    }
   }
 }
