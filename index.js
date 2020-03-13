@@ -32,6 +32,7 @@ export { default as GlDashboardSkeleton } from './src/components/regions/dashboa
 export { default as GlEmptyState } from './src/components/regions/empty_state/empty_state.vue';
 export { default as GlForm } from './src/components/base/form/form.vue';
 export { default as GlFormInput } from './src/components/base/form/form_input/form_input.vue';
+export { default as GlFormInputClearIcon } from './src/components/base/form/form_input_clear_icon/form_input_clear_icon.vue';
 export { default as GlFormInputGroup } from './src/components/base/form/form_input_group/form_input_group.vue';
 export { default as GlFormRadio } from './src/components/base/form/form_radio/form_radio.vue';
 export { default as GlFormRadioGroup } from './src/components/base/form/form_radio/form_radio_group.vue';
