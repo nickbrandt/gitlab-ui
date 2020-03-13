@@ -343,3 +343,8 @@
   margin-left: $gl-spacing-scale-6;
   margin-right: $gl-spacing-scale-6;
 }
+
+@mixin gl-mx-8 {
+  margin-left: $gl-spacing-scale-8;
+  margin-right: $gl-spacing-scale-8;
+}
