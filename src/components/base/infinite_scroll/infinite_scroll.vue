@@ -133,7 +133,9 @@ export default {
       ref="infiniteContainer"
       :style="listHeight"
       class="gl-infinite-scroll-container"
+      v-bind="$attrs"
       @scroll="handleScroll"
+      v-on="$listeners"
     >
       <slot name="items"></slot>
     </div>
