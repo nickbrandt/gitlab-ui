@@ -1,3 +1,10 @@
+# [9.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.27.0...v9.28.0) (2020-03-14)
+
+
+### Features
+
+* Receive inherited attrs & listeners in infinite scroll ([2847f92](https://gitlab.com/gitlab-org/gitlab-ui/commit/2847f9239d4496dd89b3b74cd5f4edbc5c0f59e1))
+
 # [9.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.26.0...v9.27.0) (2020-03-13)
 
 
