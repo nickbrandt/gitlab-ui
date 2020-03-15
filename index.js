@@ -10,6 +10,7 @@ setConfigs();
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlMarkdown } from './src/components/base/markdown/markdown.vue';
 export { default as GlNavbar } from './src/components/base/navbar/navbar.vue';
 export { default as GlIntersectionObserver } from './src/components/utilities/intersection_observer/intersection_observer.vue';
 export { default as GlLink } from './src/components/base/link/link.vue';

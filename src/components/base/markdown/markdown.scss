@@ -1,0 +1,515 @@
+$gray-lightest: #fdfdfd;
+$gl-padding: 16px;
+$monospace-font: 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
+'Courier New', 'andale mono', 'lucida console', monospace;
+
+$gl-gray-700: #555;
+$kdb-bg: #fcfcfc;
+$kdb-border-bottom: #bbb;
+$kdb-shadow: #bbb;
+$gl-grayish-blue: #7f8fa4;
+$gray-normal: #f5f5f5;
+
+@import "~bootstrap/scss/tables";
+
+@mixin on-webkit-only {
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @content;
+  }
+}
+
+.md {
+  color: $gray-900;
+  word-wrap: break-word;
+
+  [dir='auto'] {
+    text-align: initial;
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $gray-900;
+    margin: 0 0 16px;
+
+    > code {
+      font-weight: inherit;
+    }
+
+    a:not(.no-attachment-icon) img {
+      // Remove bottom padding because
+      // <p> already has $gl-padding bottom
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $blue-600;
+
+    > code {
+      color: $blue-600;
+    }
+  }
+
+  img:not(.emoji) {
+    margin: 0 0 8px;
+  }
+
+  img.lazy {
+    min-width: 200px;
+    min-height: 100px;
+    background-color: $gray-lightest;
+  }
+
+  img.js-lazy-loaded,
+  img.emoji {
+    min-width: inherit;
+    min-height: inherit;
+    background-color: inherit;
+    max-width: 100%;
+  }
+
+  &:not(.md) img:not(.emoji) {
+    border: 1px solid $white-normal;
+    padding: 5px;
+    margin: 5px 0;
+    // Ensure that image does not exceed viewport
+    max-height: calc(100vh - 100px);
+  }
+
+  details {
+    margin-bottom: $gl-padding;
+  }
+
+  // Single code lines should wrap
+  code {
+    font-family: $monospace-font;
+    white-space: pre-wrap;
+    word-wrap: normal;
+    word-break: keep-all;
+  }
+
+  kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: $gl-gray-700;
+    vertical-align: middle;
+    background-color: $kdb-bg;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $gray-300 $gray-300 $kdb-border-bottom;
+    border-image: none;
+    border-radius: 3px;
+    box-shadow: 0 -1px 0 $kdb-shadow inset;
+  }
+
+  h1 {
+    font-size: 1.75em;
+    font-weight: $gl-font-weight-bold;
+    margin: 24px 0 16px;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $white-dark;
+    color: $gray-900;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: $gl-font-weight-bold;
+    margin: 24px 0 16px;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $white-dark;
+    color: $gray-900;
+  }
+
+  h3 {
+    margin: 24px 0 16px;
+    font-size: 1.3em;
+  }
+
+  h4 {
+    margin: 24px 0 16px;
+    font-size: 1.2em;
+  }
+
+  h5 {
+    margin: 24px 0 16px;
+    font-size: 1em;
+  }
+
+  h6 {
+    margin: 24px 0 16px;
+    font-size: 0.95em;
+  }
+
+  blockquote,
+  .blockquote {
+    color: $gl-grayish-blue;
+    font-size: inherit;
+    padding: 8px 24px;
+    margin: 16px 0;
+    border-left: 3px solid $white-dark;
+
+    &:dir(rtl) {
+      border-left: 0;
+      border-right: 3px solid $white-dark;
+    }
+
+    p {
+      color: $gl-grayish-blue !important;
+      font-size: inherit;
+      line-height: 1.5;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  hr {
+    // Darken 'whitesmoke' a bit to make it more visible in note bodies
+    border-color: darken($gray-normal, 8%);
+    margin: 10px 0;
+  }
+
+  table:not(.code) {
+    // TODO: check extend
+    @extend .table;
+    @extend .table-bordered;
+    margin: 16px 0;
+    color: $gray-900;
+    border: 0;
+    width: auto;
+    display: block;
+    overflow-x: auto;
+
+    tbody {
+      background-color: $white-light;
+
+      td {
+        border-color: $gray-200;
+      }
+    }
+
+    tr {
+      th {
+        border-bottom: solid 2px $gray-300;
+      }
+    }
+
+    &.grid-none {
+      > thead > tr {
+        > th {
+          border-bottom-width: 0;
+          border-right-width: 0;
+          border-left-width: 0;
+
+          &:first-child {
+            border-left-width: 1px;
+          }
+
+          &:last-child {
+            border-right-width: 1px;
+          }
+        }
+      }
+
+      > tbody {
+        > tr > td {
+          border-width: 0;
+
+          &:first-child {
+            border-left-width: 1px;
+          }
+
+          &:last-child {
+            border-right-width: 1px;
+          }
+        }
+
+        > tr:last-child > td {
+          border-bottom-width: 1px;
+        }
+      }
+    }
+
+
+    &.grid-rows {
+      > thead > tr > th,
+      > tbody > tr > td {
+        border-right-width: 0;
+        border-left-width: 0;
+      }
+
+      > thead > tr {
+        > th:first-child {
+          border-left-width: 1px;
+        }
+
+        > th:last-child {
+          border-right-width: 1px;
+        }
+      }
+
+      > tbody > tr {
+        > td {
+          border-left-width: 0;
+          border-right-width: 0;
+        }
+
+        > td:first-child {
+          border-left-width: 1px;
+        }
+
+        > td:last-child {
+          border-right-width: 1px;
+        }
+      }
+    }
+
+    &.grid-cols {
+      > thead > tr > th {
+        border-bottom-width: 0;
+      }
+
+      > tbody > tr > td {
+        border-top-width: 0;
+        border-bottom-width: 0;
+      }
+
+      > tbody > tr:last-child > td {
+        border-bottom-width: 1px;
+      }
+    }
+
+    &.frame-sides {
+      > thead > tr > th {
+        border-top-width: 0;
+      }
+
+      > tbody > tr:last-child > td {
+        border-bottom-width: 0;
+      }
+    }
+
+    &.frame-topbot,
+    &.frame-ends {
+      > thead > tr > th:first-child,
+      > tbody > tr > td:first-child {
+        border-left-width: 0;
+      }
+
+      > thead > tr > th:last-child,
+      > tbody > tr > td:last-child {
+        border-right-width: 0;
+      }
+    }
+
+    &.frame-none {
+      > thead > tr > th {
+        border-top-width: 0;
+      }
+
+      > tbody > tr:last-child > td {
+        border-bottom-width: 0;
+      }
+
+      > thead > tr > th:first-child,
+      > tbody > tr > td:first-child {
+        border-left-width: 0;
+      }
+
+      > thead > tr > th:last-child,
+      > tbody > tr > td:last-child {
+        border-right-width: 0;
+      }
+    }
+
+    &.stripes-all tr,
+    &.stripes-odd tr:nth-of-type(odd),
+    &.stripes-even tr:nth-of-type(even),
+    &.stripes-hover tr:hover {
+      background: $gray-50;
+    }
+  }
+
+  table:dir(rtl) th {
+    text-align: right;
+  }
+
+  pre {
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.6em;
+    overflow-x: auto;
+    border-radius: 2px;
+
+    // Multi-line code blocks should scroll horizontally
+    code {
+      white-space: pre;
+    }
+
+    &.plain-readme {
+      background: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
+  dd {
+    margin-left: $gl-padding;
+  }
+
+  ul,
+  ol {
+    padding: 0;
+    margin: 0 0 16px;
+
+    ul,
+    ol {
+      margin-bottom: 0;
+    }
+  }
+
+  ul:dir(rtl),
+  ol:dir(rtl) {
+    margin: 3px 28px 3px 0 !important;
+  }
+
+  > ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: circle;
+
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  ul.checklist,
+  ul.none,
+  ol.none,
+  ul.no-bullet,
+  ol.no-bullet,
+  ol.unnumbered,
+  ul.unstyled,
+  ol.unstyled {
+    list-style-type: none;
+
+    li {
+      margin-left: 0;
+    }
+  }
+
+  li {
+    line-height: 1.6em;
+    margin-left: 25px;
+    padding-left: 3px;
+
+    /* Normalize the bullet position on webkit. */
+    @include on-webkit-only {
+      margin-left: 28px;
+      padding-left: 0;
+    }
+  }
+
+  ul.task-list {
+    > li.task-list-item {
+      list-style-type: none;
+      position: relative;
+      min-height: 22px;
+      padding-left: 28px;
+      margin-left: 0 !important;
+
+      > input.task-list-item-checkbox {
+        position: absolute;
+        left: 8px;
+        top: 5px;
+      }
+    }
+  }
+
+  a[href*='/uploads/'],
+  a[href*='storage.googleapis.com/google-code-attachments/'] {
+    &::before {
+      margin-right: 4px;
+
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      content: '\f0c6';
+    }
+
+    &:hover::before {
+      text-decoration: none;
+    }
+
+    &.no-attachment-icon {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  /* Link to current header. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    position: relative;
+
+    a.anchor {
+      left: -16px;
+      position: absolute;
+      text-decoration: none;
+      outline: none;
+
+      &::after {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23000000' d='M5.17163025,6.5858 C5.56216,6.97632 5.56215,7.60948 5.17163025,8.00001 L3.75742,9.41422 C2.97637,10.1953 2.97637,11.4616 3.75742,12.2426 C4.53847,13.0237 5.8048,13.0237 6.58584,12.2426 L8.00006,10.8284 C8.39058,10.4379 9.02375,10.4379 9.41427,10.8284 C9.8048,11.219 9.8048,11.8521 9.41427,12.2426 L8.00006,13.6569 C6.43796,15.219 3.9053,15.219 2.3432,13.6569 C0.781107,12.0948 0.781107,9.56211 2.3432,8.00001 L3.75742,6.5858 C4.14794,6.19527 4.78111,6.19527 5.17163025,6.5858 Z M10.5355,5.4645 C10.926,5.85502 10.926,6.48819 10.5355,6.87871 L6.87863,10.5356 C6.4881,10.9261 5.85494,10.9261 5.46441,10.5356 C5.07389,10.145 5.07389,9.51188 5.46441,9.12135 L9.12127,5.4645 C9.51179,5.07397 10.145,5.07397 10.5355,5.4645 Z M13.6568,2.34314 C15.2189,3.90524 15.2189,6.4379 13.6568,8 L12.2426,9.41421 C11.8521,9.80473 11.2189,9.80473 10.8284,9.41421 C10.4379,9.02369 10.4379,8.39052 10.8284,8 L12.2426,6.58578 C13.0236,5.80473 13.0236,4.5384 12.2426,3.75736 C11.4615,2.97631 10.1952,2.97631 9.41416,3.75736 L7.99995,5.1715695 C7.60942,5.56209 6.97626,5.56209 6.58573,5.1715695 C6.19521,4.78105 6.19521,4.14788 6.58573,3.75736 L7.99995,2.34314 C9.56205,0.781046 12.0947,0.781046 13.6568,2.34314 Z'/%3E%3C/svg%3E%0A");
+        visibility: hidden;
+      }
+    }
+
+    &:hover > a.anchor::after {
+      visibility: visible;
+    }
+  }
+
+  .big {
+    font-size: larger;
+  }
+
+  .small {
+    font-size: smaller;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .overline {
+    text-decoration: overline;
+  }
+
+  .line-through {
+    text-decoration: line-through;
+  }
+}
