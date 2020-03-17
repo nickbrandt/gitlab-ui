@@ -39,11 +39,6 @@ describe('Bar chart component', () => {
 
   const createComponent = () => {
     wrapper = shallowMount(BarChart, {
-      data() {
-        return {
-          debouncedMoveShowTooltip: jest.fn(),
-        };
-      },
       propsData: defaultChartProps,
       stubs: {
         'tooltip-default-format': TooltipDefaultFormat,
