@@ -71,7 +71,7 @@
     "vue-runtime-helpers": "^1.1.2"
   },
   "peerDependencies": {
-    "@gitlab/svgs": "^1.112.0",
+    "@gitlab/svgs": "^1.113.0",
     "bootstrap": "4.3.1",
     "pikaday": "^1.8.0"
   },
@@ -80,7 +80,7 @@
     "@babel/preset-env": "^7.0.0",
     "@gitlab/eslint-config": "3.0.0",
     "@gitlab/stylelint-config": "^2.0.0",
-    "@gitlab/svgs": "^1.112.0",
+    "@gitlab/svgs": "^1.113.0",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
