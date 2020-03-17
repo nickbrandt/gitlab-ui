@@ -93,6 +93,10 @@
   height: $gl-spacing-scale-11;
 }
 
+@mixin gl-h-11-5 {
+  height: $gl-spacing-scale-11-5;
+}
+
 @mixin gl-h-13 {
   height: $gl-spacing-scale-13;
 }
