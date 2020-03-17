@@ -37,79 +37,102 @@ describe('Bar chart component', () => {
   const getOptions = () => findChart().props('options');
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  beforeEach(() => {
+  const createComponent = () => {
     wrapper = shallowMount(BarChart, {
+      data() {
+        return {
+          debouncedMoveShowTooltip: jest.fn(),
+        };
+      },
       propsData: defaultChartProps,
       stubs: {
         'tooltip-default-format': TooltipDefaultFormat,
       },
     });
-    emitChartCreated();
-
-    return wrapper.vm.$nextTick();
-  });
+  };
 
   afterEach(() => {
     wrapper.destroy();
   });
 
-  it('emits "created" when onCreated is called', () => {
-    wrapper.vm.onCreated(wrapper.vm.chart);
+  describe('when mounted', () => {
+    beforeEach(() => {
+      createComponent();
+    });
 
-    expect(wrapper.emitted('created')).toBeTruthy();
+    it('should render chart with axis and series', () => {
+      const chart = findChart();
+
+      expect(chart.props('options')).toMatchSnapshot();
+    });
+
+    it('should not emit created', () => {
+      expect(wrapper.emitted('created')).toBeUndefined();
+    });
   });
 
-  describe('Tooltip', () => {
-    const labelParams = {
-      value: 'Jim',
-      seriesName: 'Office',
-      seriesData: [
-        {
-          seriesId: 'Office',
-          data: [100, 'Jim'],
-          value: [100, 'Jim'],
-        },
-      ],
-    };
-
-    it('calls custom method and returns title with y labels', () => {
-      const getDefaultTooltipContentReturnVal = { yLabels: [], tooltipContent: {} };
-
-      // stub the method
-      wrapper.vm.getDefaultTooltipContent = jest
-        .fn()
-        .mockReturnValue(getDefaultTooltipContentReturnVal);
-
-      // label formatter is triggered here which should eventually call
-      // getDefaultTooltipContent
-      getOptions().yAxis.axisPointer.label.formatter(labelParams);
-
-      return wrapper.vm.$nextTick(() => {
-        expect(wrapper.vm.getDefaultTooltipContent).toHaveBeenCalled();
-      });
+  describe('when mounted and chart has created', () => {
+    beforeEach(() => {
+      createComponent();
+      emitChartCreated();
     });
 
-    it('sets accurate tooltip title and content state', () => {
-      getOptions().yAxis.axisPointer.label.formatter(labelParams);
-
-      return wrapper.vm.$nextTick(() => {
-        expect(wrapper.vm.tooltipTitle).toBe(labelParams.value);
-        expect(wrapper.vm.tooltipContent[defaultChartProps.xAxisTitle].value).toBe(
-          labelParams.seriesData[0].data[0]
-        );
-      });
+    it('emits "created" when onCreated is called', () => {
+      expect(wrapper.emitted('created')).toEqual([[mockChartInstance]]);
     });
 
-    it('render accurate tooltip title and content', () => {
-      const expectedTooltipTitle = `${labelParams.value} (${defaultChartProps.yAxisTitle})`;
+    describe('Tooltip', () => {
+      const labelParams = {
+        value: 'Jim',
+        seriesName: 'Office',
+        seriesData: [
+          {
+            seriesId: 'Office',
+            data: [100, 'Jim'],
+            value: [100, 'Jim'],
+          },
+        ],
+      };
 
-      getOptions().yAxis.axisPointer.label.formatter(labelParams);
-      return wrapper.vm.$nextTick(() => {
-        const tooltipTextContent = findChartTooltip().element.textContent;
+      it('calls custom method and returns title with y labels', () => {
+        const getDefaultTooltipContentReturnVal = { yLabels: [], tooltipContent: {} };
 
-        expect(tooltipTextContent).toContain(expectedTooltipTitle);
-        expect(tooltipTextContent).toContain(defaultChartProps.xAxisTitle);
-        expect(tooltipTextContent).toContain(labelParams.seriesData[0].data[0]);
+        // stub the method
+        wrapper.vm.getDefaultTooltipContent = jest
+          .fn()
+          .mockReturnValue(getDefaultTooltipContentReturnVal);
+
+        // label formatter is triggered here which should eventually call
+        // getDefaultTooltipContent
+        getOptions().yAxis.axisPointer.label.formatter(labelParams);
+
+        return wrapper.vm.$nextTick(() => {
+          expect(wrapper.vm.getDefaultTooltipContent).toHaveBeenCalled();
+        });
+      });
+
+      it('sets accurate tooltip title and content state', () => {
+        getOptions().yAxis.axisPointer.label.formatter(labelParams);
+
+        return wrapper.vm.$nextTick(() => {
+          expect(wrapper.vm.tooltipTitle).toBe(labelParams.value);
+          expect(wrapper.vm.tooltipContent[defaultChartProps.xAxisTitle].value).toBe(
+            labelParams.seriesData[0].data[0]
+          );
+        });
+      });
+
+      it('render accurate tooltip title and content', () => {
+        const expectedTooltipTitle = `${labelParams.value} (${defaultChartProps.yAxisTitle})`;
+
+        getOptions().yAxis.axisPointer.label.formatter(labelParams);
+        return wrapper.vm.$nextTick(() => {
+          const tooltipTextContent = findChartTooltip().element.textContent;
+
+          expect(tooltipTextContent).toContain(expectedTooltipTitle);
+          expect(tooltipTextContent).toContain(defaultChartProps.xAxisTitle);
+          expect(tooltipTextContent).toContain(labelParams.seriesData[0].data[0]);
+        });
       });
     });
   });

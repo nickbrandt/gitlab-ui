@@ -146,8 +146,10 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
+    if (this.chart) {
+      this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
+      this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
+    }
   },
   methods: {
     moveShowTooltip(mouseEvent) {
