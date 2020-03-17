@@ -1,3 +1,10 @@
+# [9.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.28.0...v9.29.0) (2020-03-17)
+
+
+### Features
+
+* **css:** Add missing spacing utilities ([bd24d60](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd24d601aff43a43ab18ce5bd90d72529cec2144))
+
 # [9.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.27.0...v9.28.0) (2020-03-14)
 
 
