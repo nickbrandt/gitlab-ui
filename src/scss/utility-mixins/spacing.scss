@@ -312,6 +312,11 @@
   margin-bottom: $gl-spacing-scale-2;
 }
 
+@mixin gl-my-3 {
+  margin-top: $gl-spacing-scale-3;
+  margin-bottom: $gl-spacing-scale-3;
+}
+
 @mixin gl-my-5 {
   margin-top: $gl-spacing-scale-5;
   margin-bottom: $gl-spacing-scale-5;
@@ -340,6 +345,11 @@
 @mixin gl-mx-0 {
   margin-left: 0;
   margin-right: 0;
+}
+
+@mixin gl-mx-2 {
+  margin-left: $gl-spacing-scale-2;
+  margin-right: $gl-spacing-scale-2;
 }
 
 @mixin gl-mx-3 {

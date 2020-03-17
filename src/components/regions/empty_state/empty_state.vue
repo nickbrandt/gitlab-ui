@@ -1,5 +1,5 @@
 <script>
-import GlButton from '../../base/button/button.vue';
+import GlNewButton from '../../base/new_button/new_button.vue';
 
 const textBreaks = el => {
   const originalWhiteSpace = el.style.whiteSpace;
@@ -14,7 +14,7 @@ const textBreaks = el => {
 
 export default {
   components: {
-    GlButton,
+    GlNewButton,
   },
   props: {
     title: {
@@ -89,37 +89,41 @@ export default {
 </script>
 
 <template>
-  <div class="row" :class="{ 'empty-state': fullscreen }">
+  <div
+    class="gl-empty-state row"
+    :class="{ 'empty-state': fullscreen, fullscreen, compact: !fullscreen, centered: centerTitle }"
+  >
     <div :class="fullscreen ? 'col-12' : 'col-3 d-none d-sm-block'">
-      <div v-if="svgPath" :class="{ 'svg-content': fullscreen }" class="svg-250">
-        <img :src="svgPath" :alt="title" :class="{ 'mw-100': compact }" />
+      <div v-if="svgPath" class="gl-empty-state-illustration-svg-content">
+        <img class="gl-empty-state-illustration" :src="svgPath" :alt="title" />
       </div>
     </div>
     <div :class="fullscreen ? 'col-12' : 'col-sm-9'">
-      <div class="text-content">
-        <h4 ref="title" :class="{ center: centerTitle, h5: compact }">{{ title }}</h4>
+      <div class="gl-empty-state-text-content">
+        <h4 ref="title" class="gl-empty-state-title" :class="{ h5: compact }">{{ title }}</h4>
         <p
           v-if="description || $slots.description"
           ref="description"
-          :class="{ center: centerDescription }"
+          class="gl-empty-state-description"
+          :class="{ 'gl-empty-state-description-centered': centerDescription }"
         >
           <slot name="description">
             {{ description }}
           </slot>
         </p>
-        <div :class="{ 'text-center': fullscreen }">
+        <div class="gl-empty-state-actions">
           <slot name="actions">
-            <gl-button
+            <gl-new-button
               v-if="shouldRenderPrimaryButton"
               variant="success"
               :href="primaryButtonLink"
-              >{{ primaryButtonText }}</gl-button
+              >{{ primaryButtonText }}</gl-new-button
             >
-            <gl-button
+            <gl-new-button
               v-if="shouldRenderSecondaryButton"
               variant="outline-success"
               :href="secondaryButtonLink"
-              >{{ secondaryButtonText }}</gl-button
+              >{{ secondaryButtonText }}</gl-new-button
             >
           </slot>
         </div>

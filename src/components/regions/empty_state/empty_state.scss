@@ -1,0 +1,52 @@
+.gl-empty-state {
+  .gl-empty-state-description {
+    @include gl-font-base;
+
+    &.gl-empty-state-description-centered {
+      @include gl-text-center;
+    }
+  }
+}
+
+.gl-empty-state.compact {
+  .gl-empty-state-illustration {
+    @include gl-max-w-full;
+  }
+
+  .gl-empty-state-title {
+    @include gl-font-base;
+    @include gl-my-3;
+  }
+}
+
+.gl-empty-state.fullscreen {
+  margin: 5% auto 0;
+
+  .gl-empty-state-illustration-svg-content {
+    @include gl-p-5;
+    @include gl-text-center;
+  }
+
+  .gl-empty-state-text-content {
+    max-width: 460px;
+    margin: 0 auto;
+    @include gl-p-5;
+  }
+
+  .gl-empty-state-title {
+    @include gl-font-weight-bold;
+    @include gl-my-3;
+  }
+
+  .new-gl-button {
+    @include gl-my-3;
+    @include gl-mx-2;
+  }
+}
+
+.gl-empty-state.centered {
+  .gl-empty-state-title,
+  .gl-empty-state-actions {
+    @include gl-text-center;
+  }
+}
