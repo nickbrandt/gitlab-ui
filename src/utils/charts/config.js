@@ -185,7 +185,16 @@ export function getThresholdConfig(thresholds) {
     },
   };
 }
-
+/**
+ * The method works well if tooltip content should be against y-axis values.
+ * However, for bar charts, the tooltip should be against x-axis values.
+ * This method should be updated to work with all types of visualizations.
+ * https://gitlab.com/gitlab-org/gitlab-ui/-/issues/674
+ *
+ * @param {Object} params series data
+ * @param {String} yAxisTitle y-axis title
+ * @returns {Object} tooltip title and content
+ */
 export const getDefaultTooltipContent = (params, yAxisTitle = null) => {
   const seriesDataLength = params.seriesData.length;
   const { xLabels, tooltipContent } = params.seriesData.reduce(
