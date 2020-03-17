@@ -2,6 +2,7 @@ import description from './empty_state.md';
 import examples from './examples';
 
 export default {
+  followsDesignSystem: true,
   description,
   examples,
   propsInfo: {
