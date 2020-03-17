@@ -9,6 +9,7 @@ export { default as GlLineChartDocumentation } from '../src/components/charts/li
 export { default as GlSparklineChartDocumentation } from '../src/components/charts/sparkline/sparkline.documentation';
 export { default as GlChartSeriesLabelDocumentation } from '../src/components/charts/series_label/series_label.documentation';
 export { default as GlStackedColumnChartDocumentation } from '../src/components/charts/stacked_column/stacked_column.documentation';
+export { default as GlBarChartDocumentation } from '../src/components/charts/bar/bar.documentation';
 export { default as GlSingleStatDocumentation } from '../src/components/charts/single_stat/single_stat.documentation';
 export { default as GlChartTooltipDocumentation } from '../src/components/charts/tooltip/tooltip.documentation';
 export { default as GlToastDocumentation } from '../src/components/base/toast/toast.documentation';
