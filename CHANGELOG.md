@@ -1,3 +1,10 @@
+# [9.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.29.0...v9.30.0) (2020-03-17)
+
+
+### Features
+
+* **barchart:** Support bar charts ([d4d0f7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d4d0f7e9206f27be46fb0fcda1665dad8fb2c35e))
+
 # [9.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.28.0...v9.29.0) (2020-03-17)
 
 
