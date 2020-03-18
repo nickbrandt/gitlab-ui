@@ -1,5 +1,3 @@
-> Note: This component is a prototype not intended for use, but will be integrated with [`<gl-button>`]. Please use [`<gl-button>`] instead.
-
 ### Button
 
 Buttons execute an action, either in the background or foreground of an experience. Different button categories help guide users through certain actions. Buttons express what action will occur when the user clicks or touches it either by text, icon, or both. Additional meaning can be derived from the button variant.
