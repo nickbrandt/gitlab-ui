@@ -326,13 +326,9 @@ $gl-font-size-h2-xl: px-to-rem(23px);
 $gl-font-size-markdown: px-to-rem(16px);
 $gl-font-size-markdown-sm: px-to-rem(14px);
 
-$gl-font-size-markdown-h1: px-to-rem(23px);
-$gl-font-size-markdown-h2: px-to-rem(19px);
-$gl-font-size-markdown-h3: px-to-rem(16px);
-$gl-font-size-markdown-h4: px-to-rem(16px);
-
-// headers h5, h6 share the same size
-$gl-font-size-markdown-hn: px-to-rem(14px);
+$gl-font-size-markdown-h1: px-to-rem(28px);
+$gl-font-size-markdown-h2: px-to-rem(23px);
+$gl-font-size-markdown-h3: px-to-rem(19px);
 
 // breakpoint (min-width: 768px)
 $gl-font-size-markdown-h1-md: px-to-rem(31px);
