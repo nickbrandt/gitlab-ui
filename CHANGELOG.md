@@ -1,3 +1,10 @@
+# [9.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.30.0...v9.31.0) (2020-03-18)
+
+
+### Features
+
+* **css:** Generate stateful utility classes ([e9ca4f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9ca4f180ea7fd5aa2b3afce09cf283f8d4ca786))
+
 # [9.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.29.0...v9.30.0) (2020-03-17)
 
 
