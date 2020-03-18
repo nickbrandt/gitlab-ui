@@ -1,8 +1,35 @@
-# GitLab UI typography
+# Typescale
 
-## Font family
+GitLab UI typescale is an implementation of the Pajamas [typescale specification](https://www.figma.com/file/qEddyqCrI7kPSBjGmwkZzQ/Pajamas-UI-Kit---Beta?node-id=542%3A2).
 
-GitLab UI uses the following font stack:
+## Usage
+
+When you import GitLab UI SCSS, the typescale is not applied automatically. To apply the UI
+Typescale, include the `gl-typescale-ui` `@mixin` in your application SCSS code:
+
+```scss
+@import '@gitlab/ui/src/scss/gitlab_ui';
+
+@include gl-typescale-ui;
+```
+
+You can also include the Typescale and omit the rest of GitLab UI CSS. The following
+code demonstrates the minimal configuration required to use the UI Typescale in a project:
+
+```scss
+@import '@gitlab/ui/src/scss/variables';
+@import '@gitlab/ui/src/scss/mixins';
+@import '@gitlab/ui/src/scss/utility-mixins/index';
+@import '@gitlab/ui/src/scss/typescale/index';
+
+@include gl-typescale-ui;
+```
+
+## Implementation notes
+
+### Font stack
+
+The Typescale uses the following font stack:
 
 - Regular: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu,
   Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
@@ -10,9 +37,9 @@ GitLab UI uses the following font stack:
 - Monospace: `'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
   'Courier New', 'andale mono', 'lucida console', monospace`
 
-## Typescale
+### Font-size
 
-GitLab UI typescale is an implementation of the Pajamas [typescale specification](https://design.gitlab.com/product-foundations/typography#typescale). A complete reference of the typescale can be found in the [typescale sketch file](https://gitlab-org.gitlab.io/gitlab-design/hosted/pedro/%23168-responsive-type-spec-previews/). Text size is determined by the following parameters:
+Text size is determined by the following parameters:
 
 - Content type:
   - UI: default
@@ -32,7 +59,7 @@ GitLab UI typescale is an implementation of the Pajamas [typescale specification
   - large paragraph / UI text: `lg`
   - headers: `h1..h6`
 
-### Typescale variables
+#### Variables
 
 Typescale variables are located in the `scss/variables.scss`. They follow the naming convention:
 `$gl-font-size-[content-type]-[font-family]-[element-type]-[breakpoint]`. Default typescale parameters are omitted from the variable name. For example:
