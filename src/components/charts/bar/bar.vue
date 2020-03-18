@@ -11,7 +11,22 @@ import { engineeringNotation } from '../../../utils/number_utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 import { hexToRgba, debounceByAnimationFrame, ellipsize } from '../../../utils/utils';
 
+/**
+ * `nameGap` in charts/config, which is set to 50, works for all
+ * other charts. Because bar charts y axis name and labels
+ * can overlap, this has been modified to 60 px square. Once eCharts
+ * fixes dynamic axis name positioning this can be reverted to
+ * other standard chart configs.
+ * More about this fix in `updateYAxisNameGap` method.
+ */
 const DEFAULT_NAME_GAP = 60;
+
+/**
+ * This is the suitable distance between coordinate system origin
+ * and the y axis. This is also a temporary fix until eCharts fixes
+ * dynamic axis name positioning.
+ * More about this fix in `updateYAxisNameGap` method.
+ */
 const NAME_GAP_OFFSET = 18;
 
 /**
