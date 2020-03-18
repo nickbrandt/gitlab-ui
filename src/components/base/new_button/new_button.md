@@ -1,3 +1,5 @@
+> Note: This component is being introduced to replace the `<gl-button>` component as it doesn't conform to the [design specs](https://design.gitlab.com/components/button/#text). Please use `<gl-new-button>` going forward. You can read more about the migration [here](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/608).
+
 ### Button
 
 Buttons execute an action, either in the background or foreground of an experience. Different button categories help guide users through certain actions. Buttons express what action will occur when the user clicks or touches it either by text, icon, or both. Additional meaning can be derived from the button variant.

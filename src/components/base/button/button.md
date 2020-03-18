@@ -1,3 +1,5 @@
+> Note: This component is being migrated to the `<gl-new-button>` component as it conforms to the [design specs](https://design.gitlab.com/components/button/#text). Please use `<gl-new-button>` instead. You can read more about the migration [here](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/608).
+
 ### Button link
 
 A button link is a link that is styled to look like a button, semantically speaking it's a `<a>` tag
