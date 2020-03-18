@@ -1,5 +1,7 @@
 # Adding CSS
 
+## Writing components styles
+
 From GitLab 12.2 on, we are moving components styles into GitLab UI, as
 described in the approved [RFC #2](https://gitlab.com/gitlab-org/frontend/rfcs/issues/2).
 This approach will let us progressively decouple GitLab UI's styles from
@@ -60,7 +62,7 @@ for an example and [!624](https://gitlab.com/gitlab-org/gitlab-ui/merge_requests
 for the first pass implementation of silent classes. Follow along with the development
 epic at [&1590](https://gitlab.com/groups/gitlab-org/-/epics/1590).
 
-## Why are we doing it like this?
+### Why are we doing it like this?
 
 The current SCSS architecture was designed to allow us both to gain the advantages of a utility CSS approach while also applying the same styles to both Vue components here in `gitlab-ui` and HAML components in `gitlab`.
 
@@ -102,7 +104,7 @@ Finally, to join in on discussion about HAML components, check out the following
 - [Remove outdated "Use HAML" section](https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/18894#note_212454769)
 - [Change: HAML to Vue](https://gitlab.com/gitlab-org/frontend/rfcs/issues/14)
 
-## So wait, when do I add a variable? a utility class? a component class?
+### So wait, when do I add a variable? A utility class? A component class?
 
 **Add a variable** (in `variables.scss`) if you are setting a base value in the design system — this is rare.
 
@@ -110,14 +112,27 @@ Finally, to join in on discussion about HAML components, check out the following
 
 **Add or apply a utility class** the rest of the time.
 
-## Component-agnostic
+## Adding utility mixins
+
+GitLab UI provides a utility-class library based on the
+[Pajamas Design System](https://design.gitlab.com) specifications
+for spacing, color, typography, and layers. This section provides guidelines to add new
+utilities.
+
+### Generating `utilities.scss`
+
+The utility-class library is located in `src/scss/utilities.scss`. GitLab UI generates the utility-class
+library based on the mixins defined in `src/scss/utility-mixins/`. To regenerate the file, run
+the `yarn generate-utilities` command.
+
+### Component-agnostic utilities
 
 We are aiming to build a set of styles that are easily reusable and component-agnostic.
 To help accomplish this:
 
-- Place new mixins in the `src/scss/utility-mixins/` directory.
-- Give new mixins a generic name that describes what they do rather than what component
-  they target.
+- Place new utility mixins in one of the files located in the `src/scss/utility-mixins/` directory. Each
+file contains a group of related utilities like `border`, `color`, `text`, and so on.
+- Give new mixins a generic name that describes what they do rather than what component they target.
 
 For example:
 
@@ -147,6 +162,61 @@ Time constraints or lack of stable design specifications might require you to cr
 component-specific mixins. In such cases, mixins should be defined in the component's
 stylesheet and their names should be prefixed with `gl-tmp-` instead of `gl-` to make them easily
 identifiable when paying technical debt in later development stages.
+
+### Stateful utilities
+
+You can tell GitLab UI to generate stateful utilities based on a utility mixin. Stateful utilities
+apply pseudo-class styles that target states like `hover`, `active`, `focus`, and `visited`. To indicate
+that a utility mixin should have a stateful counterpart, add a default parameter to the utility mixin
+declaration:
+
+```scss
+@mixin gl-border-none($hover: true) {
+  border-style: none;
+}
+```
+
+After running `yarn generate-utilities`, `src/scss/utilities.scss` will contain the following utility-classes:
+
+```scss
+.gl-border-none {
+  @include gl-border-none;
+}
+
+.hover-gl-border-none:hover {
+  @include gl-border-none;
+}
+```
+
+### Responsive utilities
+
+You can define utility mixins that target specific breakpoints. Remember to use the breakpoint variables defined
+in `src/scss/variables`: `$breakpoint-sm`, `$breakpoint-md`, `$breakpoint-lg`, and `$breakpoint-xl`. Here are some
+examples:
+
+```scss
+@mixin md-gl-border-none {
+  @media (min-width: $breakpoint-md) {
+    border-style: none;
+  }
+}
+
+@mixin xl-gl-bg-white {
+  @media (min-width: $breakpoint-xl) {
+    background-color: $white;
+  }
+}
+```
+
+SCSS will generate a utility class enclosed in the breakpoint media query:
+
+```css
+@media (min-width: 75rem) {
+  .xl-gl-bg-white {
+    background-color: #fff;
+  }
+}
+```
 
 ## Other Style Questions
 
