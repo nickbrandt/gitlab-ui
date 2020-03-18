@@ -2,8 +2,9 @@
   <gl-bar-chart
     :data="{
       Full: [
-        [78, 'Andrew Baines Bernard'],
-        [123, 'Angela Martin'],
+        [-78, 'Jim Halpert'],
+        [123, 'Kelly Rajnigandha Kapoor'],
+        [-10, 'Michael Gary Scott'],
       ],
     }"
     :option="{}"

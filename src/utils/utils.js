@@ -26,6 +26,14 @@ export function throttle(fn) {
   };
 }
 
+export function ellipsize(str, size = 5) {
+  if (size === 0) {
+    return str;
+  }
+  const string = (str || '').toString();
+  return string.length > size ? `${string.substring(0, size)}...` : string;
+}
+
 export function rgbFromHex(hex) {
   const cleanHex = hex.replace('#', '');
   const rgb =

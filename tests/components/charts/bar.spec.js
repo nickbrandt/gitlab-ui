@@ -11,6 +11,8 @@ const mockChartInstance = {
       removeEventListener: jest.fn(),
     };
   },
+  setOption: jest.fn(),
+  convertToPixel: jest.fn(),
 };
 
 jest.mock('echarts', () => ({
@@ -27,6 +29,13 @@ const defaultChartProps = {
       [300, 'Pam'],
     ],
   },
+};
+
+const dataWithNegativeValues = {
+  Office: [
+    [-100, 'Scranton Strangler'],
+    [200, 'Dwight Kurt Schrute'],
+  ],
 };
 
 describe('Bar chart component', () => {
@@ -74,6 +83,55 @@ describe('Bar chart component', () => {
 
     it('emits "created" when onCreated is called', () => {
       expect(wrapper.emitted('created')).toEqual([[mockChartInstance]]);
+    });
+
+    describe('Y axis name', () => {
+      it('label are not ellipsized for positive values', () => {
+        const pixel = 180;
+        const expectedNameGap = 162;
+
+        mockChartInstance.convertToPixel.mockReturnValueOnce(pixel);
+
+        findChart().vm.$emit('updated');
+
+        return wrapper.vm.$nextTick(() => {
+          expect(mockChartInstance.convertToPixel).toHaveBeenCalled();
+          expect(mockChartInstance.setOption).toHaveBeenCalledWith(
+            expect.objectContaining({
+              yAxis: {
+                nameGap: expectedNameGap,
+              },
+            })
+          );
+        });
+      });
+
+      it('label are not ellipsized for negative values', () => {
+        const pixel = 180;
+        const expectedNameGap = 60;
+
+        wrapper.setProps({
+          data: dataWithNegativeValues,
+        });
+
+        mockChartInstance.convertToPixel.mockReturnValueOnce(pixel);
+
+        findChart().vm.$emit('updated');
+
+        return wrapper.vm.$nextTick(() => {
+          expect(mockChartInstance.convertToPixel).toHaveBeenCalled();
+          expect(mockChartInstance.setOption).toHaveBeenCalledWith(
+            expect.objectContaining({
+              yAxis: {
+                nameGap: expectedNameGap,
+                axisLabel: {
+                  formatter: expect.any(Function),
+                },
+              },
+            })
+          );
+        });
+      });
     });
 
     describe('Tooltip', () => {
