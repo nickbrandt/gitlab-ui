@@ -73,11 +73,9 @@ documentedStoriesOf('base|form/form-group', readme)
   }))
   .add('with textarea', () => ({
     template: `
-      <div>
-        <gl-form-group id="group-id-textarea2" label="Label Name" label-for="textarea1">
-          <gl-form-textarea id="textarea2" placeholder="Enter something" />
-        </gl-form-group>
-      </div>
+      <gl-form-group id="group-id-textarea2" label="Label Name" label-for="textarea2">
+        <gl-form-textarea id="textarea2" placeholder="Enter something" />
+      </gl-form-group>
     `,
   }))
   .add('with validations', () => ({
