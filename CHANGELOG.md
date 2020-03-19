@@ -1,3 +1,10 @@
+# [9.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.2...v9.32.0) (2020-03-19)
+
+
+### Features
+
+* Dynamically position axis names for long axis labels ([466bbf5](https://gitlab.com/gitlab-org/gitlab-ui/commit/466bbf5e914c8c4cbc922bd7f74fc083aad5af62))
+
 ## [9.31.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.1...v9.31.2) (2020-03-19)
 
 
