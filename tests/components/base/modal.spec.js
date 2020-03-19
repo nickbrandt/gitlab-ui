@@ -1,28 +1,53 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import { BModal } from 'bootstrap-vue';
+import { merge } from 'lodash';
 import Modal from '../../../src/components/base/modal/modal.vue';
 import Button from '../../../src/components/base/button/button.vue';
 import { modalButtonDefaults } from '../../../src/utils/constants';
 
 const localVue = createLocalVue();
+const BModalStub = localVue.extend(
+  merge({}, BModal.options, {
+    methods: {
+      onClose: jest.fn(),
+    },
+    render(h) {
+      return h('div', Object.values(this.$slots));
+    },
+  })
+);
 
 describe('Modal component', () => {
+  let wrapperListeners;
   let wrapper;
 
-  const findModal = () => wrapper.find(BModal);
+  const findModal = () => wrapper.find(BModalStub);
+  const findPrimaryButton = () => wrapper.find('.js-modal-action-primary');
+  const findSecondaryButton = () => wrapper.find('.js-modal-action-secondary');
+  const findCancelButton = () => wrapper.find('.js-modal-action-cancel');
 
   const createComponent = props => {
+    wrapperListeners = {
+      close: jest.fn(),
+      secondary: jest.fn(),
+    };
+
     wrapper = shallowMount(Modal, {
       localVue,
       propsData: {
         modalId: 'modal-id',
         ...props,
       },
+      listeners: wrapperListeners,
+      stubs: {
+        'b-modal': BModalStub,
+      },
     });
   };
 
   afterEach(() => {
     wrapper.destroy();
+    jest.clearAllMocks();
   });
 
   describe('default', () => {
@@ -63,12 +88,9 @@ describe('Modal component', () => {
     });
 
     it('buttons should render prop text', () => {
-      const primaryButton = wrapper.find('.js-modal-action-primary');
-      const secondaryButton = wrapper.find('.js-modal-action-secondary');
-      const cancelButton = wrapper.find('.js-modal-action-cancel');
-      expect(primaryButton.text()).toBe('Primary');
-      expect(secondaryButton.text()).toBe('Secondary');
-      expect(cancelButton.text()).toBe('Cancel');
+      expect(findPrimaryButton().text()).toBe('Primary');
+      expect(findSecondaryButton().text()).toBe('Secondary');
+      expect(findCancelButton().text()).toBe('Cancel');
     });
 
     it('attributes array to be returned', () => {
@@ -80,11 +102,43 @@ describe('Modal component', () => {
       const attributes = wrapper.vm.buttonBinding(props.actionSecondary, 'actionSecondary');
       expect(attributes).toBe(modalButtonDefaults.actionSecondary);
     });
+
+    it('does not emit anything', () => {
+      Object.keys(wrapperListeners).forEach(evt => {
+        expect(wrapperListeners[evt]).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when secondary is clicked', () => {
+      beforeEach(() => {
+        findSecondaryButton().vm.$emit('click');
+      });
+
+      it('should emit secondary', () => {
+        expect(wrapperListeners.secondary).toHaveBeenCalledTimes(1);
+      });
+
+      it('should close modal', () => {
+        expect(BModalStub.options.methods.onClose).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 
   it('accepts custom modal class', () => {
     createComponent({ modalClass: 'modal-class-override another-override' });
     expect(findModal().props('modalClass')).toContain('gl-modal');
     expect(findModal().props('modalClass')).toContain('modal-class-override another-override');
+  });
+
+  describe('when closed', () => {
+    beforeEach(() => {
+      createComponent();
+      findModal().vm.$emit('close');
+    });
+
+    it('should emit closed', () => {
+      expect(wrapperListeners.secondary).not.toHaveBeenCalled();
+      expect(wrapperListeners.close).toHaveBeenCalledTimes(1);
+    });
   });
 });

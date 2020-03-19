@@ -81,6 +81,7 @@ export default {
     },
     secondary(event) {
       this.$emit('secondary', event);
+      this.close();
     },
     // set default variant button styling
     buttonBinding(prop, name) {
@@ -121,7 +122,6 @@ export default {
     @shown="setFocus"
     @ok="primary"
     @cancel="canceled"
-    @close="secondary"
   >
     <slot></slot>
     <slot slot="modal-header" name="modal-header"></slot>
@@ -142,7 +142,7 @@ export default {
         v-if="actionSecondary"
         class="gl-button js-modal-action-secondary"
         v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
-        @click="close"
+        @click="secondary"
       >
         {{ actionSecondary.text }}
       </gl-button>
