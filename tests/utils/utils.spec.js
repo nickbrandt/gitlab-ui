@@ -1,4 +1,4 @@
-import { isElementFocusable, focusFirstFocusableElement, ellipsize } from '../../src/utils/utils';
+import { isElementFocusable, focusFirstFocusableElement } from '../../src/utils/utils';
 
 describe('isElementFocusable', () => {
   const myBtn = () => document.querySelector('button');
@@ -75,44 +75,5 @@ describe('focusFirstFocusableElement', () => {
     focusFirstFocusableElement([myBtn(), myInput()]);
 
     expect(document.activeElement).toBe(myInput());
-  });
-});
-
-describe('ellipsize', () => {
-  [
-    {
-      input: '',
-      output: '',
-    },
-    {
-      input: null,
-      output: '',
-    },
-    {
-      input: 'abc',
-      output: 'abc',
-    },
-    {
-      input: 123,
-      output: '123',
-    },
-    {
-      input: 'abcdefgh',
-      output: 'abcde...',
-    },
-    {
-      input: 'abcdefgh',
-      output: 'a...',
-      size: 1,
-    },
-    {
-      input: 'abcdefgh',
-      output: 'abcdefgh',
-      size: 0,
-    },
-  ].forEach(({ input, output, size }) => {
-    it(`ellipsize with size ${size} returns ${output} for ${input}`, () => {
-      expect(ellipsize(input, size)).toBe(output);
-    });
   });
 });

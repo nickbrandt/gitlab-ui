@@ -2,6 +2,7 @@
 import merge from 'lodash/merge';
 import minBy from 'lodash/minBy';
 import min from 'lodash/min';
+import truncate from 'lodash/truncate';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
@@ -9,7 +10,7 @@ import { grid, dataZoomAdjustments, mergeSeriesToOptions } from '../../../utils/
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { engineeringNotation } from '../../../utils/number_utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
-import { hexToRgba, debounceByAnimationFrame, ellipsize } from '../../../utils/utils';
+import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 
 /**
  * `nameGap` in charts/config, which is set to 50, works for all
@@ -229,7 +230,11 @@ export default {
             nameGap,
             ...(hasNegativeValue && {
               axisLabel: {
-                formatter: str => ellipsize(str),
+                formatter: str =>
+                  truncate(str, {
+                    length: 8,
+                    separator: '...',
+                  }),
               },
             }),
           },

@@ -26,24 +26,6 @@ export function throttle(fn) {
   };
 }
 
-/**
- * Truncate and add ellipsis for strings longer than size.
- *
- * This is currently only used in bar charts.
- *
- * @param {String} str String to be truncated
- * @param {Number} size Length above which the string is truncated
- *
- * @returns {String} truncated string
- */
-export function ellipsize(str, size = 5) {
-  if (size === 0) {
-    return str;
-  }
-  const string = (str || '').toString();
-  return string.length > size ? `${string.substring(0, size)}...` : string;
-}
-
 export function rgbFromHex(hex) {
   const cleanHex = hex.replace('#', '');
   const rgb =
