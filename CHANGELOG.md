@@ -1,3 +1,11 @@
+## [9.31.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.1...v9.31.2) (2020-03-19)
+
+
+### Bug Fixes
+
+* add test coverage for events ([4f3a3a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/4f3a3a5aa78b51f73f7bde6d8c89c059820b0b14))
+* adjust secondary action on modal ([52079c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/52079c79896d10b5d4502bc7afeed27ad07b105d))
+
 ## [9.31.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.0...v9.31.1) (2020-03-19)
 
 
