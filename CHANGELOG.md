@@ -1,3 +1,10 @@
+## [9.31.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.0...v9.31.1) (2020-03-19)
+
+
+### Bug Fixes
+
+* Set label font size ([8241e2a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8241e2ac527bbfa65b3d82d49cf284371c34b179))
+
 # [9.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.30.0...v9.31.0) (2020-03-18)
 
 
