@@ -4,7 +4,8 @@ exports[`Bar chart component when mounted should render chart with axis and seri
 Object {
   "grid": Object {
     "bottom": 44,
-    "left": 64,
+    "containLabel": true,
+    "left": 22,
     "right": 32,
     "top": 16,
   },
@@ -66,7 +67,7 @@ Object {
     },
     "boundaryGap": true,
     "name": "User",
-    "nameGap": 50,
+    "nameGap": 60,
     "nameLocation": "center",
     "splitLine": Object {
       "show": false,
