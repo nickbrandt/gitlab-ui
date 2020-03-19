@@ -53,6 +53,7 @@ export default {
     },
     clearButtonTitle: {
       type: String,
+      required: false,
       default: 'Clear',
     },
   },

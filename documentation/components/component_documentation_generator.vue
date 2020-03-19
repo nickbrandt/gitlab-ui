@@ -47,6 +47,7 @@ export default {
   props: {
     componentName: {
       type: String,
+      required: false,
       default: 'Link',
       validator: componentValidator,
     },

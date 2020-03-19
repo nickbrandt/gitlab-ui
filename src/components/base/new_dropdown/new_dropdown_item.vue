@@ -11,37 +11,37 @@ export default {
   props: {
     avatarUrl: {
       type: String,
-      isRequired: false,
+      required: false,
       default: '',
     },
     iconColor: {
       type: String,
-      isRequired: false,
+      required: false,
       default: '',
     },
     iconName: {
       type: String,
-      isRequired: false,
+      required: false,
       default: '',
     },
     iconRightName: {
       type: String,
-      isRequired: false,
+      required: false,
       default: '',
     },
     isChecked: {
       type: Boolean,
-      isRequired: false,
+      required: false,
       default: false,
     },
     isCheckItem: {
       type: Boolean,
-      isRequired: false,
+      required: false,
       default: false,
     },
     secondaryText: {
       type: String,
-      isRequired: false,
+      required: false,
       default: '',
     },
   },
