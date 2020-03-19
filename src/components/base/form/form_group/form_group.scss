@@ -2,6 +2,7 @@
   @include gl-mb-5;
 
   .col-form-label {
+    @include gl-font-base;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
     @include gl-pt-0;

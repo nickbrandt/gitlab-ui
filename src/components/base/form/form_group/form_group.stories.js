@@ -71,6 +71,13 @@ documentedStoriesOf('base|form/form-group', readme)
       </gl-form-group>
     `,
   }))
+  .add('with textarea', () => ({
+    template: `
+      <gl-form-group id="group-id-textarea2" label="Label Name" label-for="textarea2">
+        <gl-form-textarea id="textarea2" placeholder="Enter something" />
+      </gl-form-group>
+    `,
+  }))
   .add('with validations', () => ({
     props: generateProps({ label: 'Name', description: 'Please enter your name' }),
     components,

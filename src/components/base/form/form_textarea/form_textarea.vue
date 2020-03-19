@@ -19,5 +19,11 @@ export default {
 </script>
 
 <template>
-  <b-form-textarea class="gl-form-textarea" v-bind="$attrs" :value="value" v-on="$listeners" />
+  <b-form-textarea
+    class="gl-form-textarea"
+    no-resize
+    v-bind="$attrs"
+    :value="value"
+    v-on="$listeners"
+  />
 </template>
