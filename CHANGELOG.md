@@ -1,3 +1,10 @@
+# [9.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.32.0...v9.33.0) (2020-03-20)
+
+
+### Features
+
+* Data visualization color palette ([22a979f](https://gitlab.com/gitlab-org/gitlab-ui/commit/22a979f8a1c46ab2dca41084e176fb64b3c9bf25))
+
 # [9.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.2...v9.32.0) (2020-03-19)
 
 
