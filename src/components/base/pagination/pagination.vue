@@ -85,22 +85,27 @@ export default {
     },
     labelFirstPage: {
       type: String,
+      required: false,
       default: 'Go to first page',
     },
     labelPrevPage: {
       type: String,
+      required: false,
       default: 'Go to previous page',
     },
     labelNextPage: {
       type: String,
+      required: false,
       default: 'Go to next page',
     },
     labelLastPage: {
       type: String,
+      required: false,
       default: 'Go to last page',
     },
     labelPage: {
       type: Function,
+      required: false,
       default: page => `Go to page ${page}`,
     },
     size: {

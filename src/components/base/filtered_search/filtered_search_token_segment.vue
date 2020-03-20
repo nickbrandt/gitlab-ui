@@ -30,7 +30,7 @@ export default {
     },
     customInputKeydownHandler: {
       type: Function,
-      require: false,
+      required: false,
       default: () => () => false,
     },
     value: {

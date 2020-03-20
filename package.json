@@ -78,7 +78,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@gitlab/eslint-config": "3.0.0",
+    "@gitlab/eslint-plugin": "^2.0.0",
     "@gitlab/stylelint-config": "^2.0.0",
     "@gitlab/svgs": "^1.114.0",
     "@rollup/plugin-commonjs": "^11.0.2",
