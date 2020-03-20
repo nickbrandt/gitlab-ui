@@ -21,10 +21,10 @@ approach because anyone not familiar with GitLab UI's styles can easily get a
 grasp of what utilities are available by reading the file, no need to decipher 
 some complex loop.
 
-## Some gitlab-ui components are not conforming to [Pajamas Design System](https://design.gitlab.com/), 
+## Some GitLab UI components are not conforming to [Pajamas Design System](https://design.gitlab.com/), 
 can I still use them?
 Some [Pajamas Design System](https://design.gitlab.com/) components implemented 
-in gitlab-ui do not conform with the design system specs because they lack some 
+in GitLab UI do not conform with the design system specs because they lack some 
 planned features or are not correctly styled yet. In the Pajamas website, a banner 
 on top of the component examples indicates that:
 
@@ -62,17 +62,17 @@ it('should log an error', () => {
 
 ## GitLab CSS is breaking the styling of my component, what do I do?
 
-When we worked on removing GitLab CSS from gitlab-ui storybook, we removed the 
+When we worked on removing GitLab CSS from GitLab UI storybook, we removed the 
 main advantage of including it: An implicit integration test which ensures that 
 when we style components, they look the same in and outside of the gitlab application.
 
-To avoid losing this advantage completely, we created a CI job that runs gitlab-ui 
+To avoid losing this advantage completely, we created a CI job that runs GitLab UI 
 visual tests including GitLab CSS. This job makes sure that GitLab CSS leaks do not 
-affect gitlab-ui components’ styles when they are used in the GitLab application.
+affect GitLab UI components’ styles when they are used in the GitLab application.
 
-We should ensure that GitLab CSS  does not affect gitlab-ui’s component styles 
+We should ensure that GitLab CSS  does not affect GitLab UI's component styles 
 before indicating that it follows the design system specs. When styling a 
-gitlab-ui component, use the “include GitLab CSS bundle” storybook addon to test 
+GitLab UI component, use the “include GitLab CSS bundle” storybook addon to test 
 your component against GitLab CSS. Correct the visual differences by applying the 
 utility-mixins to overwrite GitLab CSS leaks.
 

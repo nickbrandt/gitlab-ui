@@ -209,7 +209,9 @@ export default {
           <code v-if="data.value">
             {{ data.value }}
           </code>
-          <template v-if="data.item.validationInfo">({{ data.item.validationInfo }})</template>
+          <template v-if="data.item.validationInfo"
+            >({{ data.item.validationInfo }})</template
+          >
           <div v-if="data.item.additionalInfo">
             <i>{{ data.item.additionalInfo }}</i>
           </div>
@@ -263,6 +265,6 @@ export default {
     </template>
   </div>
   <b-alert v-else show variant="warning">
-    No gitlab-ui component found with the name {{ componentName }}
+    No GitLab UI component found with the name {{ componentName }}
   </b-alert>
 </template>

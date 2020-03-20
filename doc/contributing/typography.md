@@ -1,8 +1,8 @@
-# gitlab-ui typography
+# GitLab UI typography
 
 ## Font family
 
-gitlab-ui uses the following font stack:
+GitLab UI uses the following font stack:
 
 - Regular: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu,
   Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
@@ -12,7 +12,7 @@ gitlab-ui uses the following font stack:
 
 ## Typescale
 
-gitlab-ui typescale is an implementation of the Pajamas [typescale specification](https://design.gitlab.com/product-foundations/typography#typescale). A complete reference of the typescale can be found in the [typescale sketch file](https://gitlab-org.gitlab.io/gitlab-design/hosted/pedro/%23168-responsive-type-spec-previews/). Text size is determined by the following parameters:
+GitLab UI typescale is an implementation of the Pajamas [typescale specification](https://design.gitlab.com/product-foundations/typography#typescale). A complete reference of the typescale can be found in the [typescale sketch file](https://gitlab-org.gitlab.io/gitlab-design/hosted/pedro/%23168-responsive-type-spec-previews/). Text size is determined by the following parameters:
 
 - Content type:
   - UI: default
