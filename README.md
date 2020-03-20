@@ -92,7 +92,7 @@ Install with Yarn:
 yarn add @gitlab/ui
 ```
 
-Install with NPM:
+Install with npm:
 
 ```sh
 npm install @gitlab/ui
