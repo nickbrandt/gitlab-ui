@@ -1,7 +1,6 @@
 <script>
 import merge from 'lodash/merge';
-import minBy from 'lodash/minBy';
-import min from 'lodash/min';
+import sortBy from 'lodash/sortBy';
 import truncate from 'lodash/truncate';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -29,6 +28,8 @@ const DEFAULT_NAME_GAP = 60;
  * More about this fix in `updateYAxisNameGap` method.
  */
 const NAME_GAP_OFFSET = 18;
+const SHADOW_SERIES_NAME = 'shadow';
+const SHADOW_COLOR = '#f2f2f2';
 
 /**
  * Because the axes are reversed in bar charts defaultChartOptions
@@ -71,6 +72,11 @@ export default {
       type: Object,
       required: true,
     },
+    showShadow: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     option: {
       type: Object,
       required: false,
@@ -105,13 +111,38 @@ export default {
   },
   computed: {
     series() {
-      return Object.keys(this.data).map((key, index) => {
+      const shadowSeries = {
+        name: SHADOW_SERIES_NAME,
+        data: [],
+        type: 'bar',
+        silent: true,
+        stack: 'chart',
+        itemStyle: {
+          color: hexToRgba(SHADOW_COLOR, 0.2),
+          barBorderColor: SHADOW_COLOR,
+          barBorderWidth: 1,
+        },
+        emphasis: {
+          itemStyle: {
+            color: hexToRgba(SHADOW_COLOR, 0.4),
+          },
+        },
+        barMaxWidth: '50%',
+      };
+
+      const series = Object.keys(this.data).map((key, index) => {
         const barColor = colorFromPalette(index);
+        const data = this.data[key];
+
+        if (this.showShadow) {
+          shadowSeries.data.push(...data.map(([, name]) => [this.dataExtent?.max, name]));
+        }
 
         return {
           name: key,
-          data: this.data[key],
+          data,
           type: 'bar',
+          // z: 3,
           stack: 'chart',
           itemStyle: {
             color: hexToRgba(barColor, 0.2),
@@ -126,6 +157,16 @@ export default {
           barMaxWidth: '50%',
         };
       });
+
+      return [...series, shadowSeries];
+    },
+    dataExtent() {
+      const allData = Object.values(this.data).reduce((acc, series) => [...acc, ...series], []);
+      const sortedData = sortBy(allData, ([val]) => val);
+      return {
+        min: sortedData[0][0],
+        max: sortedData[sortedData.length - 1][0],
+      };
     },
     options() {
       const mergedOptions = merge(
@@ -138,6 +179,7 @@ export default {
             },
             name: this.xAxisTitle,
             type: this.xAxisType,
+            max: this.dataExtent?.max,
           },
           yAxis: {
             name: this.yAxisTitle,
@@ -220,8 +262,7 @@ export default {
      */
     updateYAxisNameGap() {
       if (this.chart) {
-        const [value] = this.getDataExtent();
-        const hasNegativeValue = Math.sign(value) < 0;
+        const hasNegativeValue = Math.sign(this.dataExtent?.min) < 0;
         const nameGap = hasNegativeValue
           ? DEFAULT_NAME_GAP
           : this.chart.convertToPixel({ xAxisIndex: 0 }, 0) - NAME_GAP_OFFSET;
@@ -251,9 +292,7 @@ export default {
      *
      * @returns {Array} data point
      */
-    getDataExtent() {
-      return min(Object.values(this.data).map(series => minBy(series, ([val]) => val)));
-    },
+
     /**
      * The existing getDefaultTooltipContent in utils works against the y-axis value.
      * However, for bar charts, the tooltip should be against x-axis values.
@@ -265,27 +304,29 @@ export default {
      */
     getDefaultTooltipContent(params, xAxisTitle = null) {
       const seriesDataLength = params.seriesData.length;
-      const { yLabels, tooltipContent } = params.seriesData.reduce(
-        (acc, chartItem) => {
-          const [value, title] = chartItem.value || [];
-          // The x axis title is used instead of y axis
-          const seriesName =
-            seriesDataLength === 1 && xAxisTitle ? xAxisTitle : chartItem.seriesName;
-          const color = seriesDataLength === 1 ? '' : chartItem.color;
-          acc.tooltipContent[seriesName] = {
-            value,
-            color,
-          };
-          if (!acc.yLabels.includes(title)) {
-            acc.yLabels.push(title);
+      const { yLabels, tooltipContent } = params.seriesData
+        .filter(({ seriesName }) => seriesName !== SHADOW_SERIES_NAME)
+        .reduce(
+          (acc, chartItem) => {
+            const [value, title] = chartItem.value || [];
+            // The x axis title is used instead of y axis
+            const seriesName =
+              seriesDataLength === 1 && xAxisTitle ? xAxisTitle : chartItem.seriesName;
+            const color = seriesDataLength === 1 ? '' : chartItem.color;
+            acc.tooltipContent[seriesName] = {
+              value,
+              color,
+            };
+            if (!acc.yLabels.includes(title)) {
+              acc.yLabels.push(title);
+            }
+            return acc;
+          },
+          {
+            yLabels: [],
+            tooltipContent: {},
           }
-          return acc;
-        },
-        {
-          yLabels: [],
-          tooltipContent: {},
-        }
-      );
+        );
 
       return { yLabels, tooltipContent };
     },

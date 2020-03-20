@@ -1,4 +1,5 @@
 import BarChartBasicExample from './bar.basic.example.vue';
+import BarChartShadowExample from './bar.shadow.example.vue';
 import BarChartLongLablesExample from './bar.long_labels.example.vue';
 import BarChartNegativeValuesExample from './bar.negative_values.example.vue';
 import BarChartMultipleSeriesExample from './bar.multiple_series.example.vue';
@@ -12,6 +13,11 @@ export default [
         name: 'Basic',
         description: 'Basic Bar Chart',
         component: BarChartBasicExample,
+      },
+      {
+        id: 'bar-shadow',
+        name: 'Bar shadows',
+        component: BarChartShadowExample,
       },
       {
         id: 'bar-negative-labels',
