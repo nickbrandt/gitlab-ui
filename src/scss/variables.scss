@@ -35,41 +35,41 @@ $white-normal: #f0f0f0;
 $white-dark: #eaeaea;
 $white-transparent: rgba(255, 255, 255, 0.8);
 
-$green-50: #f1fdf6;
-$green-100: #dcf5e7;
-$green-200: #b3e6c8;
-$green-300: #75d09b;
-$green-400: #37b96d;
-$green-500: #1aaa55;
-$green-600: #168f48;
-$green-700: #12753a;
-$green-800: #0e5a2d;
+$green-50: #ecf4ee;
+$green-100: #c3e6cd;
+$green-200: #91d4a8;
+$green-300: #52b87a;
+$green-400: #2da160;
+$green-500: #108548;
+$green-600: #217645;
+$green-700: #24663b;
+$green-800: #0d532a;
 $green-900: #0a4020;
 $green-950: #072b15;
 
-$blue-50: #f6fafe;
-$blue-100: #e4f0fb;
-$blue-200: #b8d6f4;
-$blue-300: #73afea;
-$blue-400: #418cd8;
-$blue-500: #1f78d1;
-$blue-600: #1b69b6;
-$blue-700: #17599c;
-$blue-800: #134a81;
-$blue-900: #0f3b66;
-$blue-950: #0a2744;
+$blue-50: #e9f3fc;
+$blue-100: #cbe2f9;
+$blue-200: #9dc7f1;
+$blue-300: #63a6e9;
+$blue-400: #428fdc;
+$blue-500: #1f75cb;
+$blue-600: #1068bf;
+$blue-700: #0b5cad;
+$blue-800: #064787;
+$blue-900: #033464;
+$blue-950: #002850;
 
-$orange-50: #fffaf4;
-$orange-100: #fff1de;
-$orange-200: #fed69f;
-$orange-300: #fdbc60;
-$orange-400: #fca429;
-$orange-500: #fc9403;
-$orange-600: #de7e00;
-$orange-700: #c26700;
-$orange-800: #a35200;
-$orange-900: #853c00;
-$orange-950: #592800;
+$orange-50: #fdf1dd;
+$orange-100: #f5d9a8;
+$orange-200: #e9be74;
+$orange-300: #d99530;
+$orange-400: #c17d10;
+$orange-500: #ab6100;
+$orange-600: #9e5400;
+$orange-700: #8f4700;
+$orange-800: #703800;
+$orange-900: #5c2900;
+$orange-950: #421f00;
 
 $red-50: #fcf1ef;
 $red-100: #fdd4cd;
@@ -95,69 +95,93 @@ $purple-800: #453894;
 $purple-900: #2f2a6b;
 $purple-950: #232150;
 
-$gray-50: #fafafa;
-$gray-100: #f2f2f2;
-$gray-200: #dfdfdf;
-$gray-300: #ccc;
-$gray-400: #bababa;
-$gray-500: #a7a7a7;
-$gray-600: #919191;
-$gray-700: #707070;
-$gray-800: #4f4f4f;
-$gray-900: #2e2e2e;
+/*
+Neutral palette mapping
+
+Old variables are mapped to new variables by approximating the closest variable, erring on the side of shifting darker (with the exception of old 400). There is currently nothing mapped to 600 and 800, which makes them a good use case for subtle nuance in the UI.
+
+
+Before        After (reflected below)
+-------------------------------------
+50            0
+100           50
+200           100
+300           200
+400           200
+500           300
+600           400
+700           500*
+800           700
+900           900
+950           950
+
+* Passes 4.5:1 contrast ratio on $gray-0
+*/
+
+$gray-0: #fafafa;
+$gray-50: #f0f0f0;
+$gray-100: #dbdbdb;
+$gray-200: #bfbfbf;
+$gray-300: #999;
+$gray-400: #868686;
+$gray-500: #666;
+$gray-600: #5e5e5e;
+$gray-700: #525252;
+$gray-800: #404040;
+$gray-900: #303030;
 $gray-950: #1f1f1f;
 
 // GitLab themes
 
 $gl-themes: 'indigo', 'blue', 'light-blue', 'green', 'red', 'light-red';
 
-$theme-indigo-50: #f7f7ff;
-$theme-indigo-100: #ebebfa;
-$theme-indigo-200: #d1d1f0;
-$theme-indigo-300: #a6a6de;
-$theme-indigo-400: #7c7ccc;
+$theme-indigo-50: #f1f1ff;
+$theme-indigo-100: #dbdbf8;
+$theme-indigo-200: #c7c7f2;
+$theme-indigo-300: #a2a2e6;
+$theme-indigo-400: #8181d7;
 $theme-indigo-500: #6666c4;
-$theme-indigo-600: #5b5bbd;
-$theme-indigo-700: #4b4ba3;
-$theme-indigo-800: #393982;
-$theme-indigo-900: #292961;
-$theme-indigo-950: #1a1a40;
+$theme-indigo-600: #5252b5;
+$theme-indigo-700: #41419f;
+$theme-indigo-800: #303083;
+$theme-indigo-900: #222261;
+$theme-indigo-950: #14143d;
 
-$theme-blue-50: #f4f8fc;
-$theme-blue-100: #e6edf5;
-$theme-blue-200: #c8d7e6;
-$theme-blue-300: #97b3cf;
-$theme-blue-400: #648cb4;
-$theme-blue-500: #4a79a8;
-$theme-blue-600: #3e6fa0;
-$theme-blue-700: #305c88;
-$theme-blue-800: #25496e;
-$theme-blue-900: #1a3652;
-$theme-blue-950: #0f2235;
+$theme-blue-50: #cdd8e3;
+$theme-blue-100: #b9cadc;
+$theme-blue-200: #a6bdd5;
+$theme-blue-300: #81a5c9;
+$theme-blue-400: #628eb9;
+$theme-blue-500: #4977a5;
+$theme-blue-600: #346596;
+$theme-blue-700: #235180;
+$theme-blue-800: #153c63;
+$theme-blue-900: #0b2640;
+$theme-blue-950: #04101c;
 
-$theme-light-blue-50: #f2f7fc;
-$theme-light-blue-100: #ebf1f7;
-$theme-light-blue-200: #c9dcf2;
-$theme-light-blue-300: #83abd4;
-$theme-light-blue-400: #4d86bf;
-$theme-light-blue-500: #367cc2;
-$theme-light-blue-600: #3771ab;
-$theme-light-blue-700: #2261a1;
-$theme-light-blue-800: #25496e;
-$theme-light-blue-900: #1a3652;
-$theme-light-blue-950: #0f2235;
+$theme-light-blue-50: #dde6ee;
+$theme-light-blue-100: #c1d4e6;
+$theme-light-blue-200: #a0bedc;
+$theme-light-blue-300: #74a3d3;
+$theme-light-blue-400: #4f8bc7;
+$theme-light-blue-500: #3476b9;
+$theme-light-blue-600: #2268ae;
+$theme-light-blue-700: #145aa1;
+$theme-light-blue-800: #0e4d8d;
+$theme-light-blue-900: #0c4277;
+$theme-light-blue-950: #0a3764;
 
-$theme-green-50: #f2faf6;
-$theme-green-100: #e4f3ea;
-$theme-green-200: #c0dfcd;
-$theme-green-300: #8ac2a1;
-$theme-green-400: #52a274;
-$theme-green-500: #35935c;
-$theme-green-600: #288a50;
-$theme-green-700: #1c7441;
-$theme-green-800: #145d33;
-$theme-green-900: #0d4524;
-$theme-green-950: #072d16;
+$theme-green-50: #dde9de;
+$theme-green-100: #b1d6b5;
+$theme-green-200: #8cc497;
+$theme-green-300: #69af7d;
+$theme-green-400: #499767;
+$theme-green-500: #308258;
+$theme-green-600: #25744c;
+$theme-green-700: #1b653f;
+$theme-green-800: #155635;
+$theme-green-900: #0e4328;
+$theme-green-950: #052e19;
 
 $theme-red-50: #f4e9e7;
 $theme-red-100: #ecd3d0;

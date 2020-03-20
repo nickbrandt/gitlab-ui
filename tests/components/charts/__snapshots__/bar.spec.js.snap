@@ -27,13 +27,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(31, 120, 209, 0.4)",
+          "color": "rgba(31, 117, 203, 0.4)",
         },
       },
       "itemStyle": Object {
-        "barBorderColor": "#1f78d1",
+        "barBorderColor": "#1f75cb",
         "barBorderWidth": 1,
-        "color": "rgba(31, 120, 209, 0.2)",
+        "color": "rgba(31, 117, 203, 0.2)",
       },
       "name": "Office",
       "stack": "chart",

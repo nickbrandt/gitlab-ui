@@ -77,12 +77,16 @@ documentedStoriesOf('charts|column-chart', readme)
     components,
     template,
   }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        toolbox,
-      },
+  .add(
+    'with toolbox',
+    () => ({
+      props: generateProps({
+        option: {
+          toolbox,
+        },
+      }),
+      components,
+      template,
     }),
-    components,
-    template,
-  }));
+    { storyshots: false }
+  );

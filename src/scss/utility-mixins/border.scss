@@ -83,16 +83,32 @@
   border-color: $t-gray-a-24;
 }
 
+@mixin gl-border-t-gray-100 {
+  border-top-color: $gray-100;
+}
+
 @mixin gl-border-t-gray-200 {
   border-top-color: $gray-200;
+}
+
+@mixin gl-border-r-gray-100 {
+  border-right-color: $gray-100;
 }
 
 @mixin gl-border-r-gray-200 {
   border-right-color: $gray-200;
 }
 
+@mixin gl-border-b-gray-100 {
+  border-bottom-color: $gray-100;
+}
+
 @mixin gl-border-b-gray-200 {
   border-bottom-color: $gray-200;
+}
+
+@mixin gl-border-l-gray-100 {
+  border-left-color: $gray-100;
 }
 
 @mixin gl-border-l-gray-200 {

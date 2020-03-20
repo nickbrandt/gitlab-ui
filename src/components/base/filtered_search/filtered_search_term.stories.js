@@ -41,7 +41,7 @@ documentedStoriesOf('base|filtered-search/term', readme)
     template: `
       <div>
         <div> {{ value.data }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-400">
+        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-term
             v-model="value"
             class="gl-h-full"

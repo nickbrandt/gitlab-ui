@@ -12,7 +12,7 @@
 
     .gl-search-box-by-click-history-icon {
       @include gl-mr-2;
-      @include gl-text-gray-700;
+      @include gl-text-gray-500;
     }
 
     .gl-search-box-by-click-history-icon-chevron {
@@ -35,7 +35,7 @@
 
     .gl-search-box-by-click-history-no-searches {
       @include gl-text-center;
-      @include gl-text-gray-700;
+      @include gl-text-gray-500;
       .gl-dropdown-text {
         @include gl-font-weight-normal;
       }
@@ -43,7 +43,7 @@
   }
 
   .gl-search-box-by-click-search-button {
-    @include gl-text-gray-700;
+    @include gl-text-gray-500;
   }
 
   .gl-search-box-by-click-input {
