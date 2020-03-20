@@ -1,17 +1,15 @@
 <script>
+import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
-import GlTooltip from '../../../directives/tooltip';
 
 export default {
   components: {
+    GlClearIconButton,
     GlIcon,
     GlFormInput,
     GlLoadingIcon,
-  },
-  directives: {
-    GlTooltip,
   },
   inheritAttrs: false,
   props: {
@@ -19,6 +17,11 @@ export default {
       type: String,
       required: false,
       default: '',
+    },
+    clearButtonTitle: {
+      type: String,
+      required: false,
+      default: 'Clear',
     },
     isLoading: {
       type: Boolean,
@@ -83,17 +86,13 @@ export default {
     <div class="gl-search-box-by-type-right-icons">
       <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
 
-      <button
+      <gl-clear-icon-button
         v-if="hasValue"
-        v-gl-tooltip.hover="{ container: tooltipContainer }"
-        title="Clear"
-        aria-hidden="true"
-        class="gl-search-box-by-type-clear"
-        name="clear"
+        :title="clearButtonTitle"
+        :tooltip-container="tooltipContainer"
+        class="gl-search-box-by-type-clear gl-clear-icon-button"
         @click="clearInput"
-      >
-        <gl-icon name="clear" />
-      </button>
+      />
     </div>
   </div>
 </template>

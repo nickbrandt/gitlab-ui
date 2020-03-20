@@ -1,6 +1,7 @@
 <script>
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
+import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlIcon from '../icon/icon.vue';
@@ -30,6 +31,7 @@ function initialState() {
 
 export default {
   components: {
+    GlClearIconButton,
     GlSearchBoxByClick,
     GlIcon,
   },
@@ -53,6 +55,7 @@ export default {
     },
     clearButtonTitle: {
       type: String,
+      required: false,
       default: 'Clear',
     },
   },
@@ -254,16 +257,12 @@ export default {
           />
         </template>
       </div>
-      <button
+      <gl-clear-icon-button
         v-if="hasValue"
-        v-gl-tooltip.hover
         :title="clearButtonTitle"
-        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
-        name="clear"
+        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
         @click="clearInput"
-      >
-        <gl-icon name="clear" />
-      </button>
+      />
       <portal-target
         ref="menu"
         :key="activeTokenIdx"

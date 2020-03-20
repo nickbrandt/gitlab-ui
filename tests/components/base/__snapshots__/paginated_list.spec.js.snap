@@ -7,6 +7,7 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -57,6 +58,7 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -133,6 +135,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -235,6 +238,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -402,6 +406,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -608,6 +613,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -635,6 +641,7 @@ exports[`Paginated List Search states renders the default empty search message w
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -662,6 +669,7 @@ exports[`Paginated List Search states renders the list filtered by search result
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -725,6 +733,7 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -752,6 +761,7 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -779,6 +789,7 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -842,6 +853,7 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -892,6 +904,7 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
@@ -942,6 +955,7 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
   >
      
     <gl-search-box-by-type-stub
+      clearbuttontitle="Clear"
       value=""
     />
   </div>
