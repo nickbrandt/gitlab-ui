@@ -3,7 +3,7 @@ import { BInputGroup } from 'bootstrap-vue';
 import SearchBoxByClick from '../../../src/components/base/search_box_by_click/search_box_by_click.vue';
 import GlDropdownItem from '../../../src/components/base/new_dropdown/new_dropdown_item.vue';
 import GlFormInput from '../../../src/components/base/form/form_input/form_input.vue';
-import Icon from '../../../src/components/base/icon/icon.vue';
+import ClearIcon from '../../../src/components/shared_components/clear_icon_button/clear_icon_button.vue';
 
 describe('search box by click component', () => {
   let wrapper;
@@ -15,13 +15,7 @@ describe('search box by click component', () => {
     });
   };
 
-  const findClearIcon = () => {
-    const result = wrapper.findAll(Icon).filter(c => c.props('name') === 'clear');
-    if (result.length > 1) {
-      throw new Error('Multiple clear icons found');
-    }
-    return result.length === 1 ? result.at(0) : result;
-  };
+  const findClearIcon = () => wrapper.find(ClearIcon);
 
   afterEach(() => {
     wrapper.destroy();
@@ -54,8 +48,7 @@ describe('search box by click component', () => {
 
     it('emits empty value when clicked', async () => {
       createComponent({ value: 'somevalue' });
-
-      findClearIcon().trigger('click');
+      findClearIcon().vm.$emit('click');
 
       await wrapper.vm.$nextTick();
       expect(wrapper.emitted().input).toEqual([[null]]);
