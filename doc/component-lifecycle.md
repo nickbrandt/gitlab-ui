@@ -42,12 +42,14 @@ the package is updated. See [Updating Gitlab Packages](./updating-gitlab-ui-pack
 
 # Component status
 
-Not all components within GitLab UI are used in the GitLab product at this
-time. However, some components have been implemented and others have been migrated
-from [GitLab](https://gitlab.com/gitlab-org/gitlab) to
-[GitLab UI](https://gitlab.com/gitlab-org/gitlab-ui).
-To view which components have been implemented into the product, view our
+Not all components within GitLab UI are fully integrated within the GitLab product at this 
+time. Some components may be partially integrated and others have been migrated 
+from [GitLab](https://gitlab.com/gitlab-org/gitlab) to [GitLab UI](https://gitlab.com/gitlab-org/gitlab-ui). 
+To view which components have been fully integrated into the product, view our 
 [component status page](https://design.gitlab.com/components/status) within Pajamas.
+
+GitLab UI components should be used within GitLab even if they do not yet fully 
+conform to design specs.
 
 ## Complex components
 
