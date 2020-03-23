@@ -1,3 +1,10 @@
+## [9.33.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.33.0...v9.33.1) (2020-03-23)
+
+
+### Bug Fixes
+
+* Make data visualization variables clearer ([5ca173a](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ca173abd7bb3f268dd1567a7c64810d7de8765d))
+
 # [9.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.32.0...v9.33.0) (2020-03-20)
 
 
