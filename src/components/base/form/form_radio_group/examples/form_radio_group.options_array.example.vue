@@ -2,12 +2,12 @@
 export default {
   data() {
     return {
-      selected: [],
+      selected: 'String option',
       options: [
         'String option',
         { text: 'Object option', value: 'object' },
         { html: '<i>HTML</i> option', value: 'html' },
-        { text: 'Disabled option', disabled: true },
+        { text: 'Disabled option', value: 'disabledOption', disabled: true },
       ],
     };
   },
@@ -20,7 +20,7 @@ export default {
     'String option',
     { text: 'Object option', value: 'object' },
     { html: '<i>HTML</i> option', value: 'html' },
-    { text: 'Disabled option', disabled: true },
+    { text: 'Disabled option', value: 'disabledOption', disabled: true },
   ],
   -->
   <gl-form-radio-group v-model="selected" :options="options" />

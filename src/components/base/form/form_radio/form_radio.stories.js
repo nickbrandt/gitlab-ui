@@ -1,11 +1,10 @@
-import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_radio.md';
-import { GlFormRadio, GlFormRadioGroup } from '../../../../../index';
+import { GlFormRadio } from '../../../../../index';
 
 const components = {
   GlFormRadio,
-  GlFormRadioGroup,
 };
 
 const defaultOptions = [
@@ -14,22 +13,11 @@ const defaultOptions = [
   { value: 'Burger', text: 'Burger', disabled: true },
 ];
 
-function generateProps({
-  stacked = false,
-  groupName = 'radio-group-name',
-  options = defaultOptions,
-} = {}) {
+function generateProps({ name = 'radio-group-name' } = {}) {
   return {
-    stacked: {
-      type: Boolean,
-      default: boolean('stacked', stacked),
-    },
     name: {
       type: String,
-      default: text('name', groupName),
-    },
-    options: {
-      default: object('options', options),
+      default: text('name', name),
     },
   };
 }
@@ -41,29 +29,20 @@ documentedStoriesOf('base|form/form-radio', readme)
     props: generateProps(),
     data() {
       return {
-        selected: 'Pizza',
+        selected: defaultOptions[0].value,
+        options: defaultOptions,
       };
     },
     template: `
       <div>
-        <gl-form-radio-group 
-          id="food-radios"
+        <gl-form-radio
+          v-for="option in options"
+          :key="option.value"
           v-model="selected"
-          :options="options"
-          :stacked="stacked"
+          :value="option.value"
+          :disabled="option.disabled"
           :name="name"
-          :checked="selected"
-        >
-          <template #first>
-            <gl-form-radio value="Slot option">
-              Slot option with help text
-              <template #help>
-                Help text
-              </template>
-            </gl-form-radio>
-          </template>
-          <gl-form-radio value="Last option">Last option</gl-form-radio>
-        </gl-form-radio-group>
+        >{{ option.text }}</gl-form-radio>
       </div>
     `,
   }));

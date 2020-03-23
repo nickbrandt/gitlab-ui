@@ -40,6 +40,7 @@ export { default as GlFormInputGroupDocumentation } from '../src/components/base
 export { default as GlFormTextareaDocumentation } from '../src/components/base/form/form_textarea/form_textarea.documentation';
 export { default as GlFormGroupDocumentation } from '../src/components/base/form/form_group/form_group.documentation';
 export { default as GlFormRadioDocumentation } from '../src/components/base/form/form_radio/form_radio.documentation';
+export { default as GlFormRadioGroupDocumentation } from '../src/components/base/form/form_radio_group/form_radio_group.documentation';
 export { default as GlFormSelectDocumentation } from '../src/components/base/form/form_select/form_select.documentation';
 export { default as GlSearchBoxByTypeDocumentation } from '../src/components/base/search_box_by_type/search_box_by_type.documentation';
 export { default as GlSearchBoxByClickDocumentation } from '../src/components/base/search_box_by_click/search_box_by_click.documentation';
