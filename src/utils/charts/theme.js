@@ -124,7 +124,7 @@ export default {
     left: 'center',
     itemSize: 14,
     iconStyle: {
-      color: gray200,
+      color: gray300,
       borderWidth: 0,
       emphasis: {
         borderWidth: 0,
