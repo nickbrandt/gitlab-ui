@@ -1,3 +1,128 @@
+# [10.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.33.1...v10.0.0) (2020-03-23)
+
+
+### Features
+
+* **colors:** Improve color palette accessibility ([8309567](https://gitlab.com/gitlab-org/gitlab-ui/commit/8309567ffb15bc01011abaf9450178f49ae4ad83))
+
+
+### Reverts
+
+* only run on danger-review MR creation/update ([3d174e5](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d174e550e6a5b3f02790932d8c0cb78591f77ab))
+
+
+### BREAKING CHANGES
+
+* **colors:** Update color variables to match the
+accessibility improvements in the Pajamas color specification
+
+## [9.33.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.33.0...v9.33.1) (2020-03-23)
+
+
+### Bug Fixes
+
+* Make data visualization variables clearer ([5ca173a](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ca173abd7bb3f268dd1567a7c64810d7de8765d))
+
+# [9.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.32.0...v9.33.0) (2020-03-20)
+
+
+### Features
+
+* Data visualization color palette ([22a979f](https://gitlab.com/gitlab-org/gitlab-ui/commit/22a979f8a1c46ab2dca41084e176fb64b3c9bf25))
+
+# [9.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.2...v9.32.0) (2020-03-19)
+
+
+### Features
+
+* Dynamically position axis names for long axis labels ([466bbf5](https://gitlab.com/gitlab-org/gitlab-ui/commit/466bbf5e914c8c4cbc922bd7f74fc083aad5af62))
+
+## [9.31.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.1...v9.31.2) (2020-03-19)
+
+
+### Bug Fixes
+
+* add test coverage for events ([4f3a3a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/4f3a3a5aa78b51f73f7bde6d8c89c059820b0b14))
+* adjust secondary action on modal ([52079c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/52079c79896d10b5d4502bc7afeed27ad07b105d))
+
+## [9.31.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.31.0...v9.31.1) (2020-03-19)
+
+
+### Bug Fixes
+
+* Set label font size ([8241e2a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8241e2ac527bbfa65b3d82d49cf284371c34b179))
+
+# [9.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.30.0...v9.31.0) (2020-03-18)
+
+
+### Features
+
+* **css:** Generate stateful utility classes ([e9ca4f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9ca4f180ea7fd5aa2b3afce09cf283f8d4ca786))
+
+# [9.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.29.0...v9.30.0) (2020-03-17)
+
+
+### Features
+
+* **barchart:** Support bar charts ([d4d0f7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d4d0f7e9206f27be46fb0fcda1665dad8fb2c35e))
+
+# [9.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.28.0...v9.29.0) (2020-03-17)
+
+
+### Features
+
+* **css:** Add missing spacing utilities ([bd24d60](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd24d601aff43a43ab18ce5bd90d72529cec2144))
+
+# [9.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.27.0...v9.28.0) (2020-03-14)
+
+
+### Features
+
+* Receive inherited attrs & listeners in infinite scroll ([2847f92](https://gitlab.com/gitlab-org/gitlab-ui/commit/2847f9239d4496dd89b3b74cd5f4edbc5c0f59e1))
+
+# [9.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.26.0...v9.27.0) (2020-03-13)
+
+
+### Features
+
+* **filters:** Fix error when scrolling to suggestion ([4595b2b](https://gitlab.com/gitlab-org/gitlab-ui/commit/4595b2bd2f5496bcef1dd51d7f62f1bd3c314d55))
+
+# [9.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.25.0...v9.26.0) (2020-03-13)
+
+
+### Features
+
+* **css:** Add spacing utilities ([1f03cfe](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f03cfe64b41b788c9fd94df9f3ad8884f31b741))
+
+# [9.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.24.0...v9.25.0) (2020-03-13)
+
+
+### Features
+
+* **css:** add spacing utilities ([56e534c](https://gitlab.com/gitlab-org/gitlab-ui/commit/56e534cbcb4d062b48470149a1c8e8dc2f97a129))
+
+# [9.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.2...v9.24.0) (2020-03-12)
+
+
+### Features
+
+* **filters:** Sync filters implementation with draft spec ([436eb51](https://gitlab.com/gitlab-org/gitlab-ui/commit/436eb5139e90ec4a096e033454553ca81eee6348))
+* **utilities:** Add missing utilities ([fd029b2](https://gitlab.com/gitlab-org/gitlab-ui/commit/fd029b28aba2fec62453e3f01f6cc658ec0cf1fc))
+
+## [9.23.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.1...v9.23.2) (2020-03-11)
+
+
+### Bug Fixes
+
+* Update pagination scss to remove custom bootstrap breakpoint ([adc5c55](https://gitlab.com/gitlab-org/gitlab-ui/commit/adc5c550e82177bd02cd5b42e5e2a434cd32eaef))
+
+## [9.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.23.0...v9.23.1) (2020-03-10)
+
+
+### Bug Fixes
+
+* add gl-border-gray-100 utility ([bd2897c](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd2897cc499dde7edf08838300ab1413a0971660))
+
 # [9.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.22.1...v9.23.0) (2020-03-05)
 
 

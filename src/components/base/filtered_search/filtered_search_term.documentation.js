@@ -27,7 +27,7 @@ export default {
       description: 'Emitted when autocomplete entry is selected',
     },
     {
-      event: 'create',
+      event: 'split',
       args: [
         {
           arg: 'newTokens',

@@ -7,6 +7,7 @@ Here are a few resources to guide you through contributing to GitLab UI.
 - [Commit message conventions and rules](./doc/contributing/commits.md)
 - [Testing locally](./doc/contributing/local_gitlab_testing.md)
 - [Automatic components documentation](./doc/contributing/automatic_documentation.md)
+- [Documentation guidelines](./doc/contributing/documentation_guidelines.md)
 - [Troubleshooting](./doc/contributing/troubleshooting.md)
 
 Questions? Head to our [FAQ](./FAQ.md) where you might find some answers.

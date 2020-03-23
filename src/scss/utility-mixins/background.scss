@@ -18,6 +18,10 @@
   background-color: $white-light;
 }
 
+@mixin gl-bg-gray-0 {
+  background-color: $gray-0;
+}
+
 @mixin gl-bg-gray-50 {
   background-color: $gray-50;
 }
@@ -32,6 +36,10 @@
 
 @mixin gl-bg-gray-300 {
   background-color: $gray-300;
+}
+
+@mixin gl-bg-gray-400 {
+  background-color: $gray-400;
 }
 
 @mixin gl-bg-gray-500 {
@@ -74,6 +82,10 @@
   background-color: $blue-700;
 }
 
+@mixin gl-bg-green-50 {
+  background-color: $green-50;
+}
+
 @mixin gl-bg-green-100 {
   background-color: $green-100;
 }
@@ -98,6 +110,10 @@
   background-color: $theme-green-100;
 }
 
+@mixin gl-bg-orange-50 {
+  background-color: $orange-50;
+}
+
 @mixin gl-bg-orange-100 {
   background-color: $orange-100;
 }
@@ -116,6 +132,10 @@
 
 @mixin gl-bg-orange-700 {
   background-color: $orange-700;
+}
+
+@mixin gl-bg-red-50 {
+  background-color: $red-50;
 }
 
 @mixin gl-bg-red-100 {

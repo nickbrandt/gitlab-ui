@@ -14,6 +14,7 @@ export default {
     },
     variant: {
       type: String,
+      required: false,
       default: 'default',
       validator: variant => tokenVariants.includes(variant),
     },
@@ -27,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <span :class="['gl-token', `gl-token-${variant}-variant`]">
+  <span :class="['gl-token', `gl-token-${variant}-variant`]" v-on="$listeners">
     <span class="gl-token-content">
       <slot></slot>
       <gl-icon v-if="!viewOnly" class="gl-token-close" name="close" :size="12" @click="close" />

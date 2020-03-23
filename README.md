@@ -1,6 +1,6 @@
-# gitlab-ui
+# GitLab UI
 
-`gitlab-ui` is a UI component library written in [Vue.js](https://vuejs.org).
+GitLab UI is a UI component library written in [Vue.js](https://vuejs.org).
 See https://gitlab-org.gitlab.io/gitlab-ui/ for documentation.
 
 ## Prerequisites
@@ -47,13 +47,13 @@ Components’ unit tests live in the `tests/components`. The tests are organized
 
 ### SCSS tests
 
-Even though we try to avoid writing complex SASS code to maintain CSS complexity low, we’ve implemented some functions that benefit from automated testing. SASS tests live in the `tests/scss` directory. gitlab-ui use [sass-true](https://www.oddbird.net/true/) to implement these tests, and jest run them.
+Even though we try to avoid writing complex SASS code to maintain CSS complexity low, we’ve implemented some functions that benefit from automated testing. SASS tests live in the `tests/scss` directory. GitLab UI uses [sass-true](https://www.oddbird.net/true/) to implement these tests, and jest run them.
 
 `yarn jest run_scss_tests` runs all SCSS tests.
 
 ### Visual regression tests
 
-gitlab-ui uses visual snapshot tests to prevent introducing unexpected regressions with CSS and layout changes on components. The tool we use is [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core), a storybook addon. Read the project documentation to understand how visual snapshots work.
+GitLab UI uses visual snapshot tests to prevent introducing unexpected regressions with CSS and layout changes on components. The tool we use is [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core), a storybook addon. Read the project documentation to understand how visual snapshots work.
 
 There is a visual snapshot of every component’s storybook story. To run the tests, use the `yarn test:visual` command. This command runs on the CI environment and will fail if the component visual appearance changes.
 
@@ -63,7 +63,7 @@ In some occasions, the changes in a component’s appearance are justified. In t
 
 #### Gitlab visual regression tests
 
-gitlab-ui components are a reference implementation of the [Pajamas Design System components](https://design.gitlab.com/components/status). These components should conform with the design system specs, and they should look correct in the pajamas website and the gitlab product. To make sure gitlab-ui’s components look precisely as their design specs dictate in gitlab, we created the `yarn run test:visual:gitlab` command.
+GitLab UI components are a reference implementation of the [Pajamas Design System components](https://design.gitlab.com/components/status). These components should conform with the design system specs, and they should look correct in the pajamas website and the GitLab product. To make sure GitLab UI’s components look precisely as their design specs dictate in GitLab, we created the `yarn run test:visual:gitlab` command.
 
 This command only runs visual tests for components that have the `followsDesignSystem: true` flag activated in their `*.documentation.js` file. It will include gitlab product’s final CSS output in storybook and run the visual snapshots against this version.
 
@@ -92,15 +92,18 @@ Install with Yarn:
 yarn add @gitlab/ui
 ```
 
-Install with NPM:
+Install with npm:
 
 ```sh
 npm install @gitlab/ui
 ```
 
+## Releases
+Please see [Updating Gitlab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how updated packages are included in Gitlab and Pajamas.
+
 ## Contributing guide
 
-Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to add new components and contribute in general to `gitlab-ui`.
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to add new components and contribute in general to GitLab UI.
 
 ### FAQs
 

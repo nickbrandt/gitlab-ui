@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bar chart component when mounted should render chart with axis and series 1`] = `
+Object {
+  "grid": Object {
+    "bottom": 44,
+    "containLabel": true,
+    "left": 22,
+    "right": 32,
+    "top": 16,
+  },
+  "legend": Object {
+    "show": false,
+  },
+  "series": Array [
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        Array [
+          100,
+          "Jim",
+        ],
+        Array [
+          300,
+          "Pam",
+        ],
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(31, 117, 203, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#1f75cb",
+        "barBorderWidth": 1,
+        "color": "rgba(31, 117, 203, 0.2)",
+      },
+      "name": "Office",
+      "stack": "chart",
+      "type": "bar",
+    },
+  ],
+  "xAxis": Object {
+    "axisLabel": Object {
+      "formatter": [Function],
+    },
+    "axisLine": Object {
+      "show": false,
+    },
+    "name": "Pushes per day",
+    "nameLocation": "center",
+    "type": "value",
+  },
+  "yAxis": Object {
+    "axisLabel": Object {
+      "interval": 0,
+    },
+    "axisPointer": Object {
+      "label": Object {
+        "formatter": [Function],
+      },
+      "show": true,
+      "type": "none",
+    },
+    "axisTick": Object {
+      "show": true,
+    },
+    "boundaryGap": true,
+    "name": "User",
+    "nameGap": 60,
+    "nameLocation": "center",
+    "splitLine": Object {
+      "show": false,
+    },
+    "type": "category",
+  },
+}
+`;

@@ -9,6 +9,7 @@ export { default as GlLineChartDocumentation } from '../src/components/charts/li
 export { default as GlSparklineChartDocumentation } from '../src/components/charts/sparkline/sparkline.documentation';
 export { default as GlChartSeriesLabelDocumentation } from '../src/components/charts/series_label/series_label.documentation';
 export { default as GlStackedColumnChartDocumentation } from '../src/components/charts/stacked_column/stacked_column.documentation';
+export { default as GlBarChartDocumentation } from '../src/components/charts/bar/bar.documentation';
 export { default as GlSingleStatDocumentation } from '../src/components/charts/single_stat/single_stat.documentation';
 export { default as GlChartTooltipDocumentation } from '../src/components/charts/tooltip/tooltip.documentation';
 export { default as GlToastDocumentation } from '../src/components/base/toast/toast.documentation';
@@ -72,8 +73,8 @@ export { default as GlBannerDocumentation } from '../src/components/base/banner/
 export { default as GlFilteredSearchSuggestionDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion.documentation';
 export { default as GlFilteredSearchSuggestionListDocumentation } from '../src/components/base/filtered_search/filtered_search_suggestion_list.documentation';
 export { default as GlFilteredSearchTermDocumentation } from '../src/components/base/filtered_search/filtered_search_term.documentation';
-export { default as GlFilteredSearchBinaryTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_binary_token.documentation';
-export { default as GlFilteredSearchStaticBinaryTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_static_binary_token.documentation';
+export { default as GlFilteredSearchTokenDocumentation } from '../src/components/base/filtered_search/filtered_search_token.documentation';
+export { default as GlFilteredSearchTokenSegmentDocumentation } from '../src/components/base/filtered_search/filtered_search_token_segment.documentation';
 export { default as GlFilteredSearchDocumentation } from '../src/components/base/filtered_search/filtered_search.documentation';
 export { default as GlBroadcastMessageDocumentation } from '../src/components/base/broadcast_message/broadcast_message.documentation';
 export { default as GlCollapseDocumentation } from '../src/components/base/collapse/collapse.documentation';

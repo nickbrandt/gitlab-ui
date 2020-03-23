@@ -72,4 +72,15 @@ describe('Friendly wrap component', () => {
     expect(wrapper.text()).toBe(text);
     expect(wrapper.html()).toMatch(textWrapped);
   });
+
+  it('escapes text to prevent XSS', () => {
+    const text = '<script>alert(1)</script>';
+    const textWrapped = '&lt;script&gt;alert(1)&lt;/<wbr>script&gt;';
+    createComponent({
+      text,
+    });
+
+    expect(wrapper.text()).toBe(text);
+    expect(wrapper.html()).toMatch(textWrapped);
+  });
 });

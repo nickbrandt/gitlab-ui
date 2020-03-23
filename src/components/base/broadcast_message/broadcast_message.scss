@@ -38,11 +38,11 @@
   }
 
   &.dark {
-    @include gl-bg-gray-700;
+    @include gl-bg-gray-500;
   }
 
   &.light {
-    @include gl-bg-gray-500;
+    @include gl-bg-gray-300;
   }
 
   @include media-breakpoint-up(sm) {

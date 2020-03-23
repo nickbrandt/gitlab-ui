@@ -15,12 +15,20 @@
   color: $white;
 }
 
-@mixin gl-text-white-light {
+@mixin gl-text-white-light($hover: true) {
   color: $white-light;
 }
 
 @mixin gl-text-black-normal {
   color: $black-normal;
+}
+
+@mixin gl-text-gray-200 {
+  color: $gray-200;
+}
+
+@mixin gl-text-gray-300 {
+  color: $gray-300;
 }
 
 @mixin gl-text-gray-400 {
@@ -125,6 +133,10 @@
 
 @mixin gl-text-red-800 {
   color: $red-800;
+}
+
+@mixin gl-text-theme-indigo-200 {
+  color: $theme-indigo-200;
 }
 
 @mixin gl-text-theme-indigo-300 {

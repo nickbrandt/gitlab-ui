@@ -3,6 +3,7 @@
 // @import '../components/base/dropdown/dropdown'
 //
 // ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove
+@import '../components/shared_components/clear_icon_button/clear_icon_button';
 @import '../components/base/alert/alert';
 @import '../components/base/avatar/avatar';
 @import '../components/base/avatar_labeled/avatar_labeled';
@@ -27,8 +28,8 @@
 @import '../components/base/filtered_search/filtered_search_suggestion';
 @import '../components/base/filtered_search/filtered_search_suggestion_list';
 @import '../components/base/filtered_search/filtered_search_term';
-@import '../components/base/filtered_search/filtered_search_binary_token';
-@import '../components/base/filtered_search/filtered_search_static_binary_token';
+@import '../components/base/filtered_search/filtered_search_token';
+@import '../components/base/filtered_search/filtered_search_token_segment';
 @import '../components/base/form/form_input/form_input';
 @import '../components/base/form/form_checkbox/form_checkbox';
 @import '../components/base/form/form_group/form_group';

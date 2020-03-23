@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import SearchBoxByType from '../../../src/components/base/search_box_by_type/search_box_by_type.vue';
 import LoadingIcon from '../../../src/components/base/loading_icon/loading_icon.vue';
-import Icon from '../../../src/components/base/icon/icon.vue';
+import ClearIcon from '../../../src/components/shared_components/clear_icon_button/clear_icon_button.vue';
 
 describe('search box by type component', () => {
   let wrapper;
@@ -10,43 +10,34 @@ describe('search box by type component', () => {
     wrapper = shallowMount(SearchBoxByType, { propsData });
   };
 
-  const findClearIcon = () => {
-    const result = wrapper.findAll(Icon).filter(c => c.props('name') === 'clear');
-    if (result.length > 1) {
-      throw new Error('Multiple clear icons found');
-    }
-    return result.length === 1 ? result.at(0) : result;
-  };
+  const findClearIcon = () => wrapper.find(ClearIcon);
+
+  beforeEach(() => {
+    createComponent({ value: 'somevalue' });
+  });
 
   afterEach(() => {
     wrapper.destroy();
   });
 
-  describe('clear button', () => {
+  describe('clear icon component', () => {
     it('is not rendered when value is empty', () => {
       createComponent({ value: '' });
       expect(findClearIcon().exists()).toBe(false);
     });
 
     it('is rendered when value is provided', () => {
-      createComponent({ value: 'somevalue' });
       expect(findClearIcon().exists()).toBe(true);
     });
 
     it('emits empty value when clicked', () => {
-      createComponent({ value: 'somevalue' });
-
-      findClearIcon().trigger('click');
+      findClearIcon().vm.$emit('click');
 
       expect(wrapper.emitted().input).toEqual([['']]);
     });
   });
 
   describe('v-model', () => {
-    beforeEach(() => {
-      createComponent({ value: 'somevalue' });
-    });
-
     it('syncs localValue to value prop', () => {
       wrapper.setProps({ value: 'new value' });
 

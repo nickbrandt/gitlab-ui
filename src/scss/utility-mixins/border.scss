@@ -51,6 +51,10 @@
   border-color: $white-light;
 }
 
+@mixin gl-border-gray-100 {
+  border-color: $gray-100;
+}
+
 @mixin gl-border-gray-200 {
   border-color: $gray-200;
 }
@@ -79,16 +83,32 @@
   border-color: $t-gray-a-24;
 }
 
+@mixin gl-border-t-gray-100 {
+  border-top-color: $gray-100;
+}
+
 @mixin gl-border-t-gray-200 {
   border-top-color: $gray-200;
+}
+
+@mixin gl-border-r-gray-100 {
+  border-right-color: $gray-100;
 }
 
 @mixin gl-border-r-gray-200 {
   border-right-color: $gray-200;
 }
 
+@mixin gl-border-b-gray-100 {
+  border-bottom-color: $gray-100;
+}
+
 @mixin gl-border-b-gray-200 {
   border-bottom-color: $gray-200;
+}
+
+@mixin gl-border-l-gray-100 {
+  border-left-color: $gray-100;
 }
 
 @mixin gl-border-l-gray-200 {
@@ -157,7 +177,7 @@
   border-radius: 0;
 }
 
-@mixin gl-rounded-base {
+@mixin gl-rounded-base($hover: true) {
   border-radius: $gl-border-radius-base;
 }
 
@@ -207,4 +227,20 @@
 
 @mixin gl-rounded-bottom-right-none {
   border-bottom-right-radius: 0;
+}
+
+@mixin gl-rounded-top-left-small {
+  border-top-left-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-top-right-small {
+  border-top-right-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-bottom-left-small {
+  border-bottom-left-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-bottom-right-small {
+  border-bottom-right-radius: $gl-border-radius-small;
 }

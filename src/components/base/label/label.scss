@@ -31,7 +31,7 @@ $label-max-width: 100%;
   }
 
   .gl-label-icon {
-    @include gl-text-gray-500;
+    @include gl-text-gray-300;
     @include gl-display-inline-flex;
     @include gl-align-items-center;
     @include gl-ml-2;

@@ -1,21 +1,26 @@
 .gl-filtered-search-scrollable {
+  @include gl-pl-2;
   @include gl-display-flex;
   @include gl-flex-grow-1;
   @include gl-flex-basis-0;
   @include gl-overflow-y-auto;
   @include gl-align-items-center;
-  @include gl-inset-border-1-gray-200;
+  @include gl-inset-border-1-gray-100;
 }
 
-.gl-filtered-search-token {
-  @include gl-p-1;
+.gl-filtered-search-item {
+  @include gl-px-1;
 }
 
-.gl-filtered-search-last-token {
+.gl-filtered-search-last-item {
   .gl-filtered-search-term-value {
     @include gl-h-full;
+    @include gl-w-full;
+    @include gl-align-items-center;
   }
   @include gl-flex-grow-1;
-  @include gl-h-full;
+  @include gl-p-0;
+  @include gl-pl-1;
+  @include gl-h-6;
   min-width: $gl-spacing-scale-12;
 }

@@ -1,5 +1,5 @@
 table.gl-table {
-  @include gl-text-gray-700;
+  @include gl-text-gray-500;
   @include gl-bg-transparent;
 
   tr {
@@ -16,15 +16,15 @@ table.gl-table {
 
     th {
       @include gl-font-weight-bold;
-      @include gl-border-gray-300;
+      @include gl-border-gray-200;
     }
 
     td {
-      @include gl-border-gray-200;
+      @include gl-border-gray-100;
     }
   }
 
-  @mixin stacked-override {
+  @mixin gl-tmp-stacked-override {
     tbody > tr {
       &::after {
         @include gl-content-empty;
@@ -64,13 +64,13 @@ table.gl-table {
 
   &.b-table {
     &.b-table-stacked {
-      @include stacked-override();
+      @include gl-tmp-stacked-override();
     }
 
     @each $class, $mq in $stacked-table-breakpoints {
       &.b-table-stacked-#{$class} {
         @include media-breakpoint-down(#{$mq}) {
-          @include stacked-override();
+          @include gl-tmp-stacked-override();
         }
       }
     }

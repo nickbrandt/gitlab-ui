@@ -47,6 +47,7 @@ export default {
   props: {
     componentName: {
       type: String,
+      required: false,
       default: 'Link',
       validator: componentValidator,
     },
@@ -262,6 +263,6 @@ export default {
     </template>
   </div>
   <b-alert v-else show variant="warning">
-    No gitlab-ui component found with the name {{ componentName }}
+    No GitLab UI component found with the name {{ componentName }}
   </b-alert>
 </template>

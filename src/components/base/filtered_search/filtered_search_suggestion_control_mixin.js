@@ -1,49 +1,11 @@
 import KeyCodes from 'bootstrap-vue/src/utils/key-codes';
-import { TERM_TOKEN_TYPE } from './filtered_search_utils';
-
-function splitOnQuotes(str) {
-  const queue = str.split(' ');
-  const result = [];
-  let waitingForMatchingQuote = false;
-  let quoteContent = '';
-
-  while (queue.length) {
-    const part = queue.shift();
-    const quoteIndex = part.indexOf('"');
-    if (quoteIndex === -1) {
-      if (waitingForMatchingQuote) {
-        quoteContent += ` ${part}`;
-      } else {
-        result.push(part);
-      }
-    } else {
-      const [firstPart, secondPart] = part.split('"', 2);
-
-      if (waitingForMatchingQuote) {
-        waitingForMatchingQuote = false;
-        quoteContent += ` ${firstPart}"`;
-        result.push(quoteContent);
-        quoteContent = '';
-        if (secondPart.length) {
-          queue.unshift(secondPart);
-        }
-      } else {
-        waitingForMatchingQuote = true;
-        if (firstPart.length) {
-          result.push(firstPart);
-        }
-        quoteContent = `"${secondPart}`;
-      }
-    }
-  }
-  return result;
-}
+import { splitOnQuotes } from './filtered_search_utils';
 
 export default {
   inject: ['portalName', 'alignSuggestions'],
   methods: {
     hasValue() {
-      return this.value.trim().length > 0;
+      return this.value.data.trim().length > 0;
     },
 
     getSuggestionsContainer() {
@@ -130,8 +92,12 @@ export default {
       },
       immediate: true,
     },
-    value: {
+    'value.data': {
       handler(newValue) {
+        if (typeof newValue !== 'string') {
+          return;
+        }
+
         const hasUnclosedQuote = newValue.split('"').length % 2 === 0;
         if (newValue.indexOf(' ') === -1 || hasUnclosedQuote) {
           return;
@@ -140,16 +106,10 @@ export default {
         const [firstWord, ...otherWords] = splitOnQuotes(newValue).filter(
           (w, idx, arr) => Boolean(w) || idx === arr.length - 1
         );
-        this.$emit('input', firstWord);
+        this.$emit('input', { data: firstWord });
 
         if (otherWords.length) {
-          this.$emit(
-            'create',
-            otherWords.map(w => ({
-              type: TERM_TOKEN_TYPE,
-              value: w,
-            }))
-          );
+          this.$emit('split', otherWords);
         }
       },
     },

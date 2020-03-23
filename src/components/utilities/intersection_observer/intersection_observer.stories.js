@@ -82,27 +82,29 @@ documentedStoriesOf('utilities|intersection-observer', readme)
     </div>
     `,
   }))
-  .add('infinite scrolling', () => ({
-    components,
-    data: () => ({
-      items: generateItems(),
-    }),
-    computed: {
-      lastItemId() {
-        return this.items[this.items.length - 1].id;
+  .add(
+    'infinite scrolling',
+    () => ({
+      components,
+      data: () => ({
+        items: generateItems(),
+      }),
+      computed: {
+        lastItemId() {
+          return this.items[this.items.length - 1].id;
+        },
+        endOfList() {
+          return this.lastItemId >= 1000;
+        },
       },
-      endOfList() {
-        return this.lastItemId >= 1000;
+      methods: {
+        fetchMoreItems() {
+          if (!this.endOfList) {
+            this.items.push(...generateItems(this.lastItemId));
+          }
+        },
       },
-    },
-    methods: {
-      fetchMoreItems() {
-        if (!this.endOfList) {
-          this.items.push(...generateItems(this.lastItemId));
-        }
-      },
-    },
-    template: `
+      template: `
       <div>
         <h2>Infinitely scrollable list</h2>
         <p>This data will procedurally generate 1000 items, 20 at a time</p>
@@ -114,4 +116,6 @@ documentedStoriesOf('utilities|intersection-observer', readme)
         </gl-intersection-observer>
       </div>
     `,
-  }));
+    }),
+    { storyshots: false }
+  );

@@ -4,7 +4,18 @@ The filtered search component is responsible for managing search with possible f
 
 ## Usage
 
-Each filter option (named token) requires a separate Vue component. `GlFilteredSearchStaticBinaryToken` is an example of such a token.
+Each filter option (named token) requires a separate Vue component. `GlFilteredSearchToken` is an example of such a token.
+
+Prepare array of available token configurations with the following fields:
+
+- `type`: unique identifier of token type
+- `title`: human-readable title of the token
+- `icon`: token icon
+- `dataType`: (optional) identifier of type (for example "user") for this filter. Tokens
+  of the same type could be switched without loosing their values
+- `unique`: (optional) indicate this token could appear only once in the filter
+- `disabled`: (optional) indicate this token should be hidden from the dropdown
+- any additional fields required to configure your component
 
 Each token for filtered search is a Vue component with the following props:
 
@@ -12,7 +23,7 @@ Each token for filtered search is a Vue component with the following props:
   to render proper control for editing (for example input).
 - `current-value`: current tokens of the filtered search.
 - `index`: current token position in the filtered search.
-- Additional configuration, supplied in filtered search config for this token.
+- `config`: additional configuration, supplied in filtered search config for this token.
 
 The token should emit the following events:
 
@@ -20,7 +31,7 @@ The token should emit the following events:
 - `deactivate`: when token requests deactivation (for example due to losing blur on input).
 - `destroy`: when token requests self-destruction (for instance for clicking "X" sign).
 - `replace`: token requests its replacement with another token.
-- `create`: token requests creation of new tokens.
+- `split`: token requests adding string values after the current token.
 - `complete`: token indicates its editing is completed.
 
 ## Examples

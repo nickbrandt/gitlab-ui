@@ -6,6 +6,14 @@ const scssDir = path.join(__dirname, '..', 'src', 'scss');
 const mixinsPath = path.join(scssDir, 'utility-mixins');
 const utilitiesPath = path.join(scssDir, 'utilities.scss');
 
+const mixinRegexp = /@mixin ([\w-]+).+ ?{/g;
+const statefulUtilitiesRegexp = /\$(active|hover|visited|focus): true/;
+
+const getStatefulFlags = mixinDeclaration =>
+  [...mixinDeclaration.matchAll(statefulUtilitiesRegexp)].map(match => match[1]);
+
+const getMixinName = mixinDeclaration => mixinDeclaration.replace(mixinRegexp, '$1');
+
 function writeUtilities(contents, file) {
   try {
     fs.appendFileSync(utilitiesPath, contents);
@@ -16,12 +24,27 @@ function writeUtilities(contents, file) {
   }
 }
 
+const buildUtilityClass = (selector, mixin = selector) =>
+  `.${selector} {\n  @include ${mixin};\n}\n`;
+
+const buildStatefulUtilityClass = (state, mixin) =>
+  buildUtilityClass(`${state}-${mixin}:${state}`, mixin);
+
+const buildUtilityClasses = mixinDeclaration => {
+  const mixinName = getMixinName(mixinDeclaration);
+  const statefulFlags = getStatefulFlags(mixinDeclaration);
+  const classes = [buildUtilityClass(mixinName)];
+
+  return statefulFlags
+    .reduce((acc, flag) => [...acc, buildStatefulUtilityClass(flag, mixinName)], classes)
+    .join('');
+};
+
 function main() {
   try {
     if (fs.existsSync(utilitiesPath)) {
       fs.unlinkSync(utilitiesPath);
     }
-    const mixinRegexp = new RegExp('@mixin ([^ {]+) ?{', 'g');
 
     fs.readdir(mixinsPath, (err, files) => {
       if (err) throw err;
@@ -32,10 +55,7 @@ function main() {
 
         if (mixins) {
           writeUtilities(
-            mixins.reduce((acc, mixinMatch) => {
-              const mixinName = mixinMatch.replace(mixinRegexp, '$1');
-              return `${acc}.${mixinName} {\n  @include ${mixinName};\n}\n`;
-            }, ''),
+            mixins.reduce((acc, mixinMatch) => `${acc}${buildUtilityClasses(mixinMatch)}`, ''),
             file
           );
         }

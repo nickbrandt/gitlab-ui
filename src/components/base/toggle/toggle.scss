@@ -46,7 +46,7 @@
   @include gl-justify-content-center;
   @include gl-border-0;
   @include gl-cursor-pointer;
-  @include gl-bg-gray-600;
+  @include gl-bg-gray-400;
   @include gl-p-1;
   @include gl-relative;
   @include gl-w-10;
@@ -86,7 +86,7 @@
     > svg {
       @include gl-w-5;
       @include gl-h-5;
-      @include gl-fill-gray-600;
+      @include gl-fill-gray-400;
       @include gl-vertical-align-baseline;
     }
   }

@@ -1,6 +1,7 @@
 <script>
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
+import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlIcon from '../icon/icon.vue';
@@ -17,10 +18,10 @@ Vue.use(PortalVue);
 
 let portalUuid = 0;
 
-function createTerm(value = '') {
+function createTerm(data = '') {
   return {
     type: TERM_TOKEN_TYPE,
-    value,
+    value: { data },
   };
 }
 
@@ -30,6 +31,7 @@ function initialState() {
 
 export default {
   components: {
+    GlClearIconButton,
     GlSearchBoxByClick,
     GlIcon,
   },
@@ -43,7 +45,8 @@ export default {
     },
     availableTokens: {
       type: Array,
-      required: true,
+      required: false,
+      default: () => [],
     },
     placeholder: {
       type: String,
@@ -52,6 +55,7 @@ export default {
     },
     clearButtonTitle: {
       type: String,
+      required: false,
       default: 'Clear',
     },
   },
@@ -82,10 +86,23 @@ export default {
       return this.activeTokenIdx === this.lastTokenIdx;
     },
     hasValue() {
-      return this.tokens.length > 1 || this.tokens[0].value !== '';
+      return this.tokens.length > 1 || this.tokens[0].value.data !== '';
     },
     termPlaceholder() {
       return this.hasValue ? null : this.placeholder;
+    },
+    currentAvailableTokens() {
+      return this.availableTokens.filter(token => {
+        if (token.disabled) {
+          return false;
+        }
+
+        if (token.unique) {
+          return !this.tokens.find(t => t.type === token.type);
+        }
+
+        return true;
+      });
     },
   },
   watch: {
@@ -93,7 +110,8 @@ export default {
       immediate: true,
       handler(newValue) {
         this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
-        if (this.tokens.length === 0 || this.tokens[this.lastTokenIdx].type !== TERM_TOKEN_TYPE) {
+
+        if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
           this.tokens.push(createTerm());
         }
       },
@@ -112,23 +130,16 @@ export default {
       return !this.activeTokenIdx && idx === this.lastTokenIdx;
     },
 
+    isLastTokenEmpty() {
+      return isEmptyTerm(this.tokens[this.lastTokenIdx]);
+    },
+
     getTokenEntry(type) {
       return this.availableTokens.find(t => t.type === type);
     },
 
     getTokenComponent(type) {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
-    },
-
-    tokenConfig(type) {
-      const cmp = this.getTokenEntry(type);
-      if (!cmp) {
-        return null;
-      }
-
-      const { token, ...config } = cmp;
-
-      return config;
     },
 
     activate(token) {
@@ -146,11 +157,12 @@ export default {
       if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx || this.activeToken.type !== type) {
         return;
       }
-      if (
-        !this.isLastTokenActive &&
-        this.activeToken.type === TERM_TOKEN_TYPE &&
-        this.activeToken.value.trim() === ''
-      ) {
+
+      if (!this.isLastTokenEmpty()) {
+        this.tokens.push(createTerm());
+      }
+
+      if (!this.isLastTokenActive && isEmptyTerm(this.activeToken)) {
         this.tokens.splice(tokenIdx, 1);
       }
 
@@ -169,25 +181,36 @@ export default {
     },
 
     replaceToken(idx, token) {
-      this.$set(this.tokens, idx, { value: '', ...token });
+      this.$set(this.tokens, idx, { ...token, value: { data: '', ...token.value } });
       this.activeTokenIdx = idx;
     },
 
-    insertToken(idx, newTokens = [createTerm()]) {
+    createTokens(idx, newStrings = ['']) {
       if (
         this.activeTokenIdx !== this.lastTokenIdx &&
-        newTokens.length === 1 &&
-        isEmptyTerm(newTokens[0])
+        newStrings.length === 1 &&
+        newStrings[0] === ''
       ) {
         this.activeTokenIdx = this.lastTokenIdx;
         return;
       }
+
+      const newTokens = newStrings.map(data => ({
+        type: TERM_TOKEN_TYPE,
+        value: { data },
+      }));
+
       this.tokens.splice(idx + 1, 0, ...newTokens);
-      this.activeTokenIdx = idx + newTokens.length;
+
+      this.activeTokenIdx = idx + newStrings.length;
     },
 
     completeToken() {
-      this.activeTokenIdx = this.lastTokenIdx;
+      if (this.activeTokenIdx === this.lastTokenIdx - 1) {
+        this.activeTokenIdx = this.lastTokenIdx;
+      } else {
+        this.activeTokenIdx = null;
+      }
     },
 
     submit() {
@@ -214,36 +237,32 @@ export default {
             ref="tokens"
             :key="`${token.type}-${idx}`"
             v-model="token.value"
-            v-bind="tokenConfig(token.type)"
+            :config="getTokenEntry(token.type)"
             :active="activeTokenIdx === idx"
-            :available-tokens="availableTokens"
+            :available-tokens="currentAvailableTokens"
             :current-value="tokens"
             :index="idx"
             :placeholder="termPlaceholder"
-            class="gl-filtered-search-token"
+            class="gl-filtered-search-item"
             :class="{
-              'gl-filtered-search-last-token': isLastToken(idx),
+              'gl-filtered-search-last-item': isLastToken(idx),
             }"
             @activate="activate(idx)"
             @deactivate="deactivate(idx, token.type)"
             @destroy="destroyToken(idx)"
             @replace="replaceToken(idx, $event)"
-            @create="insertToken(idx, $event)"
             @complete="completeToken"
             @submit="submit"
+            @split="createTokens(idx, $event)"
           />
         </template>
       </div>
-      <button
+      <gl-clear-icon-button
         v-if="hasValue"
-        v-gl-tooltip.hover
         :title="clearButtonTitle"
-        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button"
-        name="clear"
+        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
         @click="clearInput"
-      >
-        <gl-icon name="clear" />
-      </button>
+      />
       <portal-target
         ref="menu"
         :key="activeTokenIdx"

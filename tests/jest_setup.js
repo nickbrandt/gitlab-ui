@@ -5,7 +5,6 @@ expect.extend({
   toHaveLoggedVueErrors(consoleSpy) {
     const calls = get(consoleSpy, 'error.mock.calls', []);
     const loggedVueErrors = calls.some(([call]) => isString(call) && call.startsWith('[Vue warn]'));
-
     return {
       pass: loggedVueErrors,
       message: () =>

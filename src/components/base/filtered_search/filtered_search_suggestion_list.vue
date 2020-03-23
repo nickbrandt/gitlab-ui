@@ -1,16 +1,25 @@
 <script>
 export default {
+  props: {
+    initialValue: {
+      required: false,
+      validator: () => true,
+      default: null,
+    },
+  },
   data() {
     return {
       activeIdx: -1,
       registeredItems: [],
     };
   },
+
   provide() {
     return {
       filteredSearchSuggestionListInstance: this,
     };
   },
+
   computed: {
     activeItem() {
       return this.activeIdx > -1 && this.activeIdx < this.registeredItems.length
@@ -18,9 +27,19 @@ export default {
         : null;
     },
   },
+
+  watch: {
+    initialValue(newValue) {
+      this.activeIdx = this.registeredItems.findIndex(item => item.value === newValue);
+    },
+  },
+
   methods: {
     register(item) {
       this.registeredItems.push(item);
+      if (item.value === this.initialValue) {
+        this.activeIdx = this.registeredItems.length - 1;
+      }
     },
     unregister(item) {
       const idx = this.registeredItems.indexOf(item);
@@ -34,11 +53,15 @@ export default {
     nextItem() {
       if (this.activeIdx < this.registeredItems.length) {
         this.activeIdx += 1;
+      } else {
+        this.activeIdx = 0;
       }
     },
     prevItem() {
       if (this.activeIdx >= 0) {
         this.activeIdx -= 1;
+      } else {
+        this.activeIdx = this.registeredItems.length - 1;
       }
     },
     getValue() {

@@ -106,7 +106,7 @@ export default {
   },
   watch: {
     /**
-     * In gitlab-ui storybook, when a user changes the page knob,
+     * In GitLab UI storybook, when a user changes the page knob,
      * we update the current page index.
      *
      * @param {Number}  newPage - A string param
@@ -117,7 +117,7 @@ export default {
       this.pageIndex = newPage;
     },
     /**
-     * In gitlab-ui storybook, when a user changes the perPage knob,
+     * In GitLab UI storybook, when a user changes the perPage knob,
      * we reset the paginated list to the first page.
      *
      * @return {undefined} - Nothing is returned

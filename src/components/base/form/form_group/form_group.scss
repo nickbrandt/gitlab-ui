@@ -2,10 +2,17 @@
   @include gl-mb-5;
 
   .col-form-label {
+    @include gl-font-base;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
     @include gl-pt-0;
     @include gl-pb-3;
+  }
+
+  .invalid-feedback,
+  .text-gl-muted {
+    @include gl-font-base;
+    @include gl-line-height-normal;
   }
 
   .text-gl-muted {

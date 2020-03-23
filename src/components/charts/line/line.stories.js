@@ -142,16 +142,20 @@ documentedStoriesOf('charts|line-chart', readme)
     components,
     template,
   }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        xAxis: {
-          name: 'Time',
-          type: 'category',
+  .add(
+    'with toolbox',
+    () => ({
+      props: generateProps({
+        option: {
+          xAxis: {
+            name: 'Time',
+            type: 'category',
+          },
+          toolbox,
         },
-        toolbox,
-      },
+      }),
+      components,
+      template,
     }),
-    components,
-    template,
-  }));
+    { storyshots: false }
+  );

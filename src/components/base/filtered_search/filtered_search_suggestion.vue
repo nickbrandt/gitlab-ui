@@ -18,6 +18,15 @@ export default {
       return this.filteredSearchSuggestionListInstance.activeItem === this;
     },
   },
+  watch: {
+    isActive(newValue) {
+      if (newValue) {
+        window.requestAnimationFrame(() => {
+          this.$refs.item.$el.scrollIntoView({ block: 'nearest', inline: 'end' });
+        });
+      }
+    },
+  },
   created() {
     this.filteredSearchSuggestionListInstance.register(this);
   },
@@ -26,6 +35,8 @@ export default {
   },
   methods: {
     emitValue() {
+      // We use href argument for gl-dropdown-item to use <a> instead of <button>
+      // due to https://bugs.webkit.org/show_bug.cgi?id=22261
       this.filteredSearchSuggestionListInstance.$emit('suggestion', this.value);
     },
   },
@@ -34,9 +45,11 @@ export default {
 
 <template>
   <gl-dropdown-item
+    ref="item"
     class="dropdown-item gl-filtered-search-suggestion"
     :class="{ 'gl-filtered-search-suggestion-active': isActive }"
     v-bind="$attrs"
+    href="#"
     v-on="$listeners"
     @click="emitValue"
   >
