@@ -4,6 +4,7 @@ import {
   getDataZoomConfig,
   getThresholdConfig,
   mergeSeriesToOptions,
+  parseAnnotations,
 } from '../../../src/utils/charts/config';
 import { defaultDataZoomConfig, defaultChartOptions } from './data';
 
@@ -23,18 +24,8 @@ describe('chart config helpers', () => {
     it('draws area below line for < threshold', () => {
       const threshold = 3;
       const thresholds = makeThreshold(threshold, '<');
-      const expectedLineData = [
-        [
-          { xAxis: 'min', yAxis: threshold },
-          { xAxis: 'max', yAxis: threshold },
-        ],
-      ];
-      const expectedAreaData = [
-        [
-          { xAxis: 'min', yAxis: Number.NEGATIVE_INFINITY },
-          { xAxis: 'max', yAxis: threshold },
-        ],
-      ];
+      const expectedLineData = [{ yAxis: threshold }];
+      const expectedAreaData = [[{ yAxis: Number.NEGATIVE_INFINITY }, { yAxis: threshold }]];
 
       const { markLine, markArea } = getThresholdConfig(thresholds);
 
@@ -45,12 +36,7 @@ describe('chart config helpers', () => {
     it('draws line only for = threshold', () => {
       const threshold = 7;
       const thresholds = makeThreshold(threshold, '=');
-      const expectedLineData = [
-        [
-          { xAxis: 'min', yAxis: threshold },
-          { xAxis: 'max', yAxis: threshold },
-        ],
-      ];
+      const expectedLineData = [{ yAxis: threshold }];
       const expectedAreaData = [];
 
       const { markLine, markArea } = getThresholdConfig(thresholds);
@@ -62,23 +48,129 @@ describe('chart config helpers', () => {
     it('draws area above line for > threshold', () => {
       const threshold = 9000;
       const thresholds = makeThreshold(threshold, '>');
-      const expectedLineData = [
-        [
-          { xAxis: 'min', yAxis: threshold },
-          { xAxis: 'max', yAxis: threshold },
-        ],
-      ];
-      const expectedAreaData = [
-        [
-          { xAxis: 'min', yAxis: threshold },
-          { xAxis: 'max', yAxis: Infinity },
-        ],
-      ];
+      const expectedLineData = [{ yAxis: threshold }];
+      const expectedAreaData = [[{ yAxis: threshold }, { yAxis: Infinity }]];
 
       const { markLine, markArea } = getThresholdConfig(thresholds);
 
       expect(markLine.data).toEqual(expectedLineData);
       expect(markArea.data).toEqual(expectedAreaData);
+    });
+  });
+
+  describe('parseAnnotations', () => {
+    const makeAnnotation = ({ min, max }) => [
+      {
+        min,
+        max,
+      },
+    ];
+
+    it('returns empty object for no annotations', () => {
+      expect(parseAnnotations([])).toEqual({
+        areas: [],
+        lines: [],
+      });
+    });
+
+    it('draws an annotation range between two fixed points', () => {
+      const annotation = makeAnnotation({
+        min: 10,
+        max: 40,
+      });
+      const expectedLineData = [];
+      const expectedAreaData = [[{ xAxis: 10 }, { xAxis: 40 }]];
+
+      const { lines, areas } = parseAnnotations(annotation);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
+    });
+
+    it('draws an annotation range with infinity upper bound', () => {
+      const annotation = makeAnnotation({
+        min: 10,
+        max: Infinity,
+      });
+      const expectedLineData = [];
+      const expectedAreaData = [[{ xAxis: 10 }, { xAxis: Infinity }]];
+
+      const { lines, areas } = parseAnnotations(annotation);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
+    });
+
+    it('draws an annotation range with infinity lower bound', () => {
+      const annotation = makeAnnotation({
+        min: Number.NEGATIVE_INFINITY,
+        max: 10,
+      });
+      const expectedLineData = [];
+      const expectedAreaData = [[{ xAxis: -Infinity }, { xAxis: 10 }]];
+
+      const { lines, areas } = parseAnnotations(annotation);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
+    });
+
+    it('draws an annotation range without upper bound', () => {
+      const annotation = makeAnnotation({
+        min: 10,
+      });
+      const expectedLineData = [];
+      const expectedAreaData = [[{ xAxis: 10 }, { xAxis: undefined }]];
+
+      const { lines, areas } = parseAnnotations(annotation);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
+    });
+
+    it('draws an annotation range without lower bound', () => {
+      const annotation = makeAnnotation({
+        max: 10,
+      });
+      const expectedLineData = [];
+      const expectedAreaData = [[{ xAxis: undefined }, { xAxis: 10 }]];
+
+      const { lines, areas } = parseAnnotations(annotation);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
+    });
+
+    it('draws an annotation line', () => {
+      const annotation = makeAnnotation({
+        min: 10,
+        max: 10,
+      });
+      const expectedLineData = [{ xAxis: 10 }];
+      const expectedAreaData = [];
+
+      const { lines, areas } = parseAnnotations(annotation);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
+    });
+
+    it('draws multiple annotation lines', () => {
+      const annotation1 = makeAnnotation({
+        min: 10,
+        max: 10,
+      });
+      const annotation2 = makeAnnotation({
+        min: 30,
+        max: 30,
+      });
+      const expectedLineData = [{ xAxis: 10 }, { xAxis: 30 }];
+      const expectedAreaData = [];
+
+      const { lines, areas } = parseAnnotations([...annotation1, ...annotation2]);
+
+      expect(lines).toEqual(expectedLineData);
+      expect(areas).toEqual(expectedAreaData);
     });
   });
 

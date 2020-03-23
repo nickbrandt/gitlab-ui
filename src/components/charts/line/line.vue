@@ -7,6 +7,7 @@ import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
   getThresholdConfig,
+  getAnnotationsConfig,
   dataZoomAdjustments,
   symbolSize,
   mergeSeriesToOptions,
@@ -38,6 +39,11 @@ export default {
       default: () => ({}),
     },
     thresholds: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    annotations: {
       type: Array,
       required: false,
       default: () => [],
@@ -87,7 +93,8 @@ export default {
           symbolSize,
           lineStyle,
           series,
-          this.thresholds === null ? {} : getThresholdConfig(this.thresholds)
+          getThresholdConfig(this.thresholds),
+          getAnnotationsConfig(this.annotations)
         )
       );
     },
