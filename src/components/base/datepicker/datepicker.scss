@@ -18,7 +18,7 @@ $gl-datepicker-width: $grid-size * 30;
   @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-align-items-center;
-  @include gl-text-gray-600;
+  @include gl-text-gray-400;
 }
 
 .gl-datepicker-theme {
@@ -36,7 +36,7 @@ $gl-datepicker-width: $grid-size * 30;
     @include gl-pt-5;
     @include gl-px-4;
     @include gl-pb-3;
-    @include gl-inset-border-1-gray-200;
+    @include gl-inset-border-1-gray-100;
     @include gl-rounded-base;
   }
 
@@ -78,7 +78,7 @@ $gl-datepicker-width: $grid-size * 30;
     @include gl-pb-3;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
-    @include gl-text-gray-700;
+    @include gl-text-gray-500;
   }
 
   abbr[title] {
@@ -98,12 +98,12 @@ $gl-datepicker-width: $grid-size * 30;
     @include gl-font-base;
 
     &.is-past-date {
-      @include gl-text-gray-600;
+      @include gl-text-gray-400;
     }
 
     &:hover {
       @include gl-text-gray-900;
-      @include gl-bg-gray-100;
+      @include gl-bg-gray-50;
     }
   }
 

@@ -3,7 +3,7 @@ $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumbs {
   @include gl-border-0;
-  @include gl-inset-border-b-1-gray-300;
+  @include gl-inset-border-b-1-gray-200;
   @include gl-py-5;
 }
 
@@ -25,7 +25,7 @@ $breadcrumb-max-width: $grid-size * 16;
     @include gl-my-auto;
     @include gl-mx-3;
     @include gl-w-3;
-    @include gl-text-gray-700;
+    @include gl-text-gray-500;
     @include gl-fill-current-color;
   }
 }
@@ -34,7 +34,7 @@ $breadcrumb-max-width: $grid-size * 16;
   @include gl-mr-2;
   @include gl-border-1;
   @include gl-border-solid;
-  @include gl-border-gray-300;
+  @include gl-border-gray-200;
   @include gl-rounded-full;
 }
 
@@ -44,7 +44,7 @@ $breadcrumb-max-width: $grid-size * 16;
   @include gl-line-height-normal;
 
   > a {
-    @include gl-text-gray-700;
+    @include gl-text-gray-500;
     @include media-breakpoint-down(xs) {
       @include str-truncated($breadcrumb-max-width);
     }

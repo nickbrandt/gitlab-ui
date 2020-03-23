@@ -28,6 +28,10 @@
   text-decoration-color: inherit;
 }
 
+@mixin gl-text-decoration-color-gray-500 {
+  text-decoration-color: $gray-500;
+}
+
 @mixin gl-text-decoration-color-gray-700 {
   text-decoration-color: $gray-700;
 }

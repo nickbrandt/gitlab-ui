@@ -39,7 +39,7 @@ documentedStoriesOf('base|filtered-search/token-segment', readme)
     },
     template: `
       <div>v-model value: {{ value }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-400">
+        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-token-segment
             v-model="value"
             class="gl-h-full"
@@ -83,7 +83,7 @@ documentedStoriesOf('base|filtered-search/token-segment', readme)
     template: `
       <div>
         <div>v-model value: {{ value }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-400">
+        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-token-segment
             v-model="value"
             class="gl-h-full"

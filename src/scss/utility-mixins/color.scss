@@ -23,6 +23,14 @@
   color: $black-normal;
 }
 
+@mixin gl-text-gray-200 {
+  color: $gray-200;
+}
+
+@mixin gl-text-gray-300 {
+  color: $gray-300;
+}
+
 @mixin gl-text-gray-400 {
   color: $gray-400;
 }

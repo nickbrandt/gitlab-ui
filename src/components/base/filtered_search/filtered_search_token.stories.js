@@ -43,7 +43,7 @@ documentedStoriesOf('base|filtered-search/token', readme)
     template: `
       <div>
         <div> {{ value }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-400">
+        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
@@ -97,7 +97,7 @@ documentedStoriesOf('base|filtered-search/token', readme)
     template: `
       <div>
         <div> {{ value }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-400">
+        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
@@ -152,7 +152,7 @@ documentedStoriesOf('base|filtered-search/token', readme)
     template: `
       <div>
         <div> {{ value }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-400">
+        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-token
             v-model="value"
             class="gl-h-full"
