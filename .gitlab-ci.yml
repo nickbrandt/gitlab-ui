@@ -51,8 +51,6 @@ danger-review:
   stage: test
   needs: []
   only:
-    refs:
-      - merge_requests
     variables:
       - $DANGER_GITLAB_API_TOKEN
   except:
