@@ -6,4 +6,4 @@ This is a basic line chart.
 
 This component wraps the Gitlab UI `chart` component, which in turn wraps the ECharts component.
 
-See [gitlab-ui/chart](./?path=/story/charts-chart--default) for more info.
+See the [chart](./?path=/story/charts-chart--default) component for more info.

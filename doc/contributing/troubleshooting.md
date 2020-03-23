@@ -2,7 +2,7 @@
 
 ## `yarn build -w` results a "JavaScript heap out of memory error"
 
-Watching for changes in `gitlab-ui` files can be memory intensive. You can increase the amount of memory you can use to run the process.
+Watching for changes in GitLab UI files can be memory intensive. You can increase the amount of memory you can use to run the process.
 
 ```sh
 NODE_OPTIONS="--max-old-space-size=4096" yarn build -w

@@ -64,7 +64,7 @@ epic at [&1590](https://gitlab.com/groups/gitlab-org/-/epics/1590).
 
 ### Why are we doing it like this?
 
-The current SCSS architecture was designed to allow us both to gain the advantages of a utility CSS approach while also applying the same styles to both Vue components here in `gitlab-ui` and HAML components in `gitlab`.
+The current SCSS architecture was designed to allow us both to gain the advantages of a utility CSS approach while also applying the same styles to both Vue components here in GitLab UI and HAML components in GitLab itself.
 
 With utility-first CSS, styles are applied as a combination of single-attribute classes:
 
@@ -93,7 +93,7 @@ The advantages of this approach are:
 
 - It makes it easier to cascade design-system changes, especially around text and spacing. That is because the utility classes lend themselves to being updatable, like variables, in just one place. Consider the case of spacing: the values are taken from a scale (`gl-spacing-0`, `gl-spacing-10`), which means updating from a base of `4px` to `6px` means updating just those classes but keeping the relations the same.
 
-We've decided to build both component classes and utility classes from the same mixins in order to get these benefits while also having component CSS that can be applied in `gitlab-ui` and `gitlab`, `Vue` and `HAML`, without undue or repeated effort.
+We've decided to build both component classes and utility classes from the same mixins in order to get these benefits while also having component CSS that can be applied in GitLab UI and GitLab itself, `Vue` and `HAML`, without undue or repeated effort.
 
 For even more detail on our decision making, RFCs [#2](https://gitlab.com/gitlab-org/frontend/rfcs/issues/2) and [#4](https://gitlab.com/gitlab-org/frontend/rfcs/issues/4) contain historical discussion around these issues. After [RFC #4](https://gitlab.com/gitlab-org/frontend/rfcs/issues/4) was approved, we realized the silent class plus `@extend` approach generated large amounts of CSS and the approach was modified to use mixins and `@include` instead. For more context, see also this relevant [discussion](https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/623#note_192269009).
 
