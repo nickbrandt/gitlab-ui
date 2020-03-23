@@ -1,3 +1,21 @@
+# [10.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.33.1...v10.0.0) (2020-03-23)
+
+
+### Features
+
+* **colors:** Improve color palette accessibility ([8309567](https://gitlab.com/gitlab-org/gitlab-ui/commit/8309567ffb15bc01011abaf9450178f49ae4ad83))
+
+
+### Reverts
+
+* only run on danger-review MR creation/update ([3d174e5](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d174e550e6a5b3f02790932d8c0cb78591f77ab))
+
+
+### BREAKING CHANGES
+
+* **colors:** Update color variables to match the
+accessibility improvements in the Pajamas color specification
+
 ## [9.33.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.33.0...v9.33.1) (2020-03-23)
 
 
