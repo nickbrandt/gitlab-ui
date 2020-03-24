@@ -109,23 +109,19 @@ documentedStoriesOf('charts|area-chart', readme)
     components,
     template,
   }))
-  .add(
-    'with toolbox',
-    () => ({
-      props: generateProps({
-        option: {
-          xAxis: {
-            name: 'Time',
-            type: 'category',
-          },
-          toolbox,
+  .add('with toolbox', () => ({
+    props: generateProps({
+      option: {
+        xAxis: {
+          name: 'Time',
+          type: 'category',
         },
-      }),
-      components,
-      template,
+        toolbox,
+      },
     }),
-    { storyshots: false }
-  )
+    components,
+    template,
+  }))
   .add('mult-series', () => ({
     props: generateProps({
       data: times(10, index => ({
