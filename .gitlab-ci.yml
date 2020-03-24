@@ -30,6 +30,19 @@ stages:
   before_script:
     - yarn install
 
+# Only start pipelines on Merge Requests or master
+workflow:
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      when: always
+    - if: $CI_MERGE_REQUEST_IID
+      when: always
+    - when: never
+
+# Only run on merge requests that come from GitLab UI.
+.if-mr-from-gitlab-ui: &if-mr-from-gitlab-ui
+  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_PROJECT_PATH =~ /gitlab-org\\/gitlab-ui/'
+
 build_docker_image:
   variables:
     DOCKER_HOST: tcp://docker:2375/
@@ -47,15 +60,12 @@ build_docker_image:
     - ./bin/build-docker.sh
 
 danger-review:
+  rules:
+    - if: '$DANGER_GITLAB_API_TOKEN && $CI_MERGE_REQUEST_IID'
+      when: always
   image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
   stage: test
   needs: []
-  only:
-    variables:
-      - $DANGER_GITLAB_API_TOKEN
-  except:
-    refs:
-      - master
   script:
     - danger --fail-on-errors=true
 
@@ -159,6 +169,9 @@ update_screenshots:
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
 
 review:
+  rules:
+    - <<: *if-mr-from-gitlab-ui
+      when: always
   stage: deploy
   needs:
     - build_storybook
@@ -168,29 +181,24 @@ review:
     name: review/$CI_COMMIT_REF_SLUG
     url: http://$CI_COMMIT_REF_SLUG.$APPS_DOMAIN
     on_stop: review_stop
-  only:
-    - branches@gitlab-org/gitlab-ui
-  except:
-    - master
   tags:
     - nginx
     - review-apps
     - deploy
 
 review_stop:
+  rules:
+    - <<: *if-mr-from-gitlab-ui
+      when: manual
+      allow_failure: true
   stage: manual
   needs:
     - review
   script:
     - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
-  when: manual
   environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
-  only:
-    - branches@gitlab-org/gitlab-ui
-  except:
-    - master
   tags:
     - nginx
     - review-apps
@@ -206,10 +214,13 @@ pages:
     paths:
       - public
   only:
-    - master
+    - master@gitlab-org/gitlab-ui
 
 create_integration_branch:
-  when: manual
+  rules:
+    - <<: *if-mr-from-gitlab-ui
+      when: manual
+      allow_failure: true
   extends: .node
   stage: manual
   needs:
@@ -225,8 +236,6 @@ create_integration_branch:
     - git add package.json yarn.lock
     - 'git commit -m "GitLab UI: $CI_COMMIT_REF_NAME integration test"'
     - git push -u https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab.git HEAD
-  only:
-    - /.+/@gitlab-org/gitlab-ui
 
 publish_to_npm:
   extends: [.node, .yarn_install]
