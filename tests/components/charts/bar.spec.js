@@ -11,7 +11,6 @@ const mockChartInstance = {
       removeEventListener: jest.fn(),
     };
   },
-  setOption: jest.fn(),
   convertToPixel: jest.fn(),
 };
 
@@ -25,17 +24,10 @@ const defaultChartProps = {
   yAxisTitle: 'User',
   data: {
     Office: [
-      [100, 'Jim'],
-      [300, 'Pam'],
+      [100, 'Scranton Strangler'],
+      [300, 'Dwight'],
     ],
   },
-};
-
-const dataWithNegativeValues = {
-  Office: [
-    [-100, 'Scranton Strangler'],
-    [200, 'Dwight Kurt Schrute'],
-  ],
 };
 
 describe('Bar chart component', () => {
@@ -85,53 +77,10 @@ describe('Bar chart component', () => {
       expect(wrapper.emitted('created')).toEqual([[mockChartInstance]]);
     });
 
-    describe('Y axis name', () => {
-      it('label are not ellipsized for positive values', () => {
-        const pixel = 180;
-        const expectedNameGap = 162;
+    it('long Y axis labels are ellipsized', () => {
+      const { yAxis: { axisLabel: { formatter } } = {} } = getOptions();
 
-        mockChartInstance.convertToPixel.mockReturnValueOnce(pixel);
-
-        findChart().vm.$emit('updated');
-
-        return wrapper.vm.$nextTick(() => {
-          expect(mockChartInstance.convertToPixel).toHaveBeenCalled();
-          expect(mockChartInstance.setOption).toHaveBeenCalledWith(
-            expect.objectContaining({
-              yAxis: {
-                nameGap: expectedNameGap,
-              },
-            })
-          );
-        });
-      });
-
-      it('label are not ellipsized for negative values', () => {
-        const pixel = 180;
-        const expectedNameGap = 60;
-
-        wrapper.setProps({
-          data: dataWithNegativeValues,
-        });
-
-        mockChartInstance.convertToPixel.mockReturnValueOnce(pixel);
-
-        findChart().vm.$emit('updated');
-
-        return wrapper.vm.$nextTick(() => {
-          expect(mockChartInstance.convertToPixel).toHaveBeenCalled();
-          expect(mockChartInstance.setOption).toHaveBeenCalledWith(
-            expect.objectContaining({
-              yAxis: {
-                nameGap: expectedNameGap,
-                axisLabel: {
-                  formatter: expect.any(Function),
-                },
-              },
-            })
-          );
-        });
-      });
+      defaultChartProps.data.Office.map(([, name]) => expect(formatter(name)).toMatchSnapshot());
     });
 
     describe('Tooltip', () => {

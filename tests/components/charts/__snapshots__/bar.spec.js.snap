@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Bar chart component when mounted and chart has created long Y axis labels are ellipsized 1`] = `"Scra..."`;
+
+exports[`Bar chart component when mounted and chart has created long Y axis labels are ellipsized 2`] = `"Dwight"`;
+
 exports[`Bar chart component when mounted should render chart with axis and series 1`] = `
 Object {
   "grid": Object {
     "bottom": 44,
-    "containLabel": true,
-    "left": 22,
+    "left": 64,
     "right": 32,
     "top": 16,
   },
@@ -18,11 +21,11 @@ Object {
       "data": Array [
         Array [
           100,
-          "Jim",
+          "Scranton Strangler",
         ],
         Array [
           300,
-          "Pam",
+          "Dwight",
         ],
       ],
       "emphasis": Object {
@@ -53,6 +56,7 @@ Object {
   },
   "yAxis": Object {
     "axisLabel": Object {
+      "formatter": [Function],
       "interval": 0,
     },
     "axisPointer": Object {
@@ -67,7 +71,7 @@ Object {
     },
     "boundaryGap": true,
     "name": "User",
-    "nameGap": 60,
+    "nameGap": 50,
     "nameLocation": "center",
     "splitLine": Object {
       "show": false,

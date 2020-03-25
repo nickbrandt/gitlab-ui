@@ -1,7 +1,5 @@
 <script>
 import merge from 'lodash/merge';
-import minBy from 'lodash/minBy';
-import min from 'lodash/min';
 import truncate from 'lodash/truncate';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -13,33 +11,25 @@ import { colorFromPalette } from '../../../utils/charts/theme';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 
 /**
- * `nameGap` in charts/config, which is set to 50, works for all
- * other charts. Because bar charts y axis name and labels
- * can overlap, this has been modified to 60 px square. Once eCharts
- * fixes dynamic axis name positioning this can be reverted to
- * other standard chart configs.
- * More about this fix in `updateYAxisNameGap` method.
+ * `nameGap` in charts/config is set to 50 but it is not
+ * used for bar charts as the axes are flipped. That is why
+ * we're explicitly setting it here
  */
-const DEFAULT_NAME_GAP = 60;
+const DEFAULT_NAME_GAP = 50;
 
 /**
- * This is the suitable distance between coordinate system origin
- * and the y axis. This is also a temporary fix until eCharts fixes
- * dynamic axis name positioning.
- * More about this fix in `updateYAxisNameGap` method.
+ * This is the magic number at which the y-axis name
+ * and y-axis labels don't overlap
+ * @Number
  */
-const NAME_GAP_OFFSET = 18;
+const AXIS_LABEL_LENGTH = 7;
 
 /**
  * Because the axes are reversed in bar charts defaultChartOptions
  * xAxis and yAxis needs to be handled specifically.
  */
 const defaultOptions = {
-  grid: {
-    ...grid,
-    left: 22,
-    containLabel: true,
-  },
+  grid,
   xAxis: {
     nameLocation: 'center',
     axisLabel: {
@@ -47,6 +37,7 @@ const defaultOptions = {
     },
   },
   yAxis: {
+    nameGap: DEFAULT_NAME_GAP,
     boundaryGap: true,
     nameLocation: 'center',
     splitLine: {
@@ -54,6 +45,11 @@ const defaultOptions = {
     },
     axisLabel: {
       interval: 0,
+      formatter: str =>
+        truncate(str, {
+          length: AXIS_LABEL_LENGTH,
+          separator: '...',
+        }),
     },
   },
 };
@@ -141,7 +137,6 @@ export default {
           },
           yAxis: {
             name: this.yAxisTitle,
-            nameGap: DEFAULT_NAME_GAP,
             type: 'category',
             axisTick: {
               show: true,
@@ -196,63 +191,6 @@ export default {
     },
     onUpdated(chart) {
       this.$emit('updated', chart);
-      this.updateYAxisNameGap();
-    },
-    /**
-     * Bar charts axis names can overlap with long axis labels.
-     * eCharts currently does not have a way to dynamically position
-     * them based on axis labels length.
-     * There is an existing github pull request here to solve the issue
-     * https://github.com/apache/incubator-echarts/pull/12236
-     *
-     * This is a temporary fix until the above PR goes in.
-     * More about the rationale here
-     * https://gitlab.com/gitlab-org/gitlab/-/merge_requests/27155#note_307126569
-     *
-     * This method gets the pixel value of [0,*] in the coordinate system.
-     * Based on the pixel value the axis name is positioned using nameGap option.
-     * It works only if the chart has non-negative values.
-     *
-     * If the chart has negative values, the coord system x-axis doesn't start with 0
-     * and hence finding the pixel value isn't possible. In such cases, the axis
-     * labels are ellipsized and nameGap is set to default 50 px.
-     *
-     */
-    updateYAxisNameGap() {
-      if (this.chart) {
-        const [value] = this.getDataExtent();
-        const hasNegativeValue = Math.sign(value) < 0;
-        const nameGap = hasNegativeValue
-          ? DEFAULT_NAME_GAP
-          : this.chart.convertToPixel({ xAxisIndex: 0 }, 0) - NAME_GAP_OFFSET;
-        const newOptions = {
-          yAxis: {
-            nameGap,
-            ...(hasNegativeValue && {
-              axisLabel: {
-                formatter: str =>
-                  truncate(str, {
-                    length: 8,
-                    separator: '...',
-                  }),
-              },
-            }),
-          },
-        };
-
-        this.chart.setOption(newOptions);
-      }
-    },
-    /**
-     * Get the data extent among all series to get the lowest value.
-     * This is to find out if data has negative values.
-     *
-     * The importance of negative values are in updateYAxisNameGap's docstring
-     *
-     * @returns {Array} data point
-     */
-    getDataExtent() {
-      return min(Object.values(this.data).map(series => minBy(series, ([val]) => val)));
     },
     /**
      * The existing getDefaultTooltipContent in utils works against the y-axis value.
