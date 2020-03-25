@@ -1,3 +1,10 @@
+## [10.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.0.0...v10.0.1) (2020-03-25)
+
+
+### Bug Fixes
+
+* **popover:** add margin 0 by default for popover header ([0028f6f](https://gitlab.com/gitlab-org/gitlab-ui/commit/0028f6f3672d5eec951c895f772c6f231be51aba))
+
 # [10.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v9.33.1...v10.0.0) (2020-03-23)
 
 
