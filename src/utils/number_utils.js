@@ -25,14 +25,21 @@ export const isIntGreaterThan = gt => number => Number.isInteger(number) && numb
 
 /**
  * Convert number to engineering format, using SI suffix
- * @param {Number} num
+ * @param {Number|String} num
  * @param {Number} precision
  * @return {String} number, possibly with a suffix
  */
 export const engineeringNotation = (num, precision = 2) => {
+  let validNum = num;
   const invalidValues = [NaN, Infinity, -Infinity];
-  if (invalidValues.includes(Number(num)) || invalidValues.includes(Number(precision))) {
-    return num.toString();
+
+  // ensure that we're handling strings that contain comma / decimal variations
+  if (typeof validNum === 'string' && (validNum.includes(',') || validNum.includes('.'))) {
+    validNum = parseFloat(validNum.replace(',', ''));
+  }
+
+  if (invalidValues.includes(Number(validNum)) || invalidValues.includes(Number(precision))) {
+    return validNum.toString();
   }
 
   const allYourBase = {
@@ -55,7 +62,7 @@ export const engineeringNotation = (num, precision = 2) => {
     '24': 'Y',
   };
 
-  const exponentialNotation = num.toExponential(precision);
+  const exponentialNotation = validNum.toExponential(precision);
 
   const power = exponentialNotation.split('e').map(Number)[1] || 0;
 
