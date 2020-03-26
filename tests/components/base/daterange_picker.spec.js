@@ -7,6 +7,7 @@ describe('Daterange Picker', () => {
 
   const startDate = new Date('2020-08-27');
   const endDate = new Date('2020-08-29');
+  const defaultMaxDate = new Date('2021-01-01');
 
   const factory = (props = {}) => {
     wrapper = shallowMount(DaterangePicker, {
@@ -23,6 +24,7 @@ describe('Daterange Picker', () => {
 
   afterEach(() => {
     wrapper.destroy();
+    wrapper = null;
   });
 
   it('renders two datepickers', () => {
@@ -42,10 +44,10 @@ describe('Daterange Picker', () => {
         expect(wrapper.vm.startDate).toBe(startDate);
       });
 
-      it('sets the toCalendarMinDate to one day after the startDate', () => {
+      it("sets the end date picker's minDate to one day after the startDate", () => {
         const toCalendarMinDate = new Date('2020-08-28');
 
-        expect(wrapper.vm.toCalendarMinDate).toEqual(toCalendarMinDate);
+        expect(findEndPicker().props('minDate')).toEqual(toCalendarMinDate);
       });
 
       describe('with a date range violation', () => {
@@ -104,6 +106,46 @@ describe('Daterange Picker', () => {
             args: [{ startDate: wrapper.vm.startDate, endDate }],
           },
         ]);
+      });
+    });
+  });
+
+  describe('with maxDateRange = 10', () => {
+    beforeEach(() => {
+      factory({ maxDateRange: 10, defaultMaxDate });
+    });
+
+    it('sets the maxDate to the startDate + the maxDateRange', () => {
+      const maxDate = new Date('2020-09-06');
+
+      expect(findEndPicker().props('maxDate')).toEqual(maxDate);
+    });
+  });
+
+  describe('sameDaySelection = true', () => {
+    describe('from date picker', () => {
+      beforeEach(() => {
+        factory({ sameDaySelection: true });
+      });
+
+      it('updates startDate correctly', () => {
+        expect(wrapper.vm.startDate).toBe(startDate);
+      });
+
+      it("sets the end date picker's minDate to the startDate", () => {
+        expect(findEndPicker().props('minDate')).toEqual(startDate);
+      });
+
+      describe('with maxDateRange = 10', () => {
+        beforeEach(() => {
+          factory({ sameDaySelection: true, maxDateRange: 10, defaultMaxDate });
+        });
+
+        it('sets the maxDate to the startDate + the maxDateRange - 1', () => {
+          const maxDate = new Date('2020-09-05');
+
+          expect(findEndPicker().props('maxDate')).toEqual(maxDate);
+        });
       });
     });
   });
