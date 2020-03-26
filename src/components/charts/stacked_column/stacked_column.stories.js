@@ -92,16 +92,12 @@ documentedStoriesOf('charts|stacked-column-chart', readme)
     components,
     template,
   }))
-  .add(
-    'with toolbox',
-    () => ({
-      props: generateProps({
-        option: {
-          toolbox,
-        },
-      }),
-      components,
-      template,
+  .add('with toolbox', () => ({
+    props: generateProps({
+      option: {
+        toolbox,
+      },
     }),
-    { storyshots: false }
-  );
+    components,
+    template,
+  }));

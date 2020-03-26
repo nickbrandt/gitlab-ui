@@ -24,12 +24,13 @@ const getGotoOptions = () => ({
   waitUntil: 'networkidle0',
 });
 
+const failureThresholdType = process.env.FAILURE_THRESHOLD_TYPE || 'pixel';
 const failureThreshold =
-  'FAILURE_THRESHOLD' in process.env ? parseFloat(process.env.FAILURE_THRESHOLD) : 0;
+  'FAILURE_THRESHOLD' in process.env ? parseFloat(process.env.FAILURE_THRESHOLD) : 1;
 
 const getMatchOptions = () => ({
   failureThreshold,
-  failureThresholdType: 'percent',
+  failureThresholdType,
 });
 
 initStoryshots({
