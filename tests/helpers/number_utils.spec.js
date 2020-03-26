@@ -96,5 +96,9 @@ describe('number utils', () => {
     it('correctly rounds low-precision floats', () => {
       expect(numberUtils.engineeringNotation(0.0000007549, 0)).toBe('800n');
     });
+
+    it('correctly allows us to accepts strings that contain commas', () => {
+      expect(numberUtils.engineeringNotation('3,000.002', 2)).toBe('3k');
+    });
   });
 });
