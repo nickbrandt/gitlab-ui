@@ -34,6 +34,7 @@ function generateProps({
   category = newButtonCategoryOptions.tertiary,
   variant = newDropdownVariantOptions.default,
   size = newButtonSizeOptions.medium,
+  block = false,
 } = {}) {
   const props = {
     category: {
@@ -50,7 +51,7 @@ function generateProps({
     },
     block: {
       type: Boolean,
-      default: boolean('block', false),
+      default: boolean('block', block),
     },
     disabled: {
       type: Boolean,
@@ -255,6 +256,29 @@ documentedStoriesOf('base|new-dropdown', readme)
         :disabled="disabled"
       >
         <gl-new-dropdown-text><gl-search-box-by-type /></gl-new-dropdown-text>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('full width', () => ({
+    props: generateProps({ block: true }),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
       clickDropdown(this);

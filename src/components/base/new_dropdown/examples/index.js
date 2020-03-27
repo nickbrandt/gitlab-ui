@@ -11,6 +11,7 @@ import DropdownSplitExample from './new_dropdown.split.example.vue';
 import DropdownWithIconExample from './new_dropdown.with_icon.example.vue';
 import DropdownWithIconAndTextExample from './new_dropdown.with_icon_and_text.example.vue';
 import DropdownWithIconAndSplitExample from './new_dropdown.with_icon_and_split.example.vue';
+import DropdownFullWidthExample from './new_dropdown.full_width.example.vue';
 
 export default [
   {
@@ -93,6 +94,12 @@ export default [
         name: 'Split',
         description: 'Split Dropdown',
         component: DropdownSplitExample,
+      },
+      {
+        id: 'new-dropdown-full-width',
+        name: 'Full Width',
+        description: 'Full Width Dropdown',
+        component: DropdownFullWidthExample,
       },
     ],
   },
