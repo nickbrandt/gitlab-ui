@@ -1,3 +1,15 @@
+# [10.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.0.1...v10.1.0) (2020-03-27)
+
+
+### Features
+
+* **colors:** Mark color variables as default ([e9b0d5b](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9b0d5bb6ff86eabb2748b0b339a721af5d73999))
+
+
+### Reverts
+
+* only run on danger-review MR creation/update ([fa68ce0](https://gitlab.com/gitlab-org/gitlab-ui/commit/fa68ce03c723205f6b11c48ed9c4c8372b98de1e))
+
 ## [10.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.0.0...v10.0.1) (2020-03-25)
 
 
