@@ -1,10 +1,12 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 
+import { waitForAnimationFrame } from '../../test_utils';
+
 import { sparkline } from '../../../src/utils/charts/theme';
 
 import Chart from '../../../src/components/charts/chart/chart.vue';
 import SparklineChart from '../../../src/components/charts/sparkline/sparkline.vue';
-import ChartTooltip from '../../../src/components/charts/tooltip/tooltip.vue';
+import { ChartTooltip } from '../../utils/stubs';
 
 const mockResize = jest.fn();
 const mockChartInstance = {
@@ -46,6 +48,9 @@ describe('sparkline chart component', () => {
         variant: null,
       },
       scopedSlots: { latestSeriesEntry: jest.fn() },
+      stubs: {
+        'chart-tooltip': ChartTooltip,
+      },
     };
 
     wrapper = shallowMount(SparklineChart, componentOptions);
@@ -55,6 +60,8 @@ describe('sparkline chart component', () => {
   const getChart = () => wrapper.find(Chart);
 
   const getTooltip = () => wrapper.find(ChartTooltip);
+  const getTooltipTitle = () => getTooltip().find('.js-tooltip-title');
+  const getTooltipContent = () => getTooltip().find('.js-tooltip-content');
 
   const getLastYValue = () => wrapper.find('.js-last-y-value');
   const getVariantPropConfig = () => wrapper.vm.$options.props.variant;
@@ -138,6 +145,15 @@ describe('sparkline chart component', () => {
     expect(getTooltip().exists()).toBe(true);
   });
 
+  it('displays the given tooltip label', async () => {
+    const tooltipLabel = 'foo';
+
+    wrapper.setProps({ tooltipLabel: 'foo' });
+
+    await wrapper.vm.$nextTick();
+    expect(getTooltipContent().text()).toContain(tooltipLabel);
+  });
+
   it('shows the tooltip when mousing over an axis point in the component', async () => {
     expect(getTooltip().attributes('show')).toBeFalsy();
 
@@ -158,6 +174,22 @@ describe('sparkline chart component', () => {
     await wrapper.vm.$nextTick();
 
     expect(getTooltip().attributes('show')).toBeFalsy();
+  });
+
+  it('adds the right content to the tooltip', () => {
+    const xValue = 'foo';
+    const yValue = 'bar';
+    const mockData = { seriesData: [{ data: [xValue, yValue] }] };
+
+    getXAxisLabelFormatter()(mockData);
+
+    expect(getTooltipTitle().text()).toBe('');
+    expect(getTooltipContent().text()).toBe('');
+
+    return waitForAnimationFrame().then(() => {
+      expect(getTooltipTitle().text()).toBe(xValue);
+      expect(getTooltipContent().text()).toBe(yValue);
+    });
   });
 
   it(`shows the last entry's y-value per default`, async () => {

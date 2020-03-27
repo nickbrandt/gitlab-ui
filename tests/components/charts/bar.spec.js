@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import BarChart from '../../../src/components/charts/bar/bar.vue';
 import Chart from '../../../src/components/charts/chart/chart.vue';
-import ChartTooltip from '../../../src/components/charts/tooltip/tooltip.vue';
+import { ChartTooltip } from '../../utils/stubs';
 import TooltipDefaultFormat from '../../../src/components/shared_components/charts/tooltip_default_format.vue';
 
 const mockChartInstance = {
@@ -42,6 +42,7 @@ describe('Bar chart component', () => {
     wrapper = shallowMount(BarChart, {
       propsData: defaultChartProps,
       stubs: {
+        'chart-tooltip': ChartTooltip,
         'tooltip-default-format': TooltipDefaultFormat,
       },
     });
