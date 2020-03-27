@@ -1,13 +1,13 @@
+@import 'functions';
+@import 'variables';
+@import 'variables_overrides';
+
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
 
 @import 'bootstrap-vue/src/index.scss'; // stylelint-disable-line
 
-// Settings
-@import 'functions';
-@import 'variables';
-@import 'variables_overrides';
 @import 'mixins';
 @import 'utility-mixins/index';
 @import 'utilities';
