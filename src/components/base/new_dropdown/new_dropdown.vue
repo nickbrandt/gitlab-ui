@@ -75,6 +75,11 @@ export default {
       required: false,
       default: null,
     },
+    block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     renderCaret() {
@@ -93,6 +98,7 @@ export default {
         'btn-secondary': this.category === 'secondary',
         'dropdown-icon-only': !this.text.length && this.icon,
         'dropdown-icon-text': this.text.length && this.icon,
+        'gl-justify-content-space-between': this.block,
       };
     },
     buttonText() {
@@ -100,6 +106,8 @@ export default {
     },
   },
   mounted() {
+    // once we upgrade to bootstrap-vue@^2.2.0 this code can
+    // be replaced with the splitClass prop
     if (this.split && this.text) {
       this.$el.childNodes[0].classList.add('split-content-button');
     }
@@ -124,6 +132,7 @@ export default {
     :variant="variant"
     :size="buttonSize"
     :toggle-class="[toggleButtonClasses]"
+    :block="block"
     v-on="$listeners"
   >
     <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
