@@ -1,3 +1,11 @@
+## [10.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.0...v10.1.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* align dropdown caret when block ([eefffcd](https://gitlab.com/gitlab-org/gitlab-ui/commit/eefffcda51bb6c1d722459d88fbd4fac0a6a6189))
+* use gitlab util class ([7a174f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/7a174f688f2c4fe3d8cf36e78d1171256ad1c8ec))
+
 # [10.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.0.1...v10.1.0) (2020-03-27)
 
 
