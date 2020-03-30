@@ -15,6 +15,13 @@
     @include gl-line-height-normal;
   }
 
+  .form-control {
+    + .invalid-feedback,
+    + .text-gl-muted {
+      @include gl-mt-3;
+    }
+  }
+
   .text-gl-muted {
     @include gl-text-gray-700;
   }
