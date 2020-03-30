@@ -1,3 +1,10 @@
+## [10.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.1...v10.1.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* **form:** Update form group message spacing ([a82db41](https://gitlab.com/gitlab-org/gitlab-ui/commit/a82db41e7994019e3e9d444f9a962d8f371d4b5b))
+
 ## [10.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.0...v10.1.1) (2020-03-30)
 
 
