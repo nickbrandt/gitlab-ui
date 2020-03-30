@@ -26,14 +26,14 @@ $breakpoint-xl: px-to-rem(1200px);
 $transparent: transparent;
 
 // Color schema
-$black: #000;
-$black-normal: #333;
+$black: #000 !default;
+$black-normal: #333 !default;
 
-$white: #fff;
-$white-light: #fff;
-$white-normal: #f0f0f0;
-$white-dark: #eaeaea;
-$white-transparent: rgba(255, 255, 255, 0.8);
+$white: #fff !default;
+$white-light: #fff !default;
+$white-normal: #f0f0f0 !default;
+$white-dark: #eaeaea !default;
+$white-transparent: rgba(255, 255, 255, 0.8) !default;
 
 $green-50: #ecf4ee !default;
 $green-100: #c3e6cd !default;
