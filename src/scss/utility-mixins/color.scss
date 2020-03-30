@@ -99,6 +99,10 @@
   color: $theme-green-800;
 }
 
+@mixin gl-text-orange-400 {
+  color: $orange-400;
+}
+
 @mixin gl-text-orange-500 {
   color: $orange-500;
 }
@@ -133,6 +137,10 @@
 
 @mixin gl-text-red-800 {
   color: $red-800;
+}
+
+@mixin gl-text-red-900 {
+  color: $red-900;
 }
 
 @mixin gl-text-theme-indigo-200 {
