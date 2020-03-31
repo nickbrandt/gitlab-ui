@@ -33,7 +33,6 @@ export default {
         this.checkValue(newValue, oldValue);
       },
     },
-
     options: {
       handler() {
         this.checkValue(this.checked);
@@ -45,13 +44,18 @@ export default {
   },
   methods: {
     checkValue(newValue, oldValue = null) {
-      if (!this.enabledOptions.some(({ value }) => value === newValue)) {
+      if (!this.isValidValue(newValue)) {
         // eslint-disable-next-line no-console
         console.warn(genericErrorMessage);
         if (this.enabledOptions.length) {
-          this.$emit('input', oldValue || this.enabledOptions[0].value);
+          const suggestion =
+            oldValue && this.isValidValue(oldValue) ? oldValue : this.enabledOptions[0].value;
+          this.$emit('input', suggestion);
         }
       }
+    },
+    isValidValue(val) {
+      return this.enabledOptions.some(({ value }) => value === val);
     },
   },
 };
