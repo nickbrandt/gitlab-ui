@@ -50,8 +50,7 @@ export default {
     :class="{ 'gl-filtered-search-suggestion-active': isActive }"
     v-bind="$attrs"
     href="#"
-    v-on="$listeners"
-    @click="emitValue"
+    @mousedown.native.prevent="emitValue"
   >
     <slot></slot>
   </gl-dropdown-item>

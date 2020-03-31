@@ -15,9 +15,10 @@
   &.gl-filtered-search-token-type {
     @include gl-h-6;
     @include gl-bg-gray-100;
-    @include gl-rounded-top-left-small;
-    @include gl-rounded-bottom-left-small;
-    @include gl-p-2;
+    @include gl-rounded-top-right-none;
+    @include gl-rounded-bottom-right-none;
+    @include gl-py-2;
+    @include gl-px-3;
     @include gl-mr-1;
   }
 
@@ -25,6 +26,7 @@
     @include gl-h-6;
     @include gl-bg-gray-100;
     @include gl-mr-1;
+    @include gl-rounded-0;
   }
 
   &.gl-filtered-search-token-data {
