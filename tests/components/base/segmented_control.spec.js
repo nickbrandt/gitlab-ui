@@ -119,4 +119,24 @@ describe('segmented control', () => {
       expect(wrapper.emittedByOrder()).toEqual([{ name: 'input', args: ['bogus'] }]);
     });
   });
+
+  describe('when updated with a invalid value we only emit values that are legitimate', () => {
+    beforeEach(async () => {
+      createComponent();
+      wrapper.setProps({ checked: 'doomed-value' });
+      await wrapper.vm.$nextTick();
+      wrapper.setProps({ checked: 'doomed-value-2' });
+    });
+
+    it('should log warning', () => {
+      expect(global.console.warn).toHaveBeenCalledWith(warning);
+    });
+
+    it('should only emit a legitimate value', () => {
+      expect(wrapper.emittedByOrder()).toEqual([
+        { name: 'input', args: ['valid-one'] },
+        { name: 'input', args: ['valid-one'] },
+      ]);
+    });
+  });
 });
