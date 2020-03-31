@@ -1,3 +1,10 @@
+## [10.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.2...v10.1.3) (2020-03-31)
+
+
+### Bug Fixes
+
+* **segmented_control:** Handle loop edge case ([0afba6f](https://gitlab.com/gitlab-org/gitlab-ui/commit/0afba6fad29e63372b220e401f804ee6b5bd27ad)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1230#note_313466652](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1230/issues/note_313466652)
+
 ## [10.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.1...v10.1.2) (2020-03-30)
 
 
