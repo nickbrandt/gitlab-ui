@@ -871,7 +871,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@gitlab/eslint-plugin@^2.0.0":
+"@gitlab/eslint-plugin@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-2.0.0.tgz#4eedd16cf95cf82dc359c1b220d4f5a08361df9c"
   integrity sha512-ctmsGnCuokhfh/5goLdz3NdBIUpwTMkx/17QxxutxkWW7yOGMPIY8Na+WhjnUSdst8Wjwzexc+snbh5NMs8H/A==
@@ -886,7 +886,7 @@
     eslint-plugin-vue "^6.2.1"
     vue-eslint-parser "^7.0.0"
 
-"@gitlab/stylelint-config@^2.0.0":
+"@gitlab/stylelint-config@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@gitlab/stylelint-config/-/stylelint-config-2.0.0.tgz#42ad96cf10e48cfb5ac3dc0b2056c46b4cccdf16"
   integrity sha512-yaEaUreeeYdUkH1b7Z1aponBKgQ5SSVoUhEFWMYWFSjfnk4a4xOeU3he0vt/5S0osPK8D9E6KI6fJPB01dXx9w==
@@ -894,7 +894,7 @@
     stylelint "^13.2.1"
     stylelint-scss "^3.14.2"
 
-"@gitlab/svgs@^1.116.0":
+"@gitlab/svgs@1.116.0":
   version "1.116.0"
   resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.116.0.tgz#a3c89f950bb256c2e109444c9a85fecdd261292c"
   integrity sha512-sZLn3acu0IyrSnZRU1rE3UjxF6FlwvBNfjKQgn0qclxdbe8Ya6cGNVq4aGdCEkHwvb9rFpKbfHBujVgVKNkxSA==
