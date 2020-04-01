@@ -8,6 +8,10 @@
   @include gl-py-6;
   @include gl-rounded-base;
   @include gl-relative;
+
+  p {
+    @include gl-line-height-20;
+  }
 }
 
 .gl-banner-illustration {
@@ -27,7 +31,8 @@
   @include gl-font-base;
   @include gl-font-weight-bold;
   @include gl-mt-0;
-  @include gl-mb-2;
+  @include gl-mb-3;
+  @include gl-line-height-20;
 }
 
 .gl-banner-close {
@@ -44,6 +49,7 @@
 
   .gl-banner-title {
     @include gl-font-size-h-display;
+    @include gl-line-height-28;
   }
 
   .gl-banner-close {
