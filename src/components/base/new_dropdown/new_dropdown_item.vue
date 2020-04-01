@@ -2,10 +2,12 @@
 import { BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
 import { variantCssColorMap } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
+import GlAvatar from '../avatar/avatar.vue';
 
 export default {
   components: {
     GlIcon,
+    GlAvatar,
   },
   inheritAttrs: false,
   props: {
