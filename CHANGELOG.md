@@ -1,3 +1,11 @@
+## [10.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.2...v10.3.3) (2020-04-01)
+
+
+### Bug Fixes
+
+* Add missing GlAvatar import in GlNewDropdownItem ([be6b3fe](https://gitlab.com/gitlab-org/gitlab-ui/commit/be6b3fe638ee0aeb926ade2d0d7c35500328d249))
+* **banner:** set line heights and spacings explicitly ([0dbb214](https://gitlab.com/gitlab-org/gitlab-ui/commit/0dbb214774b1ae356b05898c07de97822f7b6d84))
+
 ## [10.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.1...v10.3.2) (2020-04-01)
 
 
