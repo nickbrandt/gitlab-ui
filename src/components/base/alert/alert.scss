@@ -74,8 +74,14 @@
   @include gl-bg-orange-100;
   @include gl-text-orange-800;
 
-  .gl-alert-title {
+  .gl-alert-title,
+  .gl-link:hover {
     @include gl-text-orange-900;
+  }
+
+  .gl-link {
+    @include gl-color-inherit;
+    @include gl-text-decoration-underline;
   }
 }
 
@@ -103,7 +109,8 @@
     @include gl-text-theme-green-800;
   }
 
-  .gl-alert-title {
+  .gl-alert-title,
+  .gl-link:hover {
     @include gl-text-green-800;
   }
 }
