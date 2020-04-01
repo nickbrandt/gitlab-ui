@@ -1,3 +1,10 @@
+# [10.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.3...v10.2.0) (2020-04-01)
+
+
+### Features
+
+* Add annotations ([24126fc](https://gitlab.com/gitlab-org/gitlab-ui/commit/24126fcd17ec616bc158c29726049c5d0bafc47e))
+
 ## [10.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.2...v10.1.3) (2020-03-31)
 
 
