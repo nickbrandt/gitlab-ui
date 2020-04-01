@@ -18,6 +18,7 @@ function generateProps({
   variant = newButtonVariantOptions.default,
   size = newButtonSizeOptions.medium,
   withLink = false,
+  block = false,
 } = {}) {
   let props = {
     category: {
@@ -34,7 +35,7 @@ function generateProps({
     },
     block: {
       type: Boolean,
-      default: boolean('block', false),
+      default: boolean('block', block),
     },
     disabled: {
       type: Boolean,
@@ -73,6 +74,21 @@ documentedStoriesOf('base|new-button', readme)
         :disabled="disabled"
       >
         This is a button
+      </gl-new-button>
+    `,
+  }))
+  .add('block button', () => ({
+    props: generateProps({ block: true }),
+    components,
+    template: `
+      <gl-new-button
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        This is a block button
       </gl-new-button>
     `,
   }))

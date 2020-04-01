@@ -58,6 +58,7 @@
   // The `&.dropdown` is necessary to strengthen the specificity of these selectors
   &.dropdown %new-gl-button {
     @include gl-pr-3;
+    @include gl-justify-content-space-between;
 
     &.btn-sm .gl-icon {
       @include gl-mt-0;

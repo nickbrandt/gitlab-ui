@@ -22,7 +22,8 @@
 }
 
 .new-gl-button,
-%new-gl-button {
+%new-gl-button,
+.new-gl-button.btn-block {
   @include gl-border-0;
   @include gl-py-3;
   @include gl-px-4;
@@ -32,6 +33,7 @@
   @include gl-fill-current-color;
   @include gl-inset-border-1-gray-400;
   @include gl-display-inline-flex;
+  @include gl-justify-content-center;
   @include gl-align-items-center;
   @include gl-font-base;
   @include gl-rounded-base;
