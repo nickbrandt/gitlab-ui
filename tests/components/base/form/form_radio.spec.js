@@ -4,23 +4,22 @@ import GlFormRadio from '../../../../src/components/base/form/form_radio/form_ra
 describe('GlFormRadio', () => {
   let wrapper;
   let options;
+  const firstOption = {
+    text: 'One',
+    value: 'one',
+  };
+  const secondOption = {
+    text: 'Two',
+    value: 'two',
+  };
 
   const createWrapper = () => {
-    options = [
-      {
-        text: 'One',
-        value: 'one',
-      },
-      {
-        text: 'Two',
-        value: 'two',
-      },
-    ];
+    options = [firstOption, secondOption];
 
     wrapper = mount({
       data() {
         return {
-          selected: options[0].value,
+          selected: firstOption.value,
           options,
         };
       },
@@ -49,26 +48,26 @@ describe('GlFormRadio', () => {
   });
 
   it('checks the radio button correctly on mount', () => {
-    const radio = findRadio('one');
+    const radio = findRadio(firstOption.value);
     expect(radio.element.checked).toBe(true);
   });
 
   describe('when the selected value is changed programmatically', () => {
     beforeEach(() => {
-      wrapper.vm.selected = 'two';
+      wrapper.vm.selected = secondOption.value;
       return wrapper.vm.$nextTick();
     });
 
     it('emits an input event, but not a change event on each radio', () => {
       wrapper.findAll(GlFormRadio).wrappers.forEach(radio => {
         expect(radio.emitted()).toEqual({
-          input: [['two']],
+          input: [[secondOption.value]],
         });
       });
     });
 
     it('checks the correct radio', () => {
-      expect(findRadio('two').element.checked).toBe(true);
+      expect(findRadio(secondOption.value).element.checked).toBe(true);
     });
   });
 
@@ -76,7 +75,7 @@ describe('GlFormRadio', () => {
     let radio;
 
     beforeEach(async () => {
-      radio = findRadio('two');
+      radio = findRadio(secondOption.value);
 
       radio.trigger('click');
       await wrapper.vm.$nextTick();
@@ -86,17 +85,17 @@ describe('GlFormRadio', () => {
       const [formRadioOne, formRadioTwo] = wrapper.findAll(GlFormRadio).wrappers;
 
       expect(formRadioOne.emitted()).toEqual({
-        input: [['two']],
+        input: [[secondOption.value]],
       });
 
       expect(formRadioTwo.emitted()).toEqual({
-        input: [['two']],
-        change: [['two']],
+        input: [[secondOption.value]],
+        change: [[secondOption.value]],
       });
     });
 
     it('updates the bound value', () => {
-      expect(wrapper.vm.selected).toBe('two');
+      expect(wrapper.vm.selected).toBe(secondOption.value);
     });
 
     it('checks the radio', () => {
