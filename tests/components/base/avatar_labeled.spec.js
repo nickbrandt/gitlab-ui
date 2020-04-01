@@ -4,40 +4,40 @@ import Avatar from '../../../src/components/base/avatar/avatar.vue';
 import AvatarLabeled from '../../../src/components/base/avatar_labeled/avatar_labeled.vue';
 
 describe('avatar labeled', () => {
-  let vm;
+  let wrapper;
 
-  beforeEach(() => {
-    vm = shallowMount(AvatarLabeled, {
+  const buildWrapper = propsData => {
+    wrapper = shallowMount(AvatarLabeled, {
       propsData: {
         label: '',
+        ...propsData,
       },
     });
-  });
-  afterEach(() => vm.destroy());
+  };
+
+  afterEach(() => wrapper.destroy());
 
   it('sets avatar alt attribute to an empty string', () => {
     const altText = 'alt text';
 
-    vm.setProps({ alt: altText });
+    buildWrapper({ alt: altText });
 
-    expect(vm.find(Avatar).props('alt')).not.toEqual(altText);
+    expect(wrapper.find(Avatar).props('alt')).not.toEqual(altText);
   });
 
-  it('displays the avatar label', async () => {
+  it('displays the avatar label', () => {
     const label = 'avatar label';
 
-    vm.setProps({ label });
+    buildWrapper({ label });
 
-    await vm.vm.$nextTick();
-    expect(vm.find('.gl-avatar-labeled-label').text()).toEqual(label);
+    expect(wrapper.find('.gl-avatar-labeled-label').text()).toEqual(label);
   });
 
-  it('displays the avatar sub label', async () => {
+  it('displays the avatar sub label', () => {
     const subLabel = 'avatar label';
 
-    vm.setProps({ subLabel });
+    buildWrapper({ subLabel });
 
-    await vm.vm.$nextTick();
-    expect(vm.find('.gl-avatar-labeled-sublabel').text()).toEqual(subLabel);
+    expect(wrapper.find('.gl-avatar-labeled-sublabel').text()).toEqual(subLabel);
   });
 });
