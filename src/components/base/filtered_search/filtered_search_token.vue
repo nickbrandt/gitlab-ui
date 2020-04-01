@@ -35,16 +35,6 @@ export default {
       required: false,
       default: false,
     },
-    operators: {
-      type: Array,
-      required: false,
-      default: () => DEFAULT_OPERATORS,
-    },
-    options: {
-      type: Array,
-      required: false,
-      default: () => null,
-    },
     value: {
       type: Object,
       required: false,
@@ -58,12 +48,16 @@ export default {
   },
 
   computed: {
+    operators() {
+      return this.config.operators || DEFAULT_OPERATORS;
+    },
+
     hasDataOrDataSegmentIsCurrentlyActive() {
       return this.value.data !== '' || this.isSegmentActive(SEGMENT_DATA);
     },
 
     availableTokensWithSelf() {
-      return [this.config, this.availableTokens.filter(t => t !== this.config)].map(t => ({
+      return [this.config, ...this.availableTokens.filter(t => t !== this.config)].map(t => ({
         ...t,
         value: t.title,
       }));
@@ -89,7 +83,7 @@ export default {
           if (!this.activeSegment) {
             this.activateSegment(this.value.data !== '' ? SEGMENT_DATA : SEGMENT_OPERATOR);
           }
-        } else if (!this.value.operator && this.value.data === '') {
+        } else if (this.value.data === '') {
           this.activeSegment = null;
           this.$emit('destroy');
         }
@@ -99,7 +93,13 @@ export default {
 
   created() {
     if (!('operator' in this.value)) {
-      this.$emit('input', { ...this.value, operator: '' });
+      if (this.operators.length === 1) {
+        const operator = this.operators[0].value;
+        this.$emit('input', { ...this.value, operator });
+        this.activeSegment = SEGMENT_DATA;
+      } else {
+        this.$emit('input', { ...this.value, operator: '' });
+      }
     }
   },
 
@@ -128,6 +128,13 @@ export default {
 
     replaceToken(newTitle) {
       const newTokenConfig = this.availableTokens.find(t => t.title === newTitle);
+
+      if (newTokenConfig === this.config) {
+        this.$nextTick(() => {
+          this.$emit('deactivate');
+        });
+        return;
+      }
 
       if (newTokenConfig) {
         const isCompatible =

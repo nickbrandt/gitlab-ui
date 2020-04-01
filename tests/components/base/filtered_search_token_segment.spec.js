@@ -164,30 +164,6 @@ describe('Filtered search token segment', () => {
     });
   });
 
-  it('does not emit deactivate when input is blurred and instance becomes inactive', () => {
-    createComponent({ active: true, value: 'something' });
-
-    wrapper.find('input').trigger('blur');
-    wrapper.setProps({ active: false });
-
-    return nextTick().then(() => {
-      expect(wrapper.emitted().deactivate).toBe(undefined);
-    });
-  });
-
-  it('does not emit deactivate when blur related target is suggestion', () => {
-    createComponent({ active: true, value: 'something', options: OPTIONS });
-
-    wrapper.find('input').trigger('blur', {
-      relatedTarget: wrapper.find({ ref: 'suggestions' }).element,
-    });
-    wrapper.setProps({ active: false });
-
-    return nextTick().then(() => {
-      expect(wrapper.emitted().deactivate).toBe(undefined);
-    });
-  });
-
   it('resets value to previously selected if options are provided and input is invalid', () => {
     const originalValue = '!=';
     createWrappedComponent({

@@ -5,6 +5,7 @@ const testTokens = [
     title: 'Unique',
     icon: 'document',
     token: 'gl-filtered-search-token',
+    operators: [{ value: '=', description: 'is', default: 'true' }],
     options: [
       { icon: 'heart', title: 'heart', value: 1 },
       { icon: 'hook', title: 'hook', value: 2 },

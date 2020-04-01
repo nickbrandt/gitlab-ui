@@ -59,6 +59,18 @@ describe('Filtered search token', () => {
       expect(findOperatorSegment().props().active).toBe(true);
     });
 
+    it('sets operator if value is empty and there is only one operator', () => {
+      createComponent({
+        active: true,
+        value: { data: '' },
+        config: { operators: [{ value: '=', title: 'is' }] },
+      });
+      return nextTick().then(() => {
+        expect(findDataSegment().props().active).toBe(true);
+        expect(wrapper.emitted().input[0][0]).toStrictEqual({ data: '', operator: '=' });
+      });
+    });
+
     it('activates data segment if value is not empty', () => {
       createComponent({ active: true, value: { operator: '=', data: 'something' } });
 

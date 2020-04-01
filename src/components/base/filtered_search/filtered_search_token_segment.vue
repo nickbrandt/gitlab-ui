@@ -197,16 +197,10 @@ export default {
       });
     },
 
-    handleBlur({ relatedTarget }) {
-      if (this.$refs.suggestions?.$el.contains(relatedTarget)) {
-        return;
+    handleBlur() {
+      if (this.active) {
+        this.$emit('deactivate');
       }
-
-      this.$nextTick(() => {
-        if (this.active) {
-          this.$emit('deactivate');
-        }
-      });
     },
   },
 };
