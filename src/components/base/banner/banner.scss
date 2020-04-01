@@ -49,6 +49,7 @@
 
   .gl-banner-title {
     @include gl-font-size-h-display;
+    @include gl-line-height-28;
   }
 
   .gl-banner-close {
