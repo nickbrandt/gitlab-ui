@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import GlFormRadio from '../../../../src/components/base/form/form_radio/form_radio.vue';
 
@@ -55,7 +56,7 @@ describe('GlFormRadio', () => {
   describe('when the selected value is changed programmatically', () => {
     beforeEach(() => {
       wrapper.vm.selected = secondOption.value;
-      return wrapper.vm.$nextTick();
+      return nextTick();
     });
 
     it('emits an input event, but not a change event on each radio', () => {
@@ -74,11 +75,11 @@ describe('GlFormRadio', () => {
   describe('when the selected value is changed by the user', () => {
     let radio;
 
-    beforeEach(async () => {
+    beforeEach(() => {
       radio = findRadio(secondOption.value);
 
       radio.trigger('click');
-      await wrapper.vm.$nextTick();
+      return nextTick();
     });
 
     it('emits an input event on each radio, and a change event on the newly selected radio', () => {
