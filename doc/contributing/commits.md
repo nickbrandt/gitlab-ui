@@ -4,6 +4,20 @@ We use conventional commits specifications to write meaningful commit messages t
 
 Please read the official specifications for more details: https://www.conventionalcommits.org/.
 
+Each commit message consists of a **header**, a **body**, and a **footer**. The header has a special
+format that includes a **type**, a **scope**, and a **subject**:
+
+```plaintext
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+The header is mandatory and the scope of the header is optional.
+Each line in the commit message should be no longer than 100 characters.
+
 When opening an MR, make sure you do at least one of the following:
 
 - Include at least one commit message that complies with the conventional commit standards.
@@ -46,23 +60,34 @@ In the example above, you might want to keep `1a1a1a1` and `3c3c3c3` separated t
 
 ## What types can I use for my commit messages?
 
-Here are the types we recommend you use:
+We use the same types as [Angular's commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type):
+
+- **feat:** A new feature (adding a new component, providing new variants for an existing component, etc.).
+- **fix:** A bug fix (correcting a styling issue, addressing a bug in a component's API, etc.).
+When updating non-dev dependencies, mark your changes with the `fix:` type.
+- **docs:** Documentation only changes.
+- **style:** Changes that do not affect the meaning of the code
+(white-space, formatting, missing semi-colons, etc). _Not_ to be used for CSS changes as those are
+meaningful changes, consider using `feat:` of `fix:` instead.
+- **refactor:** A code change that neither fixes a bug nor adds a feature.
+- **perf:** A code change that improves performance.
+- **test:** Adding missing tests or correcting existing tests.
+- **build:** Changes that affect the build system (changing WebPack's or Rollup's config for example).
+- **ci:** Changes to our CI configuration files and scripts
+(changing `.gitlab-ci.yml`, adding or changing Danger plugins, etc.).
+- **chore:** Other changes that don't modify source or test files. Use this type when adding or
+updating dev dependencies.
+- **revert:** Reverts a previous commit.
+
+Each commit type can have an optional scope to specify the place of the commit change: `type(scope):`.
+It is up to you to add or omit a commit's scope. When a commit affects a specific component, use the
+component's PascalCase name as the commit's scope. For example:
 
 ```
-feat:     A new feature
-fix:      A bug fix
-docs:     Documentation only changes
-style:    Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-refactor: A code change that neither fixes a bug nor adds a feature
-perf:     A code change that improves performance
-test:     Adding missing tests or correcting existing tests
-build:    Changes that affect the build system or external dependencies
-ci:       Changes to our CI configuration files and scripts
-chore:    Other changes that don't modify src or test files
-revert:   Reverts a previous commit
+feat(GlButton): add secondary variant
 ```
 
-> **Note:** Only `feat:` and `fix:` types trigger a new release
+> **Note:** Only `feat:`, `fix:`, and `perf:` types trigger a new release
 > If you're introducing a breaking change, the message body should start with [`BREAKING CHANGE:`](https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-description-and-breaking-change-footer),
 > this will trigger a major version bump (e.g. `v1.2.3` -> `v2.0.0`)
 
