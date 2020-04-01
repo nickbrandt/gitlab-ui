@@ -1,3 +1,10 @@
+# [10.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.2.0...v10.3.0) (2020-04-01)
+
+
+### Features
+
+* **filters:** Fill operator part if only one operator exists ([be4ee6f](https://gitlab.com/gitlab-org/gitlab-ui/commit/be4ee6f81849c34d02642b136a3acb5ed9c1f180))
+
 # [10.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.1.3...v10.2.0) (2020-04-01)
 
 
