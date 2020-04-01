@@ -3,11 +3,29 @@
 GitLab UI is a UI component library written in [Vue.js](https://vuejs.org).
 See https://gitlab-org.gitlab.io/gitlab-ui/ for documentation.
 
-## Prerequisites
+## Usage
+
+To use GitLab UI in your project, add it as a dependency:
+
+```json
+yarn add @gitlab/ui
+```
+
+and import the components as desired:
+
+```javascript
+import { GlButton } from '@gitlab/ui';
+```
+
+GitLab UI is compatible with tree-shaking, you may enable this in your project to reduce bundle sizes.
+
+### GitLab UI CSS
+
+GitLab UI provides component styles, a utility-class library and SCSS utilities. See the [CSS usage documentation](doc/css.md) for more information.
+
+## Quick start - development
 
 Make sure you have [Node](https://nodejs.org/en/) 8.x (LTS) and [Yarn](https://yarnpkg.com/) 1.2 or newer.
-
-## Quick start
 
 ```sh
 # Clone the project
@@ -61,7 +79,7 @@ There is a visual snapshot of every component’s storybook story. To run the te
 
 In some occasions, the changes in a component’s appearance are justified. In those cases, we have to update the baseline images to match the new look. See our [visual testing documentation](doc/contributing/visual_testing.md) for how to do that.
 
-#### Gitlab visual regression tests
+#### GitLab visual regression tests
 
 GitLab UI components are a reference implementation of the [Pajamas Design System components](https://design.gitlab.com/components/status). These components should conform with the design system specs, and they should look correct in the pajamas website and the GitLab product. To make sure GitLab UI’s components look precisely as their design specs dictate in GitLab, we created the `yarn run test:visual:gitlab` command.
 
