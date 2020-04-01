@@ -98,7 +98,6 @@ export default {
         'btn-secondary': this.category === 'secondary',
         'dropdown-icon-only': !this.text.length && this.icon,
         'dropdown-icon-text': this.text.length && this.icon,
-        'gl-justify-content-space-between': this.block,
       };
     },
     buttonText() {
