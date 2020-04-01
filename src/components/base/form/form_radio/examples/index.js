@@ -1,25 +1,21 @@
-import FormRadioGroupSlots from './form_radio_group.slots.example.vue';
-import FormRadioGroupStacked from './form_radio_group.stacked.example.vue';
-import FormRadioGroupOptionsArray from './form_radio_group.options_array.example.vue';
+import FormRadioBasic from './form_radio.basic.example.vue';
+import FormRadioCheckedDisabled from './form_radio.checked_disabled.example.vue';
 
 export default [
   {
-    name: 'Radio Group',
+    name: 'Basic',
     items: [
       {
-        id: 'form-radio-group-slots',
-        name: 'Form Radio Group using Slots',
-        component: FormRadioGroupSlots,
+        id: 'form-radio-basic',
+        name: 'Basic',
+        description: 'Basic GlFormRadio',
+        component: FormRadioBasic,
       },
       {
-        id: 'form-radio-group-stacked',
-        name: 'Form Radio Group using stacked',
-        component: FormRadioGroupStacked,
-      },
-      {
-        id: 'form-radio-group-options-array',
-        name: 'Form Radio Group using Options Array',
-        component: FormRadioGroupOptionsArray,
+        id: 'form-radio-checked-disabled',
+        name: 'Checked and disabled radio',
+        description: 'Checked and disabled GlFormRadio',
+        component: FormRadioCheckedDisabled,
       },
     ],
   },

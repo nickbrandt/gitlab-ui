@@ -1,7 +1,9 @@
 <script>
 import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
 import { BFormRadioGroup } from 'bootstrap-vue';
-import GlFormRadio from './form_radio.vue';
+import GlFormRadio from '../form_radio/form_radio.vue';
+
+const { model } = BFormRadioGroup.options;
 
 export default {
   components: {
@@ -10,15 +12,17 @@ export default {
   },
   mixins: [formOptionsMixin],
   inheritAttrs: false,
+  model,
 };
 </script>
 <template>
   <b-form-radio-group
-    v-bind="$attrs"
     class="gl-form-checkbox-group"
     plain
-    @change="$emit('change', $event)"
+    v-bind="$attrs"
     v-on="$listeners"
+    @input="$emit('input', $event)"
+    @change="$emit('change', $event)"
   >
     <slot name="first"></slot>
     <gl-form-radio

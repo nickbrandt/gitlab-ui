@@ -34,7 +34,7 @@ export { default as GlForm } from './src/components/base/form/form.vue';
 export { default as GlFormInput } from './src/components/base/form/form_input/form_input.vue';
 export { default as GlFormInputGroup } from './src/components/base/form/form_input_group/form_input_group.vue';
 export { default as GlFormRadio } from './src/components/base/form/form_radio/form_radio.vue';
-export { default as GlFormRadioGroup } from './src/components/base/form/form_radio/form_radio_group.vue';
+export { default as GlFormRadioGroup } from './src/components/base/form/form_radio_group/form_radio_group.vue';
 export { default as GlFormSelect } from './src/components/base/form/form_select/form_select.vue';
 export { default as GlFormTextarea } from './src/components/base/form/form_textarea/form_textarea.vue';
 export { default as GlFormGroup } from './src/components/base/form/form_group/form_group.vue';
