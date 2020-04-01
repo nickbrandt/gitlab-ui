@@ -1,3 +1,11 @@
+## [10.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.1...v10.3.2) (2020-04-01)
+
+
+### Bug Fixes
+
+* block button padding ([e2bc974](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2bc974a24181c7f1cd3cda5f854aab00beaf1ea))
+* **button:** center text in block button ([b4d10b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4d10b7527c85828645e75b2df3cb7588049c4ba))
+
 ## [10.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.0...v10.3.1) (2020-04-01)
 
 
