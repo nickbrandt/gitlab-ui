@@ -1,3 +1,15 @@
+stages:
+  - pre-build
+  - test
+  - build
+  - deploy
+  - publish
+  - manual
+
+default:
+  tags:
+    - gitlab-org
+
 variables:
   PUPPETEER_VERSION: '2.1.1'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
@@ -8,14 +20,6 @@ include:
   - template: License-Scanning.gitlab-ci.yml
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
-
-stages:
-  - pre-build
-  - test
-  - build
-  - deploy
-  - publish
-  - manual
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
@@ -47,6 +51,9 @@ build_docker_image:
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
+  tags:
+    - gitlab-org
+    - docker
   services:
     - docker:19.03.0-dind
   image: docker:stable
@@ -74,8 +81,6 @@ build_package:
   variables:
     TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
   needs: []
-  tags:
-    - gitlab-org # This allows us to use higher performance runners
   stage: build
   script:
     - yarn build
@@ -95,8 +100,6 @@ build_package:
 build_storybook:
   extends: [.node, .yarn_install]
   needs: []
-  tags:
-    - gitlab-org # This allows us to use higher performance runners
   stage: build
   script:
     - yarn storybook-static
@@ -130,8 +133,6 @@ generate_utility_classes:
 
 visual:
   extends: [.puppeteer, .yarn_install]
-  tags:
-    - gitlab-org # This allows us to use higher performance runners
   needs:
     - build_docker_image
   stage: test
@@ -156,8 +157,6 @@ unit_tests:
 
 update_screenshots:
   extends: [.puppeteer, .yarn_install]
-  tags:
-    - gitlab-org # This allows us to use higher performance runners
   stage: manual
   when: manual
   script:
