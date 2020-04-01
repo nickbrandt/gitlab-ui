@@ -1,3 +1,10 @@
+## [10.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.0...v10.3.1) (2020-04-01)
+
+
+### Bug Fixes
+
+* **radio:** Fix v-model binding ([611e369](https://gitlab.com/gitlab-org/gitlab-ui/commit/611e369c8bffbd9620da7ce5360c16b44dd5fdce))
+
 # [10.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.2.0...v10.3.0) (2020-04-01)
 
 
