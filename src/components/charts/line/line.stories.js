@@ -1,4 +1,4 @@
-import { withKnobs, object, boolean } from '@storybook/addon-knobs';
+import { withKnobs, object, boolean, array } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlLineChart } from '../../../../charts';
 import readme from './line.md';
@@ -59,6 +59,7 @@ const template = `<gl-line-chart
   :data="data"
   :option="option"
   :thresholds="thresholds"
+  :annotations="annotations"
   :includeLegendAvgMax="includeLegendAvgMax"
 />`;
 
@@ -66,6 +67,7 @@ function generateProps({
   data = defaultData,
   option = defaultOptions,
   thresholds = [],
+  annotations = [],
   includeLegendAvgMax = true,
 } = {}) {
   return {
@@ -77,6 +79,9 @@ function generateProps({
     },
     thresholds: {
       default: object('Thresholds', thresholds),
+    },
+    annotations: {
+      default: array('Annotations', annotations),
     },
     data: {
       default: object('Chart Data', data),
@@ -94,6 +99,40 @@ documentedStoriesOf('charts|line-chart', readme)
   .add('with threshold', () => ({
     props: generateProps({
       thresholds: [{ threshold: 1350, operator: '>' }],
+    }),
+    components,
+    template,
+  }))
+  .add('with annotations', () => ({
+    props: generateProps({
+      annotations: [
+        { min: '2018-01-15T08:00:00.000Z', max: '2018-01-15T08:00:00.000Z' },
+        { min: '2018-01-16T08:00:00.000Z', max: '2018-01-16T08:00:00.000Z' },
+      ],
+      data: [
+        {
+          name: 'Time Series',
+          data: generateTimeSeries(),
+        },
+      ],
+      option: {
+        xAxis: {
+          type: 'time',
+          name: 'Time',
+          axisLabel: {
+            formatter: d => {
+              const date = new Date(d);
+              const month = (date.getMonth() + 1).toString().padStart(2, '0');
+              const day = date
+                .getDate()
+                .toString()
+                .padStart(2, '0');
+
+              return `${date.getFullYear()}-${month}-${day}`;
+            },
+          },
+        },
+      },
     }),
     components,
     template,
