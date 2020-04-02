@@ -3,10 +3,10 @@ import { BButton } from 'bootstrap-vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import RelMixin from '../../mixins/rel_mixin';
 import {
-  buttonCategoryOptions,
+  deprecatedButtonCategoryOptions,
   deprecatedButtonVariantCategoryMap,
   availableButtonVariantOptions,
-  buttonSizeOptions,
+  deprecatedButtonSizeOptions,
 } from '../../../utils/constants';
 
 export default {
@@ -20,7 +20,7 @@ export default {
       type: String,
       required: false,
       default: null,
-      validator: value => Object.keys(buttonCategoryOptions).includes(value),
+      validator: value => Object.keys(deprecatedButtonCategoryOptions).includes(value),
     },
     variant: {
       type: String,
@@ -30,7 +30,7 @@ export default {
     size: {
       type: String,
       required: false,
-      default: buttonSizeOptions.md,
+      default: deprecatedButtonSizeOptions.md,
     },
     selected: {
       type: Boolean,
@@ -51,7 +51,7 @@ export default {
   computed: {
     buttonClasses() {
       return {
-        'btn-inverted': this.buttonCategory === buttonCategoryOptions.secondary,
+        'btn-inverted': this.buttonCategory === deprecatedButtonCategoryOptions.secondary,
         selected: this.selected,
       };
     },

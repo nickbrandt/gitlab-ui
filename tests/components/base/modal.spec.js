@@ -2,7 +2,7 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import { BModal } from 'bootstrap-vue';
 import { merge } from 'lodash';
 import Modal from '../../../src/components/base/modal/modal.vue';
-import Button from '../../../src/components/base/button/button.vue';
+import Button from '../../../src/components/base/deprecated_button/deprecated_button.vue';
 import { modalButtonDefaults } from '../../../src/utils/constants';
 
 const localVue = createLocalVue();

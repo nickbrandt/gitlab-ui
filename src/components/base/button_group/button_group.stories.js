@@ -1,6 +1,9 @@
 import { withKnobs, select, boolean } from '@storybook/addon-knobs/vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { buttonSizeOptions, availableButtonVariantOptions } from '../../../utils/constants';
+import {
+  deprecatedButtonSizeOptions,
+  availableButtonVariantOptions,
+} from '../../../utils/constants';
 import readme from './button_group.md';
 import { GlButtonGroup } from '../../../../index';
 
@@ -10,7 +13,7 @@ const components = {
 
 function generateProps({
   variant = availableButtonVariantOptions.secondary,
-  size = buttonSizeOptions.medium,
+  size = deprecatedButtonSizeOptions.medium,
 } = {}) {
   const props = {
     variant: {
@@ -19,7 +22,7 @@ function generateProps({
     },
     size: {
       type: String,
-      default: select('size', buttonSizeOptions, size),
+      default: select('size', deprecatedButtonSizeOptions, size),
     },
     vertical: {
       type: Boolean,
@@ -37,8 +40,8 @@ documentedStoriesOf('base|button group', readme)
     components,
     template: `
      <gl-button-group :vertical="vertical" :size="size">
-       <gl-button :variant="variant">Button 1</gl-button>
-       <gl-button>Button 2</gl-button>
+       <gl-deprecated-button :variant="variant">Button 1</gl-deprecated-button>
+       <gl-deprecated-button>Button 2</gl-deprecated-button>
      </gl-button-group> 
     `,
   }))
@@ -47,8 +50,8 @@ documentedStoriesOf('base|button group', readme)
     components,
     template: `
      <gl-button-group :vertical="vertical" :size="size">
-       <gl-button :variant="variant">Button 1</gl-button>
-       <gl-button>Button 2</gl-button>
+       <gl-deprecated-button :variant="variant">Button 1</gl-deprecated-button>
+       <gl-deprecated-button>Button 2</gl-deprecated-button>
        <gl-dropdown text="Some dropdown">
         <gl-dropdown-item>First item</gl-dropdown-item>
         <gl-dropdown-item>Second item</gl-dropdown-item>

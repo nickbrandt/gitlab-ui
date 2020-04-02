@@ -109,9 +109,9 @@ documentedStoriesOf('regions|empty-state', readme)
         secondaryButtonLink="#"
       >
       <template #actions>
-        <gl-button
+        <gl-deprecated-button
           variant="success"
-        >Custom button</gl-button>
+        >Custom button</gl-deprecated-button>
         <a href="#" @click.prevent>Custom link</a>
       </template>
       </gl-empty-state>

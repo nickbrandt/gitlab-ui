@@ -1,7 +1,7 @@
 <template>
   <div id="tooltipcontainer">
-    <gl-button v-gl-tooltip:tooltipcontainer.bottom title="some tooltip text">
+    <gl-deprecated-button v-gl-tooltip:tooltipcontainer.bottom title="some tooltip text">
       Testbutton
-    </gl-button>
+    </gl-deprecated-button>
   </div>
 </template>

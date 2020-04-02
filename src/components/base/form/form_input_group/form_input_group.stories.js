@@ -2,11 +2,11 @@ import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
 import { BInputGroupText } from 'bootstrap-vue';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_input_group.md';
-import { GlFormInputGroup, GlButton } from '../../../../../index';
+import { GlFormInputGroup, GlDeprecatedButton } from '../../../../../index';
 
 const components = {
   GlFormInputGroup,
-  GlButton,
+  GlDeprecatedButton,
   BInputGroupText,
 };
 const predefinedOptions = [

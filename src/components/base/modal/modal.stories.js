@@ -1,12 +1,12 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
-import { GlModal, GlModalDirective, GlButton } from '../../../../index';
+import { GlModal, GlModalDirective, GlDeprecatedButton } from '../../../../index';
 import readme from './modal.md';
 
 const components = {
   GlModal,
-  GlButton,
+  GlDeprecatedButton,
 };
 
 const directives = {
@@ -16,9 +16,9 @@ const directives = {
 function generateTemplate({ visible = false } = {}) {
   return `
     <div>
-      <gl-button v-gl-modal-directive="'test-modal-id'" variant="info">
+      <gl-deprecated-button v-gl-modal-directive="'test-modal-id'" variant="info">
         Open modal
-      </gl-button>
+      </gl-deprecated-button>
       <gl-modal
         :header-bg-variant="headerBgVariant"
         :header-border-variant="headerBorderVariant"

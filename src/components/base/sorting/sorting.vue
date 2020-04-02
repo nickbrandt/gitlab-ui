@@ -1,5 +1,5 @@
 <script>
-import GlButton from '../button/button.vue';
+import GlDeprecatedButton from '../deprecated_button/deprecated_button.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import GlDropdown from '../dropdown/dropdown.vue';
 import GlTooltip from '../../../directives/tooltip';
@@ -8,7 +8,7 @@ import GlIcon from '../icon/icon.vue';
 export default {
   name: 'GlSorting',
   components: {
-    GlButton,
+    GlDeprecatedButton,
     GlButtonGroup,
     GlDropdown,
     GlIcon,
@@ -55,13 +55,13 @@ export default {
     <gl-dropdown v-bind="$props" :text="text" toggle-class="dropdown-menu-toggle" right>
       <slot></slot>
     </gl-dropdown>
-    <gl-button
+    <gl-deprecated-button
       v-gl-tooltip
       :title="sortDirectionToolTip"
       class="sorting-direction-button"
       @click="toggleSortDirection"
     >
       <gl-icon :name="localSortDirection" :aria-label="sortDirectionAriaLabel" :size="16" />
-    </gl-button>
+    </gl-deprecated-button>
   </gl-button-group>
 </template>

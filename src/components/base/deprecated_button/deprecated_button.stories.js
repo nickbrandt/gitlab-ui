@@ -1,24 +1,24 @@
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
-  buttonCategoryOptions,
-  buttonSizeOptions,
+  deprecatedButtonCategoryOptions,
+  deprecatedButtonSizeOptions,
   buttonVariantOptions,
   deprecatedButtonVariantOptions,
   deprecatedButtonOutlineVariantOptions,
   targetOptions,
 } from '../../../utils/constants';
-import readme from './button.md';
-import { GlButton } from '../../../../index';
+import readme from './deprecated_button.md';
+import { GlDeprecatedButton } from '../../../../index';
 
 const components = {
-  GlButton,
+  GlDeprecatedButton,
 };
 
 function generateProps({
-  category = buttonCategoryOptions.tertiary,
+  category = deprecatedButtonCategoryOptions.tertiary,
   variant = buttonVariantOptions.info,
-  size = buttonSizeOptions.medium,
+  size = deprecatedButtonSizeOptions.medium,
   withLink = false,
   withDeprecatedValues = false,
   loading = false,
@@ -35,7 +35,7 @@ function generateProps({
       },
       size: {
         type: String,
-        default: select('size', buttonSizeOptions, size),
+        default: select('size', deprecatedButtonSizeOptions, size),
       },
       disabled: {
         type: Boolean,
@@ -47,7 +47,7 @@ function generateProps({
   let props = {
     category: {
       type: String,
-      default: select('category', buttonCategoryOptions, category),
+      default: select('category', deprecatedButtonCategoryOptions, category),
     },
     variant: {
       type: String,
@@ -55,7 +55,7 @@ function generateProps({
     },
     size: {
       type: String,
-      default: select('size', buttonSizeOptions, size),
+      default: select('size', deprecatedButtonSizeOptions, size),
     },
     disabled: {
       type: Boolean,
@@ -90,27 +90,27 @@ function generateProps({
   return props;
 }
 
-documentedStoriesOf('base|button', readme)
+documentedStoriesOf('base|deprecated-button', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
     components,
     template: `
-      <gl-button
+      <gl-deprecated-button
         :category="category"
         :variant="variant"
         :size="size"
         :disabled="disabled"
       >
         This is a button
-      </gl-button>
+      </gl-deprecated-button>
     `,
   }))
   .add('link button', () => ({
     props: generateProps({ withLink: true }),
     components,
     template: `
-      <gl-button
+      <gl-deprecated-button
         :category="category"
         :variant="variant"
         :size="size"
@@ -119,21 +119,21 @@ documentedStoriesOf('base|button', readme)
         :target="target"
       >
         This is a link button
-      </gl-button>
+      </gl-deprecated-button>
     `,
   }))
   .add('loading button', () => ({
     props: generateProps({ loading: true }),
     components,
     template: `
-      <gl-button
+      <gl-deprecated-button
         :loading="loading"
         :variant="variant"
         :size="size"
         :disabled="disabled"
       >
         This is a loading button
-      </gl-button>
+      </gl-deprecated-button>
     `,
   }))
   .add('deprecated variants', () => ({
@@ -143,12 +143,12 @@ documentedStoriesOf('base|button', readme)
     }),
     components,
     template: `
-      <gl-button
+      <gl-deprecated-button
         :variant="variant"
         :size="size"
         :disabled="disabled"
       >
         This is a button
-      </gl-button>
+      </gl-deprecated-button>
     `,
   }));

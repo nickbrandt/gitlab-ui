@@ -1,6 +1,6 @@
 <template>
   <div id="popovercontainer">
-    <gl-button id="pop-basic">Popover Button</gl-button>
+    <gl-deprecated-button id="pop-basic">Popover Button</gl-deprecated-button>
     <gl-popover
       target="pop-basic"
       container="popovercontainer"

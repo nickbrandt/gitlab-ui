@@ -24,7 +24,7 @@ export { default as GlToken } from './src/components/base/token/token.vue';
 export { default as GlSkeletonLoading } from './src/components/base/skeleton_loading/skeleton_loading.vue';
 export { default as GlBadge } from './src/components/base/badge/badge.vue';
 export { default as GlBanner } from './src/components/base/banner/banner.vue';
-export { default as GlButton } from './src/components/base/button/button.vue';
+export { default as GlDeprecatedButton } from './src/components/base/deprecated_button/deprecated_button.vue';
 export { default as GlNewButton } from './src/components/base/new_button/new_button.vue';
 export { default as GlTooltip } from './src/components/base/tooltip/tooltip.vue';
 export { default as GlToast } from './src/components/base/toast/toast';

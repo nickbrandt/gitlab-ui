@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import GlBanner from '../../../src/components/base/banner/banner.vue';
-import GlButton from '../../../src/components/base/new_button/new_button.vue';
+import GlDeprecatedButton from '../../../src/components/base/new_button/new_button.vue';
 
 describe('banner component', () => {
   const propsData = {
@@ -24,7 +24,7 @@ describe('banner component', () => {
       });
 
       it('should render the button', () => {
-        const button = wrapper.find(GlButton);
+        const button = wrapper.find(GlDeprecatedButton);
 
         expect(button.text()).toEqual(propsData.buttonText);
         expect(button.attributes('href')).toEqual(propsData.buttonLink);
