@@ -397,6 +397,9 @@ $gl-border-radius-full: 50%;
 $gl-transition-duration-slow: 0.4s;
 $gl-transition-duration-medium: 0.2s;
 
+// Focus ring
+$focus-ring: 0 0 0 $gl-border-size-4 rgba($blue-500, 0.25);
+
 // Toasts
 $toast-max-width: px-to-rem(586px);
 $toast-padding-right: px-to-rem(42px);

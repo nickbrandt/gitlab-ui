@@ -46,3 +46,13 @@
     #{$property}: $property-max;
   }
 }
+
+@mixin gl-focus($size: null, $color: false) {
+  @if $color {
+    box-shadow: inset 0 0 0 $size $color, $focus-ring;
+    outline: none;
+  } @else {
+    box-shadow: $focus-ring;
+    outline: none;
+  }
+}
