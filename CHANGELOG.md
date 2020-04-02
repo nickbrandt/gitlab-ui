@@ -1,3 +1,10 @@
+# [10.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.3...v10.4.0) (2020-04-02)
+
+
+### Features
+
+* **colors:** Add more text colors for export ([34e39e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/34e39e3ac1dc6b72cc92a3e9bb9f2423b650fe62))
+
 ## [10.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.2...v10.3.3) (2020-04-01)
 
 
