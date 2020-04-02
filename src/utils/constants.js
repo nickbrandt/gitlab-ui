@@ -209,7 +209,7 @@ export const bannerVariants = ['promotion', 'introduction'];
 export const maxZIndex = 10;
 // Button constants
 
-export const buttonCategoryOptions = {
+export const deprecatedButtonCategoryOptions = {
   tertiary: 'tertiary',
   primary: 'primary',
   secondary: 'secondary',
@@ -261,7 +261,7 @@ export const availableButtonVariantOptions = {
   ...deprecatedButtonOutlineVariantOptions,
 };
 
-export const buttonSizeOptions = {
+export const deprecatedButtonSizeOptions = {
   sm: 'sm',
   md: 'md',
   lg: 'lg',

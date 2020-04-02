@@ -19,7 +19,7 @@ optionValues = [
 -->
   <gl-form-input-group :predefined-options="optionValues">
     <template #append>
-      <gl-button variant="success">Add</gl-button>
+      <gl-deprecated-button variant="success">Add</gl-deprecated-button>
     </template>
   </gl-form-input-group>
 </template>

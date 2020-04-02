@@ -1,9 +1,9 @@
 <template>
   <gl-button-group>
-    <gl-button variant="primary">primary</gl-button>
-    <gl-button variant="secondary">secondary</gl-button>
-    <gl-button variant="warning">warning</gl-button>
-    <gl-button variant="danger">danger</gl-button>
-    <gl-button variant="link">link</gl-button>
+    <gl-deprecated-button variant="primary">primary</gl-deprecated-button>
+    <gl-deprecated-button variant="secondary">secondary</gl-deprecated-button>
+    <gl-deprecated-button variant="warning">warning</gl-deprecated-button>
+    <gl-deprecated-button variant="danger">danger</gl-deprecated-button>
+    <gl-deprecated-button variant="link">link</gl-deprecated-button>
   </gl-button-group>
 </template>

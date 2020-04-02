@@ -2,9 +2,9 @@
   <div>
     <h1>Here's a headline</h1>
     <span>With some details</span>
-    <gl-button v-gl-collapse-toggle.collapse-1 class="float-right" variant="primary">
+    <gl-deprecated-button v-gl-collapse-toggle.collapse-1 class="float-right" variant="primary">
       Toggle Collapse
-    </gl-button>
+    </gl-deprecated-button>
     <gl-collapse id="collapse-1" class="gl-mt-2">
       <h1>This is collapsed by default</h1>
       <span>

@@ -1,4 +1,4 @@
-> Note: This component is being introduced to replace the `<gl-button>` component as it doesn't conform to the [design specs](https://design.gitlab.com/components/button/#text). Please use `<gl-new-button>` going forward. You can read more about the migration [here](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/608).
+> Note: This component is being introduced to replace the `<gl-deprecated-button>` component as it doesn't conform to the [design specs](https://design.gitlab.com/components/button/#text). Please use `<gl-new-button>` going forward. You can read more about the migration [here](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/608).
 
 ### Button
 
@@ -11,5 +11,4 @@ with the necessary classes added to make it look like a button, it shares the sa
 
 > Note: Setting a `target` attribute without a `href` attribute, will not create any side effects. Without the presence of a `href` attribute, this component will render a `<button>`.
 
-[`<gl-button>`]: https://gitlab.com/gitlab-org/gitlab-ui/blob/master/documentation/button.md
 [`<gl-link>`]: https://gitlab.com/gitlab-org/gitlab-ui/blob/master/documentation/link.md

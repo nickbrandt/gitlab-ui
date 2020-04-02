@@ -17,9 +17,9 @@
     ]"
   >
     <template slot-scope="{ listItem }">
-      <gl-button variant="success" class="order-1" @click="alert">
+      <gl-deprecated-button variant="success" class="order-1" @click="alert">
         {{ listItem.id }}
-      </gl-button>
+      </gl-deprecated-button>
     </template>
   </gl-paginated-list>
 </template>

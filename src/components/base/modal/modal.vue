@@ -1,6 +1,6 @@
 <script>
 import { BModal } from 'bootstrap-vue';
-import GlButton from '../button/button.vue';
+import GlDeprecatedButton from '../deprecated_button/deprecated_button.vue';
 import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
 import { focusFirstFocusableElement } from '../../../utils/utils';
 
@@ -11,7 +11,7 @@ function validatorHelper(obj) {
 export default {
   components: {
     BModal,
-    GlButton,
+    GlDeprecatedButton,
   },
   inheritAttrs: false,
   props: {
@@ -130,30 +130,30 @@ export default {
     <slot slot="modal-ok" name="modal-ok"></slot>
     <slot slot="modal-cancel" name="modal-cancel"></slot>
     <slot slot="modal-footer" name="modal-footer">
-      <gl-button
+      <gl-deprecated-button
         v-if="actionCancel"
-        class="gl-button js-modal-action-cancel"
+        class="js-modal-action-cancel"
         v-bind="buttonBinding(actionCancel, 'actionCancel')"
         @click="cancel"
       >
         {{ actionCancel.text }}
-      </gl-button>
-      <gl-button
+      </gl-deprecated-button>
+      <gl-deprecated-button
         v-if="actionSecondary"
-        class="gl-button js-modal-action-secondary"
+        class="js-modal-action-secondary"
         v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
         @click="secondary"
       >
         {{ actionSecondary.text }}
-      </gl-button>
-      <gl-button
+      </gl-deprecated-button>
+      <gl-deprecated-button
         v-if="actionPrimary"
-        class="gl-button js-modal-action-primary"
+        class="js-modal-action-primary"
         v-bind="buttonBinding(actionPrimary, 'actionPrimary')"
         @click="ok"
       >
         {{ actionPrimary.text }}
-      </gl-button>
+      </gl-deprecated-button>
     </slot>
   </b-modal>
 </template>

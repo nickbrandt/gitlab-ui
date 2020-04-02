@@ -1,4 +1,4 @@
-import description from './button.md';
+import description from './deprecated_button.md';
 import examples from './examples';
 
 export default {

@@ -2,15 +2,12 @@ import { withKnobs, object, select, text, number, boolean } from '@storybook/add
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { sparkline } from '../../../utils/charts/theme';
 import { GlSparklineChart } from '../../../../charts';
-import { GlButton, GlButtonGroup } from '../../../../index';
 import readme from './sparkline.md';
 
 // only show the storybook knob if there are more than one variants configured
 const shouldShowVariantsKnob = Object.keys(sparkline.variants).length > 1;
 
 const components = {
-  GlButton,
-  GlButtonGroup,
   GlSparklineChart,
 };
 

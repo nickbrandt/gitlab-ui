@@ -1,11 +1,11 @@
 import { withKnobs, object, array, boolean, number, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './paginated_list.md';
-import { GlPaginatedList, GlButton } from '../../../../index';
+import { GlPaginatedList, GlDeprecatedButton } from '../../../../index';
 
 const components = {
   GlPaginatedList,
-  GlButton,
+  GlDeprecatedButton,
 };
 
 const list = [
@@ -68,13 +68,13 @@ const templateWithHeader = `
   >
 
     <template #header>
-      <gl-button
+      <gl-deprecated-button
         variant="success"
         class="order-1"
         @click="alert"
       >
         Foo Button
-      </gl-button>
+      </gl-deprecated-button>
     </template>
   
   </gl-paginated-list>
@@ -92,13 +92,13 @@ const templateWithRow = `
 >
 
   <template slot-scope="{ listItem }"  >
-    <gl-button
+    <gl-deprecated-button
     variant="success"
     class="order-1"
     @click="alert"
     >
       {{ listItem.id }}
-    </gl-button>
+    </gl-deprecated-button>
   </template>
 
 </gl-paginated-list>

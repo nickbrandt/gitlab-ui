@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import Button from '../../../src/components/base/button/button.vue';
+import Button from '../../../src/components/base/deprecated_button/deprecated_button.vue';
 import GlLoadingIcon from '../../../src/components/base/loading_icon/loading_icon.vue';
 
-describe('button component', () => {
+describe('deprecated button component', () => {
   const mountWithOptions = shallowMount.bind(null, Button);
 
   describe('default settings', () => {

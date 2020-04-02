@@ -1,12 +1,12 @@
 <script>
-import GlButton from '../new_button/new_button.vue';
+import GlDeprecatedButton from '../new_button/new_button.vue';
 import GlIcon from '../icon/icon.vue';
 import { bannerVariants } from '../../../utils/constants';
 
 export default {
   name: 'GlBanner',
   components: {
-    GlButton,
+    GlDeprecatedButton,
     GlIcon,
   },
   props: {
@@ -57,7 +57,9 @@ export default {
     <div class="gl-banner-content">
       <h1 class="gl-banner-title">{{ title }}</h1>
       <slot></slot>
-      <gl-button variant="info" :href="buttonLink">{{ buttonText }}</gl-button>
+      <gl-deprecated-button variant="info" :href="buttonLink">{{
+        buttonText
+      }}</gl-deprecated-button>
     </div>
     <button type="button" aria-label="Close" class="gl-banner-close close" @click="handleClose">
       <gl-icon name="close" />

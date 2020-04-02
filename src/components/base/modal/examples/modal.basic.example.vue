@@ -1,8 +1,8 @@
 <template>
   <div>
-    <gl-button v-gl-modal-directive="'basic-modal-id'" variant="info">
+    <gl-deprecated-button v-gl-modal-directive="'basic-modal-id'" variant="info">
       Open modal
-    </gl-button>
+    </gl-deprecated-button>
     <gl-modal
       modal-id="basic-modal-id"
       title="Example title"

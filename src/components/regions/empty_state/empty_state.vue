@@ -1,5 +1,5 @@
 <script>
-import GlButton from '../../base/button/button.vue';
+import GlDeprecatedButton from '../../base/deprecated_button/deprecated_button.vue';
 
 const textBreaks = el => {
   const originalWhiteSpace = el.style.whiteSpace;
@@ -14,7 +14,7 @@ const textBreaks = el => {
 
 export default {
   components: {
-    GlButton,
+    GlDeprecatedButton,
   },
   props: {
     title: {
@@ -109,17 +109,17 @@ export default {
         </p>
         <div :class="{ 'text-center': fullscreen }">
           <slot name="actions">
-            <gl-button
+            <gl-deprecated-button
               v-if="shouldRenderPrimaryButton"
               variant="success"
               :href="primaryButtonLink"
-              >{{ primaryButtonText }}</gl-button
+              >{{ primaryButtonText }}</gl-deprecated-button
             >
-            <gl-button
+            <gl-deprecated-button
               v-if="shouldRenderSecondaryButton"
               variant="outline-success"
               :href="secondaryButtonLink"
-              >{{ secondaryButtonText }}</gl-button
+              >{{ secondaryButtonText }}</gl-deprecated-button
             >
           </slot>
         </div>

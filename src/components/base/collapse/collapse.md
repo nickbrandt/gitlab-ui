@@ -9,9 +9,9 @@ Collapse is used to keep pages focused on the overview of what the user can do. 
 ```html
 <template>
   <div>
-    <gl-button v-gl-collapse-toggle.collase-id variant="primary">
+    <gl-deprecated-button v-gl-collapse-toggle.collase-id variant="primary">
       Toggle Collapse
-    </gl-button>
+    </gl-deprecated-button>
     <gl-collapse id="collase-id" class="gl-mt-3">
       <gl-card>
         <p class="card-text">Collapse contents Here</p>

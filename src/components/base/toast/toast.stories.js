@@ -10,7 +10,7 @@ Vue.use(GlToast);
  * We do this because <gl-new-button> is destined to become our official button
  * component following Pajamas specifications, thus:
  * - We "dogfood" our real button component as it's being built
- * - Once we decide to replace GlButton with the newer button component, we
+ * - Once we decide to replace GlDeprecatedButton with the newer button component, we
  *   won’t have to update the snapshots again (of course we'll still need to
  *   replace <gl-new-button> with <gl-button> here)
  */
