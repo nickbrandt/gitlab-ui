@@ -1,3 +1,37 @@
+# [11.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.4.0...v11.0.0) (2020-04-02)
+
+
+### Features
+
+* Add focus state mixins, utilize for form inputs ([72c7be1](https://gitlab.com/gitlab-org/gitlab-ui/commit/72c7be11f753eae566e5bd45c1d4faafb18027b1))
+* rename GlButton to GlDeprecatedButton ([123324b](https://gitlab.com/gitlab-org/gitlab-ui/commit/123324bb5f973456d233741b4c93c9b1e885579e))
+
+
+### BREAKING CHANGES
+
+* The GlButton component has been renamed to
+GlDeprecatedButton.
+
+Import statements need to be updated accordingly:
+
+Before:
+
+import { GlButton } from '@gitlab/ui';
+
+After:
+
+import { GlDeprecatedButton } from '@gitlab/ui';
+
+In Vue templates, make sure to update the component's usages as well:
+
+Before:
+
+<gl-button>My button</gl-button>
+
+After:
+
+<gl-deprecated-button>My button</gl-deprecated-button>
+
 # [10.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.3...v10.4.0) (2020-04-02)
 
 
