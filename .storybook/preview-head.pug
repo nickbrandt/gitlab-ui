@@ -27,8 +27,8 @@ script.
       linkStylesheet.setAttribute('rel', 'stylesheet');
       linkStylesheet.setAttribute('media', 'all');
 
-      const gitlabUiStyles = document.querySelector('style[data-gitlab-ui-style]');
+      const head = document.querySelector('head');
 
-      gitlabUiStyles.insertAdjacentElement('afterend', linkStylesheet);
+      head.appendChild(linkStylesheet);
     }
   });
