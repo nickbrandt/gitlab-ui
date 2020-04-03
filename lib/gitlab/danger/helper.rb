@@ -69,7 +69,7 @@ module Gitlab
       def category_for_file(file)
         _, category = CATEGORIES.find { |regexp, _| regexp.match?(file) }
 
-        category || :unknown
+        category || :frontend
       end
 
       # Returns the GFM for a category label, making its best guess if it's not
@@ -81,38 +81,10 @@ module Gitlab
       end
 
       CATEGORY_LABELS = {
-        docs: '~documentation', # Docs are reviewed along DevOps stages, so don't need roulette for now.
-        none: '',
-        qa: '~QA',
-        test: '~test ~Quality for `spec/features/*`',
-        engineering_productivity: '~"Engineering Productivity" for CI, Danger'
+        docs: '~documentation'
       }.freeze
       CATEGORIES = {
-        %r{\Adoc/} => :frontend,
-        /\.md\z/ => :frontend,
-        /\.(vue|js|scss)\z/ => :frontend,
-        %r{(\A|/)(
-          \.babelrc |
-          \.eslintignore |
-          \.eslintrc(\.yml)? |
-          \.nvmrc |
-          \.prettierignore |
-          \.prettierrc |
-          \.scss-lint.yml |
-          \.stylelintrc |
-          package\.json |
-          yarn\.lock |
-        )\z}x => :frontend,
-        %r{\Atests/__image_snapshots__} => :frontend,
-
-        /Dangerfile\z/ => :engineering_productivity,
-        %r{\A(danger/|lib/gitlab[/_]danger)} => :engineering_productivity,
-
-        # Files that don't fit into any category are marked with :none
-        %r{\A(\.gitlab-ci\.yml\z|\.gitlab\/ci)} => :none,
-
-        # Fallbacks in case the above patterns miss anything
-        /\.rb\z/ => :backend
+        %r{\Adoc/} => :docs
       }.freeze
     end
   end
