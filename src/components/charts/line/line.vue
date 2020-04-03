@@ -179,9 +179,12 @@ export default {
       // seriesData is an array of nearby data point coordinates
       // seriesData[0] is the nearest point at which the tooltip is displayed
       // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
-      if (seriesData.length && seriesData[0].data) {
-        const { seriesId, data } = seriesData[0];
-        const [left, top] = this.chart.convertToPixel({ seriesId }, data);
+      // convertToPixel expects value<Array|String> but there are cases
+      // where seriesData[0].data is an object. For line charts, value is
+      // guaranteed to be an array. Hence using seriesData[0].value
+      if (seriesData.length && seriesData[0].value) {
+        const { seriesId, value } = seriesData[0];
+        const [left, top] = this.chart.convertToPixel({ seriesId }, value);
 
         this.tooltipPosition = {
           left: `${left}px`,
