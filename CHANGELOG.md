@@ -1,3 +1,10 @@
+## [11.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.1...v11.0.2) (2020-04-03)
+
+
+### Bug Fixes
+
+* **DaterangePicker:** Add sameDaySelection prop ([44a6459](https://gitlab.com/gitlab-org/gitlab-ui/commit/44a645972dc998bfd05b85909cfdd0ff7f95d305))
+
 ## [11.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.0...v11.0.1) (2020-04-03)
 
 
