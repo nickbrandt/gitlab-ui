@@ -15,6 +15,7 @@ import { getValidationInfoText } from '../../src/utils/validation_utils';
 import { gitlabComponents, gitlabChartComponents, componentValidator } from '../all_components';
 
 import GlTable from '../../src/components/base/table/table.vue';
+import GlBadge from '../../src/components/base/badge/badge.vue';
 
 import { getDocumentationFor } from '../components_documentation';
 
@@ -43,6 +44,7 @@ function getPropDefaultValue(defaultValue) {
 export default {
   components: {
     GlTable,
+    GlBadge,
   },
   props: {
     componentName: {
@@ -67,6 +69,19 @@ export default {
     },
     actualComponentOptions() {
       return this.actualComponent.options || {};
+    },
+    componentVModel() {
+      const { model } = this.actualComponentOptions;
+
+      if (!model) {
+        return null;
+      }
+
+      return {
+        prop: 'value',
+        event: 'input',
+        ...model,
+      };
     },
     documentationInfo() {
       return getDocumentationFor(this.componentName);
@@ -136,7 +151,23 @@ export default {
       return returnProps;
     },
     displayEvents() {
-      return this.documentationInfo.events || [];
+      const events = this.documentationInfo.events || [];
+      if (this.componentVModel) {
+        const vModelEventIndex = events.findIndex(
+          ({ event }) => event === this.componentVModel.event
+        );
+        if (vModelEventIndex === -1) {
+          events.push({
+            event: this.componentVModel.event,
+            args: [
+              {
+                arg: this.componentVModel.prop,
+              },
+            ],
+          });
+        }
+      }
+      return events;
     },
     displaySlots() {
       return this.documentationInfo.slots || [];
@@ -197,9 +228,15 @@ export default {
       >
         <template #cell(prop)="field">
           <div>
-            <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">{{
-              field.value
-            }}</span>
+            <span :title="field.item._cellVariants ? 'Inherited from Vue Bootstrap' : ''">
+              {{ field.value }}
+              <gl-badge
+                v-if="componentVModel && field.value === componentVModel.prop"
+                variant="primary"
+              >
+                v-model
+              </gl-badge>
+            </span>
           </div>
         </template>
         <template #cell(required)="data">
@@ -230,6 +267,15 @@ export default {
     <div v-if="displayEvents.length > 0">
       <h4>Events</h4>
       <gl-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
+        <template #cell(event)="field">
+          {{ field.value }}
+          <gl-badge
+            v-if="componentVModel && field.value === componentVModel.event"
+            variant="primary"
+          >
+            v-model
+          </gl-badge>
+        </template>
         <template #cell(args)="field">
           <div
             v-for="argument in field.value"
@@ -240,6 +286,17 @@ export default {
           </div>
         </template>
       </gl-table>
+    </div>
+
+    <div v-if="componentVModel">
+      <h4>v-model</h4>
+      <gl-table
+        :items="[componentVModel]"
+        :fields="['prop', 'event']"
+        small
+        head-variant="default"
+        striped
+      />
     </div>
 
     <h3>Import</h3>
