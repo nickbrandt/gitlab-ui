@@ -1,3 +1,10 @@
+## [11.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.0...v11.0.1) (2020-04-03)
+
+
+### Bug Fixes
+
+* Chart tooltip positioning logic ([03d7dbf](https://gitlab.com/gitlab-org/gitlab-ui/commit/03d7dbf268a9df4c9f4716ba2664c793b083adcc))
+
 # [11.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.4.0...v11.0.0) (2020-04-02)
 
 
