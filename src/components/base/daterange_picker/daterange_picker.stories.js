@@ -1,4 +1,4 @@
-import { withKnobs, date, number } from '@storybook/addon-knobs/dist/deprecated';
+import { withKnobs, date, number, boolean } from '@storybook/addon-knobs/dist/deprecated';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';
@@ -36,6 +36,10 @@ function generateProps() {
       type: Number,
       default: number('maxDateRange', 0),
     },
+    sameDaySelection: {
+      type: Boolean,
+      default: boolean('sameDaySelection', false),
+    },
   };
 }
 
@@ -55,6 +59,6 @@ documentedStoriesOf('base|daterange-picker', readme)
       };
     },
     template: `
-      <gl-daterange-picker class="d-flex" :default-min-date="defaultMinDate" :default-max-date="defaultMaxDate" :default-start-date="defaultStartDate" :default-end-date="defaultEndDate" :max-date-range="maxDateRange" v-model="value"/>
+      <gl-daterange-picker class="d-flex" :default-min-date="defaultMinDate" :default-max-date="defaultMaxDate" :default-start-date="defaultStartDate" :default-end-date="defaultEndDate" :max-date-range="maxDateRange" :same-day-selection="sameDaySelection" v-model="value"/>
     `,
   }));

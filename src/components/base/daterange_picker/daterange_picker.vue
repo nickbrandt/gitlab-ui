@@ -67,21 +67,33 @@ export default {
       required: false,
       default: '',
     },
+    sameDaySelection: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       fromCalendarMaxDate: this.defaultMaxDate ? getDateInPast(this.defaultMaxDate, 1) : null,
-      toCalendarMinDate: this.defaultStartDate ? getDateInFuture(this.defaultStartDate, 1) : null,
       startDate: this.defaultStartDate,
       endDate: this.defaultEndDate,
       openToCalendar: false,
     };
   },
   computed: {
+    effectiveMaxDateRange() {
+      return this.sameDaySelection ? this.maxDateRange - 1 : this.maxDateRange;
+    },
+    toCalendarMinDate() {
+      if (!this.startDate) return null;
+
+      return this.sameDaySelection ? this.startDate : getDateInFuture(this.startDate, 1);
+    },
     toCalendarMaxDate() {
       if (!this.startDate || !this.maxDateRange) return this.defaultMaxDate;
 
-      const computedMaxEndDate = getDateInFuture(this.startDate, this.maxDateRange);
+      const computedMaxEndDate = getDateInFuture(this.startDate, this.effectiveMaxDateRange);
       return new Date(Math.min(computedMaxEndDate, this.defaultMaxDate));
     },
     dateRangeViolation() {
@@ -89,7 +101,7 @@ export default {
     },
     exceedsDateRange() {
       const numberOfDays = getDayDifference(this.startDate, this.endDate);
-      return this.maxDateRange ? numberOfDays > this.maxDateRange : false;
+      return this.maxDateRange ? numberOfDays > this.effectiveMaxDateRange : false;
     },
     toCalendarDefaultDate() {
       return this.endDate || this.toCalendarMinDate;
@@ -108,7 +120,6 @@ export default {
   methods: {
     onStartDateSelected(startDate) {
       this.startDate = startDate;
-      this.toCalendarMinDate = startDate ? getDateInFuture(startDate, 1) : null;
 
       if (this.dateRangeViolation) {
         this.openToCalendar = true;
