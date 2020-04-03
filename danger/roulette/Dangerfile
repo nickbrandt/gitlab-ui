@@ -55,7 +55,7 @@ def spin_for_category(team, project, category, branch_name)
 
   # Make traintainers have triple the chance to be picked as a reviewer
   reviewer = roulette.spin_for_person(reviewers + traintainers + traintainers, random: random)
-  maintainer = roulette.spin_for_person(maintainers, random: random)
+  maintainer = roulette.spin_for_person(maintainers, random: random) if category != :docs
 
   {
     "label": helper.label_for_category(category),
@@ -64,32 +64,30 @@ def spin_for_category(team, project, category, branch_name)
   }
 end
 
-def rows_contain_maintainer?(rows)
-  rows.any? { |row| !row[:maintainer].nil? }
-end
-
 changes = helper.changes_by_category
-
-# Ignore any files that are known but uncategorized. Prompt for any unknown files
-changes.delete(:none)
-categories = changes.keys - [:unknown]
+categories = changes.keys
 
 if changes.any?
   branch_name = gitlab.mr_json['source_branch']
 
-  gitlab_team = team_for_project(GITLAB_PROJECT_ID)
+  team = team_for_project(GITLAB_PROJECT_ID)
 
-  unknown = changes.fetch(:unknown, [])
-
-  gitlab_team_rows = categories.map do |category|
-    spin_for_category(gitlab_team, GITLAB_PROJECT_ID, category, branch_name)
+  rows = categories.map do |category|
+    spin_for_category(team, GITLAB_PROJECT_ID, category, branch_name)
   end
 
-  roulette_rows = gitlab_team_rows.map do |row|
+  # If these are docs-only changes, we need to pick a frontend maintainer for the final review
+  if categories == %i[docs]
+    frontend_row = spin_for_category(team, GITLAB_PROJECT_ID, :frontend, branch_name)
+    # We remove the frontend reviewer as the initial review will be performed by a technical writer
+    frontend_row[:reviewer] = nil
+    rows << frontend_row
+  end
+
+  roulette_rows = rows.map do |row|
     "| #{row[:label]} | #{row[:reviewer] || NO_REVIEWER} | #{row[:maintainer] || NO_MAINTAINER} |"
   end
 
   markdown(MESSAGE)
   markdown(CATEGORY_TABLE_HEADER + roulette_rows.join("\n"))
-  markdown(UNKNOWN_FILES_MESSAGE + helper.markdown_list(unknown)) unless unknown.empty?
 end
