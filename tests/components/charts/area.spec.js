@@ -61,11 +61,11 @@ describe('area component', () => {
 
     it('is reset when the xAxis formatter is triggered', () => {
       const seriesId = 'Series Name0';
-      const data = ['2020-02-10T06:45:26.879Z', 0.002671530922619002];
+      const value = ['2020-02-10T06:45:26.879Z', 0.002671530922619002];
       const pixel = [66, 99];
 
       const params = {
-        seriesData: [{ seriesId, data }],
+        seriesData: [{ seriesId, value }],
       };
 
       mockChartInstance.convertToPixel.mockReturnValueOnce(pixel);
@@ -73,7 +73,7 @@ describe('area component', () => {
       getOptions().xAxis.axisPointer.label.formatter(params);
 
       return wrapper.vm.$nextTick(() => {
-        expect(mockChartInstance.convertToPixel).toHaveBeenCalledWith({ seriesId }, data);
+        expect(mockChartInstance.convertToPixel).toHaveBeenCalledWith({ seriesId }, value);
 
         expect(findChartTooltip().props('left')).toBe(`${pixel[0]}px`);
         expect(findChartTooltip().props('top')).toBe(`${pixel[1]}px`);
