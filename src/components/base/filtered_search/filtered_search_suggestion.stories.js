@@ -16,8 +16,8 @@ documentedStoriesOf('base|filtered-search/suggestion', readme)
       },
     },
     template: `
-      <div>
+      <ul>
         <gl-filtered-search-suggestion value="demo">Demo suggestion</gl-filtered-search-suggestion>
-      </div>
+      </ul>
     `,
   }));

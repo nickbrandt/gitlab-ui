@@ -46,7 +46,7 @@ export default {
 <template>
   <gl-dropdown-item
     ref="item"
-    class="dropdown-item gl-filtered-search-suggestion"
+    class="gl-filtered-search-suggestion"
     :class="{ 'gl-filtered-search-suggestion-active': isActive }"
     v-bind="$attrs"
     href="#"
