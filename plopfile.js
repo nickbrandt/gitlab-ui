@@ -1,81 +1,113 @@
+/* eslint-disable no-param-reassign */
 const snakecase = require('lodash.snakecase');
+const promptDirectory = require('inquirer-select-directory');
+const path = require('path');
 
-const baseFolder = 'src/components/base/{{name}}';
-const testsFolder = 'tests/components/base';
-const scssFolder = '../components/base/{{name}}';
+const componentsPath = path.join('src', 'components');
+const baseComponentsPath = path.join(componentsPath, 'base');
+const testsBasePath = path.join('tests', 'components');
 const templateFolder = 'templates';
 
 const commonActions = [
   {
     type: 'add',
-    path: `${baseFolder}/examples/{{name}}.basic.example.vue`,
+    path: `{{componentDirAbsolute}}/examples/{{name}}.basic.example.vue`,
     templateFile: `${templateFolder}/basic.example.vue.hbs`,
   },
   {
     type: 'add',
-    path: `${testsFolder}/{{name}}.spec.js`,
+    path: `${testsBasePath}/{{componentDir}}/../{{name}}.spec.js`,
     templateFile: `${templateFolder}/spec.js.hbs`,
   },
   {
     type: 'add',
-    path: `${baseFolder}/examples/index.js`,
+    path: `{{componentDirAbsolute}}/examples/index.js`,
     templateFile: `${templateFolder}/example.index.js.hbs`,
   },
   {
     type: 'append',
     pattern: 'ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove',
     path: 'index.js',
-    template: `export { default as Gl{{pascalCase name}} } from './${baseFolder}/{{name}}.vue';`,
+    template: `export { default as Gl{{pascalCase name}} } from './${componentsPath}{{componentDir}}/{{name}}.vue';`,
   },
   {
     type: 'append',
     pattern: 'ADD EXPORTS - needed for yarn generate:component. Do not remove',
     path: 'documentation/components_documentation.js',
-    template: `export { default as Gl{{pascalCase name}}Documentation } from '../${baseFolder}/{{name}}.documentation';`,
+    template: `export { default as Gl{{pascalCase name}}Documentation } from '../${componentsPath}{{componentDir}}/{{name}}.documentation';`,
   },
   {
     type: 'append',
     pattern: 'ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove',
     path: 'src/scss/components.scss',
-    template: `@import '${scssFolder}/{{name}}';`,
+    template: `@import '../components{{componentDir}}/{{name}}';`,
   },
   {
     type: 'add',
-    path: `${baseFolder}/{{name}}.stories.js`,
+    path: `{{componentDirAbsolute}}/{{name}}.stories.js`,
     templateFile: `${templateFolder}/story.js.hbs`,
   },
   {
     type: 'add',
-    path: `${baseFolder}/{{name}}.scss`,
+    path: `{{componentDirAbsolute}}/{{name}}.scss`,
   },
 ];
 
+const makePrompts = (prompts = []) => [
+  ...prompts,
+  {
+    type: 'confirm',
+    name: 'useDefaultComponentDir',
+    message: `The component will be placed in ${baseComponentsPath}, does that look right?`,
+  },
+  {
+    when: answers => !answers.useDefaultComponentDir,
+    type: 'directory',
+    name: 'componentDir',
+    message: 'Where should we put this component?',
+    basePath: componentsPath,
+  },
+];
+
+const setCommonData = data => {
+  data.componentDirAbsolute = `${data.componentDir || baseComponentsPath}/${data.name}`;
+  data.componentDir = data.componentDirAbsolute.replace(path.join(__dirname, componentsPath), '');
+  data.pathToRootDir = data.componentDir
+    .split('/')
+    .fill('..')
+    .join('/');
+};
+
 module.exports = plop => {
+  plop.setPrompt('directory', promptDirectory);
+
   plop.setGenerator('Create Component', {
     description: 'Create basic empty component',
-    prompts: [
+    prompts: makePrompts([
       {
         type: 'input',
         name: 'name',
         message: 'Component name in snake_case, e.g. progress_bar:\n',
       },
-    ],
-    actions() {
+    ]),
+    actions(data) {
+      setCommonData(data);
+
       const actions = [
         ...commonActions,
         {
           type: 'add',
-          path: `${baseFolder}/{{name}}.vue`,
+          path: `{{componentDirAbsolute}}/{{name}}.vue`,
           templateFile: `${templateFolder}/component.vue.hbs`,
         },
         {
           type: 'add',
-          path: `${baseFolder}/{{name}}.md`,
+          path: `{{componentDirAbsolute}}/{{name}}.md`,
           templateFile: `${templateFolder}/component.md.hbs`,
         },
         {
           type: 'add',
-          path: `${baseFolder}/{{name}}.documentation.js`,
+          path: `{{componentDirAbsolute}}/{{name}}.documentation.js`,
           templateFile: `${templateFolder}/documentation.js.hbs`,
         },
       ];
@@ -86,32 +118,32 @@ module.exports = plop => {
 
   plop.setGenerator('Wrap BootstrapVue Component', {
     description: 'Create a gl_ component as a simple wrapper',
-    prompts: [
+    prompts: makePrompts([
       {
         type: 'input',
         name: 'bootstrapVueComponentName',
         message: 'BS component name in PascalCase, e.g. BTable:\n',
       },
-    ],
+    ]),
     actions(data) {
-      // eslint-disable-next-line no-param-reassign
       data.name = snakecase(data.bootstrapVueComponentName).replace(/^b_/, '');
+      setCommonData(data);
 
       const actions = [
         ...commonActions,
         {
           type: 'add',
-          path: `${baseFolder}/{{name}}.vue`,
+          path: `{{componentDirAbsolute}}/{{name}}.vue`,
           templateFile: `${templateFolder}/bs_component.vue.hbs`,
         },
         {
           type: 'add',
-          path: `${baseFolder}/{{name}}.md`,
+          path: `{{componentDirAbsolute}}/{{name}}.md`,
           templateFile: `${templateFolder}/bs_documentation.md.hbs`,
         },
         {
           type: 'add',
-          path: `${baseFolder}/{{name}}.documentation.js`,
+          path: `{{componentDirAbsolute}}/{{name}}.documentation.js`,
           templateFile: `${templateFolder}/bs_documentation.js.hbs`,
         },
       ];

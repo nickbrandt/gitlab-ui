@@ -105,6 +105,7 @@
     "eslint-plugin-jest": "^22.3.0",
     "file-loader": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
+    "inquirer-select-directory": "^1.2.0",
     "jest": "^24.1.0",
     "jest-localstorage-mock": "^2.4.0",
     "jest-raw-loader": "^1.0.1",

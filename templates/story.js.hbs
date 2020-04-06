@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { documentedStoriesOf } from '../{{pathToRootDir}}/documentation/documented_stories';
 import readme from './{{name}}.md';
-import { Gl{{pascalCase name}} } from '../../../../index';
+import Gl{{pascalCase name}} from './{{name}}.vue';
 
 const components = {
   Gl{{pascalCase name}},
