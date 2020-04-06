@@ -2,6 +2,7 @@ import * as description from './filtered_search.md';
 import examples from './examples';
 
 export default {
+  followsDesignSystem: true,
   description,
   bootstrapComponent: null,
   examples,
