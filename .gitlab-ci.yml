@@ -52,8 +52,7 @@ build_docker_image:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
   tags:
-    - gitlab-org
-    - docker
+    - gitlab-org-docker
   services:
     - docker:19.03.0-dind
   image: docker:stable
