@@ -1,3 +1,10 @@
+## [11.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.2...v11.0.3) (2020-04-06)
+
+
+### Bug Fixes
+
+* **filters:** Fix styles for GitLab ([2fb56b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/2fb56b4c7ad9f5623f5ece39105789a1e5e19c44))
+
 ## [11.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.1...v11.0.2) (2020-04-03)
 
 
