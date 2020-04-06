@@ -1,3 +1,10 @@
+# [11.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.3...v11.1.0) (2020-04-06)
+
+
+### Features
+
+* **css:** Add missing y transform utilities ([32f8b26](https://gitlab.com/gitlab-org/gitlab-ui/commit/32f8b26f04af049dc947c23a3f4162fe1772cf1c))
+
 ## [11.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.2...v11.0.3) (2020-04-06)
 
 
