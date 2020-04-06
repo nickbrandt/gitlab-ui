@@ -11,3 +11,11 @@
 @mixin gl-transform-x-100 {
   transform: translateX(100%);
 }
+
+@mixin gl-transform-y-0 {
+  transform: translateY(0);
+}
+
+@mixin gl-transform-y-100 {
+  transform: translateY(100%);
+}
