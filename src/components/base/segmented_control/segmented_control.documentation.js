@@ -6,4 +6,16 @@ export default {
   description,
   examples,
   bootstrapComponent: 'b-form-radio-group',
+  events: [
+    {
+      event: 'input',
+      description: 'Emitted when the selection changes',
+      args: [
+        {
+          arg: 'checked',
+          description: 'The selected option',
+        },
+      ],
+    },
+  ],
 };

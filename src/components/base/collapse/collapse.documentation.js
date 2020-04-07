@@ -23,6 +23,18 @@ export default {
       additionalInfo: 'Specify the HTML tag to render instead of the default tag',
     },
   },
+  events: [
+    {
+      event: 'input',
+      description: 'Emitted when the visibility changes',
+      args: [
+        {
+          arg: 'visible',
+          description: 'The visibility state',
+        },
+      ],
+    },
+  ],
   slots: [
     {
       name: 'default',
