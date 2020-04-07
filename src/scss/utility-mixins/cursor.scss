@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+@mixin gl-cursor-grab {
+  cursor: grab;
+}
+
 @mixin gl-cursor-not-allowed {
   cursor: not-allowed;
 }
