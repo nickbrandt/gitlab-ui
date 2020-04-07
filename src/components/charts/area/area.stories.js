@@ -4,6 +4,7 @@ import { documentedStoriesOf } from '../../../../documentation/documented_storie
 import { GlAreaChart } from '../../../../charts';
 import readme from './area.md';
 import { generateTimeSeries } from '../../../utils/data_utils';
+import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 
@@ -24,6 +25,7 @@ const defaultData = [
     ],
   },
 ];
+
 const defaultOptions = {
   xAxis: {
     name: 'Time',
@@ -81,8 +83,9 @@ documentedStoriesOf('charts|area-chart', readme)
   .add('with annotations', () => ({
     props: generateProps({
       annotations: [
-        { min: '2018-01-15T08:00:00.000Z', max: '2018-01-15T08:00:00.000Z' },
-        { min: '2018-01-16T08:00:00.000Z', max: '2018-01-16T08:00:00.000Z' },
+        { min: '2018-01-25T01:00:00.000Z', max: '2018-01-25T01:00:00.000Z' },
+        { min: '2018-01-25T10:00:00.000Z', max: '2018-01-25T10:00:00.000Z' },
+        { min: '2018-02-06T08:00:00.000Z', max: '2018-02-06T08:00:00.000Z' },
       ],
       data: [
         {
@@ -91,20 +94,43 @@ documentedStoriesOf('charts|area-chart', readme)
         },
       ],
       option: {
+        series: [
+          {
+            type: 'scatter',
+            name: 'annotations',
+            data: [],
+            markPoint: {
+              symbol: 'path://m5 229 5 8h-10z',
+              symbolSize: '8',
+              symbolOffset: [0, ' 60%'],
+              data: [
+                {
+                  name: 'annotations',
+                  xAxis: '2018-01-25T01:00:00.000Z',
+                  yAxis: 0,
+                  tooltipData: { content: 'Scranton strangler was caught.' },
+                },
+                {
+                  name: 'annotations',
+                  xAxis: '2018-01-25T10:00:00.000Z',
+                  yAxis: 0,
+                  tooltipData: { content: 'Tobys green car is missing.' },
+                },
+                {
+                  name: 'annotations',
+                  xAxis: '2018-02-06T08:00:00.000Z',
+                  yAxis: 0,
+                  tooltipData: { content: 'It was actually Toby!' },
+                },
+              ],
+            },
+          },
+        ],
         xAxis: {
           type: 'time',
           name: 'Time',
           axisLabel: {
-            formatter: d => {
-              const date = new Date(d);
-              const month = (date.getMonth() + 1).toString().padStart(2, '0');
-              const day = date
-                .getDate()
-                .toString()
-                .padStart(2, '0');
-
-              return `${date.getFullYear()}-${month}-${day}`;
-            },
+            formatter: timeSeriesDateFormatter,
           },
         },
       },
@@ -125,16 +151,7 @@ documentedStoriesOf('charts|area-chart', readme)
           type: 'time',
           name: 'Time',
           axisLabel: {
-            formatter: d => {
-              const date = new Date(d);
-              const month = (date.getMonth() + 1).toString().padStart(2, '0');
-              const day = date
-                .getDate()
-                .toString()
-                .padStart(2, '0');
-
-              return `${date.getFullYear()}-${month}-${day}`;
-            },
+            formatter: timeSeriesDateFormatter,
           },
         },
         dataZoom: [
