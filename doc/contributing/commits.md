@@ -24,7 +24,6 @@ When opening an MR, make sure you do at least one of the following:
 - Ensure the MR's title itself complies with the conventional commit standards.
 
 Following these conventions will result in a properly versioned package and clear [changelogs](./CHANGELOG.md) for every version.
-and clear [changelogs](./CHANGELOG.md) for every version.
 
 ## When should my MR's title follow these conventions?
 
@@ -97,4 +96,4 @@ https://commitizen.github.io/cz-cli/
 
 Commitizen is a CLI tool that provides an interactive interface to help you write commit messages following conventional commits specifications.
 
-> **Note:** We also limit commit messages subject's and body's length with Danger: [Dangerfile](./danger/semantic-commit/Dangerfile)
+> **Note:** We also limit the length of both the subject and the body of a commit message with Danger: [Dangerfile](./danger/semantic-commit/Dangerfile).
