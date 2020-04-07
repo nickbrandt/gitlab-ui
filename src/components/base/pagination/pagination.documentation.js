@@ -62,6 +62,18 @@ export default {
         'Controls the component\'s horizontal alignment, value should be one of "left", "center", "right" or "fill"',
     },
   },
+  events: [
+    {
+      event: 'input',
+      description: 'Emitted when the page changes',
+      args: [
+        {
+          arg: 'value',
+          description: 'The page that just got loaded',
+        },
+      ],
+    },
+  ],
   slots: [
     {
       name: 'previous',
