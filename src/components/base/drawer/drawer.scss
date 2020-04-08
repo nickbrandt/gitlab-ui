@@ -54,12 +54,12 @@ $gl-drawer-width: 400px;
 }
 
 .gl-drawer-enter-to {
-  @include gl-transform-x-0;
+  @include gl-translate-x-0;
 }
 
 .gl-drawer-enter,
 .gl-drawer-leave-to {
-  @include gl-transform-x-100;
+  @include gl-translate-x-100;
 }
 
 .gl-drawer-enter-active,
