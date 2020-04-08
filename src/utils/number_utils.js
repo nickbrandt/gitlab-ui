@@ -29,7 +29,7 @@ export const isIntGreaterThan = gt => number => Number.isInteger(number) && numb
  * @return {String} number, possibly with a suffix
  */
 export const engineeringNotation = (num) => {
-  const formatter = new Intl.NumberFormat('en-US', {
+  const formatter = new Intl.NumberFormat(undefined, {
     notation: 'compact',
     compactDisplay: 'short',
   });
