@@ -1,3 +1,11 @@
+# [11.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.1.0...v11.2.0) (2020-04-08)
+
+
+### Features
+
+* **css:** Add cursor grab css utility ([ad0f02c](https://gitlab.com/gitlab-org/gitlab-ui/commit/ad0f02c61ba3571c5f96d443c2d6ae0418b1d02b))
+* **css:** Update transform naming ([c8621ca](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8621ca7b2530050afd19870b96169676510126e))
+
 # [11.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.0.3...v11.1.0) (2020-04-06)
 
 
