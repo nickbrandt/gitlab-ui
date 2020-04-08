@@ -4,7 +4,7 @@ import examples from './examples';
 export default {
   description,
   examples,
-  followsDesignSystem: true,
+  followsDesignSystem: false,
   bootstrapComponent: 'b-form-radio',
   propsInfo: {
     checked: {

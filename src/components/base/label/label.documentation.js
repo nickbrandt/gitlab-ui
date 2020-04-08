@@ -1,6 +1,6 @@
 import examples from './examples';
 
 export default {
-  followsDesignSystem: true,
+  followsDesignSystem: false,
   examples,
 };
