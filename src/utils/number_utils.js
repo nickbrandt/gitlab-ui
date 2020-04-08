@@ -30,7 +30,8 @@ export const isIntGreaterThan = gt => number => Number.isInteger(number) && numb
  */
 export const engineeringNotation = (num) => {
   const formatter = new Intl.NumberFormat('en-US', {
-    notation: 'engineering',
+    notation: 'compact',
+    compactDisplay: 'short',
   });
 
   return formatter.format(num);
