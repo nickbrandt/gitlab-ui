@@ -23,6 +23,9 @@ export default {
   },
   slots: [
     { name: 'view', description: 'Template for token value in inactive state' },
-    { name: 'suggestions', description: 'Slot for rendering autocomplete suggestions' },
+    {
+      name: 'suggestions',
+      description: 'Slot for rendering autocomplete suggestions when no options are provided.',
+    },
   ],
 };
