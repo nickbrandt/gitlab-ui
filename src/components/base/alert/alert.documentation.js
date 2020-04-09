@@ -4,7 +4,7 @@ import examples from './examples';
 export default {
   description,
   examples,
-  followsDesignSystem: true,
+  followsDesignSystem: false,
   propsInfo: {
     primaryButtonText: {
       additionalInfo: 'If provided, renders a primary action button.',
