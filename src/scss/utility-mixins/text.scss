@@ -78,3 +78,13 @@
 @mixin gl-white-space-nowrap {
   white-space: nowrap;
 }
+
+/**
+* Word utilities.
+*
+* naming convention: gl-word-{action}-{value}
+*/
+
+@mixin gl-word-break-all {
+  word-break: break-all;
+}

@@ -60,6 +60,9 @@ export default {
     seriesMax(seriesData) {
       return engineeringNotation(Math.max(...seriesData));
     },
+    seriesNameIsLong(seriesName) {
+      return seriesName.length > 120;
+    },
     handleClick(name, key) {
       this.chart.dispatchAction({ type: 'legendToggleSelect', name });
       this.disabledSeries = { ...this.disabledSeries, [key]: !this.disabledSeries[key] };
@@ -82,7 +85,7 @@ export default {
     <div
       v-for="(series, key) in seriesInfo"
       :key="key"
-      :class="{ 'text-muted': disabledSeries[key] }"
+      :class="{ 'text-muted': disabledSeries[key], 'w-100': seriesNameIsLong(series.name) }"
       class="gl-legend-series"
       :style="fontStyle"
       role="button"
@@ -94,10 +97,14 @@ export default {
         :color="getColor(series.color, key)"
         :type="series.type"
         class="gl-legend-series-label"
+        :class="{ 'w-75': seriesNameIsLong(series.name) }"
       >
         <strong>{{ series.name }}</strong>
       </gl-chart-series-label>
-      <span v-if="series.data && series.data.length">
+      <span
+        v-if="series.data && series.data.length"
+        :class="{ 'w-100 gl-white-space-nowrap': seriesNameIsLong(series.name) }"
+      >
         {{ averageText }}: {{ seriesAverage(series.data) }} · {{ maxText }}:
         {{ seriesMax(series.data) }}
       </span>
