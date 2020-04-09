@@ -1,3 +1,10 @@
+## [11.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.2.0...v11.2.1) (2020-04-09)
+
+
+### Bug Fixes
+
+* **button:** icon button fill color ([e913662](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9136627b454ddd87ba71a3f15d5095bd3938e07))
+
 # [11.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.1.0...v11.2.0) (2020-04-08)
 
 
