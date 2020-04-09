@@ -92,6 +92,23 @@ documentedStoriesOf('base|new-button', readme)
       </gl-new-button>
     `,
   }))
+  .add('icon button', () => ({
+    props: generateProps({
+      category: newButtonCategoryOptions.primary,
+      variant: newButtonVariantOptions.danger,
+    }),
+    components,
+    template: `
+      <gl-new-button
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+        icon="star-o"
+      />
+    `,
+  }))
   .add('link button', () => ({
     props: generateProps({ withLink: true }),
     components,

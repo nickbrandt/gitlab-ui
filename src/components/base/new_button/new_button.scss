@@ -38,7 +38,7 @@
   @include gl-font-base;
   @include gl-rounded-base;
 
-  svg {
+  .gl-icon {
     @include gl-h-5;
     @include gl-w-5;
     @include gl-mr-2;
@@ -78,10 +78,10 @@
       inset 0 px-to-rem(1px) px-to-rem(4px) px-to-rem(1px) rgba(0, 0, 0, 0.2);
   }
 
-  &.btn-info,
-  &.btn-success,
-  &.btn-danger,
-  &.btn-warning {
+  &.btn-info:not(:disabled),
+  &.btn-success:not(:disabled),
+  &.btn-danger:not(:disabled),
+  &.btn-warning:not(:disabled) {
     @include gl-text-white;
     @include gl-font-weight-bold;
   }
