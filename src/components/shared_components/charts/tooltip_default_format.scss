@@ -15,6 +15,12 @@
       @include gl-mr-7;
     }
 
+    .gl-series-label:nth-child(2) {
+      @include gl-w-full;
+      @include gl-word-break-all;
+      @include gl-text-left;
+    }
+
     &-value {
       @include gl-font-weight-bold;
     }
