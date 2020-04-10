@@ -83,7 +83,15 @@ documentedStoriesOf('base|new-dropdown', readme)
       >
         <gl-new-dropdown-item>First item</gl-new-dropdown-item>
         <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
-        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Third item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Fourth item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Fifth item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Sixth item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Seventh item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Eighth item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Ninth item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Tenth item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Eleventh item</gl-new-dropdown-item>
       </gl-new-dropdown>`,
     mounted() {
       clickDropdown(this);
@@ -214,21 +222,21 @@ documentedStoriesOf('base|new-dropdown', readme)
         >
           Status success
         </gl-new-dropdown-item>
-        <gl-new-dropdown-item 
+        <gl-new-dropdown-item
           icon-color="warning"
           icon-name="status_warning"
           icon-right-name="cancel"
         >
           Status warning
         </gl-new-dropdown-item>
-        <gl-new-dropdown-item 
+        <gl-new-dropdown-item
           icon-color="danger"
           icon-name="status_failed"
           icon-right-name="cancel"
         >
           Status failed
         </gl-new-dropdown-item>
-        <gl-new-dropdown-item 
+        <gl-new-dropdown-item
           icon-name="status_manual"
           icon-right-name="cancel"
         >
