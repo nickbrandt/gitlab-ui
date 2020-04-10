@@ -47,7 +47,7 @@
   }
 
   .btn {
-    @extend %new-gl-button;
+    @extend %gl-button;
   }
 
   // Fix rounded split dropdown button: https://gitlab.com/gitlab-org/gitlab-ui/issues/626
@@ -57,7 +57,7 @@
   }
 
   // The `&.dropdown` is necessary to strengthen the specificity of these selectors
-  &.dropdown %new-gl-button {
+  &.dropdown %gl-button {
     @include gl-pr-3;
     @include gl-justify-content-space-between;
 

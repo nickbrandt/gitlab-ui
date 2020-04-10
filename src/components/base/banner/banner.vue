@@ -1,5 +1,5 @@
 <script>
-import GlDeprecatedButton from '../new_button/new_button.vue';
+import GlDeprecatedButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import { bannerVariants } from '../../../utils/constants';
 

@@ -8,9 +8,9 @@ In all other cases, please use the directive.
 
 **Using the component**
 ~~~js
-<gl-new-button ref="someButton">
+<gl-button ref="someButton">
   ...
-</gl-new-button>
+</gl-button>
 
 <gl-tooltip :target="() => $refs.someButton">
   some <em>tooltip<em/> text

@@ -1,11 +1,11 @@
 import { withKnobs, text } from '@storybook/addon-knobs/vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './sprintf.md';
-import { GlSprintf, GlNewButton } from '../../../../index';
+import { GlSprintf, GlButton } from '../../../../index';
 
 const components = {
   GlSprintf,
-  GlButton: GlNewButton,
+  GlButton,
 };
 
 function generateProps({ message = 'Written by %{author}' } = {}) {

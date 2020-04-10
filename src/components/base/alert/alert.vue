@@ -1,6 +1,6 @@
 <script>
 import GlIcon from '../icon/icon.vue';
-import GlNewButton from '../new_button/new_button.vue';
+import GlButton from '../button/button.vue';
 import {
   alertVariantOptions,
   alertButtonVariantMap,
@@ -11,7 +11,7 @@ import {
 export default {
   components: {
     GlIcon,
-    GlNewButton,
+    GlButton,
   },
   props: {
     title: {
@@ -143,7 +143,7 @@ export default {
 
     <div v-if="shouldRenderActions" class="gl-alert-actions">
       <slot name="actions">
-        <gl-new-button
+        <gl-button
           v-for="(actionButton, index) in actionButtons"
           :key="index"
           class="gl-alert-action"
@@ -151,7 +151,7 @@ export default {
           v-on="actionButton.listeners"
         >
           {{ actionButton.text }}
-        </gl-new-button>
+        </gl-button>
       </slot>
     </div>
   </div>
