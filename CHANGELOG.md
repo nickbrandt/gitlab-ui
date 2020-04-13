@@ -1,3 +1,12 @@
+# [11.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.2.1...v11.3.0) (2020-04-13)
+
+
+### Features
+
+* **charts:** Update chart css for long labels ([41bef73](https://gitlab.com/gitlab-org/gitlab-ui/commit/41bef73421abb8d220a96a51bcb881bd52ad8d2c))
+* **css:** Add flex fill css utility ([65ba334](https://gitlab.com/gitlab-org/gitlab-ui/commit/65ba334f8ff45f0ce26d71aff738409c4fca7866))
+* **css:** Add padding utilities ([4d65503](https://gitlab.com/gitlab-org/gitlab-ui/commit/4d655037824a838899c3599c484a40e08837811a))
+
 ## [11.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.2.0...v11.2.1) (2020-04-09)
 
 
