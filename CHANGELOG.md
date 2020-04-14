@@ -1,3 +1,11 @@
+# [11.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.4.0...v11.5.0) (2020-04-14)
+
+
+### Features
+
+* **css:** Add display utilities ([5cf8173](https://gitlab.com/gitlab-org/gitlab-ui/commit/5cf81733bb2188d66097c4aa4ce39926ba2dd6ae))
+* **css:** Add opacity utilities ([2ce766a](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ce766a29522f0924e99b5f27aaf5ef2974f35c7))
+
 # [11.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.3.0...v11.4.0) (2020-04-14)
 
 
