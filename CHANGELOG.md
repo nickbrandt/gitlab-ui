@@ -1,3 +1,10 @@
+# [11.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.6.0...v11.7.0) (2020-04-14)
+
+
+### Features
+
+* add GlFormCheckboxTree component ([5818d56](https://gitlab.com/gitlab-org/gitlab-ui/commit/5818d564eaf3dcb03f710ade22741a5cf7c7e519))
+
 # [11.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.5.0...v11.6.0) (2020-04-14)
 
 
