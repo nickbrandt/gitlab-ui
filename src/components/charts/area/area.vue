@@ -1,4 +1,22 @@
 <script>
+/**
+ * Area charts as of %12.10 support annotations.
+ * Annotations is composed of a dotted line and an arrow
+ * at the bottom. The dotted line is constructed
+ * with markLine and arrows with markPoint. Most of this
+ * logic is in GitLab and should be eventually moved to
+ * GitLab UI https://gitlab.com/gitlab-org/gitlab/-/issues/213390.
+ *
+ * Similar to how custom tooltips are displayed when area chart
+ * is hovered, a tooltip should be displayed when the annotation
+ * arrow is hovered. This component adds event listeners
+ * to figure out if mouse is hovered on charts to show tooltips.
+ * While that works for data points inside the grid, for arrows
+ * that live right under the chart, we use eCharts inbuilt
+ * event listeners to detect hover. Given this limitation,
+ * we use a separate tooltip for data point and arrow.
+ */
+
 import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -16,6 +34,8 @@ import defaultChartOptions, {
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
+import { ANNOTATION_TOOLTIP_TOP_OFFSET } from '../../../utils/charts/constants';
+import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
@@ -52,6 +72,11 @@ export default {
       required: false,
       default: true,
     },
+    formatAnnotationsTooltipText: {
+      type: Function,
+      required: false,
+      default: null,
+    },
     formatTooltipText: {
       type: Function,
       required: false,
@@ -69,12 +94,23 @@ export default {
     },
   },
   data() {
+    // Part of the tooltip related data can be
+    // moved into the tooltip component.
+    // Tracking that progress in
+    // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
     return {
       chart: null,
-      showTooltip: false,
-      tooltipTitle: '',
-      tooltipContent: {},
-      tooltipPosition: {
+      showDataTooltip: false,
+      dataTooltipTitle: '',
+      dataTooltipContent: {},
+      dataTooltipPosition: {
+        left: '0',
+        top: '0',
+      },
+      showAnnotationsTooltip: false,
+      annotationsTooltipTitle: '',
+      annotationsTooltipContent: '',
+      annotationsTooltipPosition: {
         left: '0',
         top: '0',
       },
@@ -139,6 +175,12 @@ export default {
       // needs to be handled specially
       return mergeSeriesToOptions(mergedOptions, this.series);
     },
+    hasAnnotations() {
+      return seriesHasAnnotations(this.options.series);
+    },
+    shouldShowAnnotationsTooltip() {
+      return this.chart && this.hasAnnotations;
+    },
     compiledOptions() {
       return this.chart ? this.chart.getOption() : null;
     },
@@ -162,22 +204,73 @@ export default {
   beforeDestroy() {
     this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
     this.chart.getDom().removeEventListener('mouseout', this.debouncedShowHideTooltip);
+
+    this.chart.off('mouseout', this.hideAnnotationsTooltip);
+    this.chart.off('mouseover', this.onChartMouseOver);
   },
   methods: {
     defaultFormatTooltipText(params) {
       const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.options.yAxis.name);
 
-      this.$set(this, 'tooltipContent', tooltipContent);
+      this.$set(this, 'dataTooltipContent', tooltipContent);
       this.tooltipTitle = xLabels.join(', ');
     },
+    defaultAnnotationTooltipText(params) {
+      return {
+        title: params.data.xAxis,
+        content: params.data.tooltipData?.content,
+      };
+    },
     onCreated(chart) {
+      // These listeners are used to show/hide data tooltips
+      // when the mouse is hovered over the parent container
+      // of echarts' svg element. This works only for data points
+      // and not markPoints.
       chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
       chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
+
+      // eCharts inbuild mouse events
+      // https://echarts.apache.org/en/api.html#events.Mouse%20events
+      // is used to attach listeners to markPoints. These listeners
+      // are currently used for annotation arrows at the bottom of the chart.
+
+      // Because data points and annotations arrows are in different
+      // sections of the charts with their own mouseovers and mouseouts,
+      // there shouldn't be an overlapping situation where both tooltips
+      // are visible.
+
+      if (this.hasAnnotations) {
+        chart.on('mouseout', this.onChartDataPointMouseOut);
+        chart.on('mouseover', this.onChartDataPointMouseOver);
+      }
+
       this.chart = chart;
       this.$emit('created', chart);
     },
     showHideTooltip(mouseEvent) {
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
+      this.showDataTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
+    },
+    onChartDataPointMouseOut() {
+      this.showAnnotationsTooltip = false;
+    },
+    /**
+     * Check if the hovered data point is an annotation
+     * point to show the annotation tooltip.
+     */
+    onChartDataPointMouseOver(params) {
+      if (isDataPointAnnotation(params)) {
+        const { event } = params;
+        const toolTipFormatter =
+          this.formatAnnotationsTooltipText || this.defaultAnnotationTooltipText;
+        const { title = '', content = '' } = toolTipFormatter(params);
+        this.showAnnotationsTooltip = true;
+        this.annotationsTooltipTitle = title;
+        this.annotationsTooltipContent = content;
+        this.annotationsTooltipPosition = {
+          left: `${event.event.zrX}px`,
+          top: `${event.event.zrY + ANNOTATION_TOOLTIP_TOP_OFFSET}px`,
+        };
+      }
     },
     onUpdated(chart) {
       this.$emit('updated', chart);
@@ -195,7 +288,7 @@ export default {
         const { seriesId, value } = seriesData[0];
         const [left, top] = this.chart.convertToPixel({ seriesId }, value);
 
-        this.tooltipPosition = {
+        this.dataTooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
         };
@@ -215,11 +308,30 @@ export default {
       @updated="onUpdated"
     />
     <chart-tooltip
-      v-if="chart"
-      :show="showTooltip"
+      v-if="shouldShowAnnotationsTooltip"
+      id="annotationsTooltip"
+      :show="showAnnotationsTooltip"
       :chart="chart"
-      :top="tooltipPosition.top"
-      :left="tooltipPosition.left"
+      :top="annotationsTooltipPosition.top"
+      :left="annotationsTooltipPosition.left"
+      placement="bottom"
+    >
+      <template>
+        <div slot="title" name="tooltipTitle">
+          {{ annotationsTooltipTitle }}
+        </div>
+        <div name="tooltipContent">
+          {{ annotationsTooltipContent }}
+        </div>
+      </template>
+    </chart-tooltip>
+    <chart-tooltip
+      v-if="chart"
+      id="dataTooltip"
+      :show="showDataTooltip"
+      :chart="chart"
+      :top="dataTooltipPosition.top"
+      :left="dataTooltipPosition.left"
     >
       <template v-if="formatTooltipText">
         <slot slot="title" name="tooltipTitle"></slot>
@@ -227,10 +339,10 @@ export default {
       </template>
       <template v-else>
         <div slot="title">
-          {{ tooltipTitle }}
+          {{ dataTooltipTitle }}
           <template v-if="options.xAxis.name">({{ options.xAxis.name }})</template>
         </div>
-        <tooltip-default-format :tooltip-content="tooltipContent" />
+        <tooltip-default-format :tooltip-content="dataTooltipContent" />
       </template>
     </chart-tooltip>
     <chart-legend

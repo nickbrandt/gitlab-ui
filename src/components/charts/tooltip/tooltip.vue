@@ -1,6 +1,7 @@
 <script>
 import echarts from 'echarts';
 import GlPopover from '../../base/popover/popover.vue';
+import { uid } from '../../../utils/utils';
 
 export default {
   components: {
@@ -14,6 +15,11 @@ export default {
       validator(chart) {
         return Object.is(chart, echarts.getInstanceByDom(chart.getDom()));
       },
+    },
+    id: {
+      type: String,
+      required: false,
+      default: () => uid(),
     },
     top: {
       type: String,
@@ -38,7 +44,9 @@ export default {
   },
   computed: {
     containerId() {
-      return `${this.chart.getDom().getAttribute('_echarts_instance_')}-tooltip`;
+      // if multiple tooltips are used in a chart component,
+      // `this.id` can be used to uniquely identify them
+      return `${this.chart.getDom().getAttribute('_echarts_instance_')}-tooltip-${this.id}`;
     },
     containerPosition() {
       const props = ['top', 'bottom', 'left', 'right'];

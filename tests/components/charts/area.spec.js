@@ -32,6 +32,8 @@ describe('area component', () => {
           removeEventListener: jest.fn(),
         };
       },
+      on: jest.fn(),
+      off: jest.fn(),
       convertToPixel: jest.fn(),
       getOption: () => {
         return options;
