@@ -1,3 +1,10 @@
+# [11.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.5.0...v11.6.0) (2020-04-14)
+
+
+### Features
+
+* Add annotations arrow and tooltip ([56d8a41](https://gitlab.com/gitlab-org/gitlab-ui/commit/56d8a411dce5af6dcee4642b7b6033d31365b3a3))
+
 # [11.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.4.0...v11.5.0) (2020-04-14)
 
 
