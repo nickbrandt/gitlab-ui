@@ -1,3 +1,10 @@
+# [11.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.3.0...v11.4.0) (2020-04-14)
+
+
+### Features
+
+* **css:** Add missing scale utilities ([f21d085](https://gitlab.com/gitlab-org/gitlab-ui/commit/f21d0851c0d7a8b4ae383873de6d95e8a15afeed))
+
 # [11.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.2.1...v11.3.0) (2020-04-13)
 
 
