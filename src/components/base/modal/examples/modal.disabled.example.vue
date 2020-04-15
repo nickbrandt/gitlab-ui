@@ -1,25 +1,3 @@
-<template>
-  <div>
-    <gl-deprecated-button v-gl-modal-directive="'basic-modal-id'" variant="info">
-      Open modal
-    </gl-deprecated-button>
-    <gl-modal
-      modal-id="basic-modal-id"
-      title="Example title"
-      no-fade
-      :action-primary="primaryProps"
-      :action-secondary="secondaryProps"
-      :action-cancel="cancelProps"
-      @primary="clearInput"
-      @secondary="clearInput"
-      @cancel="clearInput"
-    >
-      <p>Enter "gitlab" to change the button state.</p>
-      <input v-model="enteredText" type="text" />
-    </gl-modal>
-  </div>
-</template>
-
 <script>
 export default {
   data() {
@@ -56,3 +34,25 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div>
+    <gl-deprecated-button v-gl-modal-directive="'basic-modal-id'" variant="info">
+      Open modal
+    </gl-deprecated-button>
+    <gl-modal
+      modal-id="basic-modal-id"
+      title="Example title"
+      no-fade
+      :action-primary="primaryProps"
+      :action-secondary="secondaryProps"
+      :action-cancel="cancelProps"
+      @primary="clearInput"
+      @secondary="clearInput"
+      @cancel="clearInput"
+    >
+      <p>Enter "gitlab" to change the button state.</p>
+      <input v-model="enteredText" type="text" />
+    </gl-modal>
+  </div>
+</template>
