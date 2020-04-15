@@ -1,23 +1,3 @@
-<template>
-  <gl-heatmap
-    :data-series="series"
-    :x-axis-labels="xAxisLabels"
-    :y-axis-labels="yAxisLabels"
-    :options="{
-      xAxis: {
-        splitArea: {
-          show: false,
-        },
-      },
-      yAxis: {
-        splitArea: {
-          show: false,
-        },
-      },
-    }"
-  />
-</template>
-
 <script>
 export default {
   data() {
@@ -68,3 +48,23 @@ export default {
   },
 };
 </script>
+
+<template>
+  <gl-heatmap
+    :data-series="series"
+    :x-axis-labels="xAxisLabels"
+    :y-axis-labels="yAxisLabels"
+    :options="{
+      xAxis: {
+        splitArea: {
+          show: false,
+        },
+      },
+      yAxis: {
+        splitArea: {
+          show: false,
+        },
+      },
+    }"
+  />
+</template>

@@ -1,3 +1,28 @@
+<script>
+const sizes = ['sm', 'md', 'lg', 'xl'];
+const colors = ['orange', 'dark', 'light'];
+
+export default {
+  data: () => ({
+    selectedSize: sizes[0],
+    selectedColor: colors[0],
+    isInline: false,
+  }),
+  computed: {
+    sizes: () => sizes,
+    colors: () => colors,
+    backgroundStyle() {
+      return this.selectedColor === 'light'
+        ? {
+            backgroundColor: '#1f78d1',
+            color: '#ffffff',
+          }
+        : {};
+    },
+  },
+};
+</script>
+
 <template>
   <div>
     <p>
@@ -30,27 +55,3 @@
     </div>
   </div>
 </template>
-<script>
-const sizes = ['sm', 'md', 'lg', 'xl'];
-const colors = ['orange', 'dark', 'light'];
-
-export default {
-  data: () => ({
-    selectedSize: sizes[0],
-    selectedColor: colors[0],
-    isInline: false,
-  }),
-  computed: {
-    sizes: () => sizes,
-    colors: () => colors,
-    backgroundStyle() {
-      return this.selectedColor === 'light'
-        ? {
-            backgroundColor: '#1f78d1',
-            color: '#ffffff',
-          }
-        : {};
-    },
-  },
-};
-</script>

@@ -1,13 +1,3 @@
-<template>
-  <gl-heatmap
-    :data-series="series"
-    :x-axis-labels="xAxisLabels"
-    :y-axis-labels="yAxisLabels"
-    :x-axis-name="xAxisName"
-    :y-axis-name="yAxisName"
-  />
-</template>
-
 <script>
 export default {
   data() {
@@ -60,3 +50,13 @@ export default {
   },
 };
 </script>
+
+<template>
+  <gl-heatmap
+    :data-series="series"
+    :x-axis-labels="xAxisLabels"
+    :y-axis-labels="yAxisLabels"
+    :x-axis-name="xAxisName"
+    :y-axis-name="yAxisName"
+  />
+</template>

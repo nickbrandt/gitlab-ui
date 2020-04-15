@@ -1,7 +1,3 @@
-<template>
-  <gl-table :items="$options.items" :fields="$options.fields" />
-</template>
-
 <script>
 export default {
   fields: [
@@ -30,3 +26,7 @@ export default {
   ],
 };
 </script>
+
+<template>
+  <gl-table :items="$options.items" :fields="$options.fields" />
+</template>

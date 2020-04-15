@@ -1,13 +1,3 @@
-<template>
-  <gl-table :items="$options.items" :fields="$options.fields">
-    <template slot="custom_markup" slot-scope="items">
-      <div class="text-primary">
-        {{ items.item.col_2 }}
-      </div>
-    </template>
-  </gl-table>
-</template>
-
 <script>
 export default {
   fields: [
@@ -36,3 +26,13 @@ export default {
   ],
 };
 </script>
+
+<template>
+  <gl-table :items="$options.items" :fields="$options.fields">
+    <template slot="custom_markup" slot-scope="items">
+      <div class="text-primary">
+        {{ items.item.col_2 }}
+      </div>
+    </template>
+  </gl-table>
+</template>

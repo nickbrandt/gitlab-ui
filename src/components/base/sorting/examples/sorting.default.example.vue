@@ -1,40 +1,3 @@
-<template>
-  <div>
-    <gl-sorting
-      :text="dropdownText"
-      :is-ascending="isAscending"
-      class="mb-3"
-      @sortDirectionChange="onDirectionChange"
-    >
-      <gl-sorting-item
-        v-for="opt in sortOptions"
-        :key="opt.id"
-        :active="opt.id === activeOpt.id"
-        @click="onSortItemClick(opt)"
-      >
-        {{ opt.label }}
-      </gl-sorting-item>
-    </gl-sorting>
-
-    <div class="example-table">
-      <table class="table b-table table-striped table-sm">
-        <thead>
-          <th>Repository</th>
-          <th>Id</th>
-          <th>Last Updated</th>
-        </thead>
-        <tbody>
-          <tr v-for="item in exampleData" :key="item.id">
-            <td>{{ item.repository }}</td>
-            <td>{{ item.id }}</td>
-            <td>{{ item.lastUpdated }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'DefaultExample',
@@ -114,3 +77,40 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div>
+    <gl-sorting
+      :text="dropdownText"
+      :is-ascending="isAscending"
+      class="mb-3"
+      @sortDirectionChange="onDirectionChange"
+    >
+      <gl-sorting-item
+        v-for="opt in sortOptions"
+        :key="opt.id"
+        :active="opt.id === activeOpt.id"
+        @click="onSortItemClick(opt)"
+      >
+        {{ opt.label }}
+      </gl-sorting-item>
+    </gl-sorting>
+
+    <div class="example-table">
+      <table class="table b-table table-striped table-sm">
+        <thead>
+          <th>Repository</th>
+          <th>Id</th>
+          <th>Last Updated</th>
+        </thead>
+        <tbody>
+          <tr v-for="item in exampleData" :key="item.id">
+            <td>{{ item.repository }}</td>
+            <td>{{ item.id }}</td>
+            <td>{{ item.lastUpdated }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

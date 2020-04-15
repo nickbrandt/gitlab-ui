@@ -1,3 +1,25 @@
+<script>
+export default {
+  computed: {
+    primaryProps() {
+      return {
+        text: 'OK',
+      };
+    },
+    secondaryProps() {
+      return {
+        text: 'Secondary',
+      };
+    },
+    cancelProps() {
+      return {
+        text: 'Cancel',
+      };
+    },
+  },
+};
+</script>
+
 <template>
   <div>
     <gl-deprecated-button v-gl-modal-directive="'small-modal-id'" variant="info">
@@ -43,25 +65,3 @@
     </gl-modal>
   </div>
 </template>
-
-<script>
-export default {
-  computed: {
-    primaryProps() {
-      return {
-        text: 'OK',
-      };
-    },
-    secondaryProps() {
-      return {
-        text: 'Secondary',
-      };
-    },
-    cancelProps() {
-      return {
-        text: 'Cancel',
-      };
-    },
-  },
-};
-</script>

@@ -1,9 +1,3 @@
-<template>
-  <b-button type="button" @click="submit">
-    Edit in JSFiddle
-  </b-button>
-</template>
-
 <script>
 import Vue from 'vue';
 
@@ -67,3 +61,9 @@ export default {
   },
 };
 </script>
+
+<template>
+  <b-button type="button" @click="submit">
+    Edit in JSFiddle
+  </b-button>
+</template>

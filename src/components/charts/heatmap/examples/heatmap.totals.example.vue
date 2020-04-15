@@ -1,7 +1,3 @@
-<template>
-  <gl-heatmap title="Pageviews per hour" :data-series="series" :x-axis-labels="xAxisLabels" />
-</template>
-
 <script>
 export default {
   data() {
@@ -36,3 +32,7 @@ export default {
   },
 };
 </script>
+
+<template>
+  <gl-heatmap title="Pageviews per hour" :data-series="series" :x-axis-labels="xAxisLabels" />
+</template>
