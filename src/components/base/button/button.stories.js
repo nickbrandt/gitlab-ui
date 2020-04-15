@@ -19,6 +19,7 @@ function generateProps({
   size = newButtonSizeOptions.medium,
   withLink = false,
   block = false,
+  loading = false,
 } = {}) {
   let props = {
     category: {
@@ -40,6 +41,10 @@ function generateProps({
     disabled: {
       type: Boolean,
       default: boolean('disabled', false),
+    },
+    loading: {
+      type: Boolean,
+      default: boolean('loading', loading),
     },
   };
 
@@ -72,6 +77,7 @@ documentedStoriesOf('base|button', readme)
         :size="size"
         :block="block"
         :disabled="disabled"
+        :loading="loading"
       >
         This is a button
       </gl-button>
@@ -87,6 +93,7 @@ documentedStoriesOf('base|button', readme)
         :size="size"
         :block="block"
         :disabled="disabled"
+        :loading="loading"
       >
         This is a block button
       </gl-button>
@@ -105,8 +112,25 @@ documentedStoriesOf('base|button', readme)
         :size="size"
         :block="block"
         :disabled="disabled"
+        :loading="loading"
         icon="star-o"
       />
+    `,
+  }))
+  .add('loading button', () => ({
+    props: generateProps({ loading: true }),
+    components,
+    template: `
+      <gl-button
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+        :loading="loading"
+      >
+        Loading button
+      </gl-button>
     `,
   }))
   .add('link button', () => ({
@@ -119,6 +143,7 @@ documentedStoriesOf('base|button', readme)
         :size="size"
         :block="block"
         :disabled="disabled"
+        :loading="loading"
         :href="href"
         :target="target"
       >
