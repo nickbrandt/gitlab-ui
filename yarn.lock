@@ -871,10 +871,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@gitlab/eslint-plugin@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-2.0.0.tgz#4eedd16cf95cf82dc359c1b220d4f5a08361df9c"
-  integrity sha512-ctmsGnCuokhfh/5goLdz3NdBIUpwTMkx/17QxxutxkWW7yOGMPIY8Na+WhjnUSdst8Wjwzexc+snbh5NMs8H/A==
+"@gitlab/eslint-plugin@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-2.1.0.tgz#6e6492ae723a3c2c8cc8ac32eaa72d223183f47a"
+  integrity sha512-04xBIzG9MvG6JuYmMAI1VC9tUIQWX7PbgN9MPdJr6F1F7RdjxcUC4pwVfbHLsdJ4oEa29uM7gH+ZL7ww/nRXKg==
   dependencies:
     babel-eslint "^10.0.3"
     eslint-config-airbnb-base "^14.0.0"
