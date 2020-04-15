@@ -1,7 +1,8 @@
 import has from 'lodash/has';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import uiTypescaleDemoStyles from './ui_typescale_demo.scss';
-import uiTypescaleDemoContent from './ui_typescale_demo.html';
+import { documentedStoriesOf } from '../../../documentation/documented_stories';
+import typescaleDocs from './typescale.md';
+import uiTypescaleDemoStyles from './typescale_demo.scss';
+import uiTypescaleDemoContent from './typescale_demo.html';
 
 const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) => {
   if (!has(window, 'customElements') || customElements.get(componentName)) {
@@ -32,6 +33,6 @@ const component = {
   template: '<ui-typescale-demo />',
 };
 
-documentedStoriesOf('base|typescale/ui', '').add('default', () => component, {
+documentedStoriesOf('scss|typescale', typescaleDocs).add('default', () => component, {
   viewport: { defaultViewport: 'breakpointExtraLarge' },
 });
