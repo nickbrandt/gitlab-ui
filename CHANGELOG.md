@@ -1,3 +1,29 @@
+# [12.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.7.0...v12.0.0) (2020-04-15)
+
+
+### Code Refactoring
+
+* rename GlNewButton to GlButton ([abc8156](https://gitlab.com/gitlab-org/gitlab-ui/commit/abc81566df72c691fbe34839d62e484c29d11f12))
+
+
+### BREAKING CHANGES
+
+* The GlNewButton component has been renamed to GlButton
+
+Make sure to update your import statements:
+
+```patch
+- import { GlNewButton } from '@gitlab/ui';
++ import { GlButton } from '@gitlab/ui';
+```
+
+And your templates:
+
+```patch
+- <gl-new-button></gl-new-button>
++ <gl-button></gl-button>
+```
+
 # [11.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.6.0...v11.7.0) (2020-04-14)
 
 
