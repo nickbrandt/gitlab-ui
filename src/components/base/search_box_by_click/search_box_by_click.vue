@@ -2,7 +2,7 @@
 import { BInputGroup, BInputGroupPrepend, BInputGroupAppend } from 'bootstrap-vue';
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlIcon from '../icon/icon.vue';
-import GlButton from '../new_button/new_button.vue';
+import GlButton from '../button/button.vue';
 import GlDropdown from '../new_dropdown/new_dropdown.vue';
 import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
 import GlDropdownDivider from '../new_dropdown/new_dropdown_divider.vue';

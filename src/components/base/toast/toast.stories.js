@@ -6,18 +6,18 @@ import { GlToast } from '../../../../index';
 Vue.use(GlToast);
 
 /**
- * In the templates below, we use the <gl-new-button> component which is a WIP
- * We do this because <gl-new-button> is destined to become our official button
+ * In the templates below, we use the <gl-button> component which is a WIP
+ * We do this because <gl-button> is destined to become our official button
  * component following Pajamas specifications, thus:
  * - We "dogfood" our real button component as it's being built
  * - Once we decide to replace GlDeprecatedButton with the newer button component, we
  *   won’t have to update the snapshots again (of course we'll still need to
- *   replace <gl-new-button> with <gl-button> here)
+ *   replace <gl-button> with <gl-button> here)
  */
 
 function generateDefault() {
   return () => ({
-    template: `<gl-new-button @click="showToast()">Show default toast</gl-new-button>`,
+    template: `<gl-button @click="showToast()">Show default toast</gl-button>`,
     methods: {
       showToast() {
         this.$toast.show('This is the default toast.');
@@ -31,7 +31,7 @@ function generateDefault() {
 
 function generateWithActions() {
   return () => ({
-    template: `<gl-new-button @click="showToast()">Show toast with actions</gl-new-button>`,
+    template: `<gl-button @click="showToast()">Show toast with actions</gl-button>`,
     methods: {
       showToast() {
         this.$toast.show('This is a toast with an action.', {
@@ -50,7 +50,7 @@ function generateWithActions() {
 
 function generateLong() {
   return () => ({
-    template: `<gl-new-button @click="showToast()">Show toast with a long content</gl-new-button>`,
+    template: `<gl-button @click="showToast()">Show toast with a long content</gl-button>`,
     methods: {
       showToast() {
         this.$toast.show(

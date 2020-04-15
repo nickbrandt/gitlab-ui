@@ -23,7 +23,7 @@ export { default as GlDiscreteScatterChartDocumentation } from '../src/component
 export { default as GlSkeletonLoadingDocumentation } from '../src/components/base/skeleton_loading/skeleton_loading.documentation';
 export { default as GlBadgeDocumentation } from '../src/components/base/badge/badge.documentation';
 export { default as GlDeprecatedButtonDocumentation } from '../src/components/base/deprecated_button/deprecated_button.documentation';
-export { default as GlNewButtonDocumentation } from '../src/components/base/new_button/new_button.documentation';
+export { default as GlButtonDocumentation } from '../src/components/base/button/button.documentation';
 export { default as GlLinkDocumentation } from '../src/components/base/link/link.documentation';
 export { default as GlLoadingIconDocumentation } from '../src/components/base/loading_icon/loading_icon.documentation';
 export { default as GlIconDocumentation } from '../src/components/base/icon/icon.documentation';

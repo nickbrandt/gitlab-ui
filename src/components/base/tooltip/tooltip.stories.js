@@ -17,12 +17,12 @@ function makeTooltip(modifier = '') {
     directives,
     template: `
       <div class="d-flex align-items-center justify-content-center p-5 m-5">
-        <gl-new-button
+        <gl-button
           v-gl-tooltip-directive${modifier}
           title="some tooltip text"
         >
             Tooltip
-        </gl-new-button>
+        </gl-button>
       </div>
     `,
     mounted() {
@@ -46,7 +46,7 @@ function generateTooltip() {
     components,
     template: `
       <div class="d-flex align-items-center justify-content-center p-5 m-5">
-        <gl-new-button id="btn1">Tooltip</gl-new-button>
+        <gl-button id="btn1">Tooltip</gl-button>
         <gl-tooltip
           target="btn1"
           triggers="hover focus click"
