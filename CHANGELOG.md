@@ -1,3 +1,11 @@
+## [12.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.0...v12.0.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **charts:** fix engineering notation formatter locale issue ([20259fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/20259fb1481ce627ddad764c835643883d75426d))
+* **GlFormTextArea:** Apply error styles ([79bac04](https://gitlab.com/gitlab-org/gitlab-ui/commit/79bac04cc744d0a950938e95afb93b105a566ef4))
+
 # [12.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v11.7.0...v12.0.0) (2020-04-15)
 
 
