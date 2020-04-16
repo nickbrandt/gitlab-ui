@@ -39,66 +39,28 @@ describe('number utils', () => {
   });
 
   describe('engineeringNotation', () => {
-    it('returns number and suffix as a string', () => {
-      expect(numberUtils.engineeringNotation(1000)).toBe('1k');
-    });
-
-    it('keeps negative numbers negative', () => {
-      expect(numberUtils.engineeringNotation(-1000)).toBe('-1k');
-    });
-
-    it('returns number without suffix', () => {
-      expect(numberUtils.engineeringNotation(100)).toBe('100');
-    });
-
-    it('returns small number and suffix as a string', () => {
-      expect(numberUtils.engineeringNotation(0.001, 2)).toBe('1m');
-    });
-
-    it('shows correct powers for hundreds of powers', () => {
-      expect(numberUtils.engineeringNotation(200000)).toBe('200k');
-    });
-
-    it('rounds up big numbers correctly', () => {
-      expect(numberUtils.engineeringNotation(9999999)).toBe('10M');
-    });
-
-    it('rounds down big numbers correctly', () => {
-      expect(numberUtils.engineeringNotation(101111)).toBe('101k');
-    });
-
-    it('rounds up small numbers correctly', () => {
-      expect(numberUtils.engineeringNotation(0.00099)).toBe('990μ');
-    });
-
-    it('rounds down small numbers correctly', () => {
-      expect(numberUtils.engineeringNotation(0.009101)).toBe('9.1m');
-    });
-
-    it('returns same value for NaN', () => {
-      expect(numberUtils.engineeringNotation(NaN)).toBe('NaN');
-      expect(numberUtils.engineeringNotation('words')).toBe('words');
-    });
-
-    it('returns Infinity for Infinity', () => {
-      expect(numberUtils.engineeringNotation(Infinity)).toBe('Infinity');
-      expect(numberUtils.engineeringNotation(-Infinity)).toBe('-Infinity');
-    });
-
-    it('correctly truncates floats', () => {
-      expect(numberUtils.engineeringNotation(0.0000007)).toBe('700n');
-    });
-
-    it('correctly rounds floats', () => {
-      expect(numberUtils.engineeringNotation(0.0000007549)).toBe('755n');
-    });
-
-    it('correctly rounds low-precision floats', () => {
-      expect(numberUtils.engineeringNotation(0.0000007549, 0)).toBe('800n');
-    });
-
-    it('correctly allows us to accepts strings that contain commas', () => {
-      expect(numberUtils.engineeringNotation('3,000.002', 2)).toBe('3k');
+    it.each`
+      input                | output
+      ${[1000]}            | ${'1k'}
+      ${[-1000]}           | ${'-1k'}
+      ${[100]}             | ${'100'}
+      ${[0.001]}           | ${'1m'}
+      ${[200000]}          | ${'200k'}
+      ${[9999999]}         | ${'10M'}
+      ${[101111]}          | ${'101k'}
+      ${[0.00099]}         | ${'990μ'}
+      ${[0.009101]}        | ${'9.1m'}
+      ${[0.0000007]}       | ${'700n'}
+      ${[0.0000007549]}    | ${'755n'}
+      ${[0.0000007549, 0]} | ${'800n'}
+      ${[0.0000007549, 4]} | ${'754.9n'}
+      ${['1,000.00']}      | ${'NaN'}
+      ${['a string']}      | ${'NaN'}
+      ${[NaN]}             | ${'NaN'}
+      ${[Infinity]}        | ${'Infinity'}
+      ${[-Infinity]}       | ${'-Infinity'}
+    `('with args $input, returns $output', ({ input, output }) => {
+      expect(numberUtils.engineeringNotation(...input)).toBe(output);
     });
   });
 });
