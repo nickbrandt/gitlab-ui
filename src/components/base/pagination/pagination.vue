@@ -266,12 +266,8 @@ export default {
       // Disable previous and/or next buttons if needed
       if (this.isLinkBased) {
         attrs.href = this.linkGen(page);
-      } else {
-        listeners.click = e => {
-          e.preventDefault();
-          this.$emit('input', page);
-        };
       }
+      listeners.click = e => this.handleClick(e, page);
       return {
         content: page,
         component: isDisabled ? 'span' : GlLink,
@@ -295,6 +291,12 @@ export default {
         component: 'span',
         disabled: true,
       };
+    },
+    handleClick(event, value) {
+      if (!this.isLinkBased) {
+        event.preventDefault();
+        this.$emit('input', value);
+      }
     },
   },
 };
@@ -321,7 +323,7 @@ export default {
         :aria-disabled="prevPageIsDisabled"
         :aria-label="labelPrevPage || labelPage(value - 1)"
         :href="isLinkBased ? linkGen(value - 1) : '#'"
-        @click.prevent="$emit('input', value - 1)"
+        @click="handleClick($event, value - 1)"
       >
         <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
           <gl-icon name="chevron-left" />
@@ -363,7 +365,7 @@ export default {
         :aria-disabled="nextPageIsDisabled"
         :aria-label="labelNextPage || labelPage(value + 1)"
         :href="isLinkBased ? linkGen(value + 1) : '#'"
-        @click.prevent="$emit('input', value + 1)"
+        @click="handleClick($event, value + 1)"
       >
         <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
           <span>{{ nextText }}</span>

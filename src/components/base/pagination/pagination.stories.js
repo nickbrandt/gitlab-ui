@@ -144,6 +144,11 @@ documentedStoriesOf('base|pagination', readme)
     props: generateFullProps(),
     ...defaults,
     components,
+    methods: {
+      linkGen(page) {
+        return `/page/${page}`;
+      },
+    },
     template: `<gl-pagination
       v-model="page"
       :per-page="perPage"
@@ -152,6 +157,7 @@ documentedStoriesOf('base|pagination', readme)
       :next-text="nextText"
       :size="size"
       :disabled="disabled"
+      :link-gen="linkGen"
       />`,
   }))
   .add('align center', () => ({
