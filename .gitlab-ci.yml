@@ -20,6 +20,8 @@ include:
   - template: License-Scanning.gitlab-ci.yml
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
+  - project: 'gitlab-org/frontend/frontend-build-images'
+    file: '/semantic-release/.gitlab-ci-template.yml'
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
@@ -237,7 +239,7 @@ create_integration_branch:
     - git push -u https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab.git HEAD
 
 publish_to_npm:
-  extends: [.node, .yarn_install]
+  extends: .semantic-release
   # We need to run `publish` after pages, so that pages will get deployed
   # properly, as the publish-to-npm step will create a new commit and this
   # could lead to a side-effect where pages don't get published because of
@@ -247,7 +249,6 @@ publish_to_npm:
   # run in case another job in the previous stages fails
   dependencies:
     - build_package
-  script:
-    - $(yarn bin)/semantic-release
   only:
-    - master@gitlab-org/gitlab-ui
+    refs:
+      - master@gitlab-org/gitlab-ui
