@@ -95,28 +95,54 @@ export default {
     },
     toggleButtonClasses() {
       return {
+        'gl-button': true,
+        'gl-dropdown-toggle': true,
         'btn-secondary': this.category === 'secondary',
         'dropdown-icon-only': !this.text.length && this.icon,
         'dropdown-icon-text': this.text.length && this.icon,
       };
+    },
+    splitButtonClasses() {
+      const classes = ['gl-button'];
+
+      if (this.text) {
+        classes.push('split-content-button');
+      }
+
+      if (this.icon) {
+        classes.push('icon-split-content-button');
+      }
+
+      return classes;
     },
     buttonText() {
       return this.split && this.icon ? null : this.text;
     },
   },
   mounted() {
-    // once we upgrade to bootstrap-vue@^2.2.0 this code can
-    // be replaced with the splitClass prop
-    if (this.split && this.text) {
-      this.$el.childNodes[0].classList.add('split-content-button');
-    }
-    if (this.split && this.icon) {
-      this.$el.childNodes[0].classList.add('icon-split-content-button');
-    }
+    /* WARNING: Don't reuse this pattern. This was the lesser of two evils and is an iterative fix.
+     * Please see issue: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/734
+     */
+    this.styleSplitButton();
+  },
+  updated() {
+    /* WARNING: Don't reuse this pattern. This was the lesser of two evils and is an iterative fix.
+     * Please see issue: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/734
+     */
+    this.styleSplitButton();
   },
   methods: {
     hide(...args) {
       this.$refs.dropdown.hide(...args);
+    },
+    styleSplitButton() {
+      /* WARNING: Don't reuse this pattern. This was the lesser of two evils and is an iterative fix.
+       * Please see issue: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/734
+       */
+      if (!this.split) return;
+
+      // eslint-disable-next-line promise/catch-or-return
+      this.$nextTick().then(() => this.$el.childNodes[0].classList.add(...this.splitButtonClasses));
     },
   },
 };
