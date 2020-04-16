@@ -121,6 +121,21 @@ describe('pagination component', () => {
     expect(wrapper.emitted('input')[0]).toEqual([2]);
   });
 
+  it('does not prevent link events in link-based mode', () => {
+    createComponent({
+      ...propsData,
+      linkGen: page => `#page${page}`,
+    });
+
+    const clickEvent = new MouseEvent('click');
+    clickEvent.preventDefault = jest.fn();
+
+    const nextButton = findButtons().at(1);
+    nextButton.element.dispatchEvent(clickEvent);
+
+    expect(clickEvent.preventDefault).not.toHaveBeenCalled();
+  });
+
   it('disables all items if disabled prop is true', () => {
     createComponent({
       ...propsData,
