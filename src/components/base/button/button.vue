@@ -56,6 +56,11 @@ export default {
       required: false,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     hasIcon() {
@@ -63,6 +68,9 @@ export default {
     },
     hasIconOnly() {
       return Object.keys(this.$slots).length === 0 && this.hasIcon;
+    },
+    isButtonDisabled() {
+      return this.disabled || this.loading;
     },
     buttonClasses() {
       return {
@@ -87,6 +95,7 @@ export default {
     :target="target"
     :variant="variant"
     :size="buttonSize"
+    :disabled="isButtonDisabled"
     :class="buttonClasses"
     v-on="$listeners"
   >
