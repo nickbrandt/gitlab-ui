@@ -1,4 +1,4 @@
-@import 'functions';
+@import "functions";
 
 // Layout
 $grid-size: px-to-rem(8px);
@@ -133,7 +133,7 @@ $gray-950: #1f1f1f !default;
 
 // GitLab themes
 
-$gl-themes: 'indigo', 'blue', 'light-blue', 'green', 'red', 'light-red';
+$gl-themes: "indigo", "blue", "light-blue", "green", "red", "light-red";
 
 $theme-indigo-50: #f1f1ff !default;
 $theme-indigo-100: #dbdbf8 !default;
@@ -285,8 +285,8 @@ $gl-font-weight-normal: 400;
 $gl-font-weight-bold: 600;
 
 $gl-font-weights: (
-  'normal': $gl-font-weight-normal,
-  'bold': $gl-font-weight-bold,
+  "normal": $gl-font-weight-normal,
+  "bold": $gl-font-weight-bold,
 );
 
 // Line height
@@ -369,15 +369,14 @@ $gl-font-size-monospace-lg: px-to-rem(15px);
 $gl-font-size-monospace-sm: px-to-rem(11px);
 
 // Fonts
-$gl-monospace-font: 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Consolas', 'Ubuntu Mono',
-  'Courier New', 'andale mono', 'lucida console', monospace;
-$gl-regular-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', Ubuntu,
-  Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji';
+$gl-monospace-font: "Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New",
+  "andale mono", "lucida console", monospace;
+$gl-regular-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell,
+  "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 $gl-fonts: (
-  'monospace': $gl-monospace-font,
-  'regular': $gl-regular-font,
+  "monospace": $gl-monospace-font,
+  "regular": $gl-regular-font,
 );
 
 $gl-border-size-1: px-to-rem(1px);
@@ -465,3 +464,85 @@ $spacers: (
 $table-accent-bg: $gray-50;
 $card-border-color: $gray-200;
 $card-cap-bg: $gray-50;
+
+$deprecated-gray-50: #fafafa;
+$deprecated-gray-100: #f2f2f2;
+$deprecated-gray-200: #dfdfdf;
+$deprecated-gray-300: #ccc;
+$deprecated-gray-400: #bababa;
+$deprecated-gray-500: #a7a7a7;
+$deprecated-gray-600: #919191;
+$deprecated-gray-700: #707070;
+$deprecated-gray-800: #4f4f4f;
+$deprecated-gray-900: #2e2e2e;
+$deprecated-gray-950: #1f1f1f;
+
+$grays: (
+  "100": $deprecated-gray-100,
+  "200": $deprecated-gray-200,
+  "300": $deprecated-gray-300,
+  "400": $deprecated-gray-400,
+  "500": $deprecated-gray-500,
+  "600": $deprecated-gray-600,
+  "700": $deprecated-gray-700,
+  "800": $deprecated-gray-800,
+  "900": $deprecated-gray-900,
+  "gray": $deprecated-gray-600,
+  "gray-dark": $deprecated-gray-800,
+);
+
+$secondary: $deprecated-gray-600 !default;
+$light: $deprecated-gray-100 !default;
+$dark: $deprecated-gray-800 !default;
+$yiq-text-dark: $deprecated-gray-900 !default;
+$body-color: $deprecated-gray-900 !default;
+$border-color: $deprecated-gray-300 !default;
+$text-muted: $deprecated-gray-600 !default;
+$blockquote-small-color: $deprecated-gray-600 !default;
+$table-head-bg: $deprecated-gray-200 !default;
+$table-head-color: $deprecated-gray-700 !default;
+$table-dark-bg: $deprecated-gray-800 !default;
+$btn-link-disabled-color: $deprecated-gray-600 !default;
+$input-disabled-bg: $deprecated-gray-200 !default;
+$input-color: $deprecated-gray-700 !default;
+$input-border-color: $deprecated-gray-400 !default;
+$input-placeholder-color: $deprecated-gray-600 !default;
+$input-group-addon-bg: $deprecated-gray-200 !default;
+$custom-control-indicator-border-color: $deprecated-gray-500 !default;
+$custom-control-label-disabled-color: $deprecated-gray-600 !default;
+$custom-select-disabled-color: $deprecated-gray-600 !default;
+$custom-select-disabled-bg: $deprecated-gray-200 !default;
+$custom-select-indicator-color: $deprecated-gray-800 !default;
+$custom-range-track-bg: $deprecated-gray-300 !default;
+$custom-range-thumb-disabled-bg: $deprecated-gray-500 !default;
+$nav-link-disabled-color: $deprecated-gray-600 !default;
+$nav-tabs-border-color: $deprecated-gray-300 !default;
+$nav-tabs-link-hover-border-color: $deprecated-gray-200 $deprecated-gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-active-color: $deprecated-gray-700 !default;
+$nav-tabs-link-active-border-color: $deprecated-gray-300 $deprecated-gray-300 $white !default;
+$nav-divider-color: $deprecated-gray-200 !default;
+$dropdown-divider-bg: $deprecated-gray-200 !default;
+$dropdown-link-color: $deprecated-gray-900 !default;
+$dropdown-link-hover-color: darken($deprecated-gray-900, 5%) !default;
+$dropdown-link-hover-bg: $deprecated-gray-100 !default;
+$dropdown-link-disabled-color: $deprecated-gray-600 !default;
+$dropdown-header-color: $deprecated-gray-600 !default;
+$pagination-border-color: $deprecated-gray-300 !default;
+$pagination-hover-bg: $deprecated-gray-200 !default;
+$pagination-hover-border-color: $deprecated-gray-300 !default;
+$pagination-disabled-color: $deprecated-gray-600 !default;
+$pagination-disabled-border-color: $deprecated-gray-300 !default;
+$jumbotron-bg: $deprecated-gray-200 !default;
+$toast-header-color: $deprecated-gray-600 !default;
+$progress-bg: $deprecated-gray-200 !default;
+$list-group-hover-bg: $deprecated-gray-100 !default;
+$list-group-disabled-color: $deprecated-gray-600 !default;
+$list-group-action-color: $deprecated-gray-700 !default;
+$list-group-action-active-bg: $deprecated-gray-200 !default;
+$thumbnail-border-color: $deprecated-gray-300 !default;
+$figure-caption-color: $deprecated-gray-600 !default;
+$breadcrumb-bg: $deprecated-gray-200 !default;
+$breadcrumb-divider-color: $deprecated-gray-600 !default;
+$breadcrumb-active-color: $deprecated-gray-600 !default;
+$kbd-bg: $deprecated-gray-900 !default;
+$pre-color: $deprecated-gray-900 !default;
