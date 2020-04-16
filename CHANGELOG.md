@@ -1,3 +1,10 @@
+## [12.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.1...v12.0.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* Resolve pagination links not working in compact mode ([978bb49](https://gitlab.com/gitlab-org/gitlab-ui/commit/978bb49338928b7343ee4083d513824780ea9ac3))
+
 ## [12.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.0...v12.0.1) (2020-04-16)
 
 
