@@ -9,3 +9,14 @@ NODE_OPTIONS="--max-old-space-size=4096" yarn build -w
 ```
 
 We are keeping track of this problem at https://gitlab.com/gitlab-org/gitlab-ui/issues/614
+
+## Caching on GitLab CI
+
+We are caching our `node_modules/` folder on GitLab CI. This should not lead to problems, as we are basing the cache hash on:
+
+- .gitlab-ci.yml
+- yarn.lock
+
+So any time our dependencies or CI config, we will create a new cache. The advantage of this is: As long as these stay the same, we can cache even across branches!
+
+In the unlikely event we are seeing build errors, the cache can be reset either by running the `populate_npm_cache` job manually _or_ a maintainer can clear [all caches manually](https://docs.gitlab.com/ee/ci/caching/#clearing-the-cache-manually).

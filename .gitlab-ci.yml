@@ -57,9 +57,26 @@ license_scanning:
   variables:
     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
 
+# This is a cache template for caching node_modules
+# As a cache key we are using a SHA of .gitlab-ci.yml and yarn.lock
+# The latter is obvious, because it updates when we update dependencies
+# The former is to invalidate caches, in case we touch our CI config, which
+# could mean changing something in our caching logic
+.cache-template: &cache-template
+  paths:
+    - node_modules/
+  key:
+    files:
+      - .gitlab-ci.yml
+      - yarn.lock
+    prefix: node_modules
+
 .yarn_install:
   before_script:
     - yarn install
+  cache:
+    <<: *cache-template
+    policy: pull
 
 # Only start pipelines on Merge Requests or master
 workflow:
@@ -91,6 +108,23 @@ build_docker_image:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - ./bin/build-docker.sh
+
+# As we are caching based on the contents of our CI config and dependency lock file
+# We only need to execute when these change. However, we give a manual job as an escape hatch
+populate_npm_cache:
+  extends: [.node, .yarn_install]
+  stage: pre-build
+  script:
+    - echo "successfully installed dependencies"
+  cache:
+    <<: *cache-template
+    policy: push
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - yarn.lock
+      when: always
+    - when: manual
 
 danger-review:
   rules:
