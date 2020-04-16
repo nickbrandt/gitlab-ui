@@ -1,3 +1,10 @@
+## [12.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.2...v12.0.3) (2020-04-16)
+
+
+### Bug Fixes
+
+* **dropdown:** Remove bootstrap [@extend](https://gitlab.com/extend) statements ([ff4fa76](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff4fa76b3a83cacefafc01f1a401aa7bbdb21265))
+
 ## [12.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.1...v12.0.2) (2020-04-16)
 
 
