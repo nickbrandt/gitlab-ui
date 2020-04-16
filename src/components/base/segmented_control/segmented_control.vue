@@ -63,7 +63,7 @@ export default {
 <template>
   <b-form-radio-group
     buttons
-    button-variant="gl-segmented-button"
+    button-variant="gl-segmented-button gl-button"
     class="gl-segmented-control"
     v-bind="{ ...$attrs, options, checked }"
     v-on="$listeners"
