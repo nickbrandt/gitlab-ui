@@ -105,6 +105,7 @@ describe('GlFormCheckboxTree', () => {
   const createWrapper = (props = {}) => {
     wrapper = mount(GlFormCheckboxTree, {
       propsData: {
+        hideToggleAll: true,
         ...props,
       },
     });
@@ -232,6 +233,42 @@ describe('GlFormCheckboxTree', () => {
         expect(countIndeterminate()).toBe(indeterminateBoxes.length);
         indeterminateBoxes.forEach(indeterminateBox => {
           expectCheckboxIndeterminate(findCheckboxByValue(indeterminateBox));
+        });
+      });
+    }
+  );
+
+  describe.each`
+    description               | shape               | initiallyChecked             | checked  | indeterminate | finallyChecked
+    ${'no option checked'}    | ${SHAPE.NO_NESTING} | ${[]}                        | ${false} | ${false}      | ${true}
+    ${'some options checked'} | ${SHAPE.NO_NESTING} | ${['1', '2', '3']}           | ${false} | ${true}       | ${true}
+    ${'all options checked'}  | ${SHAPE.NO_NESTING} | ${['1', '2', '3', '4', '5']} | ${true}  | ${false}      | ${false}
+  `(
+    'toggle all with $description',
+    ({ shape, initiallyChecked, checked, indeterminate, finallyChecked }) => {
+      let toggleAllCheckbox;
+
+      beforeEach(() => {
+        createWrapper({
+          options: getOptions(shape),
+          [V_MODEL.PROP]: initiallyChecked,
+          hideToggleAll: false,
+        });
+        toggleAllCheckbox = findCheckboxInput(findCheckboxes().at(0));
+      });
+
+      it('toggle all checkbox is in the correct state', () => {
+        expect(toggleAllCheckbox.element.checked).toBe(checked);
+        expect(toggleAllCheckbox.element.indeterminate).toBe(indeterminate);
+      });
+
+      it('once toggled, puts all checkboxes in the correct state', () => {
+        toggleAllCheckbox.trigger('click');
+        return wrapper.vm.$nextTick(() => {
+          findCheckboxes().wrappers.forEach(checkbox => {
+            expect(findCheckboxInput(checkbox).element.checked).toBe(finallyChecked);
+            expect(findCheckboxInput(checkbox).element.indeterminate).toBe(false);
+          });
         });
       });
     }
