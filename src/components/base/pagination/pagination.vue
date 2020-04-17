@@ -5,10 +5,8 @@ import debounce from 'lodash/debounce';
 import GlLink from '../link/link.vue';
 import GlIcon from '../icon/icon.vue';
 import Breakpoints, { breakpoints } from '../../../utils/breakpoints';
-import { isIntGreaterThan } from '../../../utils/number_utils';
 import { sizeOptions, alignOptions, resizeDebounceTime } from '../../../utils/constants';
 
-const isIntGreaterThanZero = isIntGreaterThan(0);
 const pageRange = (from, to) => range(from, to + 1, 1);
 
 export default {
@@ -26,13 +24,13 @@ export default {
       type: Number,
       required: false,
       default: 1,
-      validator: isIntGreaterThanZero,
+      validator: x => x > 0,
     },
     perPage: {
       type: Number,
       required: false,
       default: 20,
-      validator: isIntGreaterThanZero,
+      validator: x => x > 0,
     },
     totalItems: {
       type: Number,

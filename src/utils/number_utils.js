@@ -18,12 +18,6 @@ export const sum = (...numbers) => numbers.reduce(addition);
 export const average = (...numbers) => sum(...numbers) / numbers.length;
 
 /**
- * Returns a function that checks wether its argument is an integer greater than gt
- * @param {Number} gt number to be compared against
- */
-export const isIntGreaterThan = gt => number => Number.isInteger(number) && number > gt;
-
-/**
  * Convert number to engineering format, using SI suffix
  * @param {Number|String} value - Number or Number-convertible String
  * @param {Number} precision
