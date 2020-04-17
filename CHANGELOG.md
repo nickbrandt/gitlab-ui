@@ -1,3 +1,10 @@
+# [12.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.3...v12.1.0) (2020-04-17)
+
+
+### Features
+
+* **heatmap:** Add tooltip slot ([0f7f74e](https://gitlab.com/gitlab-org/gitlab-ui/commit/0f7f74eca1b8b96ff2af8ba6614a9367570897cf))
+
 ## [12.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.2...v12.0.3) (2020-04-16)
 
 
