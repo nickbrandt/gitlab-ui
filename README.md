@@ -7,11 +7,14 @@ See https://gitlab-org.gitlab.io/gitlab-ui/ for documentation.
 
 To use GitLab UI in your project, add it as a dependency:
 
-```json
+```sh
 yarn add @gitlab/ui
 ```
 
-and import the components as desired:
+> **Note:** Make sure to also install GitLab UI's peer dependencies. Refer to the
+> [`package.json`](./package.json) for the list of peer dependencies and their expected versions.
+
+Import the components as desired:
 
 ```javascript
 import { GlButton } from '@gitlab/ui';
