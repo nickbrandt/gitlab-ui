@@ -2,12 +2,15 @@
 import merge from 'lodash/merge';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
-import GlChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
-import { whiteLight, gray100 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
-import { throttle } from '../../../utils/utils';
+import { whiteLight, gray100 } from '../../../../scss_to_js/scss_variables';
+import { debounceByAnimationFrame } from '../../../utils/utils';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import { getDefaultTooltipContent } from '../../../utils/charts/config';
+import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 
 const defaultOptions = {
   visualMap: {
@@ -42,7 +45,8 @@ export default {
   components: {
     Chart,
     ChartLegend,
-    GlChartTooltip,
+    ChartTooltip,
+    TooltipDefaultFormat,
   },
   mixins: [ToolboxMixin],
   props: {
@@ -75,6 +79,11 @@ export default {
       required: false,
       default: '',
     },
+    formatTooltipText: {
+      type: Function,
+      required: false,
+      default: null,
+    },
     legendAverageText: {
       type: String,
       required: false,
@@ -90,11 +99,14 @@ export default {
     return {
       chart: null,
       tooltip: {
-        content: '',
         show: false,
+        title: '',
+        content: {},
         left: '0',
         top: '0',
       },
+      debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
+      selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
   computed: {
@@ -107,11 +119,6 @@ export default {
           series: {
             data: this.dataSeries,
             z: 2,
-          },
-          tooltip: {
-            formatter: this.setTooltipContent,
-            showContent: true,
-            transitionDuration: 0,
           },
           grid: {
             height: '62.5%',
@@ -141,6 +148,12 @@ export default {
               lineStyle: {
                 color: whiteLight,
                 width: 2,
+              },
+            },
+            axisPointer: {
+              show: true,
+              label: {
+                formatter: this.onLabelChange,
               },
             },
           },
@@ -190,28 +203,41 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.throttledMouseMove);
-    this.chart.getDom().removeEventListener('mouseout', this.hideTooltip);
+    this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
+    this.chart.getDom().removeEventListener('mouseout', this.debouncedShowHideTooltip);
   },
   methods: {
+    defaultFormatTooltipText(params) {
+      const { xLabels, tooltipContent } = getDefaultTooltipContent(
+        params,
+        this.computedOptions.yAxis.name
+      );
+
+      this.$set(this.tooltip, 'content', tooltipContent);
+      this.tooltip.title = xLabels.join(', ');
+    },
     onCreated(chart) {
+      chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
+      chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
       this.chart = chart;
-      this.throttledMouseMove = throttle(this.mouseMove);
-      this.chart.getDom().addEventListener('mousemove', this.throttledMouseMove);
-      this.chart.getDom().addEventListener('mouseout', this.hideTooltip);
+      this.$emit('created', chart);
     },
-    mouseMove(mouseEvent) {
-      const xOffset = 2;
-      const { zrX: x, zrY: y } = mouseEvent;
-      this.tooltip.left = `${x + xOffset}px`;
-      this.tooltip.top = `${y}px`;
-      this.tooltip.show = this.chart.containPixel('grid', [x, y]);
+    showHideTooltip(mouseEvent) {
+      this.tooltip.show = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
-    hideTooltip() {
-      this.tooltip.show = false;
-    },
-    setTooltipContent({ data }) {
-      this.tooltip.content = `${data[2]}`;
+    onLabelChange(params) {
+      this.selectedFormatTooltipText(params);
+      const { seriesData = [] } = params;
+      if (seriesData.length && seriesData[0].value) {
+        const { seriesId, value } = seriesData[0];
+        const [left, top] = this.chart.convertToPixel({ seriesId }, value);
+
+        this.tooltip = {
+          ...this.tooltip,
+          left: `${left + TOOLTIP_LEFT_OFFSET}px`,
+          top: `${top}px`,
+        };
+      }
     },
   },
 };
@@ -220,6 +246,25 @@ export default {
 <template>
   <div>
     <chart :options="computedOptions" class="gl-heatmap" @created="onCreated" />
+    <chart-tooltip
+      v-if="chart"
+      :show="tooltip.show"
+      :chart="chart"
+      :top="tooltip.top"
+      :left="tooltip.left"
+    >
+      <template #title>
+        <slot v-if="formatTooltipText" name="tooltipTitle"></slot>
+        <div v-else>
+          {{ tooltip.title }}
+          <template v-if="computedOptions.xAxis.name">({{ computedOptions.xAxis.name }})</template>
+        </div>
+      </template>
+      <template>
+        <slot v-if="formatTooltipText" name="tooltipContent"></slot>
+        <tooltip-default-format v-else :tooltip-content="tooltip.content" />
+      </template>
+    </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"
       :chart="chart"
@@ -228,14 +273,5 @@ export default {
       :average-text="legendAverageText"
       :max-text="legendMaxText"
     />
-    <gl-chart-tooltip
-      v-if="chart"
-      :chart="chart"
-      :show="tooltip.show"
-      :top="tooltip.top"
-      :left="tooltip.left"
-    >
-      <div>{{ tooltip.content }}</div>
-    </gl-chart-tooltip>
   </div>
 </template>

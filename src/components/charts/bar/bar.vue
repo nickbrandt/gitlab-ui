@@ -9,6 +9,7 @@ import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { engineeringNotation } from '../../../utils/number_utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
+import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 
 /**
  * `nameGap` in charts/config is set to 50 but it is not
@@ -170,9 +171,8 @@ export default {
   },
   methods: {
     moveShowTooltip(mouseEvent) {
-      const xOffset = 2;
       this.tooltipPosition = {
-        left: `${mouseEvent.zrX + xOffset}px`,
+        left: `${mouseEvent.zrX + TOOLTIP_LEFT_OFFSET}px`,
         top: `${mouseEvent.zrY}px`,
       };
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);

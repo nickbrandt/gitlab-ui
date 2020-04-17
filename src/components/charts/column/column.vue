@@ -11,6 +11,7 @@ import defaultChartOptions, {
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromPalette } from '../../../utils/charts/theme';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 
 export default {
   components: {
@@ -131,9 +132,8 @@ export default {
   },
   methods: {
     moveShowTooltip(mouseEvent) {
-      const xOffset = 2;
       this.tooltipPosition = {
-        left: `${mouseEvent.zrX + xOffset}px`,
+        left: `${mouseEvent.zrX + TOOLTIP_LEFT_OFFSET}px`,
         top: `${mouseEvent.zrY}px`,
       };
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
