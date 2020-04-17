@@ -23,3 +23,9 @@ export const ANNOTATIONS_COMPONENT_TYPE = 'markPoint';
  * tooltip.
  */
 export const ANNOTATION_TOOLTIP_TOP_OFFSET = 10;
+
+/**
+ * This is a slight offset that gets applied to the left
+ * of the chart tooltips to ensure a correct position.
+ */
+export const TOOLTIP_LEFT_OFFSET = 2;
