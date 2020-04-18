@@ -1,3 +1,10 @@
+## [12.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.1.0...v12.1.1) (2020-04-18)
+
+
+### Bug Fixes
+
+* **charts:** update legend label spacing ([1a42ccc](https://gitlab.com/gitlab-org/gitlab-ui/commit/1a42ccc3f49af871f0393560939bed4bccfe496d))
+
 # [12.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.0.3...v12.1.0) (2020-04-17)
 
 
