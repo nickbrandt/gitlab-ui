@@ -6,14 +6,12 @@
 
   .gl-legend-series {
     @include gl-display-flex;
-    @include gl-mr-3;
     @include gl-flex-shrink-0;
     @include gl-justify-content-space-between;
     @include gl-align-items-center;
-    @include gl-mr-2;
+    @include gl-pr-5;
 
     .gl-legend-series-label {
-      @include gl-mr-3;
       .gl-series-label:nth-child(2) {
         flex: 1;
         @include gl-min-w-0;
