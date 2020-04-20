@@ -1,3 +1,10 @@
+# [12.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.1.1...v12.2.0) (2020-04-20)
+
+
+### Features
+
+* **markdown:** Implement markdown typescale ([05d4a64](https://gitlab.com/gitlab-org/gitlab-ui/commit/05d4a64fe30f20937aa0eeed6ed513fb2ddbac57))
+
 ## [12.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.1.0...v12.1.1) (2020-04-18)
 
 
