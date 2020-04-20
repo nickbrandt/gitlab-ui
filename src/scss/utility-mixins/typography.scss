@@ -73,6 +73,26 @@
   font-size: $default-icon-size;
 }
 
+@mixin gl-font-size-markdown-sm {
+  font-size: $gl-font-size-markdown-sm;
+}
+
+@mixin gl-font-size-markdown {
+  font-size: $gl-font-size-markdown;
+}
+
+@mixin gl-font-size-markdown-h1 {
+  font-size: $gl-font-size-markdown-h1;
+}
+
+@mixin gl-font-size-markdown-h2 {
+  font-size: $gl-font-size-markdown-h2;
+}
+
+@mixin gl-font-size-markdown-h3 {
+  font-size: $gl-font-size-markdown-h3;
+}
+
 /**
 * Font-weight utilities.
 *

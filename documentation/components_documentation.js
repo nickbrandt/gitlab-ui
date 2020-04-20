@@ -1,6 +1,7 @@
 // Component documentation
 // ADD EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlFormCheckboxTreeDocumentation } from '../src/components/base/form/form_checkbox_tree/form_checkbox_tree.documentation';
+export { default as GlMarkdownDocumentation } from '../src/components/base/markdown/markdown.documentation';
 export { default as GlNavbarDocumentation } from '../src/components/base/navbar/navbar.documentation';
 export { default as GlIntersectionObserverDocumentation } from '../src/components/utilities/intersection_observer/intersection_observer.documentation';
 export { default as GlChartDocumentation } from '../src/components/charts/chart/chart.documentation';
