@@ -37,19 +37,17 @@ include:
     - yarn install
 
 # Only start pipelines on Merge Requests or master
-workflow:
-  rules:
-    - if: $CI_COMMIT_REF_NAME == "master"
-      when: always
-    - if: $CI_MERGE_REQUEST_IID
-      when: always
-    - when: never
+.if-mr-or-master: &if-mr-or-master
+  if: '$CI_COMMIT_REF_NAME == "master"'
 
 # Only run on merge requests that come from GitLab UI.
 .if-mr-from-gitlab-ui: &if-mr-from-gitlab-ui
   if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_PROJECT_PATH =~ /gitlab-org\\/gitlab-ui/'
 
 build_docker_image:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
@@ -99,6 +97,9 @@ build_package:
       - .dependency_url
 
 build_storybook:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   extends: [.node, .yarn_install]
   needs: []
   stage: build
@@ -111,6 +112,9 @@ build_storybook:
       - public
 
 lint:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   extends: [.node, .yarn_install]
   needs: []
   stage: test
@@ -126,6 +130,9 @@ lint:
       || echo "No Vue component contains <style tags"
 
 generate_utility_classes:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   extends: [.node]
   needs: []
   stage: test
@@ -133,6 +140,9 @@ generate_utility_classes:
     - yarn generate-utilities
 
 visual:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   extends: [.puppeteer, .yarn_install]
   needs:
     - build_docker_image
@@ -145,12 +155,18 @@ visual:
       - tests/__image_snapshots__/
 
 visual_gitlab_integration:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   extends: visual
   allow_failure: true
   script:
     - yarn test:visual:gitlab
 
 unit_tests:
+  rules:
+    - <<: *if-mr-or-master
+      when: always
   extends: [.node, .yarn_install]
   needs: []
   stage: test
