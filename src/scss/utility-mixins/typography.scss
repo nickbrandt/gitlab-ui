@@ -113,6 +113,10 @@
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
+@mixin gl-line-height-inherit {
+  line-height: inherit;
+}
+
 @mixin gl-line-height-0 {
   line-height: 0;
 }
