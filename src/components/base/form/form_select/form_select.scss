@@ -10,8 +10,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 /* stylelint-disable property-no-vendor-prefix */
 .gl-form-select {
   &.custom-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
+    @include gl-appearance-none;
   }
 }
 /* stylelint-enable property-no-vendor-prefix */
