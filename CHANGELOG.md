@@ -1,3 +1,10 @@
+# [12.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.2.0...v12.3.0) (2020-04-21)
+
+
+### Features
+
+* add clearInput event ([21b9656](https://gitlab.com/gitlab-org/gitlab-ui/commit/21b965621b4fdf8f2310c2c434c625c6d486e1d7))
+
 # [12.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.1.1...v12.2.0) (2020-04-20)
 
 
