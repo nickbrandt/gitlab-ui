@@ -22,7 +22,8 @@ variables:
   DS_DEFAULT_ANALYZERS: "retire.js, gemnasium"
 
 include:
-  - template: Code-Quality.gitlab-ci.yml
+  # Disabled due to: https://gitlab.com/gitlab-org/gitlab/-/issues/207855
+  # - template: Code-Quality.gitlab-ci.yml
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: License-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
@@ -37,9 +38,6 @@ include:
     refs:
       - master@gitlab-org/gitlab-ui
       - merge_requests@gitlab-org/gitlab-ui
-
-code_quality:
-  <<: *only-master-mr
 
 .ds-analyzer:
   <<: *only-master-mr
