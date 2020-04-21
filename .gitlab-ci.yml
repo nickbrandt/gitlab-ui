@@ -14,14 +14,41 @@ variables:
   PUPPETEER_VERSION: '2.1.1'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
+  # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
+  SAST_DISABLE_DIND: "true"
+  DS_DISABLE_DIND: "true"
+  # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
+  SAST_DEFAULT_ANALYZERS: "nodejs-scan, eslint"
+  DS_DEFAULT_ANALYZERS: "retire.js, gemnasium"
 
 include:
   - template: Code-Quality.gitlab-ci.yml
-  - template: License-Scanning.gitlab-ci.yml
   - template: Dependency-Scanning.gitlab-ci.yml
+  - template: License-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
   - project: 'gitlab-org/frontend/frontend-build-images'
     file: '/semantic-release/.gitlab-ci-template.yml'
+
+# Ensure that the scanning is only executed on MRs and master
+# This potentially can be made obsolete once: 
+# https://gitlab.com/groups/gitlab-org/-/epics/2300 lands
+.only-master-mr: &only-master-mr
+  only:  
+    refs:
+      - master@gitlab-org/gitlab-ui
+      - merge_requests@gitlab-org/gitlab-ui
+
+code_quality:
+  <<: *only-master-mr
+
+.ds-analyzer:
+  <<: *only-master-mr
+  
+license_scanning:
+  <<: *only-master-mr
+
+.sast-analyzer:
+  <<: *only-master-mr
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
