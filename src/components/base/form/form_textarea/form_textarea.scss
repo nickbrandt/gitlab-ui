@@ -16,4 +16,10 @@
     @include gl-font-regular;
     @include gl-text-gray-900;
   }
+
+  &.is-valid {
+    @include gl-inset-border-1-gray-200;
+    @include gl-border-none;
+    @include form-control-focus;
+  }
 }
