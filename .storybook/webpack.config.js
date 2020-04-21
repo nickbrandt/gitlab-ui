@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 const sassLoaderOptions = {
   includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
@@ -54,6 +55,7 @@ module.exports = ({ config }) => {
           },
         },
         'css-loader',
+        { loader: 'postcss-loader', options: { plugins: [autoprefixer] } },
         {
           loader: 'sass-loader',
           options: sassLoaderOptions,
