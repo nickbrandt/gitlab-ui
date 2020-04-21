@@ -219,6 +219,7 @@ export default {
 
     clearInput() {
       this.tokens = initialState();
+      this.$emit('clearInput');
     },
   },
 };
