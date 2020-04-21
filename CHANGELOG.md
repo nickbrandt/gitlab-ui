@@ -1,3 +1,21 @@
+# [13.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.3.0...v13.0.0) (2020-04-21)
+
+
+### Bug Fixes
+
+* **input:** visible border in iOS ([d9a5aba](https://gitlab.com/gitlab-org/gitlab-ui/commit/d9a5abaf8808ca265ccb489ad69206e435e9eb4d))
+
+
+### Code Refactoring
+
+* 💡 Remove deprecated number sizes from GlLoadingIcon ([d26f397](https://gitlab.com/gitlab-org/gitlab-ui/commit/d26f397a078f07a2d0a3a5e0085acded2a2cd9f2))
+
+
+### BREAKING CHANGES
+
+* 🧨 GlLoadingIcon does not accept size as a number.
+Use string instead.
+
 # [12.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.2.0...v12.3.0) (2020-04-21)
 
 
