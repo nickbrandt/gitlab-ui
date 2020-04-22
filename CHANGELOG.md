@@ -1,3 +1,10 @@
+# [13.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.0.0...v13.1.0) (2020-04-22)
+
+
+### Features
+
+* **GlFormCheckboxTree:** add toggle all option ([15ce0fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/15ce0fd113a11f8cdb1ac6515ef76025f246a275))
+
 # [13.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v12.3.0...v13.0.0) (2020-04-21)
 
 
