@@ -44,7 +44,8 @@ export default {
       :checked="node.isChecked"
       :indeterminate="node.isIndeterminate"
       :class="checkboxClass"
-      @change="tree.toggle(option, $event)"
+      :aria-label="label"
+      @change="tree.toggleOption(option, $event)"
     >
       {{ label }}
     </gl-form-checkbox>
