@@ -1,10 +1,6 @@
 /**
 * Text align utilities
 */
-@mixin gl-text-align-inherit {
-  text-align: inherit;
-}
-
 @mixin gl-text-left {
   text-align: left;
 }
@@ -15,6 +11,10 @@
 
 @mixin gl-text-right {
   text-align: right;
+}
+
+@mixin gl-reset-text-align {
+  text-align: inherit;
 }
 
 /**
