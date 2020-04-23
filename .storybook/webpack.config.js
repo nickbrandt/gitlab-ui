@@ -102,5 +102,13 @@ module.exports = ({ config }) => {
     );
   }
 
+  // Filter out the progress plugin on CI, as it is very verbose
+  if (process.env.CI) {
+    console.log(
+      'Webpack compilation will start soon - ProgressPlugin disabled on CI due to too much output'
+    );
+    config.plugins = config.plugins.filter(plugin => plugin.constructor.name !== 'ProgressPlugin');
+  }
+
   return config;
 };
