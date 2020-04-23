@@ -33,20 +33,21 @@ include:
 # Ensure that the scanning is only executed on MRs and master
 # This potentially can be made obsolete once: 
 # https://gitlab.com/groups/gitlab-org/-/epics/2300 lands
-.only-master-mr: &only-master-mr
+.secure-jobs-config: &secure-jobs-config
+  needs: []
   only:  
     refs:
       - master@gitlab-org/gitlab-ui
       - merge_requests@gitlab-org/gitlab-ui
 
 .ds-analyzer:
-  <<: *only-master-mr
+  <<: *secure-jobs-config
   
 license_scanning:
-  <<: *only-master-mr
+  <<: *secure-jobs-config
 
 .sast-analyzer:
-  <<: *only-master-mr
+  <<: *secure-jobs-config
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
