@@ -1,3 +1,15 @@
+# [13.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.1.0...v13.2.0) (2020-04-23)
+
+
+### Bug Fixes
+
+* **button:** disable loading button ([111349d](https://gitlab.com/gitlab-org/gitlab-ui/commit/111349d7dc8f2d72b86b8f4410d510ec2ec7bcea))
+
+
+### Features
+
+* **button:** add loading button ([3d5f2f2](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d5f2f26f408816dd69d52bce28b4b0a447e0d29))
+
 # [13.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.0.0...v13.1.0) (2020-04-22)
 
 
