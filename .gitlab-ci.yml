@@ -31,18 +31,18 @@ include:
     file: '/semantic-release/.gitlab-ci-template.yml'
 
 # Ensure that the scanning is only executed on MRs and master
-# This potentially can be made obsolete once: 
+# This potentially can be made obsolete once:
 # https://gitlab.com/groups/gitlab-org/-/epics/2300 lands
 .secure-jobs-config: &secure-jobs-config
   needs: []
-  only:  
+  only:
     refs:
       - master@gitlab-org/gitlab-ui
       - merge_requests@gitlab-org/gitlab-ui
 
 .ds-analyzer:
   <<: *secure-jobs-config
-  
+
 license_scanning:
   <<: *secure-jobs-config
 
@@ -125,7 +125,7 @@ populate_npm_cache:
         - .gitlab-ci.yml
         - yarn.lock
       when: always
-    - when: manual
+    - when: never
 
 danger-review:
   rules:
