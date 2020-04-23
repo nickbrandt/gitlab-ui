@@ -1,6 +1,7 @@
 <script>
 import { BButton } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import RelMixin from '../../mixins/rel_mixin';
 import {
   newButtonCategoryOptions,
@@ -13,6 +14,7 @@ export default {
   components: {
     BButton,
     GlIcon,
+    GlLoadingIcon,
   },
   mixins: [RelMixin],
   props: {
@@ -49,6 +51,16 @@ export default {
       required: false,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     hasIcon() {
@@ -56,6 +68,9 @@ export default {
     },
     hasIconOnly() {
       return Object.keys(this.$slots).length === 0 && this.hasIcon;
+    },
+    isButtonDisabled() {
+      return this.disabled || this.loading;
     },
     buttonClasses() {
       return {
@@ -80,9 +95,11 @@ export default {
     :target="target"
     :variant="variant"
     :size="buttonSize"
+    :disabled="isButtonDisabled"
     :class="buttonClasses"
     v-on="$listeners"
   >
+    <gl-loading-icon v-if="loading" inline class="gl-mr-2" />
     <gl-icon v-if="hasIcon" :name="icon" />
     <slot name="emoji"></slot>
     <slot></slot>

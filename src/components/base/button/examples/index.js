@@ -23,6 +23,7 @@ import ButtonEmojiExample from './combinations/button.emoji.example.vue';
 import ButtonIconExample from './combinations/button.icon.example.vue';
 import ButtonIconAndTextExample from './combinations/button.icon_and_text.example.vue';
 import ButtonLabelExample from './combinations/button.label.example.vue';
+import ButtonLoadingExample from './combinations/button.loading.example.vue';
 
 /* Sizing */
 import ButtonFullWidthExample from './sizing/button.full_width.example.vue';
@@ -156,6 +157,12 @@ export default [
         name: 'Label button',
         description: 'Button used as a label - normally in a button group',
         component: ButtonLabelExample,
+      },
+      {
+        id: 'button-loading',
+        name: 'Loading button',
+        description: 'Button that is showing a loading spinner',
+        component: ButtonLoadingExample,
       },
     ],
   },
