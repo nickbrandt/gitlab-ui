@@ -1,3 +1,10 @@
+# [13.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.2.0...v13.3.0) (2020-04-24)
+
+
+### Features
+
+* **nav:** Implement GlNav, GlNavItem components ([962b31b](https://gitlab.com/gitlab-org/gitlab-ui/commit/962b31b913aed57320092400505d2714266c94f6))
+
 # [13.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.1.0...v13.2.0) (2020-04-23)
 
 
