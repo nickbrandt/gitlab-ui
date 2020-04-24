@@ -144,3 +144,7 @@
 @mixin gl-line-height-52 {
   line-height: $gl-line-height-52;
 }
+
+@mixin gl-reset-line-height {
+  line-height: inherit;
+}

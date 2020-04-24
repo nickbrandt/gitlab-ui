@@ -13,6 +13,10 @@
   text-align: right;
 }
 
+@mixin gl-reset-text-align {
+  text-align: inherit;
+}
+
 /**
 * Text utilities
 */
