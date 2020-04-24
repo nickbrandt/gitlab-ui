@@ -1,3 +1,10 @@
+# [13.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.3.0...v13.4.0) (2020-04-24)
+
+
+### Features
+
+* **css:** Add line-height and text-align utils ([3048229](https://gitlab.com/gitlab-org/gitlab-ui/commit/3048229463886cf829a07b787c4e722f47d609e8))
+
 # [13.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.2.0...v13.3.0) (2020-04-24)
 
 
