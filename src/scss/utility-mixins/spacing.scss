@@ -49,8 +49,8 @@
 }
 
 @mixin gl-px-4 {
-  padding-left: $gl-spacing-scale-4;
-  padding-right: $gl-spacing-scale-4;
+  padding-left: $gl-spacing-scale-4 !important;
+  padding-right: $gl-spacing-scale-4 !important;
 }
 
 @mixin gl-px-5 {
@@ -172,8 +172,8 @@
 }
 
 @mixin gl-py-3 {
-  padding-top: $gl-spacing-scale-3;
-  padding-bottom: $gl-spacing-scale-3;
+  padding-top: $gl-spacing-scale-3 !important;
+  padding-bottom: $gl-spacing-scale-3 !important;
 }
 
 @mixin gl-py-4 {
