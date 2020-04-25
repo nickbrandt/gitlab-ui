@@ -15,8 +15,8 @@
   color: $white;
 }
 
-@mixin gl-text-white-light($hover: true) {
-  color: $white-light;
+@mixin gl-text-white-hover($hover: true) {
+  color: $white;
 }
 
 @mixin gl-text-black-normal {

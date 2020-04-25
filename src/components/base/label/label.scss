@@ -2,7 +2,7 @@ $label-max-width: 100%;
 
 .gl-label {
   @include gl-p-0;
-  @include gl-bg-white-light;
+  @include gl-bg-white;
   @include gl-overflow-hidden;
   @include gl-display-inline-flex;
   @include gl-rounded-pill;
@@ -47,7 +47,7 @@ $label-max-width: 100%;
   }
 
   &-text-light {
-    @include gl-text-white-light;
+    @include gl-text-white-hover;
   }
 
   &-scoped {

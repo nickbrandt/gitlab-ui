@@ -39,7 +39,7 @@
     }
 
     .avatar {
-      @include gl-border-white-light;
+      @include gl-border-white;
     }
 
     &:disabled {
