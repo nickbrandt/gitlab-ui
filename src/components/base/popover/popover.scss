@@ -35,7 +35,7 @@ $gl-popover-max-width: $grid-size * 48;
     }
 
     > .popover-header::before {
-      @include gl-border-white-light;
+      @include gl-border-white;
     }
   }
 
@@ -48,7 +48,7 @@ $gl-popover-max-width: $grid-size * 48;
   }
 
   .popover-header {
-    @include gl-bg-white-light;
+    @include gl-bg-white;
     @include gl-font-sm;
     @include gl-font-weight-bold;
     @include gl-m-0;
@@ -72,7 +72,7 @@ $gl-popover-max-width: $grid-size * 48;
     @include gl-border-blue-600;
 
     .popover-body {
-      @include gl-text-white-light;
+      @include gl-text-white-hover;
     }
 
     &.bs-popover-bottom {

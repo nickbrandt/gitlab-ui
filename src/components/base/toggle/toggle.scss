@@ -73,7 +73,7 @@
 
   .toggle-icon {
     @include gl-rounded-full;
-    @include gl-bg-white-light;
+    @include gl-bg-white;
     @include gl-absolute;
     @include gl-display-inline-flex;
     @include gl-align-items-center;

@@ -47,8 +47,8 @@
 * - Prefer design system color palette. See variables.scss
 * for a comprehensive list.
 */
-@mixin gl-border-white-light {
-  border-color: $white-light;
+@mixin gl-border-white {
+  border-color: $white;
 }
 
 @mixin gl-border-gray-100 {

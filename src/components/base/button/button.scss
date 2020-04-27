@@ -317,7 +317,7 @@
 
   &.btn-dashed {
     @include gl-inset-border-1-gray-600;
-    outline: px-to-rem(2px) dashed $white-light;
+    outline: px-to-rem(2px) dashed $white;
     outline-offset: px-to-rem(-1px);
 
     &:hover,

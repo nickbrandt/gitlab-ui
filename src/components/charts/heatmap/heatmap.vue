@@ -6,7 +6,7 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
-import { whiteLight, gray100 } from '../../../../scss_to_js/scss_variables';
+import { white, gray100 } from '../../../../scss_to_js/scss_variables';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
@@ -146,7 +146,7 @@ export default {
               show: true,
               interval: 0,
               lineStyle: {
-                color: whiteLight,
+                color: white,
                 width: 2,
               },
             },
@@ -173,7 +173,7 @@ export default {
               show: true,
               interval: 0,
               lineStyle: {
-                color: whiteLight,
+                color: white,
                 width: 2,
               },
             },
