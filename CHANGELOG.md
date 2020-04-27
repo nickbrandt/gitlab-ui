@@ -1,3 +1,10 @@
+# [13.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.4.0...v13.5.0) (2020-04-27)
+
+
+### Features
+
+* **css:** Remove white-light variable ([24669c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/24669c2a2ea6e3c46a560a9dc178ba74a25e1438))
+
 # [13.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.3.0...v13.4.0) (2020-04-24)
 
 
