@@ -294,4 +294,50 @@ documentedStoriesOf('base|new-dropdown', readme)
     updated() {
       addClass(this);
     },
+  }))
+  .add('with short text and wide width', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+        style="width: 300px;"
+      >
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with long text and narrow width', () => ({
+    props: generateProps({ block: true }),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Truncated text dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+        style="width: 160px;"
+      >
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
   }));

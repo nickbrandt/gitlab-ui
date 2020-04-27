@@ -164,7 +164,7 @@ export default {
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
-      {{ buttonText }}
+      <span class="gl-new-dropdown-button-text">{{ buttonText }}</span>
       <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
