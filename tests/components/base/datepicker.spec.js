@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import Pikaday from 'pikaday';
 import { shallowMount } from '@vue/test-utils';
 import GlDatepicker from '../../../src/components/base/datepicker/datepicker.vue';
@@ -6,6 +7,7 @@ jest.mock('pikaday');
 
 describe('datepicker component', () => {
   const mountWithOptions = shallowMount.bind(null, GlDatepicker);
+  const pikadayConfig = () => Pikaday.mock.calls[0][0];
   let currentDate;
 
   beforeEach(() => {
@@ -30,7 +32,7 @@ describe('datepicker component', () => {
     });
 
     expect(Pikaday).toHaveBeenCalled();
-    expect(Pikaday.mock.calls[0][0]).toMatchObject({
+    expect(pikadayConfig()).toMatchObject({
       defaultDate: currentDate,
       setDefaultDate: true,
     });
@@ -42,10 +44,69 @@ describe('datepicker component', () => {
     expect(Pikaday.prototype.show).toHaveBeenCalled();
   });
 
-  it('hides field when custom target is provided', () => {
-    const wrapper = mountWithOptions({ propsData: { target: 'body' } });
+  describe('when `target` prop is not passed', () => {
+    it('sets calendar icon as `trigger` option', () => {
+      const wrapper = mountWithOptions();
 
-    expect(wrapper.find('.d-none').exists()).toBe(true);
+      expect(pikadayConfig()).toMatchObject({
+        trigger: wrapper.vm.$refs.calendarTriggerBtn,
+      });
+      return nextTick().then(() => {
+        expect(wrapper.find({ ref: 'calendarTriggerBtn' }).classes()).not.toContain(
+          'gl-pointer-events-none'
+        );
+      });
+    });
+  });
+
+  describe('when `target` prop is `null`', () => {
+    it('does not pass the `trigger` option to Pikaday', () => {
+      // This will cause the calendar to open when the `field` is focused
+      // https://github.com/Pikaday/Pikaday#configuration
+
+      const wrapper = mountWithOptions({ propsData: { target: null } });
+
+      expect(pikadayConfig()).not.toHaveProperty('trigger');
+      return nextTick().then(() => {
+        expect(wrapper.find({ ref: 'calendarTriggerBtn' }).classes()).toContain(
+          'gl-pointer-events-none'
+        );
+      });
+    });
+  });
+
+  describe('when `container` prop is not passed', () => {
+    it('sets component element as `container` option', () => {
+      const wrapper = mountWithOptions();
+
+      expect(pikadayConfig()).toHaveProperty('container', wrapper.vm.$el);
+    });
+  });
+
+  describe('when `container` prop is `null`', () => {
+    it('does not pass the `container` option to Pikaday', () => {
+      mountWithOptions({
+        propsData: { container: null },
+      });
+
+      expect(pikadayConfig()).not.toHaveProperty('container');
+    });
+  });
+
+  describe('when text input is passed in the default slot', () => {
+    it('sets it as Pikaday `field` option', () => {
+      const input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.setAttribute('name', 'foo-bar');
+
+      mountWithOptions({
+        slots: { default: input.outerHTML },
+      });
+
+      expect(pikadayConfig()).toMatchObject({
+        field: input,
+      });
+    });
   });
 
   it.each`
@@ -58,7 +119,7 @@ describe('datepicker component', () => {
     ({ componentEvent, calendarEvent, params }) => {
       const wrapper = mountWithOptions();
 
-      const config = Pikaday.mock.calls[0][0];
+      const config = pikadayConfig();
 
       config[calendarEvent](...params);
 
@@ -120,7 +181,7 @@ describe('datepicker component', () => {
 
       wrapper = mountWithOptions();
 
-      const config = Pikaday.mock.calls[0][0];
+      const config = pikadayConfig();
 
       config.onDraw(pikaday);
     });

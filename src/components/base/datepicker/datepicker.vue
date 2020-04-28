@@ -1,5 +1,6 @@
 <script>
 import Pikaday from 'pikaday';
+import { isString } from 'lodash';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
 import { defaultDateFormat } from '../../../utils/constants';
@@ -127,6 +128,15 @@ export default {
     formattedDate() {
       return this.calendar && this.calendar.toString();
     },
+    customTrigger() {
+      return isString(this.target) && this.target !== '';
+    },
+    triggerOnFocus() {
+      return this.target === null;
+    },
+    showDefaultField() {
+      return !this.customTrigger || this.triggerOnFocus;
+    },
   },
   watch: {
     value(val) {
@@ -149,16 +159,10 @@ export default {
   },
   mounted() {
     const $parentEl = this.$parent.$el;
-    const trigger = this.target
-      ? $parentEl.querySelector(this.target)
-      : this.$refs.calendarTriggerBtn;
-    const container = this.container ? $parentEl.querySelector(this.container) : this.$el;
     const drawEvent = this.draw.bind(this);
 
     const pikadayConfig = {
-      field: this.$refs.datepickerField.$el,
-      trigger,
-      container,
+      field: this.$el.querySelector('input[type="text"]'),
       theme: `gl-datepicker-theme ${this.theme}`,
       defaultDate: this.value || this.defaultDate,
       setDefaultDate: Boolean(this.value),
@@ -178,6 +182,25 @@ export default {
         drawEvent();
       },
     };
+
+    // Pass `null` as `target` prop to use the `field` as the trigger (open on focus)
+    if (!this.triggerOnFocus) {
+      const trigger = this.customTrigger
+        ? $parentEl.querySelector(this.target)
+        : this.$refs.calendarTriggerBtn;
+      pikadayConfig.trigger = trigger;
+
+      // Set `trigger` as the `field` if `field` element doesn't exist (not passed via the slot)
+      if (!pikadayConfig.field && this.customTrigger) {
+        pikadayConfig.field = trigger;
+      }
+    }
+
+    // Pass `null` as `container` prop to prevent passing the `container` option to Pikaday
+    if (this.container !== null) {
+      const container = this.container ? $parentEl.querySelector(this.container) : this.$el;
+      pikadayConfig.container = container;
+    }
 
     if (this.i18n) {
       pikadayConfig.i18n = this.i18n;
@@ -211,16 +234,17 @@ export default {
 
 <template>
   <div class="gl-datepicker d-inline-block">
-    <div :class="['position-relative', { 'd-none': target }]">
-      <gl-form-input
-        ref="datepickerField"
-        class="gl-datepicker-input"
-        :value="formattedDate"
-        :placeholder="format"
-      />
-      <span ref="calendarTriggerBtn" class="gl-datepicker-trigger">
+    <div v-if="showDefaultField" class="position-relative">
+      <slot :formatted-date="formattedDate">
+        <gl-form-input class="gl-datepicker-input" :value="formattedDate" :placeholder="format" />
+      </slot>
+      <span
+        ref="calendarTriggerBtn"
+        :class="['gl-datepicker-trigger', { 'gl-pointer-events-none': triggerOnFocus }]"
+      >
         <gl-icon name="calendar" :size="16" />
       </span>
     </div>
+    <slot v-else :formatted-date="formattedDate"> </slot>
   </div>
 </template>
