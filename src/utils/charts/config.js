@@ -5,12 +5,23 @@ import Breakpoints from '../breakpoints';
 import { engineeringNotation } from '../number_utils';
 import { areDatesEqual } from '../datetime_utility';
 import { ANNOTATIONS_SERIES_NAME, arrowSymbol } from './constants';
-import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { blue500, blue200 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export const defaultAreaOpacity = 0.2;
 export const defaultFontSize = 12;
 export const defaultHeight = 400;
 export const validRenderers = ['canvas', 'svg'];
+
+const defaultMarkLineStyle = {
+  lineStyle: {
+    width: 1,
+    color: blue500,
+    emphasis: {
+      width: 1,
+      color: blue500,
+    },
+  },
+};
 
 export const axes = {
   name: 'Value',
@@ -223,11 +234,16 @@ const generateMarkArea = ({ min, max }, axis = 'yAxis') => [{ [axis]: min }, { [
  * @param {String} axis markLine is generated against this axis
  * @returns {Object}
  */
-const generateMarkLines = ({ min, max }, axis = 'yAxis') => {
+const generateMarkLines = (
+  { min, max },
+  axis = 'yAxis',
+  markLineStyle = defaultMarkLineStyle,
+  tooltipData = {}
+) => {
   if (min) {
-    return { [axis]: min };
+    return { [axis]: min, ...markLineStyle, ...tooltipData };
   }
-  return { [axis]: max };
+  return { [axis]: max, ...markLineStyle, ...tooltipData };
 };
 
 /**
@@ -325,10 +341,44 @@ export const parseAnnotations = annotations =>
       if (areDatesEqual(annotation.min, annotation.max)) {
         acc.lines.push(generateMarkLines(annotation, 'xAxis'));
         acc.points.push(generateMarkPoints(annotation, 'xAxis'));
-        return acc;
+      } else {
+        acc.lines.push(
+          generateMarkLines(
+            {
+              min: annotation.min,
+            },
+            'xAxis'
+          )
+        );
+        acc.areas.push(generateMarkArea(annotation, 'xAxis'));
+        acc.lines.push(
+          generateMarkLines(
+            {
+              max: annotation.max,
+            },
+            'xAxis'
+          )
+        );
+        // acc.lines.push([
+        //   {
+        //     xAxis: annotation.min,
+        //     yAxis: 0,
+        //     from: annotation.min,
+        //     to: annotation.max,
+        //     tooltipData: annotation.tooltipData,
+        //     z: 15,
+        //   },
+        //   {
+        //     xAxis: annotation.max,
+        //     yAxis: 0,
+        //     z: 15,
+        //     from: annotation.min,
+        //     to: annotation.max,
+        //     tooltipData: annotation.tooltipData,
+        //     ...annotationRangeBarStyle,
+        //   },
+        // ]);
       }
-
-      acc.areas.push(generateMarkArea(annotation, 'xAxis'));
       return acc;
     },
     { areas: [], lines: [], points: [] }
@@ -352,24 +402,56 @@ export const getAnnotationsConfig = annotations => {
 
   // annotations parsing is moved out so that it can be tested
   // for markLines and markAreas.
-  const { lines, points } = parseAnnotations(annotations);
+  const { lines, areas, points } = parseAnnotations(annotations);
 
   return {
     markLine: {
-      lineStyle: {
-        color: blue500,
-      },
       silent: true,
       data: lines,
+    },
+    markArea: {
+      silent: true,
+      data: areas,
+      itemStyle: {
+        color: blue200,
+        opacity: 0.2,
+      },
     },
     markPoint: {
       itemStyle: {
         color: blue500,
+        emphasis: {
+          borderWidth: 3,
+          borderColor: blue500,
+          symbolSize: 10,
+        },
       },
       symbol: arrowSymbol,
       symbolSize: '8',
       symbolOffset: [0, ' 60%'],
       data: points,
+    },
+  };
+};
+
+const renderItem = (params, api) => {
+  const categoryIndex = 0;
+  const start = api.coord([api.value(0), categoryIndex]);
+  const end = api.coord([api.value(1), categoryIndex]);
+
+  return {
+    type: 'rect',
+    shape: {
+      x: start[0],
+      y: params.coordSys.y + params.coordSys.height,
+      width: end[0] - start[0],
+      height: 6,
+    },
+    style: {
+      fill: blue200,
+    },
+    styleEmphasis: {
+      fill: blue200,
     },
   };
 };
@@ -389,12 +471,28 @@ export const generateAnnotationSeries = (annotations, yAxisIndex = 1) => {
   if (!annotations.length) {
     return null;
   }
+  const data = annotations.reduce((acc, annotation) => {
+    if (!areDatesEqual(annotation.min, annotation.max)) {
+      acc.push({
+        name: 'something',
+        xAxis: annotation.min,
+        tooltipData: annotation.tooltipData,
+        value: [annotation.min, annotation.max],
+      });
+    }
+    return acc;
+  }, []);
+
   return merge(
     {
       name: ANNOTATIONS_SERIES_NAME,
       yAxisIndex,
-      type: 'scatter',
-      data: [],
+      encode: {
+        x: [0, 1],
+      },
+      type: 'custom',
+      renderItem,
+      data,
     },
     getAnnotationsConfig(annotations)
   );

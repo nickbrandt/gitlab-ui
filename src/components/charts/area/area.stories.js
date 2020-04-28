@@ -192,6 +192,64 @@ documentedStoriesOf('charts|area-chart', readme)
     components,
     template,
   }))
+  .add('with annotations ranges', () => ({
+    props: generateProps({
+      annotations: [
+        {
+          min: '2018-01-25T01:00:00.000Z',
+          max: '2018-01-25T01:00:00.000Z',
+          tooltipData: { content: 'Annotation line 1' },
+        },
+        {
+          min: '2018-01-25T10:00:00.000Z',
+          max: '2018-01-25T10:00:00.000Z',
+          tooltipData: { content: 'Annotation line 2' },
+        },
+        {
+          min: '2018-01-15T01:00:00.000Z',
+          max: '2018-01-20T01:00:00.000Z',
+          tooltipData: { content: 'Annotation range 1' },
+        },
+        {
+          min: '2018-03-01T10:00:00.000Z',
+          max: '2018-03-01T10:00:00.000Z',
+          tooltipData: { content: 'Annotation line 3' },
+        },
+        {
+          min: '2018-01-18T10:00:00.000Z',
+          max: '2018-02-10T10:00:00.000Z',
+          tooltipData: { content: 'Annotation range 2' },
+        },
+        {
+          min: '2018-02-01T10:00:00.000Z',
+          max: '2018-02-15T10:00:00.000Z',
+          tooltipData: { content: 'Annotation range 3' },
+        },
+        {
+          min: '2018-03-08T08:00:00.000Z',
+          max: '2018-03-26T08:00:00.000Z',
+          tooltipData: { content: 'Annotation range 4' },
+        },
+      ],
+      data: [
+        {
+          name: 'Time Series',
+          data: generateTimeSeries(),
+        },
+      ],
+      option: {
+        xAxis: {
+          type: 'time',
+          name: 'Time',
+          axisLabel: {
+            formatter: timeSeriesDateFormatter,
+          },
+        },
+      },
+    }),
+    components,
+    template,
+  }))
   .add('with zoom and scroll', () => ({
     props: generateProps({
       data: [

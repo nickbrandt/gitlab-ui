@@ -314,12 +314,37 @@ export default {
           left: `${event.event.zrX}px`,
           top: `${event.event.zrY + ANNOTATION_TOOLTIP_TOP_OFFSET}px`,
         };
+      } else if (params.data.value) {
+        const [from, to] = params.data.value;
+        const fromPixelLocation = this.chart.convertToPixel({ seriesName: 'annotations' }, [
+          from,
+          0,
+        ]);
+        const toPixelLocation = this.chart.convertToPixel({ seriesName: 'annotations' }, [to, 0]);
+        const left = (fromPixelLocation[0] + toPixelLocation[0]) / 2;
+        const top = fromPixelLocation[1] + ANNOTATION_TOOLTIP_TOP_OFFSET;
+
+        const toolTipFormatter =
+          this.formatAnnotationsTooltipText || this.defaultAnnotationTooltipText;
+        const { title = '', content = '' } = toolTipFormatter(params);
+        this.showDataTooltip = false;
+        this.showAnnotationsTooltip = true;
+        this.annotationsTooltipTitle = title;
+        this.annotationsTooltipContent = content;
+        this.annotationsTooltipPosition = {
+          left: `${left}px`,
+          top: `${top}px`,
+        };
       }
     },
     onUpdated(chart) {
       this.$emit('updated', chart);
     },
-    onLabelChange(params) {
+    onLabelChange(origParams) {
+      const params = {
+        ...origParams,
+        seriesData: origParams.seriesData.filter(({ seriesName }) => seriesName != 'annotations'),
+      };
       this.selectedFormatTooltipText(params);
       const { seriesData = [] } = params;
       // seriesData is an array of nearby data point coordinates
@@ -331,7 +356,7 @@ export default {
       if (seriesData.length && seriesData[0].value) {
         const { seriesId, value } = seriesData[0];
         const [left, top] = this.chart.convertToPixel({ seriesId }, value);
-
+        this.showAnnotationsTooltip = false;
         this.dataTooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
