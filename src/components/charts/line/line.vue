@@ -25,10 +25,11 @@ import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
   getThresholdConfig,
-  getAnnotationsConfig,
+  generateAnnotationSeries,
   dataZoomAdjustments,
   symbolSize,
   mergeSeriesToOptions,
+  mergeAnnotationAxisToOptions,
   lineStyle,
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
@@ -116,7 +117,7 @@ export default {
   },
   computed: {
     series() {
-      return this.data.map(series =>
+      const dataSeries = this.data.map(series =>
         merge(
           {
             showSymbol: true,
@@ -124,45 +125,64 @@ export default {
           symbolSize,
           lineStyle,
           series,
-          getThresholdConfig(this.thresholds),
-          getAnnotationsConfig(this.annotations)
+          getThresholdConfig(this.thresholds)
         )
       );
+      // if annotation series exists, append it
+      // along with data series
+      if (this.annotationSeries) {
+        return [...dataSeries, this.annotationSeries];
+      }
+      return dataSeries;
+    },
+    annotationSeries() {
+      return generateAnnotationSeries(this.annotations);
     },
     options() {
+      const defaultLineChartOptions = {
+        xAxis: {
+          axisPointer: {
+            show: true,
+            label: {
+              formatter: this.onLabelChange,
+            },
+          },
+          axisTick: {
+            alignWithLabel: true,
+            show: true,
+            lineStyle: {
+              color: gray200,
+            },
+          },
+        },
+        legend: {
+          show: false,
+        },
+      };
       const mergedOptions = merge(
         {},
         defaultChartOptions,
-        {
-          xAxis: {
-            axisPointer: {
-              show: true,
-              label: {
-                formatter: this.onLabelChange,
-              },
-            },
-            axisTick: {
-              alignWithLabel: true,
-              show: true,
-              lineStyle: {
-                color: gray200,
-              },
-            },
-          },
-          legend: {
-            show: false,
-          },
-        },
+        defaultLineChartOptions,
         this.option,
         dataZoomAdjustments(this.option.dataZoom),
         this.toolboxAdjustments
       );
       // All chart options can be merged but series
       // needs to be handled specially
-      return mergeSeriesToOptions(mergedOptions, this.series);
+      return mergeSeriesToOptions(
+        mergeAnnotationAxisToOptions(mergedOptions, this.hasAnnotations),
+        this.series
+      );
     },
+    /**
+     * Annotations currently are passed as series options in monitoring dashboard.
+     * Once https://gitlab.com/gitlab-org/gitlab/-/issues/213390 is closed,
+     * annotations will be passed as props and not as series options.
+     *
+     * For backward compatibility, we're having to check for both.
+     */
     hasAnnotations() {
-      return seriesHasAnnotations(this.options.series);
+      return this.annotations.length !== 0 || seriesHasAnnotations(this.series);
     },
     shouldShowAnnotationsTooltip() {
       return this.chart && this.hasAnnotations;

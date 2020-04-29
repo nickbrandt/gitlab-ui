@@ -51,3 +51,13 @@ export const getDateInPast = (date, daysInPast) =>
  */
 export const getDateInFuture = (date, daysInFuture) =>
   new Date(newDate(date).setDate(date.getDate() + daysInFuture));
+
+/**
+ * Are the given two dates equal
+ *
+ * @param {Date} date1
+ * @param {Date} date2
+ * @returns {Boolean}
+ */
+export const areDatesEqual = (date1, date2) =>
+  Boolean(date1 && date2 && new Date(date1).getTime() === new Date(date2).getTime());
