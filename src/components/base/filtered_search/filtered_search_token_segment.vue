@@ -233,14 +233,9 @@ export default {
               v-for="(option, idx) in options"
               :key="`${option.value}-${idx}`"
               :value="option.value"
+              :icon-name="option.icon"
             >
               <slot name="option" v-bind="{ option }">
-                <gl-icon
-                  v-if="option.icon"
-                  :name="option.icon"
-                  :size="16"
-                  class="gl-filtered-search-token-segment-icon"
-                />
                 {{ option[optionTextField] }}
               </slot>
             </gl-filtered-search-suggestion>
