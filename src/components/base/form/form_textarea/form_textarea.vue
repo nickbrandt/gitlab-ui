@@ -20,7 +20,7 @@ export default {
 
 <template>
   <b-form-textarea
-    class="gl-form-textarea gl-form-normal-border"
+    class="gl-form-input gl-form-textarea"
     no-resize
     v-bind="$attrs"
     :value="value"

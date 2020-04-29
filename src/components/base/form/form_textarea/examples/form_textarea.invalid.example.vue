@@ -7,5 +7,5 @@ export default {
 </script>
 
 <template>
-  <gl-form-textarea v-model="text" placeholder="Enter something" state="invalid" />
+  <gl-form-textarea v-model="text" placeholder="Enter something" :state="false" />
 </template>
