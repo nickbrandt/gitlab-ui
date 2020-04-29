@@ -1,3 +1,10 @@
+# [13.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.5.0...v13.6.0) (2020-04-29)
+
+
+### Features
+
+* Add annotation markers to gitlab ui ([1d0c55e](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d0c55eeff99d71a66dab9e9887d0096c4e74b3a))
+
 # [13.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.4.0...v13.5.0) (2020-04-27)
 
 
