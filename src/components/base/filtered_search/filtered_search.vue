@@ -110,14 +110,14 @@ export default {
       immediate: true,
       handler(newValue) {
         this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
-
-        if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
-          this.tokens.push(createTerm());
-        }
       },
     },
     tokens: {
       handler() {
+        if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
+          this.tokens.push(createTerm());
+        }
+
         this.$emit('input', this.tokens);
       },
       deep: true,
@@ -153,8 +153,9 @@ export default {
       this.suggestionsStyle = { transform };
     },
 
-    deactivate(tokenIdx, type) {
-      if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx || this.activeToken.type !== type) {
+    deactivate(token) {
+      const tokenIdx = this.tokens.indexOf(token);
+      if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx) {
         return;
       }
 
@@ -249,7 +250,7 @@ export default {
               'gl-filtered-search-last-item': isLastToken(idx),
             }"
             @activate="activate(idx)"
-            @deactivate="deactivate(idx, token.type)"
+            @deactivate="deactivate(token)"
             @destroy="destroyToken(idx)"
             @replace="replaceToken(idx, $event)"
             @complete="completeToken"

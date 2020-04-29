@@ -192,12 +192,7 @@ documentedStoriesOf('base|filtered-search', readme)
       };
     },
     components,
-    computed: {
-      formattedValue() {
-        return JSON.stringify(this.value);
-      },
-    },
     template: `
-      <gl-filtered-search :available-tokens="tokens" v-model="value" />
+      <gl-filtered-search :available-tokens="tokens" :value="value" />
     `,
   }));
