@@ -1,25 +1,12 @@
-.gl-form-normal-border {
-  @include gl-border-gray-200;
-}
+/**
+* Form textarea styles.
+*
+* notes:
+* - gl-form-input is the SSOT for the textbox styles,
+* we maintain this class to set the correct height.
+*/
 
 .gl-form-textarea,
 .gl-form-textarea.form-control {
-  @include gl-font-base;
-  @include gl-font-regular;
   @include gl-h-11-5;
-  @include gl-line-height-normal;
-  @include gl-py-3;
-  @include gl-px-4;
-  @include gl-text-gray-900;
-
-  &:focus {
-    @include gl-font-regular;
-    @include gl-text-gray-900;
-  }
-
-  &.is-valid {
-    @include gl-inset-border-1-gray-200;
-    @include gl-border-none;
-    @include form-control-focus;
-  }
 }
