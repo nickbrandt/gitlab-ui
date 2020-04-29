@@ -55,7 +55,7 @@ function generateProps({
       default: array('Thresholds', thresholds),
     },
     annotations: {
-      default: array('Annotations', annotations),
+      default: object('Annotations', annotations),
     },
     data: {
       default: object('Chart Data', data),
@@ -83,9 +83,21 @@ documentedStoriesOf('charts|area-chart', readme)
   .add('with annotations', () => ({
     props: generateProps({
       annotations: [
-        { min: '2018-01-25T01:00:00.000Z', max: '2018-01-25T01:00:00.000Z' },
-        { min: '2018-01-25T10:00:00.000Z', max: '2018-01-25T10:00:00.000Z' },
-        { min: '2018-02-06T08:00:00.000Z', max: '2018-02-06T08:00:00.000Z' },
+        {
+          min: '2018-01-25T01:00:00.000Z',
+          max: '2018-01-25T01:00:00.000Z',
+          tooltipData: { content: 'Scranton strangler was caught.' },
+        },
+        {
+          min: '2018-01-25T10:00:00.000Z',
+          max: '2018-01-25T10:00:00.000Z',
+          tooltipData: { content: 'Tobys green car is missing.' },
+        },
+        {
+          min: '2018-02-06T08:00:00.000Z',
+          max: '2018-02-06T08:00:00.000Z',
+          tooltipData: { content: 'It was actually Toby!' },
+        },
       ],
       data: [
         {
@@ -94,38 +106,6 @@ documentedStoriesOf('charts|area-chart', readme)
         },
       ],
       option: {
-        series: [
-          {
-            type: 'scatter',
-            name: 'annotations',
-            data: [],
-            markPoint: {
-              symbol: 'path://m5 229 5 8h-10z',
-              symbolSize: '8',
-              symbolOffset: [0, ' 60%'],
-              data: [
-                {
-                  name: 'annotations',
-                  xAxis: '2018-01-25T01:00:00.000Z',
-                  yAxis: 0,
-                  tooltipData: { content: 'Scranton strangler was caught.' },
-                },
-                {
-                  name: 'annotations',
-                  xAxis: '2018-01-25T10:00:00.000Z',
-                  yAxis: 0,
-                  tooltipData: { content: 'Tobys green car is missing.' },
-                },
-                {
-                  name: 'annotations',
-                  xAxis: '2018-02-06T08:00:00.000Z',
-                  yAxis: 0,
-                  tooltipData: { content: 'It was actually Toby!' },
-                },
-              ],
-            },
-          },
-        ],
         xAxis: {
           type: 'time',
           name: 'Time',

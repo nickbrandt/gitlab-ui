@@ -3,6 +3,8 @@ import castArray from 'lodash/castArray';
 import isArray from 'lodash/isArray';
 import Breakpoints from '../breakpoints';
 import { engineeringNotation } from '../number_utils';
+import { areDatesEqual } from '../datetime_utility';
+import { ANNOTATIONS_SERIES_NAME, arrowSymbol } from './constants';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export const defaultAreaOpacity = 0.2;
@@ -41,6 +43,19 @@ export const lineStyle = {
   symbol: 'circle',
   type: 'line',
   width: 2,
+};
+
+/**
+ * Annotations series consists of annotations lines
+ * along with markers. Annotations co-exist with data
+ * series but have their own virtual coords so that they stay put
+ * irrespective of data series extents.
+ */
+export const annotationsYAxisCoords = {
+  min: 0,
+  pos: 3, // 3% height of chart's grid
+  max: 100,
+  show: false,
 };
 
 export const symbolSize = 6;
@@ -108,6 +123,20 @@ export const mergeSeriesToOptions = (options, series = []) => {
     series: [...castArray(series), ...castArray(optSeries)],
   };
 };
+
+/**
+ * If an annotation series exists, the chart options should have an
+ * array of yAxis settings so that the series can exist in its own
+ * coordinate system without interfering with the data series
+ *
+ * @param {Object} options options to merge annotation series yAxis with
+ * @param {Boolean} hasAnnotations if annotation series yAxis should be merged
+ * @returns {Object} options
+ */
+export const mergeAnnotationAxisToOptions = (options, hasAnnotations = false) => ({
+  ...options,
+  ...(hasAnnotations && { yAxis: [options.yAxis, annotationsYAxisCoords] }),
+});
 
 export const dataZoomAdjustments = dataZoom => {
   // handle cases where dataZoom is array and object.
@@ -202,6 +231,25 @@ const generateMarkLines = ({ min, max }, axis = 'yAxis') => {
 };
 
 /**
+ * Generates markPoints that are placed under the markLines.
+ *
+ * These are used only in annotation lines. For annotation lines,
+ * both min and max are same values so only one is enough to generate
+ * the markPoint.
+ *
+ * @param {Object} annotation object
+ * @return {Object}
+ */
+const generateMarkPoints = ({ min, tooltipData }) => {
+  return {
+    name: 'annotations',
+    xAxis: min,
+    yAxis: 0,
+    tooltipData,
+  };
+};
+
+/**
  * Generate set of markAreas and markLines to draw on charts
  * as alert thresholds.
  *
@@ -262,10 +310,10 @@ export function getThresholdConfig(thresholds) {
  * that are used for annotations.
  *
  * `getAnnotationsConfig` as of %12.10 supports only markLines.
- * But this method can generate both lines and areas.
+ * But this method can generate lines, points and areas.
  *
  * @param {Array} annotations Array of annotation objects
- * @returns {Object} { areas, lines}
+ * @returns {Object} { areas, lines, points }
  */
 export const parseAnnotations = annotations =>
   annotations.reduce(
@@ -274,15 +322,16 @@ export const parseAnnotations = annotations =>
       // satisfy this condition. This is more of a sanity check
       // until markAreas are supported.
       // https://gitlab.com/gitlab-org/gitlab/-/issues/212910
-      if (annotation.min === annotation.max) {
+      if (areDatesEqual(annotation.min, annotation.max)) {
         acc.lines.push(generateMarkLines(annotation, 'xAxis'));
+        acc.points.push(generateMarkPoints(annotation, 'xAxis'));
         return acc;
       }
 
       acc.areas.push(generateMarkArea(annotation, 'xAxis'));
       return acc;
     },
-    { areas: [], lines: [] }
+    { areas: [], lines: [], points: [] }
   );
 
 /**
@@ -303,7 +352,7 @@ export const getAnnotationsConfig = annotations => {
 
   // annotations parsing is moved out so that it can be tested
   // for markLines and markAreas.
-  const { lines } = parseAnnotations(annotations);
+  const { lines, points } = parseAnnotations(annotations);
 
   return {
     markLine: {
@@ -313,7 +362,42 @@ export const getAnnotationsConfig = annotations => {
       silent: true,
       data: lines,
     },
+    markPoint: {
+      itemStyle: {
+        color: blue500,
+      },
+      symbol: arrowSymbol,
+      symbolSize: '8',
+      symbolOffset: [0, ' 60%'],
+      data: points,
+    },
   };
+};
+
+/**
+ * Given thresholds and annotations options, this method generates
+ * an annotation series that co-exists along with the data series.
+ *
+ * yAxis option is useful in cases where multiple yAxis settings
+ * are used in a chart. Currently, all of our charts have single
+ * yAxis settings.
+ *
+ * @param {Object} params Thresholds, annotations and yAxis options
+ * @returns {Object} Annotation series
+ */
+export const generateAnnotationSeries = (annotations, yAxisIndex = 1) => {
+  if (!annotations.length) {
+    return null;
+  }
+  return merge(
+    {
+      name: ANNOTATIONS_SERIES_NAME,
+      yAxisIndex,
+      type: 'scatter',
+      data: [],
+    },
+    getAnnotationsConfig(annotations)
+  );
 };
 
 /**

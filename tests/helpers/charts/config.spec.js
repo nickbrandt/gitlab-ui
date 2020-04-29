@@ -70,6 +70,7 @@ describe('chart config helpers', () => {
       expect(parseAnnotations([])).toEqual({
         areas: [],
         lines: [],
+        points: [],
       });
     });
 

@@ -79,4 +79,20 @@ describe('Date time utils', () => {
       expect(date).toStrictEqual(new Date('2019-07-16T00:00:00.000Z'));
     });
   });
+
+  describe('areDatesEqual', () => {
+    it.each`
+      name                                               | input                                                                                                                         | expected
+      ${'Returns false for no inputs'}                   | ${[]}                                                                                                                         | ${false}
+      ${'Returns false for null inputs'}                 | ${[null, null]}                                                                                                               | ${false}
+      ${'Returns false for empty inputs'}                | ${['', '']}                                                                                                                   | ${false}
+      ${'Returns true for date without timestamp'}       | ${['2020-01-10', '2020-01-10']}                                                                                               | ${true}
+      ${'Returns false for different dates in local tz'} | ${['Mon Apr 27 2020 15:21:22 GMT-0700 (Pacific Daylight Time)', 'Mon Apr 27 2020 15:22:22 GMT-0700 (Pacific Daylight Time)']} | ${false}
+      ${'Returns true for same dates in local tz'}       | ${['Mon Apr 27 2020 15:22:22 GMT-0700 (Pacific Daylight Time)', 'Mon Apr 27 2020 15:22:22 GMT-0700 (Pacific Daylight Time)']} | ${true}
+      ${'Returns false for different dates in UTC'}      | ${['2020-04-27 22:22:21 UTC', '2020-04-27 22:22:22 UTC']}                                                                     | ${false}
+      ${'Returns true for same dates in UTC'}            | ${['2020-04-27 22:22:22 UTC', '2020-04-27 22:22:22 UTC']}                                                                     | ${true}
+    `(`$name`, ({ input, expected }) => {
+      expect(datetimeUtility.areDatesEqual(...input)).toBe(expected);
+    });
+  });
 });

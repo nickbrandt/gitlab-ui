@@ -2,6 +2,7 @@
 import Pikaday from 'pikaday';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
+import { areDatesEqual } from '../../../utils/datetime_utility';
 import { defaultDateFormat } from '../../../utils/constants';
 
 export const pad = (val, len = 2) => `0${val}`.slice(-len);
@@ -19,7 +20,6 @@ export const defaultDateFormatter = date => {
   return `${year}-${month}-${day}`;
 };
 
-const equals = (date1, date2) => date1 && date2 && date1.getTime() === date2.getTime();
 const isBefore = (compareTo, date) => compareTo && date && date.getTime() < compareTo.getTime();
 
 const highlightPastDates = pikaday => {
@@ -130,7 +130,7 @@ export default {
   },
   watch: {
     value(val) {
-      if (!equals(val, this.calendar.getDate())) {
+      if (!areDatesEqual(val, this.calendar.getDate())) {
         this.calendar.setDate(val, true);
       }
     },

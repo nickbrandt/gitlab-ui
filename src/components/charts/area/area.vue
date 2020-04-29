@@ -3,9 +3,7 @@
  * Area charts as of %12.10 support annotations.
  * Annotations is composed of a dotted line and an arrow
  * at the bottom. The dotted line is constructed
- * with markLine and arrows with markPoint. Most of this
- * logic is in GitLab and should be eventually moved to
- * GitLab UI https://gitlab.com/gitlab-org/gitlab/-/issues/213390.
+ * with markLine and arrows with markPoint.
  *
  * Similar to how custom tooltips are displayed when area chart
  * is hovered, a tooltip should be displayed when the annotation
@@ -25,10 +23,11 @@ import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
   getThresholdConfig,
-  getAnnotationsConfig,
+  generateAnnotationSeries,
   dataZoomAdjustments,
   defaultAreaOpacity,
   mergeSeriesToOptions,
+  mergeAnnotationAxisToOptions,
   lineStyle,
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
@@ -120,7 +119,7 @@ export default {
   },
   computed: {
     series() {
-      return this.data.map((series, index) => {
+      const dataSeries = this.data.map((series, index) => {
         const defaultColor = colorFromPalette(index);
         const getColor = type =>
           series[type] && series[type].color ? series[type].color : defaultColor;
@@ -140,43 +139,62 @@ export default {
           },
           lineStyle,
           series,
-          getThresholdConfig(this.thresholds),
-          getAnnotationsConfig(this.annotations)
+          getThresholdConfig(this.thresholds)
         );
       });
+      // if annotation series exists, append it
+      // along with data series
+      if (this.annotationSeries) {
+        return [...dataSeries, this.annotationSeries];
+      }
+      return dataSeries;
+    },
+    annotationSeries() {
+      return generateAnnotationSeries(this.annotations);
     },
     options() {
-      const mergedOptions = merge(
-        {},
-        defaultChartOptions,
-        {
-          xAxis: {
-            axisPointer: {
-              show: true,
-              label: {
-                formatter: this.onLabelChange,
-              },
+      const defaultAreaChartOptions = {
+        xAxis: {
+          axisPointer: {
+            show: true,
+            label: {
+              formatter: this.onLabelChange,
             },
           },
-          yAxis: {
-            axisTick: {
-              show: false,
-            },
-          },
-          legend: {
+        },
+        yAxis: {
+          axisTick: {
             show: false,
           },
         },
+        legend: {
+          show: false,
+        },
+      };
+      const mergedOptions = merge(
+        {},
+        defaultChartOptions,
+        defaultAreaChartOptions,
         this.option,
         dataZoomAdjustments(this.option.dataZoom),
         this.toolboxAdjustments
       );
       // All chart options can be merged but series
-      // needs to be handled specially
-      return mergeSeriesToOptions(mergedOptions, this.series);
+      // needs to be handled specially.
+      return mergeSeriesToOptions(
+        mergeAnnotationAxisToOptions(mergedOptions, this.hasAnnotations),
+        this.series
+      );
     },
+    /**
+     * Annotations currently are passed as series options in monitoring dashboard.
+     * Once https://gitlab.com/gitlab-org/gitlab/-/issues/213390 is closed,
+     * annotations will be passed as props and not as series options.
+     *
+     * For backward compatibility, we're having to check for both.
+     */
     hasAnnotations() {
-      return seriesHasAnnotations(this.options.series);
+      return this.annotations.length !== 0 || seriesHasAnnotations(this.series);
     },
     shouldShowAnnotationsTooltip() {
       return this.chart && this.hasAnnotations;
