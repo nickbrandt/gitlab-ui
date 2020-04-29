@@ -40,6 +40,7 @@
   .gl-icon {
     @include gl-h-5;
     @include gl-w-5;
+    @include gl-flex-shrink-0;
     @include gl-mr-2;
     @include gl-top-auto;
   }
