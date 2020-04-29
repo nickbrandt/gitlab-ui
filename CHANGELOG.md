@@ -1,3 +1,11 @@
+## [13.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.6.0...v13.6.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* **css:** Support arbitrary widths on dropdown ([2ffe961](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ffe96169e94b11b532ba16c6673c976876b2c52))
+* **GlTextArea:** Set SSOT for styles ([62f703c](https://gitlab.com/gitlab-org/gitlab-ui/commit/62f703cd2f942fffe290a091defee437a2a8ae64))
+
 # [13.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.5.0...v13.6.0) (2020-04-29)
 
 
