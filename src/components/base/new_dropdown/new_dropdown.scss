@@ -50,6 +50,12 @@
     @include gl-justify-content-space-between;
   }
 
+  .gl-new-dropdown-button-text {
+    @include gl-mr-auto;
+    @include gl-overflow-hidden;
+    @include gl-text-overflow-ellipsis;
+  }
+
   // Fix rounded split dropdown button: https://gitlab.com/gitlab-org/gitlab-ui/issues/626
   &.dropdown.show .dropdown-toggle-split {
     @include gl-rounded-top-left-none;
