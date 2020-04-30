@@ -1,5 +1,8 @@
-env:
-  jest: true
-extends: plugin:jest/recommended
+extends:
+  - plugin:@gitlab/jest
 rules:
   promise/always-return: off
+  jest/expect-expect:
+    - warn
+    - assertFunctionNames:
+        - "expect*"

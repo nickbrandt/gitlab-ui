@@ -24,6 +24,7 @@ if (!process.env.IS_VISUAL_TEST) {
   });
 
   afterEach(() => {
+    // eslint-disable-next-line jest/no-standalone-expect
     expect(global.console).not.toHaveLoggedVueErrors();
   });
 }
