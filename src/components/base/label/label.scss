@@ -30,18 +30,6 @@ $label-max-width: 100%;
     @include str-truncated($label-max-width);
   }
 
-  .gl-label-icon {
-    @include gl-text-gray-300;
-    @include gl-display-inline-flex;
-    @include gl-align-items-center;
-    @include gl-ml-2;
-    @include gl-pr-3;
-    @include gl-absolute;
-    @include gl-right-0;
-    @include gl-h-5;
-    @include gl-py-4;
-  }
-
   &-text-dark {
     @include gl-text-black-normal;
   }
@@ -59,7 +47,7 @@ $label-max-width: 100%;
       &:not(:first-child) {
         @include gl-bg-transparent;
         @include gl-pl-2;
-        @include gl-pr-6;
+        @include gl-pr-3;
       }
     }
   }
