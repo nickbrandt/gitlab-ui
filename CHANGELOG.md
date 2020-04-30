@@ -1,3 +1,10 @@
+## [13.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.8.1...v13.8.2) (2020-04-30)
+
+
+### Bug Fixes
+
+* Update card component border and footer colors ([26047e7](https://gitlab.com/gitlab-org/gitlab-ui/commit/26047e74a88c81c0d8d3a40945af76b02b75c3bd))
+
 ## [13.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.8.0...v13.8.1) (2020-04-30)
 
 
