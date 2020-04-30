@@ -1,11 +1,9 @@
 <script>
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
-import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
-    GlIcon,
     GlFilteredSearchTokenSegment,
     GlFilteredSearchSuggestion,
   },
@@ -67,10 +65,9 @@ export default {
           v-for="(item, idx) in suggestedTokens"
           :key="idx"
           :value="item.type"
+          :icon-name="item.icon"
         >
-          <gl-icon v-if="item.icon" :name="item.icon" class="gl-filtered-search-term-icon" />{{
-            item.title
-          }}
+          {{ item.title }}
         </gl-filtered-search-suggestion>
       </template>
       <template #view>

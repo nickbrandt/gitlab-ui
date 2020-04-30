@@ -198,11 +198,6 @@ export default {
           {{ inputValue }}
         </gl-token>
       </template>
-      <template #option="{ option }">
-        <gl-icon v-if="option.icon" :name="option.icon" class="gl-filtered-search-term-icon" />{{
-          option.value
-        }}
-      </template>
     </gl-filtered-search-token-segment>
     <gl-filtered-search-token-segment
       key="operator-segment"
