@@ -1,3 +1,10 @@
+# [13.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.7.1...v13.8.0) (2020-04-30)
+
+
+### Features
+
+* **label:** Remove doc link from scoped labels and correct padding ([b4ae184](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4ae18490938d27c2c0cf0f7832a2f547e686181))
+
 ## [13.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.7.0...v13.7.1) (2020-04-30)
 
 
