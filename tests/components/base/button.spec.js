@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import GlLoadingIcon from '../../../src/components/base/loading_icon/loading_icon.vue';
 import NewButton from '../../../src/components/base/button/button.vue';
 
 describe('button component', () => {
@@ -33,6 +34,27 @@ describe('button component', () => {
 
     it('should add `btn-label` class', () => {
       expect(button.classes()).toContain('btn-label');
+    });
+  });
+
+  describe('loading indicator', () => {
+    let button;
+    const findLoadingIcon = () => button.find(GlLoadingIcon);
+
+    beforeEach(() => {
+      button = mountWithOptions({
+        propsData: {
+          loading: true,
+        },
+      });
+    });
+
+    it('should render the loading indicator', () => {
+      expect(findLoadingIcon().exists()).toBe(true);
+    });
+
+    it('should render the loading indicator with the `gl-button-loading-indicator` class', () => {
+      expect(findLoadingIcon().classes()).toContain('gl-button-loading-indicator');
     });
   });
 });
