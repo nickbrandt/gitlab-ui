@@ -1,3 +1,10 @@
+## [13.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.8.0...v13.8.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* **GlButton:** update loading style ([a03ad7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a03ad7c16936a91b9a80fbf7bf2ead62a64a3422))
+
 # [13.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.7.1...v13.8.0) (2020-04-30)
 
 
