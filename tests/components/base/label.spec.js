@@ -39,7 +39,6 @@ describe('Label component', () => {
   });
 
   const findLink = () => wrapper.find(GlLink);
-  const findDocLink = () => wrapper.findAll(GlLink).at(1);
   const findTitle = () => wrapper.find('.gl-label-text');
   const findSubTitle = () => wrapper.findAll('.gl-label-text').at(1);
   const findTooltipText = () => wrapper.find(GlTooltip).text();
@@ -174,14 +173,6 @@ describe('Label component', () => {
       const props = { ...scopedProps, target: 'http://local.host' };
       createComponent(props);
       expect(findLink().attributes('href')).toEqual(props.target);
-    });
-
-    it('links to scoped label documentation link', () => {
-      const props = { ...scopedProps, scopedLabelsDocumentationLink: 'http://local.host' };
-
-      createComponent(props);
-
-      expect(findDocLink().attributes('href')).toEqual(props.scopedLabelsDocumentationLink);
     });
 
     it('supports title with multiple occurences of ::', () => {

@@ -1,7 +1,6 @@
 <script>
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
-import GlIcon from '../icon/icon.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { colorFromBackground } from '../../../utils/utils';
 import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -15,7 +14,6 @@ export default {
   components: {
     GlLink,
     GlTooltip,
-    GlIcon,
   },
   props: {
     backgroundColor: {
@@ -119,9 +117,6 @@ export default {
       >
         {{ scopedValue }}
       </span>
-    </gl-link>
-    <gl-link v-if="scoped" class="gl-label-icon" :href="scopedLabelsDocumentationLink">
-      <gl-icon name="question" :size="12" />
     </gl-link>
     <gl-tooltip
       v-if="description"
