@@ -99,7 +99,7 @@ export default {
     :class="buttonClasses"
     v-on="$listeners"
   >
-    <gl-loading-icon v-if="loading" inline class="gl-mr-2" />
+    <gl-loading-icon v-if="loading" inline class="gl-button-loading-indicator" />
     <gl-icon v-if="hasIcon" :name="icon" />
     <slot name="emoji"></slot>
     <slot></slot>

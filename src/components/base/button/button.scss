@@ -37,6 +37,10 @@
   @include gl-font-base;
   @include gl-rounded-base;
 
+  .gl-button-loading-indicator {
+    @include gl-mr-2;
+  }
+
   .gl-icon {
     @include gl-h-5;
     @include gl-w-5;
