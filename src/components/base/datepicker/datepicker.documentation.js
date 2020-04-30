@@ -5,12 +5,13 @@ export default {
   description,
   examples,
   propsInfo: {
-    container: {
-      additionalInfo: 'DOM node to render calendar into',
-    },
-    field: {
+    target: {
       additionalInfo:
-        'Bind datepicker to a form field. If provided, default form field won’t be rendered.',
+        'Selector of element that triggers the datepicker. Defaults to the calendar icon. Pass `null` to trigger on input focus.',
+    },
+    container: {
+      additionalInfo:
+        'DOM node to render calendar into. Defaults to the datepicker container. Pass `null` to use Pikaday default.',
     },
     disableDayFn: {
       additionalInfo:
@@ -39,6 +40,14 @@ export default {
     {
       event: 'draw',
       description: 'Emitted when the datepicker draws a new month.',
+    },
+  ],
+  slots: [
+    {
+      name: 'default',
+      description:
+        '(optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`',
+      scopedProps: `{ formattedDate: string }`,
     },
   ],
 };

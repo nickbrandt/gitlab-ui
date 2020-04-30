@@ -62,7 +62,7 @@ documentedStoriesOf('base|datepicker', readme)
             <span class="dropdown-toggle-text"> Start date: {{value}} </span>
           </button>
         </div>
-        <gl-datepicker v-model="value" target=".dropdown-menu-toggle" />
+        <gl-datepicker v-model="value" target=".dropdown-menu-toggle" :container="null" />
       </div>
     `,
   }));

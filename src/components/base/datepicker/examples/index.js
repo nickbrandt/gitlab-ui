@@ -1,4 +1,6 @@
 import DatepickerBasicExample from './datepicker.basic.example.vue';
+import DatepickerCustomInputExample from './datepicker.custom_input.example.vue';
+import DatepickerOpenOnFocusExample from './datepicker.open_on_focus.example.vue';
 
 export default [
   {
@@ -8,6 +10,16 @@ export default [
         id: 'basic-date-picker',
         name: 'Basic date picker',
         component: DatepickerBasicExample,
+      },
+      {
+        id: 'custom-input-date-picker',
+        name: 'With custom input',
+        component: DatepickerCustomInputExample,
+      },
+      {
+        id: 'open-on-focus-date-picker',
+        name: 'Open on focus',
+        component: DatepickerOpenOnFocusExample,
       },
     ],
   },

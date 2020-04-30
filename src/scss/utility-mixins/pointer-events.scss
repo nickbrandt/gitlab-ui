@@ -1,0 +1,8 @@
+/**
+* Pointer events utilities
+*
+* Naming convention gl-pointer-events-{property-value}
+*/
+@mixin gl-pointer-events-none {
+  pointer-events: none;
+}
