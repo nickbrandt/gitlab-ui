@@ -35,7 +35,7 @@
     }
 
     &.disabled .page-link {
-      @include gl-bg-gray-0;
+      @include gl-bg-gray-10;
       @include gl-border-gray-200;
       @include gl-text-gray-400;
     }
