@@ -12,7 +12,7 @@
 .gl-new-card-header,
 .gl-new-card-footer {
   @include gl-border-1;
-  @include gl-border-gray-200;
+  @include gl-border-gray-100;
 }
 
 .gl-new-card-header,
@@ -28,7 +28,7 @@
 }
 
 .gl-new-card-footer {
-  @include gl-bg-gray-50;
+  @include gl-bg-gray-0;
   @include gl-border-t-solid;
   @include gl-rounded-bottom-left-base;
   @include gl-rounded-bottom-right-base;
