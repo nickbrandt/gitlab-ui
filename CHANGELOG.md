@@ -1,3 +1,15 @@
+# [13.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.6.1...v13.7.0) (2020-04-30)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** fix datepicker positioning ([4263493](https://gitlab.com/gitlab-org/gitlab-ui/commit/42634936e88b29dac9995f89d52c2ef7f581f523))
+
+
+### Features
+
+* **GlDatepicker:** add slot for custom input ([95bb120](https://gitlab.com/gitlab-org/gitlab-ui/commit/95bb120a664efe69d41c74f3ae6dacd821bb8a26))
+
 ## [13.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.6.0...v13.6.1) (2020-04-29)
 
 
