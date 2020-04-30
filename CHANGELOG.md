@@ -1,3 +1,11 @@
+## [13.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.7.0...v13.7.1) (2020-04-30)
+
+
+### Bug Fixes
+
+* **deps:** upgrade Vue and move it out of dependencies ([55c87d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/55c87d51bcf9ad8dca85a3002def47b80af6217f))
+* **filters:** Use dropdown icons in filters ([21b4619](https://gitlab.com/gitlab-org/gitlab-ui/commit/21b4619baf9ab3c2153ad06000ce42f908385a5e))
+
 # [13.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.6.1...v13.7.0) (2020-04-30)
 
 
