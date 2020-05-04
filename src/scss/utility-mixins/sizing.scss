@@ -29,6 +29,10 @@
   width: $gl-spacing-scale-7;
 }
 
+@mixin gl-w-8 {
+  width: $gl-spacing-scale-8;
+}
+
 @mixin gl-w-9 {
   width: $gl-spacing-scale-9;
 }
@@ -114,6 +118,10 @@
 */
 @mixin gl-min-w-0 {
   min-width: 0;
+}
+
+@mixin gl-min-w-fit-content {
+  min-width: fit-content;
 }
 
 @mixin gl-min-h-7 {

@@ -53,6 +53,7 @@ export { default as GlNewDropdownHeader } from './src/components/base/new_dropdo
 export { default as GlNewDropdownDivider } from './src/components/base/new_dropdown/new_dropdown_divider.vue';
 export { default as GlNewDropdownText } from './src/components/base/new_dropdown/new_dropdown_text.vue';
 export { default as GlNewDropdown } from './src/components/base/new_dropdown/new_dropdown.vue';
+export { default as GlPath } from './src/components/base/path/path.vue';
 export { default as GlTable } from './src/components/base/table/table.vue';
 export { default as GlBreadcrumb } from './src/components/base/breadcrumb/breadcrumb.vue';
 export { default as GlTabs } from './src/components/base/tabs/tabs/tabs.vue';

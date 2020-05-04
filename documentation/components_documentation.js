@@ -33,6 +33,7 @@ export { default as GlIconDocumentation } from '../src/components/base/icon/icon
 export { default as GlModalDocumentation } from '../src/components/base/modal/modal.documentation';
 export { default as GlPaginationDocumentation } from '../src/components/base/pagination/pagination.documentation';
 export { default as GlPaginatedListDocumentation } from '../src/components/base/paginated_list/paginated_list.documentation';
+export { default as GlPathDocumentation } from '../src/components/base/path/path.documentation';
 export { default as GlPopoverDocumentation } from '../src/components/base/popover/popover.documentation';
 export { default as GlProgressBarDocumentation } from '../src/components/base/progress_bar/progress_bar.documentation';
 export { default as GlTooltipDocumentation } from '../src/components/base/tooltip/tooltip.documentation';

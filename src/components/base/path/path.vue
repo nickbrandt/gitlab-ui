@@ -1,0 +1,137 @@
+<script>
+import findLast from 'lodash/findLast';
+import GlIcon from '../icon/icon.vue';
+import GlResizeObserverDirective from '../../../directives/resize_observer/resize_observer';
+import { glThemes } from '../../../utils/constants';
+
+const BOUNDARY_WIDTH = 40;
+const PATH_ITEM_CLASS = 'gl-path-button';
+
+export default {
+  components: {
+    GlIcon,
+  },
+  directives: {
+    GlResizeObserverDirective,
+  },
+  props: {
+    items: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    theme: {
+      type: String,
+      required: false,
+      default: 'indigo',
+      validator: theme => glThemes.includes(theme),
+    },
+  },
+  data() {
+    return {
+      selectedIndex: 0,
+      width: 0,
+      scrollLeft: 0,
+    };
+  },
+  computed: {
+    activeClass() {
+      return `gl-path-active-item-${this.theme}`;
+    },
+    entireListVisible() {
+      return this.width >= this.getScrollWidth();
+    },
+    displayScrollLeft() {
+      return !this.entireListVisible && this.scrollLeft;
+    },
+    displayScrollRight() {
+      const scrollOffset = this.getScrollWidth() - this.width;
+      return !this.entireListVisible && scrollOffset !== this.scrollLeft;
+    },
+    rightHandBoundary() {
+      return this.width - BOUNDARY_WIDTH + this.scrollLeft;
+    },
+    leftHandBoundary() {
+      return this.scrollLeft + BOUNDARY_WIDTH;
+    },
+  },
+  mounted() {
+    const selectedIndex = this.items.findIndex(item => item.selected);
+    this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
+  },
+  methods: {
+    pathItemClass(index) {
+      return index === this.selectedIndex
+        ? `${PATH_ITEM_CLASS} ${this.activeClass}`
+        : PATH_ITEM_CLASS;
+    },
+    onItemClicked(selectedIndex) {
+      this.selectedIndex = selectedIndex;
+      this.$emit('selected', this.items[this.selectedIndex]);
+    },
+    handleResize({ contentRect: { width } }) {
+      this.width = width;
+    },
+    scrollPathLeft() {
+      const previousItemToScollTo = findLast(this.$refs.pathListItems, listItem => {
+        return listItem.offsetLeft < this.leftHandBoundary;
+      });
+
+      const availableWidth =
+        this.width - previousItemToScollTo.offsetWidth - BOUNDARY_WIDTH - BOUNDARY_WIDTH;
+
+      let scrollTo = previousItemToScollTo.offsetLeft - BOUNDARY_WIDTH - availableWidth;
+
+      if (scrollTo < 0) {
+        scrollTo = 0;
+      }
+      this.scrollPath(scrollTo);
+    },
+    scrollPathRight() {
+      const nextItemToScollTo = this.$refs.pathListItems.find(
+        listItem => listItem.offsetLeft + listItem.offsetWidth > this.rightHandBoundary
+      );
+      let scrollTo = nextItemToScollTo.offsetLeft - BOUNDARY_WIDTH;
+
+      if (scrollTo > this.getScrollWidth() - this.width) {
+        scrollTo = this.getScrollWidth() - this.width;
+      }
+      this.scrollPath(scrollTo);
+    },
+    scrollPath(scrollTo) {
+      this.$refs.pathNavList.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      this.scrollLeft = scrollTo;
+    },
+    getScrollWidth() {
+      return this.$refs.pathNavList ? this.$refs.pathNavList.scrollWidth : 0;
+    },
+  },
+};
+</script>
+
+<template>
+  <div v-gl-resize-observer-directive="handleResize" class="gl-path-nav">
+    <span v-show="displayScrollLeft" class="gl-path-fade gl-path-fade-left">
+      <button class="gl-clear-icon-button" @click="scrollPathLeft">
+        <gl-icon :size="32" name="chevron-left" />
+      </button>
+    </span>
+    <ul ref="pathNavList" class="gl-path-nav-list">
+      <li
+        v-for="(item, index) in items"
+        ref="pathListItems"
+        :key="index"
+        class="gl-path-nav-list-item"
+      >
+        <button :class="pathItemClass(index)" @click="onItemClicked(index)">
+          {{ item.title }}
+        </button>
+      </li>
+    </ul>
+    <span v-show="displayScrollRight" class="gl-path-fade gl-path-fade-right">
+      <button class="gl-clear-icon-button" @click="scrollPathRight">
+        <gl-icon :size="32" name="chevron-right" />
+      </button>
+    </span>
+  </div>
+</template>
