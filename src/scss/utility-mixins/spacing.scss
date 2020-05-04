@@ -254,6 +254,10 @@
   margin-right: $gl-spacing-scale-3;
 }
 
+@mixin gl-mr-4 {
+  margin-right: $gl-spacing-scale-4;
+}
+
 @mixin gl-mr-5 {
   margin-right: $gl-spacing-scale-5;
 }

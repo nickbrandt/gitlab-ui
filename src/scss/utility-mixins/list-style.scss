@@ -1,0 +1,8 @@
+/**
+* List style utilities.
+*
+* naming convention: gl-list-style-{value}
+*/
+@mixin gl-list-style-none {
+  list-style-type: none;
+}
