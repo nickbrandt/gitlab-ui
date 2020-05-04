@@ -96,7 +96,7 @@ def lint_commit(commit)
   end
 
   release = NO_RELEASE
-  failures = false
+  failed = false
   subject, separator, details = commit.message.split("\n", 3)
 
   if subject.length > COMMIT_SUBJECT_MAX_LENGTH
@@ -105,7 +105,7 @@ def lint_commit(commit)
       "The commit subject may not be longer than #{COMMIT_SUBJECT_MAX_LENGTH} characters"
     )
 
-    failures = true
+    failed = true
   end
 
   # Fail if a suggestion commit is used and squash is not enabled
@@ -115,12 +115,12 @@ def lint_commit(commit)
       'If you are applying suggestions, squash needs to be enabled in the merge request'
     )
 
-    failures = true
+    failed = true
   end
 
   if subject.end_with?('.')
     fail_commit(commit, 'The commit subject must not end with a period')
-    failures = true
+    failed = true
   end
 
   if separator && !separator.empty?
@@ -129,7 +129,7 @@ def lint_commit(commit)
       'The commit subject and body must be separated by a blank line'
     )
 
-    failures = true
+    failed = true
   end
 
   details&.each_line do |line|
@@ -148,7 +148,7 @@ def lint_commit(commit)
       "The commit body should not contain more than #{COMMIT_BODY_MAX_LENGTH} characters per line"
     )
 
-    failures = true
+    failed = true
   end
 
   if !details && too_many_changed_lines?(commit)
@@ -158,7 +158,7 @@ def lint_commit(commit)
         'must describe these changes in the commit body'
     )
 
-    failures = true
+    failed = true
   end
 
   if commit.message.match?(%r{([\w\-\/]+)?(#|!|&|%)\d+\b})
@@ -169,7 +169,7 @@ def lint_commit(commit)
         'displayed as plain text outside of GitLab'
     )
 
-    failures = true
+    failed = true
   end
 
   semantic_commit = match_semantic_commit(subject)
@@ -177,14 +177,14 @@ def lint_commit(commit)
   if !semantic_commit
     warn_commit(commit, 'The commit does not comply with conventional commits specifications.')
 
-    failures = true
+    failed = true
   elsif !SEMANTIC_COMMIT_TYPES.include?(semantic_commit[:type])
     warn_commit(
       commit,
-      "The Semantic commit type `#{semantic_commit[:type]}` is not a well-known semantic commit type."
+      "The semantic commit type `#{semantic_commit[:type]}` is not a well-known semantic commit type."
     )
 
-    failures = true
+    failed = true
   elsif details&.match(/BREAKING CHANGE:/)
     release = MAJOR_RELEASE
   elsif semantic_commit[:type] == 'feat'
@@ -193,7 +193,7 @@ def lint_commit(commit)
     release = PATCH_RELEASE
   end
 
-  { failed: failures, release: release }
+  { failed: failed, release: release }
 end
 
 def lint_commits(commits)
@@ -254,14 +254,10 @@ def lint_mr(mr)
       warn(
         'Your MR has **Squash commits when merge request is accepted** enabled but its title does not comply with conventional commits specifications'
       )
-
-      failures = true
     elsif !SEMANTIC_COMMIT_TYPES.include?(semantic_commit[:type])
       warn(
-        "The Semantic commit type `#{semantic_commit[:type]}` is not a well-known semantic commit type."
+        "The semantic commit type `#{semantic_commit[:type]}` is not a well-known semantic commit type."
       )
-
-      failures = true
     elsif semantic_commit[:type] == 'feat'
       release = MINOR_RELEASE
     elsif %w[perf fix].include?(semantic_commit[:type])
