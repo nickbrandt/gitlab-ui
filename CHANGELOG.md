@@ -1,3 +1,10 @@
+# [13.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.8.2...v13.9.0) (2020-05-04)
+
+
+### Features
+
+* **path:** Implement path component ([82f36c4](https://gitlab.com/gitlab-org/gitlab-ui/commit/82f36c4fa75f3b428a569a76d85e88be655c0a73))
+
 ## [13.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.8.1...v13.8.2) (2020-04-30)
 
 
