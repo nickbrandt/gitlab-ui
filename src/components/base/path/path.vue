@@ -124,7 +124,8 @@ export default {
         class="gl-path-nav-list-item"
       >
         <button :class="pathItemClass(index)" @click="onItemClicked(index)">
-          {{ item.title }}
+          {{ item.title
+          }}<span v-if="item.metric" class="gl-font-weight-normal gl-pl-2">{{ item.metric }}</span>
         </button>
       </li>
     </ul>
