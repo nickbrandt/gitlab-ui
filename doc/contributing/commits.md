@@ -27,7 +27,7 @@ Following these conventions will result in a properly versioned package and clea
 
 ## When should my MR's title follow these conventions?
 
-It's always a good idea to follow the conventions for your MR's title as well as for commit messages, this way, if your MR is squashed
+It's always a good idea to follow the conventions for your MR's title as well as for commit messages. This way, if your MR is squashed
 upon merge, the maintainer will be able to use its title as the final commit message, which will result in a properly formatted history.
 
 ## Is it okay that all my commits don't follow the conventions in a single MR?
@@ -63,19 +63,19 @@ We use the same types as [Angular's commit guidelines](https://github.com/angula
 
 - **feat:** A new feature (adding a new component, providing new variants for an existing component, etc.).
 - **fix:** A bug fix (correcting a styling issue, addressing a bug in a component's API, etc.).
-When updating non-dev dependencies, mark your changes with the `fix:` type.
-- **docs:** Documentation only changes.
+  When updating non-dev dependencies, mark your changes with the `fix:` type.
+- **docs:** Documentation-only changes.
 - **style:** Changes that do not affect the meaning of the code
-(white-space, formatting, missing semi-colons, etc). _Not_ to be used for CSS changes as those are
-meaningful changes, consider using `feat:` of `fix:` instead.
+  (whitespace, formatting, missing semicolons, etc). _Not_ to be used for CSS changes as those are
+  meaningful changes, consider using `feat:` of `fix:` instead.
 - **refactor:** A code change that neither fixes a bug nor adds a feature.
 - **perf:** A code change that improves performance.
 - **test:** Adding missing tests or correcting existing tests.
-- **build:** Changes that affect the build system (changing WebPack's or Rollup's config for example).
+- **build:** Changes that affect the build system (changing webpack or Rollup config for example).
 - **ci:** Changes to our CI configuration files and scripts
-(changing `.gitlab-ci.yml`, adding or changing Danger plugins, etc.).
+  (changing `.gitlab-ci.yml`, adding or changing Danger plugins, etc.).
 - **chore:** Other changes that don't modify source or test files. Use this type when adding or
-updating dev dependencies.
+  updating dev dependencies.
 - **revert:** Reverts a previous commit.
 
 Each commit type can have an optional scope to specify the place of the commit change: `type(scope):`.
