@@ -29,7 +29,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         First
-      
+        <!---->
       </button>
     </li>
     <li
@@ -40,7 +40,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Second
-      
+        <!---->
       </button>
     </li>
     <li
@@ -51,7 +51,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Third
-      
+        <!---->
       </button>
     </li>
     <li
@@ -62,7 +62,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Fourth
-      
+        <!---->
       </button>
     </li>
     <li
@@ -73,7 +73,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Fifth
-      
+        <!---->
       </button>
     </li>
     <li
@@ -84,7 +84,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Sixth
-      
+        <!---->
       </button>
     </li>
     <li
@@ -95,7 +95,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Seventh
-      
+        <!---->
       </button>
     </li>
     <li
@@ -106,7 +106,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Eighth
-      
+        <!---->
       </button>
     </li>
     <li
@@ -117,7 +117,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Ninth
-      
+        <!---->
       </button>
     </li>
     <li
@@ -128,7 +128,160 @@ exports[`Path matches the snapshot 1`] = `
       >
         
         Tenth
-      
+        <!---->
+      </button>
+    </li>
+  </ul>
+   
+  <span
+    class="gl-path-fade gl-path-fade-right"
+    style="display: none;"
+  >
+    <button
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-right"
+        size="32"
+      />
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Path renders the list of items with metrics matches the snapshot 1`] = `
+<div
+  class="gl-path-nav"
+>
+  <span
+    class="gl-path-fade gl-path-fade-left"
+    style="display: none;"
+  >
+    <button
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-left"
+        size="32"
+      />
+    </button>
+  </span>
+   
+  <ul
+    class="gl-path-nav-list"
+  >
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button gl-path-active-item-indigo"
+      >
+        
+        First
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          12d
+        </span>
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Second
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Third
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fourth
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fifth
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Sixth
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Seventh
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Eighth
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Ninth
+        <!---->
+      </button>
+    </li>
+    <li
+      class="gl-path-nav-list-item"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Tenth
+        <!---->
       </button>
     </li>
   </ul>

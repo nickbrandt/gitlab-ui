@@ -74,6 +74,24 @@ describe('Path', () => {
       expect(pathItemTextAt(4)).toContain(items[4].title);
       expect(pathItemTextAt(9)).toContain(items[9].title);
     });
+
+    describe('with metrics', () => {
+      beforeEach(() => {
+        const data = items;
+        data[0].metric = '12d';
+
+        wrapper = createComponent({ items: data });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('renders the inline metric', () => {
+        expect(pathItemTextAt(0)).toContain(items[0].title);
+        expect(pathItemTextAt(0)).toContain(items[0].metric);
+      });
+    });
   });
 
   describe('renders the correct selected item', () => {
