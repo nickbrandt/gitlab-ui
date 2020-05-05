@@ -1,3 +1,21 @@
+# [14.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.9.0...v14.0.0) (2020-05-05)
+
+
+### Bug Fixes
+
+* **css:** update to -10 variable ([485f157](https://gitlab.com/gitlab-org/gitlab-ui/commit/485f157f9f3268a978a41c4ae740c659b86c3092))
+* Rename gray-0 to gray-10 ([13905a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/13905a680cfcbbb70b2ea1b88adc004ad61cb310))
+
+
+### Features
+
+* **Path:** Add metric variant ([e34938d](https://gitlab.com/gitlab-org/gitlab-ui/commit/e34938d6c28e83e956aa2575368667adb2596cdc))
+
+
+### BREAKING CHANGES
+
+* $white is $gray-0, whereas this is still slightly gray
+
 # [13.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.8.2...v13.9.0) (2020-05-04)
 
 
