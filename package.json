@@ -79,7 +79,7 @@
     "@babel/preset-env": "^7.0.0",
     "@gitlab/eslint-plugin": "3.0.0",
     "@gitlab/stylelint-config": "2.0.0",
-    "@gitlab/svgs": "1.123.0",
+    "@gitlab/svgs": "1.125.0",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
