@@ -102,7 +102,7 @@ Old variables are mapped to new variables by approximating the closest variable,
 
 Before        After (reflected below)
 -------------------------------------
-50            0
+50            10
 100           50
 200           100
 300           200
@@ -114,10 +114,10 @@ Before        After (reflected below)
 900           900
 950           950
 
-* Passes 4.5:1 contrast ratio on $gray-0
+* Passes 4.5:1 contrast ratio on $gray-10
 */
 
-$gray-0: #fafafa !default;
+$gray-10: #fafafa !default;
 $gray-50: #f0f0f0 !default;
 $gray-100: #dbdbdb !default;
 $gray-200: #bfbfbf !default;
