@@ -333,6 +333,11 @@
   margin-bottom: $gl-spacing-scale-2;
 }
 
+@mixin gl-my-4 {
+  margin-top: $gl-spacing-scale-4;
+  margin-bottom: $gl-spacing-scale-4;
+}
+
 @mixin gl-my-5 {
   margin-top: $gl-spacing-scale-5;
   margin-bottom: $gl-spacing-scale-5;
