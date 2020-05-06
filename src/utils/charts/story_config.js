@@ -1,3 +1,6 @@
+import times from 'lodash/times';
+import { colorFromPalette } from './theme';
+
 /* eslint-disable import/prefer-default-export */
 import {
   marqueeSelectionSvgPath,
@@ -21,4 +24,20 @@ export const toolbox = {
       icon: downloadSvgPath,
     },
   },
+};
+
+/**
+ * Generates series data for usage in chart examples
+ *
+ * @param {Number} amount number of generated series
+ * @returns {Array} generated series data
+ */
+export const generateSeriesData = amount => {
+  const defaultData = [820, 932, 960, 1150, 1290, 1330, 1390];
+
+  return times(amount, index => ({
+    color: colorFromPalette(index),
+    data: defaultData.map(value => value * index),
+    name: `Series ${index + 1}`,
+  }));
 };
