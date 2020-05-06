@@ -1,6 +1,9 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChart, GlChartLegend } from '../../../../charts';
+import { generateSeriesData } from '../../../utils/charts/story_config';
 import readme from './legend.md';
+
+const series = generateSeriesData(10);
 
 const components = {
   GlChart,
@@ -18,21 +21,20 @@ const options = {
   yAxis: {
     type: 'value',
   },
-  series: [
-    {
-      color: '#1F78D1',
-      data: [820, 932, 901, 934, 1290, 1330, 1320],
-      name: 'Series Name',
-      showSymbol: true,
-      type: 'line',
-    },
-  ],
+  series: series.map(data => ({
+    color: data.color,
+    data: data.data,
+    name: data.name,
+    showSymbol: true,
+    type: 'line',
+  })),
 };
 
-const seriesInfo = options.series.map(series => ({
+const seriesInfo = series.map(item => ({
   type: 'solid',
-  name: series.name,
-  color: series.color,
+  name: item.name,
+  color: item.color,
+  data: item.data,
 }));
 
 documentedStoriesOf('charts|chart-legend', readme).add('default', () => ({

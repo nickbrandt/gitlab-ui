@@ -4,28 +4,24 @@ export default {
     return {
       chart: null,
       options: {
-        legend: {
-          show: false,
-        },
-        xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        },
-        yAxis: {
-          type: 'value',
-        },
+        legend: { show: false },
+        xAxis: { type: 'category', data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] },
+        yAxis: { type: 'value' },
+        // Generate the series with generateSeriesData() after
+        // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/754
+        // gets implemented
         series: [
           {
-            color: '#1f78d1',
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            name: 'Toggled Series',
+            color: '#1f75cb',
+            data: [820, 932, 960, 1150, 1290, 1330, 1390],
+            name: 'Toggled Series 1',
             showSymbol: true,
             type: 'line',
           },
           {
-            color: '#1aaa55',
-            data: [920, 1032, 951, 884, 990, 1030, 920],
-            name: 'Series',
+            color: '#108548',
+            data: [1640, 1864, 1920, 2300, 2580, 2660, 2780],
+            name: 'Series 2',
             showSymbol: true,
             type: 'line',
           },
@@ -39,6 +35,7 @@ export default {
         type: 'solid',
         name: series.name,
         color: series.color,
+        data: series.data,
       }));
     },
   },
