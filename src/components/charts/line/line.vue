@@ -182,7 +182,7 @@ export default {
      * For backward compatibility, we're having to check for both.
      */
     hasAnnotations() {
-      return this.annotations.length !== 0 || seriesHasAnnotations(this.series);
+      return this.annotations.length !== 0 || seriesHasAnnotations(this.option.series);
     },
     shouldShowAnnotationsTooltip() {
       return this.chart && this.hasAnnotations;
@@ -316,6 +316,7 @@ export default {
     <chart-tooltip
       v-if="shouldShowAnnotationsTooltip"
       id="annotationsTooltip"
+      ref="annotationsTooltip"
       :show="showAnnotationsTooltip"
       :chart="chart"
       :top="annotationsTooltipPosition.top"
@@ -334,6 +335,7 @@ export default {
     <chart-tooltip
       v-if="chart"
       id="dataTooltip"
+      ref="dataTooltip"
       :show="showDataTooltip"
       :chart="chart"
       :top="dataTooltipPosition.top"

@@ -2,7 +2,6 @@ import { shallowMount } from '@vue/test-utils';
 
 import LineChart from '../../../src/components/charts/line/line.vue';
 import Chart from '../../../src/components/charts/chart/chart.vue';
-import ChartTooltip from '../../../src/components/charts/tooltip/tooltip.vue';
 
 let mockChartInstance;
 
@@ -15,7 +14,8 @@ describe('line component', () => {
   let options;
 
   const findChart = () => wrapper.find(Chart);
-  const findChartTooltip = () => wrapper.find(ChartTooltip);
+  const findDataTooltip = () => wrapper.find({ ref: 'dataTooltip' });
+  const findAnnotationsTooltip = () => wrapper.find({ ref: 'annotationsTooltip' });
   const getOptions = () => findChart().props('options');
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
@@ -55,10 +55,88 @@ describe('line component', () => {
     expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
   });
 
+  describe('Annotations tooltips', () => {
+    it('are hidden by default ', () => {
+      return wrapper.vm.$nextTick(() => {
+        expect(findAnnotationsTooltip().exists()).toBe(false);
+      });
+    });
+
+    it('are displayed if passed via annotations props ', () => {
+      wrapper.setProps({
+        annotations: [
+          {
+            min: '',
+            max: '',
+          },
+        ],
+      });
+      return wrapper.vm.$nextTick(() => {
+        expect(findAnnotationsTooltip().exists()).toBe(true);
+      });
+    });
+
+    it('are displayed if passed via option props ', () => {
+      wrapper.setProps({
+        option: {
+          series: [
+            {
+              name: 'annotations',
+              markPoint: {
+                data: [
+                  {
+                    xAxis: 10,
+                  },
+                ],
+              },
+              data: [],
+            },
+          ],
+        },
+      });
+      return wrapper.vm.$nextTick(() => {
+        expect(findAnnotationsTooltip().exists()).toBe(true);
+      });
+    });
+
+    it('has a default title and content when hovered', () => {
+      const params = {
+        name: 'annotations',
+        componentType: 'markPoint',
+        data: {
+          xAxis: '2018-01-25T01:00:00.000Z',
+          tooltipData: { content: 'Scranton strangler was caught.' },
+        },
+        event: {
+          event: {
+            zrX: 100,
+            zrY: 100,
+          },
+        },
+      };
+
+      wrapper.setProps({
+        annotations: [
+          {
+            min: '',
+            max: '',
+          },
+        ],
+      });
+
+      wrapper.vm.onChartDataPointMouseOver(params);
+
+      return wrapper.vm.$nextTick(() => {
+        expect(findAnnotationsTooltip().html()).toContain(params.data.xAxis);
+        expect(findAnnotationsTooltip().html()).toContain(params.data.tooltipData.content);
+      });
+    });
+  });
+
   describe('tooltip position', () => {
     it('is initialized', () => {
-      expect(findChartTooltip().props('left')).toBe('0');
-      expect(findChartTooltip().props('top')).toBe('0');
+      expect(findDataTooltip().props('left')).toBe('0');
+      expect(findDataTooltip().props('top')).toBe('0');
     });
 
     it('is reset when the xAxis formatter is triggered', () => {
@@ -77,8 +155,8 @@ describe('line component', () => {
       return wrapper.vm.$nextTick(() => {
         expect(mockChartInstance.convertToPixel).toHaveBeenCalledWith({ seriesId }, value);
 
-        expect(findChartTooltip().props('left')).toBe(`${pixel[0]}px`);
-        expect(findChartTooltip().props('top')).toBe(`${pixel[1]}px`);
+        expect(findDataTooltip().props('left')).toBe(`${pixel[0]}px`);
+        expect(findDataTooltip().props('top')).toBe(`${pixel[1]}px`);
       });
     });
   });
