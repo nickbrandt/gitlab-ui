@@ -102,6 +102,6 @@ export default {
     <gl-loading-icon v-if="loading" inline class="gl-button-loading-indicator" />
     <gl-icon v-if="hasIcon" :name="icon" />
     <slot name="emoji"></slot>
-    <slot></slot>
+    <span class="gl-button-text"><slot></slot></span>
   </b-button>
 </template>
