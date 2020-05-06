@@ -1,3 +1,10 @@
+# [14.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.1.0...v14.2.0) (2020-05-06)
+
+
+### Features
+
+* **GlNewDropdown:** Add inherited toggle-class ([50243de](https://gitlab.com/gitlab-org/gitlab-ui/commit/50243deb8c60631ff189a870152b6655bc41b0ee))
+
 # [14.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.0.0...v14.1.0) (2020-05-06)
 
 
