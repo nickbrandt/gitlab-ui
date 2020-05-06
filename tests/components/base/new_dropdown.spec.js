@@ -98,4 +98,26 @@ describe('new dropdown', () => {
       ).toEqual([...DEFAULT_BTN_CLASSES, 'split-content-button']);
     });
   });
+
+  describe.each`
+    toggleClass             | expectedClasses                                      | type
+    ${'my-class'}           | ${[...DEFAULT_BTN_TOGGLE_CLASSES, 'my-class']}       | ${'string'}
+    ${{ 'my-class': true }} | ${[...DEFAULT_BTN_TOGGLE_CLASSES, 'my-class']}       | ${'object'}
+    ${['cls-1', 'cls-2']}   | ${[...DEFAULT_BTN_TOGGLE_CLASSES, 'cls-1', 'cls-2']} | ${'array'}
+    ${null}                 | ${[...DEFAULT_BTN_TOGGLE_CLASSES]}                   | ${'null'}
+  `('with toggle classes', ({ toggleClass, expectedClasses, type }) => {
+    beforeEach(async () => {
+      buildWrapper({ toggleClass });
+
+      await wrapper.vm.$nextTick();
+    });
+
+    it(`class is inherited from toggle class of type ${type}`, () => {
+      expect(
+        findDropdownToggle()
+          .classes()
+          .sort()
+      ).toEqual(expectedClasses.sort());
+    });
+  });
 });
