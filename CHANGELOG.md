@@ -1,3 +1,10 @@
+## [14.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.2.0...v14.2.1) (2020-05-06)
+
+
+### Bug Fixes
+
+* **css:** Button text ellipsis ([e0368cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0368cd90d0450d3245bf06be89c6ab99051b11d))
+
 # [14.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.1.0...v14.2.0) (2020-05-06)
 
 
