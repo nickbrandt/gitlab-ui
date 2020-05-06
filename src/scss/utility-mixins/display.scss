@@ -26,3 +26,15 @@
 @mixin gl-display-inline-block {
   display: inline-block;
 }
+
+@mixin gl-display-table {
+  display: table;
+}
+
+@mixin gl-display-table-row {
+  display: table-row;
+}
+
+@mixin gl-display-table-cell {
+  display: table-cell;
+}
