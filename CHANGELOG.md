@@ -1,3 +1,10 @@
+# [14.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.0.0...v14.1.0) (2020-05-06)
+
+
+### Features
+
+* **css:** Add display table utility ([10a378e](https://gitlab.com/gitlab-org/gitlab-ui/commit/10a378e4bf35b1926b2b6d0617e8f15db57c13de))
+
 # [14.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v13.9.0...v14.0.0) (2020-05-05)
 
 
