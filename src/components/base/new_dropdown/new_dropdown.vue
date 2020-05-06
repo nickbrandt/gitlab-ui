@@ -80,6 +80,11 @@ export default {
       required: false,
       default: false,
     },
+    toggleClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: null,
+    },
   },
   computed: {
     renderCaret() {
@@ -94,13 +99,16 @@ export default {
         : dropdownIconSizeOptions[1];
     },
     toggleButtonClasses() {
-      return {
-        'gl-button': true,
-        'gl-dropdown-toggle': true,
-        'btn-secondary': this.category === 'secondary',
-        'dropdown-icon-only': !this.text.length && this.icon,
-        'dropdown-icon-text': this.text.length && this.icon,
-      };
+      return [
+        this.toggleClass,
+        {
+          'gl-button': true,
+          'gl-dropdown-toggle': true,
+          'btn-secondary': this.category === 'secondary',
+          'dropdown-icon-only': !this.text.length && this.icon,
+          'dropdown-icon-text': this.text.length && this.icon,
+        },
+      ];
     },
     splitButtonClasses() {
       const classes = ['gl-button'];
