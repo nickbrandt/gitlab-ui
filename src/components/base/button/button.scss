@@ -37,6 +37,12 @@
   @include gl-font-base;
   @include gl-rounded-base;
 
+  .gl-button-text {
+    @include gl-overflow-hidden;
+    @include gl-text-overflow-ellipsis;
+    @include gl-white-space-nowrap;
+  }
+
   .gl-button-loading-indicator {
     @include gl-mr-2;
   }

@@ -150,4 +150,22 @@ documentedStoriesOf('base|button', readme)
         This is a link button
       </gl-button>
     `,
+  }))
+  .add('icon button with overflowed text', () => ({
+    props: generateProps(),
+    components,
+    template: `
+        <gl-button
+          :category="category"
+          :variant="variant"
+          :size="size"
+          :block="block"
+          :disabled="disabled"
+          :loading="loading"
+          icon="star-o"
+          style="width: 100px;"
+        >
+            This is a link button
+        </gl-button>
+    `,
   }));
