@@ -45,8 +45,22 @@
   justify-content: center;
 }
 
+@mixin gl-justify-content-end {
+  justify-content: flex-end;
+}
+
 @mixin gl-justify-content-space-between {
   justify-content: space-between;
+}
+
+@mixin gl-justify-content-start {
+  justify-content: flex-start;
+}
+
+@mixin gl-justify-content-md-start {
+  @media (min-width: $breakpoint-md) {
+    @include gl-justify-content-start;
+  }
 }
 
 @mixin gl-align-self-start {
