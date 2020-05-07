@@ -1,3 +1,15 @@
+# [14.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.4.1...v14.5.0) (2020-05-07)
+
+
+### Bug Fixes
+
+* **charts:** Use correct palette for series ([29d43cb](https://gitlab.com/gitlab-org/gitlab-ui/commit/29d43cb6411f966c4ec021d8b03776314c0bca84))
+
+
+### Features
+
+* Add additional justify css styles ([d7ea9fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/d7ea9fd289121c7e3b65fd2b4e730e7735944507))
+
 ## [14.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.4.0...v14.4.1) (2020-05-07)
 
 
