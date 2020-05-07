@@ -60,6 +60,7 @@ $path-fade-right-gradient: linear-gradient(to right, $transparent, $white, $whit
     @include gl-pl-5;
     @include gl-py-3;
     @include gl-mr-4;
+    @include gl-display-flex;
     @include gl-relative;
     @include gl-bg-white;
     @include gl-font-base;

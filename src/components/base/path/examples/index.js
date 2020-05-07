@@ -1,5 +1,7 @@
 import BasicPathExample from './path.basic.example.vue';
 import PathWithMetricExample from './path.metric.example.vue';
+import PathWithIconExample from './path.icon.example.vue';
+import PathWithAllOptionsExample from './path.all.example.vue';
 
 export default [
   {
@@ -21,6 +23,18 @@ export default [
         name: 'With Metric',
         description: 'With Metric',
         component: PathWithMetricExample,
+      },
+      {
+        id: 'path-icon',
+        name: 'With Icon',
+        description: 'With Icon',
+        component: PathWithIconExample,
+      },
+      {
+        id: 'path-full',
+        name: 'With All Options',
+        description: 'With All Options',
+        component: PathWithAllOptionsExample,
       },
     ],
   },

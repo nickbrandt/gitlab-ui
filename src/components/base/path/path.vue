@@ -1,5 +1,6 @@
 <script>
 import findLast from 'lodash/findLast';
+import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import GlIcon from '../icon/icon.vue';
 import GlResizeObserverDirective from '../../../directives/resize_observer/resize_observer';
 import { glThemes } from '../../../utils/constants';
@@ -105,6 +106,9 @@ export default {
     getScrollWidth() {
       return this.$refs.pathNavList ? this.$refs.pathNavList.scrollWidth : 0;
     },
+    shouldDisplayIcon(icon) {
+      return icon && iconSpriteInfo.icons.includes(icon);
+    },
   },
 };
 </script>
@@ -124,6 +128,12 @@ export default {
         class="gl-path-nav-list-item"
       >
         <button :class="pathItemClass(index)" @click="onItemClicked(index)">
+          <gl-icon
+            v-if="shouldDisplayIcon(item.icon)"
+            :name="item.icon"
+            class="gl-mr-2"
+            data-testid="gl-path-item-icon"
+          />
           {{ item.title
           }}<span v-if="item.metric" class="gl-font-weight-normal gl-pl-2">{{ item.metric }}</span>
         </button>
