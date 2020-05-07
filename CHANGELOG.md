@@ -1,3 +1,10 @@
+# [14.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.2.1...v14.3.0) (2020-05-07)
+
+
+### Features
+
+* **filters:** Make filters component to follow design system ([20b8fbd](https://gitlab.com/gitlab-org/gitlab-ui/commit/20b8fbdd3f389fd36f0df946910402bdc67b0cb0))
+
 ## [14.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.2.0...v14.2.1) (2020-05-06)
 
 
