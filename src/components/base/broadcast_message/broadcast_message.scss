@@ -69,7 +69,7 @@
   }
 
   &-dismiss {
-    @include gl-text-inherit;
+    @include gl-reset-color;
     @include gl-bg-none;
     @include gl-border-none;
     @include gl-p-0;
