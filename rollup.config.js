@@ -142,6 +142,7 @@ export default glob
           namedExports: {
             echarts: ['echarts'],
           },
+          ignore: ['@gitlab/svgs/dist/icons.json'],
         }),
         {
           name: 'fix-imports',
