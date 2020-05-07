@@ -1,28 +1,97 @@
 import { hexToRgba } from '../utils';
 import {
-  blue200,
-  blue400,
-  blue500,
-  blue600,
-  blue800,
   gray100,
   gray200,
   gray300,
   gray600,
   gray700,
   gray900,
-  green500,
-  themeIndigo500,
-  orange500,
   red500,
   whiteNormal,
-} from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+  dataVizAqua500,
+  dataVizAqua600,
+  dataVizAqua700,
+  dataVizAqua800,
+  dataVizAqua900,
+  dataVizAqua950,
+  dataVizBlue200,
+  dataVizBlue400,
+  dataVizBlue500,
+  dataVizBlue600,
+  dataVizBlue700,
+  dataVizBlue800,
+  dataVizBlue900,
+  dataVizBlue950,
+  dataVizGreen500,
+  dataVizGreen600,
+  dataVizGreen700,
+  dataVizGreen800,
+  dataVizGreen900,
+  dataVizGreen950,
+  dataVizMagenta500,
+  dataVizMagenta600,
+  dataVizMagenta700,
+  dataVizMagenta800,
+  dataVizMagenta900,
+  dataVizMagenta950,
+  dataVizOrange500,
+  dataVizOrange600,
+  dataVizOrange700,
+  dataVizOrange800,
+  dataVizOrange950,
+  dataVizOrange900,
+} from '../../../scss_to_js/scss_variables';
 
 export const themeName = 'gitlab';
 
-export const heatmapHues = [gray100, blue200, blue400, blue600, blue800];
-export const colorPalette = [blue500, green500, orange500, themeIndigo500];
-export const colorFromPalette = index => colorPalette[index % colorPalette.length];
+export const heatmapHues = [
+  gray100,
+  dataVizBlue200,
+  dataVizBlue400,
+  dataVizBlue600,
+  dataVizBlue800,
+];
+
+/**
+ * The default palette is based on the Categorical data palette
+ * Categorical data (also known as qualitative or thematic) uses hue to
+ * differentiate qualitative data, and lightness to differentiate quantitive data.
+ * More info: https://gitlab.com/gitlab-org/gitlab-design/-/issues/719#categorical
+ */
+export const colorPaletteDefault = [
+  dataVizBlue500,
+  dataVizOrange600,
+  dataVizAqua500,
+  dataVizGreen700,
+  dataVizMagenta800,
+  dataVizBlue700,
+  dataVizOrange800,
+  dataVizAqua700,
+  dataVizGreen900,
+  dataVizMagenta950,
+  dataVizBlue900,
+  dataVizOrange950,
+  dataVizAqua900,
+  dataVizGreen600,
+  dataVizMagenta700,
+  dataVizBlue600,
+  dataVizOrange700,
+  dataVizAqua600,
+  dataVizGreen800,
+  dataVizMagenta900,
+  dataVizBlue800,
+  dataVizOrange900,
+  dataVizAqua800,
+  dataVizGreen950,
+  dataVizMagenta500,
+  dataVizBlue950,
+  dataVizOrange500,
+  dataVizAqua950,
+  dataVizGreen500,
+  dataVizMagenta600,
+];
+export const colorFromDefaultPalette = index =>
+  colorPaletteDefault[index % colorPaletteDefault.length];
 
 export const sparkline = {
   // additional colors are TBD - see issue: https://gitlab.com/gitlab-org/gitlab-ui/issues/484
@@ -75,7 +144,7 @@ const axes = {
 };
 
 export default {
-  color: colorPalette,
+  color: colorPaletteDefault,
   backgroundColor: 'transparent',
   textStyle: {
     color: gray900,
