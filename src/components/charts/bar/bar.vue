@@ -7,7 +7,7 @@ import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default
 import { grid, dataZoomAdjustments, mergeSeriesToOptions } from '../../../utils/charts/config';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { engineeringNotation } from '../../../utils/number_utils';
-import { colorFromPalette } from '../../../utils/charts/theme';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
 import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 
@@ -103,7 +103,7 @@ export default {
   computed: {
     series() {
       return Object.keys(this.data).map((key, index) => {
-        const barColor = colorFromPalette(index);
+        const barColor = colorFromDefaultPalette(index);
 
         return {
           name: key,

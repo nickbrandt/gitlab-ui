@@ -10,7 +10,7 @@ import defaultChartOptions, {
   mergeSeriesToOptions,
 } from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
-import { colorFromPalette } from '../../../utils/charts/theme';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
@@ -86,7 +86,7 @@ export default {
   computed: {
     series() {
       return this.data.map((series, index) => {
-        const barColor = colorFromPalette(index);
+        const barColor = colorFromDefaultPalette(index);
 
         return {
           type: 'bar',
@@ -161,7 +161,7 @@ export default {
         acc.push({
           name: series.name,
           type: series.type,
-          color: colorFromPalette(index),
+          color: colorFromDefaultPalette(index),
           data: series.data.map(data => data),
         });
 
@@ -193,7 +193,7 @@ export default {
     onLabelChange(params) {
       const { tooltipContent } = params.seriesData.reduce(
         (acc, bar) => {
-          const barColor = colorFromPalette(bar.seriesIndex);
+          const barColor = colorFromDefaultPalette(bar.seriesIndex);
 
           acc.tooltipContent[bar.seriesName] = {
             value: bar.value,

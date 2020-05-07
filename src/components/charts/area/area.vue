@@ -32,7 +32,7 @@ import defaultChartOptions, {
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
-import { colorFromPalette } from '../../../utils/charts/theme';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { ANNOTATION_TOOLTIP_TOP_OFFSET } from '../../../utils/charts/constants';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
@@ -120,7 +120,7 @@ export default {
   computed: {
     series() {
       const dataSeries = this.data.map((series, index) => {
-        const defaultColor = colorFromPalette(index);
+        const defaultColor = colorFromDefaultPalette(index);
         const getColor = type =>
           series[type] && series[type].color ? series[type].color : defaultColor;
         return merge(
@@ -211,7 +211,7 @@ export default {
           acc.push({
             name: series.name,
             type: series.lineStyle.type,
-            color: series.lineStyle.color || colorFromPalette(index),
+            color: series.lineStyle.color || colorFromDefaultPalette(index),
             data: this.includeLegendAvgMax ? series.data.map(data => data[1]) : undefined,
           });
         }
@@ -336,12 +336,8 @@ export default {
       placement="bottom"
     >
       <template>
-        <div slot="title" name="tooltipTitle">
-          {{ annotationsTooltipTitle }}
-        </div>
-        <div name="tooltipContent">
-          {{ annotationsTooltipContent }}
-        </div>
+        <div slot="title" name="tooltipTitle">{{ annotationsTooltipTitle }}</div>
+        <div name="tooltipContent">{{ annotationsTooltipContent }}</div>
       </template>
     </chart-tooltip>
     <chart-tooltip

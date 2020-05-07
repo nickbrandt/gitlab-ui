@@ -9,7 +9,7 @@ import defaultChartOptions, {
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
-import { colorFromPalette } from '../../../utils/charts/theme';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 
@@ -61,7 +61,7 @@ export default {
   computed: {
     series() {
       return Object.keys(this.data).map((key, index) => {
-        const barColor = colorFromPalette(index);
+        const barColor = colorFromDefaultPalette(index);
 
         return {
           name: key,
