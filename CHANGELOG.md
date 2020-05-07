@@ -1,3 +1,15 @@
+# [14.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.3.1...v14.4.0) (2020-05-07)
+
+
+### Bug Fixes
+
+* Annotations tooltip logic ([fafe255](https://gitlab.com/gitlab-org/gitlab-ui/commit/fafe2555264b62b92c3eee6686225038458a2d88))
+
+
+### Features
+
+* **Path:** Add icon to Path component ([b09443f](https://gitlab.com/gitlab-org/gitlab-ui/commit/b09443f4a665875399eb4041008c8e2faee7ff75))
+
 ## [14.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.3.0...v14.3.1) (2020-05-07)
 
 
