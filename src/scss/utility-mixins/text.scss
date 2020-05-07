@@ -28,7 +28,7 @@
   text-decoration: underline;
 }
 
-@mixin gl-text-decoration-color-inherit {
+@mixin gl-reset-text-decoration-color {
   text-decoration-color: inherit;
 }
 

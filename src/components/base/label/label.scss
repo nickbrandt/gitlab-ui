@@ -17,7 +17,7 @@ $label-max-width: 100%;
     @include gl-max-w-full;
 
     &:hover {
-      @include gl-text-decoration-color-inherit;
+      @include gl-reset-text-decoration-color;
     }
   }
 
