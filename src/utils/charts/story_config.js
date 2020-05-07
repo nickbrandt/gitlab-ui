@@ -1,5 +1,5 @@
 import times from 'lodash/times';
-import { colorFromPalette } from './theme';
+import { colorFromDefaultPalette } from './theme';
 
 /* eslint-disable import/prefer-default-export */
 import {
@@ -36,7 +36,7 @@ export const generateSeriesData = amount => {
   const defaultData = [820, 932, 960, 1150, 1290, 1330, 1390];
 
   return times(amount, index => ({
-    color: colorFromPalette(index),
+    color: colorFromDefaultPalette(index),
     data: defaultData.map(value => value * index),
     name: `Series ${index + 1}`,
   }));
