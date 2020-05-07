@@ -1,3 +1,9 @@
+.gl-filtered-search-term {
+  .gl-filtered-search-term-token {
+    cursor: text;
+  }
+}
+
 .gl-filtered-search-term-input {
   @include gl-p-0;
   @include gl-border-none;

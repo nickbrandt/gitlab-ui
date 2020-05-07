@@ -10,6 +10,7 @@
 }
 
 .gl-filtered-search-item {
+  @include gl-display-flex;
   @include gl-px-1;
 }
 

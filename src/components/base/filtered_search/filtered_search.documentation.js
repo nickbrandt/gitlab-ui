@@ -3,6 +3,7 @@ import examples from './examples';
 
 export default {
   description,
+  followsDesignSystem: true,
   bootstrapComponent: null,
   examples,
   propsInfo: {

@@ -1,9 +1,21 @@
-import { shallowMount } from '@vue/test-utils';
-import { BInputGroup } from 'bootstrap-vue';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import SearchBoxByClick from '../../../src/components/base/search_box_by_click/search_box_by_click.vue';
 import GlDropdownItem from '../../../src/components/base/new_dropdown/new_dropdown_item.vue';
 import GlFormInput from '../../../src/components/base/form/form_input/form_input.vue';
 import ClearIcon from '../../../src/components/shared_components/clear_icon_button/clear_icon_button.vue';
+
+const localVue = createLocalVue();
+localVue.directive('gl-tooltip', {});
+
+const GlFormInputGroupStub = {
+  template: `
+    <div>
+      <slot name="prepend"></slot>
+      <slot></slot>
+      <slot name="append"></slot>
+    </div>
+  `,
+};
 
 describe('search box by click component', () => {
   let wrapper;
@@ -11,7 +23,8 @@ describe('search box by click component', () => {
   const createComponent = propsData => {
     wrapper = shallowMount(SearchBoxByClick, {
       propsData,
-      stubs: { BInputGroup },
+      stubs: { GlFormInputGroup: GlFormInputGroupStub },
+      localVue,
     });
   };
 
@@ -127,7 +140,6 @@ describe('search box by click component', () => {
 
   it('emits submit event when search button is pressed', async () => {
     createComponent({ value: 'some-input' });
-
     wrapper.find({ ref: 'searchButton' }).vm.$emit('click');
 
     await wrapper.vm.$nextTick();

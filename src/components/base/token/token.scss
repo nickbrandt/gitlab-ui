@@ -26,7 +26,8 @@
   @include gl-display-flex;
   @include gl-align-items-center;
 
-  > .gl-avatar {
+  > .gl-avatar:first-child,
+  > .gl-spinner-container:first-child {
     @include gl-mr-2;
   }
 }

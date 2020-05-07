@@ -48,9 +48,10 @@ export default {
 </script>
 
 <template>
-  <div class="gl-h-auto">
+  <div class="gl-h-auto gl-filtered-search-term">
     <gl-filtered-search-token-segment
       v-model="internalValue"
+      class="gl-filtered-search-term-token"
       :active="active"
       :class="{ 'gl-w-full': placeholder }"
       @activate="$emit('activate')"

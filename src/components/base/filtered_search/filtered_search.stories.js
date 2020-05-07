@@ -70,8 +70,8 @@ const UserToken = {
       v-on="$listeners"
     >
       <template #view="{ inputValue }">
-        <gl-loading-icon size="sm" v-if="loadingView" class="gl-mr-2" />
-        <gl-avatar :size="16" :entity-name="inputValue" shape="circle" class="gl-mr-2" v-else />
+        <gl-loading-icon size="sm" v-if="loadingView" />
+        <gl-avatar :size="16" :entity-name="inputValue" shape="circle" v-else />
         {{ activeUser ? activeUser.name : inputValue }}
       </template>
       <template #suggestions>
@@ -198,9 +198,6 @@ documentedStoriesOf('base|filtered-search', readme)
       },
     },
     template: `
-      <div>
-        <pre>{{ formattedValue }}</pre>
-        <gl-filtered-search :available-tokens="tokens" v-model="value" />
-      </div>
+      <gl-filtered-search :available-tokens="tokens" v-model="value" />
     `,
   }));
