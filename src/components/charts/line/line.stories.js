@@ -2,9 +2,13 @@ import { withKnobs, object, boolean, array } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlLineChart } from '../../../../charts';
 import readme from './line.md';
-import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { blue500, gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
+import {
+  mockAnnotationsSeries,
+  mockAnnotationsConfigs,
+} from '../../../../tests/helpers/charts/data';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 
@@ -105,25 +109,9 @@ documentedStoriesOf('charts|line-chart', readme)
     components,
     template,
   }))
-  .add('with annotations', () => ({
+  .add('with annotations as props (recommended)', () => ({
     props: generateProps({
-      annotations: [
-        {
-          min: '2018-01-25T01:00:00.000Z',
-          max: '2018-01-25T01:00:00.000Z',
-          tooltipData: { content: 'Scranton strangler was caught.' },
-        },
-        {
-          min: '2018-01-25T10:00:00.000Z',
-          max: '2018-01-25T10:00:00.000Z',
-          tooltipData: { content: 'Tobys green car is missing.' },
-        },
-        {
-          min: '2018-02-06T08:00:00.000Z',
-          max: '2018-02-06T08:00:00.000Z',
-          tooltipData: { content: 'It was actually Toby!' },
-        },
-      ],
+      ...mockAnnotationsConfigs,
       data: [
         {
           name: 'Time Series',
@@ -131,6 +119,94 @@ documentedStoriesOf('charts|line-chart', readme)
         },
       ],
       option: {
+        xAxis: {
+          type: 'time',
+          name: 'Time',
+          axisLabel: {
+            formatter: timeSeriesDateFormatter,
+          },
+        },
+      },
+    }),
+    components,
+    template,
+  }))
+  .add('with annotations as option series', () => ({
+    props: generateProps({
+      data: [
+        {
+          name: 'Time Series',
+          data: generateTimeSeries(),
+        },
+      ],
+      option: {
+        ...mockAnnotationsSeries,
+        xAxis: {
+          type: 'time',
+          name: 'Time',
+          axisLabel: {
+            formatter: timeSeriesDateFormatter,
+          },
+        },
+      },
+    }),
+    components,
+    template,
+  }))
+  .add('with annotations as option series', () => ({
+    props: generateProps({
+      data: [
+        {
+          name: 'Time Series',
+          data: generateTimeSeries(),
+        },
+      ],
+      option: {
+        series: [
+          {
+            type: 'scatter',
+            name: 'annotations',
+            data: [],
+            markLine: {
+              lineStyle: {
+                color: blue500,
+              },
+              data: [
+                { xAxis: '2018-01-25T01:00:00.000Z' },
+                { xAxis: '2018-01-25T10:00:00.000Z' },
+                { xAxis: '2018-02-06T08:00:00.000Z' },
+              ],
+            },
+            markPoint: {
+              symbol: 'path://m5 229 5 8h-10z',
+              symbolSize: '8',
+              symbolOffset: [0, ' 60%'],
+              itemStyle: {
+                color: blue500,
+              },
+              data: [
+                {
+                  name: 'annotations',
+                  xAxis: '2018-01-25T01:00:00.000Z',
+                  yAxis: 0,
+                  tooltipData: { content: 'Scranton strangler was caught.' },
+                },
+                {
+                  name: 'annotations',
+                  xAxis: '2018-01-25T10:00:00.000Z',
+                  yAxis: 0,
+                  tooltipData: { content: 'Tobys green car is missing.' },
+                },
+                {
+                  name: 'annotations',
+                  xAxis: '2018-02-06T08:00:00.000Z',
+                  yAxis: 0,
+                  tooltipData: { content: 'It was actually Toby!' },
+                },
+              ],
+            },
+          },
+        ],
         xAxis: {
           type: 'time',
           name: 'Time',

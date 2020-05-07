@@ -1,3 +1,5 @@
+import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+
 export const defaultDataZoomConfig = {
   dataZoom: [
     {
@@ -54,6 +56,77 @@ export const defaultChartOptions = {
   legend: {
     show: false,
   },
+};
+
+/**
+ * This is currently used in area.stories.js and line.stories.js
+ */
+export const mockAnnotationsSeries = {
+  series: [
+    {
+      type: 'scatter',
+      name: 'annotations',
+      data: [],
+      markLine: {
+        lineStyle: {
+          color: blue500,
+        },
+        data: [
+          { xAxis: '2018-01-25T01:00:00.000Z' },
+          { xAxis: '2018-01-25T10:00:00.000Z' },
+          { xAxis: '2018-02-06T08:00:00.000Z' },
+        ],
+      },
+      markPoint: {
+        symbol: 'path://m5 229 5 8h-10z',
+        symbolSize: '8',
+        symbolOffset: [0, ' 60%'],
+        data: [
+          {
+            name: 'annotations',
+            xAxis: '2018-01-25T01:00:00.000Z',
+            yAxis: 0,
+            tooltipData: { content: 'Scranton strangler was caught.' },
+          },
+          {
+            name: 'annotations',
+            xAxis: '2018-01-25T10:00:00.000Z',
+            yAxis: 0,
+            tooltipData: { content: 'Tobys green car is missing.' },
+          },
+          {
+            name: 'annotations',
+            xAxis: '2018-02-06T08:00:00.000Z',
+            yAxis: 0,
+            tooltipData: { content: 'It was actually Toby!' },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+/**
+ * This is currently used in area.stories.js and line.stories.js
+ */
+export const mockAnnotationsConfigs = {
+  annotations: [
+    {
+      min: '2018-01-25T01:00:00.000Z',
+      max: '2018-01-25T01:00:00.000Z',
+      tooltipData: { content: 'Scranton strangler was caught.' },
+    },
+    {
+      min: '2018-01-25T10:00:00.000Z',
+      max: '2018-01-25T10:00:00.000Z',
+      tooltipData: { content: 'Tobys green car is missing.' },
+    },
+    {
+      min: '2018-02-06T08:00:00.000Z',
+      max: '2018-02-06T08:00:00.000Z',
+      tooltipData: { content: 'It was actually Toby!' },
+    },
+  ],
 };
 
 export default {};
