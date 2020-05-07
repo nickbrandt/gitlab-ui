@@ -92,6 +92,28 @@ describe('Path', () => {
         expect(pathItemTextAt(0)).toContain(items[0].metric);
       });
     });
+
+    describe('with icons', () => {
+      const iconName = 'home';
+
+      beforeEach(() => {
+        const data = items;
+        data[0].icon = iconName;
+
+        wrapper = createComponent({ items: data });
+      });
+
+      it('matches the snapshot', () => {
+        expect(wrapper.element).toMatchSnapshot();
+      });
+
+      it('renders the inline icon', () => {
+        const icon = wrapper.find('[data-testid="gl-path-item-icon"]');
+
+        expect(icon.exists()).toBe(true);
+        expect(icon.props('name')).toBe(iconName);
+      });
+    });
   });
 
   describe('renders the correct selected item', () => {

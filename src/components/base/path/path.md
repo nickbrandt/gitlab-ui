@@ -27,6 +27,12 @@ items: [
 Once an item has been selected the `selected` event will be emitted.
 The emitted event will include the entire object at the selected index.
 
+#### Customization
+
+Additional attributes can be configured via the `items` object. Currently
+support for `metric` and `icon` are provided. Please see the individual
+examples for further information on these.
+
 ### Additional information
 
 This component supports various themes and is mobile responsive.
