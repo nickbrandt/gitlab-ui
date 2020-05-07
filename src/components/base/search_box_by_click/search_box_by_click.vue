@@ -1,5 +1,5 @@
 <script>
-import { BInputGroup, BInputGroupPrepend, BInputGroupAppend } from 'bootstrap-vue';
+import GlFormInputGroup from '../form/form_input_group/form_input_group.vue';
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
@@ -20,9 +20,7 @@ export default {
     GlDropdownText,
     GlDropdownItem,
     GlDropdownDivider,
-    BInputGroup,
-    BInputGroupPrepend,
-    BInputGroupAppend,
+    GlFormInputGroup,
   },
   directives: {
     GlTooltip,
@@ -137,10 +135,9 @@ export default {
 </script>
 
 <template>
-  <b-input-group class="gl-search-box-by-click">
-    <b-input-group-prepend v-if="historyItems" class="gl-search-box-by-click-input-group-control">
+  <gl-form-input-group class="gl-search-box-by-click">
+    <template v-if="historyItems" #prepend>
       <gl-dropdown
-        v-if="historyItems"
         ref="historyDropdown"
         class="gl-search-box-by-click-history"
         menu-class="gl-search-box-by-click-menu"
@@ -181,7 +178,7 @@ export default {
           noRecentSearchesText
         }}</gl-dropdown-text>
       </gl-dropdown>
-    </b-input-group-prepend>
+    </template>
     <slot name="input">
       <gl-form-input
         ref="input"
@@ -201,7 +198,7 @@ export default {
         @click="clearInput"
       />
     </slot>
-    <b-input-group-append class="gl-search-box-by-click-input-group-control">
+    <template #append class="gl-search-box-by-click-input-group-control">
       <gl-button
         ref="searchButton"
         class="gl-search-box-by-click-search-button"
@@ -209,6 +206,6 @@ export default {
         :disabled="disabled"
         @click="search(currentValue)"
       />
-    </b-input-group-append>
-  </b-input-group>
+    </template>
+  </gl-form-input-group>
 </template>

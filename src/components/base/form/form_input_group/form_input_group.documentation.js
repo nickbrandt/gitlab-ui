@@ -19,6 +19,10 @@ export default {
   },
   slots: [
     {
+      name: 'default',
+      description: 'Allows replacement of default input field.',
+    },
+    {
       name: 'prepend',
       description: 'Is rendered in front of the input field.',
     },

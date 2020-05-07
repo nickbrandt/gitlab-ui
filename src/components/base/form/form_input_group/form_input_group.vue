@@ -50,7 +50,7 @@ export default {
 <template>
   <div>
     <b-input-group>
-      <b-input-group-prepend>
+      <b-input-group-prepend v-if="activeOption || $slots.prepend">
         <slot name="prepend"></slot>
         <gl-dropdown v-if="activeOption" :text="activeOption">
           <gl-dropdown-item
@@ -63,17 +63,17 @@ export default {
           </gl-dropdown-item>
         </gl-dropdown>
       </b-input-group-prepend>
-
-      <b-form-input
-        ref="input"
-        v-model="localValue"
-        class="gl-form-input"
-        v-bind="$attrs"
-        v-on="$listeners"
-        @click="handleClick"
-      />
-
-      <b-input-group-append>
+      <slot>
+        <b-form-input
+          ref="input"
+          v-model="localValue"
+          class="gl-form-input"
+          v-bind="$attrs"
+          v-on="$listeners"
+          @click="handleClick"
+        />
+      </slot>
+      <b-input-group-append v-if="$slots.append">
         <slot name="append"></slot>
       </b-input-group-append>
     </b-input-group>
