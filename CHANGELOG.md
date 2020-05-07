@@ -1,3 +1,10 @@
+## [14.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.4.0...v14.4.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* **css:** Rename inherist text to reset ([36c335e](https://gitlab.com/gitlab-org/gitlab-ui/commit/36c335e3c974419f045201988a10da117bfec25a))
+
 # [14.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.3.1...v14.4.0) (2020-05-07)
 
 
