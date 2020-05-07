@@ -1,3 +1,11 @@
+## [14.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.3.0...v14.3.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* **filters:** Correctly handle filters without v-model ([8682b6c](https://gitlab.com/gitlab-org/gitlab-ui/commit/8682b6cb405caa768c45a93872e2da820821e750))
+* **GlSearchBoxByType:** Fix position of clear input icon ([dd5bacc](https://gitlab.com/gitlab-org/gitlab-ui/commit/dd5baccee5df7b51d5f039384d2d8f6dcd01ee7d))
+
 # [14.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.2.1...v14.3.0) (2020-05-07)
 
 
