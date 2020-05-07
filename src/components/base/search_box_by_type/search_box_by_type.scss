@@ -1,12 +1,8 @@
 $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 
-@mixin gl-tmp-search-box-by-type-icon {
-  @include gl-m-3;
-}
-
 .gl-search-box-by-type-loading-icon,
 .gl-search-box-by-type-search-icon {
-  @include gl-tmp-search-box-by-type-icon;
+  @include gl-m-3;
   @include gl-text-gray-500;
   @include gl-w-5;
 }
@@ -21,8 +17,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 }
 
 .gl-search-box-by-type-clear {
-  @include gl-tmp-search-box-by-type-icon;
-  @include gl-p-0;
+  @include gl-p-3;
 }
 
 .gl-search-box-by-type-input,
