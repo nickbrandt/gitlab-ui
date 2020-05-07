@@ -5,6 +5,7 @@ import GlFilteredSearchTerm from '../../../src/components/base/filtered_search/f
 import GlFilteredSearchSuggestionList from '../../../src/components/base/filtered_search/filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from '../../../src/components/base/filtered_search/filtered_search_suggestion.vue';
 import GlFilteredSearchToken from '../../../src/components/base/filtered_search/filtered_search_token.vue';
+import GlClearIconButton from '../../../src/components/shared_components/clear_icon_button/clear_icon_button.vue';
 
 jest.mock('../../../src/directives/tooltip');
 
@@ -198,6 +199,26 @@ describe('Filtered search', () => {
           { type: TERM_TOKEN_TYPE, value: { data: '' } },
         ]);
       });
+    });
+
+    it('replaces token after clear when requested', async () => {
+      createComponent({
+        value: ['one', { type: 'faketoken', value: '' }, 'two'],
+      });
+      wrapper.find(GlClearIconButton).vm.$emit('click');
+
+      await wrapper.vm.$nextTick();
+
+      wrapper
+        .find(GlFilteredSearchTerm)
+        .vm.$emit('replace', { type: 'faketoken', value: { data: 'test' } });
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: 'faketoken', value: { data: 'test' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
     it('inserts single token when requested', () => {
