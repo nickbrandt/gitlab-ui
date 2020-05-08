@@ -2,7 +2,7 @@ import description from './pagination.md';
 import examples from './examples';
 
 export default {
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   description,
   examples,
   propsInfo: {

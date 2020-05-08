@@ -38,16 +38,9 @@ module.exports = ({ config }) => {
           loader: 'style-loader',
           options: {
             insert: function(styles) {
-              const gitlabStyles = Array.from(
-                document.head.querySelectorAll('[data-gitlab-ui-style]')
-              );
-
-              const targetPosition =
-                gitlabStyles.length > 0
-                  ? gitlabStyles[gitlabStyles.length - 1].nextSibling
-                  : document.head.firstChild;
-
-              document.head.insertBefore(styles, targetPosition);
+              if (!process.env.IS_GITLAB_INTEGRATION_TEST) {
+                document.head.appendChild(styles);
+              }
             },
             attributes: {
               'data-gitlab-ui-style': true,

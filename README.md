@@ -84,11 +84,7 @@ In some occasions, the changes in a component’s appearance are justified. In t
 
 #### GitLab visual regression tests
 
-GitLab UI components are a reference implementation of the [Pajamas Design System components](https://design.gitlab.com/components/status). These components should conform with the design system specs, and they should look correct in the pajamas website and the GitLab product. To make sure GitLab UI’s components look precisely as their design specs dictate in GitLab, we created the `yarn run test:visual:gitlab` command.
-
-This command only runs visual tests for components that have the `followsDesignSystem: true` flag activated in their `*.documentation.js` file. It will include gitlab product’s final CSS output in storybook and run the visual snapshots against this version.
-
-The tests will fail if after including gitlab CSS, one or more components look different. These failures highlight how CSS that leaks from gitlab will affect a component’s final look in the product.
+GitLab UI components are a reference implementation of the [Pajamas Design System components](https://design.gitlab.com/components/status). These components should conform with the design system specs, and they should look correct in the pajamas website and the GitLab product. Please see [Debugging GitLab UI issues with GitLab product CSS](doc/debugging-gitlab-ui-with-gitlab-css.md) for information on how to debug issues with GitLab product CSS in GitLab UI.
 
 #### Running visual regression tests locally
 
@@ -124,6 +120,7 @@ npm install @gitlab/ui
 ```
 
 ## Releases
+
 Please see [Updating Gitlab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how updated packages are included in Gitlab and Pajamas.
 
 ## Contributing guide

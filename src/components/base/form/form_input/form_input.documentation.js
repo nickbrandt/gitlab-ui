@@ -5,5 +5,5 @@ export default {
   description,
   examples,
   bootstrapComponent: 'b-form-input',
-  followsDesignSystem: false,
+  followsDesignSystem: true,
 };

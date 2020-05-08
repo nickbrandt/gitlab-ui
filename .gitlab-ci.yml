@@ -17,11 +17,11 @@ variables:
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
   # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
-  SAST_DISABLE_DIND: "true"
-  DS_DISABLE_DIND: "true"
+  SAST_DISABLE_DIND: 'true'
+  DS_DISABLE_DIND: 'true'
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
-  SAST_DEFAULT_ANALYZERS: "nodejs-scan, eslint"
-  DS_DEFAULT_ANALYZERS: "retire.js, gemnasium"
+  SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
+  DS_DEFAULT_ANALYZERS: 'retire.js, gemnasium'
 
 include:
   # Disabled due to: https://gitlab.com/gitlab-org/gitlab/-/issues/207855
@@ -129,6 +129,19 @@ populate_npm_cache:
       when: always
     - when: never
 
+build_gitlab_css:
+  extends: [.node, .yarn_install]
+  stage: pre-build
+  script:
+    - mkdir .build
+    - git clone https://gitlab.com/gitlab-org/gitlab.git .build/gitlab --depth=1
+    - yarn prebuild
+    - yarn build-gitlab-css .build/gitlab > static/gitlab-normalized.css
+  artifacts:
+    when: always
+    paths:
+      - static/gitlab
+
 danger-review:
   rules:
     - if: '$DANGER_GITLAB_API_TOKEN && $CI_MERGE_REQUEST_IID'
@@ -162,10 +175,11 @@ build_package:
 
 build_storybook:
   extends: [.node, .yarn_install]
-  needs: []
+  needs:
+    - build_gitlab_css
   stage: build
   script:
-    - yarn storybook-static
+    - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn storybook-static
     - mkdir public
     - mv storybook/* public
   artifacts:
@@ -208,9 +222,11 @@ visual:
 
 visual_gitlab_integration:
   extends: visual
+  needs:
+    - build_gitlab_css
   allow_failure: true
   script:
-    - yarn test:visual:gitlab
+    - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn test:visual:gitlab
 
 unit_tests:
   extends: [.node, .yarn_install]
