@@ -4,6 +4,8 @@ import items from '../../../src/components/base/path/examples/data';
 
 const SELECTED_CLASS_INDIGO = 'gl-path-active-item-indigo';
 const SELECTED_CLASS_GREEN = 'gl-path-active-item-green';
+const BACKGROUND_COLOR_WHITE = 'white';
+const BACKGROUND_COLOR_LIGHT_GRAY = '#f0f0f0';
 
 describe('Path', () => {
   let wrapper;
@@ -15,6 +17,10 @@ describe('Path', () => {
         ...props,
       },
     });
+  };
+
+  const pathNav = () => {
+    return wrapper.find('[data-testid="gl-path-nav"]').element;
   };
 
   const listItems = () => {
@@ -60,6 +66,24 @@ describe('Path', () => {
 
       it('sets the correct theme', () => {
         expect(pathItemAt(0).classList).toContain(SELECTED_CLASS_GREEN);
+      });
+    });
+  });
+
+  describe('background color selection', () => {
+    describe('with no background color specified', () => {
+      it('displays the default background color', () => {
+        expect(pathNav().style.PathBgColor).toBe(BACKGROUND_COLOR_WHITE);
+      });
+    });
+
+    describe('with a background color specified', () => {
+      beforeEach(() => {
+        wrapper = createComponent({ backgroundColor: BACKGROUND_COLOR_LIGHT_GRAY });
+      });
+
+      it('sets the correct background color', () => {
+        expect(pathNav().style.PathBgColor).toBe(BACKGROUND_COLOR_LIGHT_GRAY);
       });
     });
   });

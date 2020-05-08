@@ -35,4 +35,7 @@ examples for further information on these.
 
 ### Additional information
 
+A `backgroundColor` property can be specified when using this component
+on different colored backgrounds.
+
 This component supports various themes and is mobile responsive.
