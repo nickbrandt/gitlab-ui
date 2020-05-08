@@ -7,6 +7,7 @@ import { glThemes } from '../../../utils/constants';
 
 const BOUNDARY_WIDTH = 40;
 const PATH_ITEM_CLASS = 'gl-path-button';
+const PATH_ACTIVE_ITEM_PREFIX = 'gl-path-active-item';
 
 export default {
   components: {
@@ -27,6 +28,11 @@ export default {
       default: 'indigo',
       validator: theme => glThemes.includes(theme),
     },
+    backgroundColor: {
+      type: String,
+      required: false,
+      default: 'white',
+    },
   },
   data() {
     return {
@@ -37,7 +43,7 @@ export default {
   },
   computed: {
     activeClass() {
-      return `gl-path-active-item-${this.theme}`;
+      return `${PATH_ACTIVE_ITEM_PREFIX}-${this.theme}`;
     },
     entireListVisible() {
       return this.width >= this.getScrollWidth();
@@ -114,7 +120,12 @@ export default {
 </script>
 
 <template>
-  <div v-gl-resize-observer-directive="handleResize" class="gl-path-nav">
+  <div
+    v-gl-resize-observer-directive="handleResize"
+    class="gl-path-nav"
+    :style="{ '--path-bg-color': backgroundColor }"
+    data-testid="gl-path-nav"
+  >
     <span v-show="displayScrollLeft" class="gl-path-fade gl-path-fade-left">
       <button class="gl-clear-icon-button" @click="scrollPathLeft">
         <gl-icon :size="32" name="chevron-left" />
