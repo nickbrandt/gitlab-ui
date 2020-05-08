@@ -2,7 +2,7 @@ import description from './search_box_by_type.md';
 import examples from './examples';
 
 export default {
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   description,
   propsInfo: {
     value: {

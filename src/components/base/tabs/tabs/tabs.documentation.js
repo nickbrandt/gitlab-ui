@@ -5,5 +5,5 @@ export default {
   description,
   examples,
   bootstrapComponent: 'b-tabs',
-  followsDesignSystem: false,
+  followsDesignSystem: true,
 };

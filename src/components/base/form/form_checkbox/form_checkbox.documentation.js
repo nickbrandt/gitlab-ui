@@ -5,7 +5,7 @@ export default {
   description,
   examples,
   bootstrapComponent: 'b-form-checkbox',
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   events: [
     {
       event: 'input',
