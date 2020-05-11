@@ -1,3 +1,11 @@
+## [14.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.5.0...v14.5.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* **css:** Rename inherit color to reset ([d8ec0fc](https://gitlab.com/gitlab-org/gitlab-ui/commit/d8ec0fcc2131ea9723c670eee592ed329f4853f7))
+* **Path:** Fix styles on non-white bg ([e070796](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0707968f8b5f1c5974901b1e5fdca45b4c87206))
+
 # [14.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.4.1...v14.5.0) (2020-05-07)
 
 
