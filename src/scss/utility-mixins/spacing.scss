@@ -73,6 +73,10 @@
   padding-right: $gl-spacing-scale-8;
 }
 
+@mixin gl-pr-0 {
+  padding-right: 0;
+}
+
 @mixin gl-pr-1 {
   padding-right: $gl-spacing-scale-1;
 }
@@ -143,6 +147,10 @@
 
 @mixin gl-pt-5 {
   padding-top: $gl-spacing-scale-5;
+}
+
+@mixin gl-pb-0 {
+  padding-bottom: $gl-spacing-scale-2;
 }
 
 @mixin gl-pb-2 {
