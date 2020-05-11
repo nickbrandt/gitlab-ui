@@ -1,3 +1,10 @@
+# [14.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.5.2...v14.6.0) (2020-05-11)
+
+
+### Features
+
+* **css:** add two padding classe ([c4c3969](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4c39699d378b1cfa3ae610e78347a5e4814ab3d))
+
 ## [14.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.5.1...v14.5.2) (2020-05-11)
 
 
