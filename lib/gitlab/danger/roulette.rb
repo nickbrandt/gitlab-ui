@@ -21,6 +21,10 @@ module Gitlab
           end
       end
 
+      def teammate_with_username(username)
+        team.find { |teammate| teammate.username == username }
+      end
+
       # Like +team+, but only returns teammates in the current project, based on
       # project_name.
       #

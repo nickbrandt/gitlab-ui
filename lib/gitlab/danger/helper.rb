@@ -80,11 +80,70 @@ module Gitlab
         CATEGORY_LABELS.fetch(category, "~#{category}")
       end
 
+      def component_labels
+        gitlab_helper&.mr_labels.select { |label| label.start_with?('component:') }
+      end
+
+      def ux_reviewers_for_label(label)
+        component = label.sub('component:', '')
+        COMPONENT_UX_MAP[component.to_sym] || []
+      end
+
+      def foundations_ux_reviewers
+        %w[
+          tauriedavis
+          jareko
+          jeldergl
+        ]
+      end
+
       CATEGORY_LABELS = {
         docs: '~documentation'
       }.freeze
       CATEGORIES = {
         %r{\Adoc/} => :docs
+      }.freeze
+      COMPONENT_UX_MAP = {
+        accordion: %w[kcomoli rayana],
+        alert: %w[andyvolpe],
+        avatar: %w[tauriedavis],
+        badge: %w[pedroms],
+        banner: %w[andyvolpe],
+        breadcrumb: %w[ameliabauerly],
+        'broadcast-message': %w[kmann],
+        button: %w[dimitrieh],
+        card: %w[beckalippert],
+        chart: %w[ameliabauerly],
+        checkbox: %w[pedroms],
+        'data-visualization': %w[ameliabauerly],
+        'date-picker': %w[tauriedavis],
+        drawer: %w[andyvolpe],
+        dropdown: %w[hollyreynolds tauriedavis],
+        'file-uploader': %w[jareko],
+        filter: %w[matejlatin],
+        form: %w[tauriedavis],
+        icon: %w[jeldergl],
+        'infinite-scroll': %w[beckalippert],
+        label: %w[annabeldunstone],
+        link: %w[jeldergl],
+        list: %w[tauriedavis],
+        modal: %w[dimitrieh],
+        pagination: %w[andyvolpe],
+        popover: %w[tauriedavis],
+        'progress-bar': %w[jareko],
+        radio: %w[pedroms],
+        search: %w[matejlatin],
+        'segmented-control': %w[andyvolpe],
+        'skeleton-loader': %w[dimitrieh],
+        sorting: %w[ameliabauerly],
+        spinner: %w[dimitrieh],
+        tab: %w[dimitrieh],
+        table: %w[npost],
+        toast: %w[tauriedavis],
+        toggle: %w[pedroms],
+        token: %w[annabeldunstone],
+        tooltip: %w[rayana],
+        tree: %w[kcomoli rayana]
       }.freeze
     end
   end

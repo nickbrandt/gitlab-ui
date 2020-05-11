@@ -43,9 +43,7 @@ rescue StandardError => e
   []
 end
 
-def spin_for_category(team, project, category, branch_name)
-  random = roulette.new_random(branch_name)
-
+def spin_for_category(team, project, category, random)
   reviewers, traintainers, maintainers =
     %i[reviewer? traintainer? maintainer?].map do |kind|
       team.select do |member|
@@ -66,22 +64,36 @@ end
 
 changes = helper.changes_by_category
 categories = changes.keys
+component_labels = helper.component_labels
 
 if changes.any?
   branch_name = gitlab.mr_json['source_branch']
+  random = roulette.new_random(branch_name)
 
   team = team_for_project(GITLAB_PROJECT_ID)
 
   rows = categories.map do |category|
-    spin_for_category(team, GITLAB_PROJECT_ID, category, branch_name)
+    spin_for_category(team, GITLAB_PROJECT_ID, category, random)
   end
 
   # If these are docs-only changes, we need to pick a frontend maintainer for the final review
   if categories == %i[docs]
-    frontend_row = spin_for_category(team, GITLAB_PROJECT_ID, :frontend, branch_name)
+    frontend_row = spin_for_category(team, GITLAB_PROJECT_ID, :frontend, random)
     # We remove the frontend reviewer as the initial review will be performed by a technical writer
     frontend_row[:reviewer] = nil
     rows << frontend_row
+  end
+
+  #  Add component-specific UX reviewers
+  component_labels.each do |label|
+    ux_teammates = helper.ux_reviewers_for_label(label).map { |username| roulette.teammate_with_username(username) }
+    ux_reviewer = roulette.spin_for_person(ux_teammates, random: random)
+    component_ux_row = {
+      "label": "~\"#{label}\"",
+      "reviewer": ux_reviewer&.markdown_name,
+      "maintainer": nil
+    }
+    rows << component_ux_row
   end
 
   roulette_rows = rows.map do |row|
@@ -90,4 +102,19 @@ if changes.any?
 
   markdown(MESSAGE)
   markdown(CATEGORY_TABLE_HEADER + roulette_rows.join("\n"))
+  unless component_labels.empty?
+    markdown(
+      <<~MARKDOWN
+        If your Merge Request changes one or more components, please have it reviewed by a Product Designer.
+        One should have been suggested above. Otherwise, or if they are not available, feel free to
+        assign to a UX Foundations designer:
+
+        #{helper.foundations_ux_reviewers.map do |username|
+          roulette.teammate_with_username(username)
+        end.map do |teammate|
+          "* #{teammate&.markdown_name}"
+        end.join("\n")}
+      MARKDOWN
+    )
+  end
 end
