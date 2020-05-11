@@ -1,3 +1,10 @@
+## [14.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.6.0...v14.6.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* **css:** add gray-800 text utility ([f2d85ee](https://gitlab.com/gitlab-org/gitlab-ui/commit/f2d85eef414f785d80c26958e65367fcf21a4bb7))
+
 # [14.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.5.2...v14.6.0) (2020-05-11)
 
 
