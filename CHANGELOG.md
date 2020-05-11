@@ -1,3 +1,10 @@
+## [14.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.5.1...v14.5.2) (2020-05-11)
+
+
+### Bug Fixes
+
+* **GlButton:** Add conditional for icon ([ca2d5ee](https://gitlab.com/gitlab-org/gitlab-ui/commit/ca2d5ee57bc2005d2079689284f4535dddabc12a))
+
 ## [14.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.5.0...v14.5.1) (2020-05-11)
 
 
