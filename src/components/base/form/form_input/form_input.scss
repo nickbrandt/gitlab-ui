@@ -20,7 +20,7 @@
     @include gl-cursor-not-allowed;
   }
 
-  &:focus {
+  &:not(.form-control-plaintext):focus {
     @include gl-focus($gl-border-size-1, $gray-900);
     @include gl-text-gray-900;
   }
@@ -35,5 +35,9 @@
 
   &::placeholder {
     @include gl-text-gray-400;
+  }
+
+  &.form-control-plaintext {
+    @include gl-shadow-none;
   }
 }

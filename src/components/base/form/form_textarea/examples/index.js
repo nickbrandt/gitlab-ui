@@ -20,7 +20,7 @@ export default [
       },
       {
         id: 'form-textarea-plaintext',
-        name: 'Plaintext / Read only',
+        name: 'Plaintext',
         description: 'Plaintext Form Textarea',
         component: FormTextAreaPlaintext,
       },
