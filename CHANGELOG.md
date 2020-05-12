@@ -1,3 +1,15 @@
+# [14.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.6.1...v14.7.0) (2020-05-12)
+
+
+### Bug Fixes
+
+* **GlFormInput:** Restore form input plaintext styles ([b270072](https://gitlab.com/gitlab-org/gitlab-ui/commit/b270072fa5d9ffdce91d9d93d089fd00e400ea13))
+
+
+### Features
+
+* **GlChartLegend:** add tabular layout variation ([8180bf2](https://gitlab.com/gitlab-org/gitlab-ui/commit/8180bf23796eb4b83e4aaefb366638e6ef98fd64))
+
 ## [14.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.6.0...v14.6.1) (2020-05-11)
 
 
