@@ -37,22 +37,23 @@ const seriesInfo = series.map(item => ({
   data: item.data,
 }));
 
-documentedStoriesOf('charts|chart-legend', readme).add('default', () => ({
-  props: {},
-  components,
-  options,
-  seriesInfo,
-  data() {
-    return {
-      chart: null,
-    };
-  },
-  methods: {
-    onCreated(chart) {
-      this.chart = chart;
+documentedStoriesOf('charts|chart-legend', readme)
+  .add('default', () => ({
+    props: {},
+    components,
+    options,
+    seriesInfo,
+    data() {
+      return {
+        chart: null,
+      };
     },
-  },
-  template: `<div>
+    methods: {
+      onCreated(chart) {
+        this.chart = chart;
+      },
+    },
+    template: `<div>
     <gl-chart
       :options="$options.options"
       @created="onCreated"
@@ -63,4 +64,32 @@ documentedStoriesOf('charts|chart-legend', readme).add('default', () => ({
       :series-info="$options.seriesInfo"
     />
   </div>`,
-}));
+  }))
+  .add('with tabular layout', () => ({
+    props: {},
+    components,
+    options,
+    seriesInfo,
+    data() {
+      return {
+        chart: null,
+      };
+    },
+    methods: {
+      onCreated(chart) {
+        this.chart = chart;
+      },
+    },
+    template: `<div>
+    <gl-chart
+      :options="$options.options"
+      @created="onCreated"
+    />
+    <gl-chart-legend
+      v-if="chart"
+      :chart="chart"
+      :layout="'table'"
+      :series-info="$options.seriesInfo"
+    />
+  </div>`,
+  }));
