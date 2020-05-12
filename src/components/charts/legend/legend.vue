@@ -1,13 +1,16 @@
 <script>
 import echarts from 'echarts';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
+import GlTooltip from '../../base/tooltip/tooltip.vue';
 import { average, engineeringNotation } from '../../../utils/number_utils';
 import { defaultFontSize } from '../../../utils/charts/config';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '../../../utils/charts/constants';
 
 export default {
   components: {
     GlChartSeriesLabel,
+    GlTooltip,
   },
   props: {
     chart: {
@@ -34,10 +37,28 @@ export default {
       required: false,
       default: 'Avg',
     },
+    currentText: {
+      type: String,
+      required: false,
+      default: 'Current',
+    },
+    minText: {
+      type: String,
+      required: false,
+      default: 'Min',
+    },
     maxText: {
       type: String,
       required: false,
       default: 'Max',
+    },
+    layout: {
+      type: String,
+      required: false,
+      default: LEGEND_LAYOUT_INLINE,
+      validator(layout) {
+        return [LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE].indexOf(layout) !== -1;
+      },
     },
   },
   data() {
@@ -60,6 +81,12 @@ export default {
     seriesMax(seriesData) {
       return engineeringNotation(Math.max(...seriesData));
     },
+    seriesMin(seriesData) {
+      return engineeringNotation(Math.min(...seriesData));
+    },
+    seriesLast(seriesData) {
+      return engineeringNotation(seriesData[seriesData.length - 1]);
+    },
     seriesNameIsLong(seriesName) {
       return seriesName.length > 120;
     },
@@ -81,33 +108,88 @@ export default {
 </script>
 
 <template>
-  <div class="gl-legend">
-    <div
-      v-for="(series, key) in seriesInfo"
-      :key="key"
-      :class="{ 'text-muted': disabledSeries[key], 'w-100': seriesNameIsLong(series.name) }"
-      class="gl-legend-series"
-      :style="fontStyle"
-      role="button"
-      @click="handleClick(series.name, key)"
-      @mouseenter="handleMouseEnter(series.name)"
-      @mouseleave="handleMouseLeave(series.name)"
-    >
-      <gl-chart-series-label
-        :color="getColor(series.color, key)"
-        :type="series.type"
-        class="gl-legend-series-label"
-        :class="{ 'w-75': seriesNameIsLong(series.name) }"
-      >
-        <strong>{{ series.name }}</strong>
-      </gl-chart-series-label>
-      <span
-        v-if="series.data && series.data.length"
-        :class="{ 'w-100 gl-white-space-nowrap': seriesNameIsLong(series.name) }"
-      >
-        {{ averageText }}: {{ seriesAverage(series.data) }} · {{ maxText }}:
-        {{ seriesMax(series.data) }}
-      </span>
-    </div>
+  <div>
+    <template v-if="layout === 'inline'">
+      <div class="gl-legend-inline">
+        <div
+          v-for="(series, key) in seriesInfo"
+          :key="key"
+          :class="{ 'text-muted': disabledSeries[key], 'w-100': seriesNameIsLong(series.name) }"
+          class="gl-legend-inline-series"
+          :style="fontStyle"
+          role="button"
+          @click="handleClick(series.name, key)"
+          @mouseenter="handleMouseEnter(series.name)"
+          @mouseleave="handleMouseLeave(series.name)"
+        >
+          <gl-chart-series-label
+            :color="getColor(series.color, key)"
+            :type="series.type"
+            class="gl-legend-inline-series-label"
+            :class="{ 'w-75': seriesNameIsLong(series.name) }"
+          >
+            <strong>{{ series.name }}</strong>
+          </gl-chart-series-label>
+          <span
+            v-if="series.data && series.data.length"
+            :class="{ 'w-100 gl-white-space-nowrap': seriesNameIsLong(series.name) }"
+          >
+            {{ averageText }}: {{ seriesAverage(series.data) }} · {{ maxText }}:
+            {{ seriesMax(series.data) }}
+          </span>
+        </div>
+      </div>
+    </template>
+
+    <template v-if="layout === 'table'">
+      <div class="gl-legend-tabular" :style="fontStyle">
+        <header class="gl-legend-tabular-header">
+          <div class="gl-legend-tabular-header-cell">{{ minText }}</div>
+          <div class="gl-legend-tabular-header-cell">{{ maxText }}</div>
+          <div class="gl-legend-tabular-header-cell">{{ averageText }}</div>
+          <div class="gl-legend-tabular-header-cell">{{ currentText }}</div>
+        </header>
+        <section class="gl-legend-tabular-body">
+          <div
+            v-for="(series, key) in seriesInfo"
+            :key="key"
+            :class="{ 'text-muted': disabledSeries[key] }"
+            class="gl-legend-tabular-row"
+            :style="fontStyle"
+            role="button"
+            @click="handleClick(series.name, key)"
+            @mouseenter="handleMouseEnter(series.name)"
+            @mouseleave="handleMouseLeave(series.name)"
+          >
+            <div :id="`gl-chart-label-${key}`" class="gl-legend-tabular-title-cell">
+              <gl-chart-series-label
+                :color="getColor(series.color, key)"
+                :style="fontStyle"
+                :type="series.type"
+              >
+                <strong>{{ series.name }}</strong>
+              </gl-chart-series-label>
+            </div>
+
+            <gl-tooltip :target="`gl-chart-label-${key}`" boundary="viewport">{{
+              series.name
+            }}</gl-tooltip>
+
+            <template v-if="series.data && series.data.length">
+              <div class="gl-legend-tabular-details-cell">{{ seriesMin(series.data) }}</div>
+              <div class="gl-legend-tabular-details-cell">{{ seriesMax(series.data) }}</div>
+              <div class="gl-legend-tabular-details-cell">{{ seriesAverage(series.data) }}</div>
+              <div class="gl-legend-tabular-details-cell">{{ seriesLast(series.data) }}</div>
+            </template>
+            <template v-else>
+              <div class="gl-legend-tabular-details-cell">-</div>
+              <div class="gl-legend-tabular-details-cell">-</div>
+              <div class="gl-legend-tabular-details-cell">-</div>
+              <div class="gl-legend-tabular-details-cell">-</div>
+            </template>
+          </div>
+        </section>
+      </div>
+    </template>
   </div>
 </template>

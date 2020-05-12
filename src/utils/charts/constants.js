@@ -31,6 +31,13 @@ export const ANNOTATION_TOOLTIP_TOP_OFFSET = 10;
 export const TOOLTIP_LEFT_OFFSET = 2;
 
 /**
+ * These are the accepted values for the layout prop
+ * of the chart legend component
+ */
+export const LEGEND_LAYOUT_INLINE = 'inline';
+export const LEGEND_LAYOUT_TABLE = 'table';
+
+/**
  * These arrow symbols are used as markPoints under the annotations lines
  * within area and line charts. This icon doesn't exist in the svg
  * library yet. The below issue is to track the progress of the svg icon
