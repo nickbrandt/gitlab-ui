@@ -1,3 +1,10 @@
+# [14.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.7.0...v14.8.0) (2020-05-12)
+
+
+### Features
+
+* **css:** Add border utilties ([b7f0a45](https://gitlab.com/gitlab-org/gitlab-ui/commit/b7f0a45640da4873cb2ff998adf5341120ab891b))
+
 # [14.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.6.1...v14.7.0) (2020-05-12)
 
 
