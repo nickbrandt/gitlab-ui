@@ -5,7 +5,14 @@ import GlTooltip from '../../base/tooltip/tooltip.vue';
 import { average, engineeringNotation } from '../../../utils/number_utils';
 import { defaultFontSize } from '../../../utils/charts/config';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
-import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '../../../utils/charts/constants';
+import {
+  LEGEND_LAYOUT_INLINE,
+  LEGEND_LAYOUT_TABLE,
+  LEGEND_AVERAGE_TEXT,
+  LEGEND_CURRENT_TEXT,
+  LEGEND_MIN_TEXT,
+  LEGEND_MAX_TEXT,
+} from '../../../utils/charts/constants';
 
 export default {
   components: {
@@ -35,22 +42,22 @@ export default {
     averageText: {
       type: String,
       required: false,
-      default: 'Avg',
+      default: LEGEND_AVERAGE_TEXT,
     },
     currentText: {
       type: String,
       required: false,
-      default: 'Current',
+      default: LEGEND_CURRENT_TEXT,
     },
     minText: {
       type: String,
       required: false,
-      default: 'Min',
+      default: LEGEND_MIN_TEXT,
     },
     maxText: {
       type: String,
       required: false,
-      default: 'Max',
+      default: LEGEND_MAX_TEXT,
     },
     layout: {
       type: String,

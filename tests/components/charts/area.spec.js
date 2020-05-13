@@ -2,6 +2,9 @@ import { shallowMount } from '@vue/test-utils';
 
 import AreaChart from '../../../src/components/charts/area/area.vue';
 import Chart from '../../../src/components/charts/chart/chart.vue';
+import ChartLegend from '../../../src/components/charts/legend/legend.vue';
+
+import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '../../../src/utils/charts/constants';
 
 let mockChartInstance;
 
@@ -14,11 +17,17 @@ describe('area component', () => {
   let options;
 
   const findChart = () => wrapper.find(Chart);
+  const findLegend = () => wrapper.find(ChartLegend);
   const findDataTooltip = () => wrapper.find({ ref: 'dataTooltip' });
   const findAnnotationsTooltip = () => wrapper.find({ ref: 'annotationsTooltip' });
   const getOptions = () => findChart().props('options');
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
+
+  const createShallowWrapper = (props = {}) => {
+    wrapper = shallowMount(AreaChart, { propsData: { options, data: [], ...props } });
+    emitChartCreated();
+  };
 
   beforeEach(() => {
     options = {
@@ -39,11 +48,6 @@ describe('area component', () => {
         return options;
       },
     };
-
-    wrapper = shallowMount(AreaChart, { propsData: { options, data: [] } });
-    emitChartCreated();
-
-    return wrapper.vm.$nextTick();
   });
 
   afterEach(() => {
@@ -51,19 +55,25 @@ describe('area component', () => {
   });
 
   it('emits `created`, with the chart instance', () => {
-    expect(wrapper.emitted('created').length).toBe(1);
-    expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
+    createShallowWrapper();
+
+    return wrapper.vm.$nextTick(() => {
+      expect(wrapper.emitted('created').length).toBe(1);
+      expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
+    });
   });
 
   describe('Annotations tooltips', () => {
     it('are hidden by default ', () => {
+      createShallowWrapper();
+
       return wrapper.vm.$nextTick(() => {
         expect(findAnnotationsTooltip().exists()).toBe(false);
       });
     });
 
     it('are displayed if passed via annotations props ', () => {
-      wrapper.setProps({
+      createShallowWrapper({
         annotations: [
           {
             min: '',
@@ -71,13 +81,14 @@ describe('area component', () => {
           },
         ],
       });
+
       return wrapper.vm.$nextTick(() => {
         expect(findAnnotationsTooltip().exists()).toBe(true);
       });
     });
 
     it('are displayed if passed via option props ', () => {
-      wrapper.setProps({
+      createShallowWrapper({
         option: {
           series: [
             {
@@ -94,6 +105,7 @@ describe('area component', () => {
           ],
         },
       });
+
       return wrapper.vm.$nextTick(() => {
         expect(findAnnotationsTooltip().exists()).toBe(true);
       });
@@ -115,7 +127,7 @@ describe('area component', () => {
         },
       };
 
-      wrapper.setProps({
+      createShallowWrapper({
         annotations: [
           {
             min: '',
@@ -134,6 +146,10 @@ describe('area component', () => {
   });
 
   describe('tooltip position', () => {
+    beforeEach(() => {
+      createShallowWrapper();
+    });
+
     it('is initialized', () => {
       expect(findDataTooltip().props('left')).toBe('0');
       expect(findDataTooltip().props('top')).toBe('0');
@@ -157,6 +173,36 @@ describe('area component', () => {
 
         expect(findDataTooltip().props('left')).toBe(`${pixel[0]}px`);
         expect(findDataTooltip().props('top')).toBe(`${pixel[1]}px`);
+      });
+    });
+  });
+
+  describe('legend', () => {
+    it('is inline by default', () => {
+      createShallowWrapper();
+
+      return wrapper.vm.$nextTick(() => {
+        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
+      });
+    });
+
+    it('is inline if correct prop value is set', () => {
+      createShallowWrapper({
+        legendLayout: LEGEND_LAYOUT_INLINE,
+      });
+
+      return wrapper.vm.$nextTick(() => {
+        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
+      });
+    });
+
+    it('is tabular if correct prop value is set', () => {
+      createShallowWrapper({
+        legendLayout: LEGEND_LAYOUT_TABLE,
+      });
+
+      return wrapper.vm.$nextTick(() => {
+        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
       });
     });
   });

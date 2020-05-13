@@ -33,7 +33,15 @@ import defaultChartOptions, {
 } from '../../../utils/charts/config';
 import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import { ANNOTATION_TOOLTIP_TOP_OFFSET } from '../../../utils/charts/constants';
+import {
+  ANNOTATION_TOOLTIP_TOP_OFFSET,
+  LEGEND_LAYOUT_INLINE,
+  LEGEND_LAYOUT_TABLE,
+  LEGEND_AVERAGE_TEXT,
+  LEGEND_CURRENT_TEXT,
+  LEGEND_MIN_TEXT,
+  LEGEND_MAX_TEXT,
+} from '../../../utils/charts/constants';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
@@ -84,12 +92,30 @@ export default {
     legendAverageText: {
       type: String,
       required: false,
-      default: 'Avg',
+      default: LEGEND_AVERAGE_TEXT,
     },
     legendMaxText: {
       type: String,
       required: false,
-      default: 'Max',
+      default: LEGEND_MAX_TEXT,
+    },
+    legendMinText: {
+      type: String,
+      required: false,
+      default: LEGEND_MIN_TEXT,
+    },
+    legendCurrentText: {
+      type: String,
+      required: false,
+      default: LEGEND_CURRENT_TEXT,
+    },
+    legendLayout: {
+      type: String,
+      required: false,
+      default: LEGEND_LAYOUT_INLINE,
+      validator(layout) {
+        return [LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE].indexOf(layout) !== -1;
+      },
     },
   },
   data() {
@@ -367,8 +393,11 @@ export default {
       :style="legendStyle"
       :series-info="seriesInfo"
       :text-style="compiledOptions.textStyle"
-      :average-text="legendAverageText"
+      :min-text="legendMinText"
       :max-text="legendMaxText"
+      :average-text="legendAverageText"
+      :current-text="legendCurrentText"
+      :layout="legendLayout"
     />
   </div>
 </template>
