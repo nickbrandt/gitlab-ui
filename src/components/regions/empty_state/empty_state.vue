@@ -1,10 +1,9 @@
 <script>
-// TODO: Update the button
-import GlDeprecatedButton from '../../base/deprecated_button/deprecated_button.vue';
+import GlButton from '../../base/button/button.vue';
 
 export default {
   components: {
-    GlDeprecatedButton,
+    GlButton,
   },
   props: {
     title: {
@@ -77,18 +76,15 @@ export default {
         </p>
         <div>
           <slot name="actions">
-            <gl-deprecated-button
+            <gl-button
               v-if="shouldRenderPrimaryButton"
               variant="success"
               :href="primaryButtonLink"
-              >{{ primaryButtonText }}</gl-deprecated-button
+              >{{ primaryButtonText }}</gl-button
             >
-            <gl-deprecated-button
-              v-if="shouldRenderSecondaryButton"
-              variant="outline-success"
-              :href="secondaryButtonLink"
-              >{{ secondaryButtonText }}</gl-deprecated-button
-            >
+            <gl-button v-if="shouldRenderSecondaryButton" :href="secondaryButtonLink">{{
+              secondaryButtonText
+            }}</gl-button>
           </slot>
         </div>
       </div>
