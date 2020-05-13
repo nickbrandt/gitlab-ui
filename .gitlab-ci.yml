@@ -34,21 +34,25 @@ include:
 
 # Ensure that the scanning is only executed on MRs and master
 # This potentially can be made obsolete once:
-# https://gitlab.com/groups/gitlab-org/-/epics/2300 lands
+# https://gitlab.com/gitlab-org/gitlab/-/issues/217668 lands
 .secure-jobs-config: &secure-jobs-config
   needs: []
-  only:
-    refs:
-      - master@gitlab-org/gitlab-ui
-      - merge_requests@gitlab-org/gitlab-ui
+  rules:
+    - when: always
 
-.ds-analyzer:
+retire-js-dependency_scanning:
+  <<: *secure-jobs-config
+
+gemnasium-dependency_scanning:
   <<: *secure-jobs-config
 
 license_scanning:
   <<: *secure-jobs-config
 
-.sast-analyzer:
+eslint-sast:
+  <<: *secure-jobs-config
+
+nodejs-scan-sast:
   <<: *secure-jobs-config
 
 .puppeteer:
