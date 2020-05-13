@@ -1,16 +1,7 @@
 <script>
 import GlDeprecatedButton from '../../base/deprecated_button/deprecated_button.vue';
 
-const textBreaks = el => {
-  const originalWhiteSpace = el.style.whiteSpace;
-  const blockHeight = el.offsetHeight;
-  el.style.whiteSpace = 'nowrap';
-
-  const lineHeight = el.offsetHeight;
-  el.style.whiteSpace = originalWhiteSpace;
-
-  return blockHeight > lineHeight;
-};
+const textBreaks = el => el.getClientRects().length > 1;
 
 export default {
   components: {
