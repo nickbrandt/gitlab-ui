@@ -1,3 +1,10 @@
+## [14.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.8.0...v14.8.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* **GlFormGroup:** Remove border-bottom ([d212ea9](https://gitlab.com/gitlab-org/gitlab-ui/commit/d212ea93137b3233771a587ce54e591921bfc3b1))
+
 # [14.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.7.0...v14.8.0) (2020-05-12)
 
 
