@@ -18,7 +18,20 @@ In all other cases, please use the directive.
 ~~~
 
 **Using the directive**
+
+You will need to import and register `GlTooltipDirective` before you can use it.
+
 ~~~js
+<script>
+import { GlTooltipDirective } from '@gitlab/ui';
+
+export default {
+  directives: {
+    GlTooltip: GlTooltipDirective,
+  },
+};
+</script>
+
 <element
   v-gl-tooltip.${modifier}
   title="some tooltip text"
