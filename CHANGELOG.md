@@ -1,3 +1,10 @@
+## [14.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.10.0...v14.10.1) (2020-05-14)
+
+
+### Bug Fixes
+
+* **GlTextArea:** Fix form input readonly styles ([7f1e9a2](https://gitlab.com/gitlab-org/gitlab-ui/commit/7f1e9a28d3214bd2f75d905a2154370c76d49b0c))
+
 # [14.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.9.0...v14.10.0) (2020-05-14)
 
 
