@@ -27,7 +27,16 @@ tests. You can find it in last stage of
 [GitLab UI CI pipeline](https://gitlab.com/gitlab-org/gitlab-ui/pipelines).
 This CI job commits the baseline snapshot images to the merge request branch.
 
-![Update screenshots CI job location](../images/update_screenshots.png "Update screenshots CI job location")
+![Update screenshots CI job location](../images/update_screenshots.png 'Update screenshots CI job location')
+
+#### How to keep merge requests small
+
+New components are usually introduced in a single, large MR.
+
+You can make the review process easier by creating a primary branch and MR along with subsequent
+smaller branches and MRs.
+The smaller MRs will target the primary branch allowing for review to
+take place against each smaller MR individually.
 
 ## Working on a Pajamas-documented component
 
@@ -49,9 +58,9 @@ new version of GitLab UI is released. There are several reasons to do that, such
 changes introduced by the component.
 
 After creating the new component’s Merge Request and the CI pipeline passes, run the
-`create_integration_branch` [manual CI job](https://gitlab.com/gitlab-org/gitlab-ui/pipelines). 
+`create_integration_branch` [manual CI job](https://gitlab.com/gitlab-org/gitlab-ui/pipelines).
 
-![Create integration branch CI job location](../images/create_integration_branch.png "Create integration branch CI job location")
+![Create integration branch CI job location](../images/create_integration_branch.png 'Create integration branch CI job location')
 
 This job creates or updates a branch in
 [GitLab](https://gitlab.com/gitlab-org/gitlab) and replace the stable version of GitLab UI in
@@ -59,7 +68,7 @@ the master branch with the package built by the `build_package` CI job in the ne
 Merge Request. You would then only need to create a new Merge Request from that branch by
 following the link at the end of the `create_integration_branch` job's output.
 
-![Integration branch link location](../images/integration_branch_job_log.png "Integration branch link location")
+![Integration branch link location](../images/integration_branch_job_log.png 'Integration branch link location')
 
 Once you create the GitLab integration Merge Request, create a note in the GitLab UI Merge Request with
 a link pointing to it. In that way, the code reviewers can use the integration Merge Request to run their
