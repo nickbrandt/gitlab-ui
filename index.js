@@ -10,6 +10,7 @@ setConfigs();
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlNavItemDropdown } from './src/components/base/nav/nav_item_dropdown.vue';
 export { default as GlNav } from './src/components/base/nav/nav.vue';
 export { default as GlNavItem } from './src/components/base/nav/nav_item.vue';
 export { default as GlFormCheckboxTree } from './src/components/base/form/form_checkbox_tree/form_checkbox_tree.vue';
