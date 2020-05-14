@@ -16,6 +16,10 @@ $label-max-width: 100%;
     @include gl-reset-color;
     @include gl-max-w-full;
 
+    &:focus {
+      @include gl-text-decoration-underline;
+    }
+
     &:hover {
       @include gl-reset-text-decoration-color;
     }
