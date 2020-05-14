@@ -31,6 +31,13 @@ export default {
         maxHeight: this.maxListHeight ? `${this.maxListHeight}px` : 'auto',
       };
     },
+    legendText() {
+      if (this.totalItems > 0) {
+        return `Showing ${this.fetchedItems} of ${this.totalItems} items`;
+      }
+
+      return `Showing ${this.fetchedItems} items`;
+    },
   },
   watch: {
     fetchedItems(newVal, oldVal) {
@@ -141,7 +148,7 @@ export default {
     </div>
     <p class="gl-infinite-scroll-legend">
       <slot :fetched-items="fetchedItems" :total-items="totalItems">
-        Showing {{ fetchedItems }} of {{ totalItems }} items
+        {{ legendText }}
       </slot>
     </p>
   </div>

@@ -139,9 +139,28 @@ describe('Infinite Scroll component', () => {
     });
   });
 
-  it('displays the given number of items fetched and the total items', () => {
-    createComponent();
-    expect(wrapper.text()).toContain('Showing 2 of 10 items');
+  describe('the legend', () => {
+    describe.each`
+      totalItems   | expectedLegend
+      ${99}        | ${'Showing 2 of 99 items'}
+      ${2}         | ${'Showing 2 of 2 items'}
+      ${0}         | ${'Showing 2 items'}
+      ${-1}        | ${'Showing 2 items'}
+      ${undefined} | ${'Showing 2 items'}
+    `('given $totalItems total items', ({ totalItems, expectedLegend }) => {
+      beforeEach(() => {
+        createComponent({
+          propsData: {
+            fetchedItems: 2,
+            totalItems,
+          },
+        });
+      });
+
+      it('displays the expected text', () => {
+        expect(wrapper.text()).toContain(expectedLegend);
+      });
+    });
   });
 
   describe('public methods via $ref', () => {
