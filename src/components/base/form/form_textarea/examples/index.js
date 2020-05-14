@@ -1,6 +1,7 @@
 import FormTextAreaBasic from './form_textarea.basic.example.vue';
 import FormTextAreaInvalid from './form_textarea.invalid.example.vue';
 import FormTextAreaPlaintext from './form_textarea.plaintext.example.vue';
+import FormTextReadOnlytext from './form_textarea.readonly.example.vue';
 
 export default [
   {
@@ -23,6 +24,12 @@ export default [
         name: 'Plaintext',
         description: 'Plaintext Form Textarea',
         component: FormTextAreaPlaintext,
+      },
+      {
+        id: 'form-textarea-readonly',
+        name: 'Read Only',
+        description: 'Read Only Form Textarea',
+        component: FormTextReadOnlytext,
       },
     ],
   },
