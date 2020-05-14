@@ -1,3 +1,11 @@
+# [14.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.8.1...v14.9.0) (2020-05-14)
+
+
+### Features
+
+* **nav:** Add GlNavItemDropdown component ([c011b64](https://gitlab.com/gitlab-org/gitlab-ui/commit/c011b64fc84cdd753b41a9da91604cf7b3ce5326))
+* **nav:** Add GlNavItemDropdown component ([21adf07](https://gitlab.com/gitlab-org/gitlab-ui/commit/21adf073b620b627215ccbab7df418273e16b18e))
+
 ## [14.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.8.0...v14.8.1) (2020-05-13)
 
 
