@@ -1,3 +1,10 @@
+# [14.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.9.0...v14.10.0) (2020-05-14)
+
+
+### Features
+
+* **css:** Add flex-direction-row responsive utilities ([9460fc5](https://gitlab.com/gitlab-org/gitlab-ui/commit/9460fc5edde5629c3013685acb21420ea025d012))
+
 # [14.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.8.1...v14.9.0) (2020-05-14)
 
 
