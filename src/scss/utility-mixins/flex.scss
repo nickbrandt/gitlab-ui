@@ -21,6 +21,24 @@
   flex-direction: row;
 }
 
+@mixin gl-sm-flex-direction-row {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-flex-direction-row;
+  }
+}
+
+@mixin gl-md-flex-direction-row {
+  @media (min-width: $breakpoint-md) {
+    @include gl-flex-direction-row;
+  }
+}
+
+@mixin gl-lg-flex-direction-row {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-flex-direction-row;
+  }
+}
+
 @mixin gl-flex-direction-row-reverse {
   flex-direction: row-reverse;
 }
