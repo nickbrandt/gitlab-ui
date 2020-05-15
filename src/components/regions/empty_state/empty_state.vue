@@ -1,20 +1,9 @@
 <script>
-import GlDeprecatedButton from '../../base/deprecated_button/deprecated_button.vue';
-
-const textBreaks = el => {
-  const originalWhiteSpace = el.style.whiteSpace;
-  const blockHeight = el.offsetHeight;
-  el.style.whiteSpace = 'nowrap';
-
-  const lineHeight = el.offsetHeight;
-  el.style.whiteSpace = originalWhiteSpace;
-
-  return blockHeight > lineHeight;
-};
+import GlButton from '../../base/button/button.vue';
 
 export default {
   components: {
-    GlDeprecatedButton,
+    GlButton,
   },
   props: {
     title: {
@@ -57,20 +46,7 @@ export default {
       default: false,
     },
   },
-  data: () => ({
-    titleBreaks: false,
-    descriptionBreaks: false,
-  }),
   computed: {
-    fullscreen() {
-      return !this.compact;
-    },
-    centerTitle() {
-      return !this.compact && !this.titleBreaks;
-    },
-    centerDescription() {
-      return this.centerTitle && !this.descriptionBreaks;
-    },
     shouldRenderPrimaryButton() {
       return Boolean(this.primaryButtonLink && this.primaryButtonText);
     },
@@ -80,50 +56,38 @@ export default {
       );
     },
   },
-  mounted() {
-    const { title, description } = this.$refs;
-    this.titleBreaks = title && textBreaks(title);
-    this.descriptionBreaks = description && textBreaks(description);
-  },
 };
 </script>
 
 <template>
-  <div class="row" :class="{ 'empty-state': fullscreen }">
-    <div :class="fullscreen ? 'col-12' : 'col-3 d-none d-sm-block'">
-      <div v-if="svgPath" :class="{ 'svg-content': fullscreen }" class="svg-250">
-        <img :src="svgPath" :alt="title" :class="{ 'mw-100': compact }" />
+  <section class="row" :class="{ 'empty-state text-center': !compact }">
+    <div :class="{ 'col-3 d-none d-sm-block': compact, 'col-12': !compact }">
+      <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
+        <img :src="svgPath" :alt="title" class="gl-max-w-full" />
       </div>
     </div>
-    <div :class="fullscreen ? 'col-12' : 'col-sm-9'">
-      <div class="text-content">
-        <h4 ref="title" :class="{ center: centerTitle, h5: compact }">{{ title }}</h4>
-        <p
-          v-if="description || $slots.description"
-          ref="description"
-          :class="{ center: centerDescription }"
-        >
+    <div :class="compact ? 'col-sm-9' : 'col-12'">
+      <div class="text-content gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
+        <h1 ref="title" :class="compact ? 'h5' : 'h4'">{{ title }}</h1>
+        <p v-if="description || $slots.description" ref="description">
           <slot name="description">
             {{ description }}
           </slot>
         </p>
-        <div :class="{ 'text-center': fullscreen }">
+        <div>
           <slot name="actions">
-            <gl-deprecated-button
+            <gl-button
               v-if="shouldRenderPrimaryButton"
               variant="success"
               :href="primaryButtonLink"
-              >{{ primaryButtonText }}</gl-deprecated-button
+              >{{ primaryButtonText }}</gl-button
             >
-            <gl-deprecated-button
-              v-if="shouldRenderSecondaryButton"
-              variant="outline-success"
-              :href="secondaryButtonLink"
-              >{{ secondaryButtonText }}</gl-deprecated-button
-            >
+            <gl-button v-if="shouldRenderSecondaryButton" :href="secondaryButtonLink">{{
+              secondaryButtonText
+            }}</gl-button>
           </slot>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>

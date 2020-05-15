@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import EmptyState from '../../../src/components/regions/empty_state/empty_state.vue';
-import Button from '../../../src/components/base/deprecated_button/deprecated_button.vue';
+import Button from '../../../src/components/base/button/button.vue';
 
 describe('empty state component', () => {
   let component;
@@ -26,7 +26,7 @@ describe('empty state component', () => {
     });
 
     it('should render the title', () => {
-      const title = component.find('h4');
+      const title = component.find('h1');
       expect(title.text()).toEqual(props.title);
     });
 
