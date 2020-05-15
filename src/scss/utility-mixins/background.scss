@@ -14,6 +14,10 @@
   background-color: $white;
 }
 
+@mixin gl-bg-black {
+  background-color: $black;
+}
+
 @mixin gl-reset-bg {
   background-color: inherit;
 }

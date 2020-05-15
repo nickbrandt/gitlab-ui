@@ -1,6 +1,7 @@
 <script>
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
+import GlIcon from '../icon/icon.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { colorFromBackground } from '../../../utils/utils';
 
@@ -9,10 +10,16 @@ const titleColorClassMap = {
   [labelColorOptions.light]: 'gl-label-text-light',
 };
 
+const backgroundCloseColorStyleMap = {
+  [labelColorOptions.dark]: 'gl-label-close-dark',
+  [labelColorOptions.light]: 'gl-label-close-light',
+};
+
 export default {
   components: {
     GlLink,
     GlTooltip,
+    GlIcon,
   },
   props: {
     backgroundColor: {
@@ -50,10 +57,21 @@ export default {
       required: false,
       default: false,
     },
+    scopedLabelsDocumentationLink: {
+      type: String,
+      required: false,
+      default: '#',
+    },
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
       splitScopedLabelIndex: this.title.lastIndexOf('::'),
+      closeHover: false,
     };
   },
   computed: {
@@ -84,6 +102,39 @@ export default {
         }`,
       };
     },
+    closeButtonContainerStyle() {
+      if (this.scoped) {
+        return {
+          color: this.scopedValueColor,
+        };
+      }
+
+      return {
+        backgroundColor: this.backgroundColor,
+      };
+    },
+    closeButtonClass() {
+      return backgroundCloseColorStyleMap[colorFromBackground(this.backgroundColor)];
+    },
+    closeButtonStyle() {
+      if (!this.closeHover) {
+        return {};
+      }
+
+      let backgroundColor;
+      let color;
+
+      if (this.scoped) {
+        backgroundColor = this.scopedValueColor;
+      } else {
+        color = this.backgroundColor;
+      }
+
+      return {
+        backgroundColor,
+        color,
+      };
+    },
   },
   watch: {
     title() {
@@ -103,15 +154,32 @@ export default {
     @click="$emit('click', $event)"
   >
     <gl-link :href="target" class="gl-label-link">
-      <span class="gl-label-text" :style="{ backgroundColor }">{{ scopedKey }}</span>
+      <span class="gl-label-text-container">
+        <span class="gl-label-text" :style="{ backgroundColor }">{{ scopedKey }}</span>
+        <span
+          v-if="scoped && scopedValue"
+          class="gl-label-text"
+          :style="{
+            color: scopedValueColor,
+          }"
+        >
+          {{ scopedValue }}
+        </span>
+      </span>
       <span
-        v-if="scoped && scopedValue"
-        class="gl-label-text"
-        :style="{
-          color: scopedValueColor,
-        }"
+        v-if="!viewOnly"
+        :style="closeButtonContainerStyle"
+        data-testid="close-button"
+        @click="$emit('close', $event)"
       >
-        {{ scopedValue }}
+        <gl-icon
+          class="gl-label-close"
+          name="close"
+          :class="closeButtonClass"
+          :style="closeButtonStyle"
+          @mouseover="closeHover = true"
+          @mouseleave="closeHover = false"
+        />
       </span>
     </gl-link>
     <gl-tooltip

@@ -2,11 +2,13 @@ import { shallowMount } from '@vue/test-utils';
 import Label from './label.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
+import GlIcon from '../icon/icon.vue';
 
 // Light color
 const grey = {
   hex: '#CCCCCC',
   rgb: 'rgb(204, 204, 204)',
+  rgba: 'rgba(204, 204, 204, 0.3)',
 };
 // Dark color
 const navy = {
@@ -99,6 +101,47 @@ describe('Label component', () => {
 
       expect(wrapper.find(GlLink).attributes('href')).toEqual(props.target);
     });
+
+    describe('close button', () => {
+      it('does not render by default', () => {
+        createComponent({ ...defaultProps });
+
+        expect(wrapper.find(GlIcon).exists()).toBe(false);
+      });
+
+      it('renders when viewOnly is false', () => {
+        const props = { ...defaultProps, viewOnly: false };
+
+        createComponent(props);
+
+        expect(wrapper.find(GlIcon).exists()).toBe(true);
+      });
+
+      it('has a dark background when text is light', () => {
+        const props = { ...defaultProps, viewOnly: false };
+
+        createComponent(props);
+
+        expect(wrapper.find(GlIcon).classes()).toContain('gl-label-close-dark');
+      });
+
+      it('has a light background when text is dark', () => {
+        const props = { ...defaultProps, viewOnly: false, backgroundColor: navy.hex };
+
+        createComponent(props);
+
+        expect(wrapper.find(GlIcon).classes()).toContain('gl-label-close-light');
+      });
+
+      it('emits close when "x" is clicked', () => {
+        const props = { ...defaultProps, viewOnly: false };
+
+        createComponent(props);
+
+        wrapper.find('[data-testid="close-button"]').trigger('click');
+        expect(wrapper.emitted().close).toBeTruthy();
+      });
+    });
   });
 
   describe('basic label with scoped title', () => {
@@ -180,6 +223,31 @@ describe('Label component', () => {
       createComponent(props);
       expect(findTitle().text()).toEqual('one::two');
       expect(findSubTitle().text()).toEqual('three');
+    });
+
+    describe('close button', () => {
+      it('does not render by default', () => {
+        const props = { ...scopedProps };
+        createComponent(props);
+
+        expect(wrapper.find(GlIcon).exists()).toBe(false);
+      });
+
+      it('renders when viewOnly is false', () => {
+        const props = { ...scopedProps, viewOnly: false };
+        createComponent(props);
+
+        expect(wrapper.find(GlIcon).exists()).toBe(true);
+      });
+
+      it('shows backgroundColor when hovered', async () => {
+        const props = { ...scopedProps, backgroundColor: navy.rgb, viewOnly: false };
+        createComponent(props);
+        wrapper.setData({ closeHover: true });
+
+        await wrapper.vm.$nextTick();
+        expect(wrapper.find(GlIcon).attributes('style')).toContain(`background-color: ${navy.rgb}`);
+      });
     });
   });
 });
