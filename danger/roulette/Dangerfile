@@ -86,7 +86,7 @@ if changes.any?
 
   #  Add component-specific UX reviewers
   component_labels.each do |label|
-    ux_teammates = helper.ux_reviewers_for_label(label).map { |username| roulette.teammate_with_username(username) }
+    ux_teammates = helper.ux_reviewers_for_label(label).map { |username| roulette.teammate_with_username(username) }.compact
     ux_reviewer = roulette.spin_for_person(ux_teammates, random: random)
     component_ux_row = {
       "label": "~\"#{label}\"",
