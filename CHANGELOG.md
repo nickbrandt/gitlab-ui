@@ -1,3 +1,10 @@
+## [14.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.11.0...v14.11.1) (2020-05-15)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** fix x-axis padding ([9d4ed9f](https://gitlab.com/gitlab-org/gitlab-ui/commit/9d4ed9f2e65b139a8d6393583a2dd99f4f4676a0))
+
 # [14.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.10.2...v14.11.0) (2020-05-15)
 
 
