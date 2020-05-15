@@ -60,8 +60,8 @@ export default {
 </script>
 
 <template>
-  <section class="row" :class="{ 'empty-state': !compact, 'text-center': !compact }">
-    <div :class="compact ? 'col-3 d-none d-sm-block' : 'col-12'">
+  <section class="row" :class="{ 'empty-state text-center': !compact }">
+    <div :class="{ 'col-3 d-none d-sm-block': compact, 'col-12': !compact }">
       <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
         <img :src="svgPath" :alt="title" class="gl-max-w-full" />
       </div>
