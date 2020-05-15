@@ -1,3 +1,10 @@
+## [14.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.10.1...v14.10.2) (2020-05-15)
+
+
+### Bug Fixes
+
+* uses the new buttons in empty states ([6f754ff](https://gitlab.com/gitlab-org/gitlab-ui/commit/6f754ff948e1b491b5ea9a32a8daf317d66d75e5))
+
 ## [14.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.10.0...v14.10.1) (2020-05-14)
 
 
