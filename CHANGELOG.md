@@ -1,3 +1,10 @@
+# [14.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.10.2...v14.11.0) (2020-05-15)
+
+
+### Features
+
+* **charts:** add tabular legend layout support to charts ([512d6b3](https://gitlab.com/gitlab-org/gitlab-ui/commit/512d6b3cd203c4495b7ee17b3805f1ffca52f10a))
+
 ## [14.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.10.1...v14.10.2) (2020-05-15)
 
 
