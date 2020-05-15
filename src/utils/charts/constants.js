@@ -38,6 +38,14 @@ export const LEGEND_LAYOUT_INLINE = 'inline';
 export const LEGEND_LAYOUT_TABLE = 'table';
 
 /**
+ * Default values for the chart legend field labels
+ */
+export const LEGEND_AVERAGE_TEXT = 'Avg';
+export const LEGEND_CURRENT_TEXT = 'Current';
+export const LEGEND_MIN_TEXT = 'Min';
+export const LEGEND_MAX_TEXT = 'Max';
+
+/**
  * These arrow symbols are used as markPoints under the annotations lines
  * within area and line charts. This icon doesn't exist in the svg
  * library yet. The below issue is to track the progress of the svg icon
