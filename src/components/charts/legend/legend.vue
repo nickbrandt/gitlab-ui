@@ -117,8 +117,8 @@ export default {
 <template>
   <div>
     <template v-if="layout === 'inline'">
-      <div class="gl-legend-inline" data-qa-selector="chart-legend">
-      <div
+      <div class="gl-legend-inline" data-testid="chart-legend">
+        <div
           v-for="(series, key) in seriesInfo"
           :key="key"
           :class="{ 'text-muted': disabledSeries[key], 'w-100': seriesNameIsLong(series.name) }"
