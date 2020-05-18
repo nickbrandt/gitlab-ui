@@ -1,3 +1,10 @@
+## [14.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.11.1...v14.11.2) (2020-05-18)
+
+
+### Bug Fixes
+
+* **label:** Make dark scoped label text compatible with dark theme ([ec88fc0](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec88fc09b5e62a6158552995fe3de95241f21d96))
+
 ## [14.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.11.0...v14.11.1) (2020-05-15)
 
 
