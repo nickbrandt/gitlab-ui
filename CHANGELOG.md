@@ -1,3 +1,11 @@
+# [14.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.12.1...v14.13.0) (2020-05-18)
+
+
+### Features
+
+* **css:** Expose gl-border-r-2 class ([6600c9a](https://gitlab.com/gitlab-org/gitlab-ui/commit/6600c9a3bb454bf52aeb1a78b8708d9673e56ce5))
+* **css:** Expose some data viz color utility classes ([3615162](https://gitlab.com/gitlab-org/gitlab-ui/commit/3615162312700efd4965444f246a197754f3097c))
+
 ## [14.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.12.0...v14.12.1) (2020-05-18)
 
 
