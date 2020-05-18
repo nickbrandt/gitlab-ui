@@ -154,10 +154,10 @@ describe('Label component', () => {
       expect(findSubTitle().attributes('style')).toContain(`color: ${navy.rgb}`);
     });
 
-    it('renders the right side color as black if background color is light', () => {
+    it('inherits text color from parent if background color is light', () => {
       createComponent({ ...scopedProps, color: grey.hex });
 
-      expect(findSubTitle().attributes('style')).toContain('rgb(51, 51, 51)');
+      expect(findSubTitle().classes()).toEqual(['gl-label-text']);
     });
 
     it('renders the label description', () => {

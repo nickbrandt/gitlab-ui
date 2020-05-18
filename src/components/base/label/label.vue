@@ -3,7 +3,6 @@ import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { colorFromBackground } from '../../../utils/utils';
-import { blackNormal } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 const titleColorClassMap = {
   [labelColorOptions.dark]: 'gl-label-text-dark',
@@ -79,9 +78,9 @@ export default {
       return this.title.slice(this.splitScopedLabelIndex + 2);
     },
     scopedValueColor() {
-      return colorFromBackground(this.backgroundColor) === 'dark'
-        ? blackNormal
-        : this.backgroundColor;
+      return colorFromBackground(this.backgroundColor) === labelColorOptions.light
+        ? this.backgroundColor
+        : undefined;
     },
     boxShadow() {
       return {
