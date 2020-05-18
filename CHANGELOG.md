@@ -1,3 +1,10 @@
+# [14.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.11.2...v14.12.0) (2020-05-18)
+
+
+### Features
+
+* **css:** Expose gl-h-2 utility class ([2300ab6](https://gitlab.com/gitlab-org/gitlab-ui/commit/2300ab68ac58dbb08a10aabc12841b47d9bbfca2))
+
 ## [14.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.11.1...v14.11.2) (2020-05-18)
 
 
