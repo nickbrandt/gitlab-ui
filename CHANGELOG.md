@@ -1,3 +1,10 @@
+## [14.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.12.0...v14.12.1) (2020-05-18)
+
+
+### Bug Fixes
+
+* **GlLegend:** Add stable test selector ([c8f2d48](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8f2d4873a583cd842aff722ebd40a6aaf9ee436))
+
 # [14.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.11.2...v14.12.0) (2020-05-18)
 
 
