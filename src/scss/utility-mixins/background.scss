@@ -210,6 +210,26 @@
   background-color: $theme-red-900;
 }
 
+@mixin gl-bg-data-viz-blue-500 {
+  background-color: $data-viz-blue-500;
+}
+
+@mixin gl-bg-data-viz-orange-600 {
+  background-color: $data-viz-orange-600;
+}
+
+@mixin gl-bg-data-viz-acqua-500 {
+  background-color: $data-viz-aqua-500;
+}
+
+@mixin gl-bg-data-viz-green-600 {
+  background-color: $data-viz-green-600;
+}
+
+@mixin gl-bg-data-viz-magenta-500 {
+  background-color: $data-viz-magenta-500;
+}
+
 @mixin gl-bg-none {
   background: none;
 }
