@@ -73,6 +73,10 @@
   height: 0;
 }
 
+@mixin gl-h-2 {
+  height: $gl-spacing-scale-2;
+}
+
 @mixin gl-h-3 {
   height: $gl-spacing-scale-3;
 }
