@@ -58,6 +58,9 @@ export default {
     hide(...args) {
       this.$refs.dropdown.hide(...args);
     },
+    show(...args) {
+      this.$refs.dropdown.show(...args);
+    },
   },
 };
 </script>
