@@ -1,3 +1,10 @@
+## [14.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.13.0...v14.13.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* **Link:** Add support to allow only safe urls ([85b2ae1](https://gitlab.com/gitlab-org/gitlab-ui/commit/85b2ae1f86bb59bc2639d90b87e2c1e3cea73bb4))
+
 # [14.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.12.1...v14.13.0) (2020-05-18)
 
 
