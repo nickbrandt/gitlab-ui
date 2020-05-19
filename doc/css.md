@@ -43,6 +43,13 @@ To view a complete list of variables, see [variables.scss](/src/scss/variables.s
 
 GitLab utility classes and mixins are based on GitLab's [design system guidelines](https://design.gitlab.com/).
 
+## Utility class specifity
+
+GitLab UI utility classes are not marked as `!important` by default. If you have to use
+a utility class to overwrite CSS with high specificity, we provide `!important` versions
+of every utility class. Those alternatives are suffixed with `!`, for example:
+ `gl-display-flex` vs `gl-display-flex!`.
+
 ### Utility classes CSS bundle
 
 To include all utility classes without including GitLab UI components’ styles, import the base `utilities.scss` file and its dependencies:

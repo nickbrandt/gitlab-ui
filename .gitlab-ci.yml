@@ -207,7 +207,7 @@ lint:
       || echo "No Vue component contains <style tags"
 
 generate_utility_classes:
-  extends: [.node]
+  extends: [.node, '.yarn_install']
   needs: []
   stage: test
   script:
