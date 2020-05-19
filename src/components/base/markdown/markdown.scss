@@ -129,3 +129,83 @@
     }
   }
 }
+
+.gl-compact-markdown {
+  @include gl-font-base;
+  @include gl-line-height-20;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .gl-h1,
+  .gl-h2,
+  .gl-h3,
+  .gl-h4,
+  .gl-h5,
+  .gl-h6 {
+    @include gl-mt-6;
+    @include gl-mb-3;
+    @include gl-line-height-20;
+  }
+
+  h1,
+  .gl-h1,
+  h2,
+  .gl-h2 {
+    @include gl-pb-0;
+    @include gl-border-none;
+  }
+
+  h1,
+  .gl-h1 {
+    @include gl-font-size-compact-markdown-h1;
+    @include gl-line-height-24;
+    @include gl-fluid-font-size(
+      $min: $gl-font-size-compact-markdown-h1-md,
+      $max: $gl-font-size-compact-markdown-h1-xl
+    );
+    @include gl-fluid-line-height($min: $gl-line-height-24, $max: $gl-line-height-28);
+  }
+
+  h2,
+  .gl-h2 {
+    @include gl-font-lg;
+  }
+
+  h3,
+  .gl-h3,
+  h4,
+  .gl-h4,
+  h5,
+  .gl-h5,
+  h6,
+  .gl-h6 {
+    @include gl-font-base;
+  }
+
+  h4,
+  .gl-h4,
+  h5,
+  .gl-h5,
+  h6,
+  .gl-h6 {
+    @include gl-text-gray-700;
+  }
+
+  .sm {
+    @include gl-font-sm;
+  }
+
+  .monospace {
+    @include gl-font-monospace;
+    @include gl-font-size-monospace;
+    @include gl-line-height-20;
+
+    &.sm {
+      @include gl-font-size-monospace-sm;
+    }
+  }
+}

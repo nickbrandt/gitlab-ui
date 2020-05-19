@@ -342,14 +342,7 @@ $gl-font-size-markdown-h3-xl: px-to-rem(23px);
 // Compact markdown typescale
 
 // default (min-width: 0)
-$gl-font-size-compact-markdown: px-to-rem(14px);
-$gl-font-size-compact-markdown-sm: px-to-rem(12px);
-
 $gl-font-size-compact-markdown-h1: px-to-rem(19px);
-$gl-font-size-compact-markdown-h2: px-to-rem(16px);
-
-// headers h3, h4, h5, and h6 share the same size
-$gl-font-size-compact-markdown-hn: px-to-rem(14px);
 
 // media-md: min-width: 768px
 $gl-font-size-compact-markdown-h1-md: px-to-rem(20px);
