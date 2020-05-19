@@ -14,6 +14,16 @@ const getStatefulFlags = mixinDeclaration =>
 
 const getMixinName = mixinDeclaration => mixinDeclaration.replace(mixinRegexp, '$1');
 
+function writeFileHeader() {
+  try {
+    fs.appendFileSync(utilitiesPath, '/* auto-inject-scss-lib */\n');
+    console.log(`Successfully wrote header to ${utilitiesPath}`);
+  } catch (e) {
+    console.error(`Could not write header to ${utilitiesPath}`);
+    throw e;
+  }
+}
+
 function writeUtilities(contents, file) {
   try {
     fs.appendFileSync(utilitiesPath, contents);
@@ -45,6 +55,8 @@ function main() {
     if (fs.existsSync(utilitiesPath)) {
       fs.unlinkSync(utilitiesPath);
     }
+
+    writeFileHeader();
 
     fs.readdir(mixinsPath, (err, files) => {
       if (err) throw err;

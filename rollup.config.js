@@ -99,6 +99,7 @@ export default glob
   .concat('index.js')
   .concat('utils.js')
   .concat('config.js')
+  .concat('utility_classes.js')
   .map(input => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
@@ -115,6 +116,17 @@ export default glob
           include: 'index.js',
           values: {
             'auto-inject-styles': "import './src/scss/gitlab_ui.scss';",
+          },
+        }),
+        replace({
+          delimiters: ['/* ', ' */'],
+          include: 'src/scss/utilities.scss',
+          values: {
+            'auto-inject-scss-lib': `
+              @import './functions';
+              @import './variables';
+              @import './utility-mixins/index';
+            `,
           },
         }),
         postcss({
