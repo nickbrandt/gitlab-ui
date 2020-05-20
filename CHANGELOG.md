@@ -1,3 +1,10 @@
+## [14.14.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.14.1...v14.14.2) (2020-05-20)
+
+
+### Bug Fixes
+
+* **GlLabel:** Add focus state to label ([aa7d8b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/aa7d8b9fb5928706a6cc0f0f9c83046e9d03b7e7))
+
 ## [14.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.14.0...v14.14.1) (2020-05-20)
 
 
