@@ -1,3 +1,10 @@
+# [14.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.14.2...v14.15.0) (2020-05-20)
+
+
+### Features
+
+* **css:** add stateful utility classes ([5841a1d](https://gitlab.com/gitlab-org/gitlab-ui/commit/5841a1dc3611c5a93818b031d714c68c9ad1b0ea))
+
 ## [14.14.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.14.1...v14.14.2) (2020-05-20)
 
 
