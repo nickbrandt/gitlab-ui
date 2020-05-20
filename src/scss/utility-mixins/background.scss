@@ -58,7 +58,7 @@
   background-color: $gray-900;
 }
 
-@mixin gl-bg-blue-50 {
+@mixin gl-bg-blue-50($hover: true) {
   background-color: $blue-50;
 }
 

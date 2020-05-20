@@ -7,7 +7,7 @@
   cursor: default;
 }
 
-@mixin gl-cursor-pointer {
+@mixin gl-cursor-pointer($hover: true) {
   cursor: pointer;
 }
 
