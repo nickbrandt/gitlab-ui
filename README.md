@@ -119,6 +119,30 @@ Install with npm:
 npm install @gitlab/ui
 ```
 
+### Styles
+
+GitLab UI requires its styles to be imported to display components properly. We currently have 2
+separate stylesheets that both need to be included in your project. The main stylesheet
+(`gitlab_ui.scss`) contains component-specific styles, while the other one (`utilities.scss`)
+contains the utility classes library on which some components rely. You might find the utility
+classes useful to layout components in your own project.
+
+You have two options to include those stylesheets:
+
+- If you have a SCSS preprocessor setup, include the SCSS files in your own stylesheet:
+
+```scss
+@import '@gitlab/ui/src/gitlab_ui.scss';
+@import '@gitlab/ui/src/utilities.scss';
+```
+
+- If you don't have a SCSS preprocessor setup, you can import the compiled CSS files directly:
+
+```css
+@import '@gitlab/ui/dist/index.css';
+@import '@gitlab/ui/dist/utility_classes.css';
+```
+
 ## Releases
 
 Please see [Updating Gitlab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how updated packages are included in Gitlab and Pajamas.

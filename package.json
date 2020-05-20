@@ -48,6 +48,7 @@
     "prettier": "prettier --check '**/*.{js,vue}'",
     "prettier:fix": "prettier --write '**/*.{js,vue}'",
     "eslint": "eslint --max-warnings 0 --ext .js,.vue .",
+    "preeslint": "yarn generate-utilities",
     "eslint:fix": "yarn eslint --fix",
     "stylelint": "stylelint 'src/**/*.scss'",
     "prestylelint": "yarn generate-utilities",
