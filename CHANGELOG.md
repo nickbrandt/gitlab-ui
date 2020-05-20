@@ -1,3 +1,10 @@
+## [14.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.14.0...v14.14.1) (2020-05-20)
+
+
+### Bug Fixes
+
+* **GlLegend:** Remove bogus test selector ([4982611](https://gitlab.com/gitlab-org/gitlab-ui/commit/49826119b925accfee445540bb63d4648942775d))
+
 # [14.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.13.1...v14.14.0) (2020-05-20)
 
 
