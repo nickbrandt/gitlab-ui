@@ -117,7 +117,7 @@ export default {
 <template>
   <div>
     <template v-if="layout === 'inline'">
-      <div class="gl-legend-inline" data-testid="chart-legend">
+      <div class="gl-legend-inline">
         <div
           v-for="(series, key) in seriesInfo"
           :key="key"
