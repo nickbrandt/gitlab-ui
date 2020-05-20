@@ -1,3 +1,15 @@
+# [14.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.13.1...v14.14.0) (2020-05-20)
+
+
+### Features
+
+* **GlDropdown:** Add show method to GlDropdown ([7e95b05](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e95b055036027c623f73cadc33235e0afec606b))
+
+
+### Reverts
+
+* fix(Link): Add support to allow only safe urls ([1bb51a0](https://gitlab.com/gitlab-org/gitlab-ui/commit/1bb51a02eb21af3da3b553b42d9346f87998ccdb))
+
 ## [14.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.13.0...v14.13.1) (2020-05-19)
 
 
