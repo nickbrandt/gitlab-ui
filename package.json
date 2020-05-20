@@ -15,7 +15,6 @@
   "private": false,
   "files": [
     "dist",
-    "src",
     "scss_to_js",
     "documentation",
     "documentation.js",
@@ -101,6 +100,7 @@
     "babel-preset-vue": "^2.0.2",
     "bootstrap": "4.3.1",
     "eslint": "^6.8.0",
+    "eslint-import-resolver-jest": "^3.0.0",
     "file-loader": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer-select-directory": "^1.2.0",
@@ -151,8 +151,8 @@
       "vue"
     ],
     "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/components/$1",
-      "^@gitlab/ui$": "<rootDir>/index.js",
+      "^~/(.*)$": "<rootDir>/src/$1",
+    "^@gitlab/ui$": "<rootDir>/index.js",
       "\\.(css|scss|less)$": "identity-obj-proxy"
     },
     "transform": {

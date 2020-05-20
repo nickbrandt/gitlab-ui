@@ -5,10 +5,7 @@ import readme from './line.md';
 import { blue500, gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
-import {
-  mockAnnotationsSeries,
-  mockAnnotationsConfigs,
-} from '../../../../tests/helpers/charts/data';
+import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/data';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 

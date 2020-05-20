@@ -1,5 +1,5 @@
 import { withKnobs, date } from '@storybook/addon-knobs/dist/deprecated';
-import useFakeDate from '../../../../tests/utils/use_fake_date';
+import useFakeDate from '../../../utils/use_fake_date';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './datepicker.md';
 import GlDatepicker from './datepicker.vue';
