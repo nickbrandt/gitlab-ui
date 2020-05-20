@@ -14,6 +14,15 @@
 }
 
 /**
+* Font style utility
+*
+* naming convention: gl-font-style-{family-name}
+*/
+@mixin gl-font-style-italic {
+  font-style: italic;
+}
+
+/**
 * Font size utility
 *
 * naming convention: gl-font-{type-scale-size}
