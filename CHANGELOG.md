@@ -1,3 +1,11 @@
+# [14.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.15.0...v14.16.0) (2020-05-20)
+
+
+### Features
+
+* **css:** compile utility classes library ([a0fa474](https://gitlab.com/gitlab-org/gitlab-ui/commit/a0fa47459a91fb9135fc820962d7c0745d32720e))
+* **css:** Harmonize Bootstrap and GitLab UI bolds ([d811d66](https://gitlab.com/gitlab-org/gitlab-ui/commit/d811d669a717fad6061b9b230af361d320ffac69))
+
 # [14.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.14.2...v14.15.0) (2020-05-20)
 
 
