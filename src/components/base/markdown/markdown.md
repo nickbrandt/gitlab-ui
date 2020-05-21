@@ -38,6 +38,22 @@ element that contains the markdown-generated HTML.
 </body>
 ```
 
+### Compact markdown
+
+Set the `compact` property to true in `GlMarkdown` to apply the compact markdown styles.
+
+```html
+<gl-markdown compact></gl-compact>
+```
+
+You can also append the `gl-compact-markdown` class selector after `gl-markdown` in markdown-generated
+HTML.
+
+```html
+<body class="gl-markdown gl-compact-markdown">
+</body>
+```
+
 <!--
 ## Browser compatibility
 

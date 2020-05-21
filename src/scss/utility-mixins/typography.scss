@@ -93,6 +93,10 @@
   font-size: $gl-font-size-markdown-h3;
 }
 
+@mixin gl-font-size-compact-markdown-h1 {
+  font-size: $gl-font-size-compact-markdown-h1;
+}
+
 /**
 * Font-weight utilities.
 *

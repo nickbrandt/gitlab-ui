@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './markdown.md';
 import GlMarkdown from './markdown.vue';
@@ -14,8 +14,14 @@ documentedStoriesOf('base|markdown', readme)
     'typescale',
     () => ({
       components,
+      props: {
+        compact: {
+          type: Boolean,
+          default: boolean('compact', false),
+        },
+      },
       template: `
-      <gl-markdown>${markdownTypescaleDemoContent}</gl-markdown>
+      <gl-markdown :compact="compact">${markdownTypescaleDemoContent}</gl-markdown>
     `,
     }),
     {
