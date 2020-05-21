@@ -1,3 +1,10 @@
+# [15.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.0.0...v15.1.0) (2020-05-21)
+
+
+### Features
+
+* Added font-style: italic utility ([9de0259](https://gitlab.com/gitlab-org/gitlab-ui/commit/9de02597a26eb20e488d2522b75f8d37472f9a46))
+
 # [15.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.17.0...v15.0.0) (2020-05-21)
 
 
