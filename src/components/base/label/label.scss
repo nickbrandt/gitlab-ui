@@ -39,7 +39,7 @@ $label-max-width: 100%;
   }
 
   &-text-light {
-    @include gl-text-white-hover;
+    @include gl-text-white;
   }
 
   &-scoped {

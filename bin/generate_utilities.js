@@ -37,8 +37,10 @@ function writeUtilities(contents, file) {
 const buildUtilityClass = (selector, mixin = selector) =>
   `.${selector} {\n  @include ${mixin};\n}\n`;
 
-const buildStatefulUtilityClass = (state, mixin) =>
-  buildUtilityClass(`${state}-${mixin}:${state}`, mixin);
+const buildStatefulUtilityClass = (state, mixin) => {
+  const mixinName = `gl-${state}-${mixin.replace(/^gl-/, '')}:${state}`;
+  return buildUtilityClass(mixinName, mixin);
+};
 
 const buildUtilityClasses = mixinDeclaration => {
   const mixinName = getMixinName(mixinDeclaration);

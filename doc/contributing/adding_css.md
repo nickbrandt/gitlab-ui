@@ -159,7 +159,7 @@ After running `yarn generate-utilities`, `src/scss/utilities.scss` will contain 
   @include gl-border-none;
 }
 
-.hover-gl-border-none:hover {
+.gl-hover-border-none:hover {
   @include gl-border-none;
 }
 ```
@@ -171,13 +171,13 @@ in `src/scss/variables`: `$breakpoint-sm`, `$breakpoint-md`, `$breakpoint-lg`, a
 examples:
 
 ```scss
-@mixin md-gl-border-none {
+@mixin gl-md-border-none {
   @media (min-width: $breakpoint-md) {
     border-style: none;
   }
 }
 
-@mixin xl-gl-bg-white {
+@mixin gl-xl-bg-white {
   @media (min-width: $breakpoint-xl) {
     background-color: $white;
   }
@@ -187,8 +187,14 @@ examples:
 SCSS will generate a utility class enclosed in the breakpoint media query:
 
 ```css
+@media (min-width: 48rem) {
+  .gl-md-border-none {
+    border-style: none;
+  }
+}
+
 @media (min-width: 75rem) {
-  .xl-gl-bg-white {
+  .gl-xl-bg-white {
     background-color: #fff;
   }
 }
