@@ -1,3 +1,10 @@
+# [14.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.16.0...v14.17.0) (2020-05-21)
+
+
+### Features
+
+* **markdown:** Compact markdown typescale ([04702d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/04702d7f0f2dc62a29dcf257bc25d2aac69809e4))
+
 # [14.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.15.0...v14.16.0) (2020-05-20)
 
 
