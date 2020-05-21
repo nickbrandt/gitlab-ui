@@ -1,3 +1,26 @@
+# [15.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.17.0...v15.0.0) (2020-05-21)
+
+
+### Bug Fixes
+
+* **css:** update stateful and responsive mixins naming pattern ([d2e99f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/d2e99f587afc451639432376f59f543508c169f4))
+
+
+### BREAKING CHANGES
+
+* **css:** Stateful and responsive mixins naming patterns
+have been updated so that they always start with the `gl-` prefix,
+followed by the state or breakpoint.
+
+Make sure to update your utility class usages to reflect those changes.
+
+For example:
+
+```patch
+- <div class="hover-gl-rounded-base">
++ <div class="gl-hover-rounded-base">
+```
+
 # [14.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v14.16.0...v14.17.0) (2020-05-21)
 
 
