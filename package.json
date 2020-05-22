@@ -1,6 +1,6 @@
 {
   "name": "@gitlab/ui",
-  "version": "15.2.0",
+  "version": "15.3.0",
   "description": "GitLab UI Components",
   "license": "MIT",
   "main": "dist/index.js",
@@ -152,7 +152,7 @@
     ],
     "moduleNameMapper": {
       "^~/(.*)$": "<rootDir>/src/$1",
-    "^@gitlab/ui$": "<rootDir>/index.js",
+      "^@gitlab/ui$": "<rootDir>/index.js",
       "\\.(css|scss|less)$": "identity-obj-proxy"
     },
     "transform": {

@@ -1,3 +1,10 @@
+# [15.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.2.0...v15.3.0) (2020-05-22)
+
+
+### Features
+
+* **gl-ml-*:** Add missing `gl-ml-*` utility mixins ([3711c01](https://gitlab.com/gitlab-org/gitlab-ui/commit/3711c0185f6225d611e8eedad46f5c8f50226bfd))
+
 # [15.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.1.0...v15.2.0) (2020-05-22)
 
 
