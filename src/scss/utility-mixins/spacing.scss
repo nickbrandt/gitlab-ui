@@ -149,6 +149,10 @@
   padding-top: $gl-spacing-scale-5;
 }
 
+@mixin gl-pt-9 {
+  padding-top: $gl-spacing-scale-9;
+}
+
 @mixin gl-pb-0 {
   padding-bottom: 0;
 }
