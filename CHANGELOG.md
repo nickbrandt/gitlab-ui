@@ -1,3 +1,10 @@
+# [15.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.1.0...v15.2.0) (2020-05-22)
+
+
+### Features
+
+* **css:** Add padding-top-9 mixin ([2da3da5](https://gitlab.com/gitlab-org/gitlab-ui/commit/2da3da5dc845063367a8f489e6b3b3d622591744))
+
 # [15.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.0.0...v15.1.0) (2020-05-21)
 
 
