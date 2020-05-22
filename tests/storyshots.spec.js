@@ -1,7 +1,7 @@
 import initStoryshots from '@storybook/addon-storyshots';
 import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer';
 import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
-import { getResetAnimationsCSS } from './test_utils';
+import { getResetAnimationsCSS } from '~/utils/test_utils';
 
 registerRequireContextHook();
 

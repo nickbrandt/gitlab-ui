@@ -1,3 +1,5 @@
+!src/
+
 # npm / yarn
 /npm-debug.log
 /yarn-error.log
@@ -7,12 +9,15 @@
 /.storybook/
 /storybook/
 /public/
+*.stories.js
 
 # Test & Build
 /danger/
 /tests/
 /.gitlab-ci.yml
 /rollup.config.js
+/src/**/*.spec.js
+__snapshots__
 Dangerfile
 
 # Plop

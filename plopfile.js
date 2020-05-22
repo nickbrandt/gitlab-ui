@@ -5,7 +5,6 @@ const path = require('path');
 
 const componentsPath = path.join('src', 'components');
 const baseComponentsPath = path.join(componentsPath, 'base');
-const testsBasePath = path.join('tests', 'components');
 const templateFolder = 'templates';
 
 const commonActions = [
@@ -16,7 +15,7 @@ const commonActions = [
   },
   {
     type: 'add',
-    path: `${testsBasePath}/{{componentDir}}/../{{name}}.spec.js`,
+    path: `{{componentDirAbsolute}}/{{name}}.spec.js`,
     templateFile: `${templateFolder}/spec.js.hbs`,
   },
   {
