@@ -1,3 +1,10 @@
+# [15.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.3.0...v15.4.0) (2020-05-22)
+
+
+### Features
+
+* **css:** Add overflow scroll utility ([3c961fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c961fdfc245c03ed897aa05930dbc11c5f977b9))
+
 # [15.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.2.0...v15.3.0) (2020-05-22)
 
 
