@@ -14,6 +14,7 @@
   "author": "GitLab",
   "private": false,
   "files": [
+    "src",
     "dist",
     "scss_to_js",
     "documentation",
