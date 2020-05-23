@@ -1,3 +1,10 @@
+## [15.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.0...v15.4.1) (2020-05-23)
+
+
+### Bug Fixes
+
+* include src dir in npm package ([9402519](https://gitlab.com/gitlab-org/gitlab-ui/commit/9402519c0ea562d0bd191f500a0dd9b5edd7b260))
+
 # [15.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.3.0...v15.4.0) (2020-05-22)
 
 
