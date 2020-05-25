@@ -1,3 +1,10 @@
+# [15.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.3...v15.5.0) (2020-05-25)
+
+
+### Features
+
+* **css:** Add overflow visible utility ([1844a1b](https://gitlab.com/gitlab-org/gitlab-ui/commit/1844a1b32c8cb1820e42fc77b166fb217bedca91))
+
 ## [15.4.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.2...v15.4.3) (2020-05-25)
 
 
