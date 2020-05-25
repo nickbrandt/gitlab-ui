@@ -1,3 +1,10 @@
+## [15.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.1...v15.4.2) (2020-05-25)
+
+
+### Bug Fixes
+
+* **css:** gl-bg-data-viz-aqua typo ([e710541](https://gitlab.com/gitlab-org/gitlab-ui/commit/e71054171846ab8b9cd7e600b42a544ca168862f))
+
 ## [15.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.0...v15.4.1) (2020-05-23)
 
 
