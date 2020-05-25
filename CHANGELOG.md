@@ -1,3 +1,10 @@
+# [15.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.5.0...v15.6.0) (2020-05-25)
+
+
+### Features
+
+* **css:** Mark utility classes as !important ([c4d7a4e](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4d7a4e6d7f295f7b74a200477a21753526e2cf9))
+
 # [15.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.3...v15.5.0) (2020-05-25)
 
 
