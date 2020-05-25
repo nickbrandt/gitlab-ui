@@ -1,3 +1,10 @@
+## [15.4.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.2...v15.4.3) (2020-05-25)
+
+
+### Bug Fixes
+
+* **infinite-scoll:** Render totalItems if positive ([cc3f75e](https://gitlab.com/gitlab-org/gitlab-ui/commit/cc3f75ee50def8226adf23f40384f121b5cbae46))
+
 ## [15.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.4.1...v15.4.2) (2020-05-25)
 
 
