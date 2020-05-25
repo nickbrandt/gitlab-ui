@@ -23,3 +23,7 @@
 @mixin gl-overflow-scroll {
   overflow: scroll;
 }
+
+@mixin gl-overflow-visible {
+  overflow: visible;
+}
