@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import GlNewCard from '../../../../../src/components/base/new_card/new_card.vue';
+import GlNewCard from './new_card.vue';
 
 describe('GlNewCard', () => {
   let wrapper;
