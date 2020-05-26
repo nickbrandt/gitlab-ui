@@ -20,6 +20,21 @@ export const variantOptions = {
   dark: 'dark',
 };
 
+export const badgeSizeOptions = {
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg',
+};
+
+export const badgeVariantOptions = {
+  muted: 'muted',
+  neutral: 'neutral',
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  danger: 'danger',
+};
+
 export const variantCssColorMap = {
   info: 'gl-text-blue-500',
   success: 'gl-text-green-500',

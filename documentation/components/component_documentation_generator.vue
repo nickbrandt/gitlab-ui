@@ -232,7 +232,7 @@ export default {
               {{ field.value }}
               <gl-badge
                 v-if="componentVModel && field.value === componentVModel.prop"
-                variant="primary"
+                variant="info"
               >
                 v-model
               </gl-badge>
@@ -269,10 +269,7 @@ export default {
       <gl-table :items="displayEvents" :fields="eventsFields" small head-variant="default" striped>
         <template #cell(event)="field">
           {{ field.value }}
-          <gl-badge
-            v-if="componentVModel && field.value === componentVModel.event"
-            variant="primary"
-          >
+          <gl-badge v-if="componentVModel && field.value === componentVModel.event" variant="info">
             v-model
           </gl-badge>
         </template>
