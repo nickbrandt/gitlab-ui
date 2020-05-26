@@ -1,51 +1,125 @@
-@import './badge-neutral';
-@import './badge-info';
-@import './badge-success';
-@import './badge-warning';
-@import './badge-danger';
-
-.gl-badge {
-  @include gl-display-inline-flex;
-  @include gl-align-items-center;
-  @include gl-h-6;
-  @include gl-font-weight-bold;
-  @include gl-font-sm;
-  @include gl-line-height-normal;
-  @include gl-px-b6;
-  @include gl-outline-none;
-  @include gl-border-solid;
-  @include gl-border-2;
-
-  // Sizes
-  &.sm {
-    @include gl-h-5;
+@mixin gl-badge-variant(
+  $variant,
+  $color,
+  $bg,
+  $hover-color,
+  $border-color,
+  $active-color,
+  $active-bg
+) {
+  .gl-badge.badge-#{$variant} {
+    background-color: $bg;
+    color: $color;
   }
 
-  &.lg {
-    @include gl-h-7;
-    @include gl-font-base;
-  }
-
-  &.normal {
-    @include gl-font-weight-normal;
-  }
-}
-
-a,
-button {
-  &.gl-badge {
-    &:focus {
-      @include gl-focus-glow;
-      @include gl-outline-none;
+  a.gl-badge.badge-#{$variant} {
+    &:hover {
+      color: $hover-color;
+      // Needed to override bootstrap's badge variant background
+      background-color: $bg;
+      box-shadow: inset 0 0 0 $gl-border-size-1 $border-color;
     }
 
-    &:hover {
-      @include gl-drop-shadow;
+    &:focus {
+      color: $hover-color;
+      // Needed to override bootstrap's badge variant background
+      background-color: $bg;
+      @include gl-focus($gl-border-size-1, $white-transparent);
     }
 
     &.active,
     &:active {
-      @include gl-inset-shadow;
+      color: $active-color;
+      background-color: $active-bg;
+      @include gl-focus($gl-border-size-1, $white-transparent);
     }
   }
 }
+
+/* Basic badge styles */
+
+.gl-badge {
+  @include gl-display-inline-flex;
+  @include gl-align-items-center;
+  @include gl-font-sm;
+  @include gl-font-weight-normal;
+  @include gl-line-height-normal;
+  @include gl-py-2;
+  @include gl-px-3;
+  @include gl-outline-none;
+
+  &.sm {
+    @include gl-py-0;
+  }
+
+  &.md {
+    @include gl-py-2;
+  }
+
+  &.lg {
+    @include gl-py-3;
+    @include gl-font-base;
+  }
+}
+
+/* Variants */
+
+@include gl-badge-variant(
+  $variant: muted,
+  $color: $gray-500,
+  $bg: $gray-50,
+  $hover-color: $gray-600,
+  $border-color: $gray-200,
+  $active-color: $gray-800,
+  $active-bg: $gray-100
+);
+
+@include gl-badge-variant(
+  $variant: neutral,
+  $color: $gray-700,
+  $bg: $gray-100,
+  $hover-color: $gray-800,
+  $border-color: $gray-200,
+  $active-color: $gray-900,
+  $active-bg: $gray-200
+);
+
+@include gl-badge-variant(
+  $variant: info,
+  $color: $blue-700,
+  $bg: $blue-100,
+  $hover-color: $blue-800,
+  $border-color: $blue-200,
+  $active-color: $blue-900,
+  $active-bg: $blue-200
+);
+
+@include gl-badge-variant(
+  $variant: success,
+  $color: $green-700,
+  $bg: $green-100,
+  $hover-color: $green-800,
+  $border-color: $green-200,
+  $active-color: $green-900,
+  $active-bg: $green-200
+);
+
+@include gl-badge-variant(
+  $variant: warning,
+  $color: $orange-700,
+  $bg: $orange-100,
+  $hover-color: $orange-800,
+  $border-color: $orange-200,
+  $active-color: $orange-900,
+  $active-bg: $orange-200
+);
+
+@include gl-badge-variant(
+  $variant: danger,
+  $color: $red-700,
+  $bg: $red-100,
+  $hover-color: $red-800,
+  $border-color: $red-200,
+  $active-color: $red-900,
+  $active-bg: $red-200
+);
