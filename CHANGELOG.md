@@ -1,3 +1,32 @@
+# [16.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.6.0...v16.0.0) (2020-05-26)
+
+
+### Features
+
+* **badge:** Update styling of text badges ([ece3e44](https://gitlab.com/gitlab-org/gitlab-ui/commit/ece3e44194a54ae8ab2ebe2cd5e172d5ec6396c6))
+
+
+### BREAKING CHANGES
+
+* **badge:** This implements the [text-only][1] versions of the
+latest badge designs.  Support for icons will be added in a future
+version.
+
+ - This removes the `primary`, `secondary`, `light` and `dark` variants
+   of GlBadge, and adds the `muted` and `neutral` variants.
+ - The `pill` prop is now ignored, and all GlBadges are of the `pill`
+   type.
+
+It's recommended to replace usage of the removed variants with the new
+variants:
+
+    primary   -> info
+    secondary -> neutral
+    light     -> muted
+    dark      -> neutral
+
+[1]: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/481
+
 # [15.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.5.0...v15.6.0) (2020-05-25)
 
 
