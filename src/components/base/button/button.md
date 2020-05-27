@@ -9,4 +9,4 @@ with the necessary classes added to make it look like a button, it shares the sa
 
 > Note: Setting a `target` attribute without a `href` attribute, will not create any side effects. Without the presence of a `href` attribute, this component will render a `<button>`.
 
-[`<gl-link>`]: https://gitlab.com/gitlab-org/gitlab-ui/blob/master/documentation/link.md
+[`<gl-link>`]: ./?path=/story/base-link--default-link
