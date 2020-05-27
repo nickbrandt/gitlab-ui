@@ -29,13 +29,8 @@ export default {
     <label for="input-surname" class="gl-mx-3">Surname</label>
     <gl-form-input v-model="name.last" name="input-surname" class="ml-1" type="text" required />
 
-    <gl-deprecated-button
-      class="gl-ml-3"
-      small
-      :disabled="submitDisabled"
-      type="submit"
-      variant="success"
-      >Save</gl-deprecated-button
+    <gl-button class="gl-ml-3" small :disabled="submitDisabled" type="submit" variant="success"
+      >Save</gl-button
     >
   </gl-form>
 </template>
