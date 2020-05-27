@@ -25,6 +25,6 @@ export default {
       <gl-form-input v-model="name" type="text" required />
     </gl-form-group>
     <p class="text-danger">{{ errorText }}</p>
-    <gl-deprecated-button type="submit" variant="success">Submit</gl-deprecated-button>
+    <gl-button type="submit" variant="success">Submit</gl-button>
   </gl-form>
 </template>

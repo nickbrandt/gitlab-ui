@@ -9,12 +9,12 @@ export default [
     items: [
       {
         id: 'form-basic',
-        name: 'default state',
+        name: 'Form in the default state',
         component: FormExample,
       },
       {
         id: 'form-inline',
-        name: 'inline form',
+        name: 'Form in the inline state',
         component: InlineFormExample,
       },
       {
