@@ -1,4 +1,4 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, number } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import { GlModal, GlModalDirective, GlDeprecatedButton } from '../../../../index';
@@ -36,13 +36,18 @@ function generateTemplate({ visible = false } = {}) {
         title="Example title"
         no-fade
       >
-        This is my content
+      <p v-for="n in contentParagraphs">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
       </gl-modal>
     </div>
   `;
 }
 
-function generateProps({ variant = variantOptionsWithNoDefault.default } = {}) {
+function generateProps({
+  variant = variantOptionsWithNoDefault.default,
+  contentPagraphs = 1,
+} = {}) {
   return {
     headerBgVariant: {
       type: String,
@@ -76,6 +81,10 @@ function generateProps({ variant = variantOptionsWithNoDefault.default } = {}) {
       type: String,
       default: select('footer text', variantOptionsWithNoDefault, variant),
     },
+    contentParagraphs: {
+      type: Number,
+      default: number('content paragraphs', contentPagraphs),
+    },
   };
 }
 
@@ -92,4 +101,12 @@ documentedStoriesOf('base|modal', readme)
     components,
     directives,
     template: generateTemplate({ visible: true }),
+  }))
+  .add('with scrolling content', () => ({
+    props: generateProps({ contentPagraphs: 100 }),
+    components,
+    directives,
+    template: generateTemplate({
+      visible: true,
+    }),
   }));
