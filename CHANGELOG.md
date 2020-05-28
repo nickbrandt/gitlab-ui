@@ -1,3 +1,10 @@
+# [16.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.0.0...v16.1.0) (2020-05-28)
+
+
+### Features
+
+* Add .gl-sr-only utility class ([0d64fdd](https://gitlab.com/gitlab-org/gitlab-ui/commit/0d64fddc0c38de40eae4f33163eaa9b916a9d87c))
+
 # [16.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v15.6.0...v16.0.0) (2020-05-26)
 
 
