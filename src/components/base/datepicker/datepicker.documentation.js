@@ -2,6 +2,7 @@ import description from './datepicker.md';
 import examples from './examples';
 
 export default {
+  followsDesignSystem: true,
   description,
   examples,
   propsInfo: {
