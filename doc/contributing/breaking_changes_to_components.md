@@ -12,6 +12,14 @@ component to receive the breaking changes is called `GlFoo`:
 1. Introduce a minor version change to GitLab UI that simply re-exports the
    given component, say `GlFoo`, under an _additional_ name,
    `GlDeprecatedFoo`. The same `GlFoo` export is still available.
+
+   For example, in [`index.js`](../../index.js):
+
+   ```diff
+   - export { default as GlFoo } from './src/components/base/foo/foo.vue';
+   + export { default as GlFoo, default as GlDeprecatedFoo } from './src/components/base/foo/foo.vue';
+   ```
+
 1. Open [integration MRs] with projects that consume GitLab UI (e.g., GitLab)
    that bump `@gitlab/ui` to the new _minor_ version, and change all existing
    imports of `GlFoo` to `GlDeprecatedFoo`, but _alias it back_ to `GlFoo`.
