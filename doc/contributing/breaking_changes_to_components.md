@@ -12,7 +12,7 @@ component to receive the breaking changes is called `GlFoo`:
 1. Introduce a minor version change to GitLab UI that simply re-exports the
    given component, say `GlFoo`, under an _additional_ name,
    `GlDeprecatedFoo`. The same `GlFoo` export is still available.
-1. Open integration MRs with projects that consume GitLab UI (e.g., GitLab)
+1. Open [integration MRs] with projects that consume GitLab UI (e.g., GitLab)
    that bump `@gitlab/ui` to the new _minor_ version, and change all existing
    imports of `GlFoo` to `GlDeprecatedFoo`, but _alias it back_ to `GlFoo`.
 
@@ -30,17 +30,17 @@ component to receive the breaking changes is called `GlFoo`:
    `GlDeprecatedFoo`, and export it as `GlDeprecatedFoo`. This copy should
    receive _no further changes_.
 1. Implement the breaking changes on the copy exported as `GlFoo`.
-1. Open integration MRs with projects that consume GitLab UI (e.g., GitLab)
+1. Open [integration MRs] with projects that consume GitLab UI (e.g., GitLab)
    that bump `@gitlab/ui` to the new _major_ version, and fix any additional
    new uses of `GlFoo` to import `GlDeprecatedFoo` instead. The amount of these
    should be significantly reduced thanks to step 2.
 1. Open an epic to iteratively upgrade each use of `GlDeprecatedFoo` to the new
-   `GlFoo`.
+   `GlFoo`. There is a [script] that helps automate some of this.
 1. Once all uses have been upgraded in the consuming projects, completely
    remove `GlDeprecatedFoo` from GitLab UI and release it as another major
    version, since it's another breaking change.
-1. A final set of integration MRs can now be opened which bump `@gitlab/ui` to
-   the new _major_ version, and any new uses of `GlDeprecatedFoo` (but
+1. A final set of [integration MRs] can now be opened which bump `@gitlab/ui`
+   to the new _major_ version, and any new uses of `GlDeprecatedFoo` (but
    hopefully there are none) can be upgraded to `GlFoo`.
 
 Note that if `GlFoo` were only used once or twice in consuming projects, some
@@ -50,3 +50,6 @@ integration MR that bumps `@gitlab/ui` to the new major version.
 
 Remember to follow our [commit conventions](./commits.md) to ensure the major
 version number of GitLab UI is incremented with any breaking changes.
+
+[integration MRs]: ./adding_components.md#testing-your-new-component-in-gitlab
+[script]: https://gitlab.com/gitlab-org/frontend/playground/create-migrate-deprecated-component-issues
