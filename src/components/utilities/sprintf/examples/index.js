@@ -6,16 +6,16 @@ export default [
     name: 'Basic',
     items: [
       {
-        id: 'sprintf-basic',
-        name: 'Basic',
-        description: 'Basic sprintf',
-        component: SprintfBasicExample,
-      },
-      {
         id: 'sprintf-interpolated-content',
         name: 'Interpolated content',
         description: 'Interpolated content passed to scoped slots',
         component: SprintfInterpolatedExample,
+      },
+      {
+        id: 'sprintf-basic',
+        name: 'Basic placeholders',
+        description: 'Basic sprintf placeholders',
+        component: SprintfBasicExample,
       },
     ],
   },
