@@ -37,7 +37,8 @@ component to receive the breaking changes is called `GlFoo`:
 1. Duplicate the existing `GlFoo` implementation, naming one copy
    `GlDeprecatedFoo`, and export it as `GlDeprecatedFoo`. This copy should
    receive _no further changes_.
-1. Implement the breaking changes on the copy exported as `GlFoo`.
+1. Implement the breaking changes on the copy exported as `GlFoo`, and release
+   this in a new _major_ version.
 1. Open [integration MRs] with projects that consume GitLab UI (e.g., GitLab)
    that bump `@gitlab/ui` to the new _major_ version, and fix any additional
    new uses of `GlFoo` to import `GlDeprecatedFoo` instead. The amount of these
