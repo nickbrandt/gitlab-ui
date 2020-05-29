@@ -20,33 +20,7 @@ function generateProps({ message = 'Written by %{author}' } = {}) {
 
 documentedStoriesOf('utilities|sprintf', readme)
   .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <div class="gl-font-base">
-        <gl-sprintf :message="message">
-          <template #author>
-            <span class="gl-font-weight-bold">Author</span>
-          </template>
-        </gl-sprintf>
-      </div>
-    `,
-  }))
-  .add('with a button', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <div class="gl-font-base">
-        <gl-sprintf :message="message">
-          <template #author>
-            <gl-button>Author</gl-button>
-          </template>
-        </gl-sprintf>
-      </div>
-    `,
-  }))
-  .add('interpolated content', () => ({
+  .add('sentence with link', () => ({
     props: generateProps({
       message: 'Click %{linkStart}here%{linkEnd} to reticulate splines.',
     }),
@@ -56,6 +30,34 @@ documentedStoriesOf('utilities|sprintf', readme)
         <gl-sprintf :message="message">
           <template #link="{ content }">
             <gl-link href="#" target="_blank">{{ content }}</gl-link>
+          </template>
+        </gl-sprintf>
+      </div>
+    `,
+  }))
+  .add('basic placeholder', () => ({
+    props: generateProps(),
+    components,
+    data: () => ({ authorName: 'Some author' }),
+    template: `
+      <div class="gl-font-base">
+        <gl-sprintf :message="message">
+          <template #author>
+            <span class="gl-font-weight-bold">{{ authorName }}</span>
+          </template>
+        </gl-sprintf>
+      </div>
+    `,
+  }))
+  .add('basic button placeholder', () => ({
+    props: generateProps(),
+    components,
+    data: () => ({ authorName: 'Some author' }),
+    template: `
+      <div class="gl-font-base">
+        <gl-sprintf :message="message">
+          <template #author>
+            <gl-button>{{ authorName }}</gl-button>
           </template>
         </gl-sprintf>
       </div>
