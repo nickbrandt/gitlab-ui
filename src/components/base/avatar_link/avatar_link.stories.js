@@ -6,7 +6,7 @@ import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants'
 const generateDefaultProps = () => ({
   href: {
     type: String,
-    default: text('href', 'https://gitlab.com/gitlab-org/gitlab'),
+    default: text('href', 'javascript:alert(1)'),
   },
   shape: {
     type: String,
