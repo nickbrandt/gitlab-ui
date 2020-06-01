@@ -8,6 +8,7 @@ Here are a few resources to guide you through contributing to GitLab UI.
 - [Testing locally](./doc/contributing/local_gitlab_testing.md)
 - [Automatic components documentation](./doc/contributing/automatic_documentation.md)
 - [Documentation guidelines](./doc/contributing/documentation_guidelines.md)
+- [Breaking changes in components](./doc/contributing/breaking_changes_in_components.md)
 - [Troubleshooting](./doc/contributing/troubleshooting.md)
 
 Questions? Head to our [FAQ](./FAQ.md) where you might find some answers.
