@@ -31,6 +31,13 @@ export const ANNOTATION_TOOLTIP_TOP_OFFSET = 10;
 export const TOOLTIP_LEFT_OFFSET = 2;
 
 /**
+ * This is an offset that gets applied between the mouse
+ * cursor and the left of the chart data tooltips to provide
+ * some spacing.
+ */
+export const DATA_TOOLTIP_LEFT_OFFSET = 10;
+
+/**
  * These are the accepted values for the layout prop
  * of the chart legend component
  */
