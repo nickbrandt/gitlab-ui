@@ -1,13 +1,21 @@
 <script>
 export default {
+  data() {
+    return {
+      sortBy: 'col_2',
+      sortDesc: false,
+    };
+  },
   fields: [
     {
       key: 'column_one',
       label: 'Column One',
+      sortable: true,
     },
     {
       key: 'col_2',
       label: 'Column 2',
+      sortable: true,
     },
   ],
   items: [
@@ -28,5 +36,17 @@ export default {
 </script>
 
 <template>
-  <gl-table :items="$options.items" :fields="$options.fields" />
+  <div>
+    <gl-table
+      :items="$options.items"
+      :fields="$options.fields"
+      :sort-by.sync="sortBy"
+      :sord-desc.sync="sortDesc"
+    />
+    <div>
+      Sorting By: <b>{{ sortBy }}</b
+      >, Sort Direction:
+      <b>{{ sortDesc ? 'Descending' : 'Ascending' }}</b>
+    </div>
+  </div>
 </template>
