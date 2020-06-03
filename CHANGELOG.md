@@ -1,3 +1,10 @@
+## [16.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.2.0...v16.2.1) (2020-06-03)
+
+
+### Bug Fixes
+
+* **deps:** upgrade BootstrapVue to v2.13.1 ([58b2711](https://gitlab.com/gitlab-org/gitlab-ui/commit/58b2711a80338522ad734b0990a8a59b80a83401))
+
 # [16.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.1.0...v16.2.0) (2020-06-03)
 
 
