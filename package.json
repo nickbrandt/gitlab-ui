@@ -78,8 +78,8 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "@gitlab/eslint-plugin": "3.1.0",
     "@gitlab/stylelint-config": "2.0.0",
     "@gitlab/svgs": "1.135.0",
