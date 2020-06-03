@@ -11,6 +11,12 @@
   display: flex;
 }
 
+@mixin gl-display-sm-flex {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-display-flex;
+  }
+}
+
 @mixin gl-display-inline-flex {
   display: inline-flex;
 }
@@ -37,4 +43,10 @@
 
 @mixin gl-display-table-cell {
   display: table-cell;
+}
+
+@mixin gl-display-sm-block {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-display-block;
+  }
 }

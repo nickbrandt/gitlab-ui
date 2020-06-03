@@ -13,6 +13,12 @@
   flex-wrap: wrap;
 }
 
+@mixin gl-flex-sm-wrap {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-flex-wrap;
+  }
+}
+
 @mixin gl-flex-direction-column {
   flex-direction: column;
 }
