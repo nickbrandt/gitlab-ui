@@ -1,3 +1,10 @@
+# [16.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.1.0...v16.2.0) (2020-06-03)
+
+
+### Features
+
+* **css:** Add more css utils ([21f8403](https://gitlab.com/gitlab-org/gitlab-ui/commit/21f8403e9695aeab89cbb7fe9203e72e1208daa6))
+
 # [16.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.0.0...v16.1.0) (2020-05-28)
 
 
