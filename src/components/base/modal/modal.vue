@@ -129,31 +129,33 @@ export default {
     <slot slot="modal-header-close" name="modal-header-close"></slot>
     <slot slot="modal-ok" name="modal-ok"></slot>
     <slot slot="modal-cancel" name="modal-cancel"></slot>
-    <slot slot="modal-footer" name="modal-footer">
-      <gl-deprecated-button
-        v-if="actionCancel"
-        class="js-modal-action-cancel"
-        v-bind="buttonBinding(actionCancel, 'actionCancel')"
-        @click="cancel"
-      >
-        {{ actionCancel.text }}
-      </gl-deprecated-button>
-      <gl-deprecated-button
-        v-if="actionSecondary"
-        class="js-modal-action-secondary"
-        v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
-        @click="secondary"
-      >
-        {{ actionSecondary.text }}
-      </gl-deprecated-button>
-      <gl-deprecated-button
-        v-if="actionPrimary"
-        class="js-modal-action-primary"
-        v-bind="buttonBinding(actionPrimary, 'actionPrimary')"
-        @click="ok"
-      >
-        {{ actionPrimary.text }}
-      </gl-deprecated-button>
-    </slot>
+    <template #modal-footer="scope">
+      <slot name="modal-footer" v-bind="scope">
+        <gl-deprecated-button
+          v-if="actionCancel"
+          class="js-modal-action-cancel"
+          v-bind="buttonBinding(actionCancel, 'actionCancel')"
+          @click="cancel"
+        >
+          {{ actionCancel.text }}
+        </gl-deprecated-button>
+        <gl-deprecated-button
+          v-if="actionSecondary"
+          class="js-modal-action-secondary"
+          v-bind="buttonBinding(actionSecondary, 'actionSecondary')"
+          @click="secondary"
+        >
+          {{ actionSecondary.text }}
+        </gl-deprecated-button>
+        <gl-deprecated-button
+          v-if="actionPrimary"
+          class="js-modal-action-primary"
+          v-bind="buttonBinding(actionPrimary, 'actionPrimary')"
+          @click="ok"
+        >
+          {{ actionPrimary.text }}
+        </gl-deprecated-button>
+      </slot>
+    </template>
   </b-modal>
 </template>
