@@ -1,3 +1,10 @@
+# [16.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.2.1...v16.3.0) (2020-06-05)
+
+
+### Features
+
+* **AreaChart, LineChart:** prevent data tooltip freeze ([78d6a17](https://gitlab.com/gitlab-org/gitlab-ui/commit/78d6a17c6eccc237a3298e3d1c80ed29be37073b))
+
 ## [16.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.2.0...v16.2.1) (2020-06-03)
 
 
