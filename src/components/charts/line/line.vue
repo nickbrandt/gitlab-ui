@@ -37,6 +37,7 @@ import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import {
   ANNOTATION_TOOLTIP_TOP_OFFSET,
+  DATA_TOOLTIP_LEFT_OFFSET,
   LEGEND_LAYOUT_INLINE,
   LEGEND_LAYOUT_TABLE,
   LEGEND_AVERAGE_TEXT,
@@ -290,6 +291,11 @@ export default {
     },
     showHideTooltip(mouseEvent) {
       this.showDataTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
+
+      this.dataTooltipPosition = {
+        left: `${mouseEvent.zrX + DATA_TOOLTIP_LEFT_OFFSET}px`,
+        top: `${mouseEvent.zrY}px`,
+      };
     },
     onChartDataPointMouseOut() {
       this.showAnnotationsTooltip = false;
@@ -318,22 +324,6 @@ export default {
     },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
-      const { seriesData = [] } = params;
-      // seriesData is an array of nearby data point coordinates
-      // seriesData[0] is the nearest point at which the tooltip is displayed
-      // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
-      // convertToPixel expects value<Array|String> but there are cases
-      // where seriesData[0].data is an object. For line charts, value is
-      // guaranteed to be an array. Hence using seriesData[0].value
-      if (seriesData.length && seriesData[0].value) {
-        const { seriesId, value } = seriesData[0];
-        const [left, top] = this.chart.convertToPixel({ seriesId }, value);
-
-        this.dataTooltipPosition = {
-          left: `${left}px`,
-          top: `${top}px`,
-        };
-      }
     },
   },
 };
@@ -367,6 +357,7 @@ export default {
       v-if="chart"
       id="dataTooltip"
       ref="dataTooltip"
+      class="gl-pointer-events-none"
       :show="showDataTooltip"
       :chart="chart"
       :top="dataTooltipPosition.top"

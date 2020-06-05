@@ -20,7 +20,6 @@ describe('area component', () => {
   const findLegend = () => wrapper.find(ChartLegend);
   const findDataTooltip = () => wrapper.find({ ref: 'dataTooltip' });
   const findAnnotationsTooltip = () => wrapper.find({ ref: 'annotationsTooltip' });
-  const getOptions = () => findChart().props('options');
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
@@ -155,24 +154,15 @@ describe('area component', () => {
       expect(findDataTooltip().props('top')).toBe('0');
     });
 
-    it('is reset when the xAxis formatter is triggered', () => {
-      const seriesId = 'Series Name0';
-      const value = ['2020-02-10T06:45:26.879Z', 0.002671530922619002];
-      const pixel = [66, 99];
+    it('is reset when mouse moves', () => {
+      const left = '10px';
+      const top = '30px';
 
-      const params = {
-        seriesData: [{ seriesId, value }],
-      };
-
-      mockChartInstance.convertToPixel.mockReturnValueOnce(pixel);
-
-      getOptions().xAxis.axisPointer.label.formatter(params);
+      wrapper.setData({ dataTooltipPosition: { left, top } });
 
       return wrapper.vm.$nextTick(() => {
-        expect(mockChartInstance.convertToPixel).toHaveBeenCalledWith({ seriesId }, value);
-
-        expect(findDataTooltip().props('left')).toBe(`${pixel[0]}px`);
-        expect(findDataTooltip().props('top')).toBe(`${pixel[1]}px`);
+        expect(findDataTooltip().props('left')).toBe(`${left}`);
+        expect(findDataTooltip().props('top')).toBe(`${top}`);
       });
     });
   });
