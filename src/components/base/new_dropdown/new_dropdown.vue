@@ -111,46 +111,21 @@ export default {
       ];
     },
     splitButtonClasses() {
-      const classes = ['gl-button'];
-
-      if (this.text) {
-        classes.push('split-content-button');
-      }
-
-      if (this.icon) {
-        classes.push('icon-split-content-button');
-      }
-
-      return classes;
+      return [
+        'gl-button',
+        {
+          'split-content-button': Boolean(this.text),
+          'icon-split-content-button': Boolean(this.icon),
+        },
+      ];
     },
     buttonText() {
       return this.split && this.icon ? null : this.text;
     },
   },
-  mounted() {
-    /* WARNING: Don't reuse this pattern. This was the lesser of two evils and is an iterative fix.
-     * Please see issue: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/734
-     */
-    this.styleSplitButton();
-  },
-  updated() {
-    /* WARNING: Don't reuse this pattern. This was the lesser of two evils and is an iterative fix.
-     * Please see issue: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/734
-     */
-    this.styleSplitButton();
-  },
   methods: {
     hide(...args) {
       this.$refs.dropdown.hide(...args);
-    },
-    styleSplitButton() {
-      /* WARNING: Don't reuse this pattern. This was the lesser of two evils and is an iterative fix.
-       * Please see issue: https://gitlab.com/gitlab-org/gitlab-ui/-/issues/734
-       */
-      if (!this.split) return;
-
-      // eslint-disable-next-line promise/catch-or-return
-      this.$nextTick().then(() => this.$el.childNodes[0].classList.add(...this.splitButtonClasses));
     },
   },
 };
@@ -165,6 +140,7 @@ export default {
     :variant="variant"
     :size="buttonSize"
     :toggle-class="[toggleButtonClasses]"
+    :split-class="splitButtonClasses"
     :block="block"
     v-on="$listeners"
   >
