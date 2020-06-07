@@ -11,6 +11,7 @@ import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
 import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
+import resizeObserver from '../../../directives/resize_observer/resize_observer';
 
 const defaultOptions = {
   visualMap: {
@@ -47,6 +48,9 @@ export default {
     ChartLegend,
     ChartTooltip,
     TooltipDefaultFormat,
+  },
+  directives: {
+    resizeObserver,
   },
   mixins: [ToolboxMixin],
   props: {
@@ -93,6 +97,11 @@ export default {
       type: String,
       required: false,
       default: 'Max',
+    },
+    responsive: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
   data() {
@@ -228,6 +237,9 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
+    handleResize() {
+      return this.responsive && this.chart.resize();
+    },
     showHideTooltip(mouseEvent) {
       this.tooltip.show = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
@@ -250,7 +262,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-heatmap">
+  <div v-resize-observer="handleResize" class="gl-heatmap">
     <chart :options="computedOptions" @created="onCreated" />
     <chart-tooltip
       v-if="chart"

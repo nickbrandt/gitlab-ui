@@ -1,6 +1,7 @@
 import HourlyExample from './heatmap.hourly.example.vue';
 import TotalsExample from './heatmap.totals.example.vue';
 import CustomOptionsExample from './heatmap.custom_options.example.vue';
+import CustomResponsiveExample from './heatmap.responsive.example.vue';
 
 export default [
   {
@@ -23,6 +24,12 @@ export default [
         name: 'Heatmap with no background',
         description: 'CustomOptionsExample',
         component: CustomOptionsExample,
+      },
+      {
+        id: 'heatmap-responsive',
+        name: 'Heatmap which is non mobile responsive',
+        description: 'CustomResponsiveExample',
+        component: CustomResponsiveExample,
       },
     ],
   },
