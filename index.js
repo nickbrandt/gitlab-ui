@@ -94,6 +94,7 @@ export { default as GlCarouselSlide } from './src/components/base/carousel/carou
 export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
 export { default as GlIntersperse } from './src/components/utilities/intersperse/intersperse.vue';
 export { default as GlSprintf } from './src/components/utilities/sprintf/sprintf.vue';
+export { default as GlSlideDown } from './src/components/utilities/slide_down/slide_down.vue';
 
 // Directives
 export { default as GlModalDirective } from './src/directives/modal';

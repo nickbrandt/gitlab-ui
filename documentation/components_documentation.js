@@ -91,6 +91,7 @@ export { default as GlCarouselDocumentation } from '../src/components/base/carou
 export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
 export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';
 export { default as GlSprintfDocumentation } from '../src/components/utilities/sprintf/sprintf.documentation';
+export { default as GlSlideDownDocumentation } from '../src/components/utilities/slide_down/slide_down.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

@@ -1,0 +1,12 @@
+.slide-down-transition-enter-active,
+.slide-down-transition-leave-active {
+  @include gl-transition-medium;
+  max-height: 500px; /* Can this be made into a variable that gets passed in by the user? */
+  opacity: 1;
+}
+
+.slide-down-transition-enter,
+.slide-down-transition-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
