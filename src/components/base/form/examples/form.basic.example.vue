@@ -2,20 +2,29 @@
 export default {
   data() {
     return {
-      name: '',
-      submitDisabled: false,
+      form: {
+        submitDisabled: false,
+        email: '',
+        name: '',
+        mergeState: null,
+        checked: [],
+      },
+      states: [{ text: 'Select One', value: null }, 'Open', 'Resolved', 'Closed', 'Blocked'],
+      show: true,
     };
   },
   methods: {
     onReset() {
-      this.name = '';
-      this.submitDisabled = false;
+      this.form.name = '';
+      this.form.submitDisabled = false;
     },
     onSubmit(evt) {
       evt.preventDefault();
-      this.submitDisabled = true;
+      this.form.submitDisabled = true;
       setTimeout(() => {
-        this.submitDisabled = false;
+        this.form.submitDisabled = false;
+        // eslint-disable-next-line no-alert
+        alert(JSON.stringify(this.form));
       }, 1000);
     },
   },
@@ -23,12 +32,40 @@ export default {
 </script>
 
 <template>
-  <gl-form @submit="onSubmit" @reset="onReset">
-    <gl-form-group label="Name">
-      <gl-form-input v-model="name" type="text" required />
-    </gl-form-group>
+  <div>
+    <gl-form @submit="onSubmit" @reset="onReset">
+      <gl-form-group
+        id="input-group-1"
+        label="Email address:"
+        label-for="input-1"
+        description="We'll never share your email with anyone else."
+      >
+        <gl-form-input
+          id="input-1"
+          v-model="form.email"
+          type="email"
+          required
+          placeholder="Enter email"
+        />
+      </gl-form-group>
 
-    <gl-button type="submit" variant="success">Submit</gl-button>
-    <gl-button type="reset" variant="secondary">Reset</gl-button>
-  </gl-form>
+      <gl-form-group id="input-group-2" label="Your Name:" label-for="input-2">
+        <gl-form-input id="input-2" v-model="form.name" required placeholder="Enter name" />
+      </gl-form-group>
+
+      <gl-form-group id="input-group-3" label="Merge State:" label-for="input-3">
+        <gl-form-select id="input-3" v-model="form.mergeState" :options="states" required />
+      </gl-form-group>
+
+      <gl-form-group id="input-group-4">
+        <gl-form-checkbox-group id="checkboxes-4" v-model="form.checked" stacked>
+          <gl-form-checkbox value="squash">Squash Commits</gl-form-checkbox>
+          <gl-form-checkbox value="new">Create New Issue</gl-form-checkbox>
+        </gl-form-checkbox-group>
+      </gl-form-group>
+
+      <gl-button type="submit" variant="success">Submit</gl-button>
+      <gl-button type="reset" variant="secondary">Reset</gl-button>
+    </gl-form>
+  </div>
 </template>
