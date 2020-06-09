@@ -48,7 +48,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="gl-form-input-group">
     <b-input-group>
       <b-input-group-prepend v-if="activeOption || $slots.prepend">
         <slot name="prepend"></slot>

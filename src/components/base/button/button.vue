@@ -86,6 +86,9 @@ export default {
       return newButtonSizeOptionsMap[this.size];
     },
   },
+  mounted() {
+    this.$el.classList.remove('btn');
+  }
 };
 </script>
 <template>

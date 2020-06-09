@@ -1,51 +1,49 @@
 import { mount } from '@vue/test-utils';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
-import NewButton from './button.vue';
+import GlButton from './button.vue';
 
 describe('button component', () => {
-  const mountWithOptions = mount.bind(null, NewButton);
+  let wrapper;
+
+  const buildWrapper = (propsData = {}) => {
+    wrapper = mount(GlButton, {
+      propsData,
+    });
+  };
+
+  afterEach(() => {
+    wrapper.destroy();
+    wrapper = null;
+  });
+
+  it('removes btn class selector', () => {
+    buildWrapper();
+
+    expect(wrapper.classes()).not.toContain('btn');
+  });
 
   describe('ellipsis button', () => {
-    let button;
-
-    beforeEach(() => {
-      button = mountWithOptions({
-        propsData: {
-          icon: 'ellipsis_h',
-        },
-      });
-    });
-
     it('should add `button-ellipsis-horizontal` class', () => {
-      expect(button.classes()).toContain('button-ellipsis-horizontal');
+      buildWrapper({ icon: 'ellipsis_h' });
+
+      expect(wrapper.classes()).toContain('button-ellipsis-horizontal');
     });
   });
 
   describe('label button', () => {
-    let button;
-
-    beforeEach(() => {
-      button = mountWithOptions({
-        propsData: {
-          label: true,
-        },
-      });
-    });
-
     it('should add `btn-label` class', () => {
-      expect(button.classes()).toContain('btn-label');
+      buildWrapper({ label: true });
+
+      expect(wrapper.classes()).toContain('btn-label');
     });
   });
 
   describe('loading indicator', () => {
-    let button;
-    const findLoadingIcon = () => button.find(GlLoadingIcon);
+    const findLoadingIcon = () => wrapper.find(GlLoadingIcon);
 
     beforeEach(() => {
-      button = mountWithOptions({
-        propsData: {
-          loading: true,
-        },
+      buildWrapper({
+        loading: true,
       });
     });
 

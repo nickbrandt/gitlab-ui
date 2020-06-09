@@ -1,0 +1,11 @@
+.gl-form-input-group {
+  .input-group-append > .gl-button {
+    @include gl-rounded-bottom-left-none;
+    @include gl-rounded-top-left-none;
+  }
+
+  .input-group-prepend > .gl-button {
+    @include gl-rounded-top-right-none;
+    @include gl-rounded-bottom-right-none;
+  }
+}
