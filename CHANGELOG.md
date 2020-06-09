@@ -1,3 +1,11 @@
+## [16.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.4.0...v16.4.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* **css:** Update segment control css ([09a3875](https://gitlab.com/gitlab-org/gitlab-ui/commit/09a3875a86845003784aaab38d52178a4e2a945a))
+* **GlHeatMap:** Update broken styles ([cba66e8](https://gitlab.com/gitlab-org/gitlab-ui/commit/cba66e83664188dfbfd5821831eed025697e426f))
+
 # [16.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.3.0...v16.4.0) (2020-06-09)
 
 
