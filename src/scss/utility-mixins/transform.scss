@@ -1,7 +1,8 @@
 /**
 * Transform utilities
 *
-* naming convention: gl-{transform}-{position}-value
+* naming convention: gl-{transform}-{position}-{value}, or
+*                    gl-{transform}-{value}
 */
 
 @mixin gl-translate-x-0 {
@@ -18,4 +19,28 @@
 
 @mixin gl-translate-y-100 {
   transform: translateY(100%);
+}
+
+@mixin gl-rotate-90 {
+  transform: rotate(90);
+}
+
+@mixin gl-rotate-180 {
+  transform: rotate(180);
+}
+
+@mixin gl-rotate-270 {
+  transform: rotate(270);
+}
+
+@mixin gl-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+@mixin gl-flip-vertical {
+  transform: scale(1, -1);
+}
+
+@mixin gl-flip-both {
+  transform: scale(-1, -1);
 }
