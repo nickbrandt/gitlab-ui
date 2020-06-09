@@ -1,5 +1,3 @@
-.gl-heatmap-legend {
-  top: -46px;
-  left: 68px;
-  position: relative;
+.gl-heatmap {
+  @include gl-relative;
 }
