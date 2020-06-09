@@ -121,8 +121,8 @@ export default {
             z: 2,
           },
           grid: {
-            height: '62.5%',
-            left: '68px',
+            left: '64px',
+            right: '32px',
             show: true,
             borderWidth: 0,
             backgroundColor: gray100,
@@ -135,13 +135,16 @@ export default {
             data: this.xAxisLabels,
             z: 3,
             axisTick: false,
+            axisLabel: {
+              margin: 2,
+            },
             name: this.xAxisName,
-            nameGap: 26,
+            nameGap: 16,
             nameLocation: 'middle',
             nameTextStyle: {
               verticalAlign: 'middle',
             },
-            offset: 6,
+            offset: 0,
             splitLine: {
               show: true,
               interval: 0,
@@ -166,7 +169,7 @@ export default {
               margin: 8,
             },
             name: this.yAxisName,
-            nameLocation: 'middle',
+            nameLocation: 'center',
             nameGap: 50,
             nameRotate: 90,
             splitLine: {
@@ -182,6 +185,9 @@ export default {
         this.toolboxAdjustments,
         this.options
       );
+    },
+    legendStyle() {
+      return { paddingLeft: this.computedOptions.grid.left, marginTop: '-32px' };
     },
     compiledOptions() {
       return this.chart ? this.chart.getOption() : null;
@@ -244,8 +250,8 @@ export default {
 </script>
 
 <template>
-  <div>
-    <chart :options="computedOptions" class="gl-heatmap" @created="onCreated" />
+  <div class="gl-heatmap">
+    <chart :options="computedOptions" @created="onCreated" />
     <chart-tooltip
       v-if="chart"
       :show="tooltip.show"
@@ -269,9 +275,10 @@ export default {
       v-if="compiledOptions"
       :chart="chart"
       :series-info="seriesInfo"
-      class="gl-heatmap-legend"
-      :average-text="legendAverageText"
+      :style="legendStyle"
+      :text-style="compiledOptions.textStyle"
       :max-text="legendMaxText"
+      :average-text="legendAverageText"
     />
   </div>
 </template>
