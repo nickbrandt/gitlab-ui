@@ -1,3 +1,10 @@
+# [16.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.4.1...v16.5.0) (2020-06-09)
+
+
+### Features
+
+* **css:** Add rotate and flip utilities ([aeb1c21](https://gitlab.com/gitlab-org/gitlab-ui/commit/aeb1c213332b7e2f6064fa4843bf17150387125e))
+
 ## [16.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.4.0...v16.4.1) (2020-06-09)
 
 
