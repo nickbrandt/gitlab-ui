@@ -1,3 +1,10 @@
+# [16.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.3.0...v16.4.0) (2020-06-09)
+
+
+### Features
+
+* **css:** Added gl-my-3 utility ([5d2f9cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/5d2f9cc319789fccdb44fae9fbcbb561334f2116))
+
 # [16.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.2.1...v16.3.0) (2020-06-05)
 
 
