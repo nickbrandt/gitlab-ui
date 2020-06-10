@@ -1,8 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { uniq } from 'lodash';
 import Chart from '../chart/chart.vue';
 import Legend from './legend.vue';
-import GlTooltip from '~/components/base/tooltip/tooltip.vue';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
 
 jest.mock('echarts', () => ({
@@ -174,42 +172,6 @@ describe('chart legend component', () => {
         legendWrapper.findAll('.gl-legend-tabular-details-cell').wrappers.forEach(wrapper => {
           expect(wrapper.text()).toBe('-');
         });
-      });
-    });
-
-    describe('tooltip', () => {
-      const findLegendTableRows = () => legendWrapper.findAll('.gl-legend-tabular-row').wrappers;
-      let tooltips;
-      let seriesLabels;
-
-      beforeEach(() => {
-        tooltips = findLegendTableRows().map(row => row.find(GlTooltip));
-        seriesLabels = findLegendTableRows().map(row => row.find('.gl-legend-tabular-title-cell'));
-      });
-
-      it('renders the tooltips for each row', () => {
-        tooltips.forEach(tooltip => {
-          expect(tooltip.exists()).toBe(true);
-        });
-      });
-
-      it('renders the series labels for each row', () => {
-        seriesLabels.forEach(seriesLabel => {
-          expect(seriesLabel.exists()).toBe(true);
-        });
-      });
-
-      it('targets its sibling label', () => {
-        tooltips.forEach((tooltip, index) => {
-          expect(tooltip.attributes('target')).toBe(seriesLabels[index].attributes('id'));
-        });
-      });
-
-      it('has a unique target', () => {
-        const tooltipTargets = tooltips.map(tooltip => {
-          return tooltip.attributes('target');
-        });
-        expect(uniq(tooltipTargets).length).toBe(tooltipTargets.length);
       });
     });
   });
