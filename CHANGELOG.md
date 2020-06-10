@@ -1,3 +1,10 @@
+## [16.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.1...v16.6.2) (2020-06-10)
+
+
+### Bug Fixes
+
+* **css:** Add "deg" unit to rotation utilities ([d10c025](https://gitlab.com/gitlab-org/gitlab-ui/commit/d10c025107d0cd118678162e5519241dfb8e6459))
+
 ## [16.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.0...v16.6.1) (2020-06-10)
 
 
