@@ -84,7 +84,9 @@ export default {
     },
     boxShadow() {
       return {
-        boxShadow: `inset 0 0 0 ${this.size === 'sm' ? '1px' : '2px'} ${this.backgroundColor}`,
+        '--label-inset-border': `inset 0 0 0 ${this.size === 'sm' ? '1px' : '2px'} ${
+          this.backgroundColor
+        }`,
       };
     },
   },
