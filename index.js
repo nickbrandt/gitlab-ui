@@ -100,3 +100,4 @@ export { default as GlModalDirective } from './src/directives/modal';
 export { default as GlTooltipDirective } from './src/directives/tooltip';
 export { default as GlResizeObserverDirective } from './src/directives/resize_observer/resize_observer';
 export { default as GlCollapseToggleDirective } from './src/directives/collapse_toggle';
+export { default as GlSafeLinkDirective } from './src/directives/safe_link/safe_link';
