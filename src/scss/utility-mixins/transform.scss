@@ -22,15 +22,15 @@
 }
 
 @mixin gl-rotate-90 {
-  transform: rotate(90);
+  transform: rotate(90deg);
 }
 
 @mixin gl-rotate-180 {
-  transform: rotate(180);
+  transform: rotate(180deg);
 }
 
 @mixin gl-rotate-270 {
-  transform: rotate(270);
+  transform: rotate(270deg);
 }
 
 @mixin gl-flip-horizontal {
