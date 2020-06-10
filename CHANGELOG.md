@@ -1,3 +1,10 @@
+## [16.6.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.2...v16.6.3) (2020-06-10)
+
+
+### Bug Fixes
+
+* **GlHeatMap:** disable pointer events on legend ([c7263da](https://gitlab.com/gitlab-org/gitlab-ui/commit/c7263daa5481381f5bfff2b3e98b48d3f72aa01b))
+
 ## [16.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.1...v16.6.2) (2020-06-10)
 
 
