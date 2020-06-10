@@ -1,3 +1,5 @@
+@import '../mixins';
+
 /**
 * Text align utilities
 */
@@ -91,4 +93,13 @@
 
 @mixin gl-word-break-all {
   word-break: break-all;
+}
+
+/*
+ * Truncation Utilites
+ *
+ * naming convention: gl-str-truncated-{max-width}
+ */
+@mixin gl-str-truncated {
+  @include str-truncated;
 }
