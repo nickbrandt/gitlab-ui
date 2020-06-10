@@ -1,3 +1,10 @@
+## [16.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.0...v16.6.1) (2020-06-10)
+
+
+### Bug Fixes
+
+* **GlLabel:** Add focus state ([12f43ea](https://gitlab.com/gitlab-org/gitlab-ui/commit/12f43eae2e58a3a805afd04d295e9592aa177164))
+
 # [16.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.5.0...v16.6.0) (2020-06-10)
 
 
