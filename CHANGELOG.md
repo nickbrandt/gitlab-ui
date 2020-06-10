@@ -1,3 +1,10 @@
+# [16.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.5.0...v16.6.0) (2020-06-10)
+
+
+### Features
+
+* **GlSafeLink:** Add safe link directive ([1721feb](https://gitlab.com/gitlab-org/gitlab-ui/commit/1721feb893c037ac7eecd72ec215e9219858d04b))
+
 # [16.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.4.1...v16.5.0) (2020-06-09)
 
 
