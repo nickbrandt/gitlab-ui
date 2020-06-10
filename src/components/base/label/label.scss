@@ -1,3 +1,10 @@
+/*
+ * Label-specific utilities
+ */
+@mixin gl-label-focus($color) {
+  box-shadow: 0 0 0 $gl-border-size-1 $color, $focus-ring, var(--label-inset-border) !important;
+}
+
 $label-max-width: 100%;
 
 .gl-label {
@@ -9,6 +16,13 @@ $label-max-width: 100%;
   @include gl-relative;
   @include gl-max-w-full;
   @include gl-font-base;
+  box-shadow: var(--label-inset-border) !important;
+
+  &:focus {
+    @include gl-outline-none;
+    @include gl-text-decoration-underline;
+    @include gl-label-focus($white);
+  }
 
   > .gl-label-link {
     @include gl-line-height-normal;
