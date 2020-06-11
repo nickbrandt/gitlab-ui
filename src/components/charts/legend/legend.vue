@@ -1,7 +1,6 @@
 <script>
 import echarts from 'echarts';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
-import GlTooltip from '../../base/tooltip/tooltip.vue';
 import { average, engineeringNotation } from '../../../utils/number_utils';
 import { defaultFontSize } from '../../../utils/charts/config';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -17,7 +16,6 @@ import {
 export default {
   components: {
     GlChartSeriesLabel,
-    GlTooltip,
   },
   props: {
     chart: {
@@ -168,7 +166,7 @@ export default {
             @mouseenter="handleMouseEnter(series.name)"
             @mouseleave="handleMouseLeave(series.name)"
           >
-            <div :id="`gl-chart-label-${key}`" class="gl-legend-tabular-title-cell">
+            <div class="gl-legend-tabular-title-cell">
               <gl-chart-series-label
                 :color="getColor(series.color, key)"
                 :style="fontStyle"
@@ -177,10 +175,6 @@ export default {
                 <strong>{{ series.name }}</strong>
               </gl-chart-series-label>
             </div>
-
-            <gl-tooltip :target="`gl-chart-label-${key}`" boundary="viewport">{{
-              series.name
-            }}</gl-tooltip>
 
             <template v-if="series.data && series.data.length">
               <div class="gl-legend-tabular-details-cell">{{ seriesMin(series.data) }}</div>
