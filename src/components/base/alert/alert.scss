@@ -5,15 +5,18 @@
   @include gl-py-5;
 
   .gl-link {
-    @include gl-reset-color;
+    @include gl-text-blue-600;
     @include gl-text-decoration-underline;
+
+    &:hover {
+      @include gl-text-blue-700;
+    }
   }
 }
 
 .gl-alert-title {
   @include gl-font-base;
   @include gl-font-weight-bold;
-  @include gl-reset-color;
   @include gl-line-height-normal;
   @include gl-mt-0;
   @include gl-mb-3;
@@ -53,9 +56,9 @@
   @include gl-right-0;
   @include gl-p-5;
   @include gl-line-height-normal;
-  @include gl-reset-color;
   @include gl-bg-none;
   @include gl-border-none;
+  @include gl-text-gray-500;
 
   > svg {
     @include gl-fill-current-color;
@@ -67,50 +70,40 @@
 
 .gl-alert-danger {
   @include gl-bg-red-50;
-  @include gl-text-red-600;
 
-  .gl-link:hover {
-    @include gl-text-red-900;
+  .gl-alert-icon {
+    @include gl-text-red-600;
   }
 }
 
 .gl-alert-warning {
   @include gl-bg-orange-50;
-  @include gl-text-orange-600;
 
-  .gl-link:hover {
-    @include gl-text-orange-900;
+  .gl-alert-icon {
+    @include gl-text-orange-600;
   }
 }
 
 .gl-alert-tip {
   @include gl-bg-gray-50;
-  @include gl-text-gray-600;
 
-  .gl-link:hover {
-    @include gl-text-gray-900;
+  .gl-alert-icon {
+    @include gl-text-gray-600;
   }
 }
 
 .gl-alert-info {
   @include gl-bg-blue-50;
-  @include gl-text-blue-600;
 
-  .gl-alert-icon,
-  .gl-alert-dismiss {
+  .gl-alert-icon {
     @include gl-text-blue-600;
-  }
-
-  .gl-link:hover {
-    @include gl-text-blue-900;
   }
 }
 
 .gl-alert-success {
   @include gl-bg-green-50;
-  @include gl-text-green-600;
 
-  .gl-link:hover {
-    @include gl-text-green-900;
+  .gl-alert-icon {
+    @include gl-text-green-600;
   }
 }

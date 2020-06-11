@@ -1,6 +1,7 @@
 import AlertDefaultExample from './alert.default.example.vue';
 import AlertActionsExample from './alert.actions.example.vue';
 import AlertCustomActionsExample from './alert.custom_actions.example.vue';
+import AlertTextLinksExample from './alert.text_links.example.vue';
 import AlertTitleExample from './alert.title.example.vue';
 import AlertNonDismissibleExample from './alert.non_dismissible.example.vue';
 import AlertVariantsExample from './alert.variants.example.vue';
@@ -26,6 +27,12 @@ export default [
         name: 'Custom Actions',
         description: 'Alert with custom actions',
         component: AlertCustomActionsExample,
+      },
+      {
+        id: 'alert-text-links',
+        name: 'Text links',
+        description: 'Alert with text links',
+        component: AlertTextLinksExample,
       },
       {
         id: 'alert-title',

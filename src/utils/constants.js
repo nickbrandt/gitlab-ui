@@ -168,14 +168,6 @@ export const alertVariantOptions = {
   tip: 'tip',
 };
 
-export const alertButtonVariantMap = {
-  success: { primary: 'success', secondary: 'success' },
-  warning: { primary: 'warning', secondary: 'warning' },
-  danger: { primary: 'danger', secondary: 'danger' },
-  info: { primary: 'info', secondary: 'info' },
-  tip: { primary: 'info', secondary: 'default' },
-};
-
 export const alertVariantIconMap = {
   success: 'check-circle',
   warning: 'warning',

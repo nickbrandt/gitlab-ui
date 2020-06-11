@@ -3,7 +3,6 @@ import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
 import {
   alertVariantOptions,
-  alertButtonVariantMap,
   alertVariantIconMap,
   newButtonCategoryOptions,
 } from '../../../utils/constants';
@@ -69,7 +68,7 @@ export default {
           text: this.primaryButtonText,
           attrs: {
             href: this.primaryButtonLink,
-            variant: alertButtonVariantMap[this.variant].primary,
+            variant: 'info',
             category: newButtonCategoryOptions.primary,
           },
           listeners: {
@@ -80,7 +79,7 @@ export default {
           text: this.secondaryButtonText,
           attrs: {
             href: this.secondaryButtonLink,
-            variant: alertButtonVariantMap[this.variant].secondary,
+            variant: 'default',
             category: newButtonCategoryOptions.secondary,
           },
           listeners: {
