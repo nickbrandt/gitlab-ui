@@ -1,3 +1,10 @@
+# [16.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.3...v16.7.0) (2020-06-11)
+
+
+### Features
+
+* **Alert:** normalize text, buttons, and links ([495179e](https://gitlab.com/gitlab-org/gitlab-ui/commit/495179e84ebd68bd0053a5799b3ebd7ae9c80e4e))
+
 ## [16.6.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.2...v16.6.3) (2020-06-10)
 
 
