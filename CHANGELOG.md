@@ -1,3 +1,10 @@
+## [16.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.0...v16.8.1) (2020-06-11)
+
+
+### Bug Fixes
+
+* **GlHeatMap:** Enable responsive heatmap ([a490d62](https://gitlab.com/gitlab-org/gitlab-ui/commit/a490d621f4e5fd7ba7b316d4390cb88b4345ca46))
+
 # [16.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.7.0...v16.8.0) (2020-06-11)
 
 
