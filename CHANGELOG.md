@@ -1,3 +1,10 @@
+## [16.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.1...v16.8.2) (2020-06-11)
+
+
+### Bug Fixes
+
+* **GlChartLegend:** remove tooltips from labels of tabular legends ([8e9b7bd](https://gitlab.com/gitlab-org/gitlab-ui/commit/8e9b7bdd5e5650c6f2b5ba8387794de65b52e70f))
+
 ## [16.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.0...v16.8.1) (2020-06-11)
 
 
