@@ -1,3 +1,10 @@
+# [16.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.7.0...v16.8.0) (2020-06-11)
+
+
+### Features
+
+* **utilities:** Add gl-str-truncated ([1424ba9](https://gitlab.com/gitlab-org/gitlab-ui/commit/1424ba99a8682369a0eb09409e09e3d5d3840288))
+
 # [16.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.6.3...v16.7.0) (2020-06-11)
 
 
