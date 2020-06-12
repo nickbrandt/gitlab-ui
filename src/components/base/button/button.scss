@@ -93,7 +93,6 @@
   &.btn-danger:not(:disabled),
   &.btn-warning:not(:disabled) {
     @include gl-text-white;
-    @include gl-font-weight-bold;
   }
 
   &.btn-info:not(:disabled) {
