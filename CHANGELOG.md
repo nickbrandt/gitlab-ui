@@ -1,3 +1,10 @@
+## [16.8.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.2...v16.8.3) (2020-06-12)
+
+
+### Bug Fixes
+
+* **button:** Remove font weight bold from primary buttons ([2e7549d](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e7549d15d3bf84e9e1bacee8e8ec137aa36b5d1))
+
 ## [16.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.1...v16.8.2) (2020-06-11)
 
 
