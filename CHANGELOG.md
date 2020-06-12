@@ -1,3 +1,10 @@
+# [16.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.3...v16.9.0) (2020-06-12)
+
+
+### Features
+
+* **css:** Add padding utility ([192ff26](https://gitlab.com/gitlab-org/gitlab-ui/commit/192ff26d76902805aa29dc7513b1223bfe001e75))
+
 ## [16.8.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.2...v16.8.3) (2020-06-12)
 
 
