@@ -38,3 +38,17 @@
     @include assert-equal($result, 16em 0.75rem 1rem 0.75rem);
   }
 }
+
+@include describe('if-important') {
+  @include it('returns `!important` if `$important` is `true`') {
+    $result: if-important(true);
+
+    @include assert-equal($result, '!important');
+  }
+
+  @include it('returns an empty string if `$important` is `false`') {
+    $result: if-important(false);
+
+    @include assert-equal($result, '');
+  }
+}
