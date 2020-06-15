@@ -289,3 +289,15 @@ export const modalSizeOptions = {
 };
 
 export const focusableTags = ['INPUT', 'TEXTAREA', 'A', 'BUTTON', 'SELECT'];
+
+export const keyboard = {
+  escape: 'Escape',
+  backspace: 'Backspace',
+  delete: 'Delete',
+  left: 'Left',
+  arrowLeft: 'ArrowLeft',
+  right: 'Right',
+  arrowRight: 'ArrowRight',
+  home: 'Home',
+  end: 'End',
+};
