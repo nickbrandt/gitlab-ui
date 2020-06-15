@@ -1,3 +1,15 @@
+# [16.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.10.0...v16.11.0) (2020-06-15)
+
+
+### Bug Fixes
+
+* **toggles:** Add help text to toggles ([e3a93a4](https://gitlab.com/gitlab-org/gitlab-ui/commit/e3a93a44e20d04f3321b97b440999b63bef4e0fc))
+
+
+### Features
+
+* **GlLink:** Add safe-link directive to gl-link ([31817ef](https://gitlab.com/gitlab-org/gitlab-ui/commit/31817ef4e1c9a2f45f0bfe9b17a59a3162ef12eb))
+
 # [16.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.9.0...v16.10.0) (2020-06-15)
 
 
