@@ -223,10 +223,6 @@
   margin: 0;
 }
 
-@mixin gl-mr-1 {
-  margin-right: $gl-spacing-scale-1;
-}
-
 @mixin gl-m-3 {
   margin: $gl-spacing-scale-3;
 }
@@ -237,6 +233,10 @@
 
 @mixin gl-mt-1 {
   margin-top: $gl-spacing-scale-1;
+}
+
+@mixin gl-mt-n1 {
+  margin-top: -$gl-spacing-scale-1;
 }
 
 @mixin gl-mt-2 {
@@ -265,6 +265,14 @@
 
 @mixin gl-mr-0 {
   margin-right: 0;
+}
+
+@mixin gl-mr-1 {
+  margin-right: $gl-spacing-scale-1;
+}
+
+@mixin gl-mr-n1 {
+  margin-right: -$gl-spacing-scale-1;
 }
 
 @mixin gl-mr-2 {
@@ -299,6 +307,10 @@
   margin-bottom: $gl-spacing-scale-1;
 }
 
+@mixin gl-mb-n1 {
+  margin-bottom: -$gl-spacing-scale-1;
+}
+
 @mixin gl-mb-2 {
   margin-bottom: $gl-spacing-scale-2;
 }
@@ -329,6 +341,10 @@
 
 @mixin gl-ml-1 {
   margin-left: $gl-spacing-scale-1;
+}
+
+@mixin gl-ml-n1 {
+  margin-left: -$gl-spacing-scale-1;
 }
 
 @mixin gl-ml-2 {
