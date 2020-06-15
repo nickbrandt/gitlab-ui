@@ -24,7 +24,10 @@ GitLab UI is compatible with tree-shaking, you may enable this in your project t
 
 ### GitLab UI CSS
 
-GitLab UI provides component styles, a utility-class library and SCSS utilities. See the [CSS usage documentation](doc/css.md) for more information.
+GitLab UI provides component styles, a utility-class library, and SCSS utilities.
+
+- [How can I get started with GitLab UI CSS?](doc/css.md)
+- [How does GitLab UI interact with GitLab CSS?](doc/debugging-gitlab-ui-with-gitlab-css.md)
 
 ## Quick start - development
 
