@@ -1,3 +1,10 @@
+# [16.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.9.0...v16.10.0) (2020-06-15)
+
+
+### Features
+
+* **GlTokenSelector:** Add token selector component ([6a55777](https://gitlab.com/gitlab-org/gitlab-ui/commit/6a5577703a0c8c572310b4fc92b06ccdcb3c190e))
+
 # [16.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.8.3...v16.9.0) (2020-06-12)
 
 
