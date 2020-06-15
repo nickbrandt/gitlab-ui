@@ -1,16 +1,27 @@
 <script>
 import { BLink } from 'bootstrap-vue';
-import RelMixin from '../../mixins/rel_mixin';
+import SafeLink from '../../../directives/safe_link/safe_link';
 
 export default {
   components: {
     BLink,
   },
-  mixins: [RelMixin],
+  directives: {
+    SafeLink,
+  },
+  props: {
+    // This is necessary to prevent vue-bootstrap to set
+    // a target="_self" when there is no target attribute
+    target: {
+      type: String,
+      required: false,
+      default: null,
+    },
+  },
 };
 </script>
 <template>
-  <b-link v-bind="$attrs" :rel="relType" :target="target" class="gl-link" v-on="$listeners">
+  <b-link v-safe-link v-bind="$attrs" :target="target" class="gl-link" v-on="$listeners">
     <slot></slot>
   </b-link>
 </template>
