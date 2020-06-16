@@ -32,15 +32,15 @@ export default {
       required: false,
       default: false,
     },
-    label: {
+    labelOn: {
       type: String,
       required: false,
-      default: undefined,
+      default: 'Toggle Status: ON',
     },
-    help: {
+    labelOff: {
       type: String,
       required: false,
-      default: undefined,
+      default: 'Toggle Status: OFF',
     },
     ariaDescribedby: {
       type: String,
@@ -50,14 +50,17 @@ export default {
     labelPosition: {
       type: String,
       required: false,
-      default: 'top',
+      default: 'hidden',
       validator(position) {
-        return ['hidden', 'top', 'left'].includes(position);
+        return ['hidden', 'top', 'right'].includes(position);
       },
     },
   },
 
   computed: {
+    labelText() {
+      return this.value ? this.labelOn : this.labelOff;
+    },
     ariaLabel() {
       return this.labelPosition === 'hidden' ? this.labelText : undefined;
     },
@@ -75,17 +78,15 @@ export default {
 </script>
 
 <template>
-  <div
-    class="gl-toggle-wrapper"
-    :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
-  >
-    <span v-if="label" class="gl-toggle-label">
-      <slot name="label">{{ label }}</slot>
+  <label class="gl-toggle-wrapper" :class="{ 'gl-toggle-label-inline': labelPosition === 'right' }">
+    <span v-if="labelPosition !== 'hidden'" class="gl-toggle-label">
+      <slot v-if="value" name="labelOn">{{ labelText }}</slot>
+      <slot v-else name="labelOff">{{ labelText }}</slot>
     </span>
     <input v-if="name" :name="name" :value="value" type="hidden" />
     <button
-      :aria-label="label"
-      :aria-describedby="help"
+      :aria-label="ariaLabel"
+      :aria-describedby="ariaDescribedby"
       :class="{
         'gl-toggle': true,
         'is-checked': value,
@@ -99,8 +100,5 @@ export default {
         <gl-icon :name="icon" :size="16" />
       </span>
     </button>
-    <span v-if="help" :class="{ 'gl-help-label': true, 'gl-w-full': labelPosition === 'left' }">
-      <slot name="help">{{ help }}</slot>
-    </span>
-  </div>
+  </label>
 </template>
