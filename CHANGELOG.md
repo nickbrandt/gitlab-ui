@@ -1,3 +1,11 @@
+## [16.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.12.1...v16.12.2) (2020-06-16)
+
+
+### Bug Fixes
+
+* **GlButton:** Increse GlButton CSS specificity ([0d22860](https://gitlab.com/gitlab-org/gitlab-ui/commit/0d228603fde0987cc754b795a10781687ffd8795))
+* **GlSafeLinkDirective:** Make update transformation reactive ([05565ad](https://gitlab.com/gitlab-org/gitlab-ui/commit/05565ad53de0aa38c897e7bfcc1ff0ee0f815364))
+
 ## [16.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.12.0...v16.12.1) (2020-06-16)
 
 
