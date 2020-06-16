@@ -1,26 +1,34 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
+import Vue from 'vue';
 import safeLink from './safe_link';
 import { absoluteUrls, javascriptUrls, encodedJavaScriptUrls, relativeUrls } from './mock_data';
+import GlLink from '../../components/base/link/link.vue';
 
 const httpLink = 'https://gitlab.com';
 
 describe('safe link directive', () => {
   let wrapper;
 
-  const createComponent = ({ href } = {}) => {
+  const createComponent = ({
+    href,
+    components,
+    template = `<a v-safe-link :href="href" target="_blank">Click</a>`,
+    mountFn = shallowMount,
+  } = {}) => {
     const component = {
       directives: {
         safeLink,
       },
+      components,
       data() {
         return {
           href,
         };
       },
-      template: `<a v-safe-link :href="href" target="_blank">Click</a>`,
+      template,
     };
 
-    wrapper = shallowMount(component);
+    wrapper = mountFn(component);
   };
 
   afterEach(() => {
@@ -68,6 +76,29 @@ describe('safe link directive', () => {
         href: url,
       });
       expect(wrapper.attributes('href')).toBe(url);
+    });
+  });
+
+  describe('reactivity', () => {
+    it('should sanitize the updated url', async () => {
+      createComponent({
+        mountFn: mount,
+        components: { GlLink },
+        template: '<gl-link :href="href" target="_blank">Click</gl-link>',
+        href: javascriptUrls[0],
+      });
+
+      expect(wrapper.attributes('href')).toBe('about:blank');
+
+      // set href to a valid url
+      wrapper.setData({ href: 'https://gitlab.com' });
+      await Vue.nextTick();
+      expect(wrapper.attributes('href')).toBe('https://gitlab.com');
+
+      // set href to back to an invalid url
+      wrapper.setData({ href: javascriptUrls[1] });
+      await Vue.nextTick();
+      expect(wrapper.attributes('href')).toBe('about:blank');
     });
   });
 });

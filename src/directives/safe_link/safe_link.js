@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 const getBaseURL = () => {
   const { protocol, host } = window.location;
   return `${protocol}//${host}`;
@@ -42,7 +44,11 @@ const transform = el => {
 
 const SafeLinkDirective = {
   inserted: transform,
-  update: transform,
+  update: el => {
+    Vue.nextTick(() => {
+      transform(el);
+    });
+  },
 };
 
 export default SafeLinkDirective;
