@@ -7,6 +7,12 @@
   display: none;
 }
 
+@mixin gl-display-sm-none {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-display-none;
+  }
+}
+
 @mixin gl-display-flex {
   display: flex;
 }
@@ -23,6 +29,12 @@
 
 @mixin gl-display-block {
   display: block;
+}
+
+@mixin gl-display-sm-block {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-display-block;
+  }
 }
 
 @mixin gl-display-inline {
@@ -43,10 +55,4 @@
 
 @mixin gl-display-table-cell {
   display: table-cell;
-}
-
-@mixin gl-display-sm-block {
-  @media (min-width: $breakpoint-sm) {
-    @include gl-display-block;
-  }
 }

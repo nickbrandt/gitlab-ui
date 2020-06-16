@@ -21,6 +21,10 @@
   transform: translateY(100%);
 }
 
+@mixin gl-translate-y-n100 {
+  transform: translateY(-100%);
+}
+
 @mixin gl-rotate-90 {
   transform: rotate(90deg);
 }
