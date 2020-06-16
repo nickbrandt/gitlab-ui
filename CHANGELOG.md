@@ -1,3 +1,11 @@
+# [16.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.11.0...v16.12.0) (2020-06-16)
+
+
+### Features
+
+* **css:** Add negative margin utilities ([393581c](https://gitlab.com/gitlab-org/gitlab-ui/commit/393581c9c5ff0777e60a2ff33e2a2ae2c0de0d33))
+* **modal:** Set modal max height dynamically ([58470b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/58470b5ee0c9afb495a99894c4b73b60d1119524))
+
 # [16.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.10.0...v16.11.0) (2020-06-15)
 
 
