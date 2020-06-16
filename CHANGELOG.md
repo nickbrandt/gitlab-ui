@@ -1,3 +1,10 @@
+## [16.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.12.0...v16.12.1) (2020-06-16)
+
+
+### Reverts
+
+* Revert "fix(toggles): Add help text to toggles" ([ad5c55d](https://gitlab.com/gitlab-org/gitlab-ui/commit/ad5c55d006987a86325df733071ad13922a1c6a6))
+
 # [16.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.11.0...v16.12.0) (2020-06-16)
 
 
