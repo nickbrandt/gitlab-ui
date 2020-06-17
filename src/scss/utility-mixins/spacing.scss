@@ -5,6 +5,30 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+$spacing: (
+  0: 0,
+  1: $gl-spacing-scale-1,
+  2: $gl-spacing-scale-2,
+  3: $gl-spacing-scale-3,
+  4: $gl-spacing-scale-4,
+  5: $gl-spacing-scale-5,
+  6: $gl-spacing-scale-6,
+  7: $gl-spacing-scale-7,
+  8: $gl-spacing-scale-8,
+  9: $gl-spacing-scale-9,
+  10: $gl-spacing-scale-10,
+  11: $gl-spacing-scale-11,
+  12: $gl-spacing-scale-12,
+  13: $gl-spacing-scale-13,
+);
+
+$breakpoints: (
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+);
+
 @mixin gl-p-0 {
   padding: 0;
 }
@@ -471,4 +495,54 @@
 @mixin gl-mx-n4 {
   margin-left: -#{$gl-spacing-scale-4};
   margin-right: -#{$gl-spacing-scale-4};
+}
+
+/**
+* Breakpoint margin utilities.
+*
+* naming convention: gl-m{position}-{breakpoint}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+@each $value, $break in $breakpoints {
+  @each $value, $mar in $spacing {
+    .gl-m-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin: $mar;
+      }
+    }
+    .gl-mt-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin-top: $mar;
+      }
+    }
+    .gl-mr-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin-right: $mar;
+      }
+    }
+    .gl-mb-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin-bottom: $mar;
+      }
+    }
+    .gl-ml-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin-left: $mar;
+      }
+    }
+    .gl-mx-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin-right: $mar;
+        margin-left: $mar;
+      }
+    }
+    .gl-my-#{$break}-#{$value} {
+      @media (min-width: $break) {
+        margin-top: $mar;
+        margin-bottom: $mar;
+      }
+    }
+  }
 }
