@@ -1,3 +1,19 @@
+# [17.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.12.2...v17.0.0) (2020-06-17)
+
+
+### Bug Fixes
+
+* **filters:** Properly work with history dropdown items ([c8d9e31](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8d9e31a03fb577112b4075f696434d57e41577c))
+
+
+### BREAKING CHANGES
+
+* **filters:** Selecting history item does not trigger
+submit event anymore. Instead new history-item-selected
+event will be triggered.
+
+This allows customizing behavior of our search when needed
+
 ## [16.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.12.1...v16.12.2) (2020-06-16)
 
 
