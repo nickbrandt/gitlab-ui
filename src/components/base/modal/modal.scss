@@ -37,10 +37,6 @@ body.modal-open {
   .modal-content {
     @include gl-rounded-base;
 
-    @include media-breakpoint-up(sm) {
-      max-height: calc(#{$gl-viewport-height} - #{$gl-spacing-scale-11 * 2});
-    }
-
     > :first-child {
       @include gl-rounded-top-left-base;
       @include gl-rounded-top-right-base;
@@ -75,7 +71,6 @@ body.modal-open {
     @include gl-p-5;
     @include gl-text-left;
     @include gl-white-space-normal;
-    @include gl-overflow-y-auto;
   }
 
   .modal-footer {
