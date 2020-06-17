@@ -1,3 +1,10 @@
+## [17.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.0.0...v17.0.1) (2020-06-17)
+
+
+### Bug Fixes
+
+* Revert Set modal max-height dynamically ([1f9bb02](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f9bb02df105b6a102043b96101e07c82787de45))
+
 # [17.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v16.12.2...v17.0.0) (2020-06-17)
 
 
