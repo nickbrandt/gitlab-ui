@@ -43,6 +43,7 @@ const generateProps = () => {
 
 documentedStoriesOf('base|token_selector', readme)
   .addDecorator(withKnobs)
+  .addParameters({ storyshots: false })
   .add('default', () => ({
     props: generateProps(),
     data() {
@@ -88,8 +89,8 @@ documentedStoriesOf('base|token_selector', readme)
     },
     template: `
       <div>
-        <gl-token-selector 
-          v-model="selectedTokens" 
+        <gl-token-selector
+          v-model="selectedTokens"
           :dropdown-items="filteredDropdownItems"
           :allow-user-defined-tokens="allowUserDefinedTokens"
           :loading="loading"
