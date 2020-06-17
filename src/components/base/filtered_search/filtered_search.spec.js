@@ -5,7 +5,6 @@ import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchToken from './filtered_search_token.vue';
-import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 
 jest.mock('~/directives/tooltip');
 
@@ -24,12 +23,18 @@ describe('Filtered search', () => {
     availableTokens: [{ type: 'faketoken', token: FakeToken }],
   };
 
+  const findSearchBox = () => wrapper.find({ name: 'GlSearchBoxByClickStub' });
+
   const createComponent = props => {
     wrapper = shallowMount(GlFilteredSearch, {
       propsData: { ...defaultProps, ...props },
       localVue,
       stubs: {
-        GlSearchBoxByClick: '<div><slot name="input"></slot></div>',
+        GlSearchBoxByClick: {
+          name: 'GlSearchBoxByClickStub',
+          props: ['clearable'],
+          template: '<div><slot name="input"></slot></div>',
+        },
       },
     });
   };
@@ -47,6 +52,11 @@ describe('Filtered search', () => {
       ]);
     });
 
+    it('passes clearable false when empty', () => {
+      createComponent();
+      expect(findSearchBox().props('clearable')).toBe(false);
+    });
+
     it('adds empty term to the end when not empty', () => {
       createComponent({
         value: [{ type: 'faketoken', value: { data: '' } }],
@@ -56,6 +66,14 @@ describe('Filtered search', () => {
         type: TERM_TOKEN_TYPE,
         value: { data: '' },
       });
+    });
+
+    it('passes clearable true when not empty', () => {
+      createComponent({
+        value: [{ type: 'faketoken', value: { data: '' } }],
+      });
+
+      expect(findSearchBox().props('clearable')).toBe(true);
     });
 
     it('denormalizes strings if needed', () => {
@@ -80,6 +98,20 @@ describe('Filtered search', () => {
   });
 
   describe('event handling', () => {
+    it.each`
+      eventName                  | payload
+      ${'submit'}                | ${[[]]}
+      ${'clear'}                 | ${[]}
+      ${'history-item-selected'} | ${['item']}
+      ${'clear-history'}         | ${[]}
+    `('passes through $eventName', async ({ eventName, payload }) => {
+      createComponent();
+      findSearchBox().vm.$emit(eventName, payload[0]);
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted()[eventName][0]).toStrictEqual(payload);
+    });
+
     it('activates token when requested', () => {
       createComponent({
         value: [{ type: 'faketoken', value: '' }],
@@ -205,7 +237,8 @@ describe('Filtered search', () => {
       createComponent({
         value: ['one', { type: 'faketoken', value: '' }, 'two'],
       });
-      wrapper.find(GlClearIconButton).vm.$emit('click');
+
+      findSearchBox().vm.$emit('input', '');
 
       await wrapper.vm.$nextTick();
 

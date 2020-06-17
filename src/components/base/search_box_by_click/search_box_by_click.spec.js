@@ -54,17 +54,30 @@ describe('search box by click component', () => {
       expect(findClearIcon().exists()).toBe(false);
     });
 
+    it('is not rendered when clearable is false', () => {
+      createComponent({ value: 'some', clearable: false });
+      expect(findClearIcon().exists()).toBe(false);
+    });
+
     it('is rendered when value is provided', () => {
       createComponent({ value: 'somevalue' });
       expect(findClearIcon().exists()).toBe(true);
     });
 
-    it('emits empty value when clicked', async () => {
+    it('emits empty string when clicked', async () => {
       createComponent({ value: 'somevalue' });
       findClearIcon().vm.$emit('click');
 
       await wrapper.vm.$nextTick();
-      expect(wrapper.emitted().input).toEqual([[null]]);
+      expect(wrapper.emitted().input).toEqual([['']]);
+    });
+
+    it('emits clear event when clicked', async () => {
+      createComponent({ value: 'somevalue' });
+      findClearIcon().vm.$emit('click');
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().clear).toHaveLength(1);
     });
   });
 
@@ -96,7 +109,7 @@ describe('search box by click component', () => {
 
       await wrapper.vm.$nextTick();
       expect(wrapper.emitted().input[0]).toEqual(['one']);
-      expect(wrapper.emitted().submit[0]).toEqual(['one']);
+      expect(wrapper.emitted()['history-item-selected'][0]).toEqual(['one']);
     });
   });
 

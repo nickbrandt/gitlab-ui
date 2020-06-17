@@ -22,11 +22,27 @@ export function normalizeTokens(tokens) {
   return result;
 }
 
+function assertValidTokens(tokens) {
+  if (!Array.isArray(tokens) && !typeof tokens === 'string') {
+    throw new TypeError('Either string or array of tokens is expected');
+  }
+}
+
 export function needDenormalization(tokens) {
+  if (typeof tokens === 'string') {
+    return true;
+  }
+
+  assertValidTokens(tokens);
+
   return tokens.some(t => typeof t === 'string');
 }
 
-export function denormalizeTokens(tokens) {
+export function denormalizeTokens(inputTokens) {
+  assertValidTokens(inputTokens);
+
+  const tokens = Array.isArray(inputTokens) ? inputTokens : [inputTokens];
+
   const result = [];
   tokens.forEach(t => {
     if (typeof t === 'string') {
