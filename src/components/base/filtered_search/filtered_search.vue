@@ -1,7 +1,6 @@
 <script>
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
-import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlIcon from '../icon/icon.vue';
@@ -31,7 +30,6 @@ function initialState() {
 
 export default {
   components: {
-    GlClearIconButton,
     GlSearchBoxByClick,
     GlIcon,
   },
@@ -57,6 +55,11 @@ export default {
       type: String,
       required: false,
       default: 'Clear',
+    },
+    historyItems: {
+      type: Array,
+      required: false,
+      default: null,
     },
   },
   data() {
@@ -109,7 +112,7 @@ export default {
     value: {
       immediate: true,
       handler(newValue) {
-        this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
+        this.applyNewValue(newValue);
       },
     },
     tokens: {
@@ -126,6 +129,10 @@ export default {
   },
 
   methods: {
+    applyNewValue(newValue) {
+      this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
+    },
+
     isLastToken(idx) {
       return !this.activeTokenIdx && idx === this.lastTokenIdx;
     },
@@ -227,7 +234,17 @@ export default {
 </script>
 
 <template>
-  <gl-search-box-by-click v-bind="$attrs" @submit="submit">
+  <gl-search-box-by-click
+    v-bind="$attrs"
+    :value="tokens"
+    :history-items="historyItems"
+    :clearable="hasValue"
+    @submit="submit"
+    @input="applyNewValue"
+    @history-item-selected="$emit('history-item-selected', $event)"
+    @clear="$emit('clear')"
+    @clear-history="$emit('clear-history')"
+  >
     <template #history-item="slotScope">
       <slot name="history-item" v-bind="slotScope"></slot>
     </template>
@@ -259,12 +276,6 @@ export default {
           />
         </template>
       </div>
-      <gl-clear-icon-button
-        v-if="hasValue"
-        :title="clearButtonTitle"
-        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
-        @click="clearInput"
-      />
       <portal-target
         ref="menu"
         :key="activeTokenIdx"

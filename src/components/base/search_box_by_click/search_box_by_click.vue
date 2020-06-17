@@ -27,9 +27,11 @@ export default {
   },
   props: {
     value: {
-      type: String,
       required: false,
       default: '',
+      // SearchBoxByClick could serve as a container for complex fields (see GlFilteredSearch)
+      // so we should not force any specific type for value here
+      validator: () => true,
     },
     historyItems: {
       type: Array,
@@ -40,6 +42,11 @@ export default {
       type: String,
       required: false,
       default: 'Search',
+    },
+    clearable: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     disabled: {
       type: Boolean,
@@ -121,14 +128,17 @@ export default {
     },
     selectHistoryItem(item) {
       this.currentValue = item;
-      this.search(item);
+      this.$emit('history-item-selected', item);
       setTimeout(() => {
         document.activeElement.blur();
       });
     },
     clearInput() {
-      this.currentValue = null;
-      this.$refs.input.$el.focus();
+      this.currentValue = '';
+      this.$emit('clear');
+      if (this.$refs.input) {
+        this.$refs.input.$el.focus();
+      }
     },
   },
 };
@@ -190,14 +200,14 @@ export default {
         @blur="isFocused = false"
         @keydown.enter="search(currentValue)"
       />
-      <gl-clear-icon-button
-        v-if="hasValue && !disabled"
-        :title="clearButtonTitle"
-        :tooltip-container="tooltipContainer"
-        class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
-        @click="clearInput"
-      />
     </slot>
+    <gl-clear-icon-button
+      v-if="clearable && hasValue && !disabled"
+      :title="clearButtonTitle"
+      :tooltip-container="tooltipContainer"
+      class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
+      @click="clearInput"
+    />
     <template #append class="gl-search-box-by-click-input-group-control">
       <gl-button
         ref="searchButton"

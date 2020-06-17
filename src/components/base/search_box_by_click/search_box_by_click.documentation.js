@@ -55,14 +55,32 @@ export default {
   },
   events: [
     {
+      event: 'clear',
+      description: 'Emitted when search is cleared',
+    },
+    {
       event: 'submit',
       args: [
         {
-          arg: 'tokens',
-          description: '(Array)',
+          arg: 'value',
+          description: 'Search value',
         },
       ],
       description: 'Emitted when search is submitted',
+    },
+    {
+      event: 'history-item-selected',
+      args: [
+        {
+          arg: 'value',
+          description: 'History item',
+        },
+      ],
+      description: 'Emitted when item from history is selected',
+    },
+    {
+      event: 'clear-history',
+      description: 'Emitted when clear history button is clicked',
     },
   ],
   slots: [
