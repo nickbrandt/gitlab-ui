@@ -8,7 +8,8 @@
   "jsnext:main": "dist/index.js",
   "sideEffects": [
     "*.css",
-    "*.scss"
+    "*.scss",
+    "index.js"
   ],
   "repository": "git@gitlab.com:gitlab-org/gitlab-ui.git",
   "author": "GitLab",
