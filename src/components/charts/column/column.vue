@@ -150,21 +150,12 @@ export default {
       this.$set(this, 'tooltipContent', tooltipContent);
       this.tooltipTitle = xLabels.join(', ');
     },
-    onUpdated(chart) {
-      this.$emit('updated', chart);
-    },
   },
 };
 </script>
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      v-on="$listeners"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
