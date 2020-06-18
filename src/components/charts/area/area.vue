@@ -322,9 +322,6 @@ export default {
         };
       }
     },
-    onUpdated(chart) {
-      this.$emit('updated', chart);
-    },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
     },
@@ -334,13 +331,7 @@ export default {
 
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      v-on="$listeners"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
     <chart-tooltip
       v-if="shouldShowAnnotationsTooltip"
       id="annotationsTooltip"

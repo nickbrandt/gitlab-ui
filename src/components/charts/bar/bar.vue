@@ -189,9 +189,6 @@ export default {
       this.$set(this, 'tooltipContent', tooltipContent);
       this.tooltipTitle = yLabels.join(', ');
     },
-    onUpdated(chart) {
-      this.$emit('updated', chart);
-    },
     /**
      * The existing getDefaultTooltipContent in utils works against the y-axis value.
      * However, for bar charts, the tooltip should be against x-axis values.
@@ -233,13 +230,7 @@ export default {
 
 <template>
   <div class="position-relative">
-    <chart
-      v-bind="$attrs"
-      :options="options"
-      v-on="$listeners"
-      @created="onCreated"
-      @updated="onUpdated"
-    />
+    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"
