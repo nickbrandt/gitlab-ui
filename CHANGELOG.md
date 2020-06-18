@@ -1,3 +1,10 @@
+# [17.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.0.1...v17.1.0) (2020-06-18)
+
+
+### Features
+
+* Add gl-display-sm-none and gl-translate-y-n100 classes ([506e519](https://gitlab.com/gitlab-org/gitlab-ui/commit/506e5196e6aedec82264f3f1a860efbed09901b9))
+
 ## [17.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.0.0...v17.0.1) (2020-06-17)
 
 
