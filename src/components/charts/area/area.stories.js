@@ -1,7 +1,7 @@
 import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
 import { times } from 'lodash';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlAreaChart } from '../../../../charts';
+import { GlAreaChart, GlChartLegend } from '../../../../charts';
 import readme from './area.md';
 import { blue500 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { generateTimeSeries } from '../../../utils/data_utils';
@@ -10,9 +10,6 @@ import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 
-const components = {
-  GlAreaChart,
-};
 const defaultData = [
   {
     name: 'First Series',
@@ -72,14 +69,14 @@ documentedStoriesOf('charts|area-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
-    components,
+    components: { GlAreaChart },
     template,
   }))
   .add('with threshold', () => ({
     props: generateProps({
       thresholds: [{ threshold: 1200, operator: '>' }],
     }),
-    components,
+    components: { GlAreaChart },
     template,
   }))
   .add('with annotations as props (recommended)', () => ({
@@ -101,7 +98,7 @@ documentedStoriesOf('charts|area-chart', readme)
         },
       },
     }),
-    components,
+    components: { GlAreaChart },
     template,
   }))
   .add('with annotations as option series', () => ({
@@ -123,7 +120,7 @@ documentedStoriesOf('charts|area-chart', readme)
         },
       },
     }),
-    components,
+    components: { GlAreaChart },
     template,
   }))
   .add('with annotations as option series', () => ({
@@ -186,7 +183,7 @@ documentedStoriesOf('charts|area-chart', readme)
         },
       },
     }),
-    components,
+    components: { GlAreaChart },
     template,
   }))
   .add('with zoom and scroll', () => ({
@@ -213,7 +210,7 @@ documentedStoriesOf('charts|area-chart', readme)
         ],
       },
     }),
-    components,
+    components: { GlAreaChart },
     template,
   }))
   .add('with toolbox', () => ({
@@ -226,16 +223,62 @@ documentedStoriesOf('charts|area-chart', readme)
         toolbox,
       },
     }),
-    components,
+    components: { GlAreaChart },
     template,
   }))
-  .add('mult-series', () => ({
+  .add('multi-series', () => ({
     props: generateProps({
       data: times(10, index => ({
         name: index,
         data: defaultData[0].data.map(([label, value]) => [label, value * index]),
       })),
     }),
-    components,
+    components: { GlAreaChart },
     template,
+  }))
+  .add('grouped with zoom and scroll', () => ({
+    props: generateProps({
+      // TODO - add group ID here, to be dynamic
+      data: [
+        {
+          name: 'Time Series',
+          data: generateTimeSeries(),
+        },
+      ],
+      option: {
+        xAxis: {
+          type: 'time',
+          name: 'Time',
+          axisLabel: {
+            formatter: timeSeriesDateFormatter,
+          },
+        },
+        dataZoom: [
+          {
+            startValue: '2018-03-01T00:00:00.000',
+            handleIcon: scrollHandleSvgPath,
+          },
+        ],
+      },
+    }),
+    components: { GlAreaChart, GlChartLegend },
+    template: `
+    <div>
+      <gl-area-chart
+      :group-id="'groupId'"
+      :data="data"
+      :option="option"
+      :thresholds="thresholds"
+      :annotations="annotations"
+      :includeLegendAvgMax="includeLegendAvgMax"
+      />
+      <gl-area-chart
+      :group-id="'groupId'"
+      :data="data"
+      :option="option"
+      :thresholds="thresholds"
+      :annotations="annotations"
+      :includeLegendAvgMax="includeLegendAvgMax"
+      />
+    </div>`,
   }));
