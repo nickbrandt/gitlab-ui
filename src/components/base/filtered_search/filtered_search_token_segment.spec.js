@@ -188,4 +188,33 @@ describe('Filtered search token segment', () => {
         );
       });
   });
+
+  describe('applySuggestion', () => {
+    it('emits original token when no spaces are present', () => {
+      createComponent({ value: '' });
+
+      const token = 'token';
+
+      wrapper.vm.applySuggestion(token);
+
+      return nextTick().then(() => {
+        expect(wrapper.emitted().input[0][0]).toBe(token);
+        expect(wrapper.emitted().complete[0][0]).toBe(token);
+      });
+    });
+
+    it('emits wrapped token when spaces are present', () => {
+      createComponent({ value: '' });
+
+      const token = 'token with spaces';
+      const formattedToken = `"${token}"`;
+
+      wrapper.vm.applySuggestion(token);
+
+      return nextTick().then(() => {
+        expect(wrapper.emitted().input[0][0]).toBe(formattedToken);
+        expect(wrapper.emitted().complete[0][0]).toBe(formattedToken);
+      });
+    });
+  });
 });

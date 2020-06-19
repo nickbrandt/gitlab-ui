@@ -94,3 +94,25 @@ export function splitOnQuotes(str) {
   }
   return result;
 }
+
+/**
+ *  wraps the incoming token in double quotes.
+ *  Eg. Foo Bar becomes "Foo Bar"
+ *
+ *  1. token must have space.
+ *  2. token should not already have a quote around it.
+ */
+export function wrapTokenInQuotes(token) {
+  if (!token.includes(' ')) {
+    return token;
+  }
+
+  const quotes = ["'", '"'];
+
+  // If the token starts and ends with a quote, eg. "Foo Bar", then return the original token.
+  if (quotes.some(quote => token.slice(0, 1) === quote && token.slice(-1) === quote)) {
+    return token;
+  }
+
+  return `"${token}"`;
+}

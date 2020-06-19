@@ -2,7 +2,7 @@
 import { Portal } from 'portal-vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
-import { splitOnQuotes } from './filtered_search_utils';
+import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
 
 export default {
   components: {
@@ -147,8 +147,10 @@ export default {
     },
 
     applySuggestion(suggestedValue) {
-      this.$emit('input', suggestedValue);
-      this.$emit('complete', suggestedValue);
+      const formattedSuggestedValue = wrapTokenInQuotes(suggestedValue);
+
+      this.$emit('input', formattedSuggestedValue);
+      this.$emit('complete', formattedSuggestedValue);
     },
 
     handleInputKeydown(e) {
