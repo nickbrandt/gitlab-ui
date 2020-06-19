@@ -1,3 +1,10 @@
+# [17.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.1.0...v17.2.0) (2020-06-19)
+
+
+### Features
+
+* Add gl-mb-7 utlity class ([f0ff828](https://gitlab.com/gitlab-org/gitlab-ui/commit/f0ff8286f30b8a4615306d055deb52ce4d54b1e0))
+
 # [17.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.0.1...v17.1.0) (2020-06-18)
 
 
