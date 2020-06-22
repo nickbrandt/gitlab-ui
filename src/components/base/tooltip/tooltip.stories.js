@@ -63,6 +63,8 @@ function generateTooltip() {
 documentedStoriesOf('base|tooltip', readme)
   .addDecorator(withKnobs)
   .add('defaults to top', makeTooltip())
+  .add('to the topright', makeTooltip('.topright'))
+  .add('to the topleft', makeTooltip('.topleft'))
   .add('to the right', makeTooltip('.right'))
   .add('to the bottom', makeTooltip('.bottom'))
   .add('to the left', makeTooltip('.left'))
