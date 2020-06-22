@@ -101,6 +101,14 @@ The utility-class library is located in `src/scss/utilities.scss`. GitLab UI gen
 library based on the mixins defined in `src/scss/utility-mixins/`. To regenerate the file, run
 the `yarn generate-utilities` command.
 
+Please note that while we generate the classes from the mixins, the mixins should be added manually, as they are needed, and not generated using an `@each` across values. This is for a few reasons:
+
+- **To keep the bundle small.** As mentioned above, we use component CSS defined with mixins so that HAML components can consume the same CSS without needing utility classes added in two places. However, this makes the bundle larger, because each new component adds new CSS. We try to offset this by not generating every possible utility.
+
+- **To keep it easier to find classes.** It is easier to grep for class names and see the values assigned to them when they are not generated in loops. This is good.
+
+- **To understand the CSS we are actually using.** By only including classes we use, we can review what we use at a glance.
+
 ### Component-agnostic utilities
 
 We are aiming to build a set of styles that are easily reusable and component-agnostic.
