@@ -152,6 +152,25 @@ describe('GlTokenSelector', () => {
         expect(wrapper.find({ ref: 'container' }).classes()).toContain('gl-h-auto');
       });
     });
+
+    describe('text input attributes', () => {
+      it.each`
+        attribute            | value
+        ${'autocomplete'}    | ${'on'}
+        ${'placeholder'}     | ${'foo bar'}
+        ${'aria-labelledby'} | ${'input-label'}
+      `('renders `$attribute` on text input', ({ attribute, value }) => {
+        createComponent({
+          propsData: {
+            [attribute]: value,
+          },
+        });
+
+        const textInput = findTextInput();
+
+        expect(textInput.attributes(attribute)).toBe(value);
+      });
+    });
   });
 
   describe('custom v-model', () => {
