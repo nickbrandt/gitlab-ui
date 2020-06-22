@@ -18,6 +18,12 @@ body.modal-open {
 .gl-modal {
   @include gl-tmp-modal-bg;
 
+  .modal-dialog-scrollable {
+    @include media-breakpoint-up(sm) {
+      max-height: calc(100% - #{$gl-spacing-scale-11 * 2});
+    }
+  }
+
   .modal-sm {
     max-width: $gl-modal-small-width;
   }
