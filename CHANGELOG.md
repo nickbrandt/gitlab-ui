@@ -1,3 +1,10 @@
+# [17.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.2.0...v17.3.0) (2020-06-23)
+
+
+### Features
+
+* **charts:** Add legend hover state ([65002eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/65002ebf3edbb5451c0de19f0bd599a1920635f2))
+
 # [17.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.1.0...v17.2.0) (2020-06-19)
 
 
