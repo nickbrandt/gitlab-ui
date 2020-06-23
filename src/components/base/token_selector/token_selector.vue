@@ -40,6 +40,21 @@ export default {
       required: false,
       default: '',
     },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: 'off',
+    },
+    ariaLabelledby: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    placeholder: {
+      type: String,
+      required: false,
+      default: null,
+    },
     // Used for custom `v-model`
     selectedTokens: {
       type: Array,
@@ -258,8 +273,10 @@ export default {
             ref="textInput"
             type="text"
             class="gl-w-full gl-bg-none gl-font-regular gl-font-base gl-line-height-normal gl-py-2 gl-px-1 gl-h-auto gl-text-gray-900 gl-border-none gl-outline-none"
-            autocomplete="off"
             :value="inputText"
+            :autocomplete="autocomplete"
+            :aria-labelledby="ariaLabelledby"
+            :placeholder="placeholder"
             @input="inputText = $event.target.value"
             @focus="handleFocus"
             @blur="handleBlur"
