@@ -4,7 +4,7 @@ import examples from './examples';
 export default {
   description,
   examples,
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   bootstrapComponent: 'b-button',
   bootstrapPropsInfo: {
     category: {
