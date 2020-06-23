@@ -1,3 +1,10 @@
+## [17.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.3.0...v17.3.1) (2020-06-23)
+
+
+### Bug Fixes
+
+* **GLTokenSelector:** move text input specific HTML attributes ([59d2bb9](https://gitlab.com/gitlab-org/gitlab-ui/commit/59d2bb9bf69cfb15d897f9621db1f4fcc868432f))
+
 # [17.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.2.0...v17.3.0) (2020-06-23)
 
 
