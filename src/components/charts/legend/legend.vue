@@ -80,17 +80,24 @@ export default {
     },
   },
   methods: {
+    sanitizeSeriesData(seriesData) {
+      return seriesData.filter(d => !Number.isNaN(d));
+    },
     seriesAverage(seriesData) {
-      return engineeringNotation(average(...seriesData));
+      const sanitized = this.sanitizeSeriesData(seriesData);
+      return engineeringNotation(average(...sanitized));
     },
     seriesMax(seriesData) {
-      return engineeringNotation(Math.max(...seriesData));
+      const sanitized = this.sanitizeSeriesData(seriesData);
+      return engineeringNotation(Math.max(...sanitized));
     },
     seriesMin(seriesData) {
-      return engineeringNotation(Math.min(...seriesData));
+      const sanitized = this.sanitizeSeriesData(seriesData);
+      return engineeringNotation(Math.min(...sanitized));
     },
     seriesLast(seriesData) {
-      return engineeringNotation(seriesData[seriesData.length - 1]);
+      const sanitized = this.sanitizeSeriesData(seriesData);
+      return engineeringNotation(sanitized[sanitized.length - 1]);
     },
     seriesNameIsLong(seriesName) {
       return seriesName.length > 120;
