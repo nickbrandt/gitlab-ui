@@ -11,6 +11,11 @@
     @include gl-align-items-center;
     @include gl-pr-5;
 
+    &:hover {
+      @include gl-cursor-pointer;
+      @include gl-text-decoration-underline;
+    }
+
     .gl-legend-inline-series-label {
       .gl-series-label:nth-child(2) {
         flex: 1;
