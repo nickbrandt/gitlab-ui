@@ -395,6 +395,18 @@ describe('GlTokenSelector', () => {
         expect(wrapper.emitted('input')[0][0][0].name).toBe('foo bar');
       });
     });
+
+    describe('when `keydown` event is triggered', () => {
+      it('emits `keydown` event', () => {
+        createComponent();
+
+        const textInput = findTextInput();
+
+        textInput.trigger('keydown');
+
+        expect(wrapper.emitted('keydown')).toBeTruthy();
+      });
+    });
   });
 
   describe('adding tokens when clicking dropdown item', () => {

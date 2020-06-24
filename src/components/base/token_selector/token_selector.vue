@@ -287,6 +287,7 @@ export default {
             @keydown.down.prevent="dropdownEventHandlers.handleDownArrow"
             @keydown.home="dropdownEventHandlers.handleHomeKey"
             @keydown.end="dropdownEventHandlers.handleEndKey"
+            @keydown="$emit('keydown', $event)"
             @click="handleInputClick"
           />
         </template>
