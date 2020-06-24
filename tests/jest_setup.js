@@ -1,5 +1,8 @@
 const get = require('lodash/get');
 const isString = require('lodash/isString');
+const setConfigs = require('../config').default;
+
+setConfigs();
 
 expect.extend({
   toHaveLoggedVueErrors(consoleSpy) {
