@@ -214,7 +214,7 @@ export default {
       this.$emit('created', chart);
     },
     onLabelChange(params) {
-      const { tooltipContent } = params.seriesData.reduce(
+      const { tooltipContent } = params.seriesData.reverse().reduce(
         (acc, bar) => {
           const barColor = colorFromDefaultPalette(bar.seriesIndex);
 
