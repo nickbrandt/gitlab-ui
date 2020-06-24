@@ -1,3 +1,10 @@
+# [17.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.4.0...v17.5.0) (2020-06-24)
+
+
+### Features
+
+* **chart:** Reverse order of tooltip values ([83a2302](https://gitlab.com/gitlab-org/gitlab-ui/commit/83a23021e97a7fca6baa09d77d6b77a64fccdf06))
+
 # [17.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.3.1...v17.4.0) (2020-06-24)
 
 
