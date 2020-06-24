@@ -1,3 +1,10 @@
+# [17.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.5.0...v17.6.0) (2020-06-24)
+
+
+### Features
+
+* **GlTokenSelector:** explicitly emit `keydown` event ([d9f222d](https://gitlab.com/gitlab-org/gitlab-ui/commit/d9f222da7126dd3cfa38b1ce9b5f02c4fd0f99e6))
+
 # [17.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.4.0...v17.5.0) (2020-06-24)
 
 
