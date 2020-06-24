@@ -174,5 +174,32 @@ describe('chart legend component', () => {
         });
       });
     });
+
+    it('does not display NaN values in cells', () => {
+      const series = [
+        {
+          type: 'solid',
+          name: 'Example Title 1',
+          data: [1, 2, NaN, 4, 5],
+          color: 'red',
+        },
+        {
+          type: 'solid',
+          name: 'Example Title 2',
+          data: [1, 2, 3, 4, NaN],
+          color: 'red',
+        },
+      ];
+
+      legendWrapper.setProps({
+        seriesInfo: series,
+      });
+
+      return legendWrapper.vm.$nextTick().then(() => {
+        legendWrapper.findAll('.gl-legend-tabular-details-cell').wrappers.forEach(wrapper => {
+          expect(wrapper.text()).not.toBe('NaN');
+        });
+      });
+    });
   });
 });
