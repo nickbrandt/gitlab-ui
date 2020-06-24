@@ -1,3 +1,10 @@
+# [17.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.3.1...v17.4.0) (2020-06-24)
+
+
+### Features
+
+* **modal:** Modal with scrollable content ([dc03c44](https://gitlab.com/gitlab-org/gitlab-ui/commit/dc03c44e24398a3be91b6b2c26726c890d57381c))
+
 ## [17.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.3.0...v17.3.1) (2020-06-23)
 
 
