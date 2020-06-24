@@ -1,4 +1,4 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, number, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import { GlModal, GlModalDirective, GlDeprecatedButton } from '../../../../index';
@@ -32,17 +32,24 @@ function generateTemplate({ visible = false } = {}) {
         :action-primary="{text: 'OK'}"
         :action-secondary="{text: 'Discard Changes'}"
         :action-cancel="{text: 'Cancel'}"
+        :scrollable="scrollable"
         modal-id="test-modal-id"
         title="Example title"
         no-fade
       >
-        This is my content
+      <p v-for="n in contentParagraphs">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
       </gl-modal>
     </div>
   `;
 }
 
-function generateProps({ variant = variantOptionsWithNoDefault.default } = {}) {
+function generateProps({
+  variant = variantOptionsWithNoDefault.default,
+  contentPagraphs = 1,
+  scrollable = false,
+} = {}) {
   return {
     headerBgVariant: {
       type: String,
@@ -76,6 +83,14 @@ function generateProps({ variant = variantOptionsWithNoDefault.default } = {}) {
       type: String,
       default: select('footer text', variantOptionsWithNoDefault, variant),
     },
+    contentParagraphs: {
+      type: Number,
+      default: number('content paragraphs', contentPagraphs),
+    },
+    scrollable: {
+      type: Boolean,
+      default: boolean('scrollable', scrollable),
+    },
   };
 }
 
@@ -92,4 +107,12 @@ documentedStoriesOf('base|modal', readme)
     components,
     directives,
     template: generateTemplate({ visible: true }),
+  }))
+  .add('with scrolling content', () => ({
+    props: generateProps({ contentPagraphs: 100, scrollable: true }),
+    components,
+    directives,
+    template: generateTemplate({
+      visible: true,
+    }),
   }));
