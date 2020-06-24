@@ -51,6 +51,24 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 }
 
+.gl-breadcrumb-item-back {
+  @include gl-mr-3;
+
+  a {
+    @include gl-text-blue-700;
+    @include gl-pr-3;
+    @include gl-border-1;
+    @include gl-border-r-solid;
+    @include gl-border-gray-200;
+  }
+
+  &-text {
+    @include media-breakpoint-down(xs) {
+      @include gl-display-none;
+    }
+  }
+}
+
 .gl-breadcrumb-item:last-child > a {
   @include gl-text-gray-950;
   @include gl-font-weight-bold;
