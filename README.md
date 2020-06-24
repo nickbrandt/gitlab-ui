@@ -14,6 +14,16 @@ yarn add @gitlab/ui
 > **Note:** Make sure to also install GitLab UI's peer dependencies. Refer to the
 > [`package.json`](./package.json) for the list of peer dependencies and their expected versions.
 
+In your main entrypoint **before** importing or using any component:
+
+```javascript
+import setConfigs from '@gitlab/ui/dist/config
+
+setConfigs()
+```
+
+This will set the global configs used by GitLab UI.
+
 Import the components as desired:
 
 ```javascript
