@@ -2,6 +2,8 @@ import TooltipDirectiveDefaultExample from './tooltip.directive_default.example.
 import TooltipDirectiveRightExample from './tooltip.directive_right.example.vue';
 import TooltipDirectiveBottomExample from './tooltip.directive_bottom.example.vue';
 import TooltipDirectiveLeftExample from './tooltip.directive_left.example.vue';
+import TooltipDirectiveTopLeftExample from './tooltip.directive_topleft.example.vue';
+import TooltipDirectiveTopRightExample from './tooltip.directive_topright.example.vue';
 
 import TooltipComponentDefaultExample from './tooltip.component_default.example.vue';
 
@@ -32,6 +34,18 @@ export default [
         name: 'To the left',
         description: 'Directive Tooltip to the left',
         component: TooltipDirectiveLeftExample,
+      },
+      {
+        id: 'tooltip-directive-topleft',
+        name: 'To the top left',
+        description: 'Directive Tooltip to the top left',
+        component: TooltipDirectiveTopLeftExample,
+      },
+      {
+        id: 'tooltip-directive-topright',
+        name: 'To the top right',
+        description: 'Directive Tooltip to the top right',
+        component: TooltipDirectiveTopRightExample,
       },
     ],
   },

@@ -1,7 +1,7 @@
 .gl-tooltip {
   @include gl-font-base;
   @include gl-font-sm;
-  @include gl-p-3;
+  @include gl-py-3;
 
   .tooltip-inner {
     @include gl-rounded-base;
