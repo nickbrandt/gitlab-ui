@@ -2,3 +2,12 @@
 .gl-token-selector.gl-token-selector-focus-glow {
   @include gl-focus($gl-border-size-1, $gray-900, true);
 }
+
+.gl-token-selector-token-container:focus .gl-token {
+  @include gl-bg-gray-300;
+}
+
+.gl-token-selector-input {
+  padding-bottom: $gl-spacing-scale-1 + $gl-spacing-scale-2;
+  padding-top: $gl-spacing-scale-1 + $gl-spacing-scale-2;
+}

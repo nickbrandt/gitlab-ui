@@ -65,6 +65,7 @@ export default {
   },
   data() {
     return {
+      componentId: '',
       inputText: '',
       inputFocused: false,
       dropdownIsOpen: false,
@@ -126,6 +127,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.componentId = uniqueId('token-selector');
+  },
   methods: {
     handleFocus(event) {
       this.$emit('focus', event);
@@ -148,7 +152,7 @@ export default {
       // 1. Explicitly focus the dropdown menu item button on `mousedown` event. (see './token_selector_dropdown.vue')
       // 2. Use `nextTick` so `blur` event is fired after the `mousedown` event
       this.$nextTick(() => {
-        if (!event.relatedTarget || !event.relatedTarget.closest('.dropdown-item')) {
+        if (!event.relatedTarget?.closest?.('.dropdown-item')) {
           this.closeDropdown();
         }
       });
@@ -272,7 +276,7 @@ export default {
           <input
             ref="textInput"
             type="text"
-            class="gl-w-full gl-bg-none gl-font-regular gl-font-base gl-line-height-normal gl-py-2 gl-px-1 gl-h-auto gl-text-gray-900 gl-border-none gl-outline-none"
+            class="gl-token-selector-input gl-bg-none gl-font-regular gl-font-base gl-line-height-normal gl-py-2 gl-px-1 gl-h-auto gl-text-gray-900 gl-border-none gl-outline-none gl-flex-grow-1"
             :value="inputText"
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"
@@ -282,12 +286,12 @@ export default {
             @blur="handleBlur"
             @keydown.enter="handleEnter"
             @keydown.esc="handleEscape"
-            @keydown.delete.stop="handleBackspace"
+            @keydown.delete="handleBackspace"
             @keydown.up.prevent="dropdownEventHandlers.handleUpArrow"
             @keydown.down.prevent="dropdownEventHandlers.handleDownArrow"
             @keydown.home="dropdownEventHandlers.handleHomeKey"
             @keydown.end="dropdownEventHandlers.handleEndKey"
-            @keydown="$emit('keydown', $event)"
+            @keydown.stop="$emit('keydown', $event)"
             @click="handleInputClick"
           />
         </template>
@@ -301,6 +305,7 @@ export default {
       :selected-tokens="selectedTokens"
       :input-text="inputText"
       :allow-user-defined-tokens="allowUserDefinedTokens"
+      :component-id="componentId"
       :register-dropdown-event-handlers="registerDropdownEventHandlers"
       :register-reset-focused-dropdown-item="registerResetFocusedDropdownItem"
       @dropdown-item-click="addToken"

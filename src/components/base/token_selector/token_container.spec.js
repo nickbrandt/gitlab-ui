@@ -1,6 +1,5 @@
-import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import { keyboard } from '../../../utils/constants';
+import { keyboard } from '~/utils/constants';
 
 import GlToken from '../token/token.vue';
 import GlTokenContainer from './token_container.vue';
@@ -39,19 +38,18 @@ describe('GlTokenContainer', () => {
     });
   };
 
-  const fireKeyboardEvent = key => {
-    const event = new KeyboardEvent('keydown', { key });
-    document.dispatchEvent(event);
-  };
-
   const findTokenByName = name => {
-    const tokenWrappers = wrapper.findAll(GlToken);
+    const tokenWrappers = wrapper.findAll({ ref: 'tokens' });
+
     return tokenWrappers.wrappers.find(tokenWrapper => tokenWrapper.text() === name);
   };
+
+  const blurActiveElement = () => document.activeElement?.blur?.();
 
   afterEach(() => {
     wrapper.destroy();
     wrapper = null;
+    blurActiveElement();
   });
 
   describe('props', () => {
@@ -119,35 +117,27 @@ describe('GlTokenContainer', () => {
     });
 
     it('cancels token focus', () => {
-      wrapper.findAll(GlToken).wrappers.forEach(tokenWrapper => {
-        expect(tokenWrapper.classes()).not.toContain('focused');
+      wrapper.findAll({ ref: 'tokens' }).wrappers.forEach(tokenWrapper => {
+        expect(tokenWrapper.element).not.toHaveFocus();
       });
     });
   });
 
   describe('keyboard navigation', () => {
     const setup = async (focusedTokenIndex, key) => {
-      wrapper.setData({ focusedTokenIndex });
+      await wrapper.setData({ focusedTokenIndex });
 
-      await nextTick();
+      const focusedToken = findTokenByName(tokens[focusedTokenIndex].name);
 
-      fireKeyboardEvent(key);
+      await focusedToken.trigger('keydown', { key });
     };
 
     describe('when escape key is pressed', () => {
-      beforeEach(async () => {
+      it('fires `cancel-focus` event', async () => {
         createComponent();
 
         await setup(0, keyboard.escape);
-      });
 
-      it('cancels token focus', () => {
-        wrapper.findAll(GlToken).wrappers.forEach(tokenWrapper => {
-          expect(tokenWrapper.classes()).not.toContain('focused');
-        });
-      });
-
-      it('fires `cancel-focus` event', () => {
         expect(wrapper.emitted('cancel-focus')).toBeTruthy();
       });
     });
@@ -168,7 +158,7 @@ describe('GlTokenContainer', () => {
       it('focuses on previous token after removing', () => {
         const expectedFocusedToken = findTokenByName(tokens[tokenIndex - 1].name);
 
-        expect(expectedFocusedToken.classes()).toContain('focused');
+        expect(expectedFocusedToken.element).toHaveFocus();
       });
     });
 
@@ -186,7 +176,7 @@ describe('GlTokenContainer', () => {
           await setup(focusedTokenIndex, keyboard.arrowLeft);
 
           const expectedFocusedToken = findTokenByName(tokens[expectedFocusedTokenIndex].name);
-          expect(expectedFocusedToken.classes()).toContain('focused');
+          expect(expectedFocusedToken.element).toHaveFocus();
         });
       });
 
@@ -199,7 +189,7 @@ describe('GlTokenContainer', () => {
           await setup(focusedTokenIndex, keyboard.arrowRight);
 
           const expectedFocusedToken = findTokenByName(tokens[expectedFocusedTokenIndex].name);
-          expect(expectedFocusedToken.classes()).toContain('focused');
+          expect(expectedFocusedToken.element).toHaveFocus();
         });
       });
 
@@ -207,38 +197,25 @@ describe('GlTokenContainer', () => {
         await setup(3, keyboard.home);
 
         const expectedFocusedToken = findTokenByName(tokens[0].name);
-        expect(expectedFocusedToken.classes()).toContain('focused');
+        expect(expectedFocusedToken.element).toHaveFocus();
       });
 
       it('focuses on the last token when end key is pressed', async () => {
         await setup(0, keyboard.end);
 
         const expectedFocusedToken = findTokenByName(tokens[3].name);
-        expect(expectedFocusedToken.classes()).toContain('focused');
+        expect(expectedFocusedToken.element).toHaveFocus();
       });
-    });
-  });
 
-  it('cancels token focus when click is outside of token', async () => {
-    const div = document.createElement('div');
-    const button = document.createElement('button');
-    div.appendChild(button);
-    document.body.appendChild(div);
+      it('keeps track of focused token when token is focused by click/tap', async () => {
+        const focusedToken = findTokenByName(tokens[3].name);
 
-    createComponent({
-      attachTo: div,
-    });
+        await focusedToken.trigger('focus');
+        await focusedToken.trigger('keydown', { key: keyboard.arrowLeft });
 
-    wrapper.setData({ focusedTokenIndex: 0 });
-
-    await nextTick();
-
-    button.click();
-
-    await nextTick();
-
-    wrapper.findAll(GlToken).wrappers.forEach(tokenWrapper => {
-      expect(tokenWrapper.classes()).not.toContain('focused');
+        const expectedFocusedToken = findTokenByName(tokens[2].name);
+        expect(expectedFocusedToken.element).toHaveFocus();
+      });
     });
   });
 });
