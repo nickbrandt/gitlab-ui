@@ -1,3 +1,10 @@
+## [17.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.6.0...v17.6.1) (2020-06-25)
+
+
+### Bug Fixes
+
+* **tooltip:** Remove x pad for topright positions ([cf1c5b8](https://gitlab.com/gitlab-org/gitlab-ui/commit/cf1c5b80aab72a20a47e9539631d78da40058d13))
+
 # [17.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.5.0...v17.6.0) (2020-06-24)
 
 
