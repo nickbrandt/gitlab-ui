@@ -1,3 +1,10 @@
+## [17.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.6.1...v17.6.2) (2020-06-26)
+
+
+### Bug Fixes
+
+* **search-box-by-type:** Fix clear button focus ([89d2697](https://gitlab.com/gitlab-org/gitlab-ui/commit/89d26970678a8ce8502add4b7ab2228df8200622))
+
 ## [17.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.6.0...v17.6.1) (2020-06-25)
 
 
