@@ -1,3 +1,10 @@
+## [17.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.7.0...v17.7.1) (2020-06-26)
+
+
+### Bug Fixes
+
+* **search-box-by-type:** Revert clear button focus fix ([a4b17f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4b17f01449e37b704c9da18b97adf7bb732e8a7))
+
 # [17.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.6.2...v17.7.0) (2020-06-26)
 
 
