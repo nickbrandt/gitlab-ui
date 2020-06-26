@@ -23,11 +23,11 @@ describe('search box by type component', () => {
   describe('clear icon component', () => {
     it('is not rendered when value is empty', () => {
       createComponent({ value: '' });
-      expect(findClearIcon().isVisible()).toBe(false);
+      expect(findClearIcon().exists()).toBe(false);
     });
 
     it('is rendered when value is provided', () => {
-      expect(findClearIcon().isVisible()).toBe(true);
+      expect(findClearIcon().exists()).toBe(true);
     });
 
     it('emits empty value when clicked', () => {
