@@ -1,3 +1,10 @@
+# [17.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.6.2...v17.7.0) (2020-06-26)
+
+
+### Features
+
+* add gl-pt-2 utility class ([2e48434](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e4843483df5b3cac19105f09d018a44f81a3b44))
+
 ## [17.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.6.1...v17.6.2) (2020-06-26)
 
 
