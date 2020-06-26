@@ -1,3 +1,10 @@
+## [17.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.8.0...v17.8.1) (2020-06-26)
+
+
+### Bug Fixes
+
+* **toggle:** Add help text to toggles ([2ba188a](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ba188aa1b31cb8fef1833a28a1f49f76a780a6d))
+
 # [17.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.7.1...v17.8.0) (2020-06-26)
 
 
