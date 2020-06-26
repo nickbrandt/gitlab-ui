@@ -1,3 +1,10 @@
+## [17.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.8.1...v17.8.2) (2020-06-26)
+
+
+### Bug Fixes
+
+* **buttons:** Correct default button resting border color ([1e8305a](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e8305ada8bf352ca44c0f7c0d5cf085e6f548ed))
+
 ## [17.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.8.0...v17.8.1) (2020-06-26)
 
 
