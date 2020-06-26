@@ -1,3 +1,10 @@
+# [17.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.7.1...v17.8.0) (2020-06-26)
+
+
+### Features
+
+* Make card bg color overridable with scss ([39cd1d8](https://gitlab.com/gitlab-org/gitlab-ui/commit/39cd1d87d13b275f3a101140dafc89e6647c9527))
+
 ## [17.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.7.0...v17.7.1) (2020-06-26)
 
 
