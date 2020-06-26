@@ -63,8 +63,13 @@ export default {
   },
   methods: {
     clearInput() {
-      this.localValue = '';
       this.focusInput();
+
+      // Wait until the <input> has focus before clearing the value, so that
+      // the clear button isn't removed from the DOM while it has focus.
+      setTimeout(() => {
+        this.localValue = '';
+      });
     },
     focusInput() {
       this.$refs.input.$el.focus();

@@ -31,9 +31,15 @@ describe('search box by type component', () => {
     });
 
     it('emits empty value when clicked', () => {
+      jest.useFakeTimers();
+
       findClearIcon().vm.$emit('click');
 
+      jest.runAllTimers();
+
       expect(wrapper.emitted().input).toEqual([['']]);
+
+      jest.useRealTimers();
     });
   });
 
