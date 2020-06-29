@@ -1,3 +1,10 @@
+# [17.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.8.2...v17.9.0) (2020-06-29)
+
+
+### Features
+
+* add gl-text-truncate utility class ([2eefff9](https://gitlab.com/gitlab-org/gitlab-ui/commit/2eefff991ced0aa0122efe3e78ea422204d374ae))
+
 ## [17.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.8.1...v17.8.2) (2020-06-26)
 
 
