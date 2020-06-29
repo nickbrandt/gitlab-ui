@@ -95,11 +95,14 @@
   word-break: break-all;
 }
 
-/*
- * Truncation Utilites
- *
- * naming convention: gl-str-truncated-{max-width}
- */
+// Deprecated, prefer `gl-text-truncate`
 @mixin gl-str-truncated {
   @include str-truncated;
+}
+
+// single line ellipsis'd text
+@mixin gl-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
