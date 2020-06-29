@@ -125,7 +125,11 @@ describe('GlTokenContainer', () => {
 
   describe('keyboard navigation', () => {
     const setup = async (focusedTokenIndex, key) => {
-      await wrapper.setData({ focusedTokenIndex });
+      createComponent({
+        data() {
+          return { focusedTokenIndex };
+        },
+      });
 
       const focusedToken = findTokenByName(tokens[focusedTokenIndex].name);
 
@@ -134,8 +138,6 @@ describe('GlTokenContainer', () => {
 
     describe('when escape key is pressed', () => {
       it('fires `cancel-focus` event', async () => {
-        createComponent();
-
         await setup(0, keyboard.escape);
 
         expect(wrapper.emitted('cancel-focus')).toBeTruthy();
@@ -146,8 +148,6 @@ describe('GlTokenContainer', () => {
       const tokenIndex = 2;
 
       beforeEach(async () => {
-        createComponent();
-
         await setup(tokenIndex, keyboard.backspace);
       });
 
@@ -163,10 +163,6 @@ describe('GlTokenContainer', () => {
     });
 
     describe('arrow keys', () => {
-      beforeEach(() => {
-        createComponent();
-      });
-
       describe('when left arrow is pressed', () => {
         it.each`
           focusedTokenIndex | expectedFocusedTokenIndex | testName
@@ -208,6 +204,8 @@ describe('GlTokenContainer', () => {
       });
 
       it('keeps track of focused token when token is focused by click/tap', async () => {
+        createComponent();
+
         const focusedToken = findTokenByName(tokens[3].name);
 
         await focusedToken.trigger('focus');
