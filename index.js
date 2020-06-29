@@ -5,6 +5,7 @@
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlCombobox } from './src/components/base/combobox/combobox.vue';
 export { default as GlTokenSelector } from './src/components/base/token_selector/token_selector.vue';
 export { default as GlNavItemDropdown } from './src/components/base/nav/nav_item_dropdown.vue';
 export { default as GlNav } from './src/components/base/nav/nav.vue';
