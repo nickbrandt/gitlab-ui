@@ -60,7 +60,7 @@ describe('new dropdown', () => {
 
   describe('with split false', () => {
     beforeEach(async () => {
-      buildWrapper({ split: false });
+      buildWrapper({ text: 'text', split: false });
 
       await wrapper.vm.$nextTick();
     });
@@ -75,6 +75,22 @@ describe('new dropdown', () => {
         .sort();
 
       expect(classes).toEqual([...DEFAULT_BTN_TOGGLE_CLASSES].sort());
+    });
+  });
+
+  describe('with split false and no text', () => {
+    beforeEach(async () => {
+      buildWrapper({ split: false });
+
+      await wrapper.vm.$nextTick();
+    });
+
+    it('does not show split button', () => {
+      expect(findSplitButton().exists()).toBe(false);
+    });
+
+    it('shows a centered caret', () => {
+      expect(findDropdownToggle().classes('dropdown-caret-only')).toBe(true);
     });
   });
 
@@ -107,7 +123,7 @@ describe('new dropdown', () => {
     ${null}                 | ${[...DEFAULT_BTN_TOGGLE_CLASSES]}                   | ${'null'}
   `('with toggle classes', ({ toggleClass, expectedClasses, type }) => {
     beforeEach(async () => {
-      buildWrapper({ toggleClass });
+      buildWrapper({ text: 'text', toggleClass });
 
       await wrapper.vm.$nextTick();
     });

@@ -1,5 +1,6 @@
 import DropdownDefaultExample from './new_dropdown.default.example.vue';
 import DropdownLinksExample from './new_dropdown.links.example.vue';
+import DropdownNoTextExample from './new_dropdown.no_text.example.vue';
 import DropdownWithAvatarAndSecondaryText from './new_dropdown.with_avatar_and_secondary_text.example.vue';
 import DropdownWithCheckedItemsExample from './new_dropdown.with_checked_items.example.vue';
 import DropdownWithDividerExample from './new_dropdown.with_divider.example.vue';
@@ -100,6 +101,12 @@ export default [
         name: 'Full Width',
         description: 'Full Width Dropdown',
         component: DropdownFullWidthExample,
+      },
+      {
+        id: 'new-dropdown-no-text',
+        name: 'With No Button Text',
+        description: 'Dropdown with no toggle button text set',
+        component: DropdownNoTextExample,
       },
     ],
   },

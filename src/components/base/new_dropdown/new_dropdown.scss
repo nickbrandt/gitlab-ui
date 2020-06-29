@@ -79,6 +79,12 @@
       @include gl-ml-2;
       @include gl-mr-0;
     }
+
+    .gl-button.dropdown-caret-only {
+      .dropdown-chevron {
+        @include gl-ml-0;
+      }
+    }
   }
 
   .dropdown-icon-text,

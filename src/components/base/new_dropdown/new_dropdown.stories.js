@@ -340,4 +340,19 @@ documentedStoriesOf('base|new-dropdown', readme)
     updated() {
       addClass(this);
     },
+  }))
+  .add('with no button text', () => ({
+    props: generateProps({ block: true }),
+    components,
+    template: `
+      <gl-new-dropdown>
+        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
+        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
   }));

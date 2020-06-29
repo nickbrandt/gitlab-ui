@@ -107,6 +107,7 @@ export default {
           'btn-secondary': this.category === 'secondary',
           'dropdown-icon-only': !this.text.length && this.icon,
           'dropdown-icon-text': this.text.length && this.icon,
+          'dropdown-caret-only': !this.text.length && !this.icon && !this.split,
         },
       ];
     },
@@ -148,7 +149,7 @@ export default {
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
-      <span class="gl-new-dropdown-button-text">{{ buttonText }}</span>
+      <span v-if="buttonText" class="gl-new-dropdown-button-text">{{ buttonText }}</span>
       <gl-icon v-if="renderCaret" class="dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
