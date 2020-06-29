@@ -7,6 +7,7 @@ import { tokensValidator } from './helpers';
 
 export default {
   name: 'GlTokenSelector',
+  componentId: uniqueId('token-selector'),
   components: { GlTokenContainer, GlTokenSelectorDropdown },
   model: {
     prop: 'selectedTokens',
@@ -65,7 +66,6 @@ export default {
   },
   data() {
     return {
-      componentId: '',
       inputText: '',
       inputFocused: false,
       dropdownIsOpen: false,
@@ -126,9 +126,6 @@ export default {
         }
       }
     },
-  },
-  mounted() {
-    this.componentId = uniqueId('token-selector');
   },
   methods: {
     handleFocus(event) {
@@ -305,7 +302,7 @@ export default {
       :selected-tokens="selectedTokens"
       :input-text="inputText"
       :allow-user-defined-tokens="allowUserDefinedTokens"
-      :component-id="componentId"
+      :component-id="$options.componentId"
       :register-dropdown-event-handlers="registerDropdownEventHandlers"
       :register-reset-focused-dropdown-item="registerResetFocusedDropdownItem"
       @dropdown-item-click="addToken"
