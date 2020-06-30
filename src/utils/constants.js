@@ -27,6 +27,7 @@ export const badgeSizeOptions = {
 };
 
 export const badgeVariantOptions = {
+  primary: 'primary',
   muted: 'muted',
   neutral: 'neutral',
   info: 'info',
