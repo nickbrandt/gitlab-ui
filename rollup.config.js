@@ -100,8 +100,12 @@ export default glob
   .concat('utils.js')
   .concat('config.js')
   .concat('utility_classes.js')
+  .concat('tests/matchers.js')
   .map(input => {
-    const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
+    const outputFilename = input
+      .replace(/^src\//, '')
+      .replace(/^tests\//, '')
+      .replace(/\.(vue|js)$/, '');
 
     return {
       external: isExternalModule,
@@ -147,7 +151,7 @@ export default glob
           normalizer: '~vue-runtime-helpers/dist/normalize-component.js',
         }),
         babel({
-          exclude: ['node_modules/!(bootstrap-vue)/**'],
+          exclude: ['node_modules/!(bootstrap-vue)/**', '**/matchers.js'],
         }),
         resolve(),
         commonjs({
