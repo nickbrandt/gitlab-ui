@@ -368,12 +368,16 @@ $gl-fonts: (
   'regular': $gl-regular-font,
 );
 
-$gl-border-size-1: px-to-rem(1px);
-$gl-border-size-2: px-to-rem(2px);
-$gl-border-size-3: px-to-rem(3px);
-$gl-border-size-4: px-to-rem(4px);
-$gl-border-size-5: px-to-rem(5px);
-$gl-border-size-8: px-to-rem(8px);
+// use px for borders rather than rem
+// we don't want borders to scale with font size
+// 1px can end up being rounded to 0 after
+// conversion to/from rem
+$gl-border-size-1: 1px;
+$gl-border-size-2: 2px;
+$gl-border-size-3: 3px;
+$gl-border-size-4: 4px;
+$gl-border-size-5: 5px;
+$gl-border-size-8: 8px;
 
 // border roundness
 $gl-border-radius-small: $gl-spacing-scale-1;
