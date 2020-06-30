@@ -1,4 +1,3 @@
-import { withKnobs, boolean } from '@storybook/addon-knobs/vue';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_textarea.md';
 import { GlFormTextarea } from '../../../../../index';
@@ -12,11 +11,10 @@ const template = `
     v-model="model"
     :placeholder="placeholder"
     :rows="5"
-    :no-resize="noResize"
   />
 `;
 
-function generateProps({ noResize = GlFormTextarea.props.noResize.default } = {}) {
+function generateProps() {
   return {
     model: {
       type: String,
@@ -27,17 +25,11 @@ function generateProps({ noResize = GlFormTextarea.props.noResize.default } = {}
       type: String,
       default: 'hello',
     },
-    noResize: {
-      type: Boolean,
-      default: boolean('no-resize', noResize),
-    },
   };
 }
 
-documentedStoriesOf('base|form/form-textarea', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template,
-  }));
+documentedStoriesOf('base|form/form-textarea', readme).add('default', () => ({
+  components,
+  props: generateProps(),
+  template,
+}));

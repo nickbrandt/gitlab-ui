@@ -14,11 +14,6 @@ export default {
       required: false,
       default: '',
     },
-    noResize: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
   },
 };
 </script>
@@ -26,7 +21,7 @@ export default {
 <template>
   <b-form-textarea
     class="gl-form-input gl-form-textarea"
-    :no-resize="noResize"
+    no-resize
     v-bind="$attrs"
     :value="value"
     v-on="$listeners"
