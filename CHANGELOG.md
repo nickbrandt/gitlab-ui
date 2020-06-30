@@ -1,3 +1,10 @@
+## [17.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.10.0...v17.10.1) (2020-06-30)
+
+
+### Bug Fixes
+
+* fix invisible borders in Edge and friends ([39a4d89](https://gitlab.com/gitlab-org/gitlab-ui/commit/39a4d89604254e0df60a2ea8db52f4fe9b47ba22))
+
 # [17.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.9.0...v17.10.0) (2020-06-30)
 
 
