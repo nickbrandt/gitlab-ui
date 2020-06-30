@@ -1,3 +1,10 @@
+# [17.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.9.0...v17.10.0) (2020-06-30)
+
+
+### Features
+
+* **css:** Add size 12 width utility class ([c90dde7](https://gitlab.com/gitlab-org/gitlab-ui/commit/c90dde7ec8e97857af0055b8b4e4960059bc1643))
+
 # [17.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.8.2...v17.9.0) (2020-06-29)
 
 
