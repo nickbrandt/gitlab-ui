@@ -2,11 +2,8 @@
 import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
 import { tokensValidator } from './helpers';
 
-const DROPDOWN_ITEM_ID_PREFIX = 'token-selector-dropdown-item-';
-
 export default {
   name: 'GlTokenSelectorDropdown',
-  dropdownItemIdPrefix: DROPDOWN_ITEM_ID_PREFIX,
   components: { GlDropdownItem },
   props: {
     show: {
@@ -30,6 +27,10 @@ export default {
     },
     allowUserDefinedTokens: {
       type: Boolean,
+      required: true,
+    },
+    componentId: {
+      type: String,
       required: true,
     },
     registerDropdownEventHandlers: {
@@ -155,8 +156,11 @@ export default {
     },
     getDropdownItemRef(dropdownItem) {
       return this.$refs.dropdownItems?.find(
-        ref => ref.$attrs.id === this.$options.dropdownItemIdPrefix + dropdownItem.id
+        ref => ref.$attrs['data-dropdown-item-id'] === dropdownItem.id
       );
+    },
+    dropdownItemIdAttribute(dropdownItem) {
+      return dropdownItem ? `${this.componentId}-dropdown-item-${dropdownItem.id}` : null;
     },
   },
 };
@@ -168,9 +172,7 @@ export default {
       ref="dropdownMenu"
       role="menu"
       class="dropdown-menu gl-absolute"
-      :aria-activedescendant="
-        focusedDropdownItem ? $options.dropdownItemIdPrefix + focusedDropdownItem.id : null
-      "
+      :aria-activedescendant="dropdownItemIdAttribute(focusedDropdownItem)"
       :class="{ show }"
     >
       <gl-dropdown-item v-if="loading" disabled>
@@ -179,9 +181,10 @@ export default {
       <template v-else-if="dropdownItems.length">
         <gl-dropdown-item
           v-for="dropdownItem in dropdownItems"
-          :id="$options.dropdownItemIdPrefix + dropdownItem.id"
+          :id="dropdownItemIdAttribute(dropdownItem)"
           ref="dropdownItems"
           :key="dropdownItem.id"
+          :data-dropdown-item-id="dropdownItem.id"
           :active="dropdownItemIsFocused(dropdownItem)"
           active-class="is-focused"
           tabindex="-1"

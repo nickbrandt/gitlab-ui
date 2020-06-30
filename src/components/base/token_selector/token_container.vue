@@ -1,13 +1,9 @@
 <script>
-import { keyboard } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import { tokensValidator } from './helpers';
 
-const TOKEN_ID_PREFIX = 'token-selector-token-';
-
 export default {
   name: 'GlTokenContainer',
-  tokenIdPrefix: TOKEN_ID_PREFIX,
   components: { GlToken },
   props: {
     tokens: {
@@ -23,7 +19,7 @@ export default {
   },
   data() {
     return {
-      eventListenersAdded: false,
+      bindFocusEvent: true,
       focusedTokenIndex: null,
     };
   },
@@ -33,94 +29,65 @@ export default {
     },
   },
   watch: {
-    focusedTokenIndex(newValue) {
-      if (newValue !== null) {
-        if (!this.eventListenersAdded) {
-          document.addEventListener('keydown', this.handleKeydown);
-          document.addEventListener('click', this.handleClickOutside);
-
-          this.eventListenersAdded = true;
-        }
-      } else {
-        this.removeEventListeners();
+    focusedToken(newValue) {
+      if (newValue === null) {
+        return;
       }
-    },
-    tokens(newValue) {
-      // If all tokens have been removed and there is still a registered event listener
-      if (!newValue.length && this.eventListenersAdded) {
-        this.removeEventListeners();
+
+      const tokenRef = this.$refs.tokens?.find(
+        ref => ref.dataset.tokenId === newValue.id.toString()
+      );
+
+      if (tokenRef) {
+        // Prevent `handleTokenFocus` from being called when we manually focus on a token
+        this.bindFocusEvent = false;
+        tokenRef.focus();
+        this.bindFocusEvent = true;
       }
     },
   },
   created() {
     this.registerFocusOnToken(this.focusOnToken);
   },
-  beforeDestroy() {
-    this.removeEventListeners();
-  },
   methods: {
     handleClose(token) {
       this.$emit('token-remove', token);
       this.focusedTokenIndex = null;
     },
-    handleKeydown(event) {
-      event.preventDefault();
-
-      switch (event.key) {
-        case keyboard.escape:
-          this.focusedTokenIndex = null;
-          this.$emit('cancel-focus');
-
-          break;
-        case keyboard.backspace:
-        case keyboard.delete:
-          this.$emit('token-remove', this.focusedToken);
-
-          if (this.focusedTokenIndex > 0) {
-            this.focusPrevToken();
-          }
-
-          break;
-        case keyboard.left: // IE/Edge specific value
-        case keyboard.arrowLeft:
-          if (this.focusedTokenIndex === 0) {
-            this.focusLastToken();
-          } else {
-            this.focusPrevToken();
-          }
-
-          break;
-        case keyboard.right: // IE/Edge specific value
-        case keyboard.arrowRight:
-          if (this.focusedTokenIndex === this.tokens.length - 1) {
-            this.focusFirstToken();
-          } else {
-            this.focusNextToken();
-          }
-
-          break;
-        case keyboard.home:
-          this.focusFirstToken();
-
-          break;
-        case keyboard.end:
-          this.focusLastToken();
-
-          break;
-        default:
-          break;
+    handleLeftArrow() {
+      if (this.focusedTokenIndex === 0) {
+        this.focusLastToken();
+      } else {
+        this.focusPrevToken();
       }
     },
-    handleClickOutside(event) {
-      if (!this.$refs.tokenContainer?.contains(event.target)) {
-        this.focusedTokenIndex = null;
+    handleRightArrow() {
+      if (this.focusedTokenIndex === this.tokens.length - 1) {
+        this.focusFirstToken();
+      } else {
+        this.focusNextToken();
       }
     },
-    removeEventListeners() {
-      document.removeEventListener('keydown', this.handleKeydown);
-      document.removeEventListener('click', this.handleClickOutside);
+    handleHome() {
+      this.focusFirstToken();
+    },
+    handleEnd() {
+      this.focusLastToken();
+    },
+    handleDelete() {
+      this.$emit('token-remove', this.focusedToken);
 
-      this.eventListenersAdded = false;
+      if (this.focusedTokenIndex > 0) {
+        this.focusPrevToken();
+      }
+    },
+    handleEscape() {
+      this.focusedTokenIndex = null;
+      this.$emit('cancel-focus');
+    },
+    // Only called when a token is focused by a click/tap
+    handleTokenFocus(index) {
+      this.focusedTokenIndex = index;
     },
     focusLastToken() {
       this.focusedTokenIndex = this.tokens.length - 1;
@@ -137,13 +104,6 @@ export default {
     focusOnToken(tokenIndex = null) {
       this.focusedTokenIndex = tokenIndex;
     },
-    tokenIsFocused(token) {
-      if (!this.focusedToken) {
-        return false;
-      }
-
-      return token.id === this.focusedToken.id;
-    },
   },
 };
 </script>
@@ -155,27 +115,30 @@ export default {
     role="listbox"
     aria-multiselectable="false"
     aria-orientation="horizontal"
-    :aria-activedescendant="focusedToken ? $options.tokenIdPrefix + focusedToken.id : null"
+    @keydown.left="handleLeftArrow"
+    @keydown.right="handleRightArrow"
+    @keydown.home="handleHome"
+    @keydown.end="handleEnd"
+    @keydown.delete="handleDelete"
+    @keydown.esc="handleEscape"
+    @keydown.prevent
   >
     <div
-      v-for="token in tokens"
-      :id="$options.tokenIdPrefix + token.id"
+      v-for="(token, index) in tokens"
+      ref="tokens"
       :key="token.id"
-      class="gl-px-1 gl-py-1"
+      :data-token-id="token.id"
+      class="gl-token-selector-token-container gl-px-1 gl-py-1 gl-outline-none"
       role="option"
+      tabindex="-1"
+      @focus="bindFocusEvent ? handleTokenFocus(index) : null"
     >
-      <gl-token
-        class="gl-cursor-default"
-        :class="{ focused: tokenIsFocused(token) }"
-        @close="handleClose(token)"
-      >
+      <gl-token class="gl-cursor-default" @close="handleClose(token)">
         <slot name="token-content" :token="token">
           {{ token.name }}
         </slot>
       </gl-token>
     </div>
-    <div class="gl-px-1 gl-py-1 gl-flex-grow-1">
-      <slot name="text-input"></slot>
-    </div>
+    <slot name="text-input"></slot>
   </div>
 </template>

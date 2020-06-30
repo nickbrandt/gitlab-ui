@@ -1,3 +1,4 @@
+const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
 const get = require('lodash/get');
 const isString = require('lodash/isString');
 const setConfigs = require('../config').default;
@@ -14,6 +15,25 @@ expect.extend({
         loggedVueErrors
           ? 'Vue errors were logged to the console'
           : 'No Vue errors were logged to the console',
+    };
+  },
+});
+
+// Adopted from https://github.com/testing-library/jest-dom/blob/master/src/to-have-focus.js
+expect.extend({
+  toHaveFocus(element) {
+    return {
+      pass: element.ownerDocument.activeElement === element,
+      message: () => {
+        return [
+          matcherHint(`${this.isNot ? '.not' : ''}.toHaveFocus`, 'element', ''),
+          '',
+          'Expected',
+          `  ${printExpected(element)}`,
+          'Received:',
+          `  ${printReceived(element.ownerDocument.activeElement)}`,
+        ].join('\n');
+      },
     };
   },
 });

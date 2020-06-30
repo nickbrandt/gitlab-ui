@@ -6,10 +6,6 @@
   @include gl-display-inline-flex;
   @include gl-flex-direction-column;
   @include gl-justify-content-center;
-
-  &.focused {
-    @include gl-bg-gray-300;
-  }
 }
 
 .gl-token-search-type-variant {

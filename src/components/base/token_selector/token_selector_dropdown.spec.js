@@ -32,6 +32,7 @@ describe('GlTokenSelectorDropdown', () => {
     dropdownItems,
     inputText: '',
     allowUserDefinedTokens: true,
+    componentId: 'token-selector1',
     registerDropdownEventHandlers: mockRegisterDropdownEventHandlers,
     registerResetFocusedDropdownItem: mockRegisterResetFocusedDropdownItem,
   };

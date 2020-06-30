@@ -264,17 +264,13 @@ describe('GlTokenSelector', () => {
 
       it('clears text input', async () => {
         textInput.setValue('foo bar');
-        textInput.trigger('keydown.esc');
-
-        await nextTick();
+        await textInput.trigger('keydown.esc');
 
         expect(textInput.element.value).toBe('');
       });
 
       it('closes dropdown', async () => {
-        textInput.trigger('keydown.esc');
-
-        await nextTick();
+        await textInput.trigger('keydown.esc');
 
         expect(findDropdownMenu().classes()).not.toContain('show');
       });
@@ -292,21 +288,17 @@ describe('GlTokenSelector', () => {
 
       it('does nothing if text input has value', async () => {
         textInput.setValue('foo bar');
-        textInput.trigger('keydown.delete');
-
-        await nextTick();
+        await textInput.trigger('keydown.delete');
 
         wrapper.findAll(GlToken).wrappers.forEach(tokenWrapper => {
-          expect(tokenWrapper.classes()).not.toContain('focused');
+          expect(tokenWrapper.element).not.toHaveFocus();
         });
       });
 
       it('focuses on last token if text input does not have a value', async () => {
-        textInput.trigger('keydown.delete');
+        await textInput.trigger('keydown.delete');
 
-        await nextTick();
-
-        expect(findTokenByName(tokens[3].name).classes()).toContain('focused');
+        expect(findTokenByName(tokens[3].name).element.parentNode).toHaveFocus();
       });
     });
 
@@ -355,9 +347,7 @@ describe('GlTokenSelector', () => {
         const textInput = findTextInput();
         textInput.element.closest = () => null;
         textInput.trigger('focus');
-        textInput.trigger('click');
-
-        await nextTick();
+        await textInput.trigger('click');
 
         expect(findDropdownMenu().classes()).toContain('show');
       });
@@ -372,9 +362,7 @@ describe('GlTokenSelector', () => {
         const textInput = findTextInput();
 
         textInput.trigger('focus');
-        textInput.trigger('keydown.enter');
-
-        await nextTick();
+        await textInput.trigger('keydown.enter');
 
         expect(wrapper.emitted('input')[0]).toEqual([[dropdownItems[0]]]);
       });
@@ -388,9 +376,7 @@ describe('GlTokenSelector', () => {
 
         textInput.trigger('focus');
         textInput.setValue('foo bar');
-        textInput.trigger('keydown.enter');
-
-        await nextTick();
+        await textInput.trigger('keydown.enter');
 
         expect(wrapper.emitted('input')[0][0][0].name).toBe('foo bar');
       });
@@ -472,6 +458,20 @@ describe('GlTokenSelector', () => {
         propsData: { dropdownItems, selectedTokens: [tokens[0]] },
       });
       expect(findDropdownItemByName(dropdownItems[0].name)).toBeUndefined();
+    });
+  });
+
+  describe('when `GlTokenContainer` fires `cancel-focus`', () => {
+    it('focuses on the text input', async () => {
+      createComponent({
+        selectedTokens: tokens,
+      });
+
+      wrapper.find(GlTokenContainer).vm.$emit('cancel-focus');
+
+      await nextTick();
+
+      expect(findTextInput().element).toHaveFocus();
     });
   });
 });
