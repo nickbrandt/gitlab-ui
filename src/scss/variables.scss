@@ -425,6 +425,8 @@ $gl-modal-large-width: px-to-rem(990px);
 // Bootstrap overrides
 // these should ideally be moved further up in the file to the compoent-relevant sections
 // but they can wait here for now
+$body-color: $gray-900 !default;
+
 $secondary: $gray-50;
 $success: $green-500;
 $info: $blue-500;

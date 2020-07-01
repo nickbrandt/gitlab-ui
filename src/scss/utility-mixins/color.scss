@@ -15,6 +15,10 @@
   color: $white;
 }
 
+@mixin gl-text-body {
+  color: $body-color;
+}
+
 @mixin gl-text-black-normal {
   color: $black-normal;
 }
