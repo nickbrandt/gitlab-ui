@@ -186,6 +186,14 @@
   border-right-width: $gl-border-size-1;
 }
 
+@mixin gl-border-t-2 {
+  border-top-width: $gl-border-size-2;
+}
+
+@mixin gl-border-b-2 {
+  border-bottom-width: $gl-border-size-2;
+}
+
 @mixin gl-border-r-2 {
   border-right-width: $gl-border-size-2;
 }
