@@ -1,3 +1,10 @@
+# [17.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.12.0...v17.13.0) (2020-07-02)
+
+
+### Features
+
+* add 2px top and bottom borders ([7be09e8](https://gitlab.com/gitlab-org/gitlab-ui/commit/7be09e8e784bdd54763ffe1b13fd80ab5c382a9d))
+
 # [17.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.11.0...v17.12.0) (2020-07-02)
 
 
