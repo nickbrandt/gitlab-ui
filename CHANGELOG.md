@@ -1,3 +1,10 @@
+# [17.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.11.0...v17.12.0) (2020-07-02)
+
+
+### Features
+
+* **filtered-search:** Add container style support for token ([6bc9b02](https://gitlab.com/gitlab-org/gitlab-ui/commit/6bc9b020364e46be86f3f2c02e06a5e67a514935))
+
 # [17.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.10.1...v17.11.0) (2020-07-02)
 
 
