@@ -194,9 +194,8 @@ export default {
           class="gl-filtered-search-token-type"
           :class="getAdditionalSegmentClasses($options.segments.SEGMENT_TITLE)"
           view-only
+          >{{ inputValue }}</gl-token
         >
-          {{ inputValue }}
-        </gl-token>
       </template>
     </gl-filtered-search-token-segment>
     <gl-filtered-search-token-segment
@@ -217,9 +216,8 @@ export default {
           variant="search-value"
           :class="getAdditionalSegmentClasses($options.segments.SEGMENT_OPERATOR)"
           view-only
+          >{{ inputValue }}</gl-token
         >
-          {{ inputValue }}
-        </gl-token>
       </template>
       <template #option="{ option }">
         <div class="gl-display-flex">
@@ -248,14 +246,26 @@ export default {
         <slot name="suggestions"></slot>
       </template>
       <template #view="{ inputValue }">
-        <gl-token
-          class="gl-filtered-search-token-data"
-          variant="search-value"
-          :class="getAdditionalSegmentClasses($options.segments.SEGMENT_DATA)"
-          @mousedown="destroyByClose"
+        <slot
+          name="view-token"
+          v-bind="{
+            inputValue,
+            listeners: { mousedown: destroyByClose },
+            cssClasses: {
+              'gl-filtered-search-token-data': true,
+              ...getAdditionalSegmentClasses($options.segments.SEGMENT_DATA),
+            },
+          }"
         >
-          <slot name="view" v-bind="{ inputValue }"> {{ inputValue }}</slot>
-        </gl-token>
+          <gl-token
+            class="gl-filtered-search-token-data"
+            variant="search-value"
+            :class="getAdditionalSegmentClasses($options.segments.SEGMENT_DATA)"
+            @mousedown="destroyByClose"
+          >
+            <slot name="view" v-bind="{ inputValue }">{{ inputValue }}</slot>
+          </gl-token>
+        </slot>
       </template>
     </gl-filtered-search-token-segment>
   </div>

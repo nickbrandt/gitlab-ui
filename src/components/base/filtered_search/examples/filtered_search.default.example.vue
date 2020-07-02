@@ -15,6 +15,14 @@ const fakeMilestones = [
   { id: 5, title: 'Backlog', name: 'Backlog' },
 ];
 
+const fakeLabels = [
+  { id: 1, title: 'Bug', color: '#D9534F', text_color: '#FFFFFF' },
+  { id: 2, title: 'Enhancement', color: '#F0AD4E', text_color: '#FFFFFF' },
+  { id: 3, title: 'Backlog', color: '#cccccc', text_color: '#333333' },
+  { id: 4, title: 'Feature', color: '#A8D695', text_color: '#333333' },
+  { id: 5, title: 'Documentation', color: '#5CB85C', text_color: '#FFFFFF' },
+];
+
 const UserToken = {
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -149,6 +157,97 @@ const MilestoneToken = {
   `,
 };
 
+const LabelToken = {
+  props: ['value', 'active'],
+  inheritAttrs: false,
+  data() {
+    return {
+      loadingView: false,
+      loadingSuggestions: false,
+      labels: [],
+      activeLabel: null,
+    };
+  },
+  computed: {
+    currentValue() {
+      return this.value.data.toLowerCase();
+    },
+    containerStyle() {
+      if (this.activeLabel) {
+        const { color, text_color } = this.activeLabel;
+
+        return { backgroundColor: color, color: text_color };
+      }
+      return {};
+    },
+  },
+  methods: {
+    loadView() {
+      this.loadingView = true;
+      setTimeout(() => {
+        this.loadingView = false;
+        this.activeLabel = fakeLabels.find(l => l.title === this.value.data);
+      }, 100);
+    },
+    loadSuggestions() {
+      this.loadingSuggestions = true;
+      setTimeout(() => {
+        this.loadingSuggestions = false;
+        this.labels = fakeLabels;
+      }, 2000);
+    },
+  },
+  watch: {
+    // eslint-disable-next-line func-names
+    'value.data': function() {
+      if (this.active) {
+        this.loadSuggestions();
+      }
+    },
+    active: {
+      immediate: true,
+      handler(newValue) {
+        if (!newValue) {
+          this.loadView();
+        } else {
+          this.loadSuggestions();
+        }
+      },
+    },
+  },
+  template: `
+    <gl-filtered-search-token
+      v-bind="{ ...this.$props, ...this.$attrs }"
+      v-on="$listeners"
+    >
+      <template #view-token="{ inputValue, cssClasses, listeners }">
+        <gl-token variant="search-value" :class="cssClasses" :style="containerStyle" v-on="listeners">
+          {{ activeLabel ? activeLabel.title : inputValue }}
+        </gl-token>
+      </template>
+      <template #suggestions>
+        <gl-filtered-search-suggestion value="None">None</gl-filtered-search-suggestion>
+        <gl-filtered-search-suggestion value="Any">Any</gl-filtered-search-suggestion>
+        <gl-dropdown-divider v-if="loadingSuggestions || labels.length" />
+        <template v-if="loadingSuggestions">
+          <gl-loading-icon />
+        </template>
+        <template v-else>
+        <gl-filtered-search-suggestion :key="label.id" v-for="label in labels" :value="label.title">
+          <div class="d-flex">
+            <span
+              :style="{ backgroundColor: label.color, height: '16px', width: '16px' }"
+              class="d-inline-block mr-2"
+            ></span>
+            {{ label.title }}
+          </div>
+        </gl-filtered-search-suggestion>
+        </template>
+      </template>
+    </gl-filtered-search-token>
+  `,
+};
+
 const tokens = [
   {
     type: 'author',
@@ -160,6 +259,7 @@ const tokens = [
   },
   { type: 'user', icon: 'user', title: 'Assignee', dataType: 'user', token: UserToken },
   { type: 'milestone', icon: 'clock', title: 'Milestone', unique: true, token: MilestoneToken },
+  { type: 'label', icon: 'labels', title: 'Label', token: LabelToken },
   {
     type: 'weight',
     icon: 'weight',
@@ -184,7 +284,11 @@ export default {
   data() {
     return {
       tokens,
-      value: [{ type: 'user', value: { data: 'beta', operator: '=' } }, 'raw text'],
+      value: [
+        { type: 'user', value: { data: 'beta', operator: '=' } },
+        { type: 'label', value: { data: 'Bug', operator: '=' } },
+        'raw text',
+      ],
     };
   },
 };
