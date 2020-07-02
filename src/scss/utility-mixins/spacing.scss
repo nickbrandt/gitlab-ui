@@ -480,3 +480,17 @@
   margin-left: -#{$gl-spacing-scale-4};
   margin-right: -#{$gl-spacing-scale-4};
 }
+
+/**
+* Responsive margin utilities.
+*
+* naming convention: gl-{breakpoint}-m{position}-n{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+@mixin gl-sm-mt-0 {
+  @media (min-width: $breakpoint-sm) {
+    margin-top: 0;
+  }
+}
