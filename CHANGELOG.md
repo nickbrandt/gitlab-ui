@@ -1,3 +1,10 @@
+# [17.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.10.1...v17.11.0) (2020-07-02)
+
+
+### Features
+
+* **textarea:** Allow resizing ([b0b8ece](https://gitlab.com/gitlab-org/gitlab-ui/commit/b0b8ece00d0dac909aa4329ae107c27e5555ea0b))
+
 ## [17.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.10.0...v17.10.1) (2020-06-30)
 
 
