@@ -33,6 +33,10 @@
   padding: $gl-spacing-scale-6;
 }
 
+@mixin gl-p-7 {
+  padding: $gl-spacing-scale-6;
+}
+
 @mixin gl-px-1 {
   padding-left: $gl-spacing-scale-1;
   padding-right: $gl-spacing-scale-1;
@@ -89,6 +93,10 @@
   padding-right: $gl-spacing-scale-3;
 }
 
+@mixin gl-pr-4 {
+  padding-right: $gl-spacing-scale-4;
+}
+
 @mixin gl-pr-5 {
   padding-right: $gl-spacing-scale-5;
 }
@@ -137,12 +145,24 @@
   padding-left: $gl-spacing-scale-6;
 }
 
+@mixin gl-pl-7 {
+  padding-left: $gl-spacing-scale-6;
+}
+
+@mixin gl-pl-8 {
+  padding-right: $gl-spacing-scale-9;
+}
+
 @mixin gl-pl-9 {
   padding-left: $gl-spacing-scale-9;
 }
 
 @mixin gl-pt-0 {
   padding-top: 0;
+}
+
+@mixin gl-pt-1 {
+  padding-top: $gl-spacing-scale-1;
 }
 
 @mixin gl-pt-2 {
@@ -153,8 +173,20 @@
   padding-top: $gl-spacing-scale-3;
 }
 
+@mixin gl-pt-4 {
+  padding-top: $gl-spacing-scale-4;
+}
+
 @mixin gl-pt-5 {
   padding-top: $gl-spacing-scale-5;
+}
+
+@mixin gl-pt-6 {
+  padding-top: $gl-spacing-scale-6;
+}
+
+@mixin gl-pt-7 {
+  padding-top: $gl-spacing-scale-7;
 }
 
 @mixin gl-pt-9 {
@@ -163,6 +195,10 @@
 
 @mixin gl-pb-0 {
   padding-bottom: 0;
+}
+
+@mixin gl-pb-1 {
+  padding-bottom: $gl-spacing-scale-1;
 }
 
 @mixin gl-pb-2 {
@@ -179,6 +215,14 @@
 
 @mixin gl-pb-5 {
   padding-bottom: $gl-spacing-scale-5;
+}
+
+@mixin gl-pb-6 {
+  padding-bottom: $gl-spacing-scale-6;
+}
+
+@mixin gl-pb-7 {
+  padding-bottom: $gl-spacing-scale-7;
 }
 
 @mixin gl-py-0 {
@@ -216,6 +260,11 @@
   padding-bottom: $gl-spacing-scale-6;
 }
 
+@mixin gl-py-7 {
+  padding-top: $gl-spacing-scale-7;
+  padding-bottom: $gl-spacing-scale-7;
+}
+
 /**
 * Margin utilities.
 *
@@ -249,6 +298,10 @@
 
 @mixin gl-mt-3 {
   margin-top: $gl-spacing-scale-3;
+}
+
+@mixin gl-mt-4 {
+  margin-top: $gl-spacing-scale-4;
 }
 
 @mixin gl-mt-5 {
@@ -389,6 +442,11 @@
   margin-bottom: 0;
 }
 
+@mixin gl-my-1 {
+  margin-top: $gl-spacing-scale-1;
+  margin-bottom: $gl-spacing-scale-1;
+}
+
 @mixin gl-my-2 {
   margin-top: $gl-spacing-scale-2;
   margin-bottom: $gl-spacing-scale-2;
@@ -399,9 +457,19 @@
   margin-bottom: $gl-spacing-scale-3;
 }
 
+@mixin gl-my-4 {
+  margin-top: $gl-spacing-scale-4;
+  margin-bottom: $gl-spacing-scale-4;
+}
+
 @mixin gl-my-5 {
   margin-top: $gl-spacing-scale-5;
   margin-bottom: $gl-spacing-scale-5;
+}
+
+@mixin gl-my-6 {
+  margin-top: $gl-spacing-scale-6;
+  margin-bottom: $gl-spacing-scale-6;
 }
 
 @mixin gl-my-7 {
@@ -429,14 +497,39 @@
   margin-right: 0;
 }
 
+@mixin gl-mx-1 {
+  margin-left: $gl-spacing-scale-1;
+  margin-right: $gl-spacing-scale-1;
+}
+
+@mixin gl-mx-2 {
+  margin-left: $gl-spacing-scale-2;
+  margin-right: $gl-spacing-scale-2;
+}
+
 @mixin gl-mx-3 {
   margin-left: $gl-spacing-scale-3;
   margin-right: $gl-spacing-scale-3;
 }
 
+@mixin gl-mx-4 {
+  margin-left: $gl-spacing-scale-4;
+  margin-right: $gl-spacing-scale-4;
+}
+
+@mixin gl-mx-5 {
+  margin-left: $gl-spacing-scale-5;
+  margin-right: $gl-spacing-scale-5;
+}
+
 @mixin gl-mx-6 {
   margin-left: $gl-spacing-scale-6;
   margin-right: $gl-spacing-scale-6;
+}
+
+@mixin gl-mx-7 {
+  margin-left: $gl-spacing-scale-7;
+  margin-right: $gl-spacing-scale-7;
 }
 
 @mixin gl-mx-8 {
