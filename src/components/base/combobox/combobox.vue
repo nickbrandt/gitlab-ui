@@ -123,7 +123,7 @@ export default {
     selectToken(value) {
       this.$emit('input', value);
       this.closeSuggestions();
-      this.$emit('key-selected', value);
+      this.$emit('value-selected', value);
     },
   },
 };

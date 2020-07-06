@@ -1,35 +1,38 @@
 # GlCombobox
 
-Things will go here.
+Use this component to add a [`FormInput`](/?path=/story/base-form-form-input--default) component with synchronous autocomplete dropdown. It behaves as follows:
 
-<!-- STORY -->
+- Typing matches tokens; dropdown disappears when there is no match  
+- Up and down arrows navigate the dropdown  
+- Enter selects keyboard-highlighted item; clicking overrides this  
+- Esc closes dropdown when it is open, clears field when it is not  
+- Browser/native autocomplete dropdown hidden when ours is open, shows when it is not  
+- Tab selects current entered text and moves to next field  
 
-<!--
-Briefly describe the component's purpose here.
-This should correspond to the short description in Pajamas' website: https://design.gitlab.com/components/
--->
+This behavior based on [this w3c pattern](https://www.w3.org/TR/wai-aria-practices/examples/combobox/aria1.1pattern/listbox-combo.html) and [this accessible combobox example](https://alligator.io/vuejs/vue-a11y-autocomplete/).
 
 ## Usage
 
-<!-- Provide technical information on how to use the component, add code examples if relevant. -->
+The combobox accepts an array of string tokens, a `v-model`, and label text. Internally, it generates unique element IDs so multiple can be used on one page without clashing.
 
-<!--
-## Dos and don'ts
+On selection it sets the input value to the selected string and emits a `value-selected` event for consumption by parent components.
 
-If relevant, describe how the component is expected to be used, and how it's not.
--->
+```html
+<gl-combobox
+  v-model="inputVal"
+  :token-list="tokens"
+  labelText="Combobox Label"
+/>
+```
 
-<!--
-## Browser compatibility
+It does not have a loading state nor does it accept tokens other than strings. It allows for one selected value.
 
-If the component requires any polyfill or fallback on certain browsers, describe those requirements
-here.
--->
+#### What if I need to load the options asynchronously?
+You may want to look at [`SearchBoxByType`](/?path=/story/base-search-box-by-type--default) or [`SearchBoxByClick`](/?path=/story/base-search-box-by-click--default).
 
-<!--
+#### What if I need multiple options?
+The [`TokenSelector`](/?path=/story/base-token-selector--default) may be what you need. Alternately, [`FilteredSearch`](/?path=/story/base-filtered-search--default) will let you search and include tokens.
+
 ## Edge cases
 
-If the component has some known limitations, describe them here.
--->
-
-<!--
+The algorithm to match tokens with the input is very naive. If you need to use the component with a very large list of matches, you may want to update the implementation of use one of the search inputs, like [`SearchBoxByType`](/?path=/story/base-search-box-by-type--default), [`SearchBoxByClick`](/?path=/story/base-search-box-by-click--default), or [`FilteredSearch`](/?path=/story/base-filtered-search--default).  

@@ -2,7 +2,13 @@ import * as description from './combobox.md';
 import examples from './examples';
 
 export default {
+  followsDesignSystem: true,
   description,
   examples,
-  propsInfo: {},
+  events: [
+    {
+      event: 'value-selected',
+      description: 'Emitted when a value is selected.',
+    },
+  ],
 };
