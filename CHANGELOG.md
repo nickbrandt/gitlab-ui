@@ -1,3 +1,12 @@
+# [17.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.16.0...v17.17.0) (2020-07-06)
+
+
+### Features
+
+* **css:** Add absolute position utility classes ([976e498](https://gitlab.com/gitlab-org/gitlab-ui/commit/976e498349eb373f0ecdfd815fa172527ddd2b36))
+* **spinner:** Remove hardcoded aria-hidden ([f50816c](https://gitlab.com/gitlab-org/gitlab-ui/commit/f50816ce8a851c5da1cae3d86f2a63664421aadb))
+* Add gl-ml-11 utility class ([05be542](https://gitlab.com/gitlab-org/gitlab-ui/commit/05be542ea7eeba35f63e63fccfb4c7c6ad49ffe8))
+
 # [17.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.15.0...v17.16.0) (2020-07-06)
 
 
