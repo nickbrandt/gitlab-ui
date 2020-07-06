@@ -1,11 +1,11 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './combobox.md';
-import GlCombobox from './combobox.vue';
+import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
+import readme from './form_combobox.md';
+import GlFormCombobox from './form_combobox.vue';
 import { tokenList, labelText } from './constants';
 
 const components = {
-  GlCombobox,
+  GlFormCombobox,
 };
 
 const getProps = () => {
@@ -23,7 +23,7 @@ const getProps = () => {
 };
 
 
-documentedStoriesOf('base|combobox', readme)
+documentedStoriesOf('base|form/form_combobox', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
@@ -34,7 +34,7 @@ documentedStoriesOf('base|combobox', readme)
       };
     },
     template: `
-      <gl-combobox
+      <gl-form-combobox
         v-model="value"
         :token-list="tokenList"
         :labelText="labelText"

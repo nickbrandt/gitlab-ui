@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
-import GlFormInput from '../form/form_input/form_input.vue';
-import GlCombobox from './combobox.vue';
+import GlDropdownItem from '../../new_dropdown/new_dropdown_item.vue';
+import GlFormInput from '../form_input/form_input.vue';
+import GlFormCombobox from './form_combobox.vue';
 import { tokenList, labelText } from './constants';
 
 const partialToken = 'do';
@@ -14,7 +14,7 @@ const doTimes = (num, fn) => {
   }
 };
 
-describe('GlCombobox', () => {
+describe('GlFormCombobox', () => {
   let wrapper;
 
   const createComponent = () => {
@@ -26,10 +26,10 @@ describe('GlCombobox', () => {
           labelText,
         };
       },
-      components: { GlCombobox },
+      components: { GlFormCombobox },
       template: `
         <div>
-          <gl-combobox
+          <gl-form-combobox
             v-model="inputVal"
             :token-list="tokens"
             :labelText="labelText"

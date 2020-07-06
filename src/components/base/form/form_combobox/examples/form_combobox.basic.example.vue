@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div>
-    <gl-combobox
+    <gl-form-combobox
       v-model="inputVal"
       :token-list="$options.tokens"
       label-text="Animals We Tolerate"

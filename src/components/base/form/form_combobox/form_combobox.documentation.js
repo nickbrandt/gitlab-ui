@@ -1,4 +1,4 @@
-import * as description from './combobox.md';
+import * as description from './form_combobox.md';
 import examples from './examples';
 
 export default {

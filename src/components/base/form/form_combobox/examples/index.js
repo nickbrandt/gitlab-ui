@@ -1,11 +1,11 @@
-import BasicExample from './combobox.basic.example.vue';
+import BasicExample from './form_combobox.basic.example.vue';
 
 export default [
   {
     name: 'Basic',
     items: [
       {
-        id: 'combobox-basic',
+        id: 'form-combobox-basic',
         name: 'Basic',
         description: 'Basic Combobox',
         component: BasicExample,

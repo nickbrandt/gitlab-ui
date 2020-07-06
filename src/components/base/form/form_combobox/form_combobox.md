@@ -1,4 +1,4 @@
-# GlCombobox
+# GlFormCombobox
 
 Use this component to add a [`FormInput`](/?path=/story/base-form-form-input--default) component with synchronous autocomplete dropdown. It behaves as follows:
 
@@ -18,7 +18,7 @@ The combobox accepts an array of string tokens, a `v-model`, and label text. Int
 On selection it sets the input value to the selected string and emits a `value-selected` event for consumption by parent components.
 
 ```html
-<gl-combobox
+<gl-form-combobox
   v-model="inputVal"
   :token-list="tokens"
   label-text="Combobox Label"

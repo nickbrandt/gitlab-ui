@@ -1,12 +1,12 @@
 <script>
 import { uniqueId } from 'lodash';
 
-import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
-import GlFormGroup from '../form/form_group/form_group.vue';
-import GlFormInput from '../form/form_input/form_input.vue';
+import GlDropdownItem from '../../new_dropdown/new_dropdown_item.vue';
+import GlFormGroup from '../form_group/form_group.vue';
+import GlFormInput from '../form_input/form_input.vue';
 
 export default {
-  name: 'GlCombobox',
+  name: 'GlFormCombobox',
   components: {
     GlDropdownItem,
     GlFormGroup,
@@ -131,7 +131,7 @@ export default {
 <template>
   <div>
     <div
-      class="gl-combobox dropdown"
+      class="gl-form-combobox dropdown"
       role="combobox"
       :aria-owns="suggestionsId"
       :aria-expanded="ariaExpanded"
