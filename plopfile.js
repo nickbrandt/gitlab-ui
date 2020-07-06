@@ -27,19 +27,19 @@ const commonActions = [
     type: 'append',
     pattern: 'ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove',
     path: 'index.js',
-    template: `export { default as Gl{{pascalCase name}} } from './${componentsPath}{{componentDir}}/{{name}}.vue';`,
+    template: `export { default as Gl{{pascalCase name}} } from './{{componentDir}}/{{name}}.vue';`,
   },
   {
     type: 'append',
     pattern: 'ADD EXPORTS - needed for yarn generate:component. Do not remove',
     path: 'documentation/components_documentation.js',
-    template: `export { default as Gl{{pascalCase name}}Documentation } from '../${componentsPath}{{componentDir}}/{{name}}.documentation';`,
+    template: `export { default as Gl{{pascalCase name}}Documentation } from '../{{componentDir}}/{{name}}.documentation';`,
   },
   {
     type: 'append',
     pattern: 'ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove',
     path: 'src/scss/components.scss',
-    template: `@import '../components{{componentDir}}/{{name}}';`,
+    template: `@import '../components/{{name}}';`,
   },
   {
     type: 'add',
