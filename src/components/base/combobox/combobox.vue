@@ -157,8 +157,8 @@ export default {
 
       <div
         v-show="showSuggestions && !userDismissedResults"
-        data-testid="combobox-dropdown"
         :id="suggestionsId"
+        data-testid="combobox-dropdown"
         class="dropdown-menu dropdown-full-width"
         :class="{ 'show-dropdown': showSuggestions }"
       >
