@@ -1,3 +1,10 @@
+# [17.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.15.0...v17.16.0) (2020-07-06)
+
+
+### Features
+
+* add gl-text-body mixin for default text color ([63dec63](https://gitlab.com/gitlab-org/gitlab-ui/commit/63dec63c00ad0a207416d9578aa0acd97fe2162c))
+
 # [17.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.14.0...v17.15.0) (2020-07-06)
 
 
