@@ -39,7 +39,7 @@ const commonActions = [
     type: 'append',
     pattern: 'ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove',
     path: 'src/scss/components.scss',
-    template: `@import '../components/{{name}}';`,
+    template: `@import '../{{innerDir}}/{{name}}';`,
   },
   {
     type: 'add',
@@ -71,6 +71,7 @@ const makePrompts = (prompts = []) => [
 const setCommonData = data => {
   data.componentDirAbsolute = `${data.componentDir || baseComponentsPath}/${data.name}`;
   data.componentDir = data.componentDirAbsolute.replace(path.join(__dirname, componentsPath), '');
+  data.innerDir = data.componentDir.split('/').filter((el) => el !== 'src').join('/');
   data.pathToRootDir = data.componentDir
     .split('/')
     .fill('..')
