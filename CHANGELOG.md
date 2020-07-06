@@ -1,3 +1,10 @@
+# [17.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.14.0...v17.15.0) (2020-07-06)
+
+
+### Features
+
+* **css:** Add size min-width full to utility class ([9e91352](https://gitlab.com/gitlab-org/gitlab-ui/commit/9e9135272a7e489019deb3772146280e7d82069f))
+
 # [17.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.13.0...v17.14.0) (2020-07-03)
 
 
