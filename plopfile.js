@@ -71,7 +71,10 @@ const makePrompts = (prompts = []) => [
 const setCommonData = data => {
   data.componentDirAbsolute = `${data.componentDir || baseComponentsPath}/${data.name}`;
   data.componentDir = data.componentDirAbsolute.replace(path.join(__dirname, componentsPath), '');
-  data.innerDir = data.componentDir.split(path.sep).filter((el) => el !== 'src').join(path.sep);
+  data.innerDir = data.componentDir
+    .split(path.sep)
+    .filter(el => el !== 'src')
+    .join(path.sep);
   data.pathToRootDir = data.componentDir
     .split(path.sep)
     .fill('..')
