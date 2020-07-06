@@ -12,6 +12,11 @@ export default {
       required: false,
       default: () => [],
     },
+    placement: {
+      type: String,
+      required: false,
+      default: 'top',
+    },
   },
   computed: {
     customClass() {
