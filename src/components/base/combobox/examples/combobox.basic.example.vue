@@ -32,7 +32,7 @@ export default {
     <gl-combobox
       v-model="inputVal"
       :token-list="$options.tokens"
-      labelText="Animals We Tolerate"
+      label-text="Animals We Tolerate"
     />
   </div>
 </template>

@@ -158,9 +158,9 @@ export default {
       <div
         v-show="showSuggestions && !userDismissedResults"
         data-testid="combobox-dropdown"
+        :id="suggestionsId"
         class="dropdown-menu dropdown-full-width"
         :class="{ 'show-dropdown': showSuggestions }"
-        :id="suggestionsId"
       >
         <gl-dropdown-item
           v-for="(result, i) in results"

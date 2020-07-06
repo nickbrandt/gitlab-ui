@@ -1,4 +1,3 @@
-import { uniqueId } from 'lodash';
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './combobox.md';

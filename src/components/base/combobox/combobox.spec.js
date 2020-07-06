@@ -152,7 +152,7 @@ describe('GlCombobox', () => {
       });
     });
 
-    describe('on click', async () => {
+    describe('on click', () => {
       it('selects the clicked item regardless of arrow highlight', async () => {
         setInput(partialToken);
 

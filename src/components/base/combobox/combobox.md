@@ -21,7 +21,7 @@ On selection it sets the input value to the selected string and emits a `value-s
 <gl-combobox
   v-model="inputVal"
   :token-list="tokens"
-  labelText="Combobox Label"
+  label-text="Combobox Label"
 />
 ```
 
