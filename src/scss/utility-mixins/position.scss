@@ -56,6 +56,14 @@
   top: $gl-spacing-scale-5;
 }
 
+@mixin gl-top-6 {
+  top: $gl-spacing-scale-6;
+}
+
+@mixin gl-top-7 {
+  top: $gl-spacing-scale-7;
+}
+
 @mixin gl-right-0 {
   right: 0;
 }
@@ -64,8 +72,20 @@
   right: $gl-spacing-scale-1;
 }
 
+@mixin gl-right-2 {
+  right: $gl-spacing-scale-2;
+}
+
+@mixin gl-right-3 {
+  right: $gl-spacing-scale-3;
+}
+
 @mixin gl-right-5 {
   right: $gl-spacing-scale-5;
+}
+
+@mixin gl-right-6 {
+  right: $gl-spacing-scale-6;
 }
 
 @mixin gl-right-7 {
@@ -80,8 +100,24 @@
   bottom: $gl-spacing-scale-1;
 }
 
+@mixin gl-bottom-2 {
+  bottom: $gl-spacing-scale-2;
+}
+
+@mixin gl-bottom-3 {
+  bottom: $gl-spacing-scale-3;
+}
+
+@mixin gl-bottom-5 {
+  bottom: $gl-spacing-scale-5;
+}
+
 @mixin gl-bottom-6 {
   bottom: $gl-spacing-scale-6;
+}
+
+@mixin gl-bottom-7 {
+  bottom: $gl-spacing-scale-7;
 }
 
 @mixin gl-left-0 {
@@ -92,10 +128,22 @@
   left: $gl-spacing-scale-1;
 }
 
+@mixin gl-left-2 {
+  left: $gl-spacing-scale-2;
+}
+
+@mixin gl-left-3 {
+  left: $gl-spacing-scale-3;
+}
+
 @mixin gl-left-5 {
   left: $gl-spacing-scale-5;
 }
 
 @mixin gl-left-6 {
   left: $gl-spacing-scale-6;
+}
+
+@mixin gl-left-7 {
+  left: $gl-spacing-scale-7;
 }
