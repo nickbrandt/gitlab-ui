@@ -7,11 +7,6 @@ export default {
   followsDesignSystem: true,
   bootstrapComponent: 'b-form-radio-group',
   propsInfo: {
-    stacked: {
-      additionalInfo: 'When set, renders the radio group in stacked (vertical) mode',
-      default: false,
-      type: Boolean,
-    },
     options: {
       additionalInfo: 'Array of objects representing the radios to render',
     },
