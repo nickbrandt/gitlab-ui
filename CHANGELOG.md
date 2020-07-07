@@ -1,3 +1,10 @@
+# [17.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.17.0...v17.18.0) (2020-07-07)
+
+
+### Features
+
+* Add gl-sticky utility class ([d2fcd6a](https://gitlab.com/gitlab-org/gitlab-ui/commit/d2fcd6a995641ab5d33eadc4720d7aaaca731bb3))
+
 # [17.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.16.0...v17.17.0) (2020-07-06)
 
 
