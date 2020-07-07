@@ -1,3 +1,10 @@
+## [17.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.18.0...v17.18.1) (2020-07-07)
+
+
+### Bug Fixes
+
+* **GlGroup:** Update GLRadio and GlCheck Groups ([28de43d](https://gitlab.com/gitlab-org/gitlab-ui/commit/28de43dfad26dcdcf209ea6ea58e566068636802))
+
 # [17.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.17.0...v17.18.0) (2020-07-07)
 
 
