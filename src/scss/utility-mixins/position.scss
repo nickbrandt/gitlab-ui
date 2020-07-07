@@ -19,6 +19,10 @@
   position: fixed;
 }
 
+@mixin gl-sticky {
+  position: sticky;
+}
+
 /**
 * Placement utilities.
 *
