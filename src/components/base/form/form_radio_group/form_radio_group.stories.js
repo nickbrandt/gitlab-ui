@@ -1,4 +1,4 @@
-import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
+import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_radio_group.md';
 import { GlFormRadioGroup } from '../../../../../index';
@@ -13,19 +13,11 @@ const defaultOptions = [
   { value: 'Burger', text: 'Burger', disabled: true },
 ];
 
-function generateProps({
-  name = 'radio-group-name',
-  stacked = false,
-  options = defaultOptions,
-} = {}) {
+function generateProps({ name = 'radio-group-name', options = defaultOptions } = {}) {
   return {
     name: {
       type: String,
       default: text('name', name),
-    },
-    stacked: {
-      type: Boolean,
-      default: boolean('stacked', stacked),
     },
     options: {
       default: object('options', options),
@@ -38,7 +30,6 @@ const template = `
     <gl-form-radio-group
       v-model="selected"
       :options="options"
-      :stacked="stacked"
       :name="name"
     >
       <template #first>
@@ -60,12 +51,6 @@ documentedStoriesOf('base|form/form-radio-group', readme)
   .add('default', () => ({
     components,
     props: generateProps(),
-    data,
-    template,
-  }))
-  .add('stacked', () => ({
-    components,
-    props: generateProps({ stacked: true, name: 'stacked' }),
     data,
     template,
   }));

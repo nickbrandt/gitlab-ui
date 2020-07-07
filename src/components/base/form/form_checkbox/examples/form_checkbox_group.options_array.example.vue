@@ -16,12 +16,12 @@ export default {
 
 <template>
   <!--
-  options: [
-    'String option',
-    { text: 'Object option', value: 'object' },
-    { html: '<i>HTML</i> option', value: 'html' },
-    { text: 'Disabled option', disabled: true },
-  ],
-  -->
+    options: [
+      'String option',
+      { text: 'Object option', value: 'object' },
+      { html: '<i>HTML</i> option', value: 'html' },
+      { text: 'Disabled option', disabled: true },
+    ],
+    -->
   <gl-form-checkbox-group v-model="selected" :options="options" />
 </template>
