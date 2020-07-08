@@ -1,3 +1,10 @@
+# [17.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.18.1...v17.19.0) (2020-07-08)
+
+
+### Features
+
+* add missing spacing utils from 1-7 ([8023560](https://gitlab.com/gitlab-org/gitlab-ui/commit/8023560fec571efef25a25e0a0e327f9ed34d6ac))
+
 ## [17.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.18.0...v17.18.1) (2020-07-07)
 
 
