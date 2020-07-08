@@ -58,12 +58,25 @@ documentedStoriesOf('base|form/form-select', readme)
         selected: 'Pizza',
       };
     },
+    methods: {
+      computedState(state) {
+        let updatedState = null;
+
+        if (state === 'valid') {
+          updatedState = true;
+        } else if (state === 'invalid') {
+          updatedState = false;
+        }
+
+        return updatedState;
+      },
+    },
     template: `
       <gl-form-select 
         v-model="selected"
         :size="size"
         :disabled="disabled"
-        :state="state"
+        :state="computedState(state)"
         :multiple="multiple"
         :selectSize="selectSize"
         :options="options">
