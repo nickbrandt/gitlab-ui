@@ -1,3 +1,10 @@
+## [17.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.19.0...v17.19.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* **GlTokenSelector:** fix padding override ([de6970b](https://gitlab.com/gitlab-org/gitlab-ui/commit/de6970b248a2e40638ec3d1f1367d5f339c7e30b))
+
 # [17.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.18.1...v17.19.0) (2020-07-08)
 
 
