@@ -14,15 +14,15 @@ This is the most straightforward aspect of integration GitLab UI components. Com
 
 #### Picking up issues & using the GDK to test
 
-Some buttons that need to be migrated live in areas of the app that require a special GDK setup to test. Designers/engineers may have these special setups already configured based on their stage work requirements. If you work in an area that requires a special setup, you are encouraged to tackle the buttons that live in those areas. Otherwise, start with issues that do not need a special setup.
+Some components that need to be migrated live in areas of the app that require a special GDK setup to test. Designers/engineers may have these special setups already configured based on their stage work requirements. If you work in an area that requires a special setup, you are encouraged to tackle the components that live in those areas. Otherwise, start with issues that do not need a special setup.
 
-#### Finding a button in the UI
+#### Finding a component in the UI
 
-When opening your MR, you will want to provide before and after screenshots. To do this, you will need to find the button you are migrating in the UI using GDK or a review app.
+When opening your MR, you will want to provide before and after screenshots. To do this, you will need to find the component you are migrating in the UI using GDK or a review app.
 
-##### Using button text
+##### Using component text
 
-To find the button you are migrating in the UI, search for the text in the button. 
+To find the component you are migrating in the UI, search for the text used within that component. 
 
 For example, in the following instance the button text is `New file`.
 
@@ -41,7 +41,7 @@ For example, in the following instance the button text is `New file`.
 
 ##### Using surrounding code & file name
 
-You can also determine where the button lives by looking at the code that lives above and below the button you are migrating. For example, in `app/assets/javascripts/ide/components/ide.vue`, the button being migrated is below text that reads:
+You can also determine where a component lives by looking at the code that lives above and below the component you are migrating. For example, in `app/assets/javascripts/ide/components/ide.vue`, the button being migrated is below text that reads:
 
 > Create a new file as there are no files yet. Afterwards, you'll be able to commit your changes.
 
@@ -49,7 +49,7 @@ If you look at the code, you can see that this UI is referring to an empty state
 
 You can also use the file name to help determine the area of the app to look in. In this case, `ide` is referring to the Web IDE. 
 
-To find the button, find an empty state in the Web IDE with the above text and a button that reads `New file`.
+To find the component, find an empty state in the Web IDE with the above text and a button that reads `New file`.
 
 ## Vanilla JS
 
