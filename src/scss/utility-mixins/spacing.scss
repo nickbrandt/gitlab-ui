@@ -584,6 +584,12 @@
 
 @mixin gl-sm-mt-0 {
   @media (min-width: $breakpoint-sm) {
-    margin-top: 0;
+    @include gl-mt-0;
+  }
+}
+
+@mixin gl-sm-mt-5 {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-mt-5;
   }
 }
