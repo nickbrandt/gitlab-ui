@@ -1,3 +1,10 @@
+## [17.19.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.19.1...v17.19.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* **search-box-by-type:** Fix clear button focus ([4172c34](https://gitlab.com/gitlab-org/gitlab-ui/commit/4172c34ecbcf0dabd4975579ebd80184b1660c33))
+
 ## [17.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.19.0...v17.19.1) (2020-07-09)
 
 
