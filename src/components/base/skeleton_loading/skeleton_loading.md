@@ -1,2 +1,3 @@
-#### Under the hood
-Skeleton loading uses CSS to display the loading animation.
+# (Deprecated) Skeleton Loading
+
+The Skeleton Loading component has been deprecated, please use [Skeleton Loader](/?path=/story/base-skeleton-loader--default).

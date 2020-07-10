@@ -21,5 +21,11 @@ export default {
     baseUrl: {
       additionalInfo: `Required if you're using <base url="/" /> in your <head />. Defaults to an empty string. This prop is common used as: <gl-skeleton-loader :base-url="$route.fullPath" /> which will fill the SVG attribute with the relative path.`,
     },
+    lines: {
+      additionalInfo: 'Number of lines to show when using the default skeleton',
+    },
+    equalWidthLines: {
+      additionalInfo: 'If the default skeleton lines should all be the same width',
+    },
   },
 };
