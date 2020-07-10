@@ -23,7 +23,7 @@ const getProps = () => {
 };
 
 
-documentedStoriesOf('base|form/form_combobox', readme)
+documentedStoriesOf('base|form/form-combobox', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
