@@ -1,3 +1,10 @@
+# [17.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.20.0...v17.21.0) (2020-07-10)
+
+
+### Features
+
+* **css:** adding new background utility mixin for data-viz-orange-800 ([ecc82a9](https://gitlab.com/gitlab-org/gitlab-ui/commit/ecc82a92470314ed6b7fe1daa9864423fbdac341))
+
 # [17.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.19.2...v17.20.0) (2020-07-10)
 
 
