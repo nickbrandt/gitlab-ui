@@ -58,7 +58,7 @@ export default {
       </gl-form-group>
 
       <gl-form-group id="input-group-4">
-        <gl-form-checkbox-group id="checkboxes-4" v-model="form.checked" stacked>
+        <gl-form-checkbox-group id="checkboxes-4" v-model="form.checked">
           <gl-form-checkbox value="squash">Squash Commits</gl-form-checkbox>
           <gl-form-checkbox value="new">Create New Issue</gl-form-checkbox>
         </gl-form-checkbox-group>
