@@ -32,6 +32,7 @@ export default {
     class="gl-clear-icon-button"
     name="clear"
     :title="title"
+    type="button"
     v-on="$listeners"
   >
     <gl-icon name="clear" />

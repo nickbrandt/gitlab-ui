@@ -6,6 +6,7 @@ exports[`Clear Icon Button renders successfully 1`] = `
   class="gl-clear-icon-button"
   name="clear"
   title="Tooltip Text"
+  type="button"
 >
   <gl-icon-stub
     name="clear"
