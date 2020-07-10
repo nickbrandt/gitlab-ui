@@ -1,3 +1,10 @@
+# [17.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.19.2...v17.20.0) (2020-07-10)
+
+
+### Features
+
+* **GlFilteredSearch:** Style disabled state ([314daf8](https://gitlab.com/gitlab-org/gitlab-ui/commit/314daf87855c4549e4944acc8f3dd1fc3de6351e))
+
 ## [17.19.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.19.1...v17.19.2) (2020-07-09)
 
 
