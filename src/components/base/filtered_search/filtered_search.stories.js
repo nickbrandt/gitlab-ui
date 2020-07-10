@@ -296,7 +296,5 @@ documentedStoriesOf('base|filtered-search', readme)
       };
     },
     components,
-    template: `
-      <gl-filtered-search :available-tokens="tokens" :value="value" />
-    `,
+    template: `<gl-filtered-search :available-tokens="tokens" :value="value" />`,
   }));
