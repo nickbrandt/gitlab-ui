@@ -56,3 +56,7 @@
 @mixin gl-display-table-cell {
   display: table-cell;
 }
+
+@mixin gl-display-grid {
+  display: grid;
+}
