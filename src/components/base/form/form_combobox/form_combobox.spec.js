@@ -41,11 +41,12 @@ describe('GlFormCombobox', () => {
 
   // needs new selector now
   const findDropdown = () => wrapper.find('[data-testid="combobox-dropdown"]');
-  const findDropdownOptions = () => wrapper.findAll(GlDropdownItem).wrappers.map(item => item.text());
+  const findDropdownOptions = () =>
+    wrapper.findAll(GlDropdownItem).wrappers.map(item => item.text());
   const findInput = () => wrapper.find(GlFormInput);
   const findInputValue = () => findInput().element.value;
   const setInput = val => findInput().setValue(val);
-  const clickDown = () => findInput().trigger('keydown.down');
+  const arrowDown = () => findInput().trigger('keydown.down');
 
   afterEach(() => {
     wrapper.destroy();
@@ -63,24 +64,18 @@ describe('GlFormCombobox', () => {
     });
 
     it('is open when the input text matches a token', async () => {
-      setInput(partialToken);
-
-      await wrapper.vm.$nextTick();
+      await setInput(partialToken);
       expect(findDropdown().isVisible()).toBe(true);
     });
 
     it('shows partial matches at string start and mid-string', async () => {
-      setInput(partialToken);
-
-      await wrapper.vm.$nextTick();
+      await setInput(partialToken);
       expect(findDropdown().isVisible()).toBe(true);
       expect(findDropdownOptions()).toEqual(partialTokenMatch);
     });
 
     it('is closed when the text does not match', async () => {
-      setInput(unlistedToken);
-
-      await wrapper.vm.$nextTick();
+      await setInput(unlistedToken);
       expect(findDropdown().isVisible()).toBe(false);
     });
   });
@@ -92,24 +87,16 @@ describe('GlFormCombobox', () => {
 
     describe('on down arrow + enter', () => {
       it('selects the next item in the list and closes the dropdown', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
+        await setInput(partialToken);
         findInput().trigger('keydown.down');
-        findInput().trigger('keydown.enter');
-
-        await wrapper.vm.$nextTick();
+        await findInput().trigger('keydown.enter');
         expect(findInputValue()).toBe(partialTokenMatch[0]);
       });
 
       it('loops to the top when it reaches the bottom', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
-        doTimes(findDropdownOptions().length + 1, clickDown);
-        findInput().trigger('keydown.enter');
-
-        await wrapper.vm.$nextTick();
+        await setInput(partialToken);
+        doTimes(findDropdownOptions().length + 1, arrowDown);
+        await findInput().trigger('keydown.enter');
         expect(findInputValue()).toBe(partialTokenMatch[0]);
       });
     });
@@ -119,58 +106,46 @@ describe('GlFormCombobox', () => {
         setInput(partialToken);
 
         await wrapper.vm.$nextTick();
-        doTimes(3, clickDown);
+        doTimes(3, arrowDown);
         findInput().trigger('keydown.up');
         findInput().trigger('keydown.enter');
 
         await wrapper.vm.$nextTick();
         expect(findInputValue()).toBe(partialTokenMatch[1]);
+        expect(findDropdown().isVisible()).toBe(false);
       });
 
       it('loops to the bottom when it reaches the top', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
+        await setInput(partialToken);
         findInput().trigger('keydown.down');
         findInput().trigger('keydown.up');
-        findInput().trigger('keydown.enter');
-
-        await wrapper.vm.$nextTick();
+        await findInput().trigger('keydown.enter');
         expect(findInputValue()).toBe(partialTokenMatch[partialTokenMatch.length - 1]);
       });
     });
 
     describe('on enter with no item highlighted', () => {
       it('does not select any item and closes the dropdown', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
-        findInput().trigger('keydown.enter');
-
-        await wrapper.vm.$nextTick();
+        await setInput(partialToken);
+        await findInput().trigger('keydown.enter');
         expect(findInputValue()).toBe(partialToken);
+        expect(findDropdown().isVisible()).toBe(false);
       });
     });
 
     describe('on click', () => {
       it('selects the clicked item regardless of arrow highlight', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
-        wrapper.find('[data-testid="combobox-dropdown"] button').trigger('click');
-
-        await wrapper.vm.$nextTick();
+        await setInput(partialToken);
+        await wrapper.find('[data-testid="combobox-dropdown"] button').trigger('click');
         expect(findInputValue()).toBe(partialTokenMatch[0]);
       });
     });
 
     describe('on tab', () => {
       it('selects entered text, closes dropdown', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
+        await setInput(partialToken);
         findInput().trigger('keydown.tab');
-        doTimes(2, clickDown);
+        doTimes(2, arrowDown);
 
         await wrapper.vm.$nextTick();
         expect(findInputValue()).toBe(partialToken);
@@ -181,27 +156,18 @@ describe('GlFormCombobox', () => {
     describe('on esc', () => {
       describe('when dropdown is open', () => {
         it('closes dropdown and does not select anything', async () => {
-          setInput(partialToken);
-
-          await wrapper.vm.$nextTick();
-          findInput().trigger('keydown.esc');
-
-          await wrapper.vm.$nextTick();
+          await setInput(partialToken);
+          await findInput().trigger('keydown.esc');
           expect(findInputValue()).toBe(partialToken);
           expect(findDropdown().isVisible()).toBe(false);
-
         });
       });
 
       describe('when dropdown is closed', () => {
         it('clears the input field', async () => {
-          setInput(unlistedToken);
-
-          await wrapper.vm.$nextTick();
+          await setInput(unlistedToken);
           expect(findDropdown().isVisible()).toBe(false);
-          findInput().trigger('keydown.esc');
-
-          await wrapper.vm.$nextTick();
+          await findInput().trigger('keydown.esc');
           expect(findInputValue()).toBe('');
         });
       });

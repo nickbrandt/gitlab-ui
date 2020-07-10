@@ -9,19 +9,17 @@ const components = {
 };
 
 const getProps = () => {
-
   return {
     tokenList: {
       type: Array,
-      default: object('tokens', tokenList)
+      default: object('tokens', tokenList),
     },
     labelText: {
       type: String,
-      default: text('label text', labelText)
+      default: text('label text', labelText),
     },
-  }
+  };
 };
-
 
 documentedStoriesOf('base|form/form-combobox', readme)
   .addDecorator(withKnobs)

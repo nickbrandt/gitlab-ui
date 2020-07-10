@@ -28,11 +28,11 @@ On selection it sets the input value to the selected string and emits a `value-s
 It does not have a loading state nor does it accept tokens other than strings. It allows for one selected value.
 
 #### What if I need to load the options asynchronously?
-You may want to look at [`SearchBoxByType`](/?path=/story/base-search-box-by-type--default) or [`SearchBoxByClick`](/?path=/story/base-search-box-by-click--default).
+You may want to look at [`GlSearchBoxByType`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-search-box-by-type--default) or [`GlSearchBoxByClick`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-search-box-by-click--default).
 
 #### What if I need multiple options?
-The [`TokenSelector`](/?path=/story/base-token-selector--default) may be what you need. Alternately, [`FilteredSearch`](/?path=/story/base-filtered-search--default) will let you search and include tokens.
+The [`GlTokenSelector`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-token-selector--default) may be what you need. Alternately, [`GlFilteredSearch`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-filtered-search--default) will let you search and include tokens.
 
 ## Edge cases
 
-The algorithm to match tokens with the input is very naive. If you need to use the component with a very large list of matches, you may want to update the implementation of use one of the search inputs, like [`SearchBoxByType`](/?path=/story/base-search-box-by-type--default), [`SearchBoxByClick`](/?path=/story/base-search-box-by-click--default), or [`FilteredSearch`](/?path=/story/base-filtered-search--default).  
+The algorithm to match tokens with the input is very naive. If you need to use the component with a very large list of matches, you may want to update the implementation or use one of the search inputs, like [`GlSearchBoxByType`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-search-box-by-type--default), [`GlSearchBoxByClick`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-search-box-by-click--default), or [`GlFilteredSearch`](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-filtered-search--default).  

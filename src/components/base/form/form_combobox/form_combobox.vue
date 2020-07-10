@@ -36,7 +36,7 @@ export default {
       arrowCounter: -1,
       userDismissedResults: false,
       suggestionsId: uniqueId('token-suggestions-'),
-      inputId: uniqueId('token-input-')
+      inputId: uniqueId('token-input-'),
     };
   },
   computed: {
@@ -108,7 +108,7 @@ export default {
       }
 
       const filteredTokens = this.tokenList.filter(token =>
-        token.toLowerCase().includes(value.toLowerCase()),
+        token.toLowerCase().includes(value.toLowerCase())
       );
 
       if (filteredTokens.length) {
@@ -129,51 +129,49 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <div
-      class="gl-form-combobox dropdown"
-      role="combobox"
-      :aria-owns="suggestionsId"
-      :aria-expanded="ariaExpanded"
-    >
-      <gl-form-group :label="labelText" :label-for="inputId">
-        <gl-form-input
-          :id="inputId"
-          :value="value"
-          type="text"
-          role="searchbox"
-          :autocomplete="showAutocomplete"
-          aria-autocomplete="list"
-          :aria-controls="suggestionsId"
-          aria-haspopup="listbox"
-          @input="onEntry"
-          @keydown.down="onArrowDown"
-          @keydown.up="onArrowUp"
-          @keydown.enter.prevent="onEnter"
-          @keydown.esc.stop="onEsc"
-          @keydown.tab="closeSuggestions"
-        />
-      </gl-form-group>
+  <div
+    class="gl-form-combobox dropdown"
+    role="combobox"
+    :aria-owns="suggestionsId"
+    :aria-expanded="ariaExpanded"
+  >
+    <gl-form-group :label="labelText" :label-for="inputId">
+      <gl-form-input
+        :id="inputId"
+        :value="value"
+        type="text"
+        role="searchbox"
+        :autocomplete="showAutocomplete"
+        aria-autocomplete="list"
+        :aria-controls="suggestionsId"
+        aria-haspopup="listbox"
+        @input="onEntry"
+        @keydown.down="onArrowDown"
+        @keydown.up="onArrowUp"
+        @keydown.enter.prevent="onEnter"
+        @keydown.esc.stop="onEsc"
+        @keydown.tab="closeSuggestions"
+      />
+    </gl-form-group>
 
-      <div
-        v-show="showSuggestions && !userDismissedResults"
-        :id="suggestionsId"
-        data-testid="combobox-dropdown"
-        class="dropdown-menu dropdown-full-width"
-        :class="{ 'show-dropdown': showSuggestions }"
+    <div
+      v-show="showSuggestions && !userDismissedResults"
+      :id="suggestionsId"
+      data-testid="combobox-dropdown"
+      class="dropdown-menu dropdown-full-width"
+      :class="{ 'show-dropdown': showSuggestions }"
+    >
+      <gl-dropdown-item
+        v-for="(result, i) in results"
+        :key="i"
+        role="option"
+        :class="{ 'highlight-dropdown': i === arrowCounter }"
+        :aria-selected="i === arrowCounter"
+        tabindex="-1"
+        @click="selectToken(result)"
       >
-        <gl-dropdown-item
-          v-for="(result, i) in results"
-          :key="i"
-          role="option"
-          :class="{ 'highlight-dropdown': i === arrowCounter }"
-          :aria-selected="i === arrowCounter"
-          tabindex="-1"
-          @click="selectToken(result)"
-        >
-          {{ result }}
-        </gl-dropdown-item>
-      </div>
+        {{ result }}
+      </gl-dropdown-item>
     </div>
   </div>
 </template>
