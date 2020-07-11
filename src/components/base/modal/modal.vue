@@ -106,6 +106,7 @@ export default {
       focusFirstFocusableElement([...modalElts, ...btnElts]);
     },
   },
+  foo: 'bar',
 };
 </script>
 

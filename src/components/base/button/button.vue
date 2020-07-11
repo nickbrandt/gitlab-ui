@@ -86,6 +86,7 @@ export default {
       return newButtonSizeOptionsMap[this.size];
     },
   },
+  foo: 'bar',
 };
 </script>
 <template>

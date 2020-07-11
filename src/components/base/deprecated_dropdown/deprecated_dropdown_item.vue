@@ -8,6 +8,7 @@ export default {
       return this.$attrs.href ? BDropdownItem : BDropdownItemButton;
     },
   },
+  foo: 'bar',
 };
 </script>
 
