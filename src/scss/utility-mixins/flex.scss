@@ -94,3 +94,9 @@
 @mixin gl-align-self-center {
   align-self: center;
 }
+
+@mixin gl-sm-align-self-center {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-align-self-center;
+  }
+}
