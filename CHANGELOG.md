@@ -1,3 +1,10 @@
+# [17.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.21.0...v17.22.0) (2020-07-12)
+
+
+### Features
+
+* Add mt-5 and align-self-center for sm ([8d2a99c](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d2a99c2081518f11249fce6a4d334356a72ad84))
+
 # [17.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.20.0...v17.21.0) (2020-07-10)
 
 
