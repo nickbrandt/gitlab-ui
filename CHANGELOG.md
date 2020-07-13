@@ -1,3 +1,10 @@
+# [17.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.24.0...v17.25.0) (2020-07-13)
+
+
+### Features
+
+* **GlCombobox:** Add GlCombobox component ([618f774](https://gitlab.com/gitlab-org/gitlab-ui/commit/618f774b47ecfca30a4687ad55ab96fb152ecd8d))
+
 # [17.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.23.0...v17.24.0) (2020-07-13)
 
 
