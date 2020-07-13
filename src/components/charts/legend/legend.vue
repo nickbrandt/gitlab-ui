@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     sanitizeSeriesData(seriesData) {
-      return seriesData.filter(d => !Number.isNaN(d));
+      return seriesData?.filter(d => !Number.isNaN(d)) ?? [];
     },
     seriesAverage(seriesData) {
       const sanitized = this.sanitizeSeriesData(seriesData);
@@ -183,7 +183,7 @@ export default {
               </gl-chart-series-label>
             </div>
 
-            <template v-if="series.data && series.data.length">
+            <template v-if="sanitizeSeriesData(series.data).length">
               <div class="gl-legend-tabular-details-cell">{{ seriesMin(series.data) }}</div>
               <div class="gl-legend-tabular-details-cell">{{ seriesMax(series.data) }}</div>
               <div class="gl-legend-tabular-details-cell">{{ seriesAverage(series.data) }}</div>
