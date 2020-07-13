@@ -16,6 +16,10 @@ This is the most straightforward aspect of integration GitLab UI components. Com
 
 Some components that need to be migrated live in areas of the app that require a special GDK setup to test. Designers/engineers may have these special setups already configured based on their stage work requirements. If you work in an area that requires a special setup, you are encouraged to tackle the components that live in those areas. Otherwise, start with issues that do not need a special setup.
 
+#### Finding the right file
+
+It can sometimes be difficult to find the right file by using the tree view in your editor. Instead, if you are using Visual Studio Code, you can use `Cmd` + `P` to open the search box. When the prompt appears, type the name of the file.
+
 #### Finding a component in the UI
 
 When opening your MR, you will want to provide before and after screenshots. To do this, you will need to find the component you are migrating in the UI using GDK or a review app.
