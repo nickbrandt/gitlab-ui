@@ -4,10 +4,10 @@
   }
 
   .show-dropdown {
-    @include gl-display-block
+    @include gl-display-block;
   }
 
   .highlight-dropdown {
-    @include gl-bg-gray-50
+    @include gl-bg-gray-50;
   }
 }
