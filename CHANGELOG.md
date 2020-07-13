@@ -1,3 +1,10 @@
+# [17.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.22.1...v17.23.0) (2020-07-13)
+
+
+### Features
+
+* **GlTruncate:** add truncate component ([3839080](https://gitlab.com/gitlab-org/gitlab-ui/commit/383908013f0141f52c66754bfee9222d66ae1e65))
+
 ## [17.22.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.22.0...v17.22.1) (2020-07-13)
 
 
