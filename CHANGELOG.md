@@ -1,3 +1,10 @@
+## [17.22.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.22.0...v17.22.1) (2020-07-13)
+
+
+### Bug Fixes
+
+* **GlLegend:** Show dash on multiple empty cases ([30c1d16](https://gitlab.com/gitlab-org/gitlab-ui/commit/30c1d16ef7f7d9089ce5960ddaecc3647d4a2ca5))
+
 # [17.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.21.0...v17.22.0) (2020-07-12)
 
 
