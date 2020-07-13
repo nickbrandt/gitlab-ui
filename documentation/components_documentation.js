@@ -93,6 +93,7 @@ export { default as GlSafeLinkDirectiveDocumentation } from '../src/directives/s
 export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
 export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';
 export { default as GlSprintfDocumentation } from '../src/components/utilities/sprintf/sprintf.documentation';
+export { default as GlTruncateDocumentation } from '../src/components/utilities/truncate/truncate.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

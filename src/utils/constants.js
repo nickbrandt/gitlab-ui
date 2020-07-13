@@ -3,6 +3,8 @@ import {
   glIconSizes as glIconSizesVariable,
 } from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
+import { POSITION } from '../components/utilities/truncate/constants';
+
 function appendDefaultOption(options) {
   return { ...options, default: '' };
 }
@@ -293,3 +295,5 @@ export const keyboard = {
   home: 'Home',
   end: 'End',
 };
+
+export const truncateOptions = POSITION;
