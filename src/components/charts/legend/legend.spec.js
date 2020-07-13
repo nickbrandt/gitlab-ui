@@ -154,13 +154,19 @@ describe('chart legend component', () => {
       });
     });
 
-    it('displays en-dash where series data is not present', () => {
+    it.each`
+      data          | reason
+      ${null}       | ${'null'}
+      ${undefined}  | ${'undefined'}
+      ${[]}         | ${'empty'}
+      ${[NaN, NaN]} | ${'only NaN values'}
+    `('displays en-dash when series data is $reason', ({ data }) => {
       const series = [
         {
           type: 'solid',
           name: 'Example Title',
           color: 'red',
-          data: [],
+          data,
         },
       ];
 
