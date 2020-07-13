@@ -1,0 +1,13 @@
+.gl-form-combobox {
+  .dropdown-full-width {
+    @include gl-w-full;
+  }
+
+  .show-dropdown {
+    @include gl-display-block;
+  }
+
+  .highlight-dropdown {
+    @include gl-bg-gray-50;
+  }
+}
