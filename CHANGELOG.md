@@ -1,3 +1,10 @@
+# [17.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.23.0...v17.24.0) (2020-07-13)
+
+
+### Features
+
+* add gl-rounded-top-base util class ([0ced5bb](https://gitlab.com/gitlab-org/gitlab-ui/commit/0ced5bb714c23965219f22d084cd2ec7ea46c2a0))
+
 # [17.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.22.1...v17.23.0) (2020-07-13)
 
 
