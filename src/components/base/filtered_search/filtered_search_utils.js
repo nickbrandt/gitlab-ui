@@ -1,3 +1,5 @@
+import { first, last } from 'lodash';
+
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
 export function isEmptyTerm(token) {
@@ -58,6 +60,14 @@ export function denormalizeTokens(inputTokens) {
 }
 
 export function splitOnQuotes(str) {
+  if (first(str) === "'" && last(str) === "'") {
+    return [str];
+  }
+
+  if (first(str) === '"' && last(str) === '"') {
+    return [str];
+  }
+
   const queue = str.split(' ');
   const result = [];
   let waitingForMatchingQuote = false;
@@ -110,7 +120,7 @@ export function wrapTokenInQuotes(token) {
   const quotes = ["'", '"'];
 
   // If the token starts and ends with a quote, eg. "Foo Bar", then return the original token.
-  if (quotes.some(quote => token.slice(0, 1) === quote && token.slice(-1) === quote)) {
+  if (quotes.some(quote => first(token) === quote && last(token) === quote)) {
     return token;
   }
 

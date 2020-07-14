@@ -19,6 +19,12 @@ describe('FilteredSearchUtils', () => {
 
       expect(splitOnQuotes(token)).toEqual([token]);
     });
+
+    it("doesn't split if the token has multiple quotes", () => {
+      const token = `'My "old" milestone'`;
+
+      expect(splitOnQuotes(token)).toEqual([token]);
+    });
   });
 
   describe('wrapTokenInQuotes', () => {
