@@ -1,3 +1,10 @@
+# [17.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.26.1...v17.27.0) (2020-07-14)
+
+
+### Features
+
+* add gl-sm-ml-3 utility class ([ad38897](https://gitlab.com/gitlab-org/gitlab-ui/commit/ad38897f3478948d87b7c2c331f774df41ff2e34))
+
 ## [17.26.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.26.0...v17.26.1) (2020-07-14)
 
 
