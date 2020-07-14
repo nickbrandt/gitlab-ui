@@ -1,4 +1,5 @@
 .gl-filtered-search-scrollable {
+  @include gl-bg-white;
   @include gl-display-flex;
   @include gl-flex-grow-1;
   @include gl-flex-basis-0;
