@@ -1,3 +1,10 @@
+## [17.26.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.26.0...v17.26.1) (2020-07-14)
+
+
+### Bug Fixes
+
+* **GlClearIconButton:** Add type="button" ([875c5ad](https://gitlab.com/gitlab-org/gitlab-ui/commit/875c5ad28c78177c2f1d3ba3de1f6674eb0da5fb))
+
 # [17.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.25.0...v17.26.0) (2020-07-14)
 
 
