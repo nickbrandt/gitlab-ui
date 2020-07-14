@@ -18,7 +18,7 @@ export default [
         id: 'default-skeleton-custom-width-basic',
         name: 'Default With Custom Props',
         description:
-          'Default Skeleton With `preserve-aspect-ratio`, `lines`, `equal-width-lines` and `width` props set',
+          'Default Skeleton With `preserve-aspect-ratio`, `lines`, `equal-width-lines`, `width` and `height` props set',
         component: DefaultSkeletonCustomPropsBasicExample,
       },
       {
