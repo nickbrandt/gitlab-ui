@@ -1,3 +1,10 @@
+# [17.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.25.0...v17.26.0) (2020-07-14)
+
+
+### Features
+
+* **GlFilteredSearch:** Add back white background ([5b511e7](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b511e75233869766db6c068d03c5054ab245417))
+
 # [17.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.24.0...v17.25.0) (2020-07-13)
 
 
