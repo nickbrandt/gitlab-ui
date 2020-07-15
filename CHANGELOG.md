@@ -1,3 +1,10 @@
+## [17.28.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.28.1...v17.28.2) (2020-07-15)
+
+
+### Performance Improvements
+
+* Consume lodash via babel-plugin-lodash ([28891ac](https://gitlab.com/gitlab-org/gitlab-ui/commit/28891ac3a60cd8f13b65498d29eb4fde8e0e620b))
+
 ## [17.28.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.28.0...v17.28.1) (2020-07-15)
 
 
