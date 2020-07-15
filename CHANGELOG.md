@@ -1,3 +1,10 @@
+# [17.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.27.0...v17.28.0) (2020-07-15)
+
+
+### Features
+
+* add gl-sm-w-auto utility class ([abec03b](https://gitlab.com/gitlab-org/gitlab-ui/commit/abec03b965ddd2de36b6a539dca9fe36e2367afe))
+
 # [17.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.26.1...v17.27.0) (2020-07-14)
 
 
