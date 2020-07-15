@@ -13,7 +13,7 @@ const generateProps = ({
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
   scoped = false,
-  viewOnly = false,
+  viewOnly = true,
 } = {}) => {
   const props = {
     backgroundColor: {
