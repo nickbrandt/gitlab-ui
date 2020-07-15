@@ -57,7 +57,7 @@ export default {
 </script>
 
 <template>
-  <svg :class="['gl-icon', iconSizeClass]" v-on="$listeners">
+  <svg :class="['gl-icon', iconSizeClass]" :data-testid="`${name}-icon`" v-on="$listeners">
     <use :href="spriteHref" />
   </svg>
 </template>
