@@ -9,6 +9,12 @@
   width: auto;
 }
 
+@mixin gl-sm-w-auto {
+  @media (min-width: $breakpoint-sm) {
+    width: auto;
+  }
+}
+
 @mixin gl-w-3 {
   width: $gl-spacing-scale-3;
 }
