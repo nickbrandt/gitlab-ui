@@ -1,3 +1,10 @@
+## [17.28.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.28.0...v17.28.1) (2020-07-15)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByType:** Fix clear tooltip flash ([59c6f0c](https://gitlab.com/gitlab-org/gitlab-ui/commit/59c6f0c553ff42109139b0317c2e79140ef658d4))
+
 # [17.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.27.0...v17.28.0) (2020-07-15)
 
 
