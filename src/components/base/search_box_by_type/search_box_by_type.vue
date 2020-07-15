@@ -87,11 +87,11 @@ export default {
       <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
 
       <gl-clear-icon-button
-        v-show="hasValue"
+        v-if="hasValue"
         :title="clearButtonTitle"
         :tooltip-container="tooltipContainer"
         class="gl-search-box-by-type-clear gl-clear-icon-button"
-        @click="clearInput"
+        @click.stop="clearInput"
       />
     </div>
   </div>
