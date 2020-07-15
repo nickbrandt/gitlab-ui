@@ -1,3 +1,10 @@
+# [17.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.28.2...v17.29.0) (2020-07-15)
+
+
+### Features
+
+* **GlIcon:** Add `data-testid` attribute ([3cd2b46](https://gitlab.com/gitlab-org/gitlab-ui/commit/3cd2b4682f1a5e3745d742ababbb10324067406b))
+
 ## [17.28.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.28.1...v17.28.2) (2020-07-15)
 
 
