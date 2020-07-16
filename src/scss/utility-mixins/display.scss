@@ -13,6 +13,12 @@
   }
 }
 
+@mixin gl-display-lg-none {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-display-none;
+  }
+}
+
 @mixin gl-display-flex {
   display: flex;
 }
@@ -25,6 +31,12 @@
 
 @mixin gl-display-inline-flex {
   display: inline-flex;
+}
+
+@mixin gl-display-lg-inline-flex {
+  @media (min-width: $breakpoint-lg) {
+    display: inline-flex;
+  }
 }
 
 @mixin gl-display-block {
@@ -43,6 +55,12 @@
 
 @mixin gl-display-inline-block {
   display: inline-block;
+}
+
+@mixin gl-display-lg-inline-block {
+  @media (min-width: $breakpoint-lg) {
+    display: inline-block;
+  }
 }
 
 @mixin gl-display-table {
