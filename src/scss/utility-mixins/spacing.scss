@@ -599,3 +599,9 @@
     @include gl-mt-5;
   }
 }
+
+@mixin gl-sm-mx-0 {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-mx-0;
+  }
+}

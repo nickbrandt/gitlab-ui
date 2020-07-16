@@ -9,12 +9,6 @@
   width: auto;
 }
 
-@mixin gl-sm-w-auto {
-  @media (min-width: $breakpoint-sm) {
-    width: auto;
-  }
-}
-
 @mixin gl-w-3 {
   width: $gl-spacing-scale-3;
 }
@@ -129,6 +123,20 @@
 
 @mixin gl-h-full {
   height: 100%;
+}
+
+/**
+* Responsive dimension (width/height) utilities
+*
+* naming convention: gl-{breakpoint}-{width|height}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+@mixin gl-sm-w-auto {
+  @media (min-width: $breakpoint-sm) {
+    width: auto;
+  }
 }
 
 /**
