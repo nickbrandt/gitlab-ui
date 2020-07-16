@@ -6,7 +6,7 @@ export const tokenList = [
   'hippo',
   'platypus',
   'jackalope',
-  'quezal',
+  'quetzal',
   'badger',
   'vicuña',
   'whale',

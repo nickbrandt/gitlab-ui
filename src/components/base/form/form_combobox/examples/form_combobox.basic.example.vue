@@ -8,7 +8,7 @@ export default {
     'hippo',
     'platypus',
     'jackalope',
-    'quezal',
+    'quetzal',
     'badger',
     'vicuña',
     'whale',
