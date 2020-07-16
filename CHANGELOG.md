@@ -1,3 +1,11 @@
+# [17.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.29.0...v17.30.0) (2020-07-16)
+
+
+### Features
+
+* Expand values for z-index utility classes ([1942c08](https://gitlab.com/gitlab-org/gitlab-ui/commit/1942c081fa5610a24853c1c4e47cbf22b7ebc308))
+* **css:** Add CSS grid rules ([259f6b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/259f6b4b10a17191b49048921588719390549b4b))
+
 # [17.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.28.2...v17.29.0) (2020-07-15)
 
 
