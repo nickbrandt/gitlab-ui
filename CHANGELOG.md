@@ -1,3 +1,10 @@
+# [17.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.31.0...v17.32.0) (2020-07-16)
+
+
+### Features
+
+* **css:** Add flex-grow: 0 to flex utilities ([a3ec065](https://gitlab.com/gitlab-org/gitlab-ui/commit/a3ec06515d54a656c5d85fd6fc4c3f3ae42ee9d0))
+
 # [17.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.30.0...v17.31.0) (2020-07-16)
 
 
