@@ -1,3 +1,10 @@
+# [17.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.32.0...v17.33.0) (2020-07-16)
+
+
+### Features
+
+* **css:** Add missing sm margin and fix order issue ([c44f27f](https://gitlab.com/gitlab-org/gitlab-ui/commit/c44f27f70635be768b9669d96c775b6c49e30542))
+
 # [17.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.31.0...v17.32.0) (2020-07-16)
 
 
