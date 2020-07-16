@@ -1,3 +1,10 @@
+# [17.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.30.0...v17.31.0) (2020-07-16)
+
+
+### Features
+
+* **css:** Add large breakpoint display mixins ([50e607c](https://gitlab.com/gitlab-org/gitlab-ui/commit/50e607c8f0e1aa5c11b3ec1acd63b5865fb81d3c))
+
 # [17.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.29.0...v17.30.0) (2020-07-16)
 
 
