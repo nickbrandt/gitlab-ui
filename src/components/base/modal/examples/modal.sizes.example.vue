@@ -3,7 +3,7 @@ export default {
   computed: {
     primaryProps() {
       return {
-        text: 'OK',
+        text: 'Okay',
       };
     },
     secondaryProps() {
@@ -22,15 +22,15 @@ export default {
 
 <template>
   <div>
-    <gl-deprecated-button v-gl-modal-directive="'small-modal-id'" variant="info">
+    <gl-button v-gl-modal-directive="'small-modal-id'" variant="info">
       Small Modal
-    </gl-deprecated-button>
-    <gl-deprecated-button v-gl-modal-directive="'medium-modal-id'" variant="info">
+    </gl-button>
+    <gl-button v-gl-modal-directive="'medium-modal-id'" variant="info">
       Default Modal
-    </gl-deprecated-button>
-    <gl-deprecated-button v-gl-modal-directive="'large-modal-id'" variant="info">
+    </gl-button>
+    <gl-button v-gl-modal-directive="'large-modal-id'" variant="info">
       Large Modal
-    </gl-deprecated-button>
+    </gl-button>
     <gl-modal
       modal-id="small-modal-id"
       title="Example title"
