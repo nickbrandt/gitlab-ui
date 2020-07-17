@@ -1,3 +1,10 @@
+# [17.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.33.0...v17.34.0) (2020-07-17)
+
+
+### Features
+
+* **modals:** Remove deprecated buttons ([950f4fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/950f4fb8e81b878d00ee92e8e759566d51fc78b3))
+
 # [17.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.32.0...v17.33.0) (2020-07-16)
 
 
