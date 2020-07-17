@@ -194,12 +194,14 @@ export const colorThemes = {
 export const modalButtonDefaults = {
   actionPrimary: {
     variant: 'success',
+    category: 'primary',
   },
   actionSecondary: {
-    variant: 'outline-warning',
+    variant: 'warning',
+    category: 'secondary',
   },
   actionCancel: {
-    variant: 'secondary',
+    variant: 'default',
   },
 };
 

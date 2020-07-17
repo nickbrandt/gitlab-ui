@@ -8,7 +8,7 @@ export default {
   computed: {
     primaryProps() {
       return {
-        text: 'OK',
+        text: 'Okay',
         attributes: [{ disabled: !this.canSubmit }, { variant: 'danger' }],
       };
     },
@@ -37,9 +37,9 @@ export default {
 
 <template>
   <div>
-    <gl-deprecated-button v-gl-modal-directive="'basic-modal-id'" variant="info">
+    <gl-button v-gl-modal-directive="'basic-modal-id'" variant="info">
       Open modal
-    </gl-deprecated-button>
+    </gl-button>
     <gl-modal
       modal-id="basic-modal-id"
       title="Example title"

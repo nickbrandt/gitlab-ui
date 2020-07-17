@@ -1,7 +1,3 @@
-> Note: For this component to align with the design system specs, it will soon drop
-> the `GlDeprecatedButton` in favor of `GlButton`.
-> [#20229](https://gitlab.com/gitlab-org/gitlab/issues/202209) tracks this effort.
-
 # Modal
 
 <!-- STORY -->
