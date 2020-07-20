@@ -57,6 +57,37 @@ documentedStoriesOf('utilities|intersection-observer', readme)
     </div>
     `,
   }))
+  .add('big table', () => ({
+    components,
+    data() {
+      return {
+        values: Array(100)
+          .fill(1)
+          .map(() => Array(10).fill(0)),
+      };
+    },
+    methods: {
+      update(row, col, { intersectionRatio }) {
+        this.$set(this.values[row], col, intersectionRatio);
+      },
+      disappear(row, col) {
+        this.values[row][col] = 0;
+      },
+    },
+    template: `
+    <div style="height: 600px; overflow-y: scroll;">
+      <table>
+        <tr v-for="(cols, row) in values" :key="row">
+          <td v-for="(value, col) in cols" :key="row + '_' + col">
+            <gl-intersection-observer @update="update(row, col, $event)">
+              <span :style="{ display: 'inline-block', width: '50px' }">{{ value.toString().substr(0, 3) }}</span>
+            </gl-intersection-observer>
+          </td>
+        </tr>
+      </table>
+    </div>
+    `,
+  }))
   .add('lazy loaded image', () => ({
     components,
     data: commonData,
