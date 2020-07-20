@@ -40,6 +40,8 @@ export default {
     delete this.$el.$_gl_intersectionHandler;
     delete this.$el.$_gl_intersectionObserver;
   },
+  // Expose getObserver method for tests
+  getObserver,
 };
 </script>
 
