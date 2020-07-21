@@ -68,6 +68,7 @@
     "lodash": "^4.17.14",
     "portal-vue": "^2.1.6",
     "resize-observer-polyfill": "^1.5.1",
+    "sanitize-html": "^1.22.0",
     "url-search-params-polyfill": "^5.0.0",
     "vue-runtime-helpers": "^1.1.2"
   },

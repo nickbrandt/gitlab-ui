@@ -90,7 +90,7 @@ export { default as GlBroadcastMessageDocumentation } from '../src/components/ba
 export { default as GlCollapseDocumentation } from '../src/components/base/collapse/collapse.documentation';
 export { default as GlCarouselDocumentation } from '../src/components/base/carousel/carousel.documentation';
 export { default as GlSafeLinkDirectiveDocumentation } from '../src/directives/safe_link/safe_link.documentation';
-
+export { default as GlSafeHtmlDirectiveDocumentation } from '../src/directives/safe_html/safe_html.documentation';
 export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
 export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';
 export { default as GlSprintfDocumentation } from '../src/components/utilities/sprintf/sprintf.documentation';
