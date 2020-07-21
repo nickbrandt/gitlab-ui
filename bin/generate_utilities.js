@@ -10,21 +10,7 @@ const utilitiesPath = path.join(scssDir, 'utilities.scss');
 
 const statefulUtilitiesRegexp = /\$(active|hover|visited|focus): true/g;
 
-const getMixins = root => {
-  const mixins = {};
-
-  root.walkAtRules('mixin', rule => {
-    if (rule.params in mixins) {
-      return;
-    }
-
-    mixins[rule.params] = rule.nodes;
-  });
-
-  return mixins;
-};
-
-const getMixinName = mixinDeclaration => mixinDeclaration.match(/[\w-]+/)[0];
+const getRuleName = mixinDeclaration => mixinDeclaration.match(/[\w-]+/)[0];
 
 const getStatefulFlags = mixinDeclaration =>
   [...mixinDeclaration.matchAll(statefulUtilitiesRegexp)].map(match => match[1]);
@@ -45,39 +31,34 @@ const buildStatefulClasses = (name, statefulFlags = [], important = false) => {
   });
 };
 
-const buildImportantDecl = (originalDecl, index, col) => {
-  const appendSemicolon = col.length === 0 || index === col.length - 1;
-  const value = `${originalDecl.value} !important${appendSemicolon ? ';' : ''}`;
-
-  return originalDecl.clone({ value });
+const buildImportantDecl = originalDecl => {
+  return originalDecl.clone({ important: true });
 };
 
-const appendIncludeNode = (parentNode, node, mixins) => {
-  if (node.params in mixins) {
-    mixins[node.params].forEach((mixinNode, index, col) => {
-      parentNode.append(buildImportantDecl(mixinNode, index, col));
-    });
-  } else {
-    parentNode.append(node);
-  }
+const createRuleWithImportantDecls = rule => {
+  const importantDeclsRule = rule.clone();
+
+  importantDeclsRule.walkDecls(decl => decl.replaceWith(buildImportantDecl(decl)));
+
+  return importantDeclsRule;
 };
 
-const buildMediaNode = (node, mixins) => {
-  const mediaNode = node.clone();
+const resolveDeclarations = (rule, allDeclarations = {}) => {
+  const ruleDeclarations = [];
 
-  mediaNode.nodes.forEach((subNode, subIndex, subCol) => {
-    mediaNode.removeChild(subNode);
+  rule.walkDecls(decl => ruleDeclarations.push(decl));
+  rule.walkAtRules('include', includeRule => {
+    const mixinName = getRuleName(includeRule.params);
+    const decls = allDeclarations[mixinName];
 
-    if (subNode.type === 'atrule') {
-      appendIncludeNode(mediaNode, subNode, mixins);
-    } else if (subNode.type === 'decl') {
-      mediaNode.append(buildImportantDecl(subNode, subIndex, subCol));
+    if (decls) {
+      includeRule.replaceWith(...decls);
     } else {
-      mediaNode.append(subNode.clone());
+      console.warn(`Could not find declarations for mixin ${mixinName}`);
     }
   });
 
-  return mediaNode;
+  return ruleDeclarations;
 };
 
 /**
@@ -89,22 +70,15 @@ const buildMediaNode = (node, mixins) => {
  */
 const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () => {
   return root => {
+    const allDeclarations = {};
+
     root.walkComments(comment => comment.remove());
+    root.walkAtRules('import', rule => rule.remove());
 
-    const mixins = getMixins(root);
-
-    root.walkAtRules(rule => {
-      if (rule.name === 'import') {
-        rule.remove();
-      }
-
-      if (rule.name !== 'mixin') {
-        return;
-      }
-
-      const mixinDeclaration = rule.params;
-      const mixinName = getMixinName(mixinDeclaration);
-      const statefulFlags = getStatefulFlags(mixinDeclaration);
+    root.walkAtRules('mixin', rule => {
+      const { params } = rule;
+      const mixinName = getRuleName(params);
+      const statefulFlags = getStatefulFlags(params);
       const utilityClasses = [
         buildUtilityClass(mixinName),
         ...buildStatefulClasses(mixinName, statefulFlags),
@@ -113,26 +87,16 @@ const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () 
         buildUtilityClass(mixinName, true),
         ...buildStatefulClasses(mixinName, statefulFlags, true),
       ];
+      allDeclarations[mixinName] = resolveDeclarations(rule, allDeclarations);
+      const importantDeclsRule = createRuleWithImportantDecls(rule);
 
       utilityClasses.forEach(utilityClass => {
-        rule.nodes.forEach(node => {
-          utilityClass.append(node.clone());
-        });
-
+        utilityClass.append(...rule.clone().nodes);
         root.append(utilityClass);
       });
 
       importantUtilityClasses.forEach(utilityClass => {
-        rule.nodes.forEach((node, index, col) => {
-          if (node.name === 'media') {
-            utilityClass.append(buildMediaNode(node, mixins));
-          } else if (node.type === 'decl') {
-            utilityClass.append(buildImportantDecl(node, index, col));
-          } else {
-            utilityClass.append(node.clone());
-          }
-        });
-
+        utilityClass.append(...importantDeclsRule.nodes);
         root.append(utilityClass);
       });
 
