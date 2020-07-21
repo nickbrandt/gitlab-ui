@@ -1,3 +1,16 @@
+# [17.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.34.0...v17.35.0) (2020-07-21)
+
+
+### Bug Fixes
+
+* **buttons:** Update button states to match specs ([eeada3a](https://gitlab.com/gitlab-org/gitlab-ui/commit/eeada3a98dbbf815b4481b82872b99f980e4cb27))
+* **GlIntersectionObserver:** improve GlIntersectionObserver performance ([6b021b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/6b021b482de0fc0b2791fcd06a56009ed367b852))
+
+
+### Features
+
+* **GlSafeHtmlDirective:** add directive to sanitize html ([a1521b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/a1521b951e2f3d248a47bbc7c752b0940b83071b))
+
 # [17.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.33.0...v17.34.0) (2020-07-17)
 
 
