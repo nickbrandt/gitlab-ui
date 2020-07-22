@@ -7,7 +7,7 @@ const components = {
   GlDeprecatedDropdownDivider,
 };
 
-documentedStoriesOf('base|deprecated_dropdown/deprecated_dropdown-divider', readme)
+documentedStoriesOf('base|deprecated-dropdown/deprecated-dropdown-divider', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},
