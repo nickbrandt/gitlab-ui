@@ -1,3 +1,10 @@
+## [17.35.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.35.0...v17.35.1) (2020-07-22)
+
+
+### Bug Fixes
+
+* **toast:** Fix toast background color on dark theme ([dc44a7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/dc44a7cea8ef480ba73ef4ae4140b0beb96bb06d))
+
 # [17.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.34.0...v17.35.0) (2020-07-21)
 
 
