@@ -19,7 +19,7 @@
     @include gl-pl-6;
     @include gl-mt-3;
     @include gl-line-height-normal;
-    background-color: rgba($gray-900, $toast-background-opacity);
+    background-color: $toast-background-color;
 
     span {
       @include gl-pr-3;
@@ -48,8 +48,8 @@
 
     .toast-close {
       @include gl-font-icon-size;
-      @include gl-text-white;
       @include gl-ml-3;
+      color: color-yiq($toast-background-color);
     }
   }
 }
