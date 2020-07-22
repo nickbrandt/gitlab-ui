@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { BDropdown } from 'bootstrap-vue';
-import Dropdown from './dropdown.vue';
+import Dropdown from './deprecated_dropdown.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 
 const MockBDropdown = {
@@ -26,7 +26,7 @@ describe('Dropdown component', () => {
     beforeEach(() => {
       // JSDOM does not support createRange yet.
       // Bootstrap's spec seems to be polyfilling the same way
-      // https://github.com/bootstrap-vue/bootstrap-vue/blob/master/src/components/dropdown/dropdown.spec.js#L11
+      // https://github.com/bootstrap-vue/bootstrap-vue/blob/master/src/components/deprecated_dropdown/deprecated_dropdown.spec.js#L11
       document.createRange = () => ({
         setStart: () => {},
         setEnd: () => {},

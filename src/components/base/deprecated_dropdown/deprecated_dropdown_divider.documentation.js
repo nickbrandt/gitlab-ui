@@ -1,4 +1,4 @@
-import description from './dropdown_divider.md';
+import description from './deprecated_dropdown_divider.md';
 
 export default {
   description,
