@@ -950,10 +950,10 @@
     stylelint "^13.2.1"
     stylelint-scss "^3.14.2"
 
-"@gitlab/svgs@1.152.0":
-  version "1.152.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.152.0.tgz#663c9a5f073f59b66f4241ef2d3fea2205846905"
-  integrity sha512-daZHOBVAwjsU6n60IycanoO/JymfQ36vrr46OUdWjHdp0ATYrgh+01LcxiSNLdlyndIRqHWGtwmuilokM9q6Vg==
+"@gitlab/svgs@1.153.0":
+  version "1.153.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.153.0.tgz#79db0598382e6990d242f2e8dc0911903b1f558c"
+  integrity sha512-9letemutba300jT8BgxmYjUjMGDJifFFulPBNT4bxT+U2Ki+X+xs57Il3o/FNv5feJOPAlYS8Z/aEII8145g1g==
 
 "@gitlab/vue-toasted@^1.3.0":
   version "1.3.0"
@@ -4737,15 +4737,7 @@ dom-helpers@^3.3.1:
   resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.3.1.tgz#fc1a4e15ffdf60ddde03a480a9c0fece821dd4a6"
   integrity sha512-2Sm+JaYn74OiTM2wHvxJOo3roiq/h25Yi69Fqk269cNUwIXsCvATB6CRSFC9Am/20G2b28hGv/+7NiWydIrPvg==
 
-dom-serializer@0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.1.0.tgz#073c697546ce0780ce23be4a28e293e40bc30c82"
-  integrity sha1-BzxpdUbOB4DOI75KKOKT5AvDDII=
-  dependencies:
-    domelementtype "~1.1.1"
-    entities "~1.1.1"
-
-dom-serializer@^0.2.1:
+dom-serializer@0, dom-serializer@^0.2.1:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
   integrity sha512-2/xPb3ORsQ42nHYiSunXkDjPLBaEj/xTwUO4B7XCZQTRk7EBtTOPaygh10YAAh2OI1Qrp6NWfpAhzswj0ydt9g==
@@ -4772,11 +4764,6 @@ domelementtype@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
   integrity sha512-5HOHUDsYZWV8FGWN0Njbr/Rn7f/eWSQi1v7+HsUVwXgn8nWWlL64zKDkS0n8ZmQ3mlWOMuXOnR+7Nx/5tMO5AQ==
-
-domelementtype@~1.1.1:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.1.3.tgz#bd28773e2642881aec51544924299c5cd822185b"
-  integrity sha1-vSh3PiZCiBrsUVRJJCmcXNgiGFs=
 
 domexception@^1.0.0:
   version "1.0.1"
@@ -5012,7 +4999,7 @@ enhanced-resolve@^4.1.0:
     memory-fs "^0.4.0"
     tapable "^1.0.0"
 
-entities@^1.1.1, entities@~1.1.1:
+entities@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
