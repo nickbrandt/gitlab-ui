@@ -1,3 +1,10 @@
+## [17.35.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.35.1...v17.35.2) (2020-07-23)
+
+
+### Bug Fixes
+
+* **Buttons:** Remove px-to-rem for some effects and use variables ([9d17e99](https://gitlab.com/gitlab-org/gitlab-ui/commit/9d17e996d9dc9e48c5a31c5379f7a6987748de48))
+
 ## [17.35.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.35.0...v17.35.1) (2020-07-22)
 
 
