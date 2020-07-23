@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import GlSort from './sorting.vue';
 import GlSortingItem from './sorting_item';
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 
 const localVue = createLocalVue();
@@ -40,7 +40,7 @@ describe('sorting component', () => {
       },
       stubs: {
         GlSortingItem,
-        GlDropdownItem,
+        GlDeprecatedDropdownItem,
       },
     });
   };

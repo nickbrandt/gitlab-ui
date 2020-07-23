@@ -1,4 +1,4 @@
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 
 /**
@@ -39,7 +39,7 @@ export default {
     });
 
     return createElement(
-      GlDropdownItem,
+      GlDeprecatedDropdownItem,
       {
         ...data,
         attrs: {

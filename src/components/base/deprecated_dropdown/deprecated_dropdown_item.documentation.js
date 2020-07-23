@@ -1,4 +1,4 @@
-import description from './dropdown_item.md';
+import description from './deprecated_dropdown_item.md';
 
 export default {
   description,

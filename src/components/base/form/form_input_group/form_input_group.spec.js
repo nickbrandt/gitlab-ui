@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import GlDropdownItem from '../../dropdown/dropdown_item.vue';
+import GlDeprecatedDropdownItem from '../../deprecated_dropdown/deprecated_dropdown_item.vue';
 import InputGroup from './form_input_group.vue';
 
 describe('Input Group', () => {
@@ -64,7 +64,7 @@ describe('Input Group', () => {
       createWrapper({
         propsData: { predefinedOptions: options },
       });
-      items = wrapper.findAll(GlDropdownItem);
+      items = wrapper.findAll(GlDeprecatedDropdownItem);
     });
 
     it('throws an error if the options format does not match the required one', () => {
