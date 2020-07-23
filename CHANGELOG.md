@@ -1,3 +1,11 @@
+# [17.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.35.2...v17.36.0) (2020-07-23)
+
+
+### Features
+
+* **GlDropdown:** Export GlDropdown as GlDeprecatedDropdown ([983bf68](https://gitlab.com/gitlab-org/gitlab-ui/commit/983bf682b14ccd775d46513b40676508aa73c567))
+* **GlDropdown:** Rename GlDropdown to GlDeprecatedDropdown ([cfcb082](https://gitlab.com/gitlab-org/gitlab-ui/commit/cfcb0826c1b30149bc0f6fce21853611373522ab))
+
 ## [17.35.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.35.1...v17.35.2) (2020-07-23)
 
 
