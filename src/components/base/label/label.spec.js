@@ -8,7 +8,6 @@ import GlIcon from '../icon/icon.vue';
 const grey = {
   hex: '#CCCCCC',
   rgb: 'rgb(204, 204, 204)',
-  rgba: 'rgba(204, 204, 204, 0.3)',
 };
 // Dark color
 const navy = {

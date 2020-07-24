@@ -135,6 +135,9 @@ export default {
         color,
       };
     },
+    closeIconSize() {
+      return this.size === 'sm' ? 12 : 16;
+    },
   },
   watch: {
     title() {
@@ -171,14 +174,15 @@ export default {
         :style="closeButtonContainerStyle"
         data-testid="close-button"
         @click="$emit('close', $event)"
+        @mouseover="closeHover = true"
+        @mouseleave="closeHover = false"
       >
         <gl-icon
           class="gl-label-close"
           name="close"
+          :size="closeIconSize"
           :class="closeButtonClass"
           :style="closeButtonStyle"
-          @mouseover="closeHover = true"
-          @mouseleave="closeHover = false"
         />
       </span>
     </gl-link>

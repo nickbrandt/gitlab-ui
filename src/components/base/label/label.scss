@@ -104,7 +104,8 @@ $label-max-width: 100%;
     }
 
     .gl-label-close {
-      @include gl-py-0;
+      @include gl-my-1;
+      @include gl-mr-1;
     }
   }
 }
