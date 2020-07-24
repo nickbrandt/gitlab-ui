@@ -208,6 +208,76 @@ SCSS will generate a utility class enclosed in the breakpoint media query:
 }
 ```
 
+## Important styles
+
+For every utility mixin, we will automatically create an `!important` version. These versions are suffixed with `!` to
+distinguish them from their normal counterparts. For example:
+
+```scss
+@mixin gl-border-none {
+  border-style: none;
+}
+
+// Generated automatically
+@mixin gl-border-none\\! {
+  border-style: none !important;
+}
+```
+
+There is however, one instance when this won't take place. This occurs when you are using an include from another CSS
+file (say using a mixin from `mixins.scss` in `utilities.scss`). Although we create the important variant, this won't
+have `!important` suffixed to the rule. This is because the post-processor is only aware of the
+file it is processing at that current time. For example:
+
+```scss
+.gl-str-truncated {
+  @include str-truncated
+}
+
+// Converts to (note the lack of !important)
+
+.gl-str-truncated {
+  @include str-truncated
+}
+
+.gl-str-truncated\\! {
+  @include str-truncated
+}
+```
+
+To make this work, you will need to manually enter the contents of the include into the file:
+
+```scss
+.gl-str-truncated {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+  max-width: 82%;
+}
+
+// Converts to
+
+.gl-str-truncated {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+  max-width: 82%;
+}
+
+.gl-str-truncated\\! {
+  display: inline-block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  vertical-align: top !important;
+  white-space: nowrap !important;
+  max-width: 82% !important;
+}
+```
+
 ## Other Style Questions
 
 More answers and details can be found in the [SCSS style guide](https://docs.gitlab.com/ee/development/fe_guide/style_guide_scss.html).

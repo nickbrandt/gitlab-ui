@@ -10,7 +10,7 @@ const utilitiesPath = path.join(scssDir, 'utilities.scss');
 
 const statefulUtilitiesRegexp = /\$(active|hover|visited|focus): true/g;
 
-const getMixinName = mixinDeclaration => mixinDeclaration.match(/[\w-]+/)[0];
+const getRuleName = mixinDeclaration => mixinDeclaration.match(/[\w-]+/)[0];
 
 const getStatefulFlags = mixinDeclaration =>
   [...mixinDeclaration.matchAll(statefulUtilitiesRegexp)].map(match => match[1]);
@@ -31,11 +31,34 @@ const buildStatefulClasses = (name, statefulFlags = [], important = false) => {
   });
 };
 
-const buildImportantDecl = (originalDecl, index, col) => {
-  const appendSemicolon = col.length === 0 || index === col.length - 1;
-  const value = `${originalDecl.value} !important${appendSemicolon ? ';' : ''}`;
+const buildImportantDecl = originalDecl => {
+  return originalDecl.clone({ important: true });
+};
 
-  return originalDecl.clone({ value });
+const createRuleWithImportantDecls = rule => {
+  const importantDeclsRule = rule.clone();
+
+  importantDeclsRule.walkDecls(decl => decl.replaceWith(buildImportantDecl(decl)));
+
+  return importantDeclsRule;
+};
+
+const resolveDeclarations = (rule, allDeclarations = {}) => {
+  const ruleDeclarations = [];
+
+  rule.walkDecls(decl => ruleDeclarations.push(decl));
+  rule.walkAtRules('include', includeRule => {
+    const mixinName = getRuleName(includeRule.params);
+    const decls = allDeclarations[mixinName];
+
+    if (decls) {
+      includeRule.replaceWith(...decls);
+    } else {
+      console.warn(`Could not find declarations for mixin ${mixinName}`);
+    }
+  });
+
+  return ruleDeclarations;
 };
 
 /**
@@ -47,20 +70,15 @@ const buildImportantDecl = (originalDecl, index, col) => {
  */
 const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () => {
   return root => {
+    const allDeclarations = {};
+
     root.walkComments(comment => comment.remove());
+    root.walkAtRules('import', rule => rule.remove());
 
-    root.walkAtRules(rule => {
-      if (rule.name === 'import') {
-        rule.remove();
-      }
-
-      if (rule.name !== 'mixin') {
-        return;
-      }
-
-      const mixinDeclaration = rule.params;
-      const mixinName = getMixinName(mixinDeclaration);
-      const statefulFlags = getStatefulFlags(mixinDeclaration);
+    root.walkAtRules('mixin', rule => {
+      const { params } = rule;
+      const mixinName = getRuleName(params);
+      const statefulFlags = getStatefulFlags(params);
       const utilityClasses = [
         buildUtilityClass(mixinName),
         ...buildStatefulClasses(mixinName, statefulFlags),
@@ -69,24 +87,16 @@ const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () 
         buildUtilityClass(mixinName, true),
         ...buildStatefulClasses(mixinName, statefulFlags, true),
       ];
+      allDeclarations[mixinName] = resolveDeclarations(rule, allDeclarations);
+      const importantDeclsRule = createRuleWithImportantDecls(rule);
 
       utilityClasses.forEach(utilityClass => {
-        rule.nodes.forEach(node => {
-          utilityClass.append(node.clone());
-        });
-
+        utilityClass.append(...rule.clone().nodes);
         root.append(utilityClass);
       });
 
       importantUtilityClasses.forEach(utilityClass => {
-        rule.nodes.forEach((node, index, col) => {
-          if (node.type === 'decl') {
-            utilityClass.append(buildImportantDecl(node, index, col));
-          } else {
-            utilityClass.append(node.clone());
-          }
-        });
-
+        utilityClass.append(...importantDeclsRule.nodes);
         root.append(utilityClass);
       });
 
