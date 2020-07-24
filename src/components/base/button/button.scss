@@ -302,13 +302,6 @@
     @include gl-line-height-normal;
     @include gl-font-base;
 
-    svg {
-      @include gl-h-4;
-      @include gl-w-4;
-      @include gl-mt-1;
-      @include gl-mb-1;
-    }
-
     gl-emoji {
       @include gl-font-sm;
     }
@@ -353,8 +346,7 @@
     }
 
     &.btn-sm {
-      @include gl-py-2;
-      @include gl-px-3;
+      @include gl-p-2;
     }
   }
 
