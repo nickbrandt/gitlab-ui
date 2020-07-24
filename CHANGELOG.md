@@ -1,3 +1,10 @@
+# [17.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.36.2...v17.37.0) (2020-07-24)
+
+
+### Features
+
+* **css:** Add full width responsive utility ([93dffc1](https://gitlab.com/gitlab-org/gitlab-ui/commit/93dffc1ab4d939e784b32767bddd26efb6275c0e))
+
 ## [17.36.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.36.1...v17.36.2) (2020-07-24)
 
 
