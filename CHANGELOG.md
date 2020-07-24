@@ -1,3 +1,10 @@
+## [17.36.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.36.1...v17.36.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* **Buttons:** Align small button icon size and padding to design specs ([9f05269](https://gitlab.com/gitlab-org/gitlab-ui/commit/9f052693a0e54e4881c73cc11488e7684c185020))
+
 ## [17.36.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.36.0...v17.36.1) (2020-07-24)
 
 
