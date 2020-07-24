@@ -65,6 +65,12 @@
   width: 100%;
 }
 
+@mixin gl-xs-w-full {
+  @media (max-width: $breakpoint-sm) {
+    @include gl-w-full;
+  }
+}
+
 @mixin gl-w-max-content {
   width: max-content;
 }
