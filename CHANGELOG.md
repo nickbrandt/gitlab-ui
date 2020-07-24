@@ -1,3 +1,12 @@
+## [17.36.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.36.0...v17.36.1) (2020-07-24)
+
+
+### Bug Fixes
+
+* Change generate_utilities.js to handle important in sub rules ([a2d24e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/a2d24e35efa4a420d785f720a86c21404fca283d))
+* Change generate_utilities.js to handle important in sub rules ([49b2a8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/49b2a8b741129198d4adb2b640f0c6feebd6db7c))
+* Change generate_utilities.js to handle important media queries ([157402a](https://gitlab.com/gitlab-org/gitlab-ui/commit/157402aaefccfe46c0b86b7dafbce386571fb706))
+
 # [17.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.35.2...v17.36.0) (2020-07-23)
 
 
