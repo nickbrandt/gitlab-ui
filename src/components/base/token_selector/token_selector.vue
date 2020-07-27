@@ -119,11 +119,16 @@ export default {
           this.triggerTokenFocusNextBackspace = true;
         }
 
-        if (this.hideDropdown) {
-          this.closeDropdown();
-        } else if (newValue !== '') {
-          this.openDropdown();
-        }
+        // Wait a tick so `text-input` event can be used to validate
+        // the value and change the `allowUserDefinedTokens` and/or
+        // `hideDropdownWithNoItems` props
+        this.$nextTick(() => {
+          if (this.hideDropdown) {
+            this.closeDropdown();
+          } else if (newValue !== '') {
+            this.openDropdown();
+          }
+        });
       }
     },
   },
