@@ -44,6 +44,12 @@
     @include gl-top-auto;
   }
 
+  &.btn-default {
+    .gl-icon {
+      @include gl-text-gray-500;
+    }
+  }
+
   gl-emoji {
     @include gl-mr-2;
     @include gl-relative;
