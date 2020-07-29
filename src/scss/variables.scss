@@ -461,3 +461,12 @@ $spacers: (
 $table-accent-bg: $gray-50;
 $card-border-color: $gray-100;
 $card-cap-bg: $gray-10 !default;
+
+// Form input sizes
+$gl-form-input-sizes: (
+  xs: $grid-size * 10,
+  sm: $grid-size * 20,
+  md: $grid-size * 30,
+  lg: $grid-size * 40,
+  xl: $grid-size * 70,
+);

@@ -42,3 +42,11 @@
     @include gl-shadow-none;
   }
 }
+
+.gl-form-input {
+  @each $name, $size in $gl-form-input-sizes {
+    &-#{$name} {
+      max-width: $size;
+    }
+  }
+}
