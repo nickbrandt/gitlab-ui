@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+@mixin gl-md-align-items-center {
+  @media (min-width: $breakpoint-md) {
+    @include gl-align-items-center;
+  }
+}
+
 @mixin gl-flex-wrap {
   flex-wrap: wrap;
 }
@@ -101,6 +107,12 @@
 
 @mixin gl-sm-align-self-center {
   @media (min-width: $breakpoint-sm) {
+    @include gl-align-self-center;
+  }
+}
+
+@mixin gl-md-align-self-center {
+  @media (min-width: $breakpoint-md) {
     @include gl-align-self-center;
   }
 }
