@@ -299,3 +299,12 @@ export const keyboard = {
 };
 
 export const truncateOptions = POSITION;
+
+export const formInputSizes = {
+  xs: 'xs',
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg',
+  xl: 'xl',
+  '(unset or null)': null,
+};

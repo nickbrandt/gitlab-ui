@@ -6,4 +6,10 @@ export default {
   examples,
   bootstrapComponent: 'b-form-input',
   followsDesignSystem: true,
+  propsInfo: {
+    size: {
+      additionalInfo: 'Maximum width of the input',
+      enum: 'formInputSizes',
+    },
+  },
 };
