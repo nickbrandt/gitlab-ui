@@ -1,3 +1,10 @@
+## [17.39.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.39.0...v17.39.1) (2020-07-29)
+
+
+### Bug Fixes
+
+* **GlTokenSelector:** wait for prop changes before closing dropdown ([5fef66d](https://gitlab.com/gitlab-org/gitlab-ui/commit/5fef66dea3ae44353dec079ccc76501d4eb6edce))
+
 # [17.39.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.38.0...v17.39.0) (2020-07-29)
 
 
