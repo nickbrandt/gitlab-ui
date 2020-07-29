@@ -1,3 +1,10 @@
+# [17.39.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.38.0...v17.39.0) (2020-07-29)
+
+
+### Features
+
+* Add responsive align-items: center utility classes ([68c141f](https://gitlab.com/gitlab-org/gitlab-ui/commit/68c141f07d376f4bcad0c986f17913092bb68e9a))
+
 # [17.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.37.0...v17.38.0) (2020-07-29)
 
 
