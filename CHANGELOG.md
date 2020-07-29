@@ -1,3 +1,10 @@
+# [17.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.37.0...v17.38.0) (2020-07-29)
+
+
+### Features
+
+* **GlFormInput:** Add size prop ([3221d01](https://gitlab.com/gitlab-org/gitlab-ui/commit/3221d019b9df458fbeed454358150aff63e8bcc4))
+
 # [17.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.36.2...v17.37.0) (2020-07-24)
 
 
