@@ -381,31 +381,37 @@
     @include gl-opacity-10;
     cursor: not-allowed !important;
   }
-}
 
-.btn-link {
-  @include gl-border-0;
-  @include gl-font-base;
-  @include gl-line-height-normal;
-  @include gl-text-blue-500;
-  @include gl-py-0;
-  @include gl-px-0;
-
-  &:hover {
+  &.btn-link {
+    @include gl-bg-transparent;
+    @include gl-border-0;
+    @include gl-font-base;
+    @include gl-line-height-normal;
     @include gl-text-blue-500;
-  }
+    @include gl-py-0;
+    @include gl-px-0;
+    box-shadow: none;
 
-  &:focus {
-    @include gl-focus(null, false);
-  }
-
-  &:active {
-    @include gl-focus(null, false);
-    @include gl-text-blue-700;
-    @include gl-text-decoration-underline;
+    &:hover {
+      @include gl-bg-transparent;
+      @include gl-text-blue-500;
+    }
 
     &:focus {
+      @include gl-bg-transparent;
       @include gl-focus(null, false);
+    }
+
+    &:active {
+      @include gl-bg-transparent;
+      @include gl-focus;
+      @include gl-text-blue-700;
+      @include gl-text-decoration-underline;
+
+      &:focus {
+        @include gl-bg-transparent;
+        @include gl-focus(null, false);
+      }
     }
   }
 }

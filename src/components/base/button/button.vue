@@ -77,7 +77,7 @@ export default {
         'btn-icon': this.hasIconOnly,
         'button-ellipsis-horizontal': this.hasIconOnly && this.icon === 'ellipsis_h',
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
-        'gl-button': this.variant !== newButtonVariantOptions.link,
+        'gl-button': true,
         'btn-label': this.label,
         selected: this.selected,
       };
