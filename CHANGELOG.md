@@ -1,3 +1,10 @@
+# [17.40.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.39.1...v17.40.0) (2020-07-30)
+
+
+### Features
+
+* **GlFormText:** Add component ([9081c88](https://gitlab.com/gitlab-org/gitlab-ui/commit/9081c88555f8a115d8df8a9f0b162eba6013f4e8))
+
 ## [17.39.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.39.0...v17.39.1) (2020-07-29)
 
 
