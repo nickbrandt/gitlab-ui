@@ -174,8 +174,6 @@ export default {
         :style="closeButtonContainerStyle"
         data-testid="close-button"
         @click="$emit('close', $event)"
-        @mouseover="closeHover = true"
-        @mouseleave="closeHover = false"
       >
         <gl-icon
           class="gl-label-close"
@@ -183,6 +181,8 @@ export default {
           :size="closeIconSize"
           :class="closeButtonClass"
           :style="closeButtonStyle"
+          @mouseover="closeHover = true"
+          @mouseleave="closeHover = false"
         />
       </span>
     </gl-link>
