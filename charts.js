@@ -6,6 +6,7 @@ setConfigs();
 export { default as GlChart } from './src/components/charts/chart/chart.vue';
 export { default as GlAreaChart } from './src/components/charts/area/area.vue';
 export { default as GlBarChart } from './src/components/charts/bar/bar.vue';
+export { default as GlGaugeChart } from './src/components/charts/gauge/gauge.vue';
 export { default as GlLineChart } from './src/components/charts/line/line.vue';
 export { default as GlChartLegend } from './src/components/charts/legend/legend.vue';
 export { default as GlChartSeriesLabel } from './src/components/charts/series_label/series_label.vue';
