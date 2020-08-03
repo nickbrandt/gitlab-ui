@@ -3,6 +3,7 @@ import {
   gray100,
   gray200,
   gray300,
+  gray500,
   gray600,
   gray700,
   gray900,
@@ -51,6 +52,10 @@ export const heatmapHues = [
   dataVizBlue600,
   dataVizBlue800,
 ];
+
+export const gaugeNeutralHues = [gray900, gray500];
+export const gaugeSafeHues = [dataVizBlue500, dataVizBlue900];
+export const gaugeWarningHue = dataVizOrange500;
 
 /**
  * The default palette is based on the Categorical data palette

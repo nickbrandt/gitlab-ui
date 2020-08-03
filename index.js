@@ -7,6 +7,7 @@
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlFormText } from './src/components/base/form/form_text/form_text.vue';
 export { default as GlFormCombobox } from './src/components/base/form/form_combobox/form_combobox.vue';
+export { default as GlGauge } from './src/components/charts/gauge/gauge.vue';
 export { default as GlTokenSelector } from './src/components/base/token_selector/token_selector.vue';
 export { default as GlNavItemDropdown } from './src/components/base/nav/nav_item_dropdown.vue';
 export { default as GlNav } from './src/components/base/nav/nav.vue';
