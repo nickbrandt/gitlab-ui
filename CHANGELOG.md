@@ -1,3 +1,10 @@
+# [17.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.42.0...v17.43.0) (2020-08-03)
+
+
+### Features
+
+* **css:** Add fill green utility ([4c429e1](https://gitlab.com/gitlab-org/gitlab-ui/commit/4c429e14c72c803b17f3827e3a3ea105e50c4de3))
+
 # [17.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.41.0...v17.42.0) (2020-08-03)
 
 
