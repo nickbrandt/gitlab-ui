@@ -38,9 +38,6 @@ const generateProps = ({
     scoped: {
       default: boolean('Label is scoped', scoped),
     },
-    scopedLabelsDocumentationLink: {
-      default: text('Link to Scoped Labels Documentation', '#'),
-    },
   };
 
   return props;
@@ -61,7 +58,6 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
-          :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
         />
       </div>`,
   }))
@@ -78,7 +74,6 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
-          :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
         />
       </div>
       `,
