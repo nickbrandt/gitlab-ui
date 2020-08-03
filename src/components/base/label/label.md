@@ -13,6 +13,5 @@ Labels are editable objects that allow users to manually categorize other object
   size="sm"
   tooltipPlacement="top"
   target="http://some.url"
-  scoped-labels-documentation-link="http://some.url"
 />
 ~~~
