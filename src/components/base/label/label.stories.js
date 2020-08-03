@@ -88,4 +88,23 @@ documentedStoriesOf('base|label', readme)
         />
       </div>
       `,
+  }))
+  .add('with close button', () => ({
+    props: generateProps({ viewOnly: false }),
+    components,
+    template: `
+      <div class="gl-display-flex">
+        <gl-label
+          :background-color="backgroundColor"
+          :size="size"
+          :title="title"
+          :description="description"
+          :tooltip-placement="tooltipPlacement"
+          :target="target"
+          :scoped="scoped"
+          :scopedLabelsDocumentationLink="scopedLabelsDocumentationLink"
+          :viewOnly="viewOnly"
+        />
+      </div>
+      `,
   }));

@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       splitScopedLabelIndex: this.title.lastIndexOf('::'),
-      closeHover: false,
+      isCloseHover: false,
     };
   },
   computed: {
@@ -117,23 +117,13 @@ export default {
       return backgroundCloseColorStyleMap[colorFromBackground(this.backgroundColor)];
     },
     closeButtonStyle() {
-      if (!this.closeHover) {
+      if (!this.isCloseHover) {
         return {};
       }
 
-      let backgroundColor;
-      let color;
-
-      if (this.scoped) {
-        backgroundColor = this.scopedValueColor;
-      } else {
-        color = this.backgroundColor;
-      }
-
-      return {
-        backgroundColor,
-        color,
-      };
+      return this.scoped
+        ? { backgroundColor: this.scopedValueColor }
+        : { color: this.backgroundColor };
     },
     closeIconSize() {
       return this.size === 'sm' ? 12 : 16;
@@ -181,8 +171,8 @@ export default {
           :size="closeIconSize"
           :class="closeButtonClass"
           :style="closeButtonStyle"
-          @mouseover="closeHover = true"
-          @mouseleave="closeHover = false"
+          @mouseover="isCloseHover = true"
+          @mouseleave="isCloseHover = false"
         />
       </span>
     </gl-link>
