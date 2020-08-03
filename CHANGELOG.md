@@ -1,3 +1,10 @@
+# [17.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.41.0...v17.42.0) (2020-08-03)
+
+
+### Features
+
+* **GlGaugeChart:** Implement GlGaugeChart component ([cbd1d7d](https://gitlab.com/gitlab-org/gitlab-ui/commit/cbd1d7d89c6e3a74d87446558a7ddb9d3dd2e111))
+
 # [17.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.40.0...v17.41.0) (2020-08-03)
 
 
