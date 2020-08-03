@@ -1,3 +1,10 @@
+# [17.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.40.0...v17.41.0) (2020-08-03)
+
+
+### Features
+
+* add scale-4 placement util classes ([856f616](https://gitlab.com/gitlab-org/gitlab-ui/commit/856f616b5b2c57e06b72ced6d436d17dda24f403))
+
 # [17.40.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.39.1...v17.40.0) (2020-07-30)
 
 
