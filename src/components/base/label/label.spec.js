@@ -242,7 +242,7 @@ describe('Label component', () => {
       it('shows backgroundColor when hovered', async () => {
         const props = { ...scopedProps, backgroundColor: navy.rgb, viewOnly: false };
         createComponent(props);
-        wrapper.setData({ closeHover: true });
+        wrapper.setData({ isCloseHover: true });
 
         await wrapper.vm.$nextTick();
         expect(wrapper.find(GlIcon).attributes('style')).toContain(`background-color: ${navy.rgb}`);
