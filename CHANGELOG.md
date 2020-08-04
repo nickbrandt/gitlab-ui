@@ -1,3 +1,21 @@
+# [18.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.43.0...v18.0.0) (2020-08-04)
+
+
+* Merge branch 'mg-remove-gl-dropdown' into 'master' ([f8614ec](https://gitlab.com/gitlab-org/gitlab-ui/commit/f8614ecbf073771eaff56bb7641d51787ea00137))
+
+
+### Features
+
+* **dropdown:** Remove GlDropdown export ([877e8b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/877e8b976674aa21dc997b834b2ef66e861045e9))
+
+
+### BREAKING CHANGES
+
+* Remove GlDropdown export
+
+See merge request gitlab-org/gitlab-ui!1613
+* **dropdown:** Remove deprecated GlDropdown exports
+
 # [17.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.42.0...v17.43.0) (2020-08-03)
 
 
