@@ -57,11 +57,6 @@ export default {
       required: false,
       default: false,
     },
-    scopedLabelsDocumentationLink: {
-      type: String,
-      required: false,
-      default: '#',
-    },
     viewOnly: {
       type: Boolean,
       required: false,
