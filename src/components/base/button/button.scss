@@ -396,7 +396,7 @@
     @include gl-text-blue-500;
     @include gl-py-0;
     @include gl-px-0;
-    box-shadow: none;
+    @include gl-shadow-none;
 
     &:hover {
       @include gl-bg-transparent;
@@ -418,6 +418,20 @@
         @include gl-bg-transparent;
         @include gl-focus(null, false);
       }
+    }
+  }
+
+  &.btn-secondary.btn-borderless:not(:disabled) {
+    @include gl-shadow-none;
+
+    &:hover {
+      @include gl-shadow-none;
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus(null);
     }
   }
 }

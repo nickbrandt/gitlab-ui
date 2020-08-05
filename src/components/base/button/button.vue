@@ -61,6 +61,11 @@ export default {
       required: false,
       default: false,
     },
+    borderless: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     hasIcon() {
@@ -72,6 +77,9 @@ export default {
     isButtonDisabled() {
       return this.disabled || this.loading;
     },
+    isButtonBorderless() {
+      return this.borderless;
+    },
     buttonClasses() {
       return {
         'btn-icon': this.hasIconOnly,
@@ -79,6 +87,7 @@ export default {
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
         'gl-button': true,
         'btn-label': this.label,
+        'btn-borderless': this.borderless,
         selected: this.selected,
       };
     },

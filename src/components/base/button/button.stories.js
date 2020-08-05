@@ -20,6 +20,7 @@ function generateProps({
   withLink = false,
   block = false,
   loading = false,
+  borderless = false,
 } = {}) {
   let props = {
     category: {
@@ -41,6 +42,10 @@ function generateProps({
     disabled: {
       type: Boolean,
       default: boolean('disabled', false),
+    },
+    borderless: {
+      type: Boolean,
+      default: boolean('borderless', borderless),
     },
     loading: {
       type: Boolean,
@@ -78,6 +83,7 @@ documentedStoriesOf('base|button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :borderless="borderless"
       >
         This is a button
       </gl-button>
@@ -94,6 +100,7 @@ documentedStoriesOf('base|button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :borderless="borderless"
       >
         This is a block button
       </gl-button>
@@ -113,6 +120,7 @@ documentedStoriesOf('base|button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :borderless="borderless"
         icon="star-o"
       />
     `,
@@ -128,6 +136,7 @@ documentedStoriesOf('base|button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :borderless="borderless"
       >
         Loading button
       </gl-button>
@@ -144,6 +153,7 @@ documentedStoriesOf('base|button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :borderless="borderless"
         :href="href"
         :target="target"
       >
@@ -162,10 +172,31 @@ documentedStoriesOf('base|button', readme)
           :block="block"
           :disabled="disabled"
           :loading="loading"
+          :borderless="borderless"
           icon="star-o"
           style="width: 100px;"
         >
             This is a link button
+        </gl-button>
+    `,
+  }))
+  .add('borderless button', () => ({
+    props: generateProps({
+      category: newButtonCategoryOptions.secondary,
+      borderless: true,
+    }),
+    components,
+    template: `
+        <gl-button
+          :category="category"
+          :variant="variant"
+          :size="size"
+          :block="block"
+          :disabled="disabled"
+          :loading="loading"
+          :borderless="borderless"
+        >
+            This is a borderless button
         </gl-button>
     `,
   }));
