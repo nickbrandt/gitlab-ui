@@ -340,4 +340,28 @@ documentedStoriesOf('base|new-dropdown', readme)
     updated() {
       addClass(this);
     },
+  }))
+  .add('with item text that does not wrap', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-new-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-new-dropdown-item icon-right-name="star">Normal item</gl-new-dropdown-item>
+        <gl-new-dropdown-item icon-right-name="star">
+          <div class="gl-text-truncate">ellipsis/should/truncate/this/item</div>
+        </gl-new-dropdown-item>
+      </gl-new-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
   }));
