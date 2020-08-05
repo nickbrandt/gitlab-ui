@@ -1,3 +1,10 @@
+## [18.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.0.0...v18.0.1) (2020-08-05)
+
+
+### Bug Fixes
+
+* **GlIcon:** Force rerendering of icons if the icon changes ([7cb957a](https://gitlab.com/gitlab-org/gitlab-ui/commit/7cb957a8ccfac9334f94b713c858908368fac9ab)), closes [/gitlab.com/gitlab-org/gitlab/-/issues/230433#note_391410490](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/issues/230433/issues/note_391410490)
+
 # [18.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v17.43.0...v18.0.0) (2020-08-04)
 
 
