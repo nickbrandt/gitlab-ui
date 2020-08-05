@@ -1,3 +1,11 @@
+# [18.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.0.1...v18.1.0) (2020-08-05)
+
+
+### Features
+
+* **css:** Add xs flex column utility ([03faf31](https://gitlab.com/gitlab-org/gitlab-ui/commit/03faf31aec8bfb83fbaba1e87e460d25b86c0916))
+* **css:** Add xs margin button to spacing mixin ([171f249](https://gitlab.com/gitlab-org/gitlab-ui/commit/171f2499cd3af505091aa1370dab3881fd6179ae))
+
 ## [18.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.0.0...v18.0.1) (2020-08-05)
 
 
