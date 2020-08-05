@@ -98,15 +98,9 @@ export default {
       };
     },
     closeButtonContainerStyle() {
-      if (this.scoped) {
-        return {
-          color: this.scopedValueColor,
-        };
-      }
-
-      return {
-        backgroundColor: this.backgroundColor,
-      };
+      return this.scoped
+        ? { color: this.scopedValueColor }
+        : { backgroundColor: this.backgroundColor };
     },
     closeButtonClass() {
       return backgroundCloseColorStyleMap[colorFromBackground(this.backgroundColor)];
