@@ -587,6 +587,12 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 
+@mixin gl-xs-mb-3 {
+  @media (max-width: $breakpoint-sm) {
+    @include gl-mb-3;
+  }
+}
+
 @mixin gl-sm-ml-3 {
   @media (min-width: $breakpoint-sm) {
     @include gl-ml-3;
