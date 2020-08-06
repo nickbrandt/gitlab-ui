@@ -1,3 +1,10 @@
+## [18.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.1.0...v18.1.1) (2020-08-06)
+
+
+### Bug Fixes
+
+* **GlNewDropdown:** item text can be truncated ([c1059bd](https://gitlab.com/gitlab-org/gitlab-ui/commit/c1059bdd1bfc9b5e150e7a732e457f4d4ef9717e))
+
 # [18.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.0.1...v18.1.0) (2020-08-05)
 
 
