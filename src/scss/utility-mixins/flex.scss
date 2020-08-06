@@ -35,6 +35,10 @@
   flex-direction: column;
 }
 
+@mixin gl-flex-direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
 @mixin gl-flex-direction-row {
   flex-direction: row;
 }
