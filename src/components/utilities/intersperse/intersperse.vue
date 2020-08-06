@@ -43,6 +43,7 @@ export default {
     const {
       props: { separator, lastSeparator },
       slots,
+      data,
     } = context;
 
     const filterAndSeparate = compose(
@@ -51,7 +52,7 @@ export default {
       filterWhitespaceNodes
     );
 
-    return createElement('span', filterAndSeparate(slots().default));
+    return createElement('span', data, filterAndSeparate(slots().default));
   },
 };
 </script>
