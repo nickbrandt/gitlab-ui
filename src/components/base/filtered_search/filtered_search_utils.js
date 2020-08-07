@@ -1,4 +1,4 @@
-import { first, last } from 'lodash';
+import { first, last, isString } from 'lodash';
 
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
@@ -113,6 +113,10 @@ export function splitOnQuotes(str) {
  *  2. token should not already have a quote around it.
  */
 export function wrapTokenInQuotes(token) {
+  if (!isString(token)) {
+    return token;
+  }
+
   if (!token.includes(' ')) {
     return token;
   }

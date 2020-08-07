@@ -15,6 +15,10 @@ Prepare array of available token configurations with the following fields:
   of the same type could be switched without loosing their values
 - `unique`: (optional) indicate this token could appear only once in the filter
 - `disabled`: (optional) indicate this token should be hidden from the dropdown
+- `options`: (optional) an array of options which the user can pick after the operator has been selected.
+  The option object can have the following properties defined: `value`, `icon`, `text`, and `default` 
+  all of which are expected be of type `string`. If the `default` is omitted, the `value` of the first 
+  option will be displayed as a suggestion
 - any additional fields required to configure your component
 
 Each token for filtered search is a Vue component with the following props:
