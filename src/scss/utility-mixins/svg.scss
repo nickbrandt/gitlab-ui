@@ -38,6 +38,10 @@
   fill: $gray-700;
 }
 
+@mixin gl-fill-green-500 {
+  fill: $green-500;
+}
+
 @mixin gl-fill-green-700 {
   fill: $green-700;
 }
