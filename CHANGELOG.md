@@ -1,3 +1,10 @@
+# [18.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.1.1...v18.2.0) (2020-08-07)
+
+
+### Features
+
+* **css:** add flex column reverse direction ([819c9d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/819c9d9a04cd0c7edd8781480fe572ba2366d690))
+
 ## [18.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.1.0...v18.1.1) (2020-08-06)
 
 
