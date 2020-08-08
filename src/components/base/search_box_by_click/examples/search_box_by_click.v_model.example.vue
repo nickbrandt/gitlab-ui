@@ -16,6 +16,8 @@ export default {
 <template>
   <div id="tooltipcontainer">
     <gl-search-box-by-click v-model="text" tooltip-container="#tooltipcontainer" />
-    <button class="btn" @click="setText">Set text to "Something else"</button>
+    <gl-button class="gl-mt-4" @click="setText"
+      >Click here to set text to "Something else" using v-model</gl-button
+    >
   </div>
 </template>
