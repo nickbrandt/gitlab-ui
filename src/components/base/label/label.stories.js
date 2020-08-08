@@ -13,6 +13,7 @@ const generateProps = ({
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
   scoped = false,
+  viewOnly = true,
 } = {}) => {
   const props = {
     backgroundColor: {
@@ -38,6 +39,9 @@ const generateProps = ({
     scoped: {
       default: boolean('Label is scoped', scoped),
     },
+    viewOnly: {
+      default: boolean('View Only', viewOnly),
+    },
   };
 
   return props;
@@ -58,6 +62,7 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
+          :viewOnly="viewOnly"
         />
       </div>`,
   }))
@@ -74,6 +79,25 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
+          :viewOnly="viewOnly"
+        />
+      </div>
+      `,
+  }))
+  .add('with close button', () => ({
+    props: generateProps({ viewOnly: false }),
+    components,
+    template: `
+      <div class="gl-display-flex">
+        <gl-label
+          :background-color="backgroundColor"
+          :size="size"
+          :title="title"
+          :description="description"
+          :tooltip-placement="tooltipPlacement"
+          :target="target"
+          :scoped="scoped"
+          :viewOnly="viewOnly"
         />
       </div>
       `,

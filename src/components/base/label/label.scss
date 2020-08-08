@@ -48,6 +48,25 @@ $label-max-width: 100%;
     @include str-truncated($label-max-width);
   }
 
+  .gl-label-close {
+    @include gl-my-2;
+    @include gl-mr-2;
+    @include gl-py-1;
+    @include gl-rounded-full;
+
+    &-dark {
+      &:hover {
+        @include gl-bg-black;
+      }
+    }
+
+    &-light {
+      &:hover {
+        @include gl-bg-white;
+      }
+    }
+  }
+
   &-text-dark {
     @include gl-text-black-normal;
   }
@@ -68,6 +87,10 @@ $label-max-width: 100%;
         @include gl-pr-3;
       }
     }
+
+    .gl-label-close:hover {
+      @include gl-text-white;
+    }
   }
 
   &-sm {
@@ -78,6 +101,12 @@ $label-max-width: 100%;
 
     .gl-label-icon {
       @include gl-py-0;
+    }
+
+    .gl-label-close {
+      @include gl-my-1;
+      @include gl-mr-1;
+      @include gl-line-height-0;
     }
   }
 }
