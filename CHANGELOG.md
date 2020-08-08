@@ -1,3 +1,21 @@
+# [18.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.2.0...v18.3.0) (2020-08-08)
+
+
+### Bug Fixes
+
+* **labels:**  Fixed merge issue ([5912ed3](https://gitlab.com/gitlab-org/gitlab-ui/commit/5912ed32a59e08af7248b8b28edbc36e7106ab07))
+* **labels:** Component cleanup and add to story ([c9f83e0](https://gitlab.com/gitlab-org/gitlab-ui/commit/c9f83e07bc4c1f12eba2687988674f40baf4d3ae))
+* **labels:** Corrected small close button styles ([db94d99](https://gitlab.com/gitlab-org/gitlab-ui/commit/db94d9924d5ab739de727868fd6e57dfe89bfb84))
+* **labels:** minor styling tweaks ([d39c06e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d39c06e2a30112feef06035fb838a1f2e4c7ad61))
+* **labels:** more readable style method ([2078f17](https://gitlab.com/gitlab-org/gitlab-ui/commit/2078f1737bfe9c7d06151d4c51dc5fb27002950a))
+* **labels:** moved close hover event to icon ([e94630b](https://gitlab.com/gitlab-org/gitlab-ui/commit/e94630b82a87121b20fef034403d7c299419a1cd))
+* **labels:** Updated spec to use isCloseHover ([89691ab](https://gitlab.com/gitlab-org/gitlab-ui/commit/89691ab12e817e32993500c6c6797aca197c78ee))
+
+
+### Features
+
+* **label:** Added close option ([921c833](https://gitlab.com/gitlab-org/gitlab-ui/commit/921c833e4a22c46d5db095b3f1a331faab8f9dd8))
+
 # [18.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.1.1...v18.2.0) (2020-08-07)
 
 
