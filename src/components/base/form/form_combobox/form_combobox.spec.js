@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import GlDropdownItem from '../../new_dropdown/new_dropdown_item.vue';
+import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
 import GlFormCombobox from './form_combobox.vue';
 import { tokenList, labelText } from './constants';

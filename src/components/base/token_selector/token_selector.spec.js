@@ -4,7 +4,7 @@ import { mount, shallowMount } from '@vue/test-utils';
 import GlToken from '../token/token.vue';
 import GlTokenSelector from './token_selector.vue';
 import GlTokenContainer from './token_container.vue';
-import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlTokenSelectorDropdown from './token_selector_dropdown.vue';
 
 describe('GlTokenSelector', () => {

@@ -58,11 +58,11 @@ documentedStoriesOf('base|button group', readme)
      <gl-button-group :vertical="vertical" :size="size">
        <gl-button :variant="variant" :category="category" :size="size">Button 1</gl-button>
        <gl-button :variant="variant" :category="category" :size="size">Button 2</gl-button>
-       <gl-new-dropdown :variant="variant" :category="category" :size="size" text="Some dropdown">
-        <gl-new-dropdown-item>First item</gl-new-dropdown-item>
-        <gl-new-dropdown-item>Second item</gl-new-dropdown-item>
-        <gl-new-dropdown-item>Last item</gl-new-dropdown-item>
-       </gl-new-dropdown>
+       <gl-dropdown :variant="variant" :category="category" :size="size" text="Some dropdown">
+        <gl-dropdown-item>First item</gl-dropdown-item>
+        <gl-dropdown-item>Second item</gl-dropdown-item>
+        <gl-dropdown-item>Last item</gl-dropdown-item>
+       </gl-dropdown>
      </gl-button-group>
     `,
   }));
