@@ -1,3 +1,10 @@
+# [18.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.4.0...v18.5.0) (2020-08-10)
+
+
+### Features
+
+* **Button:** Use monospace for one label button example ([c7df403](https://gitlab.com/gitlab-org/gitlab-ui/commit/c7df4039791915e076d23963ab7d6aaf3c380cc8))
+
 # [18.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.3.0...v18.4.0) (2020-08-10)
 
 
