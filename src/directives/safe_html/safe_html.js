@@ -1,4 +1,4 @@
-import sanitize from 'sanitize-html';
+import { sanitize } from 'dompurify';
 
 const transform = (el, binding) => {
   if (binding.oldValue !== binding.value) {

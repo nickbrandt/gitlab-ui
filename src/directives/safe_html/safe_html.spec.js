@@ -48,7 +48,7 @@ describe('safe html directive', () => {
       createComponent({
         template,
         html: '<a href="javascript:prompt(1)"><b>click here</b></a>',
-        config: { allowedTags: ['b'] },
+        config: { ALLOWED_TAGS: ['b'] },
       });
 
       expect(wrapper.html()).toEqual('<div><b>click here</b></div>');
@@ -58,7 +58,7 @@ describe('safe html directive', () => {
       createComponent({
         template,
         html: '<a href="javascript:prompt(1)"><u>click here</u></a>',
-        config: { allowedTags: [] },
+        config: { ALLOWED_TAGS: [] },
       });
 
       expect(wrapper.html()).toEqual('<div>click here</div>');
