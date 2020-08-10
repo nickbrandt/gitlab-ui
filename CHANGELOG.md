@@ -1,3 +1,10 @@
+# [18.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.5.0...v18.6.0) (2020-08-10)
+
+
+### Features
+
+* Rename GlNewDropdown to GlDropdown ([12b8b3e](https://gitlab.com/gitlab-org/gitlab-ui/commit/12b8b3e2c08a72697ef069e7bf6a9a8729188f1c))
+
 # [18.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.4.0...v18.5.0) (2020-08-10)
 
 
