@@ -1,3 +1,10 @@
+# [18.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.3.0...v18.4.0) (2020-08-10)
+
+
+### Features
+
+* **css:** Add green fill utility ([a37b2f3](https://gitlab.com/gitlab-org/gitlab-ui/commit/a37b2f35fe84b430de25d9ebd0cfaeb8f7dd51d6))
+
 # [18.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.2.0...v18.3.0) (2020-08-08)
 
 
