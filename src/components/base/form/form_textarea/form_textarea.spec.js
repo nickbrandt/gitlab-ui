@@ -102,4 +102,26 @@ describe('GlFormTextArea', () => {
       expect(wrapper.emitted(modelEvent)).toEqual([[newValue]]);
     });
   });
+
+  describe('submit on enter prop', () => {
+    it('should be false by default', () => {
+      createComponent({});
+
+      wrapper.trigger('keyup.enter', {
+        metaKey: true,
+      });
+
+      expect(wrapper.emitted().submit).toBe(undefined);
+    });
+
+    it('should emit submit when cmd+enter is pressed', async () => {
+      createComponent({ submitOnEnter: true });
+
+      wrapper.trigger('keyup.enter', {
+        metaKey: true,
+      });
+
+      expect(wrapper.emitted().submit).toEqual([[]]);
+    });
+  });
 });

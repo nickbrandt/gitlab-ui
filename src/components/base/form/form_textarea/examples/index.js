@@ -2,6 +2,7 @@ import FormTextAreaBasic from './form_textarea.basic.example.vue';
 import FormTextAreaInvalid from './form_textarea.invalid.example.vue';
 import FormTextAreaPlaintext from './form_textarea.plaintext.example.vue';
 import FormTextReadOnlytext from './form_textarea.readonly.example.vue';
+import FormTextSubmitOnEnter from './form_textarea.submit.example.vue';
 
 export default [
   {
@@ -30,6 +31,12 @@ export default [
         name: 'Read Only',
         description: 'Read Only Form Textarea',
         component: FormTextReadOnlytext,
+      },
+      {
+        id: 'form-textarea-submit-on-enter',
+        name: 'Submit On Enter',
+        description: 'Submit On Enter Form Textarea',
+        component: FormTextSubmitOnEnter,
       },
     ],
   },

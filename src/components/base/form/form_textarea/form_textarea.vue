@@ -25,6 +25,11 @@ export default {
       required: false,
       default: true,
     },
+    submitOnEnter: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     listeners() {
@@ -40,6 +45,16 @@ export default {
         },
       };
     },
+    keypressEvent() {
+      return this.submitOnEnter ? 'keyup' : null;
+    },
+  },
+  methods: {
+    handleKeyPress(e) {
+      if (e.keyCode === 13 && (e.metaKey || e.ctrlKey)) {
+        this.$emit('submit');
+      }
+    },
   },
 };
 </script>
@@ -51,5 +66,6 @@ export default {
     v-bind="$attrs"
     :value="value"
     v-on="listeners"
+    @[keypressEvent].native="handleKeyPress"
   />
 </template>
