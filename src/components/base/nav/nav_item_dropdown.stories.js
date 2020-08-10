@@ -15,9 +15,9 @@ documentedStoriesOf('base|nav/nav-item-dropdown', readme)
     template: `
       <gl-nav>
         <gl-nav-item-dropdown text="Dropdown">
-          <gl-new-dropdown-item>One</gl-new-dropdown-item>
-          <gl-new-dropdown-item>Two</gl-new-dropdown-item>
-          <gl-new-dropdown-item>Three</gl-new-dropdown-item>
+          <gl-dropdown-item>One</gl-dropdown-item>
+          <gl-dropdown-item>Two</gl-dropdown-item>
+          <gl-dropdown-item>Three</gl-dropdown-item>
         </gl-nav-item-dropdown>
       </gl-nav>
     `,
@@ -27,9 +27,9 @@ documentedStoriesOf('base|nav/nav-item-dropdown', readme)
     template: `
       <gl-nav>
         <gl-nav-item-dropdown text="Dropdown">
-          <gl-new-dropdown-item>Above divider</gl-new-dropdown-item>
-          <gl-new-dropdown-divider />
-          <gl-new-dropdown-item>Below divider</gl-new-dropdown-item>
+          <gl-dropdown-item>Above divider</gl-dropdown-item>
+          <gl-dropdown-divider />
+          <gl-dropdown-item>Below divider</gl-dropdown-item>
         </gl-nav-item-dropdown>
       </gl-nav>
     `,
@@ -43,8 +43,8 @@ documentedStoriesOf('base|nav/nav-item-dropdown', readme)
             <gl-icon name="question" />
             <gl-icon name="angle-down" />
           </template>
-          <gl-new-dropdown-item>One</gl-new-dropdown-item>
-          <gl-new-dropdown-item>Two</gl-new-dropdown-item>
+          <gl-dropdown-item>One</gl-dropdown-item>
+          <gl-dropdown-item>Two</gl-dropdown-item>
         </gl-nav-item-dropdown>
       </gl-nav>
     `,

@@ -59,7 +59,7 @@ export { default as GlDeprecatedDropdownItemDocumentation } from '../src/compone
 export { default as GlDeprecatedDropdownHeaderDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown_header.documentation';
 export { default as GlDeprecatedDropdownDividerDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown_divider.documentation';
 export { default as GlDeprecatedDropdownDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown.documentation';
-export { default as GlNewDropdownDocumentation } from '../src/components/base/new_dropdown/new_dropdown.documentation';
+export { default as GlDropdownDocumentation } from '../src/components/base/dropdown/dropdown.documentation';
 export { default as GlTableDocumentation } from '../src/components/base/table/table.documentation';
 export { default as GlBreadcrumbDocumentation } from '../src/components/base/breadcrumb/breadcrumb.documentation';
 export { default as GlHeatmapDocumentation } from '../src/components/charts/heatmap/heatmap.documentation';

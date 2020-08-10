@@ -1,5 +1,5 @@
 <script>
-import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 
 export default {
   components: {

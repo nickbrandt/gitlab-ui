@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import SearchBoxByClick from './search_box_by_click.vue';
-import GlDropdownItem from '../new_dropdown/new_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import ClearIcon from '~/components/shared_components/clear_icon_button/clear_icon_button.vue';
 
