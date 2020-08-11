@@ -1,3 +1,10 @@
+## [18.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.6.0...v18.6.1) (2020-08-11)
+
+
+### Bug Fixes
+
+* **dropdown:** Add support for vue router links ([f3bb169](https://gitlab.com/gitlab-org/gitlab-ui/commit/f3bb1696131cfe3a80bb1372bcf63733033eaa28))
+
 # [18.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.5.0...v18.6.0) (2020-08-10)
 
 
