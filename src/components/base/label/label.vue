@@ -79,6 +79,11 @@ export default {
     titleColorClass() {
       return titleColorClassMap[colorFromBackground(this.backgroundColor)];
     },
+    scopedRightLabelTextColor() {
+      return colorFromBackground(this.backgroundColor) === labelColorOptions.dark
+        ? this.titleColorClass
+        : '';
+    },
     scopedKey() {
       return this.scoped ? this.title.slice(0, this.splitScopedLabelIndex) : this.title;
     },
@@ -129,7 +134,7 @@ export default {
 <template>
   <span
     ref="labelTitle"
-    :class="[titleColorClass, cssClasses]"
+    :class="cssClasses"
     :style="boxShadow"
     class="gl-label"
     v-bind="$attrs"
@@ -137,10 +142,13 @@ export default {
   >
     <gl-link :href="target" class="gl-label-link">
       <span class="gl-label-text-container gl-display-flex">
-        <span class="gl-label-text" :style="{ backgroundColor }">{{ scopedKey }}</span>
+        <span class="gl-label-text" :class="titleColorClass" :style="{ backgroundColor }">
+          {{ scopedKey }}
+        </span>
         <span
           v-if="scoped && scopedValue"
           class="gl-label-text"
+          :class="scopedRightLabelTextColor"
           :style="{
             color: scopedValueColor,
           }"
@@ -158,7 +166,7 @@ export default {
           class="gl-label-close"
           name="close"
           :size="closeIconSize"
-          :class="closeButtonClass"
+          :class="[closeButtonClass, titleColorClass]"
           :style="closeButtonStyle"
           @mouseover="isCloseHover = true"
           @mouseleave="isCloseHover = false"
