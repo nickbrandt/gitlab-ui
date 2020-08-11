@@ -49,7 +49,9 @@ export default {
   },
   computed: {
     bootstrapComponent() {
-      return this.$attrs.href ? BDropdownItem : BDropdownItemButton;
+      const { href, to } = this.$attrs;
+      // Support 'href' and Vue Router's 'to'
+      return href || to ? BDropdownItem : BDropdownItemButton;
     },
     iconColorCss() {
       return variantCssColorMap[this.iconColor] || 'gl-text-gray-700';
