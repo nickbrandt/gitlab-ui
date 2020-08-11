@@ -393,14 +393,14 @@
     @include gl-border-0;
     @include gl-font-base;
     @include gl-line-height-normal;
-    @include gl-text-blue-500;
+    @include gl-text-blue-600;
     @include gl-py-0;
     @include gl-px-0;
     box-shadow: none;
 
     &:hover {
       @include gl-bg-transparent;
-      @include gl-text-blue-500;
+      @include gl-text-blue-600;
     }
 
     &:focus {
