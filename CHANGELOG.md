@@ -1,3 +1,10 @@
+## [18.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.6.1...v18.6.2) (2020-08-12)
+
+
+### Bug Fixes
+
+* **GlLabel:** Fix dark theme scoped labels ([c68ad4f](https://gitlab.com/gitlab-org/gitlab-ui/commit/c68ad4f8c5a2904a8eca96840d1f4577c04d003f))
+
 ## [18.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.6.0...v18.6.1) (2020-08-11)
 
 
