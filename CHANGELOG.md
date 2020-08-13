@@ -1,3 +1,10 @@
+# [18.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.6.2...v18.7.0) (2020-08-13)
+
+
+### Features
+
+* **GlFormInput:** Add debounce/lazy support ([5546add](https://gitlab.com/gitlab-org/gitlab-ui/commit/5546add923155c25a8f5a515fe33206cfd23d6b2))
+
 ## [18.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.6.1...v18.6.2) (2020-08-12)
 
 
