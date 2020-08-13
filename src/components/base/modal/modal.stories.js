@@ -16,7 +16,7 @@ const directives = {
 function generateTemplate({ visible = false } = {}) {
   return `
     <div>
-      <gl-button v-gl-modal-directive="'test-modal-id'" variant="info">
+      <gl-button v-gl-modal-directive="'test-modal-id'" category="primary" variant="info">
         Open modal
       </gl-button>
       <gl-modal

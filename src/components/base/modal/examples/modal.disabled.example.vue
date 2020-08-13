@@ -37,7 +37,7 @@ export default {
 
 <template>
   <div>
-    <gl-button v-gl-modal-directive="'basic-modal-id'" variant="info">
+    <gl-button v-gl-modal-directive="'basic-modal-id'" category="primary" variant="info">
       Open modal
     </gl-button>
     <gl-modal

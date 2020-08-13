@@ -78,9 +78,9 @@ export const formStateOptions = {
 };
 
 export const newButtonCategoryOptions = {
-  tertiary: 'tertiary',
   primary: 'primary',
   secondary: 'secondary',
+  tertiary: 'tertiary',
 };
 
 export const newButtonVariantOptions = {
