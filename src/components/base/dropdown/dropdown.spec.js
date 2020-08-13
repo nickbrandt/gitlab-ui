@@ -26,6 +26,12 @@ describe('new dropdown', () => {
   const findSplitButton = () => wrapper.find('.btn:not(.gl-dropdown-toggle)');
   const findDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
 
+  it('renders when text is null', () => {
+    buildWrapper({ text: null });
+
+    expect(wrapper.exists()).toBe(true);
+  });
+
   describe.each`
     props                                           | splitClasses                                             | toggleClasses
     ${{ split: true }}                              | ${[]}                                                    | ${[]}
