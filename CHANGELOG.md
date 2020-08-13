@@ -1,3 +1,17 @@
+# [19.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.7.0...v19.0.0) (2020-08-13)
+
+
+### Features
+
+* **buttons:** Make tertiary buttons borderless ([9703bf3](https://gitlab.com/gitlab-org/gitlab-ui/commit/9703bf3cc32020774ef66cae5fcb75f739951a14))
+* **css:** hover utility ([ff026f2](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff026f261ebd786f6b475bcd8c6e9e9f8c661f80))
+
+
+### BREAKING CHANGES
+
+* **buttons:** Adds styling for tertiary buttons using secondary
+styles with no border on all states
+
 # [18.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.6.2...v18.7.0) (2020-08-13)
 
 
