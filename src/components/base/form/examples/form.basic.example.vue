@@ -64,8 +64,10 @@ export default {
         </gl-form-checkbox-group>
       </gl-form-group>
 
-      <gl-button type="submit" variant="success">Submit</gl-button>
-      <gl-button type="reset" variant="secondary">Reset</gl-button>
+      <div class="gl-display-flex gl-justify-content-end">
+        <gl-button type="reset" variant="secondary" class="gl-mr-3">Cancel</gl-button>
+        <gl-button type="submit" variant="success">Submit</gl-button>
+      </div>
     </gl-form>
   </div>
 </template>
