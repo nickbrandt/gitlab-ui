@@ -4,6 +4,11 @@ import GlIcon from '../icon/icon.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
+const model = {
+  prop: 'value',
+  event: 'input',
+};
+
 export default {
   components: {
     GlClearIconButton,
@@ -12,6 +17,7 @@ export default {
     GlLoadingIcon,
   },
   inheritAttrs: false,
+  model,
   props: {
     value: {
       type: String,

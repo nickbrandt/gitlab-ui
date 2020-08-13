@@ -1,12 +1,15 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import GlFormInput from './form_input.vue';
 import { formInputSizes } from '../../../../utils/constants';
+
+const modelEvent = GlFormInput.model.event;
+const newValue = 'foo';
 
 describe('GlFormInput', () => {
   let wrapper;
 
-  const createComponent = propsData => {
-    wrapper = shallowMount(GlFormInput, {
+  const createComponent = (propsData = {}, mountFn = shallowMount) => {
+    wrapper = mountFn(GlFormInput, {
       propsData,
     });
   };
@@ -36,6 +39,68 @@ describe('GlFormInput', () => {
       createComponent({ size: null });
 
       expect(wrapper.classes()).toEqual(['gl-form-input']);
+    });
+  });
+
+  describe('v-model', () => {
+    beforeEach(() => {
+      createComponent({}, mount);
+
+      wrapper.setValue(newValue);
+    });
+
+    it('synchronously emits an update event', () => {
+      expect(wrapper.emitted('update')).toEqual([[newValue]]);
+    });
+
+    it('synchronously updates model', () => {
+      expect(wrapper.emitted(modelEvent)).toEqual([[newValue]]);
+    });
+  });
+
+  describe('debounce', () => {
+    describe.each([10, 100, 1000])('given a debounce of %dms', debounce => {
+      beforeEach(() => {
+        jest.useFakeTimers();
+
+        createComponent({ debounce }, mount);
+
+        wrapper.setValue(newValue);
+      });
+
+      it('synchronously emits an update event', () => {
+        expect(wrapper.emitted('update')).toEqual([[newValue]]);
+      });
+
+      it('emits a model event after the debounce delay', () => {
+        // Just before debounce completes
+        jest.advanceTimersByTime(debounce - 1);
+        expect(wrapper.emitted(modelEvent)).toBe(undefined);
+
+        // Exactly when debounce completes
+        jest.advanceTimersByTime(1);
+        expect(wrapper.emitted(modelEvent)).toEqual([[newValue]]);
+      });
+    });
+  });
+
+  describe('lazy', () => {
+    beforeEach(() => {
+      createComponent({ lazy: true }, mount);
+
+      wrapper.setValue(newValue);
+    });
+
+    it('synchronously emits an update event', () => {
+      expect(wrapper.emitted('update')).toEqual([[newValue]]);
+    });
+
+    it.each(['change', 'blur'])('updates model after %s event', event => {
+      expect(wrapper.emitted(modelEvent)).toBe(undefined);
+
+      wrapper.trigger(event);
+
+      expect(wrapper.emitted(modelEvent)).toEqual([[newValue]]);
     });
   });
 });
