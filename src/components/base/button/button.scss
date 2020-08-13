@@ -114,7 +114,8 @@
     }
   }
 
-  &.btn-info.btn-secondary:not(:disabled) {
+  &.btn-info.btn-secondary:not(:disabled),
+  &.btn-info.btn-tertiary:not(:disabled) {
     @include gl-bg-white;
     @include gl-text-blue-500;
     @include gl-font-weight-normal;
@@ -167,7 +168,8 @@
     }
   }
 
-  &.btn-success.btn-secondary:not(:disabled) {
+  &.btn-success.btn-secondary:not(:disabled),
+  &.btn-success.btn-tertiary:not(:disabled) {
     @include gl-bg-white;
     @include gl-text-green-500;
     @include gl-font-weight-normal;
@@ -220,7 +222,8 @@
     }
   }
 
-  &.btn-warning.btn-secondary:not(:disabled) {
+  &.btn-warning.btn-secondary:not(:disabled),
+  &.btn-warning.btn-tertiary:not(:disabled) {
     @include gl-bg-white;
     @include gl-text-orange-500;
     @include gl-font-weight-normal;
@@ -273,7 +276,8 @@
     }
   }
 
-  &.btn-danger.btn-secondary:not(:disabled) {
+  &.btn-danger.btn-secondary:not(:disabled),
+  &.btn-danger.btn-tertiary:not(:disabled) {
     @include gl-bg-white;
     @include gl-text-red-500;
     @include gl-font-weight-normal;
@@ -298,6 +302,27 @@
 
       &:focus {
         @include gl-focus($gl-border-size-2, $red-700);
+      }
+    }
+  }
+
+  &.btn-default,
+  &.btn-dashed,
+  &.btn-info,
+  &.btn-success,
+  &.btn-danger,
+  &.btn-warning {
+    &.btn-tertiary:not(:disabled) {
+      @include gl-shadow-none;
+
+      &:hover {
+        @include gl-shadow-none;
+      }
+
+      &:active,
+      &:focus,
+      &:focus:active {
+        @include gl-focus(null);
       }
     }
   }

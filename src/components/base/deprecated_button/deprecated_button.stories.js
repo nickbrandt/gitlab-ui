@@ -16,7 +16,7 @@ const components = {
 };
 
 function generateProps({
-  category = deprecatedButtonCategoryOptions.tertiary,
+  category = deprecatedButtonCategoryOptions.secondary,
   variant = buttonVariantOptions.info,
   size = deprecatedButtonSizeOptions.medium,
   withLink = false,

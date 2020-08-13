@@ -57,7 +57,7 @@ export default {
     <div class="gl-banner-content">
       <h1 class="gl-banner-title">{{ title }}</h1>
       <slot></slot>
-      <gl-deprecated-button variant="info" :href="buttonLink">{{
+      <gl-deprecated-button variant="info" category="primary" :href="buttonLink">{{
         buttonText
       }}</gl-deprecated-button>
     </div>

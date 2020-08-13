@@ -21,7 +21,7 @@ export default {
     category: {
       type: String,
       required: false,
-      default: newButtonCategoryOptions.tertiary,
+      default: newButtonCategoryOptions.primary,
       validator: value => Object.keys(newButtonCategoryOptions).includes(value),
     },
     variant: {
@@ -77,6 +77,7 @@ export default {
         'btn-icon': this.hasIconOnly,
         'button-ellipsis-horizontal': this.hasIconOnly && this.icon === 'ellipsis_h',
         'btn-secondary': this.category === newButtonCategoryOptions.secondary,
+        'btn-tertiary': this.category === newButtonCategoryOptions.tertiary,
         'gl-button': true,
         'btn-label': this.label,
         selected: this.selected,

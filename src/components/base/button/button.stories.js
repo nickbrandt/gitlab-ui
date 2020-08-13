@@ -14,7 +14,7 @@ const components = {
 };
 
 function generateProps({
-  category = newButtonCategoryOptions.tertiary,
+  category = newButtonCategoryOptions.primary,
   variant = newButtonVariantOptions.default,
   size = newButtonSizeOptions.medium,
   withLink = false,
