@@ -75,7 +75,7 @@
   color: $blue-700;
 }
 
-@mixin gl-text-blue-800 {
+@mixin gl-text-blue-800($hover: true) {
   color: $blue-800;
 }
 
