@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 

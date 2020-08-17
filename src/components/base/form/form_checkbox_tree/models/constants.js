@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const CHECKED_STATE = {
   UNCHECKED: 0,
   INDETERMINATE: 1,

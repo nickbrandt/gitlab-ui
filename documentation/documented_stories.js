@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import camelCase from 'lodash/camelCase';
 import upperFirst from 'lodash/upperFirst';
 
