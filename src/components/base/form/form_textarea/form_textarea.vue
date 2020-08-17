@@ -1,11 +1,17 @@
 <script>
 import { BFormTextarea } from 'bootstrap-vue';
 
+const model = {
+  prop: 'value',
+  event: 'input',
+};
+
 export default {
   components: {
     BFormTextarea,
   },
   inheritAttrs: false,
+  model,
   props: {
     // This prop is needed to map the v-model correctly
     // https://alligator.io/vuejs/add-v-model-support/
@@ -20,6 +26,21 @@ export default {
       default: true,
     },
   },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        // Swap purpose of input and update events from underlying BFormTextarea.
+        // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/631.
+        input: (...args) => {
+          this.$emit('update', ...args);
+        },
+        update: (...args) => {
+          this.$emit(model.event, ...args);
+        },
+      };
+    },
+  },
 };
 </script>
 
@@ -29,6 +50,6 @@ export default {
     :no-resize="noResize"
     v-bind="$attrs"
     :value="value"
-    v-on="$listeners"
+    v-on="listeners"
   />
 </template>
