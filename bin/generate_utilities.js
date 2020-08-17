@@ -96,7 +96,7 @@ const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () 
       });
 
       importantUtilityClasses.forEach(utilityClass => {
-        utilityClass.append(...importantDeclsRule.nodes);
+        utilityClass.append(...importantDeclsRule.clone().nodes);
         root.append(utilityClass);
       });
 
