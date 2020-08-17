@@ -1,3 +1,10 @@
+## [19.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v19.0.0...v19.0.1) (2020-08-17)
+
+
+### Bug Fixes
+
+* **css:** Update utility generate functione ([2cc011c](https://gitlab.com/gitlab-org/gitlab-ui/commit/2cc011c8474d243f4efe822c6fe162e10de13df9))
+
 # [19.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v18.7.0...v19.0.0) (2020-08-13)
 
 
