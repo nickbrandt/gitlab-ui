@@ -6,15 +6,13 @@ const localVue = createLocalVue();
 describe('Intersperse Component', () => {
   let wrapper;
 
-  const createComponent = (defaultSlot = [], propsData = {}) => {
+  const createComponent = (defaultSlot = [], options = {}) => {
     wrapper = shallowMount(Intersperse, {
       localVue,
-      context: {
-        props: propsData,
-      },
       slots: {
         default: defaultSlot,
       },
+      ...options,
     });
   };
 
@@ -49,6 +47,14 @@ describe('Intersperse Component', () => {
     expect(wrapper.text()).toBe(expectedText);
   });
 
+  it('adds class attribute when present', () => {
+    const defaultSlotContent = '<i>Foo</i><i>Bar</i>';
+
+    createComponent(defaultSlotContent, { attrs: { class: 'text-secondary' } });
+
+    expect(wrapper.classes('text-secondary')).toBe(true);
+  });
+
   it.each`
     defaultSlotContent                     | separator | expectedText
     ${'<i>Baz</i><i>Foo</i><i>Biz</i>'}    | ${', '}   | ${'Baz, Foo, Biz'}
@@ -57,7 +63,7 @@ describe('Intersperse Component', () => {
   `(
     'intersperses each direct child with a given separator',
     ({ defaultSlotContent, separator, expectedText }) => {
-      createComponent(defaultSlotContent, { separator });
+      createComponent(defaultSlotContent, { propsData: { separator } });
 
       expect(wrapper.text()).toBe(expectedText);
     }
@@ -72,7 +78,7 @@ describe('Intersperse Component', () => {
   `(
     'adds a custom lastSeparator',
     ({ defaultSlotContent, separator, lastSeparator, expectedText }) => {
-      createComponent(defaultSlotContent, { separator, lastSeparator });
+      createComponent(defaultSlotContent, { propsData: { separator, lastSeparator } });
 
       expect(wrapper.text()).toBe(expectedText);
     }
