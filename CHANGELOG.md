@@ -1,3 +1,10 @@
+# [20.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.1.1...v20.2.0) (2020-08-18)
+
+
+### Features
+
+* **GlFormTextarea:** add a submit on enter ([2b5329f](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b5329f3f9d58fdc24c14cb22a53ec00be1cb889))
+
 ## [20.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.1.0...v20.1.1) (2020-08-18)
 
 
