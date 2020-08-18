@@ -9,8 +9,8 @@ const newValue = 'new value';
 describe('search box by type component', () => {
   let wrapper;
 
-  const createComponent = (propsData, mountFn = shallowMount) => {
-    wrapper = mountFn(SearchBoxByType, { propsData });
+  const createComponent = ({ listeners, ...propsData }, mountFn = shallowMount) => {
+    wrapper = mountFn(SearchBoxByType, { propsData, listeners });
   };
 
   const findClearIcon = () => wrapper.find(ClearIcon);
@@ -58,6 +58,21 @@ describe('search box by type component', () => {
       findInput().setValue(newValue);
 
       expect(wrapper.emitted().input).toEqual([[newValue]]);
+    });
+  });
+
+  // Regression test for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/937
+  describe('double input event bug', () => {
+    let listener;
+
+    beforeEach(() => {
+      listener = jest.fn();
+      createComponent({ listeners: { input: listener } }, mount);
+      findInput().setValue(newValue);
+    });
+
+    it('only calls the listener once', () => {
+      expect(listener.mock.calls).toEqual([[newValue]]);
     });
   });
 
