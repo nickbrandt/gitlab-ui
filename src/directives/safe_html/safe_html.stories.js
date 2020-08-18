@@ -1,6 +1,6 @@
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { escape } from 'lodash';
-import sanitize from 'sanitize-html';
+import { sanitize } from 'dompurify';
 import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import readme from './safe_html.md';
 import { GlSafeHtmlDirective } from '../../../index';
