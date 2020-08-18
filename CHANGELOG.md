@@ -1,3 +1,10 @@
+# [20.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.0.0...v20.1.0) (2020-08-18)
+
+
+### Features
+
+* **textarea:** Add debounce/lazy support ([cf699aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/cf699aa263b45acfb42c538b5b8bbe4167024550))
+
 # [20.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v19.0.1...v20.0.0) (2020-08-18)
 
 
