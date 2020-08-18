@@ -1,3 +1,10 @@
+# [20.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.2.0...v20.3.0) (2020-08-18)
+
+
+### Features
+
+* **css:** add blue 600 hover state ([032e77a](https://gitlab.com/gitlab-org/gitlab-ui/commit/032e77a0c013820c148520cc17366267f6801e57))
+
 # [20.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.1.1...v20.2.0) (2020-08-18)
 
 
