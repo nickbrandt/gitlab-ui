@@ -1,3 +1,17 @@
+# [20.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v19.0.1...v20.0.0) (2020-08-18)
+
+
+### Features
+
+* **v-safe-html:** Switch from sanitize-html to DOMpurify ([ff8b602](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff8b602453ad6a7c689cb4cfceabdb4a5c3edd0a))
+
+
+### BREAKING CHANGES
+
+* **v-safe-html:** v-safe-html extended API changed. Under the hood we are
+now using DOMpurify. Please refer to their API for upgrading:
+https://github.com/cure53/DOMPurify
+
 ## [19.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v19.0.0...v19.0.1) (2020-08-17)
 
 
