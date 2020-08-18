@@ -1,3 +1,10 @@
+## [20.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.1.0...v20.1.1) (2020-08-18)
+
+
+### Bug Fixes
+
+* **GlIntersperse:** allow class attributes passed to component ([a101c36](https://gitlab.com/gitlab-org/gitlab-ui/commit/a101c36c8f022ac8ce06ba80e790903a90ece08d))
+
 # [20.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.0.0...v20.1.0) (2020-08-18)
 
 
