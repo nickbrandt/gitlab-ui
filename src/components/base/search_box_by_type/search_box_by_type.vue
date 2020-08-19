@@ -56,20 +56,20 @@ export default {
       return attributes;
     },
     hasValue() {
-      return Boolean(this.localValue.length);
+      return Boolean(this.value.length);
     },
-    localValue: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit('input', value);
-      },
+    inputListeners() {
+      return {
+        ...this.$listeners,
+        input: value => {
+          this.$emit('input', value);
+        },
+      };
     },
   },
   methods: {
     clearInput() {
-      this.localValue = '';
+      this.$emit('input', '');
       this.focusInput();
     },
     focusInput() {
@@ -84,10 +84,10 @@ export default {
     <gl-icon name="search" class="gl-search-box-by-type-search-icon" />
     <gl-form-input
       ref="input"
-      v-model="localValue"
+      :value="value"
       class="gl-search-box-by-type-input"
       v-bind="inputAttributes"
-      v-on="$listeners"
+      v-on="inputListeners"
     />
     <div class="gl-search-box-by-type-right-icons">
       <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
