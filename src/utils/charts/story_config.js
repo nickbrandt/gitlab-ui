@@ -1,7 +1,6 @@
 import times from 'lodash/times';
 import { colorFromDefaultPalette } from './theme';
 
-/* eslint-disable import/prefer-default-export */
 import {
   marqueeSelectionSvgPath,
   redoSvgPath,
