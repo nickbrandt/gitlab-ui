@@ -1,3 +1,10 @@
+## [20.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.3.0...v20.3.1) (2020-08-19)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByType:** Fix double input event ([b5f0328](https://gitlab.com/gitlab-org/gitlab-ui/commit/b5f03289c0d3ca5e3009fdac2b6a00541b26e943))
+
 # [20.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.2.0...v20.3.0) (2020-08-18)
 
 
