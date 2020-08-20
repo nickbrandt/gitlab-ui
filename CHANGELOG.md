@@ -1,3 +1,10 @@
+# [20.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.3.1...v20.4.0) (2020-08-20)
+
+
+### Features
+
+* **css:** add gl-m-2 class ([77a27c3](https://gitlab.com/gitlab-org/gitlab-ui/commit/77a27c3958f6e2c956dae52207aa7caeda1b1744))
+
 ## [20.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.3.0...v20.3.1) (2020-08-19)
 
 
