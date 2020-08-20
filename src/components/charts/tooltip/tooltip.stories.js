@@ -1,13 +1,16 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlChart, GlChartTooltip } from '../../../../charts';
+import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../../charts';
+import { SERIES_NAME_LONG, SERIES_NAME_LONG_WITHOUT_SPACES } from '../../../utils/charts/constants';
+
 import readme from './tooltip.md';
 
 const components = {
   GlChart,
   GlChartTooltip,
+  GlChartSeriesLabel,
 };
 
-documentedStoriesOf('charts|chart-tooltip', readme).add('default', () => ({
+const baseStoryOptions = {
   props: {},
   components,
   data() {
@@ -24,7 +27,12 @@ documentedStoriesOf('charts|chart-tooltip', readme).add('default', () => ({
       this.chart = chart;
     },
   },
-  template: `<div class="position-relative">
+};
+
+const getStoryOptions = tooltipContent => {
+  return {
+    ...baseStoryOptions,
+    template: `<div class="position-relative">
     <gl-chart
       :options="options"
       :height="100"
@@ -40,7 +48,21 @@ documentedStoriesOf('charts|chart-tooltip', readme).add('default', () => ({
       <div slot="title">
         Example Title
       </div>
-      Example Content
+      ${tooltipContent}
     </gl-chart-tooltip>
-  </div>`,
-}));
+</div>`,
+  };
+};
+
+documentedStoriesOf('charts|chart-tooltip', readme)
+  .add('default', () => getStoryOptions('Example Content'))
+  .add('with long series label', () =>
+    getStoryOptions(`
+      <gl-chart-series-label color="#1F78D1">${SERIES_NAME_LONG}</gl-chart-series-label>
+    `)
+  )
+  .add('with long series label with no spaces', () =>
+    getStoryOptions(`
+      <gl-chart-series-label color="#1F78D1">${SERIES_NAME_LONG_WITHOUT_SPACES}</gl-chart-series-label>
+    `)
+  );

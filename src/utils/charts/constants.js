@@ -59,3 +59,12 @@ export const LEGEND_MAX_TEXT = 'Max';
  * https://gitlab.com/gitlab-org/gitlab-svgs/-/issues/118
  */
 export const arrowSymbol = 'path://m5 229 5 8h-10z';
+
+/**
+ * These are used to test varying lengths of series names
+ */
+export const SERIES_NAME_SHORT = 'Series ';
+export const SERIES_NAME_LONG =
+  'Series name long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt interdum sapien ut blandit. Nulla fermentum nisi id euismod vulputate. END';
+export const SERIES_NAME_LONG_WITHOUT_SPACES =
+  'Series_name_long._Lorem_ipsum_dolor_sit_amet,_consectetur_adipiscing_elit._Sed_tincidunt_interdum_sapien_ut_blandit._Nulla_fermentum_nisi_id_euismod_vulputate._END';
