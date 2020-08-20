@@ -16,7 +16,7 @@
   @include gl-border-0;
   @include gl-py-3;
   @include gl-px-4;
-  @include gl-bg-white;
+  @include gl-bg-transparent;
   @include gl-line-height-normal;
   @include gl-text-gray-900;
   @include gl-fill-current-color;
@@ -116,7 +116,7 @@
 
   &.btn-info.btn-secondary:not(:disabled),
   &.btn-info.btn-tertiary:not(:disabled) {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-blue-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-blue-500;
@@ -170,7 +170,7 @@
 
   &.btn-success.btn-secondary:not(:disabled),
   &.btn-success.btn-tertiary:not(:disabled) {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-green-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-green-500;
@@ -224,7 +224,7 @@
 
   &.btn-warning.btn-secondary:not(:disabled),
   &.btn-warning.btn-tertiary:not(:disabled) {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-orange-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-orange-500;
@@ -278,7 +278,7 @@
 
   &.btn-danger.btn-secondary:not(:disabled),
   &.btn-danger.btn-tertiary:not(:disabled) {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-red-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-red-500;
