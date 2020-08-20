@@ -49,6 +49,12 @@
   }
 }
 
+@mixin gl-display-md-block {
+  @media (min-width: $breakpoint-md) {
+    @include gl-display-block;
+  }
+}
+
 @mixin gl-display-inline {
   display: inline;
 }
