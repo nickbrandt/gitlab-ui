@@ -1,5 +1,5 @@
 <script>
-import Tree from './models/tree';
+import { Tree } from './models/tree';
 import GlFormGroup from '../form_group/form_group.vue';
 import GlFormCheckbox from '../form_checkbox/form_checkbox.vue';
 import GlFormCheckboxTreeNode from './checkbox_tree_node.vue';

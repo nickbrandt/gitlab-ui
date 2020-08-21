@@ -1,6 +1,6 @@
 import { CHECKED_STATE } from './constants';
 
-export default class Node {
+export class Node {
   constructor({ value, label, parent = null, children = [], depth, isChecked }) {
     this.value = value;
     this.label = label;
