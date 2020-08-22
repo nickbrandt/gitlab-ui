@@ -83,14 +83,14 @@
       inset 0 (-$gl-border-size-1) 0 $gray-200, inset (-$gl-border-size-1) 0 0 $gray-200;
   }
 
-  &.btn-info:not(:disabled),
-  &.btn-success:not(:disabled),
-  &.btn-danger:not(:disabled),
-  &.btn-warning:not(:disabled) {
+  &.btn-info,
+  &.btn-success,
+  &.btn-danger,
+  &.btn-warning {
     @include gl-text-white;
   }
 
-  &.btn-info:not(:disabled) {
+  &.btn-info {
     @include gl-bg-blue-500;
     @include gl-inset-border-1-blue-600;
 
@@ -114,8 +114,8 @@
     }
   }
 
-  &.btn-info.btn-secondary:not(:disabled),
-  &.btn-info.btn-tertiary:not(:disabled) {
+  &.btn-info-secondary,
+  &.btn-info-tertiary {
     @include gl-bg-white;
     @include gl-text-blue-500;
     @include gl-font-weight-normal;
@@ -144,7 +144,7 @@
     }
   }
 
-  &.btn-success:not(:disabled) {
+  &.btn-success {
     @include gl-bg-green-500;
     @include gl-inset-border-1-green-600;
 
@@ -168,8 +168,8 @@
     }
   }
 
-  &.btn-success.btn-secondary:not(:disabled),
-  &.btn-success.btn-tertiary:not(:disabled) {
+  &.btn-success-secondary,
+  &.btn-success-tertiary {
     @include gl-bg-white;
     @include gl-text-green-500;
     @include gl-font-weight-normal;
@@ -198,7 +198,7 @@
     }
   }
 
-  &.btn-warning:not(:disabled) {
+  &.btn-warning {
     @include gl-bg-orange-500;
     @include gl-inset-border-1-orange-600;
 
@@ -222,8 +222,8 @@
     }
   }
 
-  &.btn-warning.btn-secondary:not(:disabled),
-  &.btn-warning.btn-tertiary:not(:disabled) {
+  &.btn-warning-secondary,
+  &.btn-warning-tertiary {
     @include gl-bg-white;
     @include gl-text-orange-500;
     @include gl-font-weight-normal;
@@ -252,7 +252,7 @@
     }
   }
 
-  &.btn-danger:not(:disabled) {
+  &.btn-danger {
     @include gl-bg-red-500;
     @include gl-inset-border-1-red-600;
 
@@ -276,8 +276,8 @@
     }
   }
 
-  &.btn-danger.btn-secondary:not(:disabled),
-  &.btn-danger.btn-tertiary:not(:disabled) {
+  &.btn-danger-secondary,
+  &.btn-danger-tertiary {
     @include gl-bg-white;
     @include gl-text-red-500;
     @include gl-font-weight-normal;
@@ -312,7 +312,7 @@
   &.btn-success,
   &.btn-danger,
   &.btn-warning {
-    &.btn-tertiary:not(:disabled) {
+    &-tertiary {
       @include gl-shadow-none;
 
       &:hover {
@@ -404,15 +404,6 @@
     @include gl-cursor-default;
   }
 
-  &.disabled,
-  &[disabled] {
-    @include gl-bg-gray-10;
-    @include gl-text-gray-400;
-    @include gl-inset-border-1-gray-100;
-    @include gl-opacity-10;
-    cursor: not-allowed !important;
-  }
-
   &.btn-link {
     @include gl-bg-transparent;
     @include gl-border-0;
@@ -444,5 +435,28 @@
         @include gl-focus(null, false);
       }
     }
+
+    &.disabled,
+    &[disabled] {
+      @include gl-bg-transparent;
+      @include gl-shadow-none;
+    }
+  }
+
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active,
+  &.disabled.selected,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active,
+  &[disabled].selected {
+    @include gl-bg-gray-10;
+    @include gl-text-gray-400;
+    @include gl-inset-border-1-gray-100;
+    @include gl-opacity-10;
+    cursor: not-allowed !important;
   }
 }

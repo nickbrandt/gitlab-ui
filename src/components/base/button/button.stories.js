@@ -168,4 +168,31 @@ documentedStoriesOf('base|button', readme)
             This is a link button
         </gl-button>
     `,
+  }))
+  .add('borderless (tertiary)', () => ({
+    props: generateProps({ category: 'tertiary' }),
+    components,
+    template: `
+      <div class="gl-display-inline-flex">
+        <gl-button
+          :category="category"
+          :size="size"
+          :block="block"
+          :disabled="disabled"
+          :loading="loading"
+        >
+            Default borderless
+        </gl-button>
+        <gl-button
+          variant="success"
+          :category="category"
+          :size="size"
+          :block="block"
+          :disabled="disabled"
+          :loading="loading"
+        >
+            Primary borderless
+        </gl-button>
+      </div>
+    `,
   }));
