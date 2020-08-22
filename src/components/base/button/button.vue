@@ -73,15 +73,24 @@ export default {
       return this.disabled || this.loading;
     },
     buttonClasses() {
-      return {
+      const classes = ['gl-button'];
+      const nonCategoryVariants = [newButtonVariantOptions.dashed, newButtonVariantOptions.link];
+
+      if (
+        !nonCategoryVariants.includes(this.variant) &&
+        this.category !== newButtonCategoryOptions.primary
+      ) {
+        classes.push(`btn-${this.variant}-${this.category}`);
+      }
+
+      classes.push({
         'btn-icon': this.hasIconOnly,
         'button-ellipsis-horizontal': this.hasIconOnly && this.icon === 'ellipsis_h',
-        'btn-secondary': this.category === newButtonCategoryOptions.secondary,
-        'btn-tertiary': this.category === newButtonCategoryOptions.tertiary,
-        'gl-button': true,
         'btn-label': this.label,
         selected: this.selected,
-      };
+      });
+
+      return classes;
     },
     buttonSize() {
       return newButtonSizeOptionsMap[this.size];
