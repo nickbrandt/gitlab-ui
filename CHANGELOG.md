@@ -1,3 +1,10 @@
+## [20.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.4.0...v20.4.1) (2020-08-22)
+
+
+### Bug Fixes
+
+* **button:** Decrease button styles specificity ([73d9749](https://gitlab.com/gitlab-org/gitlab-ui/commit/73d97494865577a5c420d41977ea9b3ac157cb7e))
+
 # [20.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.3.1...v20.4.0) (2020-08-20)
 
 
