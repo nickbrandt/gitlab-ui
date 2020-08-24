@@ -950,10 +950,10 @@
     stylelint "^13.2.1"
     stylelint-scss "^3.14.2"
 
-"@gitlab/svgs@1.160.0":
-  version "1.160.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.160.0.tgz#1f6b3c9f587b7847be32b5a4ddc397fa5add8829"
-  integrity sha512-oBGeuQAdgd0UAha+YweeHiBsiukKX1fatzPFxD2f2UJodMJXZh/I8e+1yL68cLT/Sn0pmZBiYF2dzaDQHBbWkg==
+"@gitlab/svgs@1.161.0":
+  version "1.161.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.161.0.tgz#661e8d19862dfba0e4c558e2eb6d64b402c1453e"
+  integrity sha512-qsbboEICn08ZoEoAX/TuYygsFaXlzsCY+CfmdOzqvJbOdfHhVXmrJBxd2hP2qqjTZm2PkbRRmn+03+ce1jvatQ==
 
 "@gitlab/vue-toasted@^1.3.0":
   version "1.3.0"
