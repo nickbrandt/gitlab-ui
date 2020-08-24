@@ -1,3 +1,10 @@
+# [20.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.5.0...v20.6.0) (2020-08-24)
+
+
+### Features
+
+* **GlLink:** add styling to match spec ([8eb5a7a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8eb5a7a96d475d996a60287f4b5daf11535f215d))
+
 # [20.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.4.1...v20.5.0) (2020-08-24)
 
 
