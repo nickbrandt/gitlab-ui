@@ -1,3 +1,11 @@
+# [20.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.4.1...v20.5.0) (2020-08-24)
+
+
+### Features
+
+* **css:** add gl-display-md-block class ([e9e3837](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9e383715ed30546cc9543e655f3c0c8fb375f7f))
+* **css:** add gl-pt-md-n2/gl-mt-md-n2 classes ([ef392eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/ef392eb228ae18ca0077481fbe3bcd855e8853a7))
+
 ## [20.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.4.0...v20.4.1) (2020-08-22)
 
 
