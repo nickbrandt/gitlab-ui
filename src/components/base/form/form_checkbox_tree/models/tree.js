@@ -1,7 +1,7 @@
-import Node from './node';
+import { Node } from './node';
 import { CHECKED_STATE } from './constants';
 
-export default class Tree {
+export class Tree {
   constructor(options, selected) {
     this.treeDepth = 0;
     this.nodes = {};

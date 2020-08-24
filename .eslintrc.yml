@@ -37,8 +37,6 @@ overrides:
   - "**/*.documentation.js"
   - "**/index.js"
   # Files below should be migrated to named exports
-  - "src/components/base/form/form_checkbox_tree/models/node.js"
-  - "src/components/base/form/form_checkbox_tree/models/tree.js"
   - "src/components/base/form/form_input_group/form_input_group_mixin.js"
   - "src/components/base/path/examples/data.js"
   - "src/components/mixins/button_mixin.js"
