@@ -45,5 +45,3 @@ export const insert = curry((index, newItem, items) => [
   newItem,
   ...items.slice(index),
 ]);
-
-export default {};

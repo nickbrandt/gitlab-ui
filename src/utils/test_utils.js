@@ -16,5 +16,3 @@ export const getResetAnimationsCSS = () => `
     -o-animation: none !important;
     animation: none !important;
   }`;
-
-export default getResetAnimationsCSS;
