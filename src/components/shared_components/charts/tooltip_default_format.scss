@@ -1,28 +1,18 @@
-.gl-charts-tooltip-default-format {
-  @include gl-font-regular;
+.gl-charts-tooltip-default-format-series {
+  @include gl-display-flex;
+  @include gl-justify-content-space-between;
 
-  &-series {
-    @include gl-display-flex;
+  &-label,
+  &-value {
+    @include gl-font-sm;
+  }
 
-    &-label,
-    &-value {
-      @include gl-font-sm;
-    }
+  &-label {
+    @include gl-line-height-normal;
+    @include gl-mr-7;
+  }
 
-    &-label {
-      @include gl-line-height-normal;
-      @include gl-flex-grow-1;
-      @include gl-mr-7;
-    }
-
-    .gl-series-label:nth-child(2) {
-      @include gl-w-full;
-      @include gl-word-break-all;
-      @include gl-text-left;
-    }
-
-    &-value {
-      @include gl-font-weight-bold;
-    }
+  &-value {
+    @include gl-font-weight-bold;
   }
 }

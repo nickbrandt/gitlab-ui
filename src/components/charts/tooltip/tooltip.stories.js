@@ -1,6 +1,10 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../../charts';
-import { SERIES_NAME_LONG, SERIES_NAME_LONG_WITHOUT_SPACES } from '../../../utils/charts/constants';
+import {
+  SERIES_NAME,
+  SERIES_NAME_LONG,
+  SERIES_NAME_LONG_WITHOUT_SPACES,
+} from '../../../utils/stories_utils';
 
 import readme from './tooltip.md';
 
@@ -58,11 +62,11 @@ documentedStoriesOf('charts|chart-tooltip', readme)
   .add('default', () => getStoryOptions('Example Content'))
   .add('with long series label', () =>
     getStoryOptions(`
-      <gl-chart-series-label color="#1F78D1">${SERIES_NAME_LONG}</gl-chart-series-label>
+      <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG]}</gl-chart-series-label>
     `)
   )
   .add('with long series label with no spaces', () =>
     getStoryOptions(`
-      <gl-chart-series-label color="#1F78D1">${SERIES_NAME_LONG_WITHOUT_SPACES}</gl-chart-series-label>
+      <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES]}</gl-chart-series-label>
     `)
   );

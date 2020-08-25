@@ -1,6 +1,12 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChart, GlChartLegend } from '../../../../charts';
 import { generateSeriesData } from '../../../utils/charts/story_config';
+import { LEGEND_LAYOUT_TABLE } from '../../../utils/charts/constants';
+import {
+  SERIES_NAME_SHORT,
+  SERIES_NAME_LONG,
+  SERIES_NAME_LONG_WITHOUT_SPACES,
+} from '../../../utils/stories_utils';
 import readme from './legend.md';
 
 const generateOptions = (seriesLength, seriesNameType) => {
@@ -37,7 +43,8 @@ const generateSeriesInfo = (amount, nameType) => {
 };
 
 const generateTemplate = type => {
-  const layoutTypeAttribute = type === 'table' ? `:layout="'table'"` : '';
+  const layoutTypeAttribute =
+    type === LEGEND_LAYOUT_TABLE ? `:layout="'${LEGEND_LAYOUT_TABLE}'"` : '';
 
   return `<div>
     <gl-chart
@@ -83,11 +90,15 @@ const getStoryOptions = (seriesLength, seriesNameType, legendLayoutType) => {
 };
 
 documentedStoriesOf('charts|chart-legend', readme)
-  .add('default', () => getStoryOptions(10, 'short'))
-  .add('default with long series names', () => getStoryOptions(10, 'long'))
-  .add('default with long series names and no spaces', () => getStoryOptions(10, 'long-no-spaces'))
-  .add('with tabular layout', () => getStoryOptions(10, 'short', 'table'))
-  .add('with tabular layout and long series names', () => getStoryOptions(10, 'long', 'table'))
+  .add('default', () => getStoryOptions(10, SERIES_NAME_SHORT))
+  .add('default with long series names', () => getStoryOptions(10, SERIES_NAME_LONG))
+  .add('default with long series names and no spaces', () =>
+    getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES)
+  )
+  .add('with tabular layout', () => getStoryOptions(10, SERIES_NAME_SHORT, LEGEND_LAYOUT_TABLE))
+  .add('with tabular layout and long series names', () =>
+    getStoryOptions(10, SERIES_NAME_LONG, LEGEND_LAYOUT_TABLE)
+  )
   .add('with tabular layout and long series names with no spaces', () =>
-    getStoryOptions(10, 'long-no-spaces', 'table')
+    getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES, LEGEND_LAYOUT_TABLE)
   );

@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <template>
-  <div class="gl-charts-tooltip-default-format">
+  <div>
     <div
       v-for="(value, label) in tooltipContent"
       :key="`${label}${value.value}`"

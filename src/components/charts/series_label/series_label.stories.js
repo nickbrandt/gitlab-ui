@@ -4,10 +4,11 @@ import { GlChartSeriesLabel } from '../../../../charts';
 import readme from './series_label.md';
 import { colorPaletteDefault } from '../../../utils/charts/theme';
 import {
+  SERIES_NAME,
   SERIES_NAME_SHORT,
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
-} from '../../../utils/charts/constants';
+} from '../../../utils/stories_utils';
 
 const components = {
   GlChartSeriesLabel,
@@ -35,41 +36,41 @@ documentedStoriesOf('charts|chart-series-label', readme)
     components,
     props: generateProps({ color: '' }),
     template,
-    text: SERIES_NAME_SHORT,
+    text: SERIES_NAME[SERIES_NAME_SHORT],
   }))
   .add('with long name', () => ({
     components,
     props: generateProps({ color: '' }),
     template,
-    text: SERIES_NAME_LONG,
+    text: SERIES_NAME[SERIES_NAME_LONG],
   }))
   .add('with long name with no spaces', () => ({
     components,
     props: generateProps({ color: '' }),
     template,
-    text: SERIES_NAME_LONG_WITHOUT_SPACES,
+    text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
   }))
   .add('with color dashed', () => ({
     components,
     props: generateProps({ type: 'dashed' }),
     template,
-    text: SERIES_NAME_SHORT,
+    text: SERIES_NAME[SERIES_NAME_SHORT],
   }))
   .add('with color', () => ({
     components,
     props: generateProps(),
     template,
-    text: SERIES_NAME_SHORT,
+    text: SERIES_NAME[SERIES_NAME_SHORT],
   }))
   .add('with color and long name', () => ({
     components,
     props: generateProps(),
     template,
-    text: SERIES_NAME_LONG,
+    text: SERIES_NAME[SERIES_NAME_LONG],
   }))
   .add('with color and long name with no spaces', () => ({
     components,
     props: generateProps(),
     template,
-    text: SERIES_NAME_LONG_WITHOUT_SPACES,
+    text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
   }));

@@ -67,7 +67,7 @@ export default {
 
 <template>
   <div class="gl-series-label-container">
-    <div v-if="color.length" class="gl-series-label">
+    <div v-if="color.length" class="gl-series-label-color">
       <svg
         :style="svgStyles"
         :width="formatPixelDimension($options.svgWidth)"
@@ -76,7 +76,7 @@ export default {
         <path :d="pathContent" />
       </svg>
     </div>
-    <div ref="label" class="gl-series-label">
+    <div ref="label" class="gl-series-label-text">
       <slot></slot>
     </div>
   </div>
