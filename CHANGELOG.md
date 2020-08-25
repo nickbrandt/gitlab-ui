@@ -1,3 +1,10 @@
+## [20.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.9.0...v20.9.1) (2020-08-25)
+
+
+### Bug Fixes
+
+* **buttons:** Remove white background from resting tertiary buttons ([d0d610e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d0d610ee83b5cdbee57ffbcb8772b22ac7b63331))
+
 # [20.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.8.0...v20.9.0) (2020-08-25)
 
 
