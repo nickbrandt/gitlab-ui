@@ -1,3 +1,15 @@
+# [20.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.7.0...v20.8.0) (2020-08-25)
+
+
+### Bug Fixes
+
+* **GlChartSeriesLabel:** fix chart label overflow ([3025073](https://gitlab.com/gitlab-org/gitlab-ui/commit/30250739391a7d2ee2e46662aaafa69b9f7f3c25))
+
+
+### Features
+
+* **css:** add gl-mt-n3 utility ([ed4ed66](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed4ed66e36be0103e3a636b75ee9565f3312dffb))
+
 # [20.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.6.0...v20.7.0) (2020-08-25)
 
 
