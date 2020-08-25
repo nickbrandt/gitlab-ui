@@ -340,7 +340,7 @@
 
   &.btn-dashed {
     @include gl-inset-border-1-gray-400;
-    outline: $gl-border-size-1 dashed $white;
+    outline: 3px dotted $white;
     outline-offset: (-$gl-border-size-1);
 
     &:hover {
@@ -349,20 +349,20 @@
 
     &:focus {
       @include gl-focus($gl-border-size-1, $gray-400);
-      outline: $gl-border-size-1 dashed $gray-50;
+      outline: 3px dotted $gray-50;
       outline-offset: (-$gl-border-size-1);
     }
 
     &:active,
     &.active {
       @include gl-focus($gl-border-size-1, $gray-500);
-      outline: $gl-border-size-1 dashed $gray-100;
+      outline: 3px dotted $gray-100;
       outline-offset: (-$gl-border-size-1);
       @include gl-bg-gray-100;
 
       &:focus {
         @include gl-focus($gl-border-size-1, $gray-500);
-        outline: $gl-border-size-1 dashed $gray-100;
+        outline: 3px dotted $gray-100;
         outline-offset: (-$gl-border-size-1);
       }
     }
