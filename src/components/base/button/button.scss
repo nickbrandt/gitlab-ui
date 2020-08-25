@@ -16,7 +16,7 @@
   @include gl-border-0;
   @include gl-py-3;
   @include gl-px-4;
-  @include gl-bg-white;
+  @include gl-bg-transparent;
   @include gl-line-height-normal;
   @include gl-text-gray-900;
   @include gl-fill-current-color;
@@ -44,12 +44,6 @@
     @include gl-top-auto;
   }
 
-  &.btn-default {
-    .gl-icon {
-      @include gl-text-gray-500;
-    }
-  }
-
   gl-emoji {
     @include gl-mr-2;
     @include gl-relative;
@@ -57,22 +51,34 @@
     top: 1px;
   }
 
-  &:hover {
-    @include gl-tmp-button-hover($gray-300, $gray-50);
-  }
+  &.btn-default {
+    @include gl-bg-white;
 
-  &:focus {
-    @include gl-focus($gl-border-size-2, $gray-300);
-    @include gl-bg-gray-50;
-  }
+    &.btn-default-tertiary {
+      @include gl-bg-transparent;
+    }
 
-  &:active,
-  &.active {
-    @include gl-focus($gl-border-size-2, $gray-400);
-    @include gl-bg-gray-100;
+    &:hover {
+      @include gl-tmp-button-hover($gray-300, $gray-50);
+    }
 
     &:focus {
+      @include gl-focus($gl-border-size-2, $gray-300);
+      @include gl-bg-gray-50;
+    }
+
+    &:active,
+    &.active {
       @include gl-focus($gl-border-size-2, $gray-400);
+      @include gl-bg-gray-100;
+
+      &:focus {
+        @include gl-focus($gl-border-size-2, $gray-400);
+      }
+    }
+
+    .gl-icon {
+      @include gl-text-gray-500;
     }
   }
 
@@ -116,7 +122,7 @@
 
   &.btn-info-secondary,
   &.btn-info-tertiary {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-blue-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-blue-500;
@@ -170,7 +176,7 @@
 
   &.btn-success-secondary,
   &.btn-success-tertiary {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-green-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-green-500;
@@ -224,7 +230,7 @@
 
   &.btn-warning-secondary,
   &.btn-warning-tertiary {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-orange-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-orange-500;
@@ -278,7 +284,7 @@
 
   &.btn-danger-secondary,
   &.btn-danger-tertiary {
-    @include gl-bg-white;
+    @include gl-bg-transparent;
     @include gl-text-red-500;
     @include gl-font-weight-normal;
     @include gl-inset-border-1-red-500;
@@ -303,6 +309,17 @@
       &:focus {
         @include gl-focus($gl-border-size-2, $red-700);
       }
+    }
+  }
+
+  &.btn-default,
+  &.btn-dashed,
+  &.btn-info,
+  &.btn-success,
+  &.btn-danger,
+  &.btn-warning {
+    &-secondary {
+      @include gl-bg-white;
     }
   }
 
@@ -340,6 +357,7 @@
 
   &.btn-dashed {
     @include gl-inset-border-1-gray-400;
+    @include gl-bg-white;
     outline: 3px dotted $white;
     outline-offset: (-$gl-border-size-1);
 
