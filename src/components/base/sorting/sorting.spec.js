@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import GlSort from './sorting.vue';
+import GlSorting from './sorting.vue';
 import GlSortingItem from './sorting_item';
-import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 
 const localVue = createLocalVue();
@@ -17,11 +17,11 @@ describe('sorting component', () => {
     isAscending,
   };
 
-  const selectDropdownButton = () => wrapper.find('.gl-dropdown button');
+  const selectDropdownButton = () => wrapper.find('.gl-new-dropdown button');
   const selectDirectionButton = () => wrapper.find(`.sorting-direction-button`);
 
   const createComponent = propsData => {
-    wrapper = mount(GlSort, {
+    wrapper = mount(GlSorting, {
       attachToDocument: true,
       components: {
         GlSortingItem,
@@ -40,7 +40,7 @@ describe('sorting component', () => {
       },
       stubs: {
         GlSortingItem,
-        GlDeprecatedDropdownItem,
+        GlDropdownItem,
       },
     });
   };

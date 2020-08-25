@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import GlSortingItem from './sorting_item';
-import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 
 describe('sorting item component', () => {
   let wrapper;
@@ -10,7 +10,7 @@ describe('sorting item component', () => {
   const defaultProps = {};
 
   const findActiveIcon = () => wrapper.find('.js-active-icon');
-  const findGlDropdownItem = () => wrapper.find(GlDeprecatedDropdownItem);
+  const findGlDropdownItem = () => wrapper.find(GlDropdownItem);
 
   const createComponent = propsData => {
     wrapper = shallowMount(GlSortingItem, {
@@ -22,7 +22,7 @@ describe('sorting item component', () => {
         },
       },
       stubs: {
-        GlDeprecatedDropdownItem,
+        GlDropdownItem,
       },
     });
   };

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 
 /**
@@ -29,7 +29,9 @@ export default {
     },
   },
   render(createElement, { children, data, props = {} }) {
-    const classNames = `gl-sorting-item js-active-icon ${props.active ? '' : 'inactive'}`;
+    const classNames = `gl-sorting-item js-active-icon gl-flex-shrink-0 gl-mr-2 ${
+      props.active ? '' : 'inactive gl-visibility-hidden'
+    }`;
     const icon = createElement(GlIcon, {
       class: classNames,
       attrs: {
@@ -40,7 +42,7 @@ export default {
     });
 
     return createElement(
-      GlDeprecatedDropdownItem,
+      GlDropdownItem,
       {
         ...data,
         attrs: {
