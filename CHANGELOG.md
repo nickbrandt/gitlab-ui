@@ -1,3 +1,10 @@
+# [20.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.8.0...v20.9.0) (2020-08-25)
+
+
+### Features
+
+* **css:** add gl-mt-n2 utility ([d5a7c9a](https://gitlab.com/gitlab-org/gitlab-ui/commit/d5a7c9ab6da763a4df5a8a998f76df58b7a7e44a))
+
 # [20.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.7.0...v20.8.0) (2020-08-25)
 
 
