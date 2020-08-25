@@ -1,3 +1,10 @@
+# [20.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.6.0...v20.7.0) (2020-08-25)
+
+
+### Features
+
+* **dashed-button:** Improve rendering of dashed button border ([836007a](https://gitlab.com/gitlab-org/gitlab-ui/commit/836007afdbd5f83a9f3054d0bfcb6dc112007ae5))
+
 # [20.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.5.0...v20.6.0) (2020-08-24)
 
 
