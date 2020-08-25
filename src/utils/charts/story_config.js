@@ -1,6 +1,6 @@
 import times from 'lodash/times';
 import { colorFromDefaultPalette } from './theme';
-import { SERIES_NAME_SHORT, SERIES_NAME_LONG, SERIES_NAME_LONG_WITHOUT_SPACES } from './constants';
+import { SERIES_NAME, SERIES_NAME_SHORT } from '../stories_utils';
 
 import {
   marqueeSelectionSvgPath,
@@ -33,17 +33,9 @@ export const toolbox = {
  * @param {String} nameType type of names - how long they should be
  * @returns {Array} generated series data
  */
-export const generateSeriesData = (amount = 10, nameType = 'short') => {
+export const generateSeriesData = (amount = 10, nameType = SERIES_NAME_SHORT) => {
   const defaultData = [820, 932, 960, 1150, 1290, 1330, 1390];
-  let name;
-
-  if (nameType === 'short' || !nameType) {
-    name = SERIES_NAME_SHORT;
-  } else if (nameType === 'long') {
-    name = SERIES_NAME_LONG;
-  } else if (nameType === 'long-no-spaces') {
-    name = SERIES_NAME_LONG_WITHOUT_SPACES;
-  }
+  const name = SERIES_NAME[nameType];
 
   return times(amount, index => ({
     color: colorFromDefaultPalette(index),

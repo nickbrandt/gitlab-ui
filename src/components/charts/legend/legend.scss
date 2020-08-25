@@ -17,13 +17,7 @@
     }
 
     .gl-legend-inline-series-label {
-      .gl-series-label:nth-child(2) {
-        flex: 1;
-        @include gl-min-w-0;
-        @include gl-white-space-nowrap;
-        @include gl-overflow-hidden;
-        @include gl-text-overflow-ellipsis;
-      }
+      @include gl-mr-3;
     }
   }
 }

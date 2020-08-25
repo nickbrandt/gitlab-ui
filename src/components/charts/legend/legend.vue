@@ -1,6 +1,7 @@
 <script>
 import echarts from 'echarts';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
+import GlTruncate from '../../utilities/truncate/truncate.vue';
 import { average, engineeringNotation } from '../../../utils/number_utils';
 import { defaultFontSize } from '../../../utils/charts/config';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
@@ -16,6 +17,7 @@ import {
 export default {
   components: {
     GlChartSeriesLabel,
+    GlTruncate,
   },
   props: {
     chart: {
@@ -116,12 +118,16 @@ export default {
       return this.disabledSeries[key] ? gray200 : color;
     },
   },
+  legendLayoutTypes: {
+    LEGEND_LAYOUT_INLINE,
+    LEGEND_LAYOUT_TABLE,
+  },
 };
 </script>
 
 <template>
   <div>
-    <template v-if="layout === 'inline'">
+    <template v-if="layout === $options.legendLayoutTypes.LEGEND_LAYOUT_INLINE">
       <div class="gl-legend-inline">
         <div
           v-for="(series, key) in seriesInfo"
@@ -140,11 +146,11 @@ export default {
             class="gl-legend-inline-series-label"
             :class="{ 'w-75': seriesNameIsLong(series.name) }"
           >
-            <strong>{{ series.name }}</strong>
+            <gl-truncate class="gl-font-weight-bold" :text="series.name" />
           </gl-chart-series-label>
           <span
             v-if="series.data && series.data.length"
-            :class="{ 'w-100 gl-white-space-nowrap': seriesNameIsLong(series.name) }"
+            :class="{ 'gl-white-space-nowrap': seriesNameIsLong(series.name) }"
           >
             {{ averageText }}: {{ seriesAverage(series.data) }} · {{ maxText }}:
             {{ seriesMax(series.data) }}
@@ -153,7 +159,7 @@ export default {
       </div>
     </template>
 
-    <template v-if="layout === 'table'">
+    <template v-if="layout === $options.legendLayoutTypes.LEGEND_LAYOUT_TABLE">
       <div class="gl-legend-tabular" :style="fontStyle">
         <header class="gl-legend-tabular-header">
           <div class="gl-legend-tabular-header-cell">{{ minText }}</div>
@@ -179,7 +185,7 @@ export default {
                 :style="fontStyle"
                 :type="series.type"
               >
-                <strong>{{ series.name }}</strong>
+                <gl-truncate class="gl-font-weight-bold" :text="series.name" />
               </gl-chart-series-label>
             </div>
 
