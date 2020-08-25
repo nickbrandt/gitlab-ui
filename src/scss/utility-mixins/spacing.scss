@@ -317,6 +317,10 @@
   margin-top: $gl-spacing-scale-3;
 }
 
+@mixin gl-mt-n3 {
+  margin-top: -$gl-spacing-scale-3;
+}
+
 @mixin gl-mt-4 {
   margin-top: $gl-spacing-scale-4;
 }
