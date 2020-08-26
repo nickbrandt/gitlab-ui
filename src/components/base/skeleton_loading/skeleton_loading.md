@@ -1,8 +1,8 @@
 # (Deprecated) Skeleton Loading
 
-The Skeleton Loading component has been deprecated, please use [Skeleton Loader](/?path=/story/base-skeleton-loader--default).
+The Skeleton Loading component has been deprecated, please use [Skeleton Loader](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-skeleton-loader--default).
 
-How to replace this component with [Skeleton Loader](/?path=/story/base-skeleton-loader--default):
+How to replace this component with [Skeleton Loader](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-skeleton-loader--default):
 
 1. Update imports
    - `import { GlSkeletonLoading } from '@gitlab/ui'` -> `import { GlSkeletonLoader } from '@gitlab/ui'`
