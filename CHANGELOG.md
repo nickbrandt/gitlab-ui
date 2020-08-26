@@ -1,3 +1,10 @@
+# [20.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.9.1...v20.10.0) (2020-08-26)
+
+
+### Features
+
+* **GlSkeletonLoader:** migrate GlSkeletonLoading into GlSkeletonLoader ([fa3ec21](https://gitlab.com/gitlab-org/gitlab-ui/commit/fa3ec21548deba7ae8ae617aef0575efe6c3d075))
+
 ## [20.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.9.0...v20.9.1) (2020-08-25)
 
 
