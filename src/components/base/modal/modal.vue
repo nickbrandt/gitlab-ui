@@ -81,7 +81,9 @@ export default {
     },
     secondary(event) {
       this.$emit('secondary', event);
-      this.close();
+      if (!event?.defaultPrevented) {
+        this.close();
+      }
     },
     // set default variant button styling
     buttonBinding(prop, name) {

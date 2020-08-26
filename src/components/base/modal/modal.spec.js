@@ -9,7 +9,13 @@ const localVue = createLocalVue();
 const BModalStub = localVue.extend(
   merge({}, BModal.options, {
     methods: {
+      onCancel: jest.fn(function cancel() {
+        this.$emit('cancel');
+      }),
       onClose: jest.fn(),
+      onOk: jest.fn(function ok() {
+        this.$emit('ok');
+      }),
     },
     render(h) {
       return h('div', Object.values(this.$slots));
@@ -28,7 +34,10 @@ describe('Modal component', () => {
 
   const createComponent = props => {
     wrapperListeners = {
+      canceled: jest.fn(),
       close: jest.fn(),
+      hidden: jest.fn(),
+      primary: jest.fn(),
       secondary: jest.fn(),
     };
 
@@ -109,6 +118,28 @@ describe('Modal component', () => {
       });
     });
 
+    describe('when cancel is clicked', () => {
+      beforeEach(() => {
+        findCancelButton().vm.$emit('click');
+      });
+
+      it('should emit canceled event', () => {
+        expect(BModalStub.options.methods.onCancel).toHaveBeenCalledTimes(1);
+        expect(wrapperListeners.canceled).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    describe('when primary is clicked', () => {
+      beforeEach(() => {
+        findPrimaryButton().vm.$emit('click');
+      });
+
+      it('should emit primary event', () => {
+        expect(BModalStub.options.methods.onOk).toHaveBeenCalledTimes(1);
+        expect(wrapperListeners.primary).toHaveBeenCalledTimes(1);
+      });
+    });
+
     describe('when secondary is clicked', () => {
       beforeEach(() => {
         findSecondaryButton().vm.$emit('click');
@@ -120,6 +151,20 @@ describe('Modal component', () => {
 
       it('should close modal', () => {
         expect(BModalStub.options.methods.onClose).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    describe('when secondary is clicked with default prevented', () => {
+      beforeEach(() => {
+        findSecondaryButton().vm.$emit('click', { defaultPrevented: true });
+      });
+
+      it('should emit secondary', () => {
+        expect(wrapperListeners.secondary).toHaveBeenCalledTimes(1);
+      });
+
+      it('should close modal', () => {
+        expect(BModalStub.options.methods.onClose).not.toHaveBeenCalled();
       });
     });
   });
