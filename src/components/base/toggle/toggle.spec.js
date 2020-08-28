@@ -12,8 +12,10 @@ describe('toggle', () => {
     });
   };
 
+  const findButton = () => wrapper.find('button');
+  const findToggleIcon = () => wrapper.find('.toggle-icon');
+
   beforeEach(() => {
-    jest.spyOn(global.console, 'error');
     createWrapper();
   });
 
@@ -22,8 +24,14 @@ describe('toggle', () => {
     wrapper = null;
   });
 
-  it('renders without errors', () => {
-    expect(wrapper.isVueInstance()).toBe(true);
-    expect(global.console.error).not.toHaveBeenCalled();
+  it.each`
+    description      | finder
+    ${'button'}      | ${findButton}
+    ${'toggle icon'} | ${findToggleIcon}
+  `('calls toggleFeature once when clicking on the $description', ({ finder }) => {
+    jest.spyOn(wrapper.vm, 'toggleFeature');
+    finder().trigger('click');
+
+    expect(wrapper.vm.toggleFeature).toHaveBeenCalledTimes(1);
   });
 });
