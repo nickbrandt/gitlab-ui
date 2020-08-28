@@ -1,13 +1,12 @@
 import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
-import { BInputGroupText } from 'bootstrap-vue';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_input_group.md';
-import { GlFormInputGroup, GlDeprecatedButton } from '../../../../../index';
+import { GlFormInputGroup, GlInputGroupText, GlDeprecatedButton } from '../../../../../index';
 
 const components = {
   GlFormInputGroup,
   GlDeprecatedButton,
-  BInputGroupText,
+  GlInputGroupText,
 };
 const predefinedOptions = [
   { name: 'Embed', value: 'https://embed.com' },
@@ -35,10 +34,10 @@ documentedStoriesOf('base|form/form-input-group', readme)
     template: `
       <gl-form-input-group :readonly="readonly" :select-on-click="select">
         <template #prepend v-if="prepend">
-          <b-input-group-text>{{prepend}}</b-input-group-text>
+          <gl-input-group-text>{{prepend}}</gl-input-group-text>
         </template>
         <template #append v-if="append">
-          <b-input-group-text>{{append}}</b-input-group-text>
+          <gl-input-group-text>{{append}}</gl-input-group-text>
         </template>
       </gl-form-input-group>
     `,
@@ -65,10 +64,10 @@ documentedStoriesOf('base|form/form-input-group', readme)
     template: `
       <gl-form-input-group :readonly="readonly" :select-on-click="select" :predefined-options="options">
         <template #prepend v-if="prepend">
-          <b-input-group-text>{{prepend}}</b-input-group-text>
+          <gl-input-group-text>{{prepend}}</gl-input-group-text>
         </template>
         <template #append v-if="append">
-          <b-input-group-text>{{append}}</b-input-group-text>
+          <gl-input-group-text>{{append}}</gl-input-group-text>
         </template>
       </gl-form-input-group>
     `,
