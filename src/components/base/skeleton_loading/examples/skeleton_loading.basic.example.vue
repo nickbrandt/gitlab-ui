@@ -1,3 +1,3 @@
 <template>
-  <gl-skeleton-loading />
+  <gl-deprecated-skeleton-loading />
 </template>

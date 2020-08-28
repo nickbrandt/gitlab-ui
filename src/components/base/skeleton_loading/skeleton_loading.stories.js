@@ -1,13 +1,13 @@
 import { withKnobs, number } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './skeleton_loading.md';
-import { GlSkeletonLoading } from '../../../../index';
+import { GlDeprecatedSkeletonLoading } from '../../../../index';
 
 const components = {
-  GlSkeletonLoading,
+  GlDeprecatedSkeletonLoading,
 };
 
-const template = '<gl-skeleton-loading :lines="lines" />';
+const template = '<gl-deprecated-skeleton-loading :lines="lines" />';
 
 function generateProps() {
   return {
