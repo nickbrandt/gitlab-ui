@@ -1,3 +1,10 @@
+# [20.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.10.0...v20.11.0) (2020-08-28)
+
+
+### Features
+
+* **modal:** Allow to prevent default for secondary action ([56046ec](https://gitlab.com/gitlab-org/gitlab-ui/commit/56046ec53ad8694c6eef245beb8c0270ef4b37fa))
+
 # [20.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.9.1...v20.10.0) (2020-08-26)
 
 
