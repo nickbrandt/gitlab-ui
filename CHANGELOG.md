@@ -1,3 +1,10 @@
+## [20.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.11.0...v20.11.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* **dropdown:** Correct divider color on dropdowns ([8843f69](https://gitlab.com/gitlab-org/gitlab-ui/commit/8843f690f507d2b80c6c10898a9e91df49c3304e))
+
 # [20.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.10.0...v20.11.0) (2020-08-28)
 
 
