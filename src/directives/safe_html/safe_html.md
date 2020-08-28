@@ -16,15 +16,18 @@ Under the hood, it uses [DOMPurify](https://github.com/cure53/DOMPurify) to sani
 <script>
 import { GlSafeHtmlDirective as SafeHtml } from '@gitlab/ui';
 
-  export default {
-    data() {
-      return {
-       rawHtml: `Hello! Welcome "><script>alert(1)</script>`
-      };
-    },
-
-  };
+export default {
+  directives: {
+    SafeHtml,
+  },
+  data() {
+    return {
+      rawHtml: `Hello! Welcome "><script>alert(1)</script>`,
+    };
+  },
+};
 </script>
+
 <template>
   <div v-safe-html="rawHtml"></div>
 </template>
