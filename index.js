@@ -110,3 +110,4 @@ export { default as GlResizeObserverDirective } from './src/directives/resize_ob
 export { default as GlCollapseToggleDirective } from './src/directives/collapse_toggle';
 export { default as GlSafeLinkDirective } from './src/directives/safe_link/safe_link';
 export { default as GlSafeHtmlDirective } from './src/directives/safe_html/safe_html';
+export { OutsideDirective as GlOutsideDirective } from './src/directives/outside/outside';
