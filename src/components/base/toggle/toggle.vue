@@ -93,7 +93,7 @@ export default {
           'is-disabled': disabled,
         }"
         type="button"
-        @click="toggleFeature"
+        @click.prevent="toggleFeature"
       >
         <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
         <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
