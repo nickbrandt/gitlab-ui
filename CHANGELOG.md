@@ -1,3 +1,10 @@
+## [20.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.12.0...v20.12.1) (2020-08-31)
+
+
+### Bug Fixes
+
+* **GlToggle:** prevent default on click ([d29331f](https://gitlab.com/gitlab-org/gitlab-ui/commit/d29331f9f736b70107f7bc4008843f49f54c03c2))
+
 # [20.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.11.1...v20.12.0) (2020-08-31)
 
 
