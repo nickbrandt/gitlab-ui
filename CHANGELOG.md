@@ -1,3 +1,10 @@
+# [20.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.11.1...v20.12.0) (2020-08-31)
+
+
+### Features
+
+* Add gl-cursor-(grabbing,crosshair) ([e113e11](https://gitlab.com/gitlab-org/gitlab-ui/commit/e113e11b26fbf30d372ae675794dfa508e679286))
+
 ## [20.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.11.0...v20.11.1) (2020-08-28)
 
 
