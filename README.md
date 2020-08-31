@@ -41,7 +41,7 @@ GitLab UI provides component styles, a utility-class library, and SCSS utilities
 
 ## Quick start - development
 
-Make sure you have [Node](https://nodejs.org/en/) 8.x (LTS) and [Yarn](https://yarnpkg.com/) 1.2 or newer.
+Make sure you have [Node](https://nodejs.org/en/) 12.x (LTS) and [Yarn](https://yarnpkg.com/) 1.22 or newer.
 
 ```sh
 # Clone the project
