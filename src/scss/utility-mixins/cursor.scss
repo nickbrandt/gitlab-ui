@@ -15,10 +15,18 @@
   cursor: grab;
 }
 
+@mixin gl-cursor-grabbing {
+  cursor: grabbing;
+}
+
 @mixin gl-cursor-not-allowed {
   cursor: not-allowed;
 }
 
 @mixin gl-cursor-text {
   cursor: text;
+}
+
+@mixin gl-cursor-crosshair($hover: true) {
+  cursor: crosshair;
 }
