@@ -1,3 +1,10 @@
+## [20.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.12.1...v20.12.2) (2020-09-01)
+
+
+### Bug Fixes
+
+* **dropdown:** Correct dropdown header padding ([d527f4e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d527f4ec228faf4aaf4531e2d04c9e36c8b99c61))
+
 ## [20.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.12.0...v20.12.1) (2020-08-31)
 
 
