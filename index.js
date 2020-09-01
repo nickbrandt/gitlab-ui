@@ -5,6 +5,7 @@
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlInputGroupText } from './src/components/base/form/input_group_text/input_group_text.vue';
 export { default as GlFormText } from './src/components/base/form/form_text/form_text.vue';
 export { default as GlFormCombobox } from './src/components/base/form/form_combobox/form_combobox.vue';
 export { default as GlGauge } from './src/components/charts/gauge/gauge.vue';

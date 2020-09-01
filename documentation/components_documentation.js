@@ -1,5 +1,6 @@
 // Component documentation
 // ADD EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlInputGroupTextDocumentation } from '../src/components/base/form/input_group_text/input_group_text.documentation';
 export { default as GlFormTextDocumentation } from '../src/components/base/form/form_text/form_text.documentation';
 export { default as GlFormComboboxDocumentation } from '../src/components/base/form/form_combobox/form_combobox.documentation';
 export { default as GlGaugeChartDocumentation } from '../src/components/charts/gauge/gauge.documentation';
