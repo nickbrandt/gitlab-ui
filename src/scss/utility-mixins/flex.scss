@@ -9,6 +9,14 @@
   align-items: center;
 }
 
+@mixin gl-align-items-flex-end {
+  align-items: flex-end;
+}
+
+@mixin gl-align-items-stretch {
+  align-items: stretch;
+}
+
 @mixin gl-md-align-items-center {
   @media (min-width: $breakpoint-md) {
     @include gl-align-items-center;
