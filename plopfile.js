@@ -27,19 +27,19 @@ const commonActions = [
     type: 'append',
     pattern: 'ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove',
     path: 'index.js',
-    template: `export { default as Gl{{pascalCase name}} } from './{{componentDir}}/{{name}}.vue';`,
+    template: `export { default as Gl{{pascalCase name}} } from '.{{componentDir}}/{{name}}.vue';`,
   },
   {
     type: 'append',
     pattern: 'ADD EXPORTS - needed for yarn generate:component. Do not remove',
     path: 'documentation/components_documentation.js',
-    template: `export { default as Gl{{pascalCase name}}Documentation } from '../{{componentDir}}/{{name}}.documentation';`,
+    template: `export { default as Gl{{pascalCase name}}Documentation } from '..{{componentDir}}/{{name}}.documentation';`,
   },
   {
     type: 'append',
     pattern: 'ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove',
     path: 'src/scss/components.scss',
-    template: `@import '../{{innerDir}}/{{name}}';`,
+    template: `@import '..{{innerDir}}/{{name}}';`,
   },
   {
     type: 'add',
@@ -62,21 +62,24 @@ const makePrompts = (prompts = []) => [
   {
     when: answers => !answers.useDefaultComponentDir,
     type: 'directory',
-    name: 'componentDir',
+    name: 'absoluteDir',
     message: 'Where should we put this component?',
     basePath: componentsPath,
   },
 ];
 
 const setCommonData = data => {
-  data.componentDirAbsolute = `${data.componentDir || baseComponentsPath}/${data.name}`;
-  data.componentDir = data.componentDirAbsolute.replace(path.join(__dirname, componentsPath), '');
+  data.componentDirAbsolute = `${data.absoluteDir || path.join(__dirname, baseComponentsPath)}/${
+    data.name
+  }`;
+  data.componentDir = data.componentDirAbsolute.replace(__dirname, '');
   data.innerDir = data.componentDir
     .split(path.sep)
     .filter(el => el !== 'src')
     .join(path.sep);
   data.pathToRootDir = data.componentDir
     .split(path.sep)
+    .filter(Boolean)
     .fill('..')
     .join(path.sep);
 };
