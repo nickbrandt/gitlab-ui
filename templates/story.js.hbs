@@ -8,7 +8,7 @@ const components = {
 
 const defaultProps = {};
 
-function giveProps(props = {}) {
+function generateProps(props = {}) {
   return {
     ...defaultProps,
     ...props,
@@ -18,7 +18,7 @@ function giveProps(props = {}) {
 documentedStoriesOf('base|{{name}}', readme)
   .add('default', () => ({
     components,
-    props: giveProps(),
+    props: generateProps(),
     data: () => ({}),
     template: `
       <gl-{{kebabCase name}} />
