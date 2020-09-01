@@ -15,6 +15,12 @@
   }
 }
 
+@mixin gl-lg-align-items-center {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-align-items-center;
+  }
+}
+
 @mixin gl-flex-wrap {
   flex-wrap: wrap;
 }
@@ -81,6 +87,12 @@
   flex: 1;
 }
 
+@mixin gl-lg-flex-fill-1 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-flex-fill-1;
+  }
+}
+
 @mixin gl-flex-basis-0 {
   flex-basis: 0;
 }
@@ -91,6 +103,12 @@
 
 @mixin gl-justify-content-end {
   justify-content: flex-end;
+}
+
+@mixin gl-lg-justify-content-end {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-justify-content-end;
+  }
 }
 
 @mixin gl-justify-content-space-between {

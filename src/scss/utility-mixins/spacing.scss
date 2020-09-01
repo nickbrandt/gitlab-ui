@@ -640,3 +640,21 @@
     @include gl-mx-0;
   }
 }
+
+@mixin gl-lg-mb-0 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-mb-0;
+  }
+}
+
+@mixin gl-lg-mr-3 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-mr-3;
+  }
+}
+
+@mixin gl-lg-mt-0 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-mt-0;
+  }
+}
