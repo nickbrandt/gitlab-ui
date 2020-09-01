@@ -27,9 +27,8 @@
     @include gl-justify-content-center;
     @include gl-line-height-normal;
     @include gl-m-0;
-    @include gl-pb-5;
-    @include gl-pt-3;
-    @include gl-px-4;
+    @include gl-pb-3;
+    @include gl-px-5;
   }
 
   .dropdown-toggle::after {
