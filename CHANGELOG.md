@@ -1,3 +1,10 @@
+# [20.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.14.0...v20.15.0) (2020-09-01)
+
+
+### Features
+
+* **GlInputGroupText:** expose GlInputGroupText component ([49dac3a](https://gitlab.com/gitlab-org/gitlab-ui/commit/49dac3af4edeb9299230b556f7633da31b6b1b52))
+
 # [20.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.13.0...v20.14.0) (2020-09-01)
 
 
