@@ -1,3 +1,10 @@
+# [20.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.13.0...v20.14.0) (2020-09-01)
+
+
+### Features
+
+* **css:** Add utility mixins ([54a5bb4](https://gitlab.com/gitlab-org/gitlab-ui/commit/54a5bb441071179108156bfa5b008ba5707e5a3f))
+
 # [20.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.12.2...v20.13.0) (2020-09-01)
 
 
