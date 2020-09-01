@@ -1,3 +1,10 @@
+# [20.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.12.2...v20.13.0) (2020-09-01)
+
+
+### Features
+
+* **GlSkeletonLoading:** export as GlDeprecatedSkeletonLoading ([8f683ff](https://gitlab.com/gitlab-org/gitlab-ui/commit/8f683ff6eb4b00f4757235331d3f3f41a0b80883))
+
 ## [20.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.12.1...v20.12.2) (2020-09-01)
 
 
