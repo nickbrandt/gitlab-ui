@@ -42,7 +42,7 @@ When referring to GitLab UI's npm package, use the package's name with code form
 
 ### Referring to a component
 
-When mentionning a component in the documentation, use its PascalCase name with the `Gl` prefix and
+When mentioning a component in the documentation, use its PascalCase name with the `Gl` prefix and
 code formatted.
 
 Good:
