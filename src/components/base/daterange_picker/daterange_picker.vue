@@ -100,6 +100,9 @@ export default {
       return this.startDate >= this.endDate || this.exceedsDateRange;
     },
     exceedsDateRange() {
+      if (!this.startDate || !this.endDate) {
+        return false;
+      }
       const numberOfDays = getDayDifference(this.startDate, this.endDate);
       return this.maxDateRange ? numberOfDays > this.effectiveMaxDateRange : false;
     },

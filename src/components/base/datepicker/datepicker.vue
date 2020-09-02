@@ -122,6 +122,7 @@ export default {
   data() {
     return {
       format: defaultDateFormat,
+      textInput: '',
     };
   },
   computed: {
@@ -229,6 +230,13 @@ export default {
     draw() {
       this.$emit('monthChange');
     },
+    onKeydown() {
+      if (this.textInput === '') {
+        const resetDate = this.minDate || null;
+        this.calendar.setDate(resetDate);
+        this.selected(resetDate);
+      }
+    },
   },
 };
 </script>
@@ -237,7 +245,13 @@ export default {
   <div class="gl-datepicker d-inline-block">
     <div v-if="showDefaultField" class="position-relative">
       <slot :formatted-date="formattedDate">
-        <gl-form-input class="gl-datepicker-input" :value="formattedDate" :placeholder="format" />
+        <gl-form-input
+          v-model="textInput"
+          class="gl-datepicker-input"
+          :value="formattedDate"
+          :placeholder="format"
+          @keydown.enter="onKeydown"
+        />
       </slot>
       <span
         ref="calendarTriggerBtn"

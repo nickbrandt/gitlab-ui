@@ -1,14 +1,17 @@
 import { nextTick } from 'vue';
 import Pikaday from 'pikaday';
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import GlDatepicker from './datepicker.vue';
 
 jest.mock('pikaday');
 
 describe('datepicker component', () => {
-  const mountWithOptions = shallowMount.bind(null, GlDatepicker);
+  const mountWithOptions = ({ shallow = true, ...mountOptions } = {}) => {
+    const func = shallow ? shallowMount : mount;
+    return func(GlDatepicker, mountOptions);
+  };
   const pikadayConfig = () => Pikaday.mock.calls[0][0];
-  let currentDate;
+  const currentDate = new Date(2018, 0, 1);
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -16,8 +19,6 @@ describe('datepicker component', () => {
 
   beforeEach(() => {
     const DateConstructor = Date;
-
-    currentDate = new Date(2018, 0, 1);
 
     global.Date = jest.fn((...dateParams) =>
       dateParams.length ? new DateConstructor(...dateParams) : currentDate
@@ -105,6 +106,40 @@ describe('datepicker component', () => {
 
       expect(pikadayConfig()).toMatchObject({
         field: input,
+      });
+    });
+  });
+
+  describe('when the user presses the `enter` key on the input field', () => {
+    describe('and the input field is not empty', () => {
+      it('emits no input event', async () => {
+        const wrapper = mountWithOptions({
+          shallow: false,
+          propsData: {
+            value: currentDate,
+          },
+        });
+        wrapper.find('.gl-datepicker-input').trigger('keydown', 'Enter');
+        expect(wrapper.emitted('input')).toBe(undefined);
+      });
+    });
+
+    describe('and the input field is empty', () => {
+      it.each`
+        minDate        | isSet
+        ${null}        | ${'is empty'}
+        ${currentDate} | ${'is set'}
+      `('emits input with the value `$minDate` when the `minDate` prop $isSet', ({ minDate }) => {
+        const wrapper = mountWithOptions({
+          shallow: false,
+          propsData: {
+            minDate,
+          },
+        });
+
+        wrapper.find('.gl-datepicker-input').trigger('keydown', { key: 'Enter' });
+        expect(wrapper.emitted('input')).toHaveLength(1);
+        expect(wrapper.emitted('input')[0]).toEqual([minDate]);
       });
     });
   });
