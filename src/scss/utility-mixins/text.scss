@@ -85,6 +85,10 @@
   white-space: nowrap;
 }
 
+@mixin gl-white-space-pre-wrap {
+  white-space: pre-wrap;
+}
+
 /**
 * Word utilities.
 *
