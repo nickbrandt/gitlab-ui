@@ -1,3 +1,11 @@
+# [20.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.15.0...v20.16.0) (2020-09-02)
+
+
+### Features
+
+* **GlDatepicker:** Allow for empty date values ([452fd9a](https://gitlab.com/gitlab-org/gitlab-ui/commit/452fd9a9c136fb6de889f69f5142b41e363a6a89))
+* **utilities:** add flex and spacing utilities for lg breakpoints ([36791cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/36791cd1b8720bb389015f4492b29262972e016b))
+
 # [20.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.14.0...v20.15.0) (2020-09-01)
 
 
