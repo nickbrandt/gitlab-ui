@@ -1,3 +1,10 @@
+# [20.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.17.0...v20.18.0) (2020-09-02)
+
+
+### Features
+
+* Add clearfix mixin ([c5a48cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/c5a48cd43708947d5c18387338818701c277844f))
+
 # [20.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.16.0...v20.17.0) (2020-09-02)
 
 
