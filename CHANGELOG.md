@@ -1,3 +1,10 @@
+# [20.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.16.0...v20.17.0) (2020-09-02)
+
+
+### Features
+
+* **css:** Add white-space: pre-wrap utility class ([633c4cb](https://gitlab.com/gitlab-org/gitlab-ui/commit/633c4cb4db63bf2b271cfe327215847f02705939))
+
 # [20.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.15.0...v20.16.0) (2020-09-02)
 
 
