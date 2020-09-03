@@ -29,6 +29,11 @@ export default {
       required: false,
       default: 'Clear',
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     isLoading: {
       type: Boolean,
       required: false,
@@ -66,6 +71,9 @@ export default {
         },
       };
     },
+    showClearButton() {
+      return this.hasValue && !this.disabled;
+    },
   },
   methods: {
     clearInput() {
@@ -85,15 +93,15 @@ export default {
     <gl-form-input
       ref="input"
       :value="value"
+      :disabled="disabled"
       class="gl-search-box-by-type-input"
       v-bind="inputAttributes"
       v-on="inputListeners"
     />
     <div class="gl-search-box-by-type-right-icons">
       <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
-
       <gl-clear-icon-button
-        v-if="hasValue"
+        v-if="showClearButton"
         :title="clearButtonTitle"
         :tooltip-container="tooltipContainer"
         class="gl-search-box-by-type-clear gl-clear-icon-button"

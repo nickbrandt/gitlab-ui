@@ -8,6 +8,9 @@ export default {
     value: {
       additionalInfo: 'If provided, used as value of search input',
     },
+    disabled: {
+      additionalInfo: 'If provided and true, disables the input and controls',
+    },
     isLoading: {
       additionalInfo: 'Puts search box into loading state, rendering spinner',
     },
