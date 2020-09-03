@@ -24,8 +24,7 @@ variables:
   DS_DEFAULT_ANALYZERS: 'retire.js, gemnasium'
 
 include:
-  # Disabled due to: https://gitlab.com/gitlab-org/gitlab/-/issues/207855
-  # - template: Code-Quality.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: License-Scanning.gitlab-ci.yml
   - template: Container-Scanning.gitlab-ci.yml
@@ -46,6 +45,11 @@ retire-js-dependency_scanning:
 
 gemnasium-dependency_scanning:
   <<: *secure-jobs-config
+
+code_quality:
+  <<: *secure-jobs-config
+  tags:
+    - gitlab-org-docker
 
 license_scanning:
   <<: *secure-jobs-config
