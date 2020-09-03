@@ -69,7 +69,8 @@ const makePrompts = (prompts = []) => [
 ];
 
 const setCommonData = data => {
-data.componentDirAbsolute = data.absoluteDir || path.join(__dirname, baseComponentsPath, data.name);
+  data.componentDirAbsolute =
+    data.absoluteDir || path.join(__dirname, baseComponentsPath, data.name);
   data.componentDir = data.componentDirAbsolute.replace(__dirname, '');
   data.innerDir = data.componentDir
     .split(path.sep)
