@@ -1,3 +1,10 @@
+## [20.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.0...v20.18.1) (2020-09-03)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByType:** hide clear icon when disabled ([b65fecf](https://gitlab.com/gitlab-org/gitlab-ui/commit/b65fecf97b088d2e25ae8a3e3fb47610881426f9))
+
 # [20.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.17.0...v20.18.0) (2020-09-02)
 
 
