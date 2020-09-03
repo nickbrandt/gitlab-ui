@@ -28,6 +28,13 @@ describe('search box by type component', () => {
 
     it('is not rendered when value is empty', () => {
       createComponent({ value: '' });
+
+      expect(findClearIcon().exists()).toBe(false);
+    });
+
+    it('is not rendered when it is disabled', () => {
+      createComponent({ disabled: true, value: 'somevalue' });
+
       expect(findClearIcon().exists()).toBe(false);
     });
 
@@ -90,9 +97,9 @@ describe('search box by type component', () => {
         // Just before debounce completes
         jest.advanceTimersByTime(debounce - 1);
         expect(wrapper.emitted(modelEvent)).toBe(undefined);
-
         // Exactly when debounce completes
         jest.advanceTimersByTime(1);
+
         expect(wrapper.emitted(modelEvent)).toEqual([[newValue]]);
       });
     });
@@ -116,6 +123,7 @@ describe('search box by type component', () => {
 
   it('renders loading icon when `isLoading` prop is provided', () => {
     createComponent({ isLoading: true });
+
     expect(wrapper.find(LoadingIcon).exists()).toBe(true);
   });
 });
