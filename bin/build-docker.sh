@@ -10,10 +10,11 @@ echo "puppeteer version: $PUPPETEER_VERSION"
 if ! [ "$CURRENT_PUPPETEER_VERSION" = "$PUPPETEER_VERSION" ]; then
     echo "The puppeteer version in .gitlab-ci.yml ($PUPPETEER_VERSION) and yarn.lock ($CURRENT_PUPPETEER_VERSION) do not match"
     echo "Please ensure that they both have the same value!"
+    echo "If you are testing this script locally, setting the ENV variable PUPPETEER_VERSION=$CURRENT_PUPPETEER_VERSION will help you bypass this check."
     exit 1
 fi
 
-TARGET_IMAGE=${PUPPETEER_IMAGE:-puppeteer:$PUPPETEER_VERSION}
+TARGET_IMAGE=${PUPPETEER_IMAGE:-gitlab-ui-puppeteer:$PUPPETEER_VERSION}
 
 if docker manifest inspect "$TARGET_IMAGE" 2> /dev/null > /dev/null; then
     echo "Docker image $TARGET_IMAGE already exists"
@@ -22,19 +23,13 @@ else
     echo "Building target image $TARGET_IMAGE"
 fi
 
-GLOBAL_DIR=$(docker run --rm $BASE_IMAGE yarn global dir)
-CHROMIUM_REVISION=$(docker run --rm $BASE_IMAGE yarn info --silent "puppeteer@$PUPPETEER_VERSION" puppeteer.chromium_revision)
-
-CHROMIUM_DIR="$GLOBAL_DIR/node_modules/puppeteer/.local-chromium/linux-$CHROMIUM_REVISION/chrome-linux/chrome"
-
-echo "chromium revision: $CHROMIUM_REVISION"
-echo "executable dir: $CHROMIUM_DIR"
-
 docker build . \
   --build-arg "PUPPETEER_VERSION=$PUPPETEER_VERSION" \
-  --build-arg "EXECUTABLE_PATH=$CHROMIUM_DIR" \
   --tag "$TARGET_IMAGE"
 
-echo "Everything is fine, we are pushing"
-
-docker push "$TARGET_IMAGE"
+if [ -n "$CI_REGISTRY" ]; then
+    echo "Everything is fine, we are pushing $TARGET_IMAGE"
+    docker push "$TARGET_IMAGE"
+else
+    echo "Not pushing $TARGET_IMAGE, as we do not seem to be in a CI environment"
+fi
