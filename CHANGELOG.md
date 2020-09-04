@@ -1,3 +1,10 @@
+## [20.18.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.2...v20.18.3) (2020-09-04)
+
+
+### Bug Fixes
+
+* **lodash:** Depend on lodash@^4.17.20 ([a2d0285](https://gitlab.com/gitlab-org/gitlab-ui/commit/a2d028584890a3b37c4a43e2c39af5c6f6690e94))
+
 ## [20.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.1...v20.18.2) (2020-09-04)
 
 
