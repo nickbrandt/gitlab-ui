@@ -241,6 +241,7 @@ visual:
 visual_gitlab_integration:
   extends: visual
   needs:
+    - build_docker_image
     - build_gitlab_css
   script:
     - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn test:visual:gitlab
