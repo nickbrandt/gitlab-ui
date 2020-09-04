@@ -163,9 +163,9 @@ documentedStoriesOf('base|button', readme)
           :disabled="disabled"
           :loading="loading"
           icon="star-o"
-          style="width: 100px;"
+          style="width: 130px;"
         >
-            This is a link button
+            Apply suggestion
         </gl-button>
     `,
   }))
