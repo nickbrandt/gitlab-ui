@@ -1,3 +1,10 @@
+## [20.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.1...v20.18.2) (2020-09-04)
+
+
+### Bug Fixes
+
+* **GlButton:** Fix Firefox cut off text ([9092ef0](https://gitlab.com/gitlab-org/gitlab-ui/commit/9092ef01ffbffd2409e7c45bad1c8ac176118f46))
+
 ## [20.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.0...v20.18.1) (2020-09-03)
 
 
