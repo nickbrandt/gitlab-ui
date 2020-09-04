@@ -30,6 +30,11 @@
     @include gl-overflow-hidden;
     @include gl-text-overflow-ellipsis;
     @include gl-white-space-nowrap;
+    // Added to address a FF bug which causes cut off text: https://bugzilla.mozilla.org/show_bug.cgi?id=1406552
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: -1px;
+    margin-bottom: -1px;
   }
 
   .gl-button-loading-indicator {
