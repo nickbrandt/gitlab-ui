@@ -75,7 +75,7 @@ container_scanning:
 .node:
   image: node:12
   variables:
-    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
+    PUPPETEER_SKIP_DOWNLOAD: 'true'
 
 # This is a cache template for caching node_modules
 # As a cache key we are using a SHA of .gitlab-ci.yml and yarn.lock
