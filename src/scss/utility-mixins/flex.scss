@@ -29,6 +29,12 @@
   }
 }
 
+@mixin gl-sm-align-items-flex-end {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-align-items-flex-end;
+  }
+}
+
 @mixin gl-flex-wrap {
   flex-wrap: wrap;
 }
@@ -111,6 +117,12 @@
 
 @mixin gl-justify-content-end {
   justify-content: flex-end;
+}
+
+@mixin gl-md-justify-content-end {
+  @media (min-width: $breakpoint-md) {
+    @include gl-justify-content-end;
+  }
 }
 
 @mixin gl-lg-justify-content-end {

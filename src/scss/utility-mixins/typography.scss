@@ -119,6 +119,12 @@
   font-weight: $gl-font-weight-bold;
 }
 
+@mixin gl-sm-font-weight-bold {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-font-weight-bold;
+  }
+}
+
 /**
 * Line height utilities.
 *
