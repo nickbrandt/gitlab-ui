@@ -5,7 +5,7 @@
 the [guidelines to adding a new component to GitLab UI](contributing/adding_components.md).
 
 A component follows the [lifecycle defined in the
-Pajamas repository](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/blob/master/doc/component-lifecycle.md).
+Pajamas repository](https://design.gitlab.com/contribute/lifecycle).
 
 The following diagram outlines the steps needed to complete the build and style
 stages of a component:
