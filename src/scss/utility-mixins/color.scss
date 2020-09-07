@@ -19,6 +19,12 @@
   color: $body-color;
 }
 
+@mixin gl-sm-text-body {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-text-body;
+  }
+}
+
 @mixin gl-text-black-normal {
   color: $black-normal;
 }
