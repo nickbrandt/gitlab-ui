@@ -1,3 +1,10 @@
+# [20.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.3...v20.19.0) (2020-09-09)
+
+
+### Features
+
+* Add overflow auto mixin util ([8fcd6f9](https://gitlab.com/gitlab-org/gitlab-ui/commit/8fcd6f972fb58334e942e53ae6df3cb756149863))
+
 ## [20.18.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.2...v20.18.3) (2020-09-04)
 
 
