@@ -54,10 +54,15 @@ export { default as GlDeprecatedDropdownHeader } from './src/components/base/dep
 export { default as GlDeprecatedDropdownDivider } from './src/components/base/deprecated_dropdown/deprecated_dropdown_divider.vue';
 export { default as GlDeprecatedDropdown } from './src/components/base/deprecated_dropdown/deprecated_dropdown.vue';
 export { default as GlDropdownItem } from './src/components/base/dropdown/dropdown_item.vue';
-export { default as GlDropdownSectionHeader } from './src/components/base/dropdown/dropdown_section_header.vue';
+export { default as GlDropdownHeader } from './src/components/base/dropdown/dropdown_header.vue';
 export { default as GlDropdownDivider } from './src/components/base/dropdown/dropdown_divider.vue';
 export { default as GlDropdownText } from './src/components/base/dropdown/dropdown_text.vue';
 export { default as GlDropdown } from './src/components/base/dropdown/dropdown.vue';
+export { default as GlNewDropdownItem } from './src/components/base/dropdown/dropdown_item.vue';
+export { default as GlNewDropdownHeader } from './src/components/base/dropdown/dropdown_header.vue';
+export { default as GlNewDropdownDivider } from './src/components/base/dropdown/dropdown_divider.vue';
+export { default as GlNewDropdownText } from './src/components/base/dropdown/dropdown_text.vue';
+export { default as GlNewDropdown } from './src/components/base/dropdown/dropdown.vue';
 export { default as GlPath } from './src/components/base/path/path.vue';
 export { default as GlTable } from './src/components/base/table/table.vue';
 export { default as GlBreadcrumb } from './src/components/base/breadcrumb/breadcrumb.vue';

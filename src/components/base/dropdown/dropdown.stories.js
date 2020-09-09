@@ -11,7 +11,7 @@ import {
   GlIcon,
   GlDropdown,
   GlDropdownDivider,
-  GlDropdownSectionHeader,
+  GlDropdownHeader,
   GlDropdownItem,
   GlDropdownText,
 } from '../../../../index';
@@ -21,7 +21,7 @@ const components = {
   GlIcon,
   GlDropdown,
   GlDropdownDivider,
-  GlDropdownSectionHeader,
+  GlDropdownHeader,
   GlDropdownItem,
   GlDropdownText,
 };
@@ -131,35 +131,13 @@ documentedStoriesOf('base|dropdown', readme)
     template: `
       <gl-dropdown
         text="Some dropdown"
-        header-text="Header"
         :category="category"
         :variant="variant"
         :size="size"
         :block="block"
         :disabled="disabled"
       >
-        <gl-dropdown-text><gl-search-box-by-type /></gl-dropdown-text>
-      </gl-dropdown>`,
-    mounted() {
-      clickDropdown(this);
-    },
-    updated() {
-      addClass(this);
-    },
-  }))
-  .add('with section header', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-dropdown
-        text="Some dropdown"
-        :category="category"
-        :variant="variant"
-        :size="size"
-        :block="block"
-        :disabled="disabled"
-      >
-        <gl-dropdown-section-header>Header title</gl-dropdown-section-header>
+        <gl-dropdown-header>Header title</gl-dropdown-header>
         <gl-dropdown-item>First item</gl-dropdown-item>
         <gl-dropdown-item>Second item</gl-dropdown-item>
       </gl-dropdown>`,
@@ -264,6 +242,28 @@ documentedStoriesOf('base|dropdown', readme)
         >
           Status manual
         </gl-dropdown-item>
+      </gl-dropdown>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with menu header', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-dropdown
+        text="Some dropdown"
+        header-text="Header"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-text><gl-search-box-by-type /></gl-dropdown-text>
       </gl-dropdown>`,
     mounted() {
       clickDropdown(this);

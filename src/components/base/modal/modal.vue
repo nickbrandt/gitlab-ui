@@ -3,6 +3,7 @@ import { BModal } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
 import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
 import { focusFirstFocusableElement } from '../../../utils/utils';
+import { breakpoints } from '../../../utils/breakpoints';
 
 function validatorHelper(obj) {
   return Object.keys(obj).every(val => val === 'text' || val === 'attributes');
@@ -108,6 +109,11 @@ export default {
       focusFirstFocusableElement([...modalElts, ...btnElts]);
     },
   },
+  computed: {
+    centered() {
+      return window.matchMedia(`(min-width: ${breakpoints.md}px)`).matches;
+    },
+  },
 };
 </script>
 
@@ -117,6 +123,7 @@ export default {
     ref="modal"
     :title-tag="titleTag"
     :size="size"
+    :centered="centered"
     v-bind="$attrs"
     lazy
     :modal-class="['gl-modal', modalClass]"

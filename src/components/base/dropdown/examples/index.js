@@ -42,18 +42,6 @@ export default [
         component: DropdownWithHeaderExample,
       },
       {
-        id: 'new-dropdown-with-section-headers',
-        name: 'With Section Headers',
-        description: 'Dropdown with section headers',
-        component: DropdownWithSectionHeadersExample,
-      },
-      {
-        id: 'new-dropdown-with-search',
-        name: 'With Search',
-        description: 'Dropdown with search field',
-        component: DropdownWithSearchExample,
-      },
-      {
         id: 'new-dropdown-with-checked-items',
         name: 'With Checked Items',
         description: 'Dropdown with checked items',
@@ -70,6 +58,18 @@ export default [
         name: 'With Icons',
         description: 'Dropdown with icons',
         component: DropdownWithIcons,
+      },
+      {
+        id: 'new-dropdown-with-section-headers',
+        name: 'With Section Headers',
+        description: 'Dropdown with section headers',
+        component: DropdownWithSectionHeadersExample,
+      },
+      {
+        id: 'new-dropdown-with-search',
+        name: 'With Search',
+        description: 'Dropdown with search field',
+        component: DropdownWithSearchExample,
       },
       {
         id: 'new-dropdown-with-icon',

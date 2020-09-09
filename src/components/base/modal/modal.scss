@@ -118,9 +118,8 @@ body.modal-open {
     @include gl-opacity-5;
   }
 
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(md) {
     .modal-dialog {
-      @include gl-my-11;
       @include gl-mx-auto;
     }
   }
