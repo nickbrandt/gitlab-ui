@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 
 /**
@@ -9,7 +9,7 @@ import GlIcon from '../icon/icon.vue';
  * the GlDropdownItem component and does not use internal state. Functional
  * components are cheaper to render and often used as wrappers like this. We're
  * not using the <template functional> syntax here because it does not support
- * custom child components wihtout extra work inside GitLab or extra work
+ * custom child components without extra work inside GitLab or extra work
  * required by the user.
  */
 
@@ -40,7 +40,7 @@ export default {
     });
 
     return createElement(
-      GlDeprecatedDropdownItem,
+      GlDropdownItem,
       {
         ...data,
         attrs: {
