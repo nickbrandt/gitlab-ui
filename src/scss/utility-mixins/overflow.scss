@@ -24,6 +24,10 @@
   overflow: scroll;
 }
 
+@mixin gl-overflow-auto {
+  overflow: auto;
+}
+
 @mixin gl-overflow-visible {
   overflow: visible;
 }
