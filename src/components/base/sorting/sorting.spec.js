@@ -1,8 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import GlSort from './sorting.vue';
 import GlSortingItem from './sorting_item';
-import GlDeprecatedDropdownItem from '../deprecated_dropdown/deprecated_dropdown_item.vue';
-import GlIcon from '../icon/icon.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 
 const localVue = createLocalVue();
 
@@ -17,7 +16,7 @@ describe('sorting component', () => {
     isAscending,
   };
 
-  const selectDropdownButton = () => wrapper.find('.gl-dropdown button');
+  const selectDropdownButton = () => wrapper.find('.gl-new-dropdown button');
   const selectDirectionButton = () => wrapper.find(`.sorting-direction-button`);
 
   const createComponent = propsData => {
@@ -40,7 +39,7 @@ describe('sorting component', () => {
       },
       stubs: {
         GlSortingItem,
-        GlDeprecatedDropdownItem,
+        GlDropdownItem,
       },
     });
   };
@@ -60,11 +59,7 @@ describe('sorting component', () => {
     createComponent();
 
     expect(wrapper.vm.isAscending).toBe(false);
-    expect(
-      selectDirectionButton()
-        .find(GlIcon)
-        .props('name')
-    ).toBe('sort-highest');
+    expect(selectDirectionButton().props('icon')).toBe('sort-highest');
   });
 
   it('should show new text value when passed in as a prop', () => {
@@ -86,11 +81,7 @@ describe('sorting component', () => {
     });
 
     expect(wrapper.vm.isAscending).toBe(true);
-    expect(
-      selectDirectionButton()
-        .find(GlIcon)
-        .props('name')
-    ).toBe('sort-lowest');
+    expect(selectDirectionButton().props('icon')).toBe('sort-lowest');
   });
 
   it('should emit the sortDirectionChange event when direction button is clicked', () => {
