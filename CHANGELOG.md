@@ -1,3 +1,15 @@
+# [20.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.19.0...v20.20.0) (2020-09-09)
+
+
+### Bug Fixes
+
+* **GlTooltip:** Pass through tooltip manual events ([cf49140](https://gitlab.com/gitlab-org/gitlab-ui/commit/cf491404a1e4099bcc3e6f4097da6a40095b5fc6))
+
+
+### Features
+
+* **Color:** Update purple 600 hex ([4a2096e](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a2096e12ddec5cfa32d5bb58396789282ff8b43))
+
 # [20.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.18.3...v20.19.0) (2020-09-09)
 
 
