@@ -1,3 +1,17 @@
+# [21.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.20.0...v21.0.0) (2020-09-11)
+
+
+### Bug Fixes
+
+* **dropdowns:** Rename section header, remove deprecated exports ([771bd3a](https://gitlab.com/gitlab-org/gitlab-ui/commit/771bd3ac22c5cd57f7bf4e634baafc474d77ed10))
+
+
+### BREAKING CHANGES
+
+* **dropdowns:** Aligns naming conventions of
+header and section headers with Figma and removes
+deprecated exports of GlNewDropdown
+
 # [20.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.19.0...v20.20.0) (2020-09-09)
 
 
