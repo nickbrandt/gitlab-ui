@@ -32,6 +32,13 @@ overrides:
       - assertFunctionNames:
           - "expect*"
 - files:
+    - '**/*.stories.js'
+  rules:
+    no-restricted-globals:
+      - error
+      - name: 'setTimeout'
+        message: 'use setStoryTimeout from the utils/test_utils instead.'
+- files:
   - "config.js"
   - "rollup.config.js"
   - "**/*.documentation.js"
