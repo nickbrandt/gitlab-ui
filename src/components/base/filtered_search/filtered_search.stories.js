@@ -2,6 +2,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './filtered_search.md';
 import { GlFilteredSearch, GlFilteredSearchToken } from '../../../../index';
+import { setStoryTimeout } from '../../../utils/test_utils';
 
 const fakeUsers = [
   { id: 1, name: 'User Alpha', username: 'alpha' },
@@ -41,14 +42,14 @@ const UserToken = {
   methods: {
     loadView() {
       this.loadingView = true;
-      setTimeout(() => {
+      setStoryTimeout(() => {
         this.loadingView = false;
         this.activeUser = fakeUsers.find(u => u.username === this.value.data);
       }, 1000);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
-      setTimeout(() => {
+      setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.users = fakeUsers;
       }, 2000);
@@ -115,7 +116,7 @@ const MilestoneToken = {
   methods: {
     loadSuggestions() {
       this.loadingSuggestions = true;
-      setTimeout(() => {
+      setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.milestones = fakeMilestones;
       }, 2000);
@@ -188,14 +189,14 @@ const LabelToken = {
   methods: {
     loadView() {
       this.loadingView = true;
-      setTimeout(() => {
+      setStoryTimeout(() => {
         this.loadingView = false;
         this.activeLabel = fakeLabels.find(l => l.title === this.value.data);
       }, 100);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
-      setTimeout(() => {
+      setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.labels = fakeLabels;
       }, 2000);

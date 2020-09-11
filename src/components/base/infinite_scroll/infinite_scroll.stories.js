@@ -1,3 +1,4 @@
+import { setStoryTimeout } from '../../../utils/test_utils';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './infinite_scroll.md';
 
@@ -15,7 +16,7 @@ documentedStoriesOf('base|infinite-scroll', readme).add('default', () => ({
     bottomReached() {
       clearTimeout(this.loadTimer);
       this.isLoading = true;
-      this.loadTimer = setTimeout(() => {
+      this.loadTimer = setStoryTimeout(() => {
         this.fetchedItems += ITEMS_BATCH_SIZE;
         this.isLoading = false;
       }, 500);
