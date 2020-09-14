@@ -1,3 +1,10 @@
+## [21.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.0.0...v21.0.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* **GlButton:** Fix text decoration on gl-button anchor tags ([d2b0970](https://gitlab.com/gitlab-org/gitlab-ui/commit/d2b0970ba9a3f5d322e39aa55fd1b74c0ab67cea))
+
 # [21.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v20.20.0...v21.0.0) (2020-09-11)
 
 
