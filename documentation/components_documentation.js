@@ -1,5 +1,6 @@
 // Component documentation
 // ADD EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlKeysetPaginationDocumentation } from '../src/components/base/keyset_pagination/keyset_pagination.documentation';
 export { default as GlInputGroupTextDocumentation } from '../src/components/base/form/input_group_text/input_group_text.documentation';
 export { default as GlFormTextDocumentation } from '../src/components/base/form/form_text/form_text.documentation';
 export { default as GlFormComboboxDocumentation } from '../src/components/base/form/form_combobox/form_combobox.documentation';
