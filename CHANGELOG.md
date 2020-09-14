@@ -1,3 +1,10 @@
+# [21.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.0.1...v21.1.0) (2020-09-14)
+
+
+### Features
+
+* **GlKeysetPagination:** Add GlKeysetPagination ([d74241e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d74241ecc83112fa1fa7d670a7ad2bc99d7a9006))
+
 ## [21.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.0.0...v21.0.1) (2020-09-14)
 
 
