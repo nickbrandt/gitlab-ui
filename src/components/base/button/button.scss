@@ -95,6 +95,7 @@
     &:hover,
     &:focus {
       @include gl-bg-gray-50;
+      @include gl-text-decoration-none;
     }
 
     &:hover {
