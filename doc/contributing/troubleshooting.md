@@ -32,7 +32,7 @@ error messages like this (even if you have Storybook running):
 > version should be built when using puppeteer test feature.
 
 Instead of updating the visual tests locally, trigger the manual
-`update_screenshots` job in your MR's pipeline.
+`update_screenshots` job in the `manual` stage of your MR's pipeline.
 
 For more information, see [our documentation about visual
 testing](visual_testing.md).
