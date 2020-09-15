@@ -7,11 +7,6 @@ import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
 import DropdownWithIcons from './dropdown.with_icons.example.vue';
 import DropdownWithSectionHeadersExample from './dropdown.with_section_headers.example.vue';
 import DropdownWithSearchExample from './dropdown.with_search.example.vue';
-import DropdownSplitExample from './dropdown.split.example.vue';
-import DropdownWithIconExample from './dropdown.with_icon.example.vue';
-import DropdownWithIconAndTextExample from './dropdown.with_icon_and_text.example.vue';
-import DropdownWithIconAndSplitExample from './dropdown.with_icon_and_split.example.vue';
-import DropdownFullWidthExample from './dropdown.full_width.example.vue';
 
 export default [
   {
@@ -70,36 +65,6 @@ export default [
         name: 'With Icons',
         description: 'Dropdown with icons',
         component: DropdownWithIcons,
-      },
-      {
-        id: 'new-dropdown-with-icon',
-        name: 'With Icon',
-        description: 'Icon Dropdown',
-        component: DropdownWithIconExample,
-      },
-      {
-        id: 'new-dropdown-with-icon-and-text',
-        name: 'With Icon and Text',
-        description: 'Icon Dropdown with text',
-        component: DropdownWithIconAndTextExample,
-      },
-      {
-        id: 'new-dropdown-with-icon-and-split',
-        name: 'With Icon and Split',
-        description: 'Icon Dropdown with split',
-        component: DropdownWithIconAndSplitExample,
-      },
-      {
-        id: 'new-dropdown-split',
-        name: 'Split',
-        description: 'Split Dropdown',
-        component: DropdownSplitExample,
-      },
-      {
-        id: 'new-dropdown-full-width',
-        name: 'Full Width',
-        description: 'Full Width Dropdown',
-        component: DropdownFullWidthExample,
       },
     ],
   },

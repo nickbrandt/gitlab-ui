@@ -31,6 +31,14 @@ import ButtonMediumExample from './sizing/button.medium.example.vue';
 import ButtonSizesExample from './sizing/button.sizes.example.vue';
 import ButtonSmallExample from './sizing/button.small.example.vue';
 
+/* Dropdowns */
+import ButtonDropdownExample from './dropdowns/button.dropdown.example.vue';
+import ButtonDropdownSplitExample from './dropdowns/button.dropdown_split.example.vue';
+import ButtonDropdownWithIconExample from './dropdowns/button.dropdown_with_icon.example.vue';
+import ButtonDropdownWithIconAndTextExample from './dropdowns/button.dropdown_with_icon_and_text.example.vue';
+import ButtonDropdownWithIconAndSplitExample from './dropdowns/button.dropdown_with_icon_and_split.example.vue';
+import ButtonDropdownFullWidthExample from './dropdowns/button.dropdown_full_width.example.vue';
+
 export default [
   {
     name: 'Basic',
@@ -192,6 +200,47 @@ export default [
         name: 'Full Width Button Size',
         description: 'Full width button size',
         component: ButtonFullWidthExample,
+      },
+    ],
+  },
+  {
+    name: 'Dropdowns',
+    items: [
+      {
+        id: 'new-dropdown',
+        name: 'Default',
+        description: 'Dropdown',
+        component: ButtonDropdownExample,
+      },
+      {
+        id: 'new-dropdown-split',
+        name: 'Split',
+        description: 'Split Dropdown',
+        component: ButtonDropdownSplitExample,
+      },
+      {
+        id: 'new-dropdown-with-icon',
+        name: 'With Icon',
+        description: 'Icon Dropdown',
+        component: ButtonDropdownWithIconExample,
+      },
+      {
+        id: 'new-dropdown-with-icon-and-text',
+        name: 'With Icon and Text',
+        description: 'Icon Dropdown with text',
+        component: ButtonDropdownWithIconAndTextExample,
+      },
+      {
+        id: 'new-dropdown-with-icon-and-split',
+        name: 'With Icon and Split',
+        description: 'Icon Dropdown with split',
+        component: ButtonDropdownWithIconAndSplitExample,
+      },
+      {
+        id: 'new-dropdown-full-width',
+        name: 'Full Width',
+        description: 'Full Width Dropdown',
+        component: ButtonDropdownFullWidthExample,
       },
     ],
   },
