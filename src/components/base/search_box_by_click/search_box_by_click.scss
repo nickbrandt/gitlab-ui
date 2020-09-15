@@ -1,11 +1,11 @@
 .gl-search-box-by-click {
   @include gl-font-base;
-  @include gl-border-gray-400;
 
   .gl-search-box-by-click-history {
     > button {
       @include gl-p-3;
       @include gl-border-none;
+      @include gl-inset-border-1-gray-400;
     }
 
     .gl-search-box-by-click-history-icon {
@@ -49,6 +49,7 @@
     .gl-search-box-by-click-search-button {
       @include gl-text-gray-500;
       @include gl-p-3;
+      @include gl-inset-border-1-gray-400;
     }
   }
 
