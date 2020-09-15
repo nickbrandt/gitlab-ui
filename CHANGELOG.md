@@ -1,3 +1,10 @@
+# [21.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.1.0...v21.2.0) (2020-09-15)
+
+
+### Features
+
+* **GlSorting:** Update GlSorting styles to Pajamas ([69b6505](https://gitlab.com/gitlab-org/gitlab-ui/commit/69b6505f02771d93968cc2812bffd74d0076790f))
+
 # [21.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.0.1...v21.1.0) (2020-09-14)
 
 
