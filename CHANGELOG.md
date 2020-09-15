@@ -1,3 +1,10 @@
+## [21.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.2.0...v21.2.1) (2020-09-15)
+
+
+### Bug Fixes
+
+* **dropdown button:** Differentiate between dropdown panel and button ([c0aab2f](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0aab2f817384021b485533f9cd0297969c27d4b))
+
 # [21.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.1.0...v21.2.0) (2020-09-15)
 
 
