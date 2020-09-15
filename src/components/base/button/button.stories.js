@@ -117,6 +117,73 @@ documentedStoriesOf('base|button', readme)
       />
     `,
   }))
+  .add('dropdown button', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-dropdown
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    `,
+  }))
+  .add('dropdown icon button', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-dropdown
+        icon="download"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    `,
+  }))
+  .add('dropdown split button', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-dropdown
+        split
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    `,
+  }))
+  .add('dropdown icon split button', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-dropdown
+        split
+        icon="download"
+        text="Some dropdown"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    `,
+  }))
   .add('loading button', () => ({
     props: generateProps({ loading: true }),
     components,
