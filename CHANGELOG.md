@@ -1,3 +1,10 @@
+# [21.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.2.2...v21.3.0) (2020-09-15)
+
+
+### Features
+
+* **css:** Add `gl-pt-8` utility class ([7f9e760](https://gitlab.com/gitlab-org/gitlab-ui/commit/7f9e760c355b52e75bda7c916058724c65484247))
+
 ## [21.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.2.1...v21.2.2) (2020-09-15)
 
 
