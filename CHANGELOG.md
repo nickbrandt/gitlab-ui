@@ -1,3 +1,10 @@
+## [21.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.2.1...v21.2.2) (2020-09-15)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByType:** update GlSearchBoxByType button border ([1807e98](https://gitlab.com/gitlab-org/gitlab-ui/commit/1807e981efe1ffa1d8b9e133279786b5921ebffc))
+
 ## [21.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.2.0...v21.2.1) (2020-09-15)
 
 
