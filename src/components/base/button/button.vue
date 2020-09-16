@@ -56,6 +56,11 @@ export default {
       required: false,
       default: false,
     },
+    buttonTextClasses: {
+      type: String,
+      required: false,
+      default: '',
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -112,6 +117,6 @@ export default {
     <gl-loading-icon v-if="loading" inline class="gl-button-loading-indicator" />
     <gl-icon v-if="hasIcon" :name="icon" />
     <slot name="emoji"></slot>
-    <span v-if="!hasIconOnly" class="gl-button-text"><slot></slot></span>
+    <span v-if="!hasIconOnly" :class="buttonTextClasses" class="gl-button-text"><slot></slot></span>
   </b-button>
 </template>
