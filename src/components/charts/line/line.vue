@@ -255,7 +255,7 @@ export default {
       const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.options.yAxis.name);
 
       this.$set(this, 'dataTooltipContent', tooltipContent);
-      this.tooltipTitle = xLabels.join(', ');
+      this.dataTooltipTitle = xLabels.join(', ');
     },
     defaultAnnotationTooltipText(params) {
       return {

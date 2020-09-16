@@ -14,7 +14,7 @@ jest.mock('echarts', () => ({
 
 describe('line component', () => {
   let wrapper;
-  let options;
+  let option;
 
   const findChart = () => wrapper.find(Chart);
   const findLegend = () => wrapper.find(ChartLegend);
@@ -25,13 +25,13 @@ describe('line component', () => {
 
   const createShallowWrapper = (props = {}) => {
     wrapper = shallowMount(LineChart, {
-      propsData: { options, data: [], ...props },
+      propsData: { option, data: [], ...props },
     });
     emitChartCreated();
   };
 
   beforeEach(() => {
-    options = {
+    option = {
       series: [],
     };
 
@@ -46,7 +46,7 @@ describe('line component', () => {
       off: jest.fn(),
       convertToPixel: jest.fn(),
       getOption: () => {
-        return options;
+        return option;
       },
     };
   });
@@ -55,25 +55,25 @@ describe('line component', () => {
     wrapper.destroy();
   });
 
-  it('emits `created`, with the chart instance', () => {
+  it('emits `created`, with the chart instance', async () => {
     createShallowWrapper();
 
-    return wrapper.vm.$nextTick(() => {
-      expect(wrapper.emitted('created').length).toBe(1);
-      expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
-    });
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.emitted('created').length).toBe(1);
+    expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
   });
 
   describe('Annotations tooltips', () => {
-    it('are hidden by default ', () => {
+    it('are hidden by default ', async () => {
       createShallowWrapper();
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findAnnotationsTooltip().exists()).toBe(false);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findAnnotationsTooltip().exists()).toBe(false);
     });
 
-    it('are displayed if passed via annotations props ', () => {
+    it('are displayed if passed via annotations props ', async () => {
       createShallowWrapper({
         annotations: [
           {
@@ -83,12 +83,12 @@ describe('line component', () => {
         ],
       });
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findAnnotationsTooltip().exists()).toBe(true);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findAnnotationsTooltip().exists()).toBe(true);
     });
 
-    it('are displayed if passed via option props ', () => {
+    it('are displayed if passed via option props ', async () => {
       createShallowWrapper({
         option: {
           series: [
@@ -107,12 +107,12 @@ describe('line component', () => {
         },
       });
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findAnnotationsTooltip().exists()).toBe(true);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findAnnotationsTooltip().exists()).toBe(true);
     });
 
-    it('has a default title and content when hovered', () => {
+    it('has a default title and content when hovered', async () => {
       const params = {
         name: 'annotations',
         componentType: 'markPoint',
@@ -139,64 +139,67 @@ describe('line component', () => {
 
       wrapper.vm.onChartDataPointMouseOver(params);
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findAnnotationsTooltip().html()).toContain(params.data.xAxis);
-        expect(findAnnotationsTooltip().html()).toContain(params.data.tooltipData.content);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findAnnotationsTooltip().html()).toContain(params.data.xAxis);
+      expect(findAnnotationsTooltip().html()).toContain(params.data.tooltipData.content);
     });
   });
 
   describe('tooltip position', () => {
+    const dataTooltipTitle = 'FooBar';
+
     beforeEach(() => {
       createShallowWrapper();
-      return wrapper.vm.$nextTick();
     });
 
     it('is initialized', () => {
       expect(findDataTooltip().props('left')).toBe('0');
       expect(findDataTooltip().props('top')).toBe('0');
+      expect(findDataTooltip().text()).not.toContain(dataTooltipTitle);
     });
 
-    it('is reset when mouse moves', () => {
+    it('is reset when mouse moves', async () => {
       const left = '10px';
       const top = '30px';
 
-      wrapper.setData({ dataTooltipPosition: { left, top } });
+      wrapper.setData({ dataTooltipPosition: { left, top }, dataTooltipTitle });
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findDataTooltip().props('left')).toBe(`${left}`);
-        expect(findDataTooltip().props('top')).toBe(`${top}`);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findDataTooltip().props('left')).toBe(`${left}`);
+      expect(findDataTooltip().props('top')).toBe(`${top}`);
+      expect(findDataTooltip().text()).toContain(dataTooltipTitle);
     });
   });
 
   describe('legend', () => {
-    it('is inline by default', () => {
+    it('is inline by default', async () => {
       createShallowWrapper();
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
 
-    it('is inline if correct prop value is set', () => {
+    it('is inline if correct prop value is set', async () => {
       createShallowWrapper({
         legendLayout: LEGEND_LAYOUT_INLINE,
       });
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
 
-    it('is tabular if correct prop value is set', () => {
+    it('is tabular if correct prop value is set', async () => {
       createShallowWrapper({
         legendLayout: LEGEND_LAYOUT_TABLE,
       });
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
     });
   });
 });
