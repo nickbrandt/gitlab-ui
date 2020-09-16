@@ -1,3 +1,10 @@
+## [21.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.3.0...v21.3.1) (2020-09-16)
+
+
+### Bug Fixes
+
+* **GlChart:** Tooltip title values not displaying ([dea6750](https://gitlab.com/gitlab-org/gitlab-ui/commit/dea6750a6aa6e5cf50bdd781b0f2534d1aec9460))
+
 # [21.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.2.2...v21.3.0) (2020-09-15)
 
 
