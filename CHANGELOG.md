@@ -1,3 +1,10 @@
+# [21.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.3.1...v21.4.0) (2020-09-16)
+
+
+### Features
+
+* **GlButton:** Add button-text-class prop to gl-button ([2caaa3b](https://gitlab.com/gitlab-org/gitlab-ui/commit/2caaa3ba8f35c1815d0ecf0198d5380718edbdfb))
+
 ## [21.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.3.0...v21.3.1) (2020-09-16)
 
 
