@@ -1,14 +1,7 @@
-/*
- * Label-specific utilities
- */
-@mixin gl-label-focus($color) {
-  box-shadow: 0 0 0 $gl-border-size-1 $color, $focus-ring, var(--label-inset-border) !important;
-}
-
 $label-max-width: 100%;
 
-.gl-label {
-  @include gl-p-0;
+.gl-label.gl-label {
+  @include gl-align-items-center;
   @include gl-bg-white;
   @include gl-overflow-hidden;
   @include gl-display-inline-flex;
@@ -18,96 +11,110 @@ $label-max-width: 100%;
   @include gl-font-base;
   box-shadow: var(--label-inset-border) !important;
 
-  &:focus {
-    @include gl-outline-none;
-    @include gl-text-decoration-underline;
-    @include gl-label-focus($white);
+  &:not(.gl-label-scoped) {
+    background-color: var(--label-background-color);
   }
 
-  > .gl-label-link {
+  .gl-label-link {
     @include gl-line-height-normal;
     @include gl-display-flex;
+    @include gl-font-sm;
+    @include gl-font-weight-normal;
     @include gl-reset-color;
     @include gl-max-w-full;
 
-    &:focus {
-      @include gl-text-decoration-underline;
-    }
-
+    &:focus,
     &:hover {
-      @include gl-reset-text-decoration-color;
+      @include gl-reset-color;
+      @include gl-shadow-none;
     }
   }
 
-  .gl-label-text {
+  .gl-label-text,
+  .gl-label-text-scoped {
     @include gl-display-block;
     @include gl-px-3;
     @include gl-py-2;
-    @include gl-font-weight-normal;
-    @include gl-font-sm;
     @include str-truncated($label-max-width);
   }
 
   .gl-label-close {
-    @include gl-my-2;
+    @include gl-border-0;
+    @include gl-display-flex;
     @include gl-mr-2;
-    @include gl-py-1;
+    @include gl-p-0;
+    @include gl-reset-bg;
+    @include gl-reset-color;
     @include gl-rounded-full;
 
-    &-dark {
-      &:hover {
-        @include gl-bg-black;
-      }
+    &:focus,
+    &:hover {
+      color: var(--label-background-color);
     }
 
-    &-light {
-      &:hover {
-        @include gl-bg-white;
-      }
+    .gl-icon {
+      @include gl-p-1;
     }
   }
+}
 
-  &-text-dark {
-    @include gl-text-black-normal;
-  }
+.gl-label-text-dark {
+  @include gl-text-black-normal;
 
-  &-text-light {
-    @include gl-text-white;
-  }
-
-  &-scoped {
-    .gl-label-text {
-      &:first-child {
-        @include gl-pr-2;
-      }
-
-      &:not(:first-child) {
-        @include gl-bg-transparent;
-        @include gl-pl-2;
-        @include gl-pr-3;
-      }
-    }
-
-    .gl-label-close:hover {
-      @include gl-text-white;
+  .gl-label-close {
+    &:focus,
+    &:hover {
+      @include gl-bg-black;
     }
   }
+}
 
-  &-sm {
-    .gl-label-text {
-      @include gl-px-3;
-      @include gl-py-0;
+.gl-label-text-light {
+  @include gl-text-white;
+
+  .gl-label-close {
+    &:focus,
+    &:hover {
+      @include gl-bg-white;
     }
+  }
+}
 
-    .gl-label-icon {
-      @include gl-py-0;
-    }
-
+.gl-label-scoped.gl-label-scoped {
+  &.gl-label-text-light {
+    .gl-label-text-scoped,
     .gl-label-close {
-      @include gl-my-1;
-      @include gl-mr-1;
-      @include gl-line-height-0;
+      color: var(--label-background-color);
     }
+  }
+
+  .gl-label-text {
+    @include gl-pr-2;
+    background-color: var(--label-background-color);
+  }
+
+  .gl-label-text-scoped {
+    @include gl-pl-2;
+    @include gl-pr-3;
+  }
+
+  .gl-label-close {
+    &:focus,
+    &:hover {
+      @include gl-text-white;
+      background-color: var(--label-background-color);
+    }
+  }
+}
+
+.gl-label-sm.gl-label-sm {
+  .gl-label-text,
+  .gl-label-text-scoped {
+    @include gl-py-0;
+  }
+
+  .gl-label-close {
+    @include gl-mr-1;
   }
 }
 
