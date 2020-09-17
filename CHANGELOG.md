@@ -1,3 +1,10 @@
+## [21.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.4.1...v21.4.2) (2020-09-17)
+
+
+### Bug Fixes
+
+* **dropdown:** Correct margin for dropdown headers ([f1d707d](https://gitlab.com/gitlab-org/gitlab-ui/commit/f1d707df011dbce463ab8167703d47b2731998ba))
+
 ## [21.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.4.0...v21.4.1) (2020-09-17)
 
 
