@@ -1,3 +1,10 @@
+## [21.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.4.0...v21.4.1) (2020-09-17)
+
+
+### Bug Fixes
+
+* exclude chart component from main components index ([dd18a71](https://gitlab.com/gitlab-org/gitlab-ui/commit/dd18a71e12e6a0e765ca7ebc53af9f96b479225f))
+
 # [21.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.3.1...v21.4.0) (2020-09-16)
 
 
