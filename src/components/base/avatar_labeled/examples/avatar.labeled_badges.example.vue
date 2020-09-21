@@ -7,10 +7,10 @@
   >
     <template #meta>
       <div class="gl-p-1">
-        <gl-badge size="sm" variant="info">2FA</gl-badge>
+        <gl-badge class="gl-display-flex!" size="sm" variant="info">2FA</gl-badge>
       </div>
       <div class="gl-p-1">
-        <gl-badge size="sm" variant="danger">Blocked</gl-badge>
+        <gl-badge class="gl-display-flex!" size="sm" variant="danger">Blocked</gl-badge>
       </div>
     </template>
   </gl-avatar-labeled>
