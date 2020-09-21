@@ -1,6 +1,6 @@
 $label-max-width: 100%;
 
-.gl-label.gl-label {
+.gl-label {
   @include gl-align-items-center;
   @include gl-bg-white;
   @include gl-overflow-hidden;
@@ -38,7 +38,7 @@ $label-max-width: 100%;
     @include str-truncated($label-max-width);
   }
 
-  .gl-label-close {
+  > .gl-label-close {
     @include gl-border-0;
     @include gl-display-flex;
     @include gl-mr-2;
@@ -80,7 +80,7 @@ $label-max-width: 100%;
   }
 }
 
-.gl-label-scoped.gl-label-scoped {
+.gl-label-scoped {
   &.gl-label-text-light {
     .gl-label-text-scoped,
     .gl-label-close {
@@ -107,7 +107,7 @@ $label-max-width: 100%;
   }
 }
 
-.gl-label-sm.gl-label-sm {
+.gl-label-sm {
   .gl-label-text,
   .gl-label-text-scoped {
     @include gl-py-0;

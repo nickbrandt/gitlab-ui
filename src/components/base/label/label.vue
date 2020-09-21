@@ -117,7 +117,8 @@ export default {
       class="gl-label-close"
       @click="$emit('close', $event)"
     >
-      <gl-icon name="close" :size="closeIconSize" />
+      <gl-icon name="close" :size="closeIconSize" aria-hidden="true" />
+      <span class="gl-sr-only">Remove label</span>
     </button>
     <gl-tooltip
       v-if="description"
