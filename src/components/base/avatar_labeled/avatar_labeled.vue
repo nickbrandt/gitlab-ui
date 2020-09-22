@@ -22,7 +22,10 @@ export default {
   <div class="gl-avatar-labeled">
     <gl-avatar v-bind="$attrs" alt v-on="$listeners" />
     <div class="gl-avatar-labeled-labels">
-      <span class="gl-avatar-labeled-label">{{ label }}</span>
+      <div class="gl-display-flex gl-flex-wrap gl-align-items-center gl-mx-n1 gl-my-n1">
+        <span class="gl-avatar-labeled-label">{{ label }}</span>
+        <slot name="meta"></slot>
+      </div>
       <span class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
     </div>
   </div>
