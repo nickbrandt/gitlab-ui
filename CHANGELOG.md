@@ -1,3 +1,10 @@
+# [21.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.4.2...v21.5.0) (2020-09-22)
+
+
+### Features
+
+* **GLAvatarLabeled:** Add slot for meta data ([95c7fcc](https://gitlab.com/gitlab-org/gitlab-ui/commit/95c7fcc1480097a60ef698d0a46136ea2c34794d))
+
 ## [21.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.4.1...v21.4.2) (2020-09-17)
 
 
