@@ -82,4 +82,25 @@ documentedStoriesOf('base|avatar/labeled', readme)
         v-gl-tooltip="{ placement }"
       />
     `,
+  }))
+  .add('with-badges', () => ({
+    props: generateProps(),
+    template: `
+      <gl-avatar-labeled
+        :shape="shape"
+        :size="size"
+        :src="src"
+        :label="label"
+        :sub-label="subLabel"
+      >
+        <template #meta>
+          <div class="gl-p-1">
+            <gl-badge class="gl-display-flex!" size="sm" variant="info">2FA</gl-badge>
+          </div>
+          <div class="gl-p-1">
+            <gl-badge class="gl-display-flex!" size="sm" variant="danger">Blocked</gl-badge>
+          </div>
+        </template>
+      </gl-avatar-labeled>
+    `,
   }));

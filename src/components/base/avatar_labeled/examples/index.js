@@ -1,5 +1,6 @@
 import AvatarLabeledExample from './avatar.labeled.example.vue';
 import AvatarLabeledTooltipExample from './avatar.labeled_tooltip.example.vue';
+import AvatarLabeledBadgesExample from './avatar.labeled_badges.example.vue';
 
 export default [
   {
@@ -16,6 +17,12 @@ export default [
         name: 'With tooltip',
         description: 'Avatar labeled with tooltip',
         component: AvatarLabeledTooltipExample,
+      },
+      {
+        id: 'avatar-labeled-badges',
+        name: 'With badges',
+        description: 'Avatar labeled with badges',
+        component: AvatarLabeledBadgesExample,
       },
     ],
   },
