@@ -639,6 +639,12 @@
   }
 }
 
+@mixin gl-sm-mb-7 {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-mb-7;
+  }
+}
+
 @mixin gl-sm-mx-0 {
   @media (min-width: $breakpoint-sm) {
     @include gl-mx-0;
