@@ -1,3 +1,10 @@
+# [21.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.5.0...v21.6.0) (2020-09-22)
+
+
+### Features
+
+* **css:** Add responsive margin to utility class ([7ce0152](https://gitlab.com/gitlab-org/gitlab-ui/commit/7ce0152fd6aad28776d6722d03317eb503ac063c))
+
 # [21.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.4.2...v21.5.0) (2020-09-22)
 
 
