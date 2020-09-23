@@ -520,6 +520,11 @@
   margin-bottom: $gl-spacing-scale-11;
 }
 
+@mixin gl-my-12 {
+  margin-top: $gl-spacing-scale-12;
+  margin-bottom: $gl-spacing-scale-12;
+}
+
 @mixin gl-mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -642,6 +647,12 @@
 @mixin gl-sm-mb-7 {
   @media (min-width: $breakpoint-sm) {
     @include gl-mb-7;
+  }
+}
+
+@mixin gl-sm-my-12 {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-my-12;
   }
 }
 
