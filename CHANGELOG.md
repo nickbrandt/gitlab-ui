@@ -1,3 +1,10 @@
+# [21.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.7.0...v21.8.0) (2020-09-23)
+
+
+### Features
+
+* **css:** add gl-sm-my-12 responsive utility class ([595255c](https://gitlab.com/gitlab-org/gitlab-ui/commit/595255c756e0be04062eb43baea84e8ad0768556))
+
 # [21.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.6.0...v21.7.0) (2020-09-23)
 
 
