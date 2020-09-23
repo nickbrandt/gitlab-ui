@@ -17,6 +17,12 @@
   align-items: stretch;
 }
 
+@mixin gl-xs-align-items-baseline {
+  @media (max-width: $breakpoint-sm) {
+    @include gl-align-items-baseline;
+  }
+}
+
 @mixin gl-md-align-items-center {
   @media (min-width: $breakpoint-md) {
     @include gl-align-items-center;
