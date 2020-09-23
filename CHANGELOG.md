@@ -1,3 +1,10 @@
+# [21.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.6.0...v21.7.0) (2020-09-23)
+
+
+### Features
+
+* **css:** Add gl-xs-align-items-baseline utility class ([932b19a](https://gitlab.com/gitlab-org/gitlab-ui/commit/932b19ada7ac13e849d247ba3cc822d684122e43))
+
 # [21.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.5.0...v21.6.0) (2020-09-22)
 
 
