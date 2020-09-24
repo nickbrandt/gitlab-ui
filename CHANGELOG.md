@@ -1,3 +1,11 @@
+## [21.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.0...v21.8.1) (2020-09-24)
+
+
+### Bug Fixes
+
+* **GlLabel:** Fix GlLabel close button ([1fa6550](https://gitlab.com/gitlab-org/gitlab-ui/commit/1fa6550f21ccb8e9909d19924d47cdb8f09d19a7))
+* **GlLabel:** Make GlLabel close button accessible ([be2e7f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/be2e7f14af21cab055f51e6bd0cb601d58713008))
+
 # [21.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.7.0...v21.8.0) (2020-09-23)
 
 
