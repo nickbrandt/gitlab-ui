@@ -6,3 +6,7 @@
 @mixin gl-list-style-none {
   list-style-type: none;
 }
+
+@mixin gl-list-style-position-inside {
+  list-style-position: inside;
+}
