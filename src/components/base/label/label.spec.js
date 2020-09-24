@@ -2,7 +2,6 @@ import { shallowMount } from '@vue/test-utils';
 import Label from './label.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
-import GlIcon from '../icon/icon.vue';
 
 // Light color
 const grey = {
@@ -41,8 +40,9 @@ describe('Label component', () => {
 
   const findLink = () => wrapper.find(GlLink);
   const findTitle = () => wrapper.find('.gl-label-text');
-  const findSubTitle = () => wrapper.findAll('.gl-label-text').at(1);
+  const findSubTitle = () => wrapper.find('.gl-label-text-scoped');
   const findTooltipText = () => wrapper.find(GlTooltip).text();
+  const findCloseButton = () => wrapper.find('button');
 
   describe('basic label', () => {
     it('renders the label title', () => {
@@ -51,38 +51,44 @@ describe('Label component', () => {
       expect(findTitle().text()).toEqual(title);
     });
 
-    it('renders the label background color', () => {
-      createComponent({ ...defaultProps });
+    it('renders a title with two colons as a basic label', () => {
+      createComponent({ ...defaultProps, title: 'scoped::label' });
 
-      expect(findTitle().attributes('style')).toContain(
-        `background-color: ${defaultProps.backgroundColor}`
-      );
+      expect(findTitle().text()).toEqual('scoped::label');
+      expect(findSubTitle().exists()).toBeFalsy();
     });
 
     it('renders a black label', () => {
       createComponent({ ...defaultProps });
 
-      expect(findTitle().classes()).toContain('gl-label-text-dark');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('renders a white label if background color is dark', () => {
       createComponent({ ...defaultProps, backgroundColor: navy.hex });
 
-      expect(findTitle().classes()).toContain('gl-label-text-light');
+      expect(wrapper.classes()).toContain('gl-label-text-light');
+    });
+
+    it('renders the label description without "Scoped label"', () => {
+      const props = { ...defaultProps, description: 'lorem ipsum' };
+
+      createComponent(props);
+
+      expect(findTooltipText()).toContain(props.description);
+      expect(findTooltipText()).not.toContain('Scoped label');
     });
 
     it('supports short hex for background color to infer text color', () => {
       createComponent({ ...defaultProps, backgroundColor: white.shorthex });
 
-      expect(findTitle().attributes('style')).toContain(`background-color: ${white.rgb}`);
-      expect(findTitle().classes()).toContain('gl-label-text-dark');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('supports rgba for background color to infer text color', () => {
       createComponent({ ...defaultProps, backgroundColor: white.rgba });
 
-      expect(findTitle().attributes('style')).toContain(`background-color: ${white.rgb}`);
-      expect(findTitle().classes()).toContain('gl-label-text-dark');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('renders the label description', () => {
@@ -90,7 +96,7 @@ describe('Label component', () => {
 
       createComponent(props);
 
-      expect(wrapper.html()).toContain(props.description);
+      expect(wrapper.text()).toContain(props.description);
     });
 
     it('links to label target', () => {
@@ -105,54 +111,25 @@ describe('Label component', () => {
       it('does not render by default', () => {
         createComponent({ ...defaultProps });
 
-        expect(wrapper.find(GlIcon).exists()).toBe(false);
+        expect(findCloseButton().exists()).toBe(false);
       });
 
-      it('renders when viewOnly is false', () => {
-        const props = { ...defaultProps, viewOnly: false };
+      it('renders when showCloseButton is true', () => {
+        const props = { ...defaultProps, showCloseButton: true };
 
         createComponent(props);
 
-        expect(wrapper.find(GlIcon).exists()).toBe(true);
-      });
-
-      it('has a dark background when text is light', () => {
-        const props = { ...defaultProps, viewOnly: false };
-
-        createComponent(props);
-
-        expect(wrapper.find(GlIcon).classes()).toContain('gl-label-close-dark');
-      });
-
-      it('has a light background when text is dark', () => {
-        const props = { ...defaultProps, viewOnly: false, backgroundColor: navy.hex };
-
-        createComponent(props);
-
-        expect(wrapper.find(GlIcon).classes()).toContain('gl-label-close-light');
+        expect(findCloseButton().exists()).toBe(true);
       });
 
       it('emits close when "x" is clicked', () => {
-        const props = { ...defaultProps, viewOnly: false };
+        const props = { ...defaultProps, showCloseButton: true };
 
         createComponent(props);
 
-        wrapper.find('[data-testid="close-button"]').trigger('click');
+        findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeTruthy();
       });
-    });
-  });
-
-  describe('basic label with scoped title', () => {
-    const props = {
-      ...defaultProps,
-      title: 'scoped::label',
-    };
-
-    it('renders title as basic label', () => {
-      createComponent({ ...props });
-
-      expect(findTitle().text()).toEqual('scoped::label');
     });
   });
 
@@ -170,40 +147,19 @@ describe('Label component', () => {
       expect(findSubTitle().text()).toEqual('label');
     });
 
-    it('renders the label background color', () => {
-      createComponent({ ...scopedProps });
-
-      expect(findTitle().attributes('style')).toContain(
-        `background-color: ${defaultProps.backgroundColor};`
-      );
-    });
-
     it('renders a black label', () => {
       createComponent({ ...scopedProps });
 
-      expect(findTitle().classes()).toContain('gl-label-text-dark');
-      expect(findSubTitle().classes()).toContain('gl-label-text-dark');
+      expect(wrapper.classes()).toContain('gl-label-text-dark');
     });
 
     it('renders a white label if background color is dark', () => {
       createComponent({ ...scopedProps, backgroundColor: navy.hex });
 
-      expect(wrapper.find('.gl-label-text').classes()).toContain('gl-label-text-light');
+      expect(wrapper.classes()).toContain('gl-label-text-light');
     });
 
-    it('renders the right side color as background color of left side if background color is dark', () => {
-      createComponent({ ...scopedProps, backgroundColor: navy.hex });
-
-      expect(findSubTitle().attributes('style')).toContain(`color: ${navy.rgb}`);
-    });
-
-    it('inherits text color from parent if background color is light', () => {
-      createComponent({ ...scopedProps, color: grey.hex });
-
-      expect(findSubTitle().classes()).toEqual(['gl-label-text', 'gl-label-text-dark']);
-    });
-
-    it('renders the label description', () => {
+    it('renders the label description with "Scoped label"', () => {
       const props = { ...scopedProps, description: 'lorem ipsum' };
 
       createComponent(props);
@@ -218,7 +174,7 @@ describe('Label component', () => {
       expect(findLink().attributes('href')).toEqual(props.target);
     });
 
-    it('supports title with multiple occurences of ::', () => {
+    it('supports title with multiple occurrences of ::', () => {
       const props = { ...scopedProps, title: 'one::two::three' };
       createComponent(props);
       expect(findTitle().text()).toEqual('one::two');
@@ -230,23 +186,14 @@ describe('Label component', () => {
         const props = { ...scopedProps };
         createComponent(props);
 
-        expect(wrapper.find(GlIcon).exists()).toBe(false);
+        expect(findCloseButton().exists()).toBe(false);
       });
 
-      it('renders when viewOnly is false', () => {
-        const props = { ...scopedProps, viewOnly: false };
+      it('renders when showCloseButton is true', () => {
+        const props = { ...scopedProps, showCloseButton: true };
         createComponent(props);
 
-        expect(wrapper.find(GlIcon).exists()).toBe(true);
-      });
-
-      it('shows backgroundColor when hovered', async () => {
-        const props = { ...scopedProps, backgroundColor: navy.rgb, viewOnly: false };
-        createComponent(props);
-        wrapper.setData({ isCloseHover: true });
-
-        await wrapper.vm.$nextTick();
-        expect(wrapper.find(GlIcon).attributes('style')).toContain(`background-color: ${navy.rgb}`);
+        expect(findCloseButton().exists()).toBe(true);
       });
     });
   });

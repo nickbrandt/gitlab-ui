@@ -13,7 +13,7 @@ const generateProps = ({
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
   scoped = false,
-  viewOnly = true,
+  showCloseButton = false,
 } = {}) => {
   const props = {
     backgroundColor: {
@@ -39,8 +39,8 @@ const generateProps = ({
     scoped: {
       default: boolean('Label is scoped', scoped),
     },
-    viewOnly: {
-      default: boolean('View Only', viewOnly),
+    showCloseButton: {
+      default: boolean('Show close button', showCloseButton),
     },
   };
 
@@ -54,7 +54,7 @@ documentedStoriesOf('base|label', readme)
     components,
     template: `
       <div class="gl-display-flex">
-        <gl-label
+      <gl-label
           :background-color="backgroundColor"
           :size="size"
           :title="title"
@@ -62,8 +62,8 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
-          :viewOnly="viewOnly"
-        />
+          :show-close-button="showCloseButton"
+      />
       </div>`,
   }))
   .add('scoped', () => ({
@@ -71,7 +71,7 @@ documentedStoriesOf('base|label', readme)
     components,
     template: `
       <div class="gl-display-flex">
-        <gl-label
+      <gl-label
           :background-color="backgroundColor"
           :size="size"
           :title="title"
@@ -79,17 +79,17 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
-          :viewOnly="viewOnly"
-        />
+          :show-close-button="showCloseButton"
+      />
       </div>
-      `,
+    `,
   }))
   .add('with close button', () => ({
-    props: generateProps({ viewOnly: false }),
+    props: generateProps({ showCloseButton: true }),
     components,
     template: `
       <div class="gl-display-flex">
-        <gl-label
+      <gl-label
           :background-color="backgroundColor"
           :size="size"
           :title="title"
@@ -97,8 +97,8 @@ documentedStoriesOf('base|label', readme)
           :tooltip-placement="tooltipPlacement"
           :target="target"
           :scoped="scoped"
-          :viewOnly="viewOnly"
-        />
+          :show-close-button="showCloseButton"
+      />
       </div>
-      `,
+    `,
   }));
