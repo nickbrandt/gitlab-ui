@@ -14,6 +14,7 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red, $gl-avatar-identicon-purple,
   @include gl-border-solid;
   @include gl-border-gray-a-08;
   @include gl-overflow-hidden;
+  @include gl-flex-shrink-0;
 }
 
 .gl-avatar-s16 {
@@ -74,7 +75,7 @@ $gl-avatar-identicon-bgs: $gl-avatar-identicon-red, $gl-avatar-identicon-purple,
   @include gl-text-gray-900;
   @include gl-display-flex;
   @include gl-justify-content-center;
-  @include gl-flex-direction-column;
+  @include gl-align-items-center;
 }
 
 // Background colors
