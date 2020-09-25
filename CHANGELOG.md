@@ -1,3 +1,10 @@
+## [21.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.1...v21.8.2) (2020-09-25)
+
+
+### Bug Fixes
+
+* **GlLabeledAvatar:** fix a few CSS issues ([3ef73f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ef73f1e9eb450cc1cb54a66f3db9c0eaba6d55b))
+
 ## [21.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.0...v21.8.1) (2020-09-24)
 
 
