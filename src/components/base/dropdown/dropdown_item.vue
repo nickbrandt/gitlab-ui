@@ -3,11 +3,13 @@ import { BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
 import { variantCssColorMap } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 import GlAvatar from '../avatar/avatar.vue';
+import GlButton from '../button/button.vue';
 
 export default {
   components: {
     GlIcon,
     GlAvatar,
+    GlButton,
   },
   inheritAttrs: false,
   props: {
@@ -60,6 +62,11 @@ export default {
       return this.isChecked || this.isCheckItem;
     },
   },
+  methods: {
+    handleClickIconRight() {
+      this.$emit('click-icon-right');
+    },
+  },
 };
 </script>
 
@@ -85,6 +92,11 @@ export default {
       <p class="gl-new-dropdown-item-text-primary"><slot></slot></p>
       <p v-if="secondaryText" class="gl-new-dropdown-item-text-secondary">{{ secondaryText }}</p>
     </div>
-    <gl-icon v-if="iconRightName" :name="iconRightName" class="gl-new-dropdown-item-icon-right" />
+    <gl-button
+      v-if="iconRightName"
+      size="small"
+      :icon="iconRightName"
+      @click.stop.prevent="handleClickIconRight"
+    />
   </component>
 </template>
