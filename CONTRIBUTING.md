@@ -5,7 +5,7 @@ Here are a few resources to guide you through contributing to GitLab UI.
 - [Adding new components](./doc/contributing/adding_components.md)
 - [Adding CSS](./doc/contributing/adding_css.md)
 - [Commit message conventions and rules](./doc/contributing/commits.md)
-- [Testing locally](./doc/contributing/local_gitlab_testing.md)
+- [GitLab integration test](./doc/contributing/gitlab_integration_test.md)
 - [Automatic components documentation](./doc/contributing/automatic_documentation.md)
 - [Documentation guidelines](./doc/contributing/documentation_guidelines.md)
 - [Breaking changes in components](./doc/contributing/breaking_changes_in_components.md)
