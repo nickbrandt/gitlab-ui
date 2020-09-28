@@ -1,3 +1,10 @@
+## [21.8.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.2...v21.8.3) (2020-09-28)
+
+
+### Bug Fixes
+
+* **buttons:** Correct style of list item action buttons ([1bbf9e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/1bbf9e4b6e7f45786b5cea2b3df885540934a164))
+
 ## [21.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.1...v21.8.2) (2020-09-25)
 
 
