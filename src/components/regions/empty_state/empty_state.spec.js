@@ -8,6 +8,7 @@ describe('empty state component', () => {
     title: 'Empty State Title',
     description: 'Empty state description.',
     svgPath: 'https://www.example.com/test.jpg',
+    svgHeight: 150,
     primaryButtonText: 'Primary Button',
     primaryButtonLink: 'http://example.com/primary',
     secondaryButtonText: 'Secondary Button',
@@ -21,6 +22,7 @@ describe('empty state component', () => {
           title: props.title,
           description: props.description,
           svgPath: props.svgPath,
+          svgHeight: props.svgHeight,
         },
       });
     });
@@ -38,6 +40,11 @@ describe('empty state component', () => {
     it('should pass through the SVG path', () => {
       const image = component.find('img');
       expect(image.attributes().src).toEqual(props.svgPath);
+    });
+
+    it('should pass through the SVG height integer', () => {
+      const image = component.find('img');
+      expect(image.attributes().height).toBe(props.svgHeight.toString());
     });
   });
 

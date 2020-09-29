@@ -11,6 +11,7 @@ const template = `
   <gl-empty-state
     :title="title"
     :svgPath="svgPath"
+    :svgHeight="svgHeight"
     :description="description"
     :primaryButtonText="primaryButtonText"
     :secondaryButtonText="secondaryButtonText"
@@ -30,6 +31,10 @@ function generateProps({ compact = false } = {}) {
       type: String,
       default:
         'https://gitlab.com/gitlab-org/gitlab-svgs/raw/master/illustrations/security-dashboard-empty-state.svg',
+    },
+    svgHeight: {
+      type: Number,
+      default: 145,
     },
     description: {
       type: String,
@@ -122,6 +127,7 @@ documentedStoriesOf('regions|empty-state', readme)
       ...generateProps({
         compact: true,
       }),
+      svgHeight: null,
       title: {
         default: 'This is a compact empty state',
       },
