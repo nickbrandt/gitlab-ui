@@ -1,3 +1,10 @@
+# [21.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.3...v21.9.0) (2020-09-29)
+
+
+### Features
+
+* **css:** Update GlFilter CSS ([ea3ccac](https://gitlab.com/gitlab-org/gitlab-ui/commit/ea3ccac52547b5cff61a38595b78fea57f5ee078))
+
 ## [21.8.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.2...v21.8.3) (2020-09-28)
 
 
