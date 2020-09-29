@@ -1,3 +1,10 @@
+# [21.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.9.0...v21.10.0) (2020-09-29)
+
+
+### Features
+
+* **GlEmptyState:** add svgHeight preventing content reflow ([8cc8ebe](https://gitlab.com/gitlab-org/gitlab-ui/commit/8cc8ebeb2edc3dc625f313bd33750cd00442e3a6))
+
 # [21.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.8.3...v21.9.0) (2020-09-29)
 
 
