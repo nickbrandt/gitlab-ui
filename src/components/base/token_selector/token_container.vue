@@ -135,7 +135,9 @@ export default {
     >
       <gl-token class="gl-cursor-default" @close="handleClose(token)">
         <slot name="token-content" :token="token">
-          {{ token.name }}
+          <span>
+            {{ token.name }}
+          </span>
         </slot>
       </gl-token>
     </div>
