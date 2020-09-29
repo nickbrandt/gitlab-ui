@@ -56,7 +56,7 @@ export default {
       return this.shouldPreventImageReflow ? this.svgHeight : null;
     },
     shouldPreventImageReflow() {
-      return Boolean(this.svgHeight) && !this.compact;
+      return Boolean(this.svgHeight);
     },
     shouldRenderPrimaryButton() {
       return Boolean(this.primaryButtonLink && this.primaryButtonText);

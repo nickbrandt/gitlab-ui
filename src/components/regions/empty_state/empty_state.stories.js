@@ -127,6 +127,7 @@ documentedStoriesOf('regions|empty-state', readme)
       ...generateProps({
         compact: true,
       }),
+      svgHeight: null,
       title: {
         default: 'This is a compact empty state',
       },
