@@ -8,6 +8,9 @@ export default {
     svgPath: {
       additionalInfo: "The illustration's URL.",
     },
+    svgHeight: {
+      additionalInfo: "The illustration's height used to prevent content reflow.",
+    },
     compact: {
       additionalInfo: 'Set to true to enable the compact layout.',
     },

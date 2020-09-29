@@ -15,6 +15,11 @@ export default {
       required: false,
       default: null,
     },
+    svgHeight: {
+      type: Number,
+      required: false,
+      default: null,
+    },
     description: {
       type: String,
       required: false,
@@ -47,6 +52,12 @@ export default {
     },
   },
   computed: {
+    height() {
+      return this.shouldPreventImageReflow ? this.svgHeight : null;
+    },
+    shouldPreventImageReflow() {
+      return Boolean(this.svgHeight);
+    },
     shouldRenderPrimaryButton() {
       return Boolean(this.primaryButtonLink && this.primaryButtonText);
     },
@@ -63,7 +74,7 @@ export default {
   <section class="row" :class="{ 'empty-state text-center': !compact }">
     <div :class="{ 'col-3 d-none d-sm-block': compact, 'col-12': !compact }">
       <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
-        <img :src="svgPath" :alt="title" class="gl-max-w-full" />
+        <img :src="svgPath" :alt="title" class="gl-max-w-full" :height="height" />
       </div>
     </div>
     <div :class="compact ? 'col-sm-9' : 'col-12'">
