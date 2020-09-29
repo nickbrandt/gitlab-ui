@@ -197,7 +197,7 @@ build_storybook:
     - build_gitlab_css
   stage: build
   script:
-    - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn storybook-static
+    - GITLAB_CSS_LINK="/gitlab-ui/gitlab.css" yarn storybook-static
     - mkdir public
     - mv storybook/* public
   artifacts:
@@ -244,7 +244,7 @@ visual_gitlab_integration:
     - build_docker_image
     - build_gitlab_css
   script:
-    - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn test:visual:gitlab
+    - GITLAB_CSS_LINK="/gitlab-ui/gitlab.css" yarn test:visual:gitlab
 
 unit_tests:
   extends: [.node, .yarn_install]
