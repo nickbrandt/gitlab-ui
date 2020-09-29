@@ -35,10 +35,6 @@
 
 .gl-token-close {
   @include gl-ml-3;
-  @include gl-text-gray-500;
+  @include gl-reset-color;
   @include gl-cursor-pointer;
-
-  &:hover {
-    @include gl-text-gray-900;
-  }
 }

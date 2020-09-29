@@ -263,7 +263,9 @@ export default {
             :class="getAdditionalSegmentClasses($options.segments.SEGMENT_DATA)"
             @mousedown="destroyByClose"
           >
-            <slot name="view" v-bind="{ inputValue }">{{ inputValue }}</slot>
+            <span class="gl-filtered-search-token-data-content">
+              <slot name="view" v-bind="{ inputValue }">{{ inputValue }}</slot>
+            </span>
           </gl-token>
         </slot>
       </template>
