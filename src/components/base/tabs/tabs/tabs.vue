@@ -32,6 +32,7 @@ export default {
   <b-tabs
     :no-nav-style="true"
     :no-fade="true"
+    :no-key-nav="true"
     :active-nav-item-class="`gl-tab-nav-item-active ${activeItemBorderClass}`"
     :content-class="[contentClass, 'gl-tab-content']"
     nav-class="gl-tabs-nav"
