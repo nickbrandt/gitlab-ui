@@ -23,6 +23,12 @@
   }
 }
 
+@mixin gl-lg-align-items-baseline {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-align-items-baseline;
+  }
+}
+
 @mixin gl-md-align-items-center {
   @media (min-width: $breakpoint-md) {
     @include gl-align-items-center;
