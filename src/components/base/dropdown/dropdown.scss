@@ -32,18 +32,41 @@
     @include gl-px-5;
   }
 
-  .dropdown-toggle::after {
+  .dropdown-toggle {
     // Remove bootstrap's dropdown caret
-    @include gl-display-none;
+    &::after {
+      @include gl-display-none;
+    }
+
+    &.gl-button {
+      @include gl-pr-3;
+    }
   }
 
-  .dropdown-toggle-split::after {
-    @include gl-border-0;
-    @include gl-content-empty;
-    @include gl-display-block;
-    @include gl-w-5;
-    @include gl-h-5;
-    @include gl-bg-chevron-down;
+  .dropdown-toggle-split {
+    &::after {
+      @include gl-border-0;
+      @include gl-content-empty;
+      @include gl-display-block;
+      @include gl-w-5;
+      @include gl-h-5;
+      @include gl-bg-chevron-down;
+    }
+
+    &.btn-success,
+    &.btn-info,
+    &.btn-warning,
+    &.btn-danger {
+      margin-left: 1px;
+
+      &::after {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    &.gl-button {
+      @include gl-px-3;
+    }
   }
 
   .gl-dropdown-toggle.btn-block {
@@ -92,9 +115,6 @@
     }
   }
 
-  .dropdown-toggle-split {
-    @include gl-px-3;
-  }
   .split-content-button {
     @include gl-px-4;
   }
