@@ -57,6 +57,10 @@
   width: 12.5%;
 }
 
+@mixin gl-w-quarter {
+  width: 25%;
+}
+
 @mixin gl-w-half {
   width: 50%;
 }
