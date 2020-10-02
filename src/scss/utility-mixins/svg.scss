@@ -26,6 +26,10 @@
   stop-color: $gray-200;
 }
 
+@mixin gl-stroke-gray-200 {
+  stroke: $gray-200;
+}
+
 @mixin gl-fill-gray-400 {
   fill: $gray-400;
 }
@@ -44,4 +48,8 @@
 
 @mixin gl-fill-green-700 {
   fill: $green-700;
+}
+
+@mixin gl-fill-transparent {
+  fill: transparent;
 }
