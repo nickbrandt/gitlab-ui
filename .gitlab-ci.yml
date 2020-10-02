@@ -240,6 +240,7 @@ visual:
 
 visual_gitlab_integration:
   extends: visual
+  allow_failure: true
   needs:
     - build_docker_image
     - build_gitlab_css
