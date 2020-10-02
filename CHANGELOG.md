@@ -1,3 +1,10 @@
+# [21.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.12.0...v21.13.0) (2020-10-02)
+
+
+### Features
+
+* **buttons:** Fix loading state styling for icon buttons ([6fe6299](https://gitlab.com/gitlab-org/gitlab-ui/commit/6fe62993de5152df3a68a46ea25d7bb100070aa4))
+
 # [21.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.11.0...v21.12.0) (2020-10-02)
 
 
