@@ -1,3 +1,17 @@
+# [21.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.10.0...v21.11.0) (2020-10-02)
+
+
+### Bug Fixes
+
+* Align button dropdown padding with designs ([d7b5789](https://gitlab.com/gitlab-org/gitlab-ui/commit/d7b578975a94ab2590e7736640cac763ca38593c))
+* provide stub for cropper ([3be7fa6](https://gitlab.com/gitlab-org/gitlab-ui/commit/3be7fa65495b93c4be40fcc178eec4c60d2630e6))
+
+
+### Features
+
+* **css:** Add gl-lg-align-items-baseline utility class ([454af43](https://gitlab.com/gitlab-org/gitlab-ui/commit/454af435e6928c7ff8e76d1801a1c2430e1ec1d8))
+* **css:** Add gl-w-quarter utility class ([dfd0500](https://gitlab.com/gitlab-org/gitlab-ui/commit/dfd050082441e8f4020a4212556452d4d931a774))
+
 # [21.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.9.0...v21.10.0) (2020-09-29)
 
 
