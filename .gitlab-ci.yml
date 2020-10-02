@@ -13,15 +13,15 @@ default:
     - gitlab-org
 
 variables:
-  PUPPETEER_VERSION: '5.2.1'
+  PUPPETEER_VERSION: "5.2.1"
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
   # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
-  SAST_DISABLE_DIND: 'true'
-  DS_DISABLE_DIND: 'true'
+  SAST_DISABLE_DIND: "true"
+  DS_DISABLE_DIND: "true"
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
-  SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
-  DS_DEFAULT_ANALYZERS: 'retire.js, gemnasium'
+  SAST_DEFAULT_ANALYZERS: "nodejs-scan, eslint"
+  DS_DEFAULT_ANALYZERS: "retire.js, gemnasium"
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -29,8 +29,8 @@ include:
   - template: License-Scanning.gitlab-ci.yml
   - template: Container-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
-  - project: 'gitlab-org/frontend/frontend-build-images'
-    file: '/semantic-release/.gitlab-ci-template.yml'
+  - project: "gitlab-org/frontend/frontend-build-images"
+    file: "/semantic-release/.gitlab-ci-template.yml"
 
 # Ensure that the scanning is only executed on MRs and master
 # This potentially can be made obsolete once:
@@ -64,18 +64,18 @@ container_scanning:
   variables:
     CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/puppeteer
     CI_APPLICATION_TAG: $PUPPETEER_VERSION
-  needs: ['build_docker_image']
+  needs: ["build_docker_image"]
   rules:
     - when: always
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
-  needs: ['build_docker_image']
+  needs: ["build_docker_image"]
 
 .node:
   image: node:12
   variables:
-    PUPPETEER_SKIP_DOWNLOAD: 'true'
+    PUPPETEER_SKIP_DOWNLOAD: "true"
 
 # This is a cache template for caching node_modules
 # As a cache key we are using a SHA of .gitlab-ci.yml and yarn.lock
@@ -122,7 +122,7 @@ build_docker_image:
   image: docker:stable
   stage: pre-build
   script:
-    - 'mkdir -p ~/.docker'
+    - "mkdir -p ~/.docker"
     - >
       echo '{"experimental": "enabled"}' > ~/.docker/config.json
     - docker info
@@ -161,7 +161,7 @@ build_gitlab_css:
 
 danger-review:
   rules:
-    - if: '$DANGER_GITLAB_API_TOKEN && $CI_MERGE_REQUEST_IID'
+    - if: "$DANGER_GITLAB_API_TOKEN && $CI_MERGE_REQUEST_IID"
       when: always
   image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
   stage: test
@@ -220,7 +220,7 @@ lint:
       || echo "No Vue component contains <style tags"
 
 generate_utility_classes:
-  extends: [.node, '.yarn_install']
+  extends: [.node, ".yarn_install"]
   needs: []
   stage: test
   script:
@@ -264,6 +264,11 @@ update_screenshots:
     - git add .
     - "git commit -m 'chore: update snapshots'"
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
+
+update_screenshots_gitlab_integration:
+  extends: [update_screenshots]
+  variables:
+    IS_GITLAB_INTEGRATION_TEST: 1
 
 review:
   rules:
