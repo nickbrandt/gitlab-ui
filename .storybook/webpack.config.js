@@ -103,5 +103,7 @@ module.exports = ({ config }) => {
     config.plugins = config.plugins.filter(plugin => plugin.constructor.name !== 'ProgressPlugin');
   }
 
+  config.plugins.push(new webpack.IgnorePlugin(/moment/, /pikaday/));
+
   return config;
 };
