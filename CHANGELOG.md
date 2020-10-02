@@ -1,3 +1,10 @@
+# [21.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.11.0...v21.12.0) (2020-10-02)
+
+
+### Features
+
+* **css:** Add utilisty css class for SVGs ([44ed317](https://gitlab.com/gitlab-org/gitlab-ui/commit/44ed317e158545fcdec67d361e02bc4e31200fcc))
+
 # [21.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.10.0...v21.11.0) (2020-10-02)
 
 
