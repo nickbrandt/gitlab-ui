@@ -37,11 +37,7 @@
     margin-bottom: -1px;
   }
 
-  .gl-button-loading-indicator {
-    @include gl-mr-2;
-  }
-
-  .gl-icon {
+  .gl-button-icon {
     @include gl-h-5;
     @include gl-w-5;
     @include gl-flex-shrink-0;
@@ -417,7 +413,7 @@
     @include gl-p-3;
     @include gl-line-height-normal;
 
-    svg {
+    .gl-button-icon {
       @include gl-mr-0;
     }
 
