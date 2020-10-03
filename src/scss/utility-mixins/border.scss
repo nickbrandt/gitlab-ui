@@ -107,6 +107,10 @@
   border-right-color: $gray-200;
 }
 
+@mixin gl-border-b-gray-10 {
+  border-bottom-color: $gray-10;
+}
+
 @mixin gl-border-b-gray-100 {
   border-bottom-color: $gray-100;
 }
