@@ -118,7 +118,7 @@ build_docker_image:
   tags:
     - gitlab-org-docker
   services:
-    - docker:19.03.0-dind
+    - docker:19.03.13-dind
   image: docker:stable
   stage: pre-build
   script:
