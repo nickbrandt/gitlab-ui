@@ -674,8 +674,34 @@
   }
 }
 
+@mixin gl-lg-ml-3 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-ml-3;
+  }
+}
+
+@mixin gl-lg-mx-3 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-mx-3;
+  }
+}
+
 @mixin gl-lg-mt-0 {
   @media (min-width: $breakpoint-lg) {
     @include gl-mt-0;
+  }
+}
+
+/**
+* Responsive padding utilities.
+*
+* naming convention: gl-{breakpoint}-p{position}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+@mixin gl-md-pr-1 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-pr-1;
   }
 }
