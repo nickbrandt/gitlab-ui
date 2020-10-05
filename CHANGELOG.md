@@ -1,3 +1,10 @@
+# [21.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.15.0...v21.16.0) (2020-10-05)
+
+
+### Features
+
+* **css:** Add gl-md-pr-1 gl-lg-ml-3 and gl-lg-mx-3 ([c2d3f1b](https://gitlab.com/gitlab-org/gitlab-ui/commit/c2d3f1bdf4ca1704714c4d56c9f1f7985d2a9fb0))
+
 # [21.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.14.0...v21.15.0) (2020-10-05)
 
 
