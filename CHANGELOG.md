@@ -1,3 +1,10 @@
+# [21.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.13.0...v21.14.0) (2020-10-05)
+
+
+### Features
+
+* **css:** Add gl-border-b-gray-10 to util mixin ([bf7d0ea](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf7d0eaf37cf97c0592c536d684b3929efadc3a9))
+
 # [21.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.12.0...v21.13.0) (2020-10-02)
 
 
