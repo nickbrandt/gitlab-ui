@@ -15,7 +15,7 @@
   border-style: solid;
 }
 
-@mixin gl-border-t-solid {
+@mixin gl-border-t-solid($hover: true) {
   border-top-style: solid;
 }
 
