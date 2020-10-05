@@ -1,3 +1,11 @@
+# [21.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.14.0...v21.15.0) (2020-10-05)
+
+
+### Features
+
+* Add `gl-text-input` Utility Class ([a36f1f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/a36f1f12c324c04935038bfe15dc96907bbcbd13))
+* **css:** Add border top hover util ([9bfb97d](https://gitlab.com/gitlab-org/gitlab-ui/commit/9bfb97d5963a79f083d8a70dab44695074086ca0))
+
 # [21.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.13.0...v21.14.0) (2020-10-05)
 
 
