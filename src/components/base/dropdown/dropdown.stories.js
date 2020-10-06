@@ -166,8 +166,10 @@ documentedStoriesOf('base|dropdown', readme)
         :block="block"
         :disabled="disabled"
       >
-        <gl-dropdown-text><gl-search-box-by-type />
-      </gl-dropdown-text>`,
+        <gl-search-box-by-type />
+        <gl-dropdown-item>First item</gl-dropdown-item>
+        <gl-dropdown-item>Second item</gl-dropdown-item>
+      </gl-dropdown>`,
     mounted() {
       clickDropdown(this);
     },

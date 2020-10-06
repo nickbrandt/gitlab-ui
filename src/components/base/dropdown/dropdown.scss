@@ -11,6 +11,10 @@
     overflow-y: auto;
     width: $gl-dropdown-width;
     max-height: $gl-max-dropdown-max-height;
+
+    .gl-search-box-by-type {
+      @include gl-m-3;
+    }
   }
 
   .dropdown-menu li {
