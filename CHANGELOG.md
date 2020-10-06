@@ -1,3 +1,10 @@
+## [21.16.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.16.0...v21.16.1) (2020-10-06)
+
+
+### Bug Fixes
+
+* from node_modules stub for cropper ([303f344](https://gitlab.com/gitlab-org/gitlab-ui/commit/303f344c6a03518eff22a324c05a96daaba7cc9b))
+
 # [21.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.15.0...v21.16.0) (2020-10-05)
 
 
