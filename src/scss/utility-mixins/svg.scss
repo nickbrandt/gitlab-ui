@@ -30,6 +30,10 @@
   stroke: $gray-200;
 }
 
+@mixin gl-stroke-blue-400 {
+  stroke: $blue-400;
+}
+
 @mixin gl-fill-gray-400 {
   fill: $gray-400;
 }
