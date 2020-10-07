@@ -1,3 +1,10 @@
+# [21.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.21.0...v21.22.0) (2020-10-07)
+
+
+### Features
+
+* **css:** Add gl-my-8 ([2ba1354](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ba135447b305ad93ba9f72727f4e2c9509bcc60))
+
 # [21.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.20.0...v21.21.0) (2020-10-07)
 
 
