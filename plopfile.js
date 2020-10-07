@@ -22,6 +22,7 @@ const commonActions = [
     type: 'add',
     path: `{{componentDirAbsolute}}/examples/index.js`,
     templateFile: `${templateFolder}/example.index.js.hbs`,
+    skipIfExists: true,
   },
   {
     type: 'append',
