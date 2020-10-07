@@ -1,3 +1,10 @@
+# [21.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.16.1...v21.17.0) (2020-10-07)
+
+
+### Features
+
+* **css:** Add gl-md-pr-2 ([2b17ad3](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b17ad3ab388e2a108f184b9504edb77dc6fb771))
+
 ## [21.16.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.16.0...v21.16.1) (2020-10-06)
 
 
