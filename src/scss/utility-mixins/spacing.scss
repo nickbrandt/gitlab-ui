@@ -510,6 +510,11 @@
   margin-bottom: $gl-spacing-scale-7;
 }
 
+@mixin gl-my-8 {
+  margin-top: $gl-spacing-scale-8;
+  margin-bottom: $gl-spacing-scale-8;
+}
+
 @mixin gl-my-9 {
   margin-top: $gl-spacing-scale-9;
   margin-bottom: $gl-spacing-scale-9;
@@ -699,6 +704,17 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+@mixin gl-sm-pr-5 {
+  @media (max-width: $breakpoint-sm) {
+    @include gl-pr-5;
+  }
+}
+
+@mixin gl-sm-pl-5 {
+  @media (max-width: $breakpoint-sm) {
+    @include gl-pl-5;
+  }
+}
 
 @mixin gl-md-pr-1 {
   @media (min-width: $breakpoint-md) {
