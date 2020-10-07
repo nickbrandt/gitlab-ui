@@ -42,6 +42,9 @@ const generateProps = ({
     showCloseButton: {
       default: boolean('Show close button', showCloseButton),
     },
+    disabled: {
+      default: boolean('Close button disabled', false),
+    },
   };
 
   return props;
@@ -63,6 +66,7 @@ documentedStoriesOf('base|label', readme)
           :target="target"
           :scoped="scoped"
           :show-close-button="showCloseButton"
+          :disabled="disabled"
       />
       </div>`,
   }))
@@ -80,6 +84,7 @@ documentedStoriesOf('base|label', readme)
           :target="target"
           :scoped="scoped"
           :show-close-button="showCloseButton"
+          :disabled="disabled"
       />
       </div>
     `,
@@ -98,6 +103,7 @@ documentedStoriesOf('base|label', readme)
           :target="target"
           :scoped="scoped"
           :show-close-button="showCloseButton"
+          :disabled="disabled"
       />
       </div>
     `,

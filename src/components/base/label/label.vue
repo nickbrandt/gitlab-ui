@@ -52,6 +52,11 @@ export default {
       required: false,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -115,6 +120,7 @@ export default {
       v-if="showCloseButton"
       type="button"
       class="gl-label-close"
+      :disabled="disabled"
       @click="$emit('close', $event)"
     >
       <gl-icon name="close" :size="closeIconSize" aria-hidden="true" />

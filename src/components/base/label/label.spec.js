@@ -130,6 +130,15 @@ describe('Label component', () => {
         findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeTruthy();
       });
+
+      it('does not emit close when "x" is clicked when disabled', () => {
+        const props = { ...defaultProps, showCloseButton: true, disabled: true };
+
+        createComponent(props);
+
+        findCloseButton().trigger('click');
+        expect(wrapper.emitted().close).toBeFalsy();
+      });
     });
   });
 
@@ -194,6 +203,24 @@ describe('Label component', () => {
         createComponent(props);
 
         expect(findCloseButton().exists()).toBe(true);
+      });
+
+      it('emits close when "x" is clicked', () => {
+        const props = { ...scopedProps, showCloseButton: true };
+
+        createComponent(props);
+
+        findCloseButton().trigger('click');
+        expect(wrapper.emitted().close).toBeTruthy();
+      });
+
+      it('does not emit close when "x" is clicked when disabled', () => {
+        const props = { ...scopedProps, showCloseButton: true, disabled: true };
+
+        createComponent(props);
+
+        findCloseButton().trigger('click');
+        expect(wrapper.emitted().close).toBeFalsy();
       });
     });
   });

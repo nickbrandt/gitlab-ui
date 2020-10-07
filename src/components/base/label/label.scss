@@ -52,6 +52,13 @@ $label-max-width: 100%;
       color: var(--label-background-color);
     }
 
+    &[disabled],
+    &[disabled]:hover {
+      @include gl-opacity-5;
+      @include gl-reset-bg;
+      @include gl-reset-color;
+    }
+
     .gl-icon {
       @include gl-p-1;
     }
@@ -83,7 +90,8 @@ $label-max-width: 100%;
 .gl-label-scoped {
   &.gl-label-text-light {
     .gl-label-text-scoped,
-    .gl-label-close {
+    .gl-label-close,
+    .gl-label-close[disabled]:hover {
       color: var(--label-background-color);
     }
   }
