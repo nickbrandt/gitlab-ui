@@ -127,6 +127,10 @@
   border-left-color: $gray-200;
 }
 
+@mixin gl-border-l-gray-500 {
+  border-left-color: $gray-500;
+}
+
 @mixin gl-border-t-blue-600 {
   border-top-color: $blue-600;
 }
