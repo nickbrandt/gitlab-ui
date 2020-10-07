@@ -1,3 +1,15 @@
+# [21.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.18.0...v21.19.0) (2020-10-07)
+
+
+### Bug Fixes
+
+* **GlDropdown:** apply proper classes for secondary category ([e2bea96](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2bea963560e6d8195c30ccf2154eb28d9133ada))
+
+
+### Features
+
+* **css:** Add utilities for CI config graph ([96566fe](https://gitlab.com/gitlab-org/gitlab-ui/commit/96566fee3e34f10e740b1c439d6e7312d6454f25))
+
 # [21.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.17.0...v21.18.0) (2020-10-07)
 
 
