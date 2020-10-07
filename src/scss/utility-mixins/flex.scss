@@ -57,6 +57,12 @@
   }
 }
 
+@mixin gl-sm-flex-direction-column {
+  @media (max-width: $breakpoint-md) {
+    @include gl-flex-direction-column;
+  }
+}
+
 @mixin gl-xs-flex-direction-column {
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
