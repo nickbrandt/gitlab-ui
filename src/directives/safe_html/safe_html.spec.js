@@ -40,6 +40,14 @@ describe('safe html directive', () => {
 
       expect(wrapper.html()).toEqual('<div><a>click here</a></div>');
     });
+
+    it('should remove any existing children', () => {
+      createComponent({
+        template: `<div v-safe-html="rawHtml">foo <i>bar</i></div>`,
+      });
+
+      expect(wrapper.html()).toEqual('<div>hello world</div>');
+    });
   });
 
   describe('advance config', () => {
