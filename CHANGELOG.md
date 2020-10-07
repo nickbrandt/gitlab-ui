@@ -1,3 +1,10 @@
+# [21.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.17.0...v21.18.0) (2020-10-07)
+
+
+### Features
+
+* **GlLabel:** Add ability to disable close button ([bb90011](https://gitlab.com/gitlab-org/gitlab-ui/commit/bb900114d263fb29e7a1c82d986977b833edebf9))
+
 # [21.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.16.1...v21.17.0) (2020-10-07)
 
 
