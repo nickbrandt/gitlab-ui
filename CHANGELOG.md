@@ -1,3 +1,15 @@
+# [21.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.19.0...v21.20.0) (2020-10-07)
+
+
+### Features
+
+* **GlDropdownForm:** implement GlDropdownForm component ([a169de0](https://gitlab.com/gitlab-org/gitlab-ui/commit/a169de00441985a375786d372fd23336ba5115b4))
+
+
+### Performance Improvements
+
+* **v-safe-html:** Avoid serialize/parse roundtrip ([eeba3f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/eeba3f0e01ae4d0ede868d14895bfc3062f11549))
+
 # [21.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.18.0...v21.19.0) (2020-10-07)
 
 
