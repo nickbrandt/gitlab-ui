@@ -1,3 +1,10 @@
+# [21.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.20.0...v21.21.0) (2020-10-07)
+
+
+### Features
+
+* **css:** Add sm flex column utility ([9105ff6](https://gitlab.com/gitlab-org/gitlab-ui/commit/9105ff62b2165e834cbdd823ea837f7ab24c46af))
+
 # [21.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.19.0...v21.20.0) (2020-10-07)
 
 
