@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 
 import GlDropdown from './dropdown.vue';
+import { newDropdownVariantOptions } from '../../../utils/constants';
 
 const DEFAULT_BTN_CLASSES = ['btn', 'btn-default', 'btn-md', 'gl-button'];
 const DEFAULT_BTN_TOGGLE_CLASSES = [
@@ -125,5 +126,16 @@ describe('new dropdown', () => {
           .sort()
       ).toEqual(expectedClasses.sort());
     });
+  });
+
+  describe('secondary category', () => {
+    it.each(Object.values(newDropdownVariantOptions))(
+      'applies %s variant class properly',
+      variant => {
+        buildWrapper({ category: 'secondary', variant });
+
+        expect(findDropdownToggle().classes()).toContain(`btn-${variant}-secondary`);
+      }
+    );
   });
 });

@@ -104,7 +104,7 @@ export default {
         {
           'gl-button': true,
           'gl-dropdown-toggle': true,
-          'btn-secondary': this.category === 'secondary',
+          [`btn-${this.variant}-secondary`]: this.category === 'secondary',
           'dropdown-icon-only': !this.text?.length && this.icon,
           'dropdown-icon-text': this.text?.length && this.icon,
         },
