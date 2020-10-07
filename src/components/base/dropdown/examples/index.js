@@ -7,6 +7,7 @@ import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
 import DropdownWithIcons from './dropdown.with_icons.example.vue';
 import DropdownWithSectionHeadersExample from './dropdown.with_section_headers.example.vue';
 import DropdownWithSearchExample from './dropdown.with_search.example.vue';
+import DropdownWithFormExample from './dropdown.with_form.example.vue';
 
 export default [
   {
@@ -65,6 +66,12 @@ export default [
         name: 'With Icons',
         description: 'Dropdown with icons',
         component: DropdownWithIcons,
+      },
+      {
+        id: 'new-dropdown-with-form',
+        name: 'With Form',
+        description: 'Dropdown with form',
+        component: DropdownWithFormExample,
       },
     ],
   },

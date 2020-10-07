@@ -14,6 +14,7 @@ import {
   GlDropdownSectionHeader,
   GlDropdownItem,
   GlDropdownText,
+  GlDropdownForm,
 } from '../../../../index';
 
 const components = {
@@ -24,6 +25,7 @@ const components = {
   GlDropdownSectionHeader,
   GlDropdownItem,
   GlDropdownText,
+  GlDropdownForm,
 };
 
 function addClass(component) {
@@ -120,6 +122,19 @@ documentedStoriesOf('base|dropdown', readme)
     },
     updated() {
       addClass(this);
+    },
+  }))
+  .add('with form', () => ({
+    props: generateProps(),
+    components,
+    template: wrap`
+      <gl-dropdown-form>
+        <gl-button>One</gl-button>
+        <gl-button>Two</gl-button>
+        <gl-button>Three</gl-button>
+      </gl-dropdown-form>`,
+    mounted() {
+      clickDropdown(this);
     },
   }))
   .add('with divider', () => ({
