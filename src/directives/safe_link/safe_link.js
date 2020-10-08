@@ -24,7 +24,7 @@ const secureRel = rel => {
 const isSafeURL = url => {
   try {
     const parsedURL = new URL(url, getBaseURL());
-    return ['http:', 'https:', 'mailto:', 'ftp:'].includes(parsedURL.protocol);
+    return ['http:', 'https:', 'mailto:', 'ftp:', 'blob:'].includes(parsedURL.protocol);
   } catch (e) {
     return false;
   }

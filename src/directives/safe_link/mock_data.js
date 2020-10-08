@@ -6,6 +6,7 @@ export const absoluteUrls = [
   'https://192.168.1.1',
   'ftp://192.168.1.1',
   'mailto:someone@example.com',
+  'blob:http://127.0.0.1:3000/048c7ac1-98de-4a37-ab1b-0206d0ea7e1b',
 ];
 
 /* eslint-disable no-script-url */
@@ -13,6 +14,7 @@ export const javascriptUrls = [
   'javascript:',
   'javascript:alert("XSS")',
   'jav\tascript:alert("XSS");',
+  "data:text/html,<script>alert('XSS');</script>",
 ];
 /* eslint-disable no-script-url */
 
