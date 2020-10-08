@@ -1,3 +1,10 @@
+# [21.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.23.0...v21.24.0) (2020-10-08)
+
+
+### Features
+
+* **css:** Add gl-display-sm-inline-flex class ([6b0910a](https://gitlab.com/gitlab-org/gitlab-ui/commit/6b0910ac78f808f714d036280a6a0dd08c179b38))
+
 # [21.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.22.0...v21.23.0) (2020-10-08)
 
 
