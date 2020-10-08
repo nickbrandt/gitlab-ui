@@ -65,4 +65,20 @@ documentedStoriesOf('base|datepicker', readme)
         <gl-datepicker v-model="value" target=".dropdown-menu-toggle" :container="null" />
       </div>
     `,
+  }))
+  .add('with clear button', () => ({
+    props: generateProps(),
+    components: {
+      GlDatepicker,
+    },
+    mixins: [useFakeDate()],
+    data() {
+      return {
+        value: defaultDate,
+      };
+    },
+    template: `
+      <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="value">
+      </gl-datepicker>
+    `,
   }));

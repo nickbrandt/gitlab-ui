@@ -1,4 +1,3 @@
-import { nextTick } from 'vue';
 import Pikaday from 'pikaday';
 import { mount, shallowMount } from '@vue/test-utils';
 import GlDatepicker from './datepicker.vue';
@@ -12,6 +11,9 @@ describe('datepicker component', () => {
   };
   const pikadayConfig = () => Pikaday.mock.calls[0][0];
   const currentDate = new Date(2018, 0, 1);
+
+  const findInput = wrapper => wrapper.find('[data-testid="gl-datepicker-input"]');
+  const findClearButton = wrapper => wrapper.find('[data-testid="clear-button"]');
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -49,14 +51,9 @@ describe('datepicker component', () => {
     it('sets calendar icon as `trigger` option', () => {
       const wrapper = mountWithOptions();
 
-      expect(pikadayConfig()).toMatchObject({
-        trigger: wrapper.vm.$refs.calendarTriggerBtn,
-      });
-      return nextTick().then(() => {
-        expect(wrapper.find({ ref: 'calendarTriggerBtn' }).classes()).not.toContain(
-          'gl-pointer-events-none'
-        );
-      });
+      expect(wrapper.vm.$refs.calendarTriggerBtn.$el.isSameNode(pikadayConfig().trigger)).toBe(
+        true
+      );
     });
   });
 
@@ -65,14 +62,16 @@ describe('datepicker component', () => {
       // This will cause the calendar to open when the `field` is focused
       // https://github.com/Pikaday/Pikaday#configuration
 
-      const wrapper = mountWithOptions({ propsData: { target: null } });
+      mountWithOptions({ propsData: { target: null } });
 
       expect(pikadayConfig()).not.toHaveProperty('trigger');
-      return nextTick().then(() => {
-        expect(wrapper.find({ ref: 'calendarTriggerBtn' }).classes()).toContain(
-          'gl-pointer-events-none'
-        );
-      });
+    });
+
+    it('renders a svg icon instead of a button', () => {
+      const wrapper = mountWithOptions({ shallow: false, propsData: { target: null } });
+
+      expect(wrapper.find({ ref: 'calendarTriggerBtn' }).exists()).toBe(false);
+      expect(wrapper.find('[data-testid="calendar-icon"]').exists()).toBe(true);
     });
   });
 
@@ -91,6 +90,59 @@ describe('datepicker component', () => {
       });
 
       expect(pikadayConfig()).not.toHaveProperty('container');
+    });
+  });
+
+  describe('when `showClearButton` prop is `true`', () => {
+    describe('when text input has a value', () => {
+      let wrapper;
+      let clearButton;
+      let input;
+
+      beforeEach(async () => {
+        wrapper = mountWithOptions({
+          shallow: false,
+          propsData: { showClearButton: true },
+        });
+
+        input = findInput(wrapper);
+        await input.setValue('2020-01-15');
+
+        clearButton = findClearButton(wrapper);
+      });
+
+      afterEach(() => {
+        wrapper.destroy();
+      });
+
+      it('renders clear button', () => {
+        expect(clearButton.exists()).toBe(true);
+      });
+
+      describe('when clear button is clicked', () => {
+        beforeEach(() => {
+          clearButton.trigger('click');
+        });
+
+        it('clears the input', () => {
+          expect(input.element.value).toBe('');
+        });
+
+        it('emits the `clear` event', () => {
+          expect(wrapper.emitted('clear')).toBeTruthy();
+        });
+      });
+    });
+
+    describe('when text input does not have a value', () => {
+      it('does not render clear button', () => {
+        const wrapper = mountWithOptions({
+          shallow: false,
+          propsData: { showClearButton: true },
+        });
+
+        expect(findClearButton(wrapper).exists()).toBe(false);
+      });
     });
   });
 
@@ -119,7 +171,7 @@ describe('datepicker component', () => {
             value: currentDate,
           },
         });
-        wrapper.find('.gl-datepicker-input').trigger('keydown', 'Enter');
+        findInput(wrapper).trigger('keydown', 'Enter');
         expect(wrapper.emitted('input')).toBe(undefined);
       });
     });
@@ -137,7 +189,7 @@ describe('datepicker component', () => {
           },
         });
 
-        wrapper.find('.gl-datepicker-input').trigger('keydown', { key: 'Enter' });
+        findInput(wrapper).trigger('keydown', { key: 'Enter' });
         expect(wrapper.emitted('input')).toHaveLength(1);
         expect(wrapper.emitted('input')[0]).toEqual([minDate]);
       });
