@@ -1,3 +1,10 @@
+# [21.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.24.0...v21.25.0) (2020-10-08)
+
+
+### Features
+
+* Add initial gitpod configuration files ([090eee0](https://gitlab.com/gitlab-org/gitlab-ui/commit/090eee0b0c4a3e306658e627db3ca7713e65ee98))
+
 # [21.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.23.0...v21.24.0) (2020-10-08)
 
 
