@@ -45,9 +45,15 @@
   display: inline-flex;
 }
 
+@mixin gl-display-sm-inline-flex {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-display-inline-flex;
+  }
+}
+
 @mixin gl-display-lg-inline-flex {
   @media (min-width: $breakpoint-lg) {
-    display: inline-flex;
+    @include gl-display-inline-flex;
   }
 }
 
