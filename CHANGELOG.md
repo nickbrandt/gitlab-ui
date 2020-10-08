@@ -1,3 +1,10 @@
+# [21.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.22.0...v21.23.0) (2020-10-08)
+
+
+### Features
+
+* **GlDatepicker:** add clear button ([252fb33](https://gitlab.com/gitlab-org/gitlab-ui/commit/252fb33e5a07d0913ddc3a8d489a43973d3fed46))
+
 # [21.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.21.0...v21.22.0) (2020-10-07)
 
 
