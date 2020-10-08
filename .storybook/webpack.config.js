@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const { styles } = require('@ckeditor/ckeditor5-dev-utils');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const sassLoaderOptions = {
   includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
@@ -15,6 +17,33 @@ module.exports = ({ config }) => {
     {
       test: /\.example\.vue$/,
       loader: 'raw-loader',
+    },
+    {
+      test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+      loader: 'raw-loader',
+    },
+    {
+      test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+      use: [
+        {
+          loader: 'style-loader',
+          options: {
+            injectType: 'singletonStyleTag',
+            attributes: {
+              'data-cke': true,
+            },
+          },
+        },
+        {
+          loader: 'postcss-loader',
+          options: styles.getPostCssConfig({
+            themeImporter: {
+              themePath: require.resolve('@ckeditor/ckeditor5-theme-lark'),
+            },
+            minify: true,
+          }),
+        },
+      ],
     },
     {
       /*
@@ -32,7 +61,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /\.s?css$/,
-      exclude: /typescale\/\w+_demo\.scss$/, // skip typescale demo stylesheets
+      exclude: /(typescale\/\w+_demo\.scss|ckeditor5-.*)$/, // skip typescale demo stylesheets
       loaders: [
         {
           loader: 'style-loader',
@@ -80,10 +109,12 @@ module.exports = ({ config }) => {
     new webpack.EnvironmentPlugin({
       IS_GITLAB_INTEGRATION_TEST: false,
       IS_VISUAL_TEST: false,
-    })
+    }),
   );
 
-  config.resolve.extensions = ['.css', ...config.resolve.extensions];
+  if(process.env.WEBPACK_REPORT) {
+    config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }));
+  }
 
   config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
 
