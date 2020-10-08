@@ -3,6 +3,7 @@ import Pikaday from 'pikaday';
 import { isString } from 'lodash';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
+import GlButton from '../button/button.vue';
 import { areDatesEqual } from '../../../utils/datetime_utility';
 import { defaultDateFormat } from '../../../utils/constants';
 
@@ -41,6 +42,7 @@ export default {
   components: {
     GlFormInput,
     GlIcon,
+    GlButton,
   },
   props: {
     target: {
@@ -118,6 +120,11 @@ export default {
       required: false,
       default: '',
     },
+    showClearButton: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -137,6 +144,9 @@ export default {
     },
     showDefaultField() {
       return !this.customTrigger || this.triggerOnFocus;
+    },
+    renderClearButton() {
+      return this.showClearButton && this.textInput !== '';
     },
   },
   watch: {
@@ -189,7 +199,7 @@ export default {
     if (!this.triggerOnFocus) {
       const trigger = this.customTrigger
         ? $parentEl.querySelector(this.target)
-        : this.$refs.calendarTriggerBtn;
+        : this.$refs.calendarTriggerBtn.$el;
       pikadayConfig.trigger = trigger;
 
       // Set `trigger` as the `field` if `field` element doesn't exist (not passed via the slot)
@@ -227,6 +237,10 @@ export default {
     opened() {
       this.$emit('open');
     },
+    cleared() {
+      this.textInput = '';
+      this.$emit('clear');
+    },
     draw() {
       this.$emit('monthChange');
     },
@@ -247,18 +261,38 @@ export default {
       <slot :formatted-date="formattedDate">
         <gl-form-input
           v-model="textInput"
+          data-testid="gl-datepicker-input"
           class="gl-datepicker-input"
+          :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
           :value="formattedDate"
           :placeholder="format"
           @keydown.enter="onKeydown"
         />
       </slot>
-      <span
-        ref="calendarTriggerBtn"
-        :class="['gl-datepicker-trigger', { 'gl-pointer-events-none': triggerOnFocus }]"
-      >
-        <gl-icon name="calendar" :size="16" />
-      </span>
+      <div class="gl-datepicker-actions">
+        <gl-button
+          v-if="renderClearButton"
+          data-testid="clear-button"
+          class="gl-pointer-events-auto"
+          aria-label="Clear date"
+          category="tertiary"
+          size="small"
+          icon="clear"
+          @click="cleared"
+        />
+        <span v-if="triggerOnFocus" class="gl-px-1 gl-text-gray-500">
+          <gl-icon class="gl-display-block" name="calendar" :size="16" />
+        </span>
+        <gl-button
+          v-else
+          ref="calendarTriggerBtn"
+          class="gl-pointer-events-auto"
+          aria-label="Open datepicker"
+          category="tertiary"
+          size="small"
+          icon="calendar"
+        />
+      </div>
     </div>
     <slot v-else :formatted-date="formattedDate"> </slot>
   </div>

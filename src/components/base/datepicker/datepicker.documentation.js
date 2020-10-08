@@ -41,6 +41,10 @@ export default {
       event: 'draw',
       description: 'Emitted when the datepicker draws a new month.',
     },
+    {
+      event: 'clear',
+      description: 'Emitted when the clear button is clicked.',
+    },
   ],
   slots: [
     {

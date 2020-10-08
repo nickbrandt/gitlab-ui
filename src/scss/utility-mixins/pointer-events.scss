@@ -6,3 +6,7 @@
 @mixin gl-pointer-events-none {
   pointer-events: none;
 }
+
+@mixin gl-pointer-events-auto {
+  pointer-events: auto;
+}

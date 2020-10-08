@@ -7,18 +7,17 @@ $gl-datepicker-width: $grid-size * 30;
   width: $gl-datepicker-width;
 }
 
-.gl-datepicker-trigger {
+.gl-datepicker-actions {
   @include gl-font-sm;
-  @include gl-cursor-pointer;
   @include gl-absolute;
   @include gl-top-0;
   @include gl-bottom-0;
   @include gl-right-0;
-  @include gl-px-3;
   @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-align-items-center;
-  @include gl-text-gray-400;
+  @include gl-pointer-events-none;
+  @include gl-px-2;
 }
 
 .gl-datepicker-theme {
