@@ -109,10 +109,10 @@ module.exports = ({ config }) => {
     new webpack.EnvironmentPlugin({
       IS_GITLAB_INTEGRATION_TEST: false,
       IS_VISUAL_TEST: false,
-    }),
+    })
   );
 
-  if(process.env.WEBPACK_REPORT) {
+  if (process.env.WEBPACK_REPORT) {
     config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }));
   }
 
