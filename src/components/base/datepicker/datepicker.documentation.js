@@ -17,6 +17,10 @@ export default {
       additionalInfo:
         'Accepts a function that accepts a date as argument and returns true if the date is disabled.',
     },
+    autocomplete: {
+      additionalInfo:
+        'Defaults to `off` when datepicker opens on focus, otherwise defaults to `null`.',
+    },
   },
   events: [
     {

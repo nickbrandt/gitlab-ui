@@ -95,6 +95,16 @@ export default {
       required: false,
       default: '',
     },
+    placeholder: {
+      type: String,
+      required: false,
+      default: defaultDateFormat,
+    },
+    autocomplete: {
+      type: String,
+      required: false,
+      default: '',
+    },
     displayField: {
       type: Boolean,
       required: false,
@@ -128,7 +138,6 @@ export default {
   },
   data() {
     return {
-      format: defaultDateFormat,
       textInput: '',
     };
   },
@@ -147,6 +156,17 @@ export default {
     },
     renderClearButton() {
       return this.showClearButton && this.textInput !== '';
+    },
+    inputAutocomplete() {
+      if (this.autocomplete !== '') {
+        return this.autocomplete;
+      }
+
+      if (this.triggerOnFocus) {
+        return 'off';
+      }
+
+      return null;
     },
   },
   watch: {
@@ -181,7 +201,7 @@ export default {
       minDate: this.minDate,
       maxDate: this.maxDate,
       // Only supports default gitlab format YYYY-MM-DD. We have to decide if we want to support other formats.
-      format: this.format,
+      format: defaultDateFormat,
       disableDayFn: this.disableDayFn,
       firstDay: this.firstDay,
       arialLabel: this.ariaLabel,
@@ -265,7 +285,8 @@ export default {
           class="gl-datepicker-input"
           :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
           :value="formattedDate"
-          :placeholder="format"
+          :placeholder="placeholder"
+          :autocomplete="inputAutocomplete"
           @keydown.enter="onKeydown"
         />
       </slot>
