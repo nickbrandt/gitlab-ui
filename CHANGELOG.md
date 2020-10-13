@@ -1,3 +1,10 @@
+# [21.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.26.0...v21.27.0) (2020-10-13)
+
+
+### Features
+
+* **GlDatepicker:** add `placeholder` and `autocomplete` props ([6d6d6b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d6d6b9313ee35efc692dd3b1915a5d0e440bc92))
+
 # [21.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.25.0...v21.26.0) (2020-10-13)
 
 
