@@ -104,3 +104,16 @@ export function focusFirstFocusableElement(elts) {
 
   if (focusableElt) focusableElt.focus();
 }
+
+/**
+ * Prints a warning message to the console
+ * @param {string} message An array of element to potentially focus
+ */
+export function deprecationWarning(message = '') {
+  if (message.length) {
+    if (!['test', 'production'].includes(process.env.NODE_ENV)) {
+      /* eslint-disable-next-line no-console */
+      console.warn(message);
+    }
+  }
+}

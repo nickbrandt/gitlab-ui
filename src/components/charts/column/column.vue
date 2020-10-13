@@ -7,8 +7,10 @@ import defaultChartOptions, {
   dataZoomAdjustments,
   mergeSeriesToOptions,
   getDefaultTooltipContent,
+  generateBarSeries,
+  generateLineSeries,
 } from '../../../utils/charts/config';
-import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
+import { hexToRgba, debounceByAnimationFrame, deprecationWarning } from '../../../utils/utils';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
@@ -24,7 +26,18 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true,
+      required: false,
+      default: () => ({}),
+    },
+    bars: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    lines: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     option: {
       type: Object,
@@ -59,10 +72,9 @@ export default {
     };
   },
   computed: {
-    series() {
+    dataSeries() {
       return Object.keys(this.data).map((key, index) => {
         const barColor = colorFromDefaultPalette(index);
-
         return {
           name: key,
           data: this.data[key],
@@ -82,6 +94,22 @@ export default {
           barMaxWidth: '50%',
         };
       });
+    },
+    barSeries() {
+      return this.bars.map(({ name, data }, index) => {
+        const color = colorFromDefaultPalette(index);
+        return generateBarSeries({ stack: this.groupBy, name, data, color });
+      });
+    },
+    lineSeries() {
+      const offset = this.bars.length;
+      return this.lines.map(({ name, data }, index) => {
+        const color = colorFromDefaultPalette(offset + index);
+        return generateLineSeries({ name, data, color });
+      });
+    },
+    series() {
+      return [...this.dataSeries, ...this.barSeries, ...this.lineSeries];
     },
     options() {
       const mergedOptions = merge(
@@ -139,6 +167,12 @@ export default {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     onCreated(chart) {
+      if (Object.keys(this.data).length) {
+        /* eslint-disable-next-line no-console */
+        deprecationWarning(
+          'The `data` prop is deprecated for the Column Chart. Please use the `bars` prop instead. See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1703#note_417946072 for more information.'
+        );
+      }
       chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
       chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
       this.chart = chart;

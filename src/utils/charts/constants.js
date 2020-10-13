@@ -59,3 +59,7 @@ export const LEGEND_MAX_TEXT = 'Max';
  * https://gitlab.com/gitlab-org/gitlab-svgs/-/issues/118
  */
 export const arrowSymbol = 'path://m5 229 5 8h-10z';
+
+// Constants for the type property of charts
+export const CHART_TYPE_BAR = 'bar';
+export const CHART_TYPE_LINE = 'line';

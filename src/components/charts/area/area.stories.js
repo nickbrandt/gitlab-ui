@@ -5,7 +5,7 @@ import { GlAreaChart } from '../../../../charts';
 import readme from './area.md';
 import { blue500 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { generateTimeSeries } from '../../../utils/data_utils';
-import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/data';
+import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';

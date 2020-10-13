@@ -1,0 +1,289 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`column chart component should correctly render the chart 1`] = `
+Object {
+  "grid": Object {
+    "bottom": 44,
+    "left": 64,
+    "right": 32,
+    "top": 16,
+  },
+  "legend": Object {
+    "show": false,
+  },
+  "series": Array [
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        Array [
+          "Joe",
+          1220,
+        ],
+        Array [
+          "Sarah",
+          932,
+        ],
+        Array [
+          "Tom",
+          901,
+        ],
+        Array [
+          "Mary",
+          934,
+        ],
+        Array [
+          "Mike",
+          1290,
+        ],
+        Array [
+          "Ben",
+          1330,
+        ],
+        Array [
+          "Jane",
+          1320,
+        ],
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(87, 114, 255, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#5772ff",
+        "barBorderWidth": 1,
+        "color": "rgba(87, 114, 255, 0.2)",
+      },
+      "name": "Full",
+      "stack": "stacked",
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+  ],
+  "xAxis": Object {
+    "axisLabel": Object {
+      "margin": 20,
+      "verticalAlign": "bottom",
+    },
+    "axisLine": Object {
+      "show": false,
+    },
+    "axisPointer": Object {
+      "label": Object {
+        "formatter": [Function],
+      },
+      "show": true,
+      "type": "none",
+    },
+    "boundaryGap": true,
+    "name": "x axis",
+    "nameLocation": "center",
+    "splitLine": Object {
+      "show": false,
+    },
+    "type": "category",
+  },
+  "yAxis": Object {
+    "axisLabel": Object {
+      "formatter": [Function],
+    },
+    "axisTick": Object {
+      "show": false,
+    },
+    "name": "y axis",
+    "nameGap": 50,
+    "nameLocation": "center",
+    "type": "value",
+  },
+}
+`;
+
+exports[`column chart component with a \`data\` prop provided should correctly render the chart 1`] = `
+Object {
+  "grid": Object {
+    "bottom": 44,
+    "left": 64,
+    "right": 32,
+    "top": 16,
+  },
+  "legend": Object {
+    "show": false,
+  },
+  "series": Array [
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        Array [
+          "Mon",
+          1220,
+        ],
+        Array [
+          "Tue",
+          932,
+        ],
+        Array [
+          "Wed",
+          901,
+        ],
+        Array [
+          "Thu",
+          934,
+        ],
+        Array [
+          "Fri",
+          1290,
+        ],
+        Array [
+          "Sat",
+          1330,
+        ],
+        Array [
+          "Sun",
+          1320,
+        ],
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(87, 114, 255, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#5772ff",
+        "barBorderWidth": 1,
+        "color": "rgba(87, 114, 255, 0.2)",
+      },
+      "large": true,
+      "largeThreshold": 300,
+      "name": "Data object",
+      "type": "bar",
+    },
+  ],
+  "xAxis": Object {
+    "axisLabel": Object {
+      "margin": 20,
+      "verticalAlign": "bottom",
+    },
+    "axisLine": Object {
+      "show": false,
+    },
+    "axisPointer": Object {
+      "label": Object {
+        "formatter": [Function],
+      },
+      "show": true,
+      "type": "none",
+    },
+    "boundaryGap": true,
+    "name": "x axis",
+    "nameLocation": "center",
+    "splitLine": Object {
+      "show": false,
+    },
+    "type": "category",
+  },
+  "yAxis": Object {
+    "axisLabel": Object {
+      "formatter": [Function],
+    },
+    "axisTick": Object {
+      "show": false,
+    },
+    "name": "y axis",
+    "nameGap": 50,
+    "nameLocation": "center",
+    "type": "value",
+  },
+}
+`;
+
+exports[`column chart component with line data provided should correctly render the chart 1`] = `
+Object {
+  "grid": Object {
+    "bottom": 44,
+    "left": 64,
+    "right": 32,
+    "top": 16,
+  },
+  "legend": Object {
+    "show": false,
+  },
+  "series": Array [
+    Object {
+      "data": Array [
+        Array [
+          "Joe",
+          1120,
+        ],
+        Array [
+          "Sarah",
+          732,
+        ],
+        Array [
+          "Tom",
+          501,
+        ],
+        Array [
+          "Mary",
+          634,
+        ],
+        Array [
+          "Mike",
+          290,
+        ],
+        Array [
+          "Ben",
+          130,
+        ],
+        Array [
+          "Jane",
+          120,
+        ],
+      ],
+      "itemStyle": Object {
+        "color": "#5772ff",
+      },
+      "lineStyle": Object {
+        "color": "#5772ff",
+      },
+      "name": "Median line",
+      "type": "line",
+      "yAxisIndex": 0,
+    },
+  ],
+  "xAxis": Object {
+    "axisLabel": Object {
+      "margin": 20,
+      "verticalAlign": "bottom",
+    },
+    "axisLine": Object {
+      "show": false,
+    },
+    "axisPointer": Object {
+      "label": Object {
+        "formatter": [Function],
+      },
+      "show": true,
+      "type": "none",
+    },
+    "boundaryGap": true,
+    "name": "x axis",
+    "nameLocation": "center",
+    "splitLine": Object {
+      "show": false,
+    },
+    "type": "category",
+  },
+  "yAxis": Object {
+    "axisLabel": Object {
+      "formatter": [Function],
+    },
+    "axisTick": Object {
+      "show": false,
+    },
+    "name": "y axis",
+    "nameGap": 50,
+    "nameLocation": "center",
+    "type": "value",
+  },
+}
+`;

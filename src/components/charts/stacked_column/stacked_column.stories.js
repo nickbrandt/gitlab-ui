@@ -5,6 +5,10 @@ import readme from './stacked_column.md';
 import { columnOptions } from '../../../utils/constants';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
+import {
+  mockDefaultStackedLineData,
+  mockDefaultStackedBarData,
+} from '../../../utils/charts/mock_data';
 
 const components = {
   GlStackedColumnChart,
@@ -12,35 +16,33 @@ const components = {
 
 const template = `
   <gl-stacked-column-chart
-    :data="data"
+    :bars="bars"
+    :lines="lines"
     :option="option"
     :presentation="presentation"
     :group-by="groupBy"
     :x-axis-type="xAxisType"
     :x-axis-title="xAxisTitle"
     :y-axis-title="yAxisTitle"
-    :series-names="seriesNames"
   />
 `;
 
 function generateProps({
-  data = [
-    [58, 49, 38, 23, 27, 68, 38, 35, 7, 64, 65, 31],
-    [8, 6, 34, 19, 9, 7, 17, 25, 14, 7, 10, 32],
-    [67, 60, 66, 32, 61, 54, 13, 50, 16, 11, 47, 28],
-    [8, 9, 5, 40, 13, 19, 58, 21, 47, 59, 23, 46],
-  ],
+  bars = mockDefaultStackedBarData,
+  lines = [],
   option = {},
   groupBy = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   xAxisType = 'category',
   xAxisTitle = 'January - December 2018',
   yAxisTitle = 'Commits',
-  seriesNames = ['Fun 1', 'Fun 2', 'Fun 3', 'Fun 4'],
   presentation = columnOptions.stacked,
 } = {}) {
   return {
-    data: {
-      default: object('Chart Data', data),
+    bars: {
+      default: object('Bar chart Data', bars),
+    },
+    lines: {
+      default: object('Line chart Data', lines),
     },
     option: {
       default: object('Echart Options', option),
@@ -51,6 +53,7 @@ function generateProps({
     groupBy: {
       default: array('Group By', groupBy),
     },
+
     xAxisType: {
       default: text('X Axis Type', xAxisType),
     },
@@ -59,9 +62,6 @@ function generateProps({
     },
     yAxisTitle: {
       default: text('Y Axis Title', yAxisTitle),
-    },
-    seriesNames: {
-      default: array('Series Names', seriesNames),
     },
   };
 }
@@ -75,6 +75,16 @@ documentedStoriesOf('charts|stacked-column-chart', readme)
   }))
   .add('tiled', () => ({
     props: generateProps({ presentation: columnOptions.tiled }),
+    components,
+    template,
+  }))
+  .add('stacked with line data', () => ({
+    props: generateProps({ lines: mockDefaultStackedLineData }),
+    components,
+    template,
+  }))
+  .add('tiled with line data', () => ({
+    props: generateProps({ presentation: columnOptions.tiled, lines: mockDefaultStackedLineData }),
     components,
     template,
   }))

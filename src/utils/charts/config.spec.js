@@ -5,8 +5,18 @@ import {
   getThresholdConfig,
   mergeSeriesToOptions,
   parseAnnotations,
+  generateBarSeries,
+  generateLineSeries,
 } from './config';
-import { defaultDataZoomConfig, defaultChartOptions } from './data';
+import {
+  mockDefaultDataZoomConfig,
+  mockDefaultChartOptions,
+  mockDefaultStackedBarData,
+  mockDefaultLineData,
+} from './mock_data';
+import { colorFromDefaultPalette } from './theme';
+import { columnOptions } from '../constants';
+import { hexToRgba } from '../utils';
 
 describe('chart config helpers', () => {
   describe('getThresholdConfig', () => {
@@ -179,7 +189,7 @@ describe('chart config helpers', () => {
     describe('on large viewports (lg, xl)', () => {
       it('creates a basic dataZoomConfig with inside scrolling being disabled', () => {
         const actual = getDataZoomConfig();
-        const expected = defaultDataZoomConfig;
+        const expected = mockDefaultDataZoomConfig;
 
         expect(actual).toEqual(expected);
       });
@@ -203,7 +213,7 @@ describe('chart config helpers', () => {
             disabled: false,
           },
         ];
-        const expected = merge(defaultDataZoomConfig, {
+        const expected = merge(mockDefaultDataZoomConfig, {
           dataZoom: dataZoomWithInsideEnabled,
         });
 
@@ -229,7 +239,7 @@ describe('chart config helpers', () => {
           disabled: true,
         },
       ];
-      const expected = merge(defaultDataZoomConfig, {
+      const expected = merge(mockDefaultDataZoomConfig, {
         dataZoom: dataZoomWithFilter,
       });
 
@@ -263,17 +273,17 @@ describe('chart config helpers', () => {
 
     it('create chart options with invalid series props', () => {
       const chartOptionsOutput = {
-        ...defaultChartOptions,
+        ...mockDefaultChartOptions,
         series: [],
       };
-      expect(mergeSeriesToOptions(defaultChartOptions)).toEqual(chartOptionsOutput);
-      expect(mergeSeriesToOptions(defaultChartOptions, [])).toEqual(chartOptionsOutput);
+      expect(mergeSeriesToOptions(mockDefaultChartOptions)).toEqual(chartOptionsOutput);
+      expect(mergeSeriesToOptions(mockDefaultChartOptions, [])).toEqual(chartOptionsOutput);
     });
 
     it('creates chart options with single series object passed as data prop', () => {
       // data for chart can also be passed as a data prop which is transformed to series
       const chartOptions = mergeSeriesToOptions({
-        ...defaultChartOptions,
+        ...mockDefaultChartOptions,
         series,
       });
 
@@ -283,7 +293,7 @@ describe('chart config helpers', () => {
 
     it('creates chart options with single series array passed as data prop', () => {
       const chartOptions = mergeSeriesToOptions({
-        ...defaultChartOptions,
+        ...mockDefaultChartOptions,
         series: [series],
       });
 
@@ -293,7 +303,7 @@ describe('chart config helpers', () => {
 
     it('creates chart options with multiple series array passed as data prop', () => {
       const chartOptions = mergeSeriesToOptions({
-        ...defaultChartOptions,
+        ...mockDefaultChartOptions,
         series: [series, series],
       });
 
@@ -302,24 +312,74 @@ describe('chart config helpers', () => {
     });
 
     it('creates chart options with single series object passed as series prop', () => {
-      const chartOptions = mergeSeriesToOptions(defaultChartOptions, series);
+      const chartOptions = mergeSeriesToOptions(mockDefaultChartOptions, series);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(1);
     });
 
     it('creates chart options with single series array passed as series prop', () => {
-      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series]);
+      const chartOptions = mergeSeriesToOptions(mockDefaultChartOptions, [series]);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(1);
     });
 
     it('creates chart options with multiple series array passed as series prop', () => {
-      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series, series]);
+      const chartOptions = mergeSeriesToOptions(mockDefaultChartOptions, [series, series]);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(2);
+    });
+  });
+
+  describe('generateBarSeries', () => {
+    const defaultBarColors = {
+      itemStyle: { color: hexToRgba(colorFromDefaultPalette(1), 0.2) },
+      emphasis: { itemStyle: { color: hexToRgba(colorFromDefaultPalette(1), 0.4) } },
+    };
+    const barDefaultParams = {
+      name: 'Bar chart',
+      color: colorFromDefaultPalette(0),
+      stack: columnOptions.stacked,
+    };
+
+    it.each`
+      param           | value                         | result
+      ${'name'}       | ${'Cool new bar chart'}       | ${{ name: 'Cool new bar chart' }}
+      ${'color'}      | ${colorFromDefaultPalette(1)} | ${defaultBarColors}
+      ${'data'}       | ${mockDefaultStackedBarData}  | ${{ data: mockDefaultStackedBarData }}
+      ${'stack'}      | ${columnOptions.tiled}        | ${{ stack: columnOptions.tiled }}
+      ${'yAxisIndex'} | ${3}                          | ${{ yAxisIndex: 3 }}
+    `('with $param set will contain $result', ({ param, value, result }) => {
+      expect(
+        generateBarSeries({
+          ...barDefaultParams,
+          [param]: value,
+        })
+      ).toMatchObject(result);
+    });
+  });
+  describe('generateLineSeries', () => {
+    const defaultLineColors = {
+      itemStyle: { color: colorFromDefaultPalette(1) },
+      lineStyle: { color: colorFromDefaultPalette(1) },
+    };
+    const lineDefaultParams = { name: 'Line chart', color: colorFromDefaultPalette(0) };
+
+    it.each`
+      param           | value                         | result
+      ${'name'}       | ${'Cool new line chart'}      | ${{ name: 'Cool new line chart' }}
+      ${'color'}      | ${colorFromDefaultPalette(1)} | ${defaultLineColors}
+      ${'data'}       | ${mockDefaultLineData}        | ${{ data: mockDefaultLineData }}
+      ${'yAxisIndex'} | ${2}                          | ${{ yAxisIndex: 2 }}
+    `('with $param set will contain $result', ({ param, value, result }) => {
+      expect(
+        generateLineSeries({
+          ...lineDefaultParams,
+          [param]: value,
+        })
+      ).toMatchObject(result);
     });
   });
 });

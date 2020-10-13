@@ -4,6 +4,7 @@ import { GlColumnChart } from '../../../../charts';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 import readme from './column.md';
+import { mockDefaultLineData, mockDefaultBarData } from '../../../utils/charts/mock_data';
 
 const components = {
   GlColumnChart,
@@ -11,7 +12,8 @@ const components = {
 
 const template = `
   <gl-column-chart
-    :data="data"
+    :bars="bars"
+    :lines="lines"
     :option="option"
     :y-axis-title="yAxisTitle"
     :x-axis-title="xAxisTitle"
@@ -20,25 +22,19 @@ const template = `
 `;
 
 function generateProps({
-  data = {
-    Full: [
-      ['Joe', 1220],
-      ['Sarah', 932],
-      ['Tom', 901],
-      ['Mary', 934],
-      ['Mike', 1290],
-      ['Ben', 1330],
-      ['Jane', 1320],
-    ],
-  },
+  bars = mockDefaultBarData,
+  lines = [],
   option = {},
   yAxisTitle = 'Pushes per day',
   xAxisTitle = 'User',
   xAxisType = 'category',
 } = {}) {
   return {
-    data: {
-      default: object('Chart Data', data),
+    bars: {
+      default: object('Chart Data', bars),
+    },
+    lines: {
+      default: object('Line chart Data', lines),
     },
     option: {
       default: object('Echart Options', option),
@@ -59,6 +55,11 @@ documentedStoriesOf('charts|column-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
+    components,
+    template,
+  }))
+  .add('with line series', () => ({
+    props: generateProps({ lines: mockDefaultLineData }),
     components,
     template,
   }))

@@ -3,8 +3,10 @@ import castArray from 'lodash/castArray';
 import isArray from 'lodash/isArray';
 import Breakpoints from '../breakpoints';
 import { engineeringNotation } from '../number_utils';
+import { hexToRgba } from '../utils';
+import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';
-import { ANNOTATIONS_SERIES_NAME, arrowSymbol } from './constants';
+import { ANNOTATIONS_SERIES_NAME, arrowSymbol, CHART_TYPE_BAR, CHART_TYPE_LINE } from './constants';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 export const defaultAreaOpacity = 0.2;
@@ -399,6 +401,61 @@ export const generateAnnotationSeries = (annotations, yAxisIndex = 1) => {
     getAnnotationsConfig(annotations)
   );
 };
+
+/**
+ * This method generates the data series and relevant defaults for a bar chart
+ *
+ * @param {Object} options
+ * @param {string} options.name - xAxis name for the chart
+ * @param {string} options.color - color to render the data series
+ * @param {Array} options.data - data set to be rendered
+ * @param {string} [options.stack] - controls how the stacked charts should render either `stacked` or `tiled`
+ * @param {number} [options.yAxisIndex] - specifies the yAxis to use (if there are multiple)
+ * @returns {Object} Bar chart series
+ */
+export const generateBarSeries = ({
+  name,
+  color,
+  data = [],
+  stack = columnOptions.stacked,
+  yAxisIndex = 0,
+}) => ({
+  type: CHART_TYPE_BAR,
+  name,
+  data,
+  stack,
+  barMaxWidth: '50%',
+  yAxisIndex,
+  itemStyle: {
+    color: hexToRgba(color, 0.2),
+    barBorderColor: color,
+    barBorderWidth: 1,
+  },
+  emphasis: {
+    itemStyle: {
+      color: hexToRgba(color, 0.4),
+    },
+  },
+});
+
+/**
+ * This method generates the data series and relevant defaults for a line chart
+ *
+ * @param {Object} options
+ * @param {string} options.name - xAxis name for the chart
+ * @param {string} options.color - color to render the data series
+ * @param {Array} options.data - data set to be rendered
+ * @param {number} [options.yAxisIndex] - specifies the yAxis to use (if there are multiple)
+ * @returns {Object} Line chart series
+ */
+export const generateLineSeries = ({ name, color, data = [], yAxisIndex = 0 }) => ({
+  name,
+  data,
+  type: CHART_TYPE_LINE,
+  yAxisIndex,
+  lineStyle: { color },
+  itemStyle: { color },
+});
 
 /**
  * The method works well if tooltip content should be against y-axis values.
