@@ -1,6 +1,7 @@
 import Pikaday from 'pikaday';
 import { mount, shallowMount } from '@vue/test-utils';
 import GlDatepicker from './datepicker.vue';
+import { defaultDateFormat } from '../../../utils/constants';
 
 jest.mock('pikaday');
 
@@ -283,6 +284,58 @@ describe('datepicker component', () => {
 
     it('emits monthChange event', () => {
       expect(wrapper.emitted('monthChange')).toHaveLength(1);
+    });
+  });
+
+  describe('when `placeholder` prop is passed', () => {
+    it('adds `placeholder` attribute to text input', () => {
+      const wrapper = mountWithOptions({
+        propsData: {
+          placeholder: 'foo bar',
+        },
+      });
+
+      expect(findInput(wrapper).attributes('placeholder')).toBe('foo bar');
+    });
+  });
+
+  describe('when `placeholder` prop is not passed', () => {
+    it('sets `placeholder` attribute to default date format', () => {
+      const wrapper = mountWithOptions();
+
+      expect(findInput(wrapper).attributes('placeholder')).toBe(defaultDateFormat);
+    });
+  });
+
+  describe('when `autocomplete` prop is passed', () => {
+    it('sets `autocomplete` attribute to passed value', () => {
+      const wrapper = mountWithOptions({
+        propsData: {
+          autocomplete: 'on',
+        },
+      });
+
+      expect(findInput(wrapper).attributes('autocomplete')).toBe('on');
+    });
+  });
+
+  describe('when `autocomplete` prop is not passed', () => {
+    describe('when datepicker opens on focus', () => {
+      it('sets `autocomplete` attribute to `off`', () => {
+        const wrapper = mountWithOptions({
+          propsData: {
+            target: null,
+          },
+        });
+
+        expect(findInput(wrapper).attributes('autocomplete')).toBe('off');
+      });
+    });
+
+    it('does not add `autocomplete` attribute', () => {
+      const wrapper = mountWithOptions();
+
+      expect(findInput(wrapper).attributes('autocomplete')).toBeUndefined();
     });
   });
 });
