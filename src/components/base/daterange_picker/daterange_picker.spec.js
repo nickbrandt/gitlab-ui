@@ -149,4 +149,23 @@ describe('Daterange Picker', () => {
       });
     });
   });
+
+  describe('labelClass', () => {
+    const customClass = 'foobar';
+
+    const findLabelsWithCustomClass = () =>
+      wrapper.findAll('label').filter(label => label.classes(customClass));
+
+    it('does not have the class by default', () => {
+      factory();
+
+      expect(findLabelsWithCustomClass()).toHaveLength(0);
+    });
+
+    it('adds the label class when provided', () => {
+      factory({ labelClass: customClass });
+
+      expect(findLabelsWithCustomClass()).toHaveLength(2);
+    });
+  });
 });
