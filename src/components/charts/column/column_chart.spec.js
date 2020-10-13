@@ -1,23 +1,19 @@
 import { shallowMount } from '@vue/test-utils';
 import ColumnChart from './column.vue';
 import Chart from '../chart/chart.vue';
+import {
+  mockDefaultLineData,
+  mockDefaultBarData,
+  mockRawBarData,
+} from '../../../utils/charts/mock_data';
 
 describe('column chart component', () => {
   const defaultChartProps = {
     xAxisTitle: 'x axis',
     yAxisTitle: 'y axis',
     xAxisType: 'category',
-    data: {
-      Full: [
-        ['Mon', 1220],
-        ['Tue', 932],
-        ['Wed', 901],
-        ['Thu', 934],
-        ['Fri', 1290],
-        ['Sat', 1330],
-        ['Sun', 1320],
-      ],
-    },
+    bars: mockDefaultBarData,
+    data: {},
   };
   let wrapper;
 
@@ -27,6 +23,7 @@ describe('column chart component', () => {
   };
 
   const chartItemClickedSpy = jest.fn();
+  const findChart = () => wrapper.find(Chart);
 
   const factory = (props = defaultChartProps) => {
     wrapper = shallowMount(ColumnChart, {
@@ -63,8 +60,39 @@ describe('column chart component', () => {
   });
 
   it('calls event listener when "chartItemClicked" is emitted on the Chart component', () => {
-    wrapper.find(Chart).vm.$emit('chartItemClicked');
+    findChart().vm.$emit('chartItemClicked');
 
     expect(chartItemClickedSpy).toHaveBeenCalled();
+  });
+
+  it('should correctly render the chart', () => {
+    const chart = findChart();
+
+    expect(chart.props('options')).toMatchSnapshot();
+  });
+  describe('with line data provided', () => {
+    beforeEach(() => {
+      factory({
+        ...defaultChartProps,
+        bars: [],
+        lines: mockDefaultLineData,
+      });
+    });
+    it('should correctly render the chart', () => {
+      expect(findChart().props('options')).toMatchSnapshot();
+    });
+  });
+
+  describe('with a `data` prop provided', () => {
+    beforeEach(() => {
+      factory({
+        ...defaultChartProps,
+        bars: [],
+        data: { 'Data object': mockRawBarData },
+      });
+    });
+    it('should correctly render the chart', () => {
+      expect(findChart().props('options')).toMatchSnapshot();
+    });
   });
 });

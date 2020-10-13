@@ -1,6 +1,8 @@
+import { colorFromDefaultPalette } from './theme';
+import { hexToRgba } from '../utils';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
-export const defaultDataZoomConfig = {
+export const mockDefaultDataZoomConfig = {
   dataZoom: [
     {
       bottom: 22,
@@ -23,7 +25,7 @@ export const defaultDataZoomConfig = {
   },
 };
 
-export const defaultChartOptions = {
+export const mockDefaultChartOptions = {
   grid: {
     top: 16,
     bottom: 44,
@@ -127,6 +129,86 @@ export const mockAnnotationsConfigs = {
       tooltipData: { content: 'It was actually Toby!' },
     },
   ],
+};
+
+export const mockDefaultStackedBarData = [
+  { name: 'Fun 1', data: [58, 49, 38, 23, 27, 68, 38, 35, 7, 64, 65, 31] },
+  { name: 'Fun 2', data: [8, 6, 34, 19, 9, 7, 17, 25, 14, 7, 10, 32] },
+  { name: 'Fun 3', data: [67, 60, 66, 32, 61, 54, 13, 50, 16, 11, 47, 28] },
+  { name: 'Fun 4', data: [8, 9, 5, 40, 13, 19, 58, 21, 47, 59, 23, 46] },
+];
+
+export const mockDefaultStackedLineData = [
+  { name: 'Stacked median line', data: [67, 60, 66, 32, 61, 54, 13, 50, 16, 11, 47, 28] },
+];
+
+export const mockDefaultLineData = [
+  {
+    name: 'Median line',
+    data: [
+      ['Joe', 1120],
+      ['Sarah', 732],
+      ['Tom', 501],
+      ['Mary', 634],
+      ['Mike', 290],
+      ['Ben', 130],
+      ['Jane', 120],
+    ],
+  },
+];
+
+export const mockDefaultBarData = [
+  {
+    name: 'Full',
+    data: [
+      ['Joe', 1220],
+      ['Sarah', 932],
+      ['Tom', 901],
+      ['Mary', 934],
+      ['Mike', 1290],
+      ['Ben', 1330],
+      ['Jane', 1320],
+    ],
+  },
+];
+
+export const mockRawBarData = [
+  ['Mon', 1220],
+  ['Tue', 932],
+  ['Wed', 901],
+  ['Thu', 934],
+  ['Fri', 1290],
+  ['Sat', 1330],
+  ['Sun', 1320],
+];
+
+const color = colorFromDefaultPalette(0);
+export const mockDefaultLineChartConfig = {
+  name: 'Line chart',
+  data: [],
+  type: 'line',
+  yAxisIndex: 0,
+  lineStyle: { color },
+  itemStyle: { color },
+};
+
+export const mockDefaultBarChartConfig = {
+  type: 'bar',
+  name: 'Bar chart',
+  data: [],
+  stack: null,
+  barMaxWidth: '50%',
+  yAxisIndex: 0,
+  itemStyle: {
+    color: hexToRgba(color, 0.2),
+    barBorderColor: color,
+    barBorderWidth: 1,
+  },
+  emphasis: {
+    itemStyle: {
+      color: hexToRgba(color, 0.4),
+    },
+  },
 };
 
 export default {};

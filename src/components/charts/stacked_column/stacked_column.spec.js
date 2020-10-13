@@ -3,6 +3,10 @@ import { shallowMount } from '@vue/test-utils';
 import StackedColumnChart from './stacked_column.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import {
+  mockDefaultStackedLineData,
+  mockDefaultStackedBarData,
+} from '../../../utils/charts/mock_data';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 
@@ -13,17 +17,13 @@ jest.mock('echarts', () => ({
 }));
 
 const defaultChartProps = {
-  data: [
-    [58, 49, 38, 23, 27, 68, 38, 35, 7, 64, 65, 31],
-    [8, 6, 34, 19, 9, 7, 17, 25, 14, 7, 10, 32],
-    [67, 60, 66, 32, 61, 54, 13, 50, 16, 11, 47, 28],
-    [8, 9, 5, 40, 13, 19, 58, 21, 47, 59, 23, 46],
-  ],
+  data: [],
+  seriesNames: [],
+  bars: mockDefaultStackedBarData,
   groupBy: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   xAxisType: 'category',
   xAxisTitle: 'January - December 2018',
   yAxisTitle: 'Commits',
-  seriesNames: ['Fun 1', 'Fun 2', 'Fun 3', 'Fun 4'],
 };
 
 describe('stacked column chart component', () => {
@@ -74,6 +74,24 @@ describe('stacked column chart component', () => {
     });
   });
 
+  it('should correctly render the chart', () => {
+    const chart = findChart();
+
+    expect(chart.props('options')).toMatchSnapshot();
+  });
+
+  describe('with line data provided', () => {
+    beforeEach(() => {
+      createShallowWrapper({
+        bars: [],
+        lines: mockDefaultStackedLineData,
+      });
+    });
+    it('should correctly render the chart', () => {
+      expect(findChart().props('options')).toMatchSnapshot();
+    });
+  });
+
   describe('legend', () => {
     it('is inline by default', () => {
       createShallowWrapper();
@@ -97,6 +115,24 @@ describe('stacked column chart component', () => {
       return wrapper.vm.$nextTick(() => {
         expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
       });
+    });
+  });
+  describe('with a `data` prop provided', () => {
+    beforeEach(() => {
+      createShallowWrapper({
+        ...defaultChartProps,
+        bars: [],
+        data: [
+          [58, 49, 38, 23, 27, 68, 38, 35, 7, 64, 65, 31],
+          [8, 6, 34, 19, 9, 7, 17, 25, 14, 7, 10, 32],
+        ],
+        seriesNames: ['Fun 1', 'Fun 2'],
+      });
+    });
+    it('should correctly render the chart', () => {
+      const chart = findChart();
+
+      expect(chart.props('options')).toMatchSnapshot();
     });
   });
 });
