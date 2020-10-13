@@ -1,3 +1,10 @@
+# [21.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.25.0...v21.26.0) (2020-10-13)
+
+
+### Features
+
+* **GlColumnChart:** Adds additional bars and lines ([287c553](https://gitlab.com/gitlab-org/gitlab-ui/commit/287c5530486dd84b20f9fc477dfdd063928e75c7))
+
 # [21.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.24.0...v21.25.0) (2020-10-08)
 
 
