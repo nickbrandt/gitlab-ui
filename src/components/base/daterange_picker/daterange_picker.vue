@@ -62,6 +62,11 @@ export default {
       required: false,
       default: '',
     },
+    labelClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
     theme: {
       type: String,
       required: false,
@@ -141,7 +146,7 @@ export default {
 <template>
   <div class="gl-daterange-picker">
     <div :class="startPickerClass">
-      <label>{{ fromLabel }}</label>
+      <label :class="labelClass">{{ fromLabel }}</label>
       <gl-datepicker
         v-model="startDate"
         :min-date="defaultMinDate"
@@ -154,7 +159,7 @@ export default {
       />
     </div>
     <div :class="endPickerClass">
-      <label>{{ toLabel }}</label>
+      <label :class="labelClass">{{ toLabel }}</label>
       <gl-datepicker
         :key="numericStartTime"
         v-model="endDate"
