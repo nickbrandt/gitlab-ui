@@ -1,3 +1,10 @@
+# [21.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.29.0...v21.30.0) (2020-10-14)
+
+
+### Features
+
+* **css:** Add border utiltiies ([1ce2e8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/1ce2e8bd64c028e4cd9290bf2ed601a54b3e84b4))
+
 # [21.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.28.0...v21.29.0) (2020-10-14)
 
 
