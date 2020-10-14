@@ -1,3 +1,10 @@
+# [21.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.28.0...v21.29.0) (2020-10-14)
+
+
+### Features
+
+* **GlFormGroup:** let label class be customized ([8b11f13](https://gitlab.com/gitlab-org/gitlab-ui/commit/8b11f13db40bc17cafd5499f3a0e040ccaf69755))
+
 # [21.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.27.0...v21.28.0) (2020-10-14)
 
 
