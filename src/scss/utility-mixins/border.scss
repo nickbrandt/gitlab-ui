@@ -19,12 +19,20 @@
   border-top-style: solid;
 }
 
+@mixin gl-border-t-double {
+  border-top-style: double;
+}
+
 @mixin gl-border-r-solid {
   border-right-style: solid;
 }
 
 @mixin gl-border-b-solid($hover: true) {
   border-bottom-style: solid;
+}
+
+@mixin gl-border-b-initial {
+  border-bottom-style: initial;
 }
 
 @mixin gl-border-l-solid {
