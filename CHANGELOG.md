@@ -1,3 +1,10 @@
+# [21.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.27.0...v21.28.0) (2020-10-14)
+
+
+### Features
+
+* **GlDaterangePicker:** Add labelClass prop ([5e3420f](https://gitlab.com/gitlab-org/gitlab-ui/commit/5e3420f3bbc803edbbc9f5d1657a05f3ae521606))
+
 # [21.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.26.0...v21.27.0) (2020-10-13)
 
 
