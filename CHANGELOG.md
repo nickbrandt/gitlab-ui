@@ -1,3 +1,10 @@
+# [21.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.31.0...v21.32.0) (2020-10-15)
+
+
+### Features
+
+* **GlDatepicker:** add disabled prop ([5e19518](https://gitlab.com/gitlab-org/gitlab-ui/commit/5e19518de419dac5afa988f1cb10b545a8018bcc))
+
 # [21.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.30.1...v21.31.0) (2020-10-15)
 
 
