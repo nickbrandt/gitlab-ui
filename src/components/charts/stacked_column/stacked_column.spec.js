@@ -6,6 +6,7 @@ import ChartLegend from '../legend/legend.vue';
 import {
   mockDefaultStackedLineData,
   mockDefaultStackedBarData,
+  mockSecondaryData,
 } from '../../../utils/charts/mock_data';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
@@ -133,6 +134,29 @@ describe('stacked column chart component', () => {
       const chart = findChart();
 
       expect(chart.props('options')).toMatchSnapshot();
+    });
+  });
+
+  describe('with secondary axis data provided', () => {
+    const secondaryDataTitle = 'test secondary';
+
+    beforeEach(() => {
+      createShallowWrapper({
+        ...defaultChartProps,
+        secondaryData: mockSecondaryData,
+        secondaryDataTitle,
+      });
+    });
+    it('should correctly render the chart', () => {
+      const chart = findChart();
+
+      expect(chart.props('options')).toMatchSnapshot();
+    });
+
+    it('should set the secondary Y axis name', () => {
+      const chart = findChart();
+
+      expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
     });
   });
 });

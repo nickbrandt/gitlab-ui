@@ -6,6 +6,7 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
+  yAxis,
   dataZoomAdjustments,
   mergeSeriesToOptions,
   generateBarSeries,
@@ -21,7 +22,17 @@ import {
   LEGEND_CURRENT_TEXT,
   LEGEND_MIN_TEXT,
   LEGEND_MAX_TEXT,
+  CHART_TYPE_LINE,
 } from '../../../utils/charts/constants';
+import { columnOptions } from '../../../utils/constants';
+
+const yAxisDefaults = {
+  ...yAxis,
+  nameLocation: 'center',
+  axisTick: {
+    show: false,
+  },
+};
 
 export default {
   components: {
@@ -44,6 +55,11 @@ export default {
       default: () => [],
     },
     lines: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    secondaryData: {
       type: Array,
       required: false,
       default: () => [],
@@ -75,6 +91,11 @@ export default {
     yAxisTitle: {
       type: String,
       required: true,
+    },
+    secondaryDataTitle: {
+      type: String,
+      required: false,
+      default: '',
     },
     seriesNames: {
       type: Array,
@@ -124,6 +145,9 @@ export default {
     };
   },
   computed: {
+    hasSecondaryAxis() {
+      return Boolean(this.secondaryData.length);
+    },
     barSeries() {
       return this.bars.map(({ name, data }, index) => {
         const stack = this.presentation === 'stacked' ? this.groupBy : null;
@@ -146,7 +170,6 @@ export default {
           stack: this.presentation === 'stacked' ? this.groupBy : null,
           name: this.seriesNames[index],
           data: series,
-          barMaxWidth: '50%',
           itemStyle: {
             color: hexToRgba(barColor, 0.2),
             barBorderColor: barColor,
@@ -160,14 +183,27 @@ export default {
         };
       });
     },
+    secondarySeries() {
+      const offset = this.bars.length + this.lines.length;
+      return this.secondaryData.map(({ name, data, type, stack = columnOptions.tiled }, index) => {
+        const color = colorFromDefaultPalette(offset + index);
+        return type === CHART_TYPE_LINE
+          ? generateLineSeries({ color, name, data, yAxisIndex: 1 })
+          : generateBarSeries({ color, name, data, yAxisIndex: 1, stack });
+      });
+    },
     series() {
-      return [...this.dataSeries, ...this.barSeries, ...this.lineSeries];
+      return [...this.dataSeries, ...this.barSeries, ...this.lineSeries, ...this.secondarySeries];
     },
     options() {
       const mergedOptions = merge(
         {},
         defaultChartOptions,
         {
+          grid: {
+            ...grid,
+            right: this.hasSecondaryAxis ? 64 : 32,
+          },
           xAxis: {
             boundaryGap: true,
             axisLabel: {
@@ -188,12 +224,17 @@ export default {
             name: this.xAxisTitle,
             type: this.xAxisType,
           },
-          yAxis: {
-            name: this.yAxisTitle,
-            axisTick: {
-              show: false,
+          yAxis: [
+            {
+              ...yAxisDefaults,
+              name: this.yAxisTitle,
             },
-          },
+            {
+              ...yAxisDefaults,
+              name: this.secondaryDataTitle,
+              show: this.hasSecondaryAxis,
+            },
+          ],
           legend: {
             show: false,
           },
@@ -219,8 +260,8 @@ export default {
           type: series.type,
           color: colorFromDefaultPalette(index),
           data: series.data.map(data => data),
+          yAxisIndex: series.yAxisIndex,
         });
-
         return acc;
       }, []);
     },

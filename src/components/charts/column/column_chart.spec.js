@@ -5,6 +5,7 @@ import {
   mockDefaultLineData,
   mockDefaultBarData,
   mockRawBarData,
+  mockSecondaryData,
 } from '../../../utils/charts/mock_data';
 
 describe('column chart component', () => {
@@ -93,6 +94,29 @@ describe('column chart component', () => {
     });
     it('should correctly render the chart', () => {
       expect(findChart().props('options')).toMatchSnapshot();
+    });
+  });
+
+  describe('with secondary axis data provided', () => {
+    const secondaryDataTitle = 'Column test secondary';
+
+    beforeEach(() => {
+      factory({
+        ...defaultChartProps,
+        secondaryData: mockSecondaryData,
+        secondaryDataTitle,
+      });
+    });
+    it('should correctly render the chart', () => {
+      const chart = findChart();
+
+      expect(chart.props('options')).toMatchSnapshot();
+    });
+
+    it('should set the secondary Y axis name', () => {
+      const chart = findChart();
+
+      expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
     });
   });
 });

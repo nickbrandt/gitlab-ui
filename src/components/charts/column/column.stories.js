@@ -4,7 +4,12 @@ import { GlColumnChart } from '../../../../charts';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
 import readme from './column.md';
-import { mockDefaultLineData, mockDefaultBarData } from '../../../utils/charts/mock_data';
+import {
+  mockDefaultLineData,
+  mockDefaultBarData,
+  mockSecondaryBarData,
+  mockSecondaryTrendlineData,
+} from '../../../utils/charts/mock_data';
 
 const components = {
   GlColumnChart,
@@ -14,12 +19,14 @@ const template = `
   <gl-column-chart
     :bars="bars"
     :lines="lines"
+    :secondary-data="secondaryData"
     :option="option"
     :y-axis-title="yAxisTitle"
+    :secondary-data-title="secondaryDataTitle"
     :x-axis-title="xAxisTitle"
     :x-axis-type="xAxisType"
   />
-`;
+  `;
 
 function generateProps({
   bars = mockDefaultBarData,
@@ -28,6 +35,8 @@ function generateProps({
   yAxisTitle = 'Pushes per day',
   xAxisTitle = 'User',
   xAxisType = 'category',
+  secondaryData = [],
+  secondaryDataTitle = '',
 } = {}) {
   return {
     bars: {
@@ -36,11 +45,17 @@ function generateProps({
     lines: {
       default: object('Line chart Data', lines),
     },
+    secondaryData: {
+      default: object('Secondary Data', secondaryData),
+    },
     option: {
       default: object('Echart Options', option),
     },
     yAxisTitle: {
       default: text('Y Axis Title', yAxisTitle),
+    },
+    secondaryDataTitle: {
+      default: text('Secondary Y Axis Title', secondaryDataTitle),
     },
     xAxisTitle: {
       default: text('X Axis Title', xAxisTitle),
@@ -83,6 +98,24 @@ documentedStoriesOf('charts|column-chart', readme)
       option: {
         toolbox,
       },
+    }),
+    components,
+    template,
+  }))
+  .add('secondary Y axis', () => ({
+    props: generateProps({
+      legend: true,
+      secondaryData: mockSecondaryBarData,
+      secondaryDataTitle: 'New bar data',
+    }),
+    components,
+    template,
+  }))
+  .add('secondary Y axis line', () => ({
+    props: generateProps({
+      legend: true,
+      secondaryData: mockSecondaryTrendlineData,
+      secondaryDataTitle: 'New line data',
     }),
     components,
     template,
