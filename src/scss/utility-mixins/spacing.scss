@@ -441,6 +441,10 @@
   margin-left: $gl-spacing-scale-2;
 }
 
+@mixin gl-ml-n2 {
+  margin-left: -$gl-spacing-scale-2;
+}
+
 @mixin gl-ml-3 {
   margin-left: $gl-spacing-scale-3;
 }
