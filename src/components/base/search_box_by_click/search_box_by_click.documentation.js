@@ -1,10 +1,9 @@
 import description from './search_box_by_click.md';
-import examples from './examples';
 
 export default {
   followsDesignSystem: true,
   description,
-  examples,
+
   propsInfo: {
     value: {
       additionalInfo: 'If provided, used as value of search input',

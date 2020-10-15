@@ -1,11 +1,10 @@
 import * as description from './keyset_pagination.md';
-import examples from './examples';
 
 export default {
   description,
   followsDesignSystem: true,
   bootstrapComponent: false,
-  examples,
+
   propsInfo: {
     hasPreviousPage: {
       type: Boolean,

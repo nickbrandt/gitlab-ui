@@ -1,9 +1,8 @@
 import description from './skeleton_loading.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   propsInfo: {
     lines: {
       validation: {

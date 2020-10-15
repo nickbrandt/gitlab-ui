@@ -1,10 +1,9 @@
 import description from './sprintf.md';
-import examples from './examples';
 
 export default {
   followsDesignSystem: false,
   description,
-  examples,
+
   propsInfo: {
     message: {
       additionalInfo: 'A translated string with named placeholders, e.g., "Written by %{author}".',

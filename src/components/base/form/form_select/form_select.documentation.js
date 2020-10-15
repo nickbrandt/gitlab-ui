@@ -1,9 +1,8 @@
 import description from './form_select.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   followDesignSystem: false,
   bootstrapComponent: 'b-form-select',
   events: [

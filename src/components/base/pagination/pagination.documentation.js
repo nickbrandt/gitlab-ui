@@ -1,10 +1,9 @@
 import description from './pagination.md';
-import examples from './examples';
 
 export default {
   followsDesignSystem: true,
   description,
-  examples,
+
   propsInfo: {
     perPage: {
       additionalInfo: 'Number of items per page',

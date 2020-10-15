@@ -1,9 +1,8 @@
 import description from './chart.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   events: [
     {
       event: 'chartItemClicked',

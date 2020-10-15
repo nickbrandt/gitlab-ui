@@ -1,9 +1,8 @@
 import * as description from './token_selector.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   propsInfo: {
     dropdownItems: {
       additionalInfo: 'Items to display in dropdown',

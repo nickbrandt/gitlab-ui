@@ -1,9 +1,8 @@
 import description from './button.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   followsDesignSystem: true,
   bootstrapComponent: 'b-button',
   bootstrapPropsInfo: {

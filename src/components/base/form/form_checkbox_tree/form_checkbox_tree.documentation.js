@@ -1,10 +1,10 @@
 import * as description from './form_checkbox_tree.md';
-import examples from './examples';
+
 import { V_MODEL } from './models/constants';
 
 export default {
   description,
-  examples,
+
   propsInfo: {
     options: {
       additionalInfo: 'The options tree.',

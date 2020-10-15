@@ -1,9 +1,8 @@
 import description from './legend.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   propsInfo: {
     averageText: {
       additionalInfo:

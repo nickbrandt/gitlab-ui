@@ -1,10 +1,9 @@
 import description from './sorting.md';
-import examples from './examples';
 
 export default {
   description,
   bootstrapComponent: null,
-  examples,
+
   events: [
     {
       event: 'sortDirectionChange',

@@ -1,10 +1,9 @@
 import description from './form_input_group.md';
-import examples from './examples';
 
 export default {
   followsDesignSystem: false,
   description,
-  examples,
+
   bootstrapComponent: 'b-form-input',
   propsInfo: {
     'select-on-click': {

@@ -1,9 +1,8 @@
 import description from './collapse.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   bootstrapPropsInfo: {
     id: {
       additionalInfo:

@@ -1,8 +1,6 @@
-import examples from './examples';
-
 export default {
   followsDesignSystem: true,
-  examples,
+
   propsInfo: {
     variant: {
       type: String,

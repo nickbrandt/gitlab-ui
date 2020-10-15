@@ -1,11 +1,10 @@
 import * as description from './filtered_search.md';
-import examples from './examples';
 
 export default {
   description,
   followsDesignSystem: true,
   bootstrapComponent: null,
-  examples,
+
   propsInfo: {
     value: {
       additionalInfo: 'If provided, used as value of filtered search',

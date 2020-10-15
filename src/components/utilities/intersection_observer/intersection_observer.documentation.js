@@ -1,9 +1,8 @@
 import * as description from './intersection_observer.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   propsInfo: {
     options: {
       additionalInfo: 'Extra options to pass directly to the intersection observer API.',

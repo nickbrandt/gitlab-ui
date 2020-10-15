@@ -1,8 +1,6 @@
-import examples from './examples';
-
 export default {
   followsDesignSystem: false,
-  examples,
+
   bootstrapComponent: 'b-popover',
   bootstrapPropsInfo: {
     target: {

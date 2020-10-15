@@ -1,9 +1,8 @@
 import description from './broadcast_message.md';
-import examples from './examples';
 
 export default {
   followsDesignSystem: false,
-  examples,
+
   description,
   propsInfo: {
     iconName: {

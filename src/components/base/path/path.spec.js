@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import GlPath from './path.vue';
-import items from './examples/data';
+import items from './mock_data';
 
 const SELECTED_CLASS_INDIGO = 'gl-path-active-item-indigo';
 const SELECTED_CLASS_GREEN = 'gl-path-active-item-green';

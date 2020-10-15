@@ -1,9 +1,8 @@
 import description from './empty_state.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   propsInfo: {
     svgPath: {
       additionalInfo: "The illustration's URL.",

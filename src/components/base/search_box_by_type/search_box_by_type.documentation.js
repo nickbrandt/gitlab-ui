@@ -1,5 +1,4 @@
 import description from './search_box_by_type.md';
-import examples from './examples';
 
 export default {
   followsDesignSystem: true,
@@ -19,6 +18,6 @@ export default {
         'Container for tooltip. Valid values: DOM node, selector string or `false` for default',
     },
   },
-  examples,
+
   bootstrapComponent: 'b-form-input',
 };

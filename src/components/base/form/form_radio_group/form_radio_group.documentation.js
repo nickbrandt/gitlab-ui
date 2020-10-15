@@ -1,9 +1,8 @@
 import description from './form_radio_group.md';
-import examples from './examples';
 
 export default {
   description,
-  examples,
+
   followsDesignSystem: true,
   bootstrapComponent: 'b-form-radio-group',
   propsInfo: {
