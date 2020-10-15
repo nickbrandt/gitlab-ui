@@ -27,7 +27,7 @@ export default {
 
 <template>
   <gl-dropdown text="Select HTML tag" header-text="Header">
-    <gl-search-box-by-type v-model.trim="searchTerm" class="m-2" />
+    <gl-search-box-by-type v-model.trim="searchTerm" />
     <gl-dropdown-item v-for="tagName in filteredTagNames" :key="tagName">
       {{ tagName }}
     </gl-dropdown-item>
