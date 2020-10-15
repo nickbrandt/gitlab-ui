@@ -226,18 +226,33 @@ Object {
     },
     "type": "category",
   },
-  "yAxis": Object {
-    "axisLabel": Object {
-      "formatter": [Function],
+  "yAxis": Array [
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "Commits",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "type": "value",
     },
-    "axisTick": Object {
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "",
+      "nameGap": 50,
+      "nameLocation": "center",
       "show": false,
+      "type": "value",
     },
-    "name": "Commits",
-    "nameGap": 50,
-    "nameLocation": "center",
-    "type": "value",
-  },
+  ],
 }
 `;
 
@@ -254,7 +269,6 @@ Object {
   },
   "series": Array [
     Object {
-      "barMaxWidth": "50%",
       "data": Array [
         58,
         49,
@@ -297,7 +311,6 @@ Object {
       "type": "bar",
     },
     Object {
-      "barMaxWidth": "50%",
       "data": Array [
         8,
         6,
@@ -377,18 +390,33 @@ Object {
     },
     "type": "category",
   },
-  "yAxis": Object {
-    "axisLabel": Object {
-      "formatter": [Function],
+  "yAxis": Array [
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "Commits",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "type": "value",
     },
-    "axisTick": Object {
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "",
+      "nameGap": 50,
+      "nameLocation": "center",
       "show": false,
+      "type": "value",
     },
-    "name": "Commits",
-    "nameGap": 50,
-    "nameLocation": "center",
-    "type": "value",
-  },
+  ],
 }
 `;
 
@@ -467,17 +495,319 @@ Object {
     },
     "type": "category",
   },
-  "yAxis": Object {
-    "axisLabel": Object {
-      "formatter": [Function],
+  "yAxis": Array [
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "Commits",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "type": "value",
     },
-    "axisTick": Object {
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "show": false,
+      "type": "value",
+    },
+  ],
+}
+`;
+
+exports[`stacked column chart component with secondary axis data provided should correctly render the chart 1`] = `
+Object {
+  "grid": Object {
+    "bottom": 44,
+    "left": 64,
+    "right": 64,
+    "top": 16,
+  },
+  "legend": Object {
+    "show": false,
+  },
+  "series": Array [
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        58,
+        49,
+        38,
+        23,
+        27,
+        68,
+        38,
+        35,
+        7,
+        64,
+        65,
+        31,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(87, 114, 255, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#5772ff",
+        "barBorderWidth": 1,
+        "color": "rgba(87, 114, 255, 0.2)",
+      },
+      "name": "Fun 1",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        8,
+        6,
+        34,
+        19,
+        9,
+        7,
+        17,
+        25,
+        14,
+        7,
+        10,
+        32,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(178, 72, 0, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#b24800",
+        "barBorderWidth": 1,
+        "color": "rgba(178, 72, 0, 0.2)",
+      },
+      "name": "Fun 2",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        67,
+        60,
+        66,
+        32,
+        61,
+        54,
+        13,
+        50,
+        16,
+        11,
+        47,
+        28,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(0, 148, 182, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#0094b6",
+        "barBorderWidth": 1,
+        "color": "rgba(0, 148, 182, 0.2)",
+      },
+      "name": "Fun 3",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        8,
+        9,
+        5,
+        40,
+        13,
+        19,
+        58,
+        21,
+        47,
+        59,
+        23,
+        46,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(54, 104, 0, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#366800",
+        "barBorderWidth": 1,
+        "color": "rgba(54, 104, 0, 0.2)",
+      },
+      "name": "Fun 4",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        13,
+        25,
+        38,
+        23,
+        27,
+        28,
+        29,
+        27,
+        1,
+        15,
+        65,
+        31,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(149, 9, 67, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#950943",
+        "barBorderWidth": 1,
+        "color": "rgba(149, 9, 67, 0.2)",
+      },
+      "name": "Secondary 1",
+      "stack": "tiled",
+      "type": "bar",
+      "yAxisIndex": 1,
+    },
+  ],
+  "xAxis": Object {
+    "axisLabel": Object {
+      "margin": 20,
+      "verticalAlign": "bottom",
+    },
+    "axisLine": Object {
       "show": false,
     },
-    "name": "Commits",
-    "nameGap": 50,
+    "axisPointer": Object {
+      "label": Object {
+        "formatter": [Function],
+      },
+      "show": true,
+      "type": "none",
+    },
+    "boundaryGap": true,
+    "data": Array [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    "name": "January - December 2018",
     "nameLocation": "center",
-    "type": "value",
+    "splitLine": Object {
+      "show": false,
+    },
+    "type": "category",
   },
+  "yAxis": Array [
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "Commits",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "type": "value",
+    },
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "test secondary",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "show": true,
+      "type": "value",
+    },
+  ],
 }
 `;

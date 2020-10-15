@@ -8,6 +8,7 @@ import { toolbox } from '../../../utils/charts/story_config';
 import {
   mockDefaultStackedLineData,
   mockDefaultStackedBarData,
+  mockSecondaryData,
 } from '../../../utils/charts/mock_data';
 
 const components = {
@@ -24,8 +25,12 @@ const template = `
     :x-axis-type="xAxisType"
     :x-axis-title="xAxisTitle"
     :y-axis-title="yAxisTitle"
+    :secondary-data="secondaryData"
+    :secondary-data-title="secondaryDataTitle"
   />
 `;
+
+const mockSecondaryDataTitle = 'Merges';
 
 function generateProps({
   bars = mockDefaultStackedBarData,
@@ -36,6 +41,8 @@ function generateProps({
   xAxisTitle = 'January - December 2018',
   yAxisTitle = 'Commits',
   presentation = columnOptions.stacked,
+  secondaryData = [],
+  secondaryDataTitle = '',
 } = {}) {
   return {
     bars: {
@@ -62,6 +69,12 @@ function generateProps({
     },
     yAxisTitle: {
       default: text('Y Axis Title', yAxisTitle),
+    },
+    secondaryDataTitle: {
+      default: text('Secondary Data Title', secondaryDataTitle),
+    },
+    secondaryData: {
+      default: object('Secondary Data', secondaryData),
     },
   };
 }
@@ -107,6 +120,22 @@ documentedStoriesOf('charts|stacked-column-chart', readme)
       option: {
         toolbox,
       },
+    }),
+    components,
+    template,
+  }))
+  .add('secondary Y axis', () => ({
+    props: generateProps({
+      secondaryData: mockSecondaryData,
+      secondaryDataTitle: mockSecondaryDataTitle,
+    }),
+    components,
+    template,
+  }))
+  .add('secondary Y axis line', () => ({
+    props: generateProps({
+      secondaryData: [{ ...mockSecondaryData[0], type: 'line' }],
+      secondaryDataTitle: mockSecondaryDataTitle,
     }),
     components,
     template,

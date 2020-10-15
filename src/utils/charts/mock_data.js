@@ -211,4 +211,45 @@ export const mockDefaultBarChartConfig = {
   },
 };
 
+export const mockSecondaryData = [
+  {
+    name: 'Secondary 1',
+    data: [13, 25, 38, 23, 27, 28, 29, 27, 1, 15, 65, 31],
+  },
+];
+
+export const mockSecondaryBarData = [
+  {
+    name: 'Secondary',
+    type: 'bar',
+    data: [
+      ['Joe', 220],
+      ['Sarah', 392],
+      ['Tom', 291],
+      ['Mary', 594],
+      ['Mike', 320],
+      ['Ben', 230],
+      ['Jane', 120],
+      ['Anne', 290],
+    ],
+  },
+];
+
+export const mockSecondaryTrendlineData = [
+  {
+    type: 'line',
+    name: 'Median line',
+    data: [
+      ['Joe', 220],
+      ['Sarah', 392],
+      ['Tom', 291],
+      ['Mary', 594],
+      ['Mike', 320],
+      ['Ben', 230],
+      ['Jane', 120],
+      ['Anne', 290],
+    ],
+  },
+];
+
 export default {};
