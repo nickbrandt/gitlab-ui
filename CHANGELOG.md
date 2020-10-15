@@ -1,3 +1,10 @@
+# [21.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.30.1...v21.31.0) (2020-10-15)
+
+
+### Features
+
+* **GlColumnchart:** Add 2nd Y axis ([42e6fa2](https://gitlab.com/gitlab-org/gitlab-ui/commit/42e6fa2bd5b215db3e28ea7a3ff128604ca4ed79))
+
 ## [21.30.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.30.0...v21.30.1) (2020-10-15)
 
 
