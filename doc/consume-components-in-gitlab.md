@@ -8,7 +8,7 @@ When integrating a component into GitLab's code base, it's good to start by list
 
 ## Vue components
 
-This is the most straightforward aspect of integration GitLab UI components. Components should be consumed as Vue components in existing Vue files, as described in stories and examples documented in the GitLab UI storybook. This should be the first step because the rendered result of a component will inform how to integrate it in the next steps.
+This is the most straightforward aspect of integration GitLab UI components. Components should be consumed as Vue components in existing Vue files, as described in stories documented in the GitLab UI storybook. This should be the first step because the rendered result of a component will inform how to integrate it in the next steps.
 
 ### Troubleshooting tips
 

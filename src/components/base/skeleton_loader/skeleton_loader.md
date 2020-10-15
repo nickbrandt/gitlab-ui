@@ -2,7 +2,7 @@
 
 Skeleton loaders are to be used when pages or sections can be progressively populated with content, such as text and images, as they become available. Generally speaking the first batch of content will be the lightest to load and is followed by secondary and tertiary content batches. Each loading step will add in more detail to the page until no skeleton loaders are present anymore. Content should replace skeleton objects immediately when the data is available.
 
-The skeleton loader component accepts shapes which in return will create a skeleton state with a loading animation. Any skeleton state components should be created with `<gl-skeleton-loader></gl-skeleton-loader>`. If no shape is passed via the slot the default skeleton will be used. See "Default" and "Default With Custom Props" examples.
+The skeleton loader component accepts shapes which in return will create a skeleton state with a loading animation. Any skeleton state components should be created with `<gl-skeleton-loader></gl-skeleton-loader>`. If no shape is passed via the slot the default skeleton will be used.
 
 ## Progressive Loading
 

@@ -45,8 +45,7 @@ const optionValues = [
 This will tell `GlFormInputGroup` to render a dropdown in the `prepend`
 slot with all of the supplied options' `name`s. When one of the options
 is selected, the input field is automatically populated with the
-option's `value`. Check the "Examples" section below for "With
-predefined options" example.
+option's `value`.
 
 ### Pro tips
 
