@@ -105,6 +105,11 @@ export default {
       required: false,
       default: '',
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     displayField: {
       type: Boolean,
       required: false,
@@ -155,7 +160,7 @@ export default {
       return !this.customTrigger || this.triggerOnFocus;
     },
     renderClearButton() {
-      return this.showClearButton && this.textInput !== '';
+      return this.showClearButton && this.textInput !== '' && !this.disabled;
     },
     inputAutocomplete() {
       if (this.autocomplete !== '') {
@@ -216,7 +221,7 @@ export default {
     };
 
     // Pass `null` as `target` prop to use the `field` as the trigger (open on focus)
-    if (!this.triggerOnFocus) {
+    if (!this.triggerOnFocus && !this.disabled) {
       const trigger = this.customTrigger
         ? $parentEl.querySelector(this.target)
         : this.$refs.calendarTriggerBtn.$el;
@@ -287,6 +292,7 @@ export default {
           :value="formattedDate"
           :placeholder="placeholder"
           :autocomplete="inputAutocomplete"
+          :disabled="disabled"
           @keydown.enter="onKeydown"
         />
       </slot>
@@ -301,7 +307,12 @@ export default {
           icon="clear"
           @click="cleared"
         />
-        <span v-if="triggerOnFocus" class="gl-px-1 gl-text-gray-500">
+        <span
+          v-if="triggerOnFocus || disabled"
+          data-testid="datepicker-calendar-icon"
+          class="gl-px-2"
+          :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
+        >
           <gl-icon class="gl-display-block" name="calendar" :size="16" />
         </span>
         <gl-button
