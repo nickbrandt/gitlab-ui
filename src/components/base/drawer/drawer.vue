@@ -27,6 +27,18 @@ export default {
     positionFromTop() {
       return !isEmpty(this.headerHeight) ? this.headerHeight : 0;
     },
+    drawerStyles() {
+      const styles = {
+        top: this.positionFromTop,
+        zIndex: this.zIndex,
+      };
+
+      if (this.positionFromTop) {
+        styles.maxHeight = `calc(100vh - ${this.positionFromTop})`;
+      }
+
+      return styles;
+    },
   },
   watch: {
     open: {
@@ -56,7 +68,7 @@ export default {
 </script>
 <template>
   <transition name="gl-drawer">
-    <aside v-if="open" :style="{ top: positionFromTop, zIndex }" class="gl-drawer">
+    <aside v-if="open" :style="drawerStyles" class="gl-drawer">
       <div class="gl-drawer-header">
         <span>
           <slot name="header"></slot>
