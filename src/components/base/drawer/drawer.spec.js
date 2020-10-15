@@ -20,6 +20,17 @@ describe('drawer component', () => {
       });
     });
 
+    describe('when header-height is set', () => {
+      it('renders drawer container with `top` and `max-height` styles', () => {
+        const headerHeight = '40px';
+        mountWithOpts({ props: { open: true, headerHeight } });
+
+        expect(wrapper.find('aside').attributes('style')).toBe(
+          `top: ${headerHeight}; z-index: 10; max-height: calc(100vh - ${headerHeight});`
+        );
+      });
+    });
+
     describe('when open is false', () => {
       it('cannot find aside html element', () => {
         mountWithOpts({ props: { open: false } });
