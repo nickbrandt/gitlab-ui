@@ -124,6 +124,9 @@ export default {
     },
   },
   methods: {
+    show(...args) {
+      this.$refs.dropdown.show(...args);
+    },
     hide(...args) {
       this.$refs.dropdown.hide(...args);
     },
