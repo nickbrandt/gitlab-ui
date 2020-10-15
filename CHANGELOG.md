@@ -1,3 +1,11 @@
+## [21.30.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.30.0...v21.30.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Add styling for search within gldropdown ([930fe80](https://gitlab.com/gitlab-org/gitlab-ui/commit/930fe8078be0a01e2c6b686b341f82d71cee0e51))
+* **GlLabel:** Fix label spacing and overflow ([aa9f4a2](https://gitlab.com/gitlab-org/gitlab-ui/commit/aa9f4a29197d9e523b29e7c7ff1767617793ad7a))
+
 # [21.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.29.0...v21.30.0) (2020-10-14)
 
 
