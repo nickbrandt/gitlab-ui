@@ -20,6 +20,7 @@ $label-max-width: 100%;
     @include gl-display-flex;
     @include gl-font-sm;
     @include gl-font-weight-normal;
+    @include gl-overflow-hidden;
     @include gl-reset-color;
     @include gl-max-w-full;
 
@@ -41,6 +42,7 @@ $label-max-width: 100%;
   > .gl-label-close {
     @include gl-border-0;
     @include gl-display-flex;
+    @include gl-ml-n2;
     @include gl-mr-2;
     @include gl-p-0;
     @include gl-reset-bg;
