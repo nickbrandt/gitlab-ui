@@ -15,6 +15,8 @@ describe('datepicker component', () => {
 
   const findInput = wrapper => wrapper.find('[data-testid="gl-datepicker-input"]');
   const findClearButton = wrapper => wrapper.find('[data-testid="clear-button"]');
+  const findTriggerButton = wrapper => wrapper.find({ ref: 'calendarTriggerBtn' });
+  const findCalendarIcon = wrapper => wrapper.find('[data-testid="datepicker-calendar-icon"]');
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -56,6 +58,14 @@ describe('datepicker component', () => {
         true
       );
     });
+
+    describe('when datepicker is disabled', () => {
+      it('does not pass the `trigger` option to Pikaday', () => {
+        mountWithOptions({ propsData: { disabled: true } });
+
+        expect(pikadayConfig()).not.toHaveProperty('trigger');
+      });
+    });
   });
 
   describe('when `target` prop is `null`', () => {
@@ -71,8 +81,11 @@ describe('datepicker component', () => {
     it('renders a svg icon instead of a button', () => {
       const wrapper = mountWithOptions({ shallow: false, propsData: { target: null } });
 
-      expect(wrapper.find({ ref: 'calendarTriggerBtn' }).exists()).toBe(false);
-      expect(wrapper.find('[data-testid="calendar-icon"]').exists()).toBe(true);
+      const calendarIcon = findCalendarIcon(wrapper);
+
+      expect(findTriggerButton(wrapper).exists()).toBe(false);
+      expect(calendarIcon.exists()).toBe(true);
+      expect(calendarIcon.classes()).toContain('gl-text-gray-500');
     });
   });
 
@@ -100,28 +113,32 @@ describe('datepicker component', () => {
       let clearButton;
       let input;
 
-      beforeEach(async () => {
+      const setup = async (propsData = {}) => {
         wrapper = mountWithOptions({
           shallow: false,
-          propsData: { showClearButton: true },
+          propsData: { showClearButton: true, ...propsData },
         });
 
         input = findInput(wrapper);
         await input.setValue('2020-01-15');
 
         clearButton = findClearButton(wrapper);
-      });
+      };
 
       afterEach(() => {
         wrapper.destroy();
       });
 
-      it('renders clear button', () => {
+      it('renders clear button', async () => {
+        await setup();
+
         expect(clearButton.exists()).toBe(true);
       });
 
       describe('when clear button is clicked', () => {
-        beforeEach(() => {
+        beforeEach(async () => {
+          await setup();
+
           clearButton.trigger('click');
         });
 
@@ -131,6 +148,14 @@ describe('datepicker component', () => {
 
         it('emits the `clear` event', () => {
           expect(wrapper.emitted('clear')).toBeTruthy();
+        });
+      });
+
+      describe('when datepicker is disabled', () => {
+        it('does not render clear button', async () => {
+          await setup({ disabled: true });
+
+          expect(clearButton.exists()).toBe(false);
         });
       });
     });
@@ -336,6 +361,18 @@ describe('datepicker component', () => {
       const wrapper = mountWithOptions();
 
       expect(findInput(wrapper).attributes('autocomplete')).toBeUndefined();
+    });
+  });
+
+  describe('when datepicker is disabled', () => {
+    it('renders a svg icon instead of a button', () => {
+      const wrapper = mountWithOptions({ propsData: { disabled: true } });
+
+      const calendarIcon = findCalendarIcon(wrapper);
+
+      expect(findTriggerButton(wrapper).exists()).toBe(false);
+      expect(calendarIcon.exists()).toBe(true);
+      expect(calendarIcon.classes()).toContain('gl-text-gray-400');
     });
   });
 });
