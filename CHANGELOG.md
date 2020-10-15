@@ -1,3 +1,10 @@
+## [21.32.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.32.0...v21.32.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* Make GlDrawer height aware of positioning ([f51a09b](https://gitlab.com/gitlab-org/gitlab-ui/commit/f51a09ba67f0fc0dd7390c57136c2ad66d45f7f9))
+
 # [21.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.31.0...v21.32.0) (2020-10-15)
 
 
