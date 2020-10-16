@@ -6,6 +6,7 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
+  gridWithSecondaryYAxis,
   yAxis,
   dataZoomAdjustments,
   mergeSeriesToOptions,
@@ -200,10 +201,7 @@ export default {
         {},
         defaultChartOptions,
         {
-          grid: {
-            ...grid,
-            right: this.hasSecondaryAxis ? 64 : 32,
-          },
+          grid: this.hasSecondaryAxis ? gridWithSecondaryYAxis : grid,
           xAxis: {
             boundaryGap: true,
             axisLabel: {
