@@ -1,3 +1,10 @@
+## [21.32.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.32.1...v21.32.2) (2020-10-16)
+
+
+### Bug Fixes
+
+* **GlModal:** Update modal position to centered ([7eaac5c](https://gitlab.com/gitlab-org/gitlab-ui/commit/7eaac5ce7088e672fb36192c3f4d2a64145ff394))
+
 ## [21.32.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.32.0...v21.32.1) (2020-10-15)
 
 
