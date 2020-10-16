@@ -99,6 +99,7 @@ export const newDropdownVariantOptions = {
   success: 'success',
   warning: 'warning',
   danger: 'danger',
+  link: 'link',
 };
 
 export const newButtonSizeOptions = {
