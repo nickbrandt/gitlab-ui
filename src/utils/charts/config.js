@@ -41,6 +41,11 @@ export const grid = {
   right: 32,
 };
 
+export const gridWithSecondaryYAxis = {
+  ...grid,
+  right: 64,
+};
+
 export const lineStyle = {
   symbol: 'circle',
   type: 'line',
