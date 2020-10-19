@@ -3,6 +3,7 @@ import BadgeSizesExample from './badge.sizes.example.vue';
 import BadgeVariantsExample from './badge.variants.example.vue';
 import BadgeActionableExample from './badge.action.example.vue';
 import BadgeButtonExample from './badge.button.example.vue';
+import BadgeIconExample from './badge.icon.example.vue';
 
 export default [
   {
@@ -37,6 +38,12 @@ export default [
         name: 'Inside Button',
         description: 'Show Badge inside Button',
         component: BadgeButtonExample,
+      },
+      {
+        id: 'badge-icon',
+        name: 'Badge Icon',
+        description: 'Show Icon inside Badge',
+        component: BadgeIconExample,
       },
     ],
   },
