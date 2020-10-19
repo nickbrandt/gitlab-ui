@@ -1,3 +1,10 @@
+# [21.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.33.0...v21.34.0) (2020-10-19)
+
+
+### Features
+
+* **GlDropdown:** expose b-dropdown show method ([fd12ab0](https://gitlab.com/gitlab-org/gitlab-ui/commit/fd12ab0120bcd022831a789ece550caaefb7dcd1))
+
 # [21.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.32.2...v21.33.0) (2020-10-19)
 
 
