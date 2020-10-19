@@ -1,3 +1,10 @@
+# [21.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.32.2...v21.33.0) (2020-10-19)
+
+
+### Features
+
+* **GlBadge:** Add icons to gl-badge ([df19f8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/df19f8bf604325c1afcb17ceb2ba7f8dc8e59f22))
+
 ## [21.32.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.32.1...v21.32.2) (2020-10-16)
 
 
