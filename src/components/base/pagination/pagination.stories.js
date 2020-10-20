@@ -104,42 +104,6 @@ documentedStoriesOf('base|pagination', readme)
       Page {{ page }} of 3
     </div>`,
   }))
-  .add('custom rendering', () => ({
-    props: generateFullProps(),
-    ...defaults,
-    components,
-    template: `<gl-pagination
-      v-model="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      :prev-text="prevText"
-      :next-text="nextText"
-      :size="size"
-      :disabled="disabled"
-      >
-        <template #previous="{ page, disabled }">
-          <template v-if="disabled">
-            🚫
-          </template>
-          <template v-else>⏪</template>
-        </template>
-        <template #next="{ page, disabled }">
-          <template v-if="disabled">
-            🚫
-          </template>
-          <template v-else>⏩</template>
-        </template>
-        <template #ellipsis-left>
-          🔍
-        </template>
-        <template #ellipsis-right>
-          🔎
-        </template>
-        <template #page-number="{ page }">
-          #{{ page }}
-        </template>
-      </gl-pagination>`,
-  }))
   .add('link based', () => ({
     props: generateFullProps(),
     ...defaults,
@@ -188,48 +152,5 @@ documentedStoriesOf('base|pagination', readme)
       :size="size"
       :disabled="disabled"
       :align="alignOptions.right"
-      />`,
-  }))
-  .add('fill', () => ({
-    props: generateFullProps(),
-    ...defaults,
-    components,
-    template: `<gl-pagination
-      v-model="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      :prev-text="prevText"
-      :next-text="nextText"
-      :size="size"
-      :disabled="disabled"
-      :align="alignOptions.fill"
-      />`,
-  }))
-  .add('small buttons', () => ({
-    props: generateFullProps(),
-    ...defaults,
-    components,
-    template: `<gl-pagination
-      v-model="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      :prev-text="prevText"
-      :next-text="nextText"
-      size="sm"
-      :disabled="disabled"
-      />`,
-  }))
-  .add('large buttons', () => ({
-    props: generateFullProps(),
-    ...defaults,
-    components,
-    template: `<gl-pagination
-      v-model="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      :prev-text="prevText"
-      :next-text="nextText"
-      size="lg"
-      :disabled="disabled"
       />`,
   }));
