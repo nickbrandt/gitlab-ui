@@ -1,3 +1,10 @@
+## [21.34.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.34.1...v21.34.2) (2020-10-20)
+
+
+### Bug Fixes
+
+* **GlPagination:** Fix extra space between span and icon ([038fc7b](https://gitlab.com/gitlab-org/gitlab-ui/commit/038fc7bef2c171a60e9c0a8ab27e44f59e07ea76))
+
 ## [21.34.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.34.0...v21.34.1) (2020-10-20)
 
 
