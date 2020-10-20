@@ -1,3 +1,10 @@
+## [21.34.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.34.0...v21.34.1) (2020-10-20)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Add "link" variant as valid option for dropdowns ([f1c74e2](https://gitlab.com/gitlab-org/gitlab-ui/commit/f1c74e2edaeff4a619f8184c98ded50f9d204ebb))
+
 # [21.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.33.0...v21.34.0) (2020-10-19)
 
 
