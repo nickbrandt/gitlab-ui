@@ -185,10 +185,10 @@ documentedStoriesOf('base|button', readme)
     `,
   }))
   .add('dropdown loading button', () => ({
-    props: generateProps(),
+    props: generateProps({ category: 'secondary' }),
     components,
     template: `
-      <gl-dropdown text="Some dropdown" :loading="true">
+      <gl-dropdown text="Some dropdown" :category="category" :loading="true">
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
     `,
