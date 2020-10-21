@@ -69,6 +69,10 @@
   color: $blue-300;
 }
 
+@mixin gl-text-blue-400 {
+  color: $blue-400;
+}
+
 @mixin gl-text-blue-500 {
   color: $blue-500;
 }
@@ -115,6 +119,10 @@
 
 @mixin gl-text-theme-green-800 {
   color: $theme-green-800;
+}
+
+@mixin gl-text-orange-300 {
+  color: $orange-300;
 }
 
 @mixin gl-text-orange-400 {
