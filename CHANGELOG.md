@@ -1,3 +1,10 @@
+# [21.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.34.2...v21.35.0) (2020-10-21)
+
+
+### Features
+
+* **css:** Add orange-300 && blue-400 utility mixins ([90d728a](https://gitlab.com/gitlab-org/gitlab-ui/commit/90d728a9fc60db6c39f185c72cf599489b8f6fa9))
+
 ## [21.34.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.34.1...v21.34.2) (2020-10-20)
 
 
