@@ -5,6 +5,7 @@ import ContentlessTabExample from './tabs.contentless_tab.example.vue';
 import NoTabsExample from './tabs.no_tabs.example.vue';
 import TabsWithCounterBadgesExample from './tabs.counterbadges.example.vue';
 import TabsStylesOnlyExample from './tabs.styles_only.example.vue';
+import JustifiedTabsExample from './tabs.justified.example.vue';
 
 export default [
   {
@@ -49,6 +50,11 @@ export default [
         id: 'tabs-styles-only',
         name: 'Tabs styles only',
         component: TabsStylesOnlyExample,
+      },
+      {
+        id: 'justified-tabs',
+        name: 'Justified tabs',
+        component: JustifiedTabsExample,
       },
     ],
   },

@@ -19,6 +19,11 @@ export default {
       required: false,
       default: null,
     },
+    justified: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     activeItemBorderClass() {
@@ -34,6 +39,7 @@ export default {
     :no-fade="true"
     :active-nav-item-class="`gl-tab-nav-item-active ${activeItemBorderClass}`"
     :content-class="[contentClass, 'gl-tab-content']"
+    :justified="justified"
     nav-class="gl-tabs-nav"
     class="gl-tabs"
     v-bind="$attrs"
