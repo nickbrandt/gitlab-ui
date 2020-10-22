@@ -47,6 +47,11 @@ export default {
       required: false,
       default: '',
     },
+    textSrOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     split: {
       type: Boolean,
       required: false,
@@ -150,9 +155,16 @@ export default {
     <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
     <slot></slot>
     <slot slot="button-content" name="button-content">
-      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
-      <span class="gl-new-dropdown-button-text">{{ buttonText }}</span>
-      <gl-icon v-if="renderCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
+      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" aria-hidden="true" />
+      <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">{{
+        buttonText
+      }}</span>
+      <gl-icon
+        v-if="renderCaret"
+        class="gl-button-icon dropdown-chevron"
+        name="chevron-down"
+        aria-hidden="true"
+      />
     </slot>
   </b-dropdown>
 </template>
