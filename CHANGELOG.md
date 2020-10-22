@@ -1,3 +1,10 @@
+## [21.35.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.35.0...v21.35.1) (2020-10-22)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Make dropdown more accessible ([e8a953b](https://gitlab.com/gitlab-org/gitlab-ui/commit/e8a953b25ea78a8a2f3075838a6253995df39ebc))
+
 # [21.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.34.2...v21.35.0) (2020-10-21)
 
 
