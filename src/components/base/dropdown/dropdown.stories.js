@@ -1,4 +1,4 @@
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean, text as textKnob } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
   newButtonCategoryOptions,
@@ -37,6 +37,9 @@ function generateProps({
   variant = newDropdownVariantOptions.default,
   size = newButtonSizeOptions.medium,
   block = false,
+  icon = '',
+  textSrOnly = false,
+  headerText = '',
 } = {}) {
   const props = {
     category: {
@@ -59,6 +62,30 @@ function generateProps({
       type: Boolean,
       default: boolean('disabled', false),
     },
+    text: {
+      type: String,
+      default: textKnob('text', 'Some dropdown'),
+    },
+    textSrOnly: {
+      type: Boolean,
+      default: boolean('text sr-only', textSrOnly),
+    },
+    icon: {
+      type: String,
+      default: textKnob('icon svg name', icon),
+    },
+    split: {
+      type: Boolean,
+      default: boolean('split', false),
+    },
+    toggleClass: {
+      type: String,
+      default: textKnob('toggle class', ''),
+    },
+    headerText: {
+      type: String,
+      default: textKnob('headerText', headerText),
+    },
   };
 
   return props;
@@ -68,12 +95,17 @@ function wrap([template]) {
   return `
     <gl-dropdown
       ref="dropdown"
-      text="Some dropdown"
       :category="category"
       :variant="variant"
       :size="size"
       :block="block"
       :disabled="disabled"
+      :text="text"
+      :text-sr-only="textSrOnly"
+      :icon="icon"
+      :split="split"
+      :toggle-class="toggleClass"
+      :header-text="headerText"
     >
       ${template}
     </gl-dropdown>`;
@@ -154,22 +186,12 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with header', () => ({
-    props: generateProps(),
+    props: generateProps({ headerText: 'Header' }),
     components,
-    template: `
-      <gl-dropdown
-        text="Some dropdown"
-        header-text="Header"
-        :category="category"
-        :variant="variant"
-        :size="size"
-        :block="block"
-        :disabled="disabled"
-      >
-        <gl-search-box-by-type />
-        <gl-dropdown-item>First item</gl-dropdown-item>
-        <gl-dropdown-item>Second item</gl-dropdown-item>
-      </gl-dropdown>`,
+    template: wrap`
+      <gl-search-box-by-type />
+      <gl-dropdown-item>First item</gl-dropdown-item>
+      <gl-dropdown-item>Second item</gl-dropdown-item>`,
     mounted() {
       clickDropdown(this);
     },
@@ -334,6 +356,20 @@ documentedStoriesOf('base|dropdown', readme)
       <gl-dropdown-item icon-right-name="star">
         <div class="gl-text-truncate">ellipsis/should/truncate/this/item</div>
       </gl-dropdown-item>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('icon only', () => ({
+    props: generateProps({ icon: 'ellipsis_v', textSrOnly: true }),
+    components,
+    template: wrap`
+      <gl-dropdown-item>First item</gl-dropdown-item>
+      <gl-dropdown-item>Second item</gl-dropdown-item>
+      <gl-dropdown-item>Last item</gl-dropdown-item>`,
     mounted() {
       clickDropdown(this);
     },
