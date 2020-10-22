@@ -13,9 +13,9 @@ documentedStoriesOf('base|collapse', readme)
       <div>
         <h1>Here's a headline</h1>
         <span>With some details</span>
-        <gl-deprecated-button v-gl-collapse-toggle.collapse-with-heading class="float-right" variant="primary">
+        <gl-button v-gl-collapse-toggle.collapse-with-heading class="float-right" category="primary">
           Toggle Collapse
-        </gl-deprecated-button>
+        </gl-button>
         <gl-collapse id="collapse-with-heading" class="gl-mt-2">
           <h1>This is collapsed by default</h1>
           <span>
@@ -30,7 +30,7 @@ documentedStoriesOf('base|collapse', readme)
     components,
     template: `
       <div>
-        <gl-deprecated-button v-gl-collapse-toggle.collapse-template variant="primary">Toggle Collapse</gl-deprecated-button>
+        <gl-button v-gl-collapse-toggle.collapse-template category="primary">Toggle Collapse</gl-button>
         <gl-collapse visible id="collapse-template" class="mt-2">
           <gl-card>Hey I was expanded all along!</gl-card>
         </gl-collapse>

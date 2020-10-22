@@ -1,14 +1,14 @@
 <template>
   <div>
-    <gl-deprecated-button v-gl-collapse-toggle.collase-basic-example variant="primary">
+    <gl-button v-gl-collapse-toggle.collase-basic-example category="primary">
       Toggle Collapse
-    </gl-deprecated-button>
+    </gl-button>
     <gl-collapse id="collase-basic-example" class="gl-mt-3">
       <gl-card>
         <p class="card-text">Collapse contents Here</p>
-        <gl-deprecated-button v-gl-collapse-toggle.collase-basic-example-inner size="sm">
+        <gl-button v-gl-collapse-toggle.collase-basic-example-inner size="sm">
           Toggle Inner Collapse
-        </gl-deprecated-button>
+        </gl-button>
         <gl-collapse id="collase-basic-example-inner" class="gl-mt-3">
           <gl-card>Hello!</gl-card>
         </gl-collapse>
