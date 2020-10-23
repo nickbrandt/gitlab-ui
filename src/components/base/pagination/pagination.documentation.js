@@ -53,10 +53,6 @@ export default {
       additionalInfo:
         'aria-label getter for numbered page items, defaults to "Go to page <page_number>"',
     },
-    size: {
-      additionalInfo:
-        'Controls the component\'s size, value should be one of "sm" or "lg", leave empty to use the default size',
-    },
     align: {
       additionalInfo:
         'Controls the component\'s horizontal alignment, value should be one of "left", "center", "right" or "fill"',
