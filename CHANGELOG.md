@@ -1,3 +1,10 @@
+## [21.35.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.35.1...v21.35.2) (2020-10-23)
+
+
+### Bug Fixes
+
+* **GlPagination:** Remove size options - default to md ([ba0e23e](https://gitlab.com/gitlab-org/gitlab-ui/commit/ba0e23e64a3a2704502c0b330ec47b1ee121db20))
+
 ## [21.35.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.35.0...v21.35.1) (2020-10-22)
 
 
