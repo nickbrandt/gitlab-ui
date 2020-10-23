@@ -1,3 +1,10 @@
+# [21.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.35.2...v21.36.0) (2020-10-23)
+
+
+### Features
+
+* **css:** Add gl-flex-basis-50 ([afcbf1b](https://gitlab.com/gitlab-org/gitlab-ui/commit/afcbf1b6ef9f6b16751ff64ad908e57124ed5990))
+
 ## [21.35.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.35.1...v21.35.2) (2020-10-23)
 
 
