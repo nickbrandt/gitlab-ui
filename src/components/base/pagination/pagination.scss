@@ -8,21 +8,18 @@
   .page-link {
     @include gl-border-gray-200;
     @include gl-line-height-normal;
-
-    &:not(.active):hover {
-      @include gl-text-gray-900;
-      @include gl-tmp-button-hover($gray-400, $gray-50);
-      @include gl-z-index-0;
-    }
-  }
-
-  &:not(.pagination-lg):not(.pagination-sm) .page-link {
     @include gl-px-4;
     @include gl-py-3;
 
     &.prev-page-item,
     &.next-page-item {
       @include gl-px-3;
+    }
+
+    &:not(.active):hover {
+      @include gl-text-gray-900;
+      @include gl-tmp-button-hover($gray-400, $gray-50);
+      @include gl-z-index-0;
     }
   }
 
@@ -49,7 +46,7 @@
 }
 
 @media (max-width: $breakpoint-sm) {
-  .gl-pagination:not(.custom-rendering) {
+  .gl-pagination {
     .prev-page-item,
     .next-page-item {
       span {

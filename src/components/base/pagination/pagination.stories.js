@@ -1,8 +1,8 @@
-import { withKnobs, number, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, number, text, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import GlPagination from './pagination.vue';
 import readme from './pagination.md';
-import { sizeOptions, alignOptions } from '../../../utils/constants';
+import { alignOptions } from '../../../utils/constants';
 
 const components = {
   GlPagination,
@@ -15,9 +15,6 @@ function generateBaseProps() {
     },
     nextText: {
       default: text('Next button text', 'Next'),
-    },
-    size: {
-      default: select('Buttons size', sizeOptions, null),
     },
     disabled: {
       default: boolean('Disabled', false),
@@ -66,7 +63,6 @@ documentedStoriesOf('base|pagination', readme)
       :total-items="totalItems"
       :prev-text="prevText"
       :next-text="nextText"
-      :size="size"
       :disabled="disabled"
       />`,
   }))
@@ -97,7 +93,6 @@ documentedStoriesOf('base|pagination', readme)
         :next-page="nextPage"
         :prev-text="prevText"
         :next-text="nextText"
-        :size="size"
         :disabled="disabled"
         :align="alignOptions.center"
       />
@@ -119,7 +114,6 @@ documentedStoriesOf('base|pagination', readme)
       :total-items="totalItems"
       :prev-text="prevText"
       :next-text="nextText"
-      :size="size"
       :disabled="disabled"
       :link-gen="linkGen"
       />`,
@@ -134,7 +128,6 @@ documentedStoriesOf('base|pagination', readme)
       :total-items="totalItems"
       :prev-text="prevText"
       :next-text="nextText"
-      :size="size"
       :disabled="disabled"
       :align="alignOptions.center"
       />`,
@@ -149,7 +142,6 @@ documentedStoriesOf('base|pagination', readme)
       :total-items="totalItems"
       :prev-text="prevText"
       :next-text="nextText"
-      :size="size"
       :disabled="disabled"
       :align="alignOptions.right"
       />`,

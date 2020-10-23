@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce';
 import GlLink from '../link/link.vue';
 import GlIcon from '../icon/icon.vue';
 import Breakpoints, { breakpoints } from '../../../utils/breakpoints';
-import { sizeOptions, alignOptions, resizeDebounceTime } from '../../../utils/constants';
+import { alignOptions, resizeDebounceTime } from '../../../utils/constants';
 
 const pageRange = (from, to) => range(from, to + 1, 1);
 
@@ -106,12 +106,6 @@ export default {
       required: false,
       default: page => `Go to page ${page}`,
     },
-    size: {
-      type: String,
-      required: false,
-      default: null,
-      validator: value => Object.keys(sizeOptions).includes(value),
-    },
     align: {
       type: String,
       required: false,
@@ -162,12 +156,6 @@ export default {
       }
       if (this.isFillAlign) {
         classes.push('text-center');
-      }
-      if (this.size) {
-        classes.push(`pagination-${this.size}`);
-      }
-      if (Object.keys(this.$slots).length > 0) {
-        classes.push('custom-rendering');
       }
       return classes;
     },
@@ -340,7 +328,7 @@ export default {
     >
       <component
         :is="item.component"
-        :size="size"
+        size="md"
         :aria-disabled="item.disabled"
         class="page-link"
         v-bind="item.attrs"
