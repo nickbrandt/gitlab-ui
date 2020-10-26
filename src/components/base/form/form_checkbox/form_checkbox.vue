@@ -23,7 +23,7 @@ export default {
     @input="$emit('input', $event)"
   >
     <slot></slot>
-    <p v-if="Boolean($slots.help)" class="help-text">
+    <p v-if="Boolean($scopedSlots.help)" class="help-text">
       <slot name="help"></slot>
     </p>
   </b-form-checkbox>
