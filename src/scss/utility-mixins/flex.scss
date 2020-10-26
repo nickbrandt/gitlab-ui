@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+@mixin gl-align-items-flex-start {
+  align-items: flex-start;
+}
+
 @mixin gl-align-items-flex-end {
   align-items: flex-end;
 }
