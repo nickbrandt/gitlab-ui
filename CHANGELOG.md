@@ -1,3 +1,10 @@
+# [21.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.36.0...v21.37.0) (2020-10-26)
+
+
+### Features
+
+* **css:** add gl-align-items-flex-start ([66a097f](https://gitlab.com/gitlab-org/gitlab-ui/commit/66a097ff36b3c96aad70c3408c8913ace00f241a))
+
 # [21.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.35.2...v21.36.0) (2020-10-23)
 
 
