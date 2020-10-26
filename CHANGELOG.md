@@ -1,3 +1,10 @@
+# [21.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.37.0...v21.38.0) (2020-10-26)
+
+
+### Features
+
+* **GlTabs:** Add justified tabs prop and examples ([342d13d](https://gitlab.com/gitlab-org/gitlab-ui/commit/342d13d36970c5e99750655036021bc0246ea26a))
+
 # [21.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.36.0...v21.37.0) (2020-10-26)
 
 
