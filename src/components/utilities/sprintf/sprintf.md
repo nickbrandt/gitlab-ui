@@ -216,6 +216,4 @@ them _unless_ you find `GlSprintf` isn't rendering what you'd expect.
 
 This component uses [`String.prototype.startsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) and [`String.prototype.endsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith) under the hood. Make sure those methods are polyfilled if you plan on using the component on IE11.
 
-> NOTE: These methods are already polyfilled in GitLab: [`app/assets/javascripts/commons/polyfills.js#L15-16`](https://gitlab.com/gitlab-org/gitlab/blob/dc60dee6ed6234dda9f032195577cd8fad9646d8/app/assets/javascripts/commons/polyfills.js#L15-16)
-
 [1]: https://www.w3.org/TR/css-text-3/#white-space-phase-1
