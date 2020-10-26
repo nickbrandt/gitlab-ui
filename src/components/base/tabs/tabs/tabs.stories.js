@@ -59,4 +59,17 @@ documentedStoriesOf('base|tabs/tabs', '')
         </template>
       </gl-tabs>
     `,
+  }))
+  .add('justified tabs', () => ({
+    ...createBaseStory(),
+    template: `
+      <gl-tabs :theme="theme" justified>
+        <gl-tab title="First tab">
+          <p>First content</p>
+        </gl-tab>
+        <gl-tab title="Second tab">
+          <p>Second contnet</p>
+        </gl-tab>
+      </gl-tabs>
+    `,
   }));
