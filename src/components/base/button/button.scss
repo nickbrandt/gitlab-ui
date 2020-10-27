@@ -499,5 +499,9 @@
     @include gl-inset-border-1-gray-100;
     @include gl-opacity-10;
     cursor: not-allowed !important;
+
+    .gl-button-icon {
+      @include gl-fill-gray-400;
+    }
   }
 }
