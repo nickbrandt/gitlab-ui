@@ -21,7 +21,7 @@ export default {
     @change="$emit('change', $event)"
   >
     <slot></slot>
-    <p v-if="$slots.help" class="help-text">
+    <p v-if="$scopedSlots.help" class="help-text">
       <slot name="help"></slot>
     </p>
   </b-form-radio>
