@@ -1,3 +1,10 @@
+# [21.40.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.39.1...v21.40.0) (2020-10-28)
+
+
+### Features
+
+* **css:** Add additional responsive display classes ([96de07c](https://gitlab.com/gitlab-org/gitlab-ui/commit/96de07c123b490e94d989203c14463029ca20cad))
+
 ## [21.39.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.39.0...v21.39.1) (2020-10-28)
 
 
