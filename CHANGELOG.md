@@ -1,3 +1,10 @@
+# [21.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.40.0...v21.41.0) (2020-10-28)
+
+
+### Features
+
+* **css:** Adds border radius of scale 6 to utilities ([0a4606b](https://gitlab.com/gitlab-org/gitlab-ui/commit/0a4606b51ef1f03b593dcfa322c57a6264f5958a))
+
 # [21.40.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.39.1...v21.40.0) (2020-10-28)
 
 
