@@ -73,6 +73,12 @@
   }
 }
 
+@mixin gl-display-lg-block {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-display-block;
+  }
+}
+
 @mixin gl-display-inline {
   display: inline;
 }
@@ -83,7 +89,7 @@
 
 @mixin gl-display-lg-inline-block {
   @media (min-width: $breakpoint-lg) {
-    display: inline-block;
+    @include gl-display-inline-block;
   }
 }
 
