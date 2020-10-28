@@ -1,3 +1,10 @@
+## [21.39.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.39.0...v21.39.1) (2020-10-28)
+
+
+### Bug Fixes
+
+* Conditional slot rendering for use in modals ([cf59ea5](https://gitlab.com/gitlab-org/gitlab-ui/commit/cf59ea5e4f631d42e8c34f58909c527dc6727034))
+
 # [21.39.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.38.0...v21.39.0) (2020-10-28)
 
 
