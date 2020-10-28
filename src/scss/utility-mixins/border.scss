@@ -245,6 +245,10 @@
   border-radius: $gl-border-radius-large;
 }
 
+@mixin gl-rounded-6 {
+  border-radius: $gl-border-radius-6;
+}
+
 @mixin gl-rounded-pill {
   border-radius: $gl-spacing-scale-4;
 }
@@ -300,4 +304,20 @@
 
 @mixin gl-rounded-bottom-right-small {
   border-bottom-right-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-bottom-left-6 {
+  border-bottom-left-radius: $gl-border-radius-6;
+}
+
+@mixin gl-rounded-bottom-right-6 {
+  border-bottom-right-radius: $gl-border-radius-6;
+}
+
+@mixin gl-rounded-top-left-6 {
+  border-top-left-radius: $gl-border-radius-6;
+}
+
+@mixin gl-rounded-top-right-6 {
+  border-top-right-radius: $gl-border-radius-6;
 }
