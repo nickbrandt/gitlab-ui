@@ -1,3 +1,10 @@
+# [21.39.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.38.0...v21.39.0) (2020-10-28)
+
+
+### Features
+
+* **css:** Add width classes for pipeline visualization ([238a4d0](https://gitlab.com/gitlab-org/gitlab-ui/commit/238a4d02ba6e69e1a3e8b4c9bb4a64f16df60056))
+
 # [21.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.37.0...v21.38.0) (2020-10-26)
 
 
