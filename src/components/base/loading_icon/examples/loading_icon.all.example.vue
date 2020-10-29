@@ -1,6 +1,6 @@
 <script>
 const sizes = ['sm', 'md', 'lg', 'xl'];
-const colors = ['orange', 'dark', 'light'];
+const colors = ['dark', 'light'];
 
 export default {
   data: () => ({

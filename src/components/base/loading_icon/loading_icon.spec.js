@@ -29,7 +29,7 @@ describe('loading icon component', () => {
 
   describe('css class', () => {
     const supportedSizes = ['sm', 'md', 'lg'];
-    const supportedColors = ['dark', 'light', 'orange'];
+    const supportedColors = ['dark', 'light'];
     const sizeColorCombinations = supportedSizes.reduce(
       (combinations, size) => combinations.concat(supportedColors.map(color => [size, color])),
       []

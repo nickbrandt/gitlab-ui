@@ -500,4 +500,10 @@
     @include gl-opacity-10;
     cursor: not-allowed !important;
   }
+
+  &.disabled[class*='-tertiary'],
+  &[disabled][class*='-tertiary'] {
+    @include gl-bg-transparent;
+    @include gl-shadow-none;
+  }
 }

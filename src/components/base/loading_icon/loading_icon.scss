@@ -42,7 +42,7 @@
   // default size
   @include gl-tmp-spinner-size($gl-spacing-scale-5, $gl-border-size-2);
   // default colour
-  @include gl-tmp-spinner-color($orange-600);
+  @include gl-tmp-spinner-color($gray-700);
 
   &.gl-spinner-md {
     @include gl-tmp-spinner-size($gl-spacing-scale-6, $gl-border-size-3);
