@@ -1,3 +1,15 @@
+# [21.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.41.0...v21.42.0) (2020-10-29)
+
+
+### Bug Fixes
+
+* **GlButton:** Update disabled button icon fill color ([6957e7f](https://gitlab.com/gitlab-org/gitlab-ui/commit/6957e7f77cbe8e201d8b755dd13289364d38a56d))
+
+
+### Features
+
+* **GlButton:** Add borderless (tertiary) loading button variant ([8dd2f2e](https://gitlab.com/gitlab-org/gitlab-ui/commit/8dd2f2e30decb60ad88085fedcc4b55fa5e64b3a))
+
 # [21.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.40.0...v21.41.0) (2020-10-28)
 
 
