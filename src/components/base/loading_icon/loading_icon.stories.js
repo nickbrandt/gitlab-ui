@@ -39,15 +39,10 @@ function generateProps({ inline } = {}) {
     },
     color: {
       type: String,
-      default: select(
-        'color',
-        {
-          orange: 'orange',
-          dark: 'dark',
-          light: 'light',
-        },
-        'orange'
-      ),
+      default: select('color', {
+        dark: 'dark',
+        light: 'light',
+      }),
     },
     inline: {
       type: Boolean,

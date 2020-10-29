@@ -6,11 +6,10 @@ const sizes = [
   'xl', // -> 64px
 ];
 const colors = {
-  orange: 'orange',
   dark: 'dark',
   light: 'light',
 };
-const defaultColor = colors.orange;
+const defaultColor = colors.dark;
 
 const baseCssClass = 'gl-spinner';
 
