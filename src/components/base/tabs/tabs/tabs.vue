@@ -15,7 +15,12 @@ export default {
       validator: theme => glThemes.includes(theme),
     },
     contentClass: {
-      type: String,
+      type: [String, Array, Object],
+      required: false,
+      default: null,
+    },
+    navClass: {
+      type: [String, Array, Object],
       required: false,
       default: null,
     },
@@ -39,8 +44,8 @@ export default {
     :no-fade="true"
     :active-nav-item-class="`gl-tab-nav-item-active ${activeItemBorderClass}`"
     :content-class="[contentClass, 'gl-tab-content']"
+    :nav-class="[navClass, 'gl-tabs-nav']"
     :justified="justified"
-    nav-class="gl-tabs-nav"
     class="gl-tabs"
     v-bind="$attrs"
     v-on="$listeners"
