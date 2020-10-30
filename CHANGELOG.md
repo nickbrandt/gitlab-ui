@@ -1,3 +1,10 @@
+# [21.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.42.0...v21.43.0) (2020-10-30)
+
+
+### Features
+
+* **GlDropdown:** Add loading state to dropdown ([b89defa](https://gitlab.com/gitlab-org/gitlab-ui/commit/b89defab9d3dba40efc9231d10d6408fbca4539a))
+
 # [21.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.41.0...v21.42.0) (2020-10-29)
 
 
