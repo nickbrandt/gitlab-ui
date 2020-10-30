@@ -2,6 +2,7 @@
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import { BDropdown } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import {
   newButtonCategoryOptions,
   newDropdownVariantOptions,
@@ -34,6 +35,7 @@ export default {
   components: {
     BDropdown: ExtendedBDropdown,
     GlIcon,
+    GlLoadingIcon,
   },
   mixins: [ButtonMixin],
   props: {
@@ -81,6 +83,11 @@ export default {
       default: null,
     },
     block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    loading: {
       type: Boolean,
       required: false,
       default: false,
@@ -150,11 +157,13 @@ export default {
     :toggle-class="[toggleButtonClasses]"
     :split-class="splitButtonClasses"
     :block="block"
+    :disabled="loading"
     v-on="$listeners"
   >
     <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
     <slot></slot>
     <slot slot="button-content" name="button-content">
+      <gl-loading-icon v-if="loading" class="gl-mr-2" />
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" aria-hidden="true" />
       <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">{{
         buttonText
