@@ -39,6 +39,7 @@ function generateProps({
   block = false,
   icon = '',
   textSrOnly = false,
+  loading = false,
   headerText = '',
 } = {}) {
   const props = {
@@ -82,6 +83,10 @@ function generateProps({
       type: String,
       default: textKnob('toggle class', ''),
     },
+    loading: {
+      type: Boolean,
+      default: boolean('loading', loading),
+    },
     headerText: {
       type: String,
       default: textKnob('headerText', headerText),
@@ -106,6 +111,7 @@ function wrap([template]) {
       :split="split"
       :toggle-class="toggleClass"
       :header-text="headerText"
+      :loading="loading"
     >
       ${template}
     </gl-dropdown>`;
@@ -369,6 +375,19 @@ documentedStoriesOf('base|dropdown', readme)
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
       <gl-dropdown-item>Second item</gl-dropdown-item>
+      <gl-dropdown-item>Last item</gl-dropdown-item>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with loading state', () => ({
+    props: generateProps({ loading: true }),
+    components,
+    template: wrap`
+      <gl-dropdown-item>First item</gl-dropdown-item>
       <gl-dropdown-item>Last item</gl-dropdown-item>`,
     mounted() {
       clickDropdown(this);
