@@ -33,6 +33,26 @@ describe('new dropdown', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
+  describe('disabled state', () => {
+    it('is not disabled by default', () => {
+      buildWrapper({});
+
+      expect(findDropdownToggle().attributes('disabled')).toBe(undefined);
+    });
+
+    it('can be disabled', () => {
+      buildWrapper({ disabled: true });
+
+      expect(findDropdownToggle().attributes('disabled')).toBe('disabled');
+    });
+
+    it('can be disabled via the loading prop', () => {
+      buildWrapper({ loading: true });
+
+      expect(findDropdownToggle().attributes('disabled')).toBe('disabled');
+    });
+  });
+
   describe.each`
     props                                           | splitClasses                                             | toggleClasses
     ${{ split: true }}                              | ${[]}                                                    | ${[]}
