@@ -27,3 +27,19 @@
     @include gl-h-3;
   }
 }
+
+.gl-tooltip.bs-tooltip-top .arrow::before {
+  @include gl-border-b-0;
+}
+
+.gl-tooltip.bs-tooltip-right .arrow::before {
+  @include gl-border-l-0;
+}
+
+.gl-tooltip.bs-tooltip-bottom .arrow::before {
+  @include gl-border-t-0;
+}
+
+.gl-tooltip.bs-tooltip-left .arrow::before {
+  @include gl-border-r-0;
+}
