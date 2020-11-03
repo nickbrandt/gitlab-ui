@@ -87,6 +87,11 @@ export default {
       required: false,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     loading: {
       type: Boolean,
       required: false,
@@ -157,7 +162,7 @@ export default {
     :toggle-class="[toggleButtonClasses]"
     :split-class="splitButtonClasses"
     :block="block"
-    :disabled="loading"
+    :disabled="disabled || loading"
     v-on="$listeners"
   >
     <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
