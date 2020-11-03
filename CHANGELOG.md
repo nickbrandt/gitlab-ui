@@ -1,3 +1,15 @@
+# [21.44.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.43.0...v21.44.0) (2020-11-03)
+
+
+### Bug Fixes
+
+* **dropdown:** dropdown accepts `disabled` prop ([ee169eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/ee169eb2f125ffeb82a1cd0300dee5d8733c3afd))
+
+
+### Features
+
+* **GlTabs:** Add custom classes to nav in tabs ([1f3455c](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f3455ce668c6537be5d7967b07fa4a6ab093d01))
+
 # [21.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.42.0...v21.43.0) (2020-10-30)
 
 
