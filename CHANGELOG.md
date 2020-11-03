@@ -1,3 +1,15 @@
+# [22.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.44.0...v22.0.0) (2020-11-03)
+
+
+### Features
+
+* **GlBadge:** remove GlDeprecatedBadge ([2747668](https://gitlab.com/gitlab-org/gitlab-ui/commit/2747668d9ca76d153d570d5de0f4954a0c780846))
+
+
+### BREAKING CHANGES
+
+* **GlBadge:** GlDeprecatedBadge is being removed, use GlBadge instead
+
 # [21.44.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.43.0...v21.44.0) (2020-11-03)
 
 
