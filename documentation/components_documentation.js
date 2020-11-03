@@ -33,7 +33,6 @@ export { default as GlColumnChartDocumentation } from '../src/components/charts/
 export { default as GlDiscreteScatterChartDocumentation } from '../src/components/charts/discrete_scatter/discrete_scatter.documentation';
 export { default as GlSkeletonLoadingDocumentation } from '../src/components/base/skeleton_loading/skeleton_loading.documentation';
 export { default as GlBadgeDocumentation } from '../src/components/base/badge/badge.documentation';
-export { default as GlDeprecatedBadgeDocumentation } from '../src/components/base/deprecated_badge/badge.documentation';
 export { default as GlDeprecatedButtonDocumentation } from '../src/components/base/deprecated_button/deprecated_button.documentation';
 export { default as GlButtonDocumentation } from '../src/components/base/button/button.documentation';
 export { default as GlLinkDocumentation } from '../src/components/base/link/link.documentation';
