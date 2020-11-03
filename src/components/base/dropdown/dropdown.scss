@@ -108,6 +108,10 @@
     }
   }
 
+  .dropdown-icon {
+    @include gl-mr-2;
+  }
+
   .dropdown-icon-text,
   .dropdown-icon-only {
     @include gl-pl-3;
