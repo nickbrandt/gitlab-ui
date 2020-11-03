@@ -1,6 +1,6 @@
 .gl-form-input,
 .gl-form-input.form-control {
-  @include gl-bg-none;
+  @include gl-bg-white;
   @include gl-font-regular;
   @include gl-font-base;
   @include gl-line-height-normal;
@@ -28,6 +28,7 @@
 
   &.is-invalid {
     @include gl-inset-border-1-red-500;
+    background-image: none;
 
     &:focus {
       @include gl-focus($gl-border-size-1, $red-500);
