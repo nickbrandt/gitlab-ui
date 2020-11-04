@@ -1,3 +1,10 @@
+## [22.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.2...v22.0.3) (2020-11-04)
+
+
+### Bug Fixes
+
+* **form input:** Correct background color of inputs ([21d293d](https://gitlab.com/gitlab-org/gitlab-ui/commit/21d293d79ab4608c25ea23b63124bd23d9a6e8dd))
+
 ## [22.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.1...v22.0.2) (2020-11-04)
 
 
