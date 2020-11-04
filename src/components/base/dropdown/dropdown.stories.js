@@ -38,6 +38,7 @@ function generateProps({
   size = newButtonSizeOptions.medium,
   block = false,
   icon = '',
+  text = '',
   textSrOnly = false,
   loading = false,
   headerText = '',
@@ -65,7 +66,7 @@ function generateProps({
     },
     text: {
       type: String,
-      default: textKnob('text', 'Some dropdown'),
+      default: textKnob('text', text),
     },
     textSrOnly: {
       type: Boolean,
@@ -124,7 +125,7 @@ function clickDropdown(component) {
 documentedStoriesOf('base|dropdown', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
@@ -147,6 +148,7 @@ documentedStoriesOf('base|dropdown', readme)
   }))
   .add('secondary', () => ({
     props: generateProps({
+      text: 'Some dropdown',
       category: newButtonCategoryOptions.secondary,
       variant: newDropdownVariantOptions.success,
     }),
@@ -163,7 +165,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with form', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-form>
@@ -176,7 +178,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with divider', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
@@ -192,7 +194,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with header', () => ({
-    props: generateProps({ headerText: 'Header' }),
+    props: generateProps({ text: 'Some dropdown', headerText: 'Header' }),
     components,
     template: wrap`
       <gl-search-box-by-type />
@@ -206,7 +208,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with section header', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-section-header>Header title</gl-dropdown-section-header>
@@ -220,7 +222,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with checked items', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-item :is-check-item="true" :is-checked="true">Checked item</gl-dropdown-item>
@@ -233,7 +235,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with avatar and secondary text', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-item
@@ -250,7 +252,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with icons', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-item
@@ -295,7 +297,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('full width', () => ({
-    props: generateProps({ block: true }),
+    props: generateProps({ text: 'Some dropdown', block: true }),
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
@@ -355,7 +357,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with item text that does not wrap', () => ({
-    props: generateProps(),
+    props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
       <gl-dropdown-item icon-right-name="star">Normal item</gl-dropdown-item>
@@ -370,7 +372,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('icon only', () => ({
-    props: generateProps({ icon: 'ellipsis_v', textSrOnly: true }),
+    props: generateProps({ icon: 'ellipsis_v' }),
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
@@ -384,7 +386,7 @@ documentedStoriesOf('base|dropdown', readme)
     },
   }))
   .add('with loading state', () => ({
-    props: generateProps({ loading: true }),
+    props: generateProps({ text: 'Some dropdown', loading: true }),
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
