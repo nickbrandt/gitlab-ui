@@ -6,7 +6,6 @@
 import React from 'react';
 import { addons, types } from '@storybook/addons';
 import { useAddonState } from '@storybook/api';
-import { WithTooltip } from '@storybook/components';
 
 const ADDON_ID = 'gitlab-ui/gitlab-css';
 const PANEL_ID = `${ADDON_ID}/panel`;
@@ -28,19 +27,17 @@ const EnableGitLabCssCheckbox = () => {
   const checkboxStyles = { marginRight: '8px' };
 
   return h('div', null, [
-    h(WithTooltip, { placement: 'bottom', key: 'gitlab-css-checkbox-tooltip' }, [
-      h('label', { htmlFor: id, title, key: 'gitlab-css-checkbox-label' }, [
-        h('input', {
-          key: 'gitlab-css-checkbox',
-          type: 'checkbox',
-          id,
-          checked: state.gitlabCssIncluded,
-          autoComplete: 'off',
-          styles: checkboxStyles,
-          onChange: () => toggleGitLabCss(),
-        }),
-        'Include GitLab CSS bundle',
-      ]),
+    h('label', { htmlFor: id, title, key: 'gitlab-css-checkbox-label' }, [
+      h('input', {
+        key: 'gitlab-css-checkbox',
+        type: 'checkbox',
+        id,
+        checked: state.gitlabCssIncluded,
+        autoComplete: 'off',
+        styles: checkboxStyles,
+        onChange: () => toggleGitLabCss(),
+      }),
+      'Include GitLab CSS bundle',
     ]),
   ]);
 };
