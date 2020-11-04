@@ -1,3 +1,11 @@
+## [22.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.0...v22.0.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **dropdown button:** Correct spacing of dropdown icon ([ca5d8e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/ca5d8e64905b90065367991826ee65ad955cdbc3))
+* **dropdown snapshots:** Updates snapshots to use optional text ([4c8fa45](https://gitlab.com/gitlab-org/gitlab-ui/commit/4c8fa454c840e64bb559c6ae2d14848794a36d8a))
+
 # [22.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v21.44.0...v22.0.0) (2020-11-03)
 
 
