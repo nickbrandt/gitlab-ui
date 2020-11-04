@@ -1,3 +1,10 @@
+## [22.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.1...v22.0.2) (2020-11-04)
+
+
+### Bug Fixes
+
+* **GlTooltip:** Remove arrow bottom border ([75f53ca](https://gitlab.com/gitlab-org/gitlab-ui/commit/75f53cac2d7dfa7fd3e1b42d75fa3a203c46a121))
+
 ## [22.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.0...v22.0.1) (2020-11-04)
 
 
