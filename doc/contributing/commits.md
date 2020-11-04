@@ -16,7 +16,7 @@ format that includes a **type**, a **scope**, and a **subject**:
 ```
 
 The header is mandatory and the scope of the header is optional.
-Each line in the commit message should be no longer than 100 characters.
+Each line in the commit message should be no longer than 72 characters.
 
 When opening an MR, make sure you do at least one of the following:
 
