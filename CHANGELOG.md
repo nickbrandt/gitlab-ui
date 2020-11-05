@@ -1,3 +1,32 @@
+# [23.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.3...v23.0.0) (2020-11-05)
+
+
+### Features
+
+* **GlCard:** custom card component implementation ([c0872ce](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0872cee37091e9b15d31d105a1820548a25ef3d))
+
+
+### BREAKING CHANGES
+
+* **GlCard:** This drops the underlying `BCard` component.
+
+`GlCard`'s API supports the following props and slots, that were already
+supported by `BCard`:
+
+Props:
+
+- `headerClass`
+- `bodyClass`
+- `footerClass`
+
+Slots:
+
+- `header`
+- `default`
+- `footer`
+
+If you're only using those props/slots, this is a drop-in replacement.
+
 ## [22.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.2...v22.0.3) (2020-11-04)
 
 
