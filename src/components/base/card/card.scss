@@ -1,0 +1,40 @@
+.gl-card {
+  @include gl-bg-white;
+  @include gl-border-solid;
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+  @include gl-overflow-wrap-break;
+  @include gl-relative;
+  @include gl-rounded-base;
+  @include gl-font-base;
+}
+
+.gl-card,
+.gl-card-header,
+.gl-card-footer {
+  @include gl-border-1;
+  @include gl-border-gray-100;
+}
+
+.gl-card-header,
+.gl-card-body,
+.gl-card-footer {
+  @include gl-p-5;
+}
+
+.gl-card-header {
+  @include gl-border-b-solid;
+  @include gl-rounded-top-left-base;
+  @include gl-rounded-top-right-base;
+}
+
+.gl-card-footer {
+  @include gl-border-t-solid;
+  @include gl-rounded-bottom-left-base;
+  @include gl-rounded-bottom-right-base;
+}
+
+.gl-card-header,
+.gl-card-footer {
+  @include gl-bg-gray-10;
+}

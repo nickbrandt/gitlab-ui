@@ -1,7 +1,7 @@
 <template>
   <gl-card>
     <template #header>
-      <h3>This is a custom header</h3>
+      <h3 class="gl-my-0 gl-font-weight-bold">This is a custom header</h3>
     </template>
     Hello World
     <template #footer>

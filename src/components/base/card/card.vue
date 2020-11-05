@@ -1,20 +1,35 @@
 <script>
-import { BCard } from 'bootstrap-vue';
-
 export default {
-  components: {
-    BCard,
+  props: {
+    headerClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
+    bodyClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
+    footerClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
   },
 };
 </script>
+
 <template>
-  <b-card v-bind="$attrs" v-on="$listeners">
-    <template slot="header">
+  <div class="gl-card">
+    <div v-if="this.$slots.header" class="gl-card-header" :class="headerClass">
       <slot name="header"></slot>
-    </template>
-    <slot></slot>
-    <template slot="footer">
+    </div>
+    <div class="gl-card-body" :class="bodyClass">
+      <slot></slot>
+    </div>
+    <div v-if="this.$slots.footer" class="gl-card-footer" :class="footerClass">
       <slot name="footer"></slot>
-    </template>
-  </b-card>
+    </div>
+  </div>
 </template>

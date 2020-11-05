@@ -1,5 +1,8 @@
-### Default card
+# GlCard
 
-A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+<!-- STORY -->
 
-[`<gl-card>`]: https://gitlab.com/gitlab-org/gitlab-ui/blob/master/documentation/card.md
+Cards are a flexible component used to display content and actions in a variety of contexts.
+They are generally restricted to a single topic and it should be easy for users to scan relevant and
+actionable information. Content, such as images and text, should be positioned within them in a
+manner that demonstrates their intended hierarchy.
