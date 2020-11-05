@@ -601,6 +601,16 @@
   margin-right: -#{$gl-spacing-scale-1};
 }
 
+@mixin gl-my-n2 {
+  margin-top: -#{$gl-spacing-scale-2};
+  margin-bottom: -#{$gl-spacing-scale-2};
+}
+
+@mixin gl-mx-n2 {
+  margin-left: -#{$gl-spacing-scale-2};
+  margin-right: -#{$gl-spacing-scale-2};
+}
+
 @mixin gl-my-n3 {
   margin-top: -#{$gl-spacing-scale-3};
   margin-bottom: -#{$gl-spacing-scale-3};
