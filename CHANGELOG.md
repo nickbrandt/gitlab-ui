@@ -1,3 +1,10 @@
+# [23.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.1.0...v23.2.0) (2020-11-09)
+
+
+### Features
+
+* **css:** add gl-align-self-end mixin ([7a2f6c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/7a2f6c7d963547569f2ad386e6be759ad07091a0))
+
 # [23.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.0.0...v23.1.0) (2020-11-09)
 
 
