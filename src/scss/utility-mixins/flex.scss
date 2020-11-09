@@ -175,6 +175,10 @@
   align-self: flex-start;
 }
 
+@mixin gl-align-self-end {
+  align-self: flex-end;
+}
+
 @mixin gl-align-self-center {
   align-self: center;
 }
