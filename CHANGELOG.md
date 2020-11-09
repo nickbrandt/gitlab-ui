@@ -1,3 +1,10 @@
+# [23.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.0.0...v23.1.0) (2020-11-09)
+
+
+### Features
+
+* Add `gl-m*-n2` utility classes ([f70bc43](https://gitlab.com/gitlab-org/gitlab-ui/commit/f70bc4365fd6f5988c855d2571f7c0074b7fbd6a))
+
 # [23.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v22.0.3...v23.0.0) (2020-11-05)
 
 
