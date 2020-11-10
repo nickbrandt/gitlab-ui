@@ -1,15 +1,10 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './tooltip.md';
-import { tooltipPlacements } from '../../../utils/constants';
-import { GlTooltip, GlTooltipDirective } from '../../../../index';
+import { GlTooltipDirective } from '../../../../index';
 
 const directives = {
-  GlTooltipDirective,
-};
-
-const components = {
-  GlTooltip,
+  GlTooltip: GlTooltipDirective,
 };
 
 function makeTooltip(modifier = '') {
@@ -18,7 +13,7 @@ function makeTooltip(modifier = '') {
     template: `
       <div class="d-flex align-items-center justify-content-center p-5 m-5">
         <gl-button
-          v-gl-tooltip-directive${modifier}
+          v-gl-tooltip${modifier}
           title="some tooltip text"
         >
             Tooltip
@@ -31,41 +26,9 @@ function makeTooltip(modifier = '') {
   });
 }
 
-function generateProps({ placement = tooltipPlacements.top } = {}) {
-  return {
-    placement: {
-      type: String,
-      default: select('placement', tooltipPlacements, placement),
-    },
-  };
-}
-
-function generateTooltip() {
-  return () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <div class="d-flex align-items-center justify-content-center p-5 m-5">
-        <gl-button id="btn1">Tooltip</gl-button>
-        <gl-tooltip
-          target="btn1"
-          triggers="hover focus click"
-          show
-          :placement="placement"
-        >
-          Hello <strong>World!</strong>
-        </gl-tooltip>
-      </div>
-    `,
-  });
-}
-
 documentedStoriesOf('base|tooltip', readme)
   .addDecorator(withKnobs)
-  .add('defaults to top', makeTooltip())
-  .add('to the topright', makeTooltip('.topright'))
-  .add('to the topleft', makeTooltip('.topleft'))
-  .add('to the right', makeTooltip('.right'))
-  .add('to the bottom', makeTooltip('.bottom'))
-  .add('to the left', makeTooltip('.left'))
-  .add('with HTML content', generateTooltip());
+  .add('top (default)', makeTooltip())
+  .add('right', makeTooltip('.right'))
+  .add('bottom', makeTooltip('.bottom'))
+  .add('left', makeTooltip('.left'));

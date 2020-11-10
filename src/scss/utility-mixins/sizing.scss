@@ -9,6 +9,10 @@
   width: auto;
 }
 
+@mixin gl-w-2 {
+  width: $gl-spacing-scale-2;
+}
+
 @mixin gl-w-3 {
   width: $gl-spacing-scale-3;
 }

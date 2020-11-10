@@ -186,6 +186,10 @@
   border-width: $gl-border-size-1;
 }
 
+@mixin gl-border-4 {
+  border-width: $gl-border-size-4;
+}
+
 @mixin gl-border-8 {
   border-width: $gl-border-size-8;
 }
