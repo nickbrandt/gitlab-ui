@@ -1,3 +1,10 @@
+# [23.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.4.0...v23.5.0) (2020-11-10)
+
+
+### Features
+
+* **css:** Add gl-mb-8 spacing utility ([8fa31a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/8fa31a519b3a3d46c321b8a6d64339ff10cdbe18))
+
 # [23.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.3.0...v23.4.0) (2020-11-10)
 
 
