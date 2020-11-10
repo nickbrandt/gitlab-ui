@@ -204,6 +204,16 @@
   padding-top: $gl-spacing-scale-9;
 }
 
+@mixin gl-pt-12 {
+  padding-top: $gl-spacing-scale-12;
+}
+
+@mixin gl-md-pt-12 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-pt-12;
+  }
+}
+
 @mixin gl-pb-0 {
   padding-bottom: 0;
 }
@@ -234,6 +244,12 @@
 
 @mixin gl-pb-7 {
   padding-bottom: $gl-spacing-scale-7;
+}
+
+@mixin gl-pb-11 {
+  @media (min-width: $breakpoint-md) {
+    margin-top: -$gl-spacing-scale-2;
+  }
 }
 
 @mixin gl-py-0 {
