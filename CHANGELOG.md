@@ -1,3 +1,10 @@
+## [23.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.6.0...v23.6.1) (2020-11-10)
+
+
+### Bug Fixes
+
+* **GlTooltip:** Update tooltip based on audit ([4dc58f3](https://gitlab.com/gitlab-org/gitlab-ui/commit/4dc58f3b66ba30c606acf02ef370cfbbfcdbe211))
+
 # [23.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.5.0...v23.6.0) (2020-11-10)
 
 
