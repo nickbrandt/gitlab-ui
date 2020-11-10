@@ -1,3 +1,10 @@
+# [23.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.3.0...v23.4.0) (2020-11-10)
+
+
+### Features
+
+* **css:** Add margins space levels 4 and 5 ([2ee1371](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ee1371b9a4bead721b93e5102c036da2715fae9))
+
 # [23.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.2.0...v23.3.0) (2020-11-10)
 
 
