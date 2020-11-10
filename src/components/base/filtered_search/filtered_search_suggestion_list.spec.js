@@ -7,7 +7,9 @@ describe('Filtered search suggestion list component', () => {
 
   describe('suggestions API', () => {
     beforeEach(() => {
-      wrapper = shallowMount(FilteredSearchSuggestionList);
+      wrapper = shallowMount(FilteredSearchSuggestionList, {
+        provide: { suggestionsListClass: 'custom-class' },
+      });
     });
 
     afterEach(() => {
@@ -100,6 +102,7 @@ describe('Filtered search suggestion list component', () => {
 
     beforeEach(() => {
       wrapper = mount(FilteredSearchSuggestionList, {
+        provide: { suggestionsListClass: 'custom-class' },
         slots: {
           default: list,
         },
@@ -169,6 +172,10 @@ describe('Filtered search suggestion list component', () => {
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.find('.gl-filtered-search-suggestion-active').exists()).toBe(false);
       });
+    });
+
+    it('applies the injected suggestion-list-class to the dropdown', () => {
+      expect(wrapper.classes()).toContain('custom-class');
     });
   });
 });

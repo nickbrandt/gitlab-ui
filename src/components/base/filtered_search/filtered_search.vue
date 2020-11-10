@@ -61,6 +61,11 @@ export default {
       required: false,
       default: null,
     },
+    suggestionsListClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -76,6 +81,7 @@ export default {
     return {
       portalName: this.portalName,
       alignSuggestions: ref => this.alignSuggestions(ref),
+      suggestionsListClass: this.suggestionsListClass,
     };
   },
   computed: {
