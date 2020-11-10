@@ -1,7 +1,6 @@
 .gl-tooltip {
-  @include gl-font-base;
   @include gl-font-sm;
-  @include gl-py-3;
+  @include gl-p-2;
 
   .tooltip-inner {
     @include gl-rounded-base;
@@ -12,10 +11,10 @@
   }
 
   .arrow {
-    @include gl-w-3;
-    @include gl-h-5;
+    @include gl-h-3;
+    @include gl-w-2;
     &::before {
-      @include gl-border-8;
+      @include gl-border-4;
     }
   }
 }
@@ -23,8 +22,8 @@
 .gl-tooltip.bs-tooltip-top,
 .gl-tooltip.bs-tooltip-bottom {
   .arrow {
-    @include gl-w-5;
-    @include gl-h-3;
+    @include gl-w-3;
+    @include gl-h-2;
   }
 }
 
