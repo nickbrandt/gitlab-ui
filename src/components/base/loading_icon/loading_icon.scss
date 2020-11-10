@@ -10,16 +10,6 @@
   transform-origin: 50% 50% calc((#{$size} / 2) + #{$border-width});
 }
 
-@keyframes gl-spinner-rotate {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .gl-spinner-container {
   @include gl-line-height-0;
   @include gl-text-center;
