@@ -1,3 +1,10 @@
+# [23.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.2.0...v23.3.0) (2020-11-10)
+
+
+### Features
+
+* **css:** Add utility classes ([4ea5a13](https://gitlab.com/gitlab-org/gitlab-ui/commit/4ea5a13b2628531022bcd266424554a1aa057a35))
+
 # [23.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.1.0...v23.2.0) (2020-11-09)
 
 
