@@ -1,3 +1,10 @@
+# [23.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.5.0...v23.6.0) (2020-11-10)
+
+
+### Features
+
+* **css:** Add white-space-pre-line utility ([6ece2b3](https://gitlab.com/gitlab-org/gitlab-ui/commit/6ece2b33b73738ddeb1fe449295dc3511131cd81))
+
 # [23.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.4.0...v23.5.0) (2020-11-10)
 
 
