@@ -445,6 +445,10 @@
   margin-bottom: $gl-spacing-scale-7;
 }
 
+@mixin gl-mb-8 {
+  margin-bottom: $gl-spacing-scale-8;
+}
+
 @mixin gl-ml-auto {
   margin-left: auto;
 }
