@@ -1,3 +1,10 @@
+# [23.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.6.1...v23.7.0) (2020-11-12)
+
+
+### Features
+
+* **GlFilteredSearch:** Add suggestionsListClass prop ([903d0f2](https://gitlab.com/gitlab-org/gitlab-ui/commit/903d0f28b32563ca52aa81b96a83b97d98efc00f))
+
 ## [23.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.6.0...v23.6.1) (2020-11-10)
 
 
