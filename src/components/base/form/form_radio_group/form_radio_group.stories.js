@@ -8,9 +8,9 @@ const components = {
 };
 
 const defaultOptions = [
-  { value: 'Pizza', text: 'Pizza' },
-  { value: 'Tacos', text: 'Tacos' },
-  { value: 'Burger', text: 'Burger', disabled: true },
+  { value: 'pizza', text: 'Pizza' },
+  { value: 'tacos', text: 'Tacos' },
+  { value: 'burger', text: 'Burger', disabled: true },
 ];
 
 function generateProps({ name = 'radio-group-name', options = defaultOptions } = {}) {
@@ -33,7 +33,7 @@ const template = `
       :name="name"
     >
       <template #first>
-        <gl-form-radio value="Slot option">
+        <gl-form-radio value="slot-option">
           Slot option with help text
           <template #help>
             Help text
@@ -44,7 +44,7 @@ const template = `
     </gl-form-radio-group>
   </div>`;
 
-const data = () => ({ selected: 'Slot option' });
+const data = () => ({ selected: 'slot-option' });
 
 documentedStoriesOf('base|form/form-radio-group', readme)
   .addDecorator(withKnobs)
