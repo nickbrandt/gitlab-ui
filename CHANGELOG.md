@@ -1,3 +1,10 @@
+# [23.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.7.0...v23.8.0) (2020-11-12)
+
+
+### Features
+
+* **GlDatepicker:** Allow id and name props ([b968763](https://gitlab.com/gitlab-org/gitlab-ui/commit/b968763f83a470018e533e3f61410b2af0ba51a2))
+
 # [23.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.6.1...v23.7.0) (2020-11-12)
 
 
