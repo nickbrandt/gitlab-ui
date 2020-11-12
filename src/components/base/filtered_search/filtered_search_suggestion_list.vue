@@ -13,7 +13,7 @@ export default {
       registeredItems: [],
     };
   },
-
+  inject: ['suggestionsListClass'],
   provide() {
     return {
       filteredSearchSuggestionListInstance: this,
@@ -25,6 +25,9 @@ export default {
       return this.activeIdx > -1 && this.activeIdx < this.registeredItems.length
         ? this.registeredItems[this.activeIdx]
         : null;
+    },
+    listClasses() {
+      return [this.suggestionsListClass, 'dropdown-menu gl-filtered-search-suggestion-list'];
     },
   },
 
@@ -71,7 +74,7 @@ export default {
 };
 </script>
 <template>
-  <ul class="dropdown-menu gl-filtered-search-suggestion-list">
+  <ul :class="listClasses">
     <slot></slot>
   </ul>
 </template>
