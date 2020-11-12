@@ -312,58 +312,6 @@ describe('datepicker component', () => {
     });
   });
 
-  describe('when `placeholder` prop is passed', () => {
-    it('adds `placeholder` attribute to text input', () => {
-      const wrapper = mountWithOptions({
-        propsData: {
-          placeholder: 'foo bar',
-        },
-      });
-
-      expect(findInput(wrapper).attributes('placeholder')).toBe('foo bar');
-    });
-  });
-
-  describe('when `placeholder` prop is not passed', () => {
-    it('sets `placeholder` attribute to default date format', () => {
-      const wrapper = mountWithOptions();
-
-      expect(findInput(wrapper).attributes('placeholder')).toBe(defaultDateFormat);
-    });
-  });
-
-  describe('when `autocomplete` prop is passed', () => {
-    it('sets `autocomplete` attribute to passed value', () => {
-      const wrapper = mountWithOptions({
-        propsData: {
-          autocomplete: 'on',
-        },
-      });
-
-      expect(findInput(wrapper).attributes('autocomplete')).toBe('on');
-    });
-  });
-
-  describe('when `autocomplete` prop is not passed', () => {
-    describe('when datepicker opens on focus', () => {
-      it('sets `autocomplete` attribute to `off`', () => {
-        const wrapper = mountWithOptions({
-          propsData: {
-            target: null,
-          },
-        });
-
-        expect(findInput(wrapper).attributes('autocomplete')).toBe('off');
-      });
-    });
-
-    it('does not add `autocomplete` attribute', () => {
-      const wrapper = mountWithOptions();
-
-      expect(findInput(wrapper).attributes('autocomplete')).toBeUndefined();
-    });
-  });
-
   describe('when datepicker is disabled', () => {
     it('renders a svg icon instead of a button', () => {
       const wrapper = mountWithOptions({ propsData: { disabled: true } });
@@ -375,4 +323,39 @@ describe('datepicker component', () => {
       expect(calendarIcon.classes()).toContain('gl-text-gray-400');
     });
   });
+
+  it.each`
+    propName         | attribute         | expectedValue
+    ${'inputId'}     | ${'id'}           | ${undefined}
+    ${'inputName'}   | ${'name'}         | ${undefined}
+    ${'target'}      | ${'autocomplete'} | ${undefined}
+    ${'placeholder'} | ${'placeholder'}  | ${defaultDateFormat}
+  `(
+    'when `$propName` prop is not passed sets input `$attribute` attribute to `$expectedValue`',
+    ({ attribute, expectedValue }) => {
+      const wrapper = mountWithOptions();
+
+      expect(findInput(wrapper).attributes(attribute)).toBe(expectedValue);
+    }
+  );
+
+  it.each`
+    propName          | value             | attribute         | expectedValue
+    ${'inputId'}      | ${'idForInput'}   | ${'id'}           | ${'idForInput'}
+    ${'inputName'}    | ${'nameForInput'} | ${'name'}         | ${'nameForInput'}
+    ${'target'}       | ${null}           | ${'autocomplete'} | ${'off'}
+    ${'autocomplete'} | ${'on'}           | ${'autocomplete'} | ${'on'}
+    ${'placeholder'}  | ${'foo bar'}      | ${'placeholder'}  | ${'foo bar'}
+  `(
+    'when `$propName` prop is passed sets input `$attribute` to `$expectedValue`',
+    ({ propName, value, attribute, expectedValue }) => {
+      const wrapper = mountWithOptions({
+        propsData: {
+          [propName]: value,
+        },
+      });
+
+      expect(findInput(wrapper).attributes(attribute)).toBe(expectedValue);
+    }
+  );
 });

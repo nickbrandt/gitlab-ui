@@ -140,6 +140,16 @@ export default {
       required: false,
       default: false,
     },
+    inputId: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    inputName: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -285,7 +295,9 @@ export default {
     <div v-if="showDefaultField" class="position-relative">
       <slot :formatted-date="formattedDate">
         <gl-form-input
+          :id="inputId"
           v-model="textInput"
+          :name="inputName"
           data-testid="gl-datepicker-input"
           class="gl-datepicker-input"
           :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
