@@ -272,14 +272,14 @@ export default {
       :left="tooltip.left"
     >
       <template #title>
-        <slot v-if="formatTooltipText" name="tooltipTitle"></slot>
+        <slot v-if="formatTooltipText" name="tooltip-title"></slot>
         <div v-else>
           {{ tooltip.title }}
           <template v-if="computedOptions.xAxis.name">({{ computedOptions.xAxis.name }})</template>
         </div>
       </template>
       <template>
-        <slot v-if="formatTooltipText" name="tooltipContent"></slot>
+        <slot v-if="formatTooltipText" name="tooltip-content"></slot>
         <tooltip-default-format v-else :tooltip-content="tooltip.content" />
       </template>
     </chart-tooltip>

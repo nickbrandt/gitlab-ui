@@ -342,10 +342,8 @@ export default {
       :left="annotationsTooltipPosition.left"
       placement="bottom"
     >
-      <template>
-        <div slot="title" name="tooltipTitle">{{ annotationsTooltipTitle }}</div>
-        <div name="tooltipContent">{{ annotationsTooltipContent }}</div>
-      </template>
+      <div slot="title">{{ annotationsTooltipTitle }}</div>
+      <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
     <chart-tooltip
       v-if="chart"
@@ -358,8 +356,8 @@ export default {
       :left="dataTooltipPosition.left"
     >
       <template v-if="formatTooltipText">
-        <slot slot="title" name="tooltipTitle"></slot>
-        <slot name="tooltipContent"></slot>
+        <slot slot="title" name="tooltip-title"></slot>
+        <slot name="tooltip-content"></slot>
       </template>
       <template v-else>
         <div slot="title">
