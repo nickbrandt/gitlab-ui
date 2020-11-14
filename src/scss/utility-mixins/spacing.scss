@@ -247,9 +247,7 @@
 }
 
 @mixin gl-pb-11 {
-  @media (min-width: $breakpoint-md) {
-    margin-top: -$gl-spacing-scale-2;
-  }
+  padding-bottom: $gl-spacing-scale-11;
 }
 
 @mixin gl-py-0 {
