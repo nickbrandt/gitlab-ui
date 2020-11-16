@@ -1,3 +1,10 @@
+# [23.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.8.1...v23.9.0) (2020-11-16)
+
+
+### Features
+
+* **css:** Add large breakpoint flex-end alignment ([776f590](https://gitlab.com/gitlab-org/gitlab-ui/commit/776f590e95b9702cdf36f42ac3cec1c7c1700371))
+
 ## [23.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.8.0...v23.8.1) (2020-11-16)
 
 
