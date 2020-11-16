@@ -1,3 +1,10 @@
+## [23.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.8.0...v23.8.1) (2020-11-16)
+
+
+### Bug Fixes
+
+* **dropdown-form:** Remove extra padding from dropdown form ([95b486b](https://gitlab.com/gitlab-org/gitlab-ui/commit/95b486b4877d81bccd6794571853495495cdf204))
+
 # [23.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.7.0...v23.8.0) (2020-11-12)
 
 
