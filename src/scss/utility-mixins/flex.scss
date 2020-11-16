@@ -51,6 +51,12 @@
   }
 }
 
+@mixin gl-lg-align-items-flex-end {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-align-items-flex-end;
+  }
+}
+
 @mixin gl-flex-wrap {
   flex-wrap: wrap;
 }
