@@ -31,12 +31,16 @@ if (process.env.NODE_ENV !== 'production') {
  */
 export default {
   props: {
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
     name: {
       type: String,
       required: true,
       validator: iconValidator,
     },
-
     size: {
       type: Number,
       required: false,
@@ -61,6 +65,8 @@ export default {
     :key="spriteHref"
     :class="['gl-icon', iconSizeClass]"
     :data-testid="`${name}-icon`"
+    :aria-hidden="!ariaLabel"
+    :aria-label="ariaLabel"
     v-on="$listeners"
   >
     <use :href="spriteHref" />
