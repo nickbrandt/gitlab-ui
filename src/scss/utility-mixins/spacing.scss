@@ -769,3 +769,9 @@
     @include gl-pr-2;
   }
 }
+
+@mixin gl-lg-pr-5 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-pr-5;
+  }
+}
