@@ -2,7 +2,7 @@ import description from './tooltip.md';
 import examples from './examples';
 
 export default {
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   description,
   examples,
   bootstrapComponent: 'b-tooltip',
