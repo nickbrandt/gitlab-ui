@@ -1,3 +1,10 @@
+# [23.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.9.0...v23.10.0) (2020-11-17)
+
+
+### Features
+
+* **css:** Expose more color shades for data viz ([27f3cd7](https://gitlab.com/gitlab-org/gitlab-ui/commit/27f3cd7fce00615d8a718985ef6e89ba62859112))
+
 # [23.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.8.1...v23.9.0) (2020-11-16)
 
 
