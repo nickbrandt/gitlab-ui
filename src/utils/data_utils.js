@@ -35,7 +35,8 @@ export const generateTimeSeries = () =>
 // (',' ['a', 'b', 'c']) -> ['a', ',', 'b', ',', 'c']
 export const intersperse = curry((separator, items) => {
   const [head, ...rest] = items;
-  return [head, ...flatMap((item) => [separator, item], rest)];
+  const separatorFactory = typeof separator === 'function' ? separator : () => separator;
+  return [head, ...flatMap((item) => [separatorFactory(), item], rest)];
 });
 
 // inserts a value at a given index into an array
