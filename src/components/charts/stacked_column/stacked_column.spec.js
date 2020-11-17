@@ -18,7 +18,6 @@ jest.mock('echarts', () => ({
 }));
 
 const defaultChartProps = {
-  data: [],
   seriesNames: [],
   bars: mockDefaultStackedBarData,
   groupBy: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -116,24 +115,6 @@ describe('stacked column chart component', () => {
       return wrapper.vm.$nextTick(() => {
         expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
       });
-    });
-  });
-  describe('with a `data` prop provided', () => {
-    beforeEach(() => {
-      createShallowWrapper({
-        ...defaultChartProps,
-        bars: [],
-        data: [
-          [58, 49, 38, 23, 27, 68, 38, 35, 7, 64, 65, 31],
-          [8, 6, 34, 19, 9, 7, 17, 25, 14, 7, 10, 32],
-        ],
-        seriesNames: ['Fun 1', 'Fun 2'],
-      });
-    });
-    it('should correctly render the chart', () => {
-      const chart = findChart();
-
-      expect(chart.props('options')).toMatchSnapshot();
     });
   });
 
