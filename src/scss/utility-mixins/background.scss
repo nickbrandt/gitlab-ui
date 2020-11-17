@@ -218,6 +218,10 @@
   background-color: $data-viz-blue-500;
 }
 
+@mixin gl-bg-data-viz-blue-700 {
+  background-color: $data-viz-blue-700;
+}
+
 @mixin gl-bg-data-viz-orange-600 {
   background-color: $data-viz-orange-600;
 }
@@ -230,12 +234,24 @@
   background-color: $data-viz-aqua-500;
 }
 
+@mixin gl-bg-data-viz-aqua-700 {
+  background-color: $data-viz-aqua-700;
+}
+
 @mixin gl-bg-data-viz-green-600 {
   background-color: $data-viz-green-600;
 }
 
+@mixin gl-bg-data-viz-green-800 {
+  background-color: $data-viz-green-800;
+}
+
 @mixin gl-bg-data-viz-magenta-500 {
   background-color: $data-viz-magenta-500;
+}
+
+@mixin gl-bg-data-viz-magenta-700 {
+  background-color: $data-viz-magenta-700;
 }
 
 @mixin gl-bg-none {
