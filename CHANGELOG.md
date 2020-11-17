@@ -1,3 +1,10 @@
+## [23.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.10.0...v23.10.1) (2020-11-17)
+
+
+### Bug Fixes
+
+* **css:** gl-pb-11 faulty definition ([3a7ea4f](https://gitlab.com/gitlab-org/gitlab-ui/commit/3a7ea4f5bf458105d5890b0e67389458fb355062))
+
 # [23.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.9.0...v23.10.0) (2020-11-17)
 
 
