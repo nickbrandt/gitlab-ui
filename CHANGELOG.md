@@ -1,3 +1,10 @@
+## [23.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.11.0...v23.11.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* **GlIcon:** Make icons decorative ([d67e4c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/d67e4c7a4a619506e6d33938d97d0a007dbb06d7))
+
 # [23.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.10.1...v23.11.0) (2020-11-18)
 
 
