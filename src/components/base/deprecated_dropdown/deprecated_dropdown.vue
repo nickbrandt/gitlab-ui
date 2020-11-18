@@ -70,12 +70,7 @@ export default {
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <span class="gl-dropdown-toggle-text">{{ text }}</span>
-      <gl-icon
-        v-if="renderCaret"
-        class="gl-dropdown-caret"
-        name="chevron-down"
-        aria-hidden="true"
-      />
+      <gl-icon v-if="renderCaret" class="gl-dropdown-caret" name="chevron-down" />
     </slot>
   </b-dropdown>
 </template>

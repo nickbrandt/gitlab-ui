@@ -169,16 +169,11 @@ export default {
     <slot></slot>
     <slot slot="button-content" name="button-content">
       <gl-loading-icon v-if="loading" class="gl-mr-2" />
-      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" aria-hidden="true" />
+      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
       <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">{{
         buttonText
       }}</span>
-      <gl-icon
-        v-if="renderCaret"
-        class="gl-button-icon dropdown-chevron"
-        name="chevron-down"
-        aria-hidden="true"
-      />
+      <gl-icon v-if="renderCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
     </slot>
   </b-dropdown>
 </template>
