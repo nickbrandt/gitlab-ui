@@ -1,3 +1,10 @@
+# [23.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.11.1...v23.12.0) (2020-11-18)
+
+
+### Features
+
+* **GlTab:** Allow tab component to receive titleLinkClass props ([11be4c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/11be4c8e4ce7d2ccd3ff76d88b06c416efc64938))
+
 ## [23.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.11.0...v23.11.1) (2020-11-18)
 
 
