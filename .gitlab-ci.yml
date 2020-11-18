@@ -29,6 +29,7 @@ include:
   - template: License-Scanning.gitlab-ci.yml
   - template: Container-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
+  - template: Secret-Detection.gitlab-ci.yml
   - project: 'gitlab-org/frontend/frontend-build-images'
     file: '/semantic-release/.gitlab-ci-template.yml'
 
@@ -58,6 +59,9 @@ eslint-sast:
   <<: *secure-jobs-config
 
 nodejs-scan-sast:
+  <<: *secure-jobs-config
+
+secret_detection:
   <<: *secure-jobs-config
 
 container_scanning:
