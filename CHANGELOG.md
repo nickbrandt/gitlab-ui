@@ -1,3 +1,10 @@
+# [23.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.10.1...v23.11.0) (2020-11-18)
+
+
+### Features
+
+* **css:** Add large breakpoint right padding scale 5 ([9fec463](https://gitlab.com/gitlab-org/gitlab-ui/commit/9fec463147c167c9d4668a5a5376472485400a97))
+
 ## [23.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.10.0...v23.10.1) (2020-11-17)
 
 
