@@ -1,3 +1,10 @@
+## [23.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.12.0...v23.12.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* **GlButton:** render label buttons as spans ([f995453](https://gitlab.com/gitlab-org/gitlab-ui/commit/f995453fdc21dc851d46d7cb82431e906aff7a17))
+
 # [23.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.11.1...v23.12.0) (2020-11-18)
 
 
