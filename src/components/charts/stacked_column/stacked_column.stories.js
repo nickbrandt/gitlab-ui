@@ -60,7 +60,6 @@ function generateProps({
     groupBy: {
       default: array('Group By', groupBy),
     },
-
     xAxisType: {
       default: text('X Axis Type', xAxisType),
     },

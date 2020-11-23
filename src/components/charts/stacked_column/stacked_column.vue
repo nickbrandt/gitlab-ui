@@ -13,7 +13,7 @@ import defaultChartOptions, {
   generateBarSeries,
   generateLineSeries,
 } from '../../../utils/charts/config';
-import { hexToRgba, debounceByAnimationFrame, deprecationWarning } from '../../../utils/utils';
+import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import {
@@ -45,11 +45,6 @@ export default {
   mixins: [ToolboxMixin],
   inheritAttrs: false,
   props: {
-    data: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
     bars: {
       type: Array,
       required: false,
@@ -163,27 +158,6 @@ export default {
         return generateLineSeries({ name, data, color });
       });
     },
-    dataSeries() {
-      return this.data.map((series, index) => {
-        const barColor = colorFromDefaultPalette(index);
-        return {
-          type: 'bar',
-          stack: this.presentation === 'stacked' ? this.groupBy : null,
-          name: this.seriesNames[index],
-          data: series,
-          itemStyle: {
-            color: hexToRgba(barColor, 0.2),
-            barBorderColor: barColor,
-            barBorderWidth: 1,
-          },
-          emphasis: {
-            itemStyle: {
-              color: hexToRgba(barColor, 0.4),
-            },
-          },
-        };
-      });
-    },
     secondarySeries() {
       const offset = this.bars.length + this.lines.length;
       return this.secondaryData.map(({ name, data, type, stack = columnOptions.tiled }, index) => {
@@ -194,7 +168,7 @@ export default {
       });
     },
     series() {
-      return [...this.dataSeries, ...this.barSeries, ...this.lineSeries, ...this.secondarySeries];
+      return [...this.barSeries, ...this.lineSeries, ...this.secondarySeries];
     },
     options() {
       const mergedOptions = merge(
@@ -277,12 +251,6 @@ export default {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     onCreated(chart) {
-      if (this.data.length) {
-        /* eslint-disable-next-line no-console */
-        deprecationWarning(
-          'The `data` prop is deprecated for the Column Chart. Please use the `bars` prop instead. See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1703#note_417946072 for more information.'
-        );
-      }
       chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
       chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
       this.chart = chart;

@@ -4,7 +4,6 @@ import Chart from '../chart/chart.vue';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
-  mockRawBarData,
   mockSecondaryData,
 } from '../../../utils/charts/mock_data';
 
@@ -14,7 +13,6 @@ describe('column chart component', () => {
     yAxisTitle: 'y axis',
     xAxisType: 'category',
     bars: mockDefaultBarData,
-    data: {},
   };
   let wrapper;
 
@@ -77,19 +75,6 @@ describe('column chart component', () => {
         ...defaultChartProps,
         bars: [],
         lines: mockDefaultLineData,
-      });
-    });
-    it('should correctly render the chart', () => {
-      expect(findChart().props('options')).toMatchSnapshot();
-    });
-  });
-
-  describe('with a `data` prop provided', () => {
-    beforeEach(() => {
-      factory({
-        ...defaultChartProps,
-        bars: [],
-        data: { 'Data object': mockRawBarData },
       });
     });
     it('should correctly render the chart', () => {
