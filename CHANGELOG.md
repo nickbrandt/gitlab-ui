@@ -1,3 +1,24 @@
+# [24.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.12.1...v24.0.0) (2020-11-23)
+
+
+### Features
+
+* **GlColumnChart:** remove `data` prop ([79cd652](https://gitlab.com/gitlab-org/gitlab-ui/commit/79cd652fc14f8859cedf4f63106723eba5b9154e))
+
+
+### BREAKING CHANGES
+
+* **GlColumnChart:** removes the `data` prop from the
+GlColumnChart and GlStackedColumnChart in favour
+of the `bars` and `line` props for specifying the
+data to render
+
+feat(GlStackedColumnChart): remove `data` prop
+
+Removes the data prop, in favour of the lines
+and bars props that are available on the
+components
+
 ## [23.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.12.0...v23.12.1) (2020-11-19)
 
 
