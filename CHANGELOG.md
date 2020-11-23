@@ -1,3 +1,10 @@
+## [24.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.0.0...v24.0.1) (2020-11-23)
+
+
+### Bug Fixes
+
+* **buttons:** Correct dropdown button styles for categories ([bb65738](https://gitlab.com/gitlab-org/gitlab-ui/commit/bb65738b3ce59a7d5c82f107d32a5988d0b8c61c))
+
 # [24.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v23.12.1...v24.0.0) (2020-11-23)
 
 
