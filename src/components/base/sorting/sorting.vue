@@ -50,7 +50,13 @@ export default {
 
 <template>
   <gl-button-group class="gl-sorting">
-    <gl-dropdown v-bind="$props" :text="text" toggle-class="dropdown-menu-toggle" right>
+    <gl-dropdown
+      v-bind="$props"
+      :text="text"
+      category="secondary"
+      toggle-class="dropdown-menu-toggle"
+      right
+    >
       <slot></slot>
     </gl-dropdown>
     <gl-button

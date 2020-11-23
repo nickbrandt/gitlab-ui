@@ -151,6 +151,7 @@ export default {
         ref="historyDropdown"
         class="gl-search-box-by-click-history"
         menu-class="gl-search-box-by-click-menu"
+        category="secondary"
         :disabled="disabled"
       >
         <template slot="button-content">
