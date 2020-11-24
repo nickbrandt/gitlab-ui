@@ -1,3 +1,10 @@
+## [24.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.0.1...v24.0.2) (2020-11-24)
+
+
+### Bug Fixes
+
+* Make various components more accessible ([4a1efbe](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a1efbea077b7754fc00236fe03331d3855022fc))
+
 ## [24.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.0.0...v24.0.1) (2020-11-23)
 
 
