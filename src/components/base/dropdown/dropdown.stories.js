@@ -259,6 +259,7 @@ documentedStoriesOf('base|dropdown', readme)
         icon-color="info"
         icon-name="status_running"
         icon-right-name="retry"
+        icon-right-aria-label="Retry"
       >
         Status running
       </gl-dropdown-item>
@@ -266,6 +267,7 @@ documentedStoriesOf('base|dropdown', readme)
         icon-color="success"
         icon-name="status_success"
         icon-right-name="cancel"
+        icon-right-aria-label="Cancel"
       >
         Status success
       </gl-dropdown-item>
@@ -273,6 +275,7 @@ documentedStoriesOf('base|dropdown', readme)
         icon-color="warning"
         icon-name="status_warning"
         icon-right-name="cancel"
+        icon-right-aria-label="Cancel"
       >
         Status warning
       </gl-dropdown-item>
@@ -280,12 +283,14 @@ documentedStoriesOf('base|dropdown', readme)
         icon-color="danger"
         icon-name="status_failed"
         icon-right-name="cancel"
+        icon-right-aria-label="Cancel"
       >
         Status failed
       </gl-dropdown-item>
       <gl-dropdown-item
         icon-name="status_manual"
         icon-right-name="cancel"
+        icon-right-aria-label="Cancel"
       >
         Status manual
       </gl-dropdown-item>`,
@@ -360,8 +365,10 @@ documentedStoriesOf('base|dropdown', readme)
     props: generateProps({ text: 'Some dropdown' }),
     components,
     template: wrap`
-      <gl-dropdown-item icon-right-name="star">Normal item</gl-dropdown-item>
-      <gl-dropdown-item icon-right-name="star">
+      <gl-dropdown-item icon-right-name="star" icon-right-aria-label="Some action">
+        Normal item
+      </gl-dropdown-item>
+      <gl-dropdown-item icon-right-name="star" icon-right-aria-label="Some action">
         <div class="gl-text-truncate">ellipsis/should/truncate/this/item</div>
       </gl-dropdown-item>`,
     mounted() {

@@ -28,6 +28,11 @@ export default {
       required: false,
       default: '',
     },
+    iconRightAriaLabel: {
+      type: String,
+      required: false,
+      default: '',
+    },
     iconRightName: {
       type: String,
       required: false,
@@ -96,6 +101,7 @@ export default {
       v-if="iconRightName"
       size="small"
       :icon="iconRightName"
+      :aria-label="iconRightAriaLabel || iconRightName"
       @click.stop.prevent="handleClickIconRight"
     />
   </component>

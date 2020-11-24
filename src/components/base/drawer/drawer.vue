@@ -73,7 +73,7 @@ export default {
         <span>
           <slot name="header"></slot>
         </span>
-        <button class="gl-drawer-close-button" @click="$emit('close')">
+        <button class="gl-drawer-close-button" aria-label="Close" @click="$emit('close')">
           <gl-icon name="close" />
         </button>
       </div>

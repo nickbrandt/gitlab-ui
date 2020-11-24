@@ -96,6 +96,7 @@ export default {
         },
       },
       [
+        createElement('title', {}, ['Loading']),
         createElement('rect', {
           style: { fill: `url(${props.baseUrl}#${props.uniqueKey}-idGradient)` },
           attrs: {

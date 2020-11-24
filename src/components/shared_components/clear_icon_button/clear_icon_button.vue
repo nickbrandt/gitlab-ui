@@ -28,11 +28,11 @@ export default {
 <template>
   <button
     v-gl-tooltip.hover="{ container: tooltipContainer }"
-    aria-hidden="true"
     class="gl-clear-icon-button"
     name="clear"
     :title="title"
     type="button"
+    aria-label="Clear"
     v-on="$listeners"
   >
     <gl-icon name="clear" />
