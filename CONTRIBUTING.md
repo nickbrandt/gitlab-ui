@@ -8,7 +8,7 @@ Here are a few resources to guide you through contributing to GitLab UI.
 - [GitLab integration test](./doc/contributing/gitlab_integration_test.md)
 - [Automatic components documentation](./doc/contributing/automatic_documentation.md)
 - [Documentation guidelines](./doc/contributing/documentation_guidelines.md)
-- [Breaking changes in components](./doc/contributing/breaking_changes_in_components.md)
+- [Breaking changes to components](./doc/contributing/breaking_changes_to_components.md)
 - [Troubleshooting](./doc/contributing/troubleshooting.md)
 
 Questions? Head to our [FAQ](./FAQ.md) where you might find some answers.
