@@ -157,6 +157,7 @@ export default {
         <template slot="button-content">
           <gl-icon name="history" class="gl-search-box-by-click-history-icon" />
           <gl-icon name="chevron-down" class="gl-search-box-by-click-history-icon-chevron" />
+          <span class="gl-sr-only">Toggle history</span>
         </template>
         <gl-dropdown-text class="gl-search-box-by-click-history-header">
           {{ recentSearchesHeader }}
@@ -215,6 +216,7 @@ export default {
         class="gl-search-box-by-click-search-button"
         icon="search"
         :disabled="disabled"
+        aria-label="Search"
         @click="search(currentValue)"
       />
     </template>

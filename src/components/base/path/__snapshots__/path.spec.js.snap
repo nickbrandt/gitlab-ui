@@ -10,6 +10,7 @@ exports[`Path matches the snapshot 1`] = `
     style="display: none;"
   >
     <button
+      aria-label="Scroll left"
       class="gl-clear-icon-button"
     >
       <gl-icon-stub
@@ -149,6 +150,7 @@ exports[`Path matches the snapshot 1`] = `
     style="display: none;"
   >
     <button
+      aria-label="Scroll right"
       class="gl-clear-icon-button"
     >
       <gl-icon-stub
@@ -170,6 +172,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
     style="display: none;"
   >
     <button
+      aria-label="Scroll left"
       class="gl-clear-icon-button"
     >
       <gl-icon-stub
@@ -318,6 +321,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
     style="display: none;"
   >
     <button
+      aria-label="Scroll right"
       class="gl-clear-icon-button"
     >
       <gl-icon-stub
@@ -339,6 +343,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
     style="display: none;"
   >
     <button
+      aria-label="Scroll left"
       class="gl-clear-icon-button"
     >
       <gl-icon-stub
@@ -482,6 +487,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
     style="display: none;"
   >
     <button
+      aria-label="Scroll right"
       class="gl-clear-icon-button"
     >
       <gl-icon-stub

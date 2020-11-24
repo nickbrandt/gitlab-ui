@@ -127,7 +127,7 @@ export default {
     data-testid="gl-path-nav"
   >
     <span v-show="displayScrollLeft" class="gl-path-fade gl-path-fade-left">
-      <button class="gl-clear-icon-button" @click="scrollPathLeft">
+      <button class="gl-clear-icon-button" aria-label="Scroll left" @click="scrollPathLeft">
         <gl-icon :size="32" name="chevron-left" />
       </button>
     </span>
@@ -151,7 +151,7 @@ export default {
       </li>
     </ul>
     <span v-show="displayScrollRight" class="gl-path-fade gl-path-fade-right">
-      <button class="gl-clear-icon-button" @click="scrollPathRight">
+      <button class="gl-clear-icon-button" aria-label="Scroll right" @click="scrollPathRight">
         <gl-icon :size="32" name="chevron-right" />
       </button>
     </span>
