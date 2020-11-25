@@ -109,8 +109,13 @@
 /**
 * Font-weight utilities.
 *
-* naming convention: gl-font-weight-[bold|normal]
+* naming convention: gl-font-weight-[bold|normal|number]
 */
+
+@mixin gl-font-weight-100 {
+  font-weight: 100;
+}
+
 @mixin gl-font-weight-normal {
   font-weight: $gl-font-weight-normal;
 }
