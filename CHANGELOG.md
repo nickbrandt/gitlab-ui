@@ -1,3 +1,10 @@
+# [24.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.0.2...v24.1.0) (2020-11-26)
+
+
+### Features
+
+* **Buttons:** Increase button contrast ([5c3ad3b](https://gitlab.com/gitlab-org/gitlab-ui/commit/5c3ad3b64c4a702d10a17a2ea26ddf0788d9804b))
+
 ## [24.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.0.1...v24.0.2) (2020-11-24)
 
 
