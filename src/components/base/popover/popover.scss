@@ -15,38 +15,6 @@ $gl-popover-max-width: $grid-size * 48;
     @include gl-text-gray-900;
   }
 
-  &.bs-popover-top {
-    /* When popover position is top, the arrow is translated 1 pixel
-    *  due to the box-shadow include in our custom styles.
-    */
-    > .arrow::before {
-      @include gl-border-t-gray-100;
-      bottom: 1px;
-    }
-
-    > .arrow::after {
-      @include gl-bottom-1;
-    }
-  }
-
-  &.bs-popover-bottom {
-    > .arrow::before {
-      @include gl-border-b-gray-100;
-    }
-
-    > .popover-header::before {
-      @include gl-border-white;
-    }
-  }
-
-  &.bs-popover-right > .arrow::before {
-    @include gl-border-r-gray-100;
-  }
-
-  &.bs-popover-left > .arrow::before {
-    @include gl-border-l-gray-100;
-  }
-
   .popover-header {
     @include gl-bg-white;
     @include gl-font-sm;
@@ -73,34 +41,6 @@ $gl-popover-max-width: $grid-size * 48;
 
     .popover-body {
       @include gl-text-white;
-    }
-
-    &.bs-popover-bottom {
-      .arrow::before,
-      .arrow::after {
-        @include gl-border-b-blue-600;
-      }
-    }
-
-    &.bs-popover-top {
-      .arrow::before,
-      .arrow::after {
-        @include gl-border-t-blue-600;
-      }
-    }
-
-    &.bs-popover-right {
-      .arrow::after,
-      .arrow::before {
-        @include gl-border-r-blue-600;
-      }
-    }
-
-    &.bs-popover-left {
-      .arrow::before,
-      .arrow::after {
-        @include gl-border-l-blue-600;
-      }
     }
   }
 }
