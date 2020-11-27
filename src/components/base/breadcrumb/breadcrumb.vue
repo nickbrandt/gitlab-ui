@@ -12,7 +12,12 @@ export default {
       type: Array,
       required: true,
       default: () => [{ text: '', href: '' }],
-      validator: links => links.every(link => Object.keys(link).includes('text', 'href')),
+      validator: links => {
+        return links.every(link => {
+          const keys = Object.keys(link);
+          return keys.includes('text') && (keys.includes('href') || keys.includes('to'));
+        });
+      },
     },
   },
 };
@@ -27,11 +32,13 @@ export default {
           class="gl-breadcrumb-item"
           :text="item.text"
           :href="item.href"
+          :to="item.to"
         />
         <span
           v-if="index != items.length - 1"
           :key="`index ${item.text}`"
           class="gl-breadcrumb-separator"
+          data-testid="separator"
         >
           <slot name="separator"></slot>
         </span>
