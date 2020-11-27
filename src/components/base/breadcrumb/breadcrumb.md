@@ -7,6 +7,8 @@ This component provides two `<slot>` elements for customization. The first is a 
 customize the icon that appears between each
 breadcrumb.
 
+**note:** the component supports passing the property `to` in the list items to enable navigation through `vue-router`
+
 ### Example
 
 You can use any kind of separator you want in the slot, like below, which uses `<svg>`
