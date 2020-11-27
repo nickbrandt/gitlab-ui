@@ -1,3 +1,10 @@
+# [24.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.1.0...v24.2.0) (2020-11-27)
+
+
+### Features
+
+* **css:** Add overflow-x-auto utility class ([415cf8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/415cf8b37811b2465b589555e7d9db4d85fdef12))
+
 # [24.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.0.2...v24.1.0) (2020-11-26)
 
 
