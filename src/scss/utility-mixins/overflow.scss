@@ -8,6 +8,10 @@
   overflow: hidden;
 }
 
+@mixin gl-overflow-x-auto {
+  overflow-x: auto;
+}
+
 @mixin gl-overflow-y-auto {
   overflow-y: auto;
 }
