@@ -22,7 +22,7 @@
 /**
 * Text utilities
 */
-@mixin gl-text-decoration-none($active: true, $focus: true) {
+@mixin gl-text-decoration-none($active: true, $focus: true, $hover: true) {
   text-decoration: none;
 }
 
