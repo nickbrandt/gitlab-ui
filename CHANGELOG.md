@@ -1,3 +1,10 @@
+## [24.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.1...v24.3.2) (2020-11-30)
+
+
+### Bug Fixes
+
+* Add focus state to toggle and clear icon button ([24a359a](https://gitlab.com/gitlab-org/gitlab-ui/commit/24a359ab436e204cc978a6b8979bdba079939248))
+
 ## [24.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.0...v24.3.1) (2020-11-30)
 
 
