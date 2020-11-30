@@ -1,3 +1,10 @@
+# [24.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.2.0...v24.3.0) (2020-11-30)
+
+
+### Features
+
+* **GlToken:** Add category based background color ([25b525f](https://gitlab.com/gitlab-org/gitlab-ui/commit/25b525f2e58000fbb459ff6a747122bd0f1fd438))
+
 # [24.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.1.0...v24.2.0) (2020-11-27)
 
 
