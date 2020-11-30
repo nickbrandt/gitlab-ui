@@ -1,3 +1,36 @@
+$categories: (
+  'blue' '500' $data-viz-blue-500,
+  'blue' '600' $data-viz-blue-600,
+  'blue' '700' $data-viz-blue-700,
+  'blue' '800' $data-viz-blue-800,
+  'blue' '900' $data-viz-blue-900,
+  'blue' '950' $data-viz-blue-950,
+  'orange' '500' $data-viz-orange-500,
+  'orange' '600' $data-viz-orange-600,
+  'orange' '700' $data-viz-orange-700,
+  'orange' '800' $data-viz-orange-800,
+  'orange' '900' $data-viz-orange-900,
+  'orange' '950' $data-viz-orange-950,
+  'aqua' '500' $data-viz-aqua-500,
+  'aqua' '600' $data-viz-aqua-600,
+  'aqua' '700' $data-viz-aqua-700,
+  'aqua' '800' $data-viz-aqua-800,
+  'aqua' '900' $data-viz-aqua-900,
+  'aqua' '950' $data-viz-aqua-950,
+  'green' '500' $data-viz-green-500,
+  'green' '600' $data-viz-green-600,
+  'green' '700' $data-viz-green-700,
+  'green' '800' $data-viz-green-800,
+  'green' '900' $data-viz-green-900,
+  'green' '950' $data-viz-green-950,
+  'magenta' '500' $data-viz-magenta-500,
+  'magenta' '600' $data-viz-magenta-600,
+  'magenta' '700' $data-viz-magenta-700,
+  'magenta' '800' $data-viz-magenta-800,
+  'magenta' '900' $data-viz-magenta-900,
+  'magenta' '950' $data-viz-magenta-950
+);
+
 .gl-token {
   @include gl-text-gray-900;
   @include gl-bg-gray-100;
@@ -18,6 +51,16 @@
 .gl-token-search-value-variant {
   @include gl-rounded-top-left-none;
   @include gl-rounded-bottom-left-none;
+}
+
+.gl-token-category {
+  @include gl-text-white;
+}
+
+@each $color, $weight, $value in $categories {
+  .gl-token-category-#{$color}-#{$weight} {
+    background-color: $value;
+  }
 }
 
 .gl-token-content {
