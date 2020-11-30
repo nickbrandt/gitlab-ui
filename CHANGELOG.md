@@ -1,3 +1,10 @@
+## [24.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.0...v24.3.1) (2020-11-30)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Set default category to primary ([d43328c](https://gitlab.com/gitlab-org/gitlab-ui/commit/d43328c3d5ebf327a1b4be04e074b5d0be405812)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/blob/v24.3.0/src/components/base/dropdown/dropdown.vue#L65](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/blob/v24.3.0/src/components/base/dropdown/dropdown.vue/issues/L65) [/gitlab.com/gitlab-org/gitlab-ui/-/blob/v24.3.0/src/components/base/button/button.vue#L24](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/blob/v24.3.0/src/components/base/button/button.vue/issues/L24) [/gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/blob/6e6a7b6a6d5ef8ff8ab574495f43fbefd3e8866e/contents/components/button.md#L41](https://gitlab.com//gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/blob/6e6a7b6a6d5ef8ff8ab574495f43fbefd3e8866e/contents/components/button.md/issues/L41)
+
 # [24.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.2.0...v24.3.0) (2020-11-30)
 
 
