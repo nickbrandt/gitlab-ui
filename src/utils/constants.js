@@ -208,6 +208,10 @@ export const modalButtonDefaults = {
 
 export const tokenVariants = ['default', 'search-type', 'search-value'];
 
+export const tokenChevronSkippingPatternWeights = ['500', '600', '700', '800', '900', '950'];
+
+export const tokenChevronSkippingPatternPalette = ['blue', 'orange', 'aqua', 'green', 'magenta'];
+
 export const resizeDebounceTime = 200;
 
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
