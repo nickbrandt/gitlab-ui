@@ -62,7 +62,7 @@ export default {
     category: {
       type: String,
       required: false,
-      default: newButtonCategoryOptions.tertiary,
+      default: newButtonCategoryOptions.primary,
       validator: value => Object.keys(newButtonCategoryOptions).includes(value),
     },
     variant: {
