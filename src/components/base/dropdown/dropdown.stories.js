@@ -33,9 +33,9 @@ function addClass(component) {
 }
 
 function generateProps({
-  category = newButtonCategoryOptions.primary,
-  variant = newDropdownVariantOptions.default,
-  size = newButtonSizeOptions.medium,
+  category = GlDropdown.props.category.default,
+  variant = GlDropdown.props.variant.default,
+  size = GlDropdown.props.size.default,
   block = false,
   icon = '',
   text = '',
