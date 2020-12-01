@@ -3,6 +3,10 @@
 *
 * naming convention: gl-opacity-{amount}
 */
+@mixin gl-opacity-0 {
+  opacity: 0;
+}
+
 @mixin gl-opacity-3 {
   opacity: 0.3;
 }
