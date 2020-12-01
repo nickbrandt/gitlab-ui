@@ -8,6 +8,7 @@ export const toMarkdown = ({ content = '', nodes = {}, marks = {} }) => {
     },
     {
       ...defaultMarkdownSerializer.marks,
+      bold: { open: '**', close: '**', mixable: true, expelEnclosingWhitespace: true },
       ...marks,
     }
   );

@@ -16,7 +16,7 @@ export const fromMarkdown = ({ schema, markdown, plugins = [], mappers = {} }) =
       block: 'ordered_list',
       getAttrs: tok => ({ order: Number(tok.attrGet('start')) || 1 }),
     },
-    strong: { mark: 'strong' },
+    strong: { mark: 'bold' },
     ...mappers,
   });
 

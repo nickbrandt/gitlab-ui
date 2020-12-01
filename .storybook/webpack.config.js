@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 const sassLoaderOptions = {
   includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
@@ -66,6 +67,10 @@ module.exports = ({ config }) => {
       loader: 'file-loader',
     },
     {
+      test: /\.ttf$/,
+      loader: 'file-loader',
+    },
+    {
       test: /\.js$/,
       exclude: /node_modules\/(?!(bootstrap-vue)\/).*/,
       use: {
@@ -81,7 +86,8 @@ module.exports = ({ config }) => {
     new webpack.EnvironmentPlugin({
       IS_GITLAB_INTEGRATION_TEST: false,
       IS_VISUAL_TEST: false,
-    })
+    }),
+    new MonacoWebpackPlugin(),
   );
 
   if (process.env.WEBPACK_REPORT) {

@@ -2,7 +2,7 @@ import { Editor } from 'tiptap';
 import { Bold, Italic, Heading, OrderedList, BulletList, ListItem } from 'tiptap-extensions';
 import { headingLevels } from '../constants';
 
-export const build = (extensions = []) =>
+const create = (extensions = []) =>
   new Editor({
     extensions: [
       new Bold(),
@@ -14,3 +14,6 @@ export const build = (extensions = []) =>
       ...extensions,
     ],
   });
+
+// eslint-disable-next-line import/no-default-export
+export default create;
