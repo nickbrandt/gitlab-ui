@@ -3,7 +3,7 @@ import { documentedStoriesOf } from '../../../../documentation/documented_storie
 import { popoverPlacements } from '../../../utils/constants';
 
 const template = `
-  <div>
+  <div class="gl-display-flex gl-justify-content-center gl-p-6">
     <gl-button id="pop-top">{{placement}}</gl-button>
     <gl-popover target="pop-top"
       triggers="hover focus"
@@ -15,7 +15,7 @@ const template = `
   </div>
   `;
 
-function generateProps({ placement = popoverPlacements.top, title = 'Popover!' } = {}) {
+function generateProps({ placement = popoverPlacements.top, title = 'Popover' } = {}) {
   return {
     placement: {
       type: String,
