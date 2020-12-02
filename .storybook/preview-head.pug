@@ -1,0 +1,24 @@
+script.
+  window.addEventListener('message', (message) => {
+    if (message.data !== 'toggleGitLabCss') {
+      return;
+    }
+
+    const linkStylesheetId = 'gitlab-css';
+    let linkStylesheet = document.querySelector(`#${linkStylesheetId}`);
+
+    if (linkStylesheet) {
+      linkStylesheet.remove();
+    } else {
+      linkStylesheet = document.createElement('link');
+      linkStylesheet.setAttribute('id', linkStylesheetId);
+      linkStylesheet.setAttribute('href', '#{gitlabCssLink}');
+      linkStylesheet.setAttribute('type', 'text/css');
+      linkStylesheet.setAttribute('rel', 'stylesheet');
+      linkStylesheet.setAttribute('media', 'all');
+
+      const head = document.querySelector('head');
+
+      head.appendChild(linkStylesheet);
+    }
+  });
