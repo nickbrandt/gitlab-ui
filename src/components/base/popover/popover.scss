@@ -20,18 +20,21 @@ $gl-popover-max-width: $grid-size * 48;
     *  due to the box-shadow include in our custom styles.
     */
     > .arrow::before {
-      @include gl-border-t-gray-100;
       bottom: 1px;
     }
 
     > .arrow::after {
-      @include gl-bottom-1;
+      bottom: 2px;
     }
   }
 
   &.bs-popover-bottom {
     > .arrow::before {
-      @include gl-border-b-gray-100;
+      top: 1px;
+    }
+
+    > .arrow::after {
+      top: 2px;
     }
 
     > .popover-header::before {
@@ -39,12 +42,24 @@ $gl-popover-max-width: $grid-size * 48;
     }
   }
 
-  &.bs-popover-right > .arrow::before {
-    @include gl-border-r-gray-100;
+  &.bs-popover-right {
+    > .arrow::before {
+      left: 1px;
+    }
+
+    > .arrow::after {
+      left: 2px;
+    }
   }
 
-  &.bs-popover-left > .arrow::before {
-    @include gl-border-l-gray-100;
+  &.bs-popover-left {
+    > .arrow::before {
+      right: 1px;
+    }
+
+    > .arrow::after {
+      right: 2px;
+    }
   }
 
   .popover-header {

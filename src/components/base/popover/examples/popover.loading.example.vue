@@ -1,6 +1,6 @@
 <template>
   <div id="popovercontainer">
-    <gl-deprecated-button id="pop-basic">Popover Button</gl-deprecated-button>
+    <gl-button id="pop-basic">Popover Button</gl-button>
     <gl-popover
       target="pop-basic"
       container="popovercontainer"
@@ -9,7 +9,7 @@
       triggers="hover focus"
       show
     >
-      <gl-deprecated-skeleton-loading />
+      <gl-skeleton-loader />
     </gl-popover>
   </div>
 </template>

@@ -138,17 +138,9 @@ export const tooltipDelay = {
 
 export const popoverPlacements = {
   top: 'top',
-  topleft: 'topleft',
-  topright: 'topright',
   right: 'right',
-  righttop: 'righttop',
-  rightbottom: 'rightbottom',
   bottom: 'bottom',
-  bottomleft: 'bottomleft',
-  bottomright: 'bottomright',
   left: 'left',
-  lefttop: 'lefttop',
-  leftbottom: 'leftbottom',
 };
 
 export const columnOptions = {
