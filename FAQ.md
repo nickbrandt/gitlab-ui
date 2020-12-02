@@ -60,22 +60,6 @@ it('should log an error', () => {
 });
 ```
 
-## GitLab CSS is breaking the styling of my component, what do I do?
-
-When we worked on removing GitLab CSS from GitLab UI storybook, we removed the 
-main advantage of including it: An implicit integration test which ensures that 
-when we style components, they look the same in and outside of the gitlab application.
-
-To avoid losing this advantage completely, we created a CI job that runs GitLab UI 
-visual tests including GitLab CSS. This job makes sure that GitLab CSS leaks do not 
-affect GitLab UI components’ styles when they are used in the GitLab application.
-
-We should ensure that GitLab CSS  does not affect GitLab UI's component styles 
-before indicating that it follows the design system specs. When styling a 
-GitLab UI component, use the “include GitLab CSS bundle” storybook addon to test 
-your component against GitLab CSS. Correct the visual differences by applying the 
-utility-mixins to overwrite GitLab CSS leaks.
-
 ## Does GitLab UI have a changelog/version history?
 
 Yes! We generate changelogs automatically based on GitLab UI's

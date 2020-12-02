@@ -242,15 +242,6 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
-visual_gitlab_integration:
-  extends: visual
-  allow_failure: true
-  needs:
-    - build_docker_image
-    - build_gitlab_css
-  script:
-    - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn test:visual:gitlab
-
 unit_tests:
   extends: [.node, .yarn_install]
   needs: []

@@ -22,12 +22,9 @@
 ## Debugging GitLab UI styling issues with GitLab product CSS
 
 To make sure GitLab UI’s components look precisely as their design specs dictate
-in GitLab, we’ve created two tools:
+in GitLab, we’ve created the `Include GitLab CSS bundle` checkbox in storybook.
 
-- `Include GitLab CSS bundle` checkbox in storybook
-- `test:visual:gitlab` script
-
-These tools will include GitLab product's final CSS in Storybook. By default CSS
+It will include GitLab product's final CSS in Storybook. By default CSS
 of `master` branch of GitLab product is used. This means that if you made
 significant changes to your component's CSS they will not be properly picked up.
 Additionally, since GitLab currently uses a different color palette, you will
@@ -48,15 +45,3 @@ GITLAB_REPOSITORY="/tmp/gitlab" yarn run storybook:gitlab
 
 Note that hot reloading features will not affect the GitLab product CSS bundle so
 you will need to manually rerun the last command to verify your changes.
-
-### `yarn run test:visual:gitlab` command
-
-This command only runs visual tests for components that have the `followsDesignSystem: true`
-flag activated in their `*.documentation.js` file. It will include the GitLab product’s final CSS
-output in the storybook and run the visual snapshots against this version.
-
-The tests will fail if, after rendering with GitLab CSS (which includes the GitLab UI), one or more
-components look different. These failures highlight how CSS that leaks from GitLab will affect a
-component’s final look in the product.
-This job is consumed by GitLab CI/CD and most likely will fail locally due to font rendering differences 
-on different platforms.
