@@ -1,3 +1,10 @@
+## [24.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.2...v24.3.3) (2020-12-03)
+
+
+### Bug Fixes
+
+* **GlPopover:** Update popover styles based on designs ([1d47eeb](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d47eebe7091f43baa641477aa0ded3d116b96cc))
+
 ## [24.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.1...v24.3.2) (2020-11-30)
 
 
