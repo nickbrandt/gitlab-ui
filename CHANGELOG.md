@@ -1,3 +1,10 @@
+# [24.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.3...v24.4.0) (2020-12-03)
+
+
+### Features
+
+* **css:** Add opacity 0 ([2f7f1be](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f7f1be28ea5245bce6e71805ba9e341c370b28e))
+
 ## [24.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.2...v24.3.3) (2020-12-03)
 
 
