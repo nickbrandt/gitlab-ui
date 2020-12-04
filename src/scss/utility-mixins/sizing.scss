@@ -69,6 +69,11 @@
   width: 12.5%;
 }
 
+// In the future, any percentage-based classes should follow this convention per the conversation at https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1884#note_459949588
+@mixin gl-w-15p {
+  width: 15%;
+}
+
 @mixin gl-w-quarter {
   width: 25%;
 }
