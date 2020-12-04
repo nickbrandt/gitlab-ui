@@ -1,5 +1,5 @@
 <script>
-import { EditorContent, } from 'tiptap';
+import { EditorContent } from 'tiptap';
 import GlMarkdown from '../../base/markdown/markdown.vue';
 
 export default {
@@ -11,9 +11,9 @@ export default {
     editor: {
       type: Object,
       required: true,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <template>
   <gl-markdown>

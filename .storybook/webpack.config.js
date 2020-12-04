@@ -87,7 +87,7 @@ module.exports = ({ config }) => {
       IS_GITLAB_INTEGRATION_TEST: false,
       IS_VISUAL_TEST: false,
     }),
-    new MonacoWebpackPlugin(),
+    new MonacoWebpackPlugin()
   );
 
   if (process.env.WEBPACK_REPORT) {

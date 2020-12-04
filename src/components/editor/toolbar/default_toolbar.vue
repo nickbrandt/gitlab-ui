@@ -23,7 +23,7 @@ export default {
     editors: {
       type: Object,
       required: true,
-    }
+    },
   },
   computed: {
     currentEditor() {
@@ -34,7 +34,7 @@ export default {
     },
     commands() {
       return this.currentEditor?.commands;
-    }
+    },
   },
   methods: {
     activeHeadingLabel(isActive) {
@@ -44,7 +44,7 @@ export default {
     },
   },
   headingLevels,
-}
+};
 </script>
 <template>
   <div v-if="currentEditor" class="gl-display-flex gl-justify-content-center gl-mb-3">
