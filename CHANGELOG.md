@@ -1,3 +1,10 @@
+# [24.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.4.0...v24.5.0) (2020-12-04)
+
+
+### Features
+
+* adding new width variable ([7a97e6a](https://gitlab.com/gitlab-org/gitlab-ui/commit/7a97e6a1251f743208069538f67664900a5a3117))
+
 # [24.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.3.3...v24.4.0) (2020-12-03)
 
 
