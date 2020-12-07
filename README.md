@@ -145,8 +145,8 @@ You have two options to include those stylesheets:
 - If you have a SCSS preprocessor setup, include the SCSS files in your own stylesheet:
 
 ```scss
-@import '@gitlab/ui/src/gitlab_ui.scss';
-@import '@gitlab/ui/src/utilities.scss';
+@import '@gitlab/ui/src/scss/gitlab_ui.scss';
+@import '@gitlab/ui/src/scss/utilities.scss';
 ```
 
 - If you don't have a SCSS preprocessor setup, you can import the compiled CSS files directly:
