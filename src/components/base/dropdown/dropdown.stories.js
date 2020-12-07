@@ -92,6 +92,10 @@ function generateProps({
       type: String,
       default: textKnob('headerText', headerText),
     },
+    right: {
+      type: Boolean,
+      default: boolean('right', false),
+    },
   };
 
   return props;
@@ -113,6 +117,7 @@ function wrap([template]) {
       :toggle-class="toggleClass"
       :header-text="headerText"
       :loading="loading"
+      :right="right"
     >
       ${template}
     </gl-dropdown>`;

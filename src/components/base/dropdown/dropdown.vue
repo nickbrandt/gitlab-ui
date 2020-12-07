@@ -102,6 +102,11 @@ export default {
       required: false,
       default: null,
     },
+    right: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     renderCaret() {
@@ -171,6 +176,7 @@ export default {
     :split-class="splitButtonClasses"
     :block="block"
     :disabled="disabled || loading"
+    :right="right"
     v-on="$listeners"
   >
     <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
