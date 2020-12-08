@@ -150,19 +150,6 @@ populate_npm_cache:
       when: always
     - when: never
 
-build_gitlab_css:
-  extends: [.node, .yarn_install]
-  stage: pre-build
-  script:
-    - mkdir .build
-    - git clone https://gitlab.com/gitlab-org/gitlab.git .build/gitlab --depth=1
-    - yarn prebuild
-    - yarn build-gitlab-css .build/gitlab > static/gitlab-normalized.css
-  artifacts:
-    when: always
-    paths:
-      - static/gitlab
-
 danger-review:
   rules:
     - if: '$DANGER_GITLAB_API_TOKEN && $CI_MERGE_REQUEST_IID'
@@ -197,11 +184,10 @@ build_package:
 
 build_storybook:
   extends: [.node, .yarn_install]
-  needs:
-    - build_gitlab_css
+  needs: []
   stage: build
   script:
-    - GITLAB_CSS_LINK="/gitlab/gitlab.css" yarn storybook-static
+    - yarn storybook-static
     - mkdir public
     - mv storybook/* public
   artifacts:
