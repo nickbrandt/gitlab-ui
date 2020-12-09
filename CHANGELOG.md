@@ -1,3 +1,10 @@
+# [24.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.5.0...v24.6.0) (2020-12-09)
+
+
+### Features
+
+* **GlSorting:** add CSS class related props ([04fba11](https://gitlab.com/gitlab-org/gitlab-ui/commit/04fba113951d49048390dfac04a9850c72239af7))
+
 # [24.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.4.0...v24.5.0) (2020-12-04)
 
 
