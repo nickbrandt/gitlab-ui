@@ -2,6 +2,7 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import GlSorting from './sorting.vue';
 import GlSortingItem from './sorting_item';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlDropdown from '../dropdown/dropdown.vue';
 import GlIcon from '../icon/icon.vue';
 
 const localVue = createLocalVue();
@@ -18,7 +19,8 @@ describe('sorting component', () => {
   };
 
   const selectDropdownButton = () => wrapper.find('.gl-new-dropdown button');
-  const selectDirectionButton = () => wrapper.find(`.sorting-direction-button`);
+  const selectDirectionButton = () => wrapper.find('.sorting-direction-button');
+  const selectDropdown = () => wrapper.find(GlDropdown);
 
   const createComponent = propsData => {
     wrapper = mount(GlSorting, {
@@ -111,5 +113,36 @@ describe('sorting component', () => {
 
     expect(wrapper.vm.sortDirectionToolTip).toBe(newDirectionTooltip);
     expect(selectDirectionButton().attributes('title')).toBe(newDirectionTooltip);
+  });
+
+  it('adds classes passed in `dropdownClass` prop to dropdown', () => {
+    createComponent({
+      ...defaultProps,
+      dropdownClass: 'foo-bar',
+    });
+
+    expect(selectDropdown().classes()).toContain('foo-bar');
+  });
+
+  it('adds classes passed in `dropdownToggleClass` prop to dropdown toggle', () => {
+    createComponent({
+      ...defaultProps,
+      dropdownToggleClass: 'foo-bar',
+    });
+
+    expect(selectDropdownButton().classes()).toEqual(
+      expect.arrayContaining(['dropdown-menu-toggle', 'foo-bar'])
+    );
+  });
+
+  it('adds classes passed in `sortDirectionToggleClass` prop to sort direction toggle', () => {
+    createComponent({
+      ...defaultProps,
+      sortDirectionToggleClass: 'foo-bar',
+    });
+
+    expect(selectDirectionButton().classes()).toEqual(
+      expect.arrayContaining(['sorting-direction-button', 'foo-bar'])
+    );
   });
 });
