@@ -30,6 +30,21 @@ export default {
       required: false,
       default: 'Sort direction',
     },
+    dropdownClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    dropdownToggleClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    sortDirectionToggleClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     localSortDirection() {
@@ -54,7 +69,8 @@ export default {
       v-bind="$props"
       :text="text"
       category="secondary"
-      toggle-class="dropdown-menu-toggle"
+      :class="dropdownClass"
+      :toggle-class="['dropdown-menu-toggle', dropdownToggleClass]"
       right
     >
       <slot></slot>
@@ -64,7 +80,7 @@ export default {
       :title="sortDirectionToolTip"
       :icon="localSortDirection"
       :aria-label="sortDirectionAriaLabel"
-      class="sorting-direction-button"
+      :class="['sorting-direction-button', sortDirectionToggleClass]"
       @click="toggleSortDirection"
     />
   </gl-button-group>
