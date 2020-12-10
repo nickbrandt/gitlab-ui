@@ -1,3 +1,10 @@
+# [24.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.6.0...v24.7.0) (2020-12-10)
+
+
+### Features
+
+* **css:** Add additional percentage width utility classes ([e587002](https://gitlab.com/gitlab-org/gitlab-ui/commit/e5870021425f94393da29cb31617d63687af269b))
+
 # [24.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.5.0...v24.6.0) (2020-12-09)
 
 
