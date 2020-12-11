@@ -3,9 +3,7 @@ import { withA11y } from '@storybook/addon-a11y';
 
 const stylesheetsRequireCtx = require.context('../src/scss', true, /(storybook|bootstrap)\.scss$/);
 
-if (!process.env.IS_GITLAB_INTEGRATION_TEST) {
-  stylesheetsRequireCtx('./bootstrap.scss');
-}
+stylesheetsRequireCtx('./bootstrap.scss');
 
 stylesheetsRequireCtx('./storybook.scss');
 

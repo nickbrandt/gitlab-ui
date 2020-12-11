@@ -38,9 +38,7 @@ module.exports = ({ config }) => {
           loader: 'style-loader',
           options: {
             insert: function(styles) {
-              if (!process.env.IS_GITLAB_INTEGRATION_TEST) {
-                document.head.appendChild(styles);
-              }
+              document.head.appendChild(styles);
             },
             attributes: {
               'data-gitlab-ui-style': true,
@@ -78,7 +76,6 @@ module.exports = ({ config }) => {
 
   config.plugins.push(
     new webpack.EnvironmentPlugin({
-      IS_GITLAB_INTEGRATION_TEST: false,
       IS_VISUAL_TEST: false,
     })
   );
