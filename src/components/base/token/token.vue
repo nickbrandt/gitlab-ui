@@ -26,13 +26,13 @@ export default {
       type: String,
       required: false,
       default: null,
-      validator: categoryPalette => tokenChevronSkippingPatternPalette.includes(categoryPalette),
+      validator: categoryPalette => tokenChevronSkippingPatternPalette[categoryPalette],
     },
     categoryWeight: {
       type: String,
       required: false,
       default: null,
-      validator: categoryWeight => tokenChevronSkippingPatternWeights.includes(categoryWeight),
+      validator: categoryWeight => tokenChevronSkippingPatternWeights[categoryWeight],
     },
   },
   computed: {
