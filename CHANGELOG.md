@@ -1,3 +1,10 @@
+# [24.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.7.0...v24.8.0) (2020-12-15)
+
+
+### Features
+
+* **GlTokenSelector:** add support for custom classes ([b8a4e00](https://gitlab.com/gitlab-org/gitlab-ui/commit/b8a4e0022d29124389e84d0d5c0c0ae4af898de1))
+
 # [24.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.6.0...v24.7.0) (2020-12-10)
 
 
