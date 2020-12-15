@@ -1,3 +1,10 @@
+## [24.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.8.0...v24.8.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* **GlTooltip:** Override bootstraps lowered opacity tooltip style ([60680a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/60680a5131cb4ba635956d9d7fc5cd59f1a37411))
+
 # [24.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.7.0...v24.8.0) (2020-12-15)
 
 
