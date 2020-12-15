@@ -1,14 +1,19 @@
-import { shallowMount, mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import Tabs from './tabs.vue';
+
+const GltButtonStub = {
+  template: `<div><slot></slot></div>`,
+};
 
 describe('tabs component', () => {
   let wrapper;
 
-  const buildTabs = (props = {}, mountFn = shallowMount) => {
+  const buildTabs = (props = {}, mountFn = shallowMount, options = {}) => {
     wrapper = mountFn(Tabs, {
       propsData: {
         ...props,
       },
+      ...options,
     });
   };
 
@@ -50,6 +55,23 @@ describe('tabs component', () => {
 
       expect(findContent().classes('my-class')).toBe(true);
       expect(findContent().classes('my-class-2')).toBe(true);
+    });
+  });
+
+  describe('slots', () => {
+    it.only('should have class "gl-tab-content"', async () => {
+      const actions = {
+        actionPrimary: { text: 'Action!' },
+      };
+
+      buildTabs({ actions }, mount, {
+        stubs: { GlButton: GltButtonStub },
+      });
+
+      await wrapper.vm.$nextTick();
+      console.log(wrapper.html());
+
+      expect(wrapper.find('.my-slot').exists()).toBe(true);
     });
   });
 });
