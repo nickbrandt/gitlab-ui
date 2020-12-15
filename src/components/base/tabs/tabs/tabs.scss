@@ -64,3 +64,34 @@
 .gl-tab-nav-item-active-green {
   @include gl-inset-border-b-2-theme-green-500;
 }
+
+.gl-actions-tabs-start {
+  @include gl-w-full;
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+  @include gl-mt-3;
+  @include gl-display-md-none;
+}
+
+.gl-actions-tabs-end {
+  @include gl-display-none;
+  @include gl-flex-fill-1;
+  @include gl-justify-content-end;
+  @include gl-align-items-center;
+  @include gl-flex-direction-row;
+  @include gl-mt-0;
+  @include gl-display-md-flex;
+}
+
+.gl-actions-tabs-start,
+.gl-actions-tabs-end {
+  button {
+    @include gl-mb-3;
+    @include gl-md-mr-3;
+    @include gl-md-mb-0;
+  }
+
+  button:last-child {
+    @include gl-m-0;
+  }
+}

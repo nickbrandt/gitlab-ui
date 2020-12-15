@@ -2,6 +2,7 @@ import { withKnobs, select } from '@storybook/addon-knobs/vue';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlTabs, GlTab } from '../../../../../index';
 import { glThemes } from '../../../../utils/constants';
+import docs from './tabs.md';
 
 const createBaseStory = () => ({
   components: {
@@ -16,7 +17,7 @@ const createBaseStory = () => ({
   },
 });
 
-documentedStoriesOf('base|tabs/tabs', '')
+documentedStoriesOf('base|tabs/tabs', docs)
   .addDecorator(withKnobs)
   .add('default', () => ({
     ...createBaseStory(),
@@ -68,7 +69,7 @@ documentedStoriesOf('base|tabs/tabs', '')
           <p>First content</p>
         </gl-tab>
         <gl-tab title="Second tab">
-          <p>Second contnet</p>
+          <p>Second content</p>
         </gl-tab>
       </gl-tabs>
     `,

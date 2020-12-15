@@ -447,6 +447,12 @@
   margin-bottom: $gl-spacing-scale-8;
 }
 
+@mixin gl-md-mb-0 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-mb-0;
+  }
+}
+
 @mixin gl-ml-auto {
   margin-left: auto;
 }
@@ -707,9 +713,21 @@
   }
 }
 
+@mixin gl-md-mt-0 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-mx-0;
+  }
+}
+
 @mixin gl-lg-mb-0 {
   @media (min-width: $breakpoint-lg) {
     @include gl-mb-0;
+  }
+}
+
+@mixin gl-md-mr-3 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-mr-3;
   }
 }
 

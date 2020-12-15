@@ -121,12 +121,24 @@
   flex-grow: 0;
 }
 
+@mixin gl-md-flex-grow-0 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-flex-grow-0;
+  }
+}
+
 @mixin gl-flex-grow-1 {
   flex-grow: 1;
 }
 
 @mixin gl-flex-fill-1 {
   flex: 1;
+}
+
+@mixin gl-md-flex-fill-1 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-flex-fill-1;
+  }
 }
 
 @mixin gl-lg-flex-fill-1 {
@@ -149,6 +161,12 @@
 
 @mixin gl-justify-content-end {
   justify-content: flex-end;
+}
+
+@mixin gl-sm-justify-content-end {
+  @media (min-width: $breakpoint-md) {
+    @include gl-justify-content-end;
+  }
 }
 
 @mixin gl-md-justify-content-end {
