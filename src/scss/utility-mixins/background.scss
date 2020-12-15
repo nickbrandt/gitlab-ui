@@ -218,40 +218,120 @@
   background-color: $data-viz-blue-500;
 }
 
+@mixin gl-bg-data-viz-blue-600 {
+  background-color: $data-viz-blue-600;
+}
+
 @mixin gl-bg-data-viz-blue-700 {
   background-color: $data-viz-blue-700;
+}
+
+@mixin gl-bg-data-viz-blue-800 {
+  background-color: $data-viz-blue-800;
+}
+
+@mixin gl-bg-data-viz-blue-900 {
+  background-color: $data-viz-blue-900;
+}
+
+@mixin gl-bg-data-viz-blue-950 {
+  background-color: $data-viz-blue-950;
+}
+
+@mixin gl-bg-data-viz-orange-500 {
+  background-color: $data-viz-orange-500;
 }
 
 @mixin gl-bg-data-viz-orange-600 {
   background-color: $data-viz-orange-600;
 }
 
+@mixin gl-bg-data-viz-orange-700 {
+  background-color: $data-viz-orange-700;
+}
+
 @mixin gl-bg-data-viz-orange-800 {
   background-color: $data-viz-orange-800;
+}
+
+@mixin gl-bg-data-viz-orange-900 {
+  background-color: $data-viz-orange-900;
+}
+
+@mixin gl-bg-data-viz-orange-950 {
+  background-color: $data-viz-orange-950;
 }
 
 @mixin gl-bg-data-viz-aqua-500 {
   background-color: $data-viz-aqua-500;
 }
 
+@mixin gl-bg-data-viz-aqua-600 {
+  background-color: $data-viz-aqua-600;
+}
+
 @mixin gl-bg-data-viz-aqua-700 {
   background-color: $data-viz-aqua-700;
+}
+
+@mixin gl-bg-data-viz-aqua-800 {
+  background-color: $data-viz-aqua-800;
+}
+
+@mixin gl-bg-data-viz-aqua-900 {
+  background-color: $data-viz-aqua-900;
+}
+
+@mixin gl-bg-data-viz-aqua-950 {
+  background-color: $data-viz-aqua-950;
+}
+
+@mixin gl-bg-data-viz-green-500 {
+  background-color: $data-viz-green-500;
 }
 
 @mixin gl-bg-data-viz-green-600 {
   background-color: $data-viz-green-600;
 }
 
+@mixin gl-bg-data-viz-green-700 {
+  background-color: $data-viz-green-700;
+}
+
 @mixin gl-bg-data-viz-green-800 {
   background-color: $data-viz-green-800;
+}
+
+@mixin gl-bg-data-viz-green-900 {
+  background-color: $data-viz-green-900;
+}
+
+@mixin gl-bg-data-viz-green-950 {
+  background-color: $data-viz-green-950;
 }
 
 @mixin gl-bg-data-viz-magenta-500 {
   background-color: $data-viz-magenta-500;
 }
 
+@mixin gl-bg-data-viz-magenta-600 {
+  background-color: $data-viz-magenta-600;
+}
+
 @mixin gl-bg-data-viz-magenta-700 {
   background-color: $data-viz-magenta-700;
+}
+
+@mixin gl-bg-data-viz-magenta-800 {
+  background-color: $data-viz-magenta-800;
+}
+
+@mixin gl-bg-data-viz-magenta-900 {
+  background-color: $data-viz-magenta-900;
+}
+
+@mixin gl-bg-data-viz-magenta-950 {
+  background-color: $data-viz-magenta-950;
 }
 
 @mixin gl-bg-none {
