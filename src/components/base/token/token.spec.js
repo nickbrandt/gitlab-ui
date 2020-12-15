@@ -38,20 +38,4 @@ describe('Token component', () => {
     wrapper = createComponent({ viewOnly: true, variant });
     expect(wrapper.classes()).toContain(cssClass);
   });
-
-  it.each`
-    categoryPalette | categoryWeight | cssClass
-    ${'blue'}       | ${'500'}       | ${'gl-token-category-blue-500'}
-    ${'orange'}     | ${'600'}       | ${'gl-token-category-orange-600'}
-    ${'aqua'}       | ${'700'}       | ${'gl-token-category-aqua-700'}
-    ${'green'}      | ${'800'}       | ${'gl-token-category-green-800'}
-    ${'magenta'}    | ${'900'}       | ${'gl-token-category-magenta-900'}
-    ${'magenta'}    | ${null}        | ${'gl-token'}
-  `(
-    'sets class .$cssClass when variant is $variant',
-    ({ categoryPalette, categoryWeight, cssClass }) => {
-      wrapper = createComponent({ viewOnly: true, categoryPalette, categoryWeight });
-      expect(wrapper.classes()).toContain(cssClass);
-    }
-  );
 });

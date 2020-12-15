@@ -133,7 +133,7 @@ export default {
       tabindex="-1"
       @focus="bindFocusEvent ? handleTokenFocus(index) : null"
     >
-      <gl-token class="gl-cursor-default" @close="handleClose(token)">
+      <gl-token class="gl-cursor-default" :class="token.class" @close="handleClose(token)">
         <slot name="token-content" :token="token">
           <span>
             {{ token.name }}

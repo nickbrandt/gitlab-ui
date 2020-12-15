@@ -153,6 +153,42 @@ describe('GlTokenSelector', () => {
       });
     });
 
+    describe('token category class', () => {
+      it('renders token with correct CSS classes based on category props', () => {
+        createComponent({
+          propsData: {
+            selectedTokens: [
+              ...tokens,
+              {
+                id: 5,
+                name: 'Im blue, da ba dee da ba daa',
+                class: 'gl-text-white gl-bg-data-viz-blue-500',
+              },
+            ],
+          },
+        });
+
+        expect(
+          wrapper
+            .findAll(GlToken)
+            .at(0)
+            .classes()
+        ).not.toContain('gl-bg-data-viz-blue-500');
+        expect(
+          wrapper
+            .findAll(GlToken)
+            .at(4)
+            .classes()
+        ).toEqual([
+          'gl-cursor-default',
+          'gl-token',
+          'gl-token-default-variant',
+          'gl-text-white',
+          'gl-bg-data-viz-blue-500',
+        ]);
+      });
+    });
+
     describe('text input attributes', () => {
       it.each`
         attribute            | value
