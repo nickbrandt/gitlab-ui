@@ -60,11 +60,9 @@ describe('tabs component', () => {
 
   describe('slots', () => {
     it.only('should have class "gl-tab-content"', async () => {
-      const actions = {
-        actionPrimary: { text: 'Action!' },
-      };
+      const actionPrimary = { text: 'Action!' };
 
-      buildTabs({ actions }, mount, {
+      buildTabs({ actionPrimary }, mount, {
         stubs: { GlButton: GltButtonStub },
       });
 
