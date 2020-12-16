@@ -1,4 +1,4 @@
-import * as description from './alert.md';
+import description from './alert.mdx';
 import examples from './examples';
 
 export default {
