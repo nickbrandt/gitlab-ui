@@ -1,12 +1,48 @@
 <script>
 /* eslint-disable no-continue */
-import has from 'lodash/has';
+import { has, isString } from 'lodash';
 
 const PREFIX = '%{';
 const SUFFIX = '}';
-const START_SUFFIX = `Start${SUFFIX}`;
-const END_SUFFIX = `End${SUFFIX}`;
+const START_SUFFIX = 'Start';
+const END_SUFFIX = 'End';
 const PLACE_HOLDER_REGEX = new RegExp(`(${PREFIX}[a-z]+[\\w-]*[a-z0-9]+${SUFFIX})`, 'gi');
+
+function groupPlaceholdersByStartTag(placeholders = {}) {
+  return Object.entries(placeholders).reduce((acc, [slotName, [startTag, endTag]]) => {
+    acc[startTag] = { slotName, endTag };
+    return acc;
+  }, {});
+}
+
+function getPlaceholderDefinition(chunk, placeholdersByStartTag) {
+  const tagName = chunk.slice(PREFIX.length, -SUFFIX.length);
+
+  if (has(placeholdersByStartTag, tagName)) {
+    // Use provided custom placeholder definition
+    return {
+      ...placeholdersByStartTag[tagName],
+      tagName,
+    };
+  }
+
+  if (tagName.endsWith(START_SUFFIX)) {
+    // Tag conforms to default start/end tag naming convention
+    const slotName = tagName.slice(0, -START_SUFFIX.length);
+
+    return {
+      slotName,
+      endTag: `${slotName}${END_SUFFIX}`,
+      tagName,
+    };
+  }
+
+  return {
+    slotName: tagName,
+    endTag: undefined,
+    tagName,
+  };
+}
 
 export default {
   functional: true,
@@ -14,6 +50,15 @@ export default {
     message: {
       type: String,
       required: true,
+    },
+    placeholders: {
+      type: Object,
+      required: false,
+      default: undefined,
+      validator: value =>
+        Object.values(value).every(
+          tagPair => Array.isArray(tagPair) && tagPair.length === 2 && tagPair.every(isString)
+        ),
     },
   },
   /**
@@ -28,6 +73,7 @@ export default {
     const vnodes = [];
     const slots = context.scopedSlots;
     const chunks = context.props.message.split(PLACE_HOLDER_REGEX);
+    const placeholdersByStartTag = groupPlaceholdersByStartTag(context.props.placeholders);
 
     while (i < chunks.length) {
       const chunk = chunks[i];
@@ -40,11 +86,11 @@ export default {
         continue;
       }
 
-      if (chunk.endsWith(START_SUFFIX)) {
-        const slotName = chunk.slice(PREFIX.length, -START_SUFFIX.length);
+      const { slotName, endTag, tagName } = getPlaceholderDefinition(chunk, placeholdersByStartTag);
 
+      if (endTag) {
         // Peek ahead to find end placeholder, if any
-        const indexOfEnd = chunks.indexOf(`${PREFIX}${slotName}${END_SUFFIX}`, i);
+        const indexOfEnd = chunks.indexOf(`${PREFIX}${endTag}${SUFFIX}`, i);
         if (indexOfEnd > -1) {
           // We have a valid start/end placeholder pair! Extract the content
           // between them and skip past the end placeholder
@@ -64,8 +110,7 @@ export default {
       }
 
       // By process of elimination, chunk must be a plain placeholder
-      const slotName = chunk.slice(PREFIX.length, -SUFFIX.length);
-      vnodes.push(has(slots, slotName) ? slots[slotName]() : chunk);
+      vnodes.push(has(slots, tagName) ? slots[tagName]() : chunk);
       continue;
     }
 

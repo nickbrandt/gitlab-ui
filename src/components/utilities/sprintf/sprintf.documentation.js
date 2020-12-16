@@ -9,6 +9,9 @@ export default {
     message: {
       additionalInfo: 'A translated string with named placeholders, e.g., "Written by %{author}".',
     },
+    placeholders: {
+      additionalInfo: `An object mapping slot names to custom start/end placeholders. Use this to avoid changing an existing message, and in turn invalidating existing translations, in the case it uses non-default placeholders.`,
+    },
   },
   slots: [
     {

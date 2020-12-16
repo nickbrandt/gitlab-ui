@@ -1,4 +1,4 @@
-import { withKnobs, text } from '@storybook/addon-knobs/vue';
+import { withKnobs, text, object } from '@storybook/addon-knobs/vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './sprintf.md';
 import { GlSprintf, GlButton } from '../../../../index';
@@ -8,12 +8,18 @@ const components = {
   GlButton,
 };
 
-function generateProps({ message = 'Written by %{author}' } = {}) {
+function generateProps({ message = 'Written by %{author}', placeholders } = {}) {
   const props = {
     message: {
       default: text('Message', message),
     },
   };
+
+  if (placeholders) {
+    props.placeholders = {
+      default: object('Placeholders', placeholders),
+    };
+  }
 
   return props;
 }
@@ -28,6 +34,22 @@ documentedStoriesOf('utilities|sprintf', readme)
     template: `
       <div class="gl-font-base">
         <gl-sprintf :message="message">
+          <template #link="{ content }">
+            <gl-link href="#" target="_blank">{{ content }}</gl-link>
+          </template>
+        </gl-sprintf>
+      </div>
+    `,
+  }))
+  .add('sentence with link using custom placeholders', () => ({
+    props: generateProps({
+      message: 'Click %{my_custom_start}here%{my_custom_end} to reticulate splines.',
+      placeholders: { link: ['my_custom_start', 'my_custom_end'] },
+    }),
+    components,
+    template: `
+      <div class="gl-font-base">
+        <gl-sprintf :message="message" :placeholders="placeholders">
           <template #link="{ content }">
             <gl-link href="#" target="_blank">{{ content }}</gl-link>
           </template>
