@@ -1,3 +1,15 @@
+# [24.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.8.1...v24.9.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* **GlFormSelect:** make GlFormSelect Pajamas compliant ([81632d6](https://gitlab.com/gitlab-org/gitlab-ui/commit/81632d69916cbc38bd5d485dc5dba459057b8336))
+
+
+### Features
+
+* **GlSprintf:** Allow custom start/end placeholders ([5b5d4db](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b5d4db8a4fa436832b9fa77df24a0e3baf5ebc0))
+
 ## [24.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.8.0...v24.8.1) (2020-12-15)
 
 
