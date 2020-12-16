@@ -79,6 +79,31 @@ cannot easily be used. In addition, a JS-only solution is more likely to be
 prone to XSS attacks, as the Vue compiler isn't available to help protect
 against them.
 
+### Customizing start/end placeholders
+
+You can customize the start and end placeholders that `GlSprintf` looks for
+using the `placeholders` prop. For instance:
+
+```html
+<div>
+  <gl-sprintf
+    :message="__('Learn more about %{my_custom_start}zones%{my_custom_end}')"
+    :placeholders="{ link: ['my_custom_start', 'my_custom_end'] }"
+  >
+    <template #link="{ content }">
+      <gl-link
+        href="https://cloud.google.com/compute/docs/regions-zones/regions-zones"
+        target="_blank"
+      >{{ content }}</gl-link>
+    </template>
+  </gl-sprintf>
+</div>
+```
+
+This can be useful if you are migrating an existing string to `GlSprintf` that
+uses different placeholder naming conventions, and don't want invalidate
+existing translations.
+
 ## Displaying components within a message
 
 Use slots to replace placeholders in the message with the slots' contents.

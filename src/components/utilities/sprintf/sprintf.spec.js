@@ -7,12 +7,13 @@ describe('sprintf component', () => {
     /^[a-z]/i.test(name)
   );
 
-  const createComponent = (template = '') => {
+  const createComponent = (template = '', data = () => ({})) => {
     wrapper = mount({
       template: `<div class="wrapper">${template}</div>`,
       components: {
         sprintf,
       },
+      data,
     });
   };
 
@@ -307,6 +308,38 @@ describe('sprintf component', () => {
 
         expect(wrapper.element.innerHTML).toBe('foo');
       });
+    });
+
+    describe('given custom placeholder start/end markers', () => {
+      it.each`
+        message                                                   | placeholders                                                       | expectedHtml
+        ${'%{aStart}foo%{aEnd}'}                                  | ${undefined}                                                       | ${'<a>foo</a>'}
+        ${'%{aStart}foo%{aEnd}'}                                  | ${{ a: ['aStart', 'aEnd'] }}                                       | ${'<a>foo</a>'}
+        ${'%{start}foo%{end}'}                                    | ${{ a: ['start', 'end'] }}                                         | ${'<a>foo</a>'}
+        ${'%{bold}foo%{bold_end}'}                                | ${{ bold: ['bold', 'bold_end'] }}                                  | ${'<b>foo</b>'}
+        ${'%{link_start}foo%{link_end}, %{open_bold}bar%{close}'} | ${{ a: ['link_start', 'link_end'], bold: ['open_bold', 'close'] }} | ${'<a>foo</a>, <b>bar</b>'}
+        ${'%{startLink}foo%{end}, %{startOtherLink}bar%{end}'}    | ${{ a: ['startLink', 'end'], bold: ['startOtherLink', 'end'] }}    | ${'<a>foo</a>, <b>bar</b>'}
+        ${'%{start}foo %{icon}%{end}'}                            | ${{ a: ['start', 'end'] }}                                         | ${'<a>foo %{icon}</a>'}
+        ${'%{end}foo%{start}'}                                    | ${{ a: ['start', 'end'] }}                                         | ${'%{end}foo%{start}'}
+        ${'%{start}foo'}                                          | ${{ a: ['start', 'end'] }}                                         | ${'%{start}foo'}
+        ${'foo%{end}'}                                            | ${{ a: ['start', 'end'] }}                                         | ${'foo%{end}'}
+      `(
+        'renders $message as $expectedHtml given $placeholders',
+        ({ message, placeholders, expectedHtml }) => {
+          createComponent(
+            `<sprintf :message="message" :placeholders="placeholders">
+             <template #a="{ content }"><a>{{ content }}</a></template>
+             <template #bold="{ content }"><b>{{ content }}</b></template>
+           </sprintf>`,
+            () => ({
+              message,
+              placeholders,
+            })
+          );
+
+          expect(wrapper.element.innerHTML).toBe(expectedHtml);
+        }
+      );
     });
   });
 });
