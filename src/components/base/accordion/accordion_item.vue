@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="gl-accordion-item">
     <gl-button
       v-gl-collapse-toggle="accordionItemId"
       variant="link"
@@ -67,11 +67,10 @@ export default {
       :id="accordionItemId"
       :visible="isVisible"
       :accordion="accordion"
-      class="gl-mt-1 gl-transition-medium"
+      class="gl-mt-3 gl-transition-medium gl-font-base"
       role="tabpanel"
       @input="toggleCollapse"
     >
-      <span class="gl-w-5 gl-display-inline-block"><!-- spacer so it aligns gl-icon width--></span>
       <slot></slot>
     </b-collapse>
   </div>
