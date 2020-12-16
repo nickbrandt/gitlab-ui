@@ -4,7 +4,7 @@ import examples from './examples';
 export default {
   description,
   examples,
-  followDesignSystem: false,
+  followDesignSystem: true,
   bootstrapComponent: 'b-form-select',
   events: [
     {

@@ -8,6 +8,30 @@ const components = {
   GlFormSelect,
 };
 
+const data = () => {
+  return {
+    selected: 'Pizza',
+  };
+};
+
+const template = `
+<gl-form-select 
+  v-model="selected"
+  :size="size"
+  :disabled="disabled"
+  :state="computedState(state)"
+  :multiple="multiple"
+  :selectSize="selectSize"
+  :options="options">
+</gl-form-select>
+`;
+
+const computedState = state =>
+  ({
+    valid: true,
+    invalid: false,
+  }[state] ?? null);
+
 function generateProps({
   size = null,
   state = null,
@@ -17,7 +41,7 @@ function generateProps({
   options = [
     { value: 'Pizza', text: 'Pizza' },
     { value: 'Tacos', text: 'Tacos' },
-    { value: 'Burger', text: 'Burguer', disabled: boolean('disabled', false) },
+    { value: 'Burger', text: 'Burger' },
   ],
 } = {}) {
   return {
@@ -53,33 +77,18 @@ documentedStoriesOf('base|form/form-select', readme)
   .add('default', () => ({
     components,
     props: generateProps(),
-    data() {
-      return {
-        selected: 'Pizza',
-      };
-    },
+    data,
     methods: {
-      computedState(state) {
-        let updatedState = null;
-
-        if (state === 'valid') {
-          updatedState = true;
-        } else if (state === 'invalid') {
-          updatedState = false;
-        }
-
-        return updatedState;
-      },
+      computedState,
     },
-    template: `
-      <gl-form-select 
-        v-model="selected"
-        :size="size"
-        :disabled="disabled"
-        :state="computedState(state)"
-        :multiple="multiple"
-        :selectSize="selectSize"
-        :options="options">
-      </gl-form-select>
-    `,
+    template,
+  }))
+  .add('disabled', () => ({
+    components,
+    props: generateProps({ disabled: true }),
+    data,
+    methods: {
+      computedState,
+    },
+    template,
   }));
