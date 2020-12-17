@@ -94,6 +94,10 @@
   width: 50%;
 }
 
+@mixin gl-w-85p {
+  width: 85%;
+}
+
 @mixin gl-w-full {
   width: 100%;
 }
