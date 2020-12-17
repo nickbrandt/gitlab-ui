@@ -1,3 +1,10 @@
+# [24.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.9.0...v24.10.0) (2020-12-17)
+
+
+### Features
+
+* add 85% util class to sizing.scss ([a894c5b](https://gitlab.com/gitlab-org/gitlab-ui/commit/a894c5b5ed93d370cfe4307f62c276724889f988))
+
 # [24.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.8.1...v24.9.0) (2020-12-16)
 
 
