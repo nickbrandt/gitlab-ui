@@ -73,8 +73,8 @@ export const avatarShapeOptions = {
 
 export const formStateOptions = {
   default: null,
-  valid: 'valid',
-  invalid: 'invalid',
+  valid: true,
+  invalid: false,
 };
 
 export const newButtonCategoryOptions = {
