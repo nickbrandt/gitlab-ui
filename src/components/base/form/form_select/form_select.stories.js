@@ -2,6 +2,7 @@ import { withKnobs, boolean, select, number, object } from '@storybook/addon-kno
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_select.md';
 import { GlFormSelect } from '../../../../../index';
+import { formSelectOptions } from './constants';
 import { sizeOptions, formStateOptions } from '../../../../utils/constants';
 
 const components = {
@@ -19,18 +20,12 @@ const template = `
   v-model="selected"
   :size="size"
   :disabled="disabled"
-  :state="computedState(state)"
+  :state="state"
   :multiple="multiple"
   :selectSize="selectSize"
   :options="options">
 </gl-form-select>
 `;
-
-const computedState = state =>
-  ({
-    valid: true,
-    invalid: false,
-  }[state] ?? null);
 
 function generateProps({
   size = null,
@@ -38,11 +33,7 @@ function generateProps({
   disabled = false,
   multiple = false,
   selectSize = 1,
-  options = [
-    { value: 'Pizza', text: 'Pizza' },
-    { value: 'Tacos', text: 'Tacos' },
-    { value: 'Burger', text: 'Burger' },
-  ],
+  options = formSelectOptions,
 } = {}) {
   return {
     size: {
@@ -54,7 +45,7 @@ function generateProps({
       default: boolean('disabled', disabled),
     },
     state: {
-      type: String,
+      type: Boolean,
       default: select('state', formStateOptions, state),
     },
     multiple: {
@@ -78,17 +69,23 @@ documentedStoriesOf('base|form/form-select', readme)
     components,
     props: generateProps(),
     data,
-    methods: {
-      computedState,
-    },
     template,
   }))
   .add('disabled', () => ({
     components,
     props: generateProps({ disabled: true }),
     data,
-    methods: {
-      computedState,
-    },
+    template,
+  }))
+  .add('valid state', () => ({
+    components,
+    props: generateProps({ state: true }),
+    data,
+    template,
+  }))
+  .add('invalid state', () => ({
+    components,
+    props: generateProps({ state: false }),
+    data,
     template,
   }));
