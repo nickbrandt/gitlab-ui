@@ -1,7 +1,7 @@
-# Accordion Item
+# GlAccordionItem
 
 <!-- STORY -->
 
 ## Usage
 
-Use `gl-accordion-item` to place the accordion item within your accordion.
+Use `GlAccordionItem` to place the accordion item within your accordion.

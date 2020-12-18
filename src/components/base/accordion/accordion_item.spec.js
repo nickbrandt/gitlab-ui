@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { BCollapse } from 'bootstrap-vue';
 import GlAccordionItem from './accordion_item.vue';
-import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
 import GlCollapseToggleDirective from '../../../directives/collapse_toggle';
 
@@ -29,7 +28,6 @@ describe('GlAccordionItem', () => {
     });
   };
 
-  const findIcon = () => wrapper.find(GlIcon);
   const findButton = () => wrapper.find(GlButton);
   const findCollapse = () => wrapper.find(BCollapse);
 
@@ -52,7 +50,7 @@ describe('GlAccordionItem', () => {
   it('is not expanded by default', () => {
     createComponent();
 
-    expect(findIcon().props('name')).toBe('chevron-right');
+    expect(findButton().props('icon')).toBe('chevron-right');
     expect(findCollapse().isVisible()).toBe(false);
   });
 
@@ -61,7 +59,7 @@ describe('GlAccordionItem', () => {
 
     await findButton().trigger('click');
 
-    expect(findIcon().props('name')).toBe('chevron-down');
+    expect(findButton().props('icon')).toBe('chevron-down');
     expect(findCollapse().isVisible()).toBe(true);
   });
 
@@ -78,7 +76,7 @@ describe('GlAccordionItem', () => {
 
     await wrapper.vm.$nextTick();
 
-    expect(findIcon().props('name')).toBe('chevron-down');
+    expect(findButton().props('icon')).toBe('chevron-down');
     expect(findCollapse().isVisible()).toBe(true);
   });
 });

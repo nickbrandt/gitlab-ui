@@ -1,7 +1,6 @@
 <script>
 import { uniqueId } from 'lodash';
 import { BCollapse } from 'bootstrap-vue';
-import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
 import GlCollapseToggleDirective from '../../../directives/collapse_toggle';
 
@@ -10,7 +9,6 @@ export default {
   components: {
     BCollapse,
     GlButton,
-    GlIcon,
   },
   directives: {
     GlCollapseToggleDirective,
@@ -35,18 +33,12 @@ export default {
   data() {
     return {
       accordionItemId: uniqueId('accordion-item-'),
-      isVisible: false,
-      icon: 'chevron-right',
+      isVisible: this.visible,
     };
   },
-  mounted() {
-    if (this.visible) {
-      this.isVisible = true;
-    }
-  },
-  methods: {
-    toggleCollapse(isCollapse) {
-      this.icon = isCollapse ? 'chevron-down' : 'chevron-right';
+  computed: {
+    icon() {
+      return this.isVisible ? 'chevron-down' : 'chevron-right';
     },
   },
 };
@@ -59,17 +51,17 @@ export default {
       variant="link"
       button-text-classes="gl-display-flex"
       role="tab"
+      :icon="icon"
     >
-      <gl-icon :name="icon" class="mr-1" />
-      <span>{{ title }}</span>
+      {{ title }}
     </gl-button>
     <b-collapse
       :id="accordionItemId"
+      v-model="isVisible"
       :visible="isVisible"
       :accordion="accordion"
-      class="gl-mt-3 gl-transition-medium gl-font-base"
+      class="gl-mt-3 gl-font-base"
       role="tabpanel"
-      @input="toggleCollapse"
     >
       <slot></slot>
     </b-collapse>
