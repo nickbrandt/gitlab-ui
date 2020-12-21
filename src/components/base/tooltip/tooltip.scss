@@ -1,8 +1,6 @@
 .gl-tooltip {
   @include gl-font-sm;
   @include gl-p-2;
-  // Overrides Bootstrap lowered tooltip opacity
-  opacity: 1 !important;
 
   .tooltip-inner {
     @include gl-rounded-base;
