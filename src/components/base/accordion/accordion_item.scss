@@ -1,0 +1,11 @@
+.gl-accordion-item {
+  @include gl-mb-5;
+
+  &:last-child {
+    @include gl-mb-0;
+  }
+
+  .collapse {
+    margin-left: $gl-spacing-scale-5 + $gl-spacing-scale-2;
+  }
+}
