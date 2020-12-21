@@ -1,3 +1,10 @@
+# [24.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.10.0...v24.11.0) (2020-12-21)
+
+
+### Features
+
+* **GlAccordion:** Add GlAccordion component ([6a095ac](https://gitlab.com/gitlab-org/gitlab-ui/commit/6a095ac401c00248459b637855f3f627bde93f98))
+
 # [24.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.9.0...v24.10.0) (2020-12-17)
 
 
