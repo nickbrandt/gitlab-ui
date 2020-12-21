@@ -1,6 +1,7 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './accordion.md';
-import { GlAccordion, GlAccordionItem } from '../../../../index';
+import GlAccordion from './accordion.vue';
+import GlAccordionItem from './accordion_item.vue';
 
 const components = {
   GlAccordion,
