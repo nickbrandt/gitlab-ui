@@ -1,3 +1,10 @@
+## [24.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.11.0...v24.11.1) (2020-12-21)
+
+
+### Bug Fixes
+
+* **GlTooltip:** Fix tooltip hide/show animation ([4b06996](https://gitlab.com/gitlab-org/gitlab-ui/commit/4b069969466b0a156813a3c4bfb4fbde05418784))
+
 # [24.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.10.0...v24.11.0) (2020-12-21)
 
 
