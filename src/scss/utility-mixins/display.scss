@@ -108,3 +108,9 @@
 @mixin gl-display-grid {
   display: grid;
 }
+
+@mixin gl-display-lg-table-cell {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-display-table-cell;
+  }
+}
