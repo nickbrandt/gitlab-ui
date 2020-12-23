@@ -15,11 +15,12 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-opacity-10;
   @include gl-line-height-normal;
   @include gl-py-3;
-  @include gl-px-4;
+  @include gl-pl-4;
   @include gl-h-auto;
   @include gl-inset-border-1-gray-400;
   @include gl-border-none;
   @include gl-appearance-none;
+  @include gl-text-truncate;
 
   &:disabled {
     @include gl-bg-gray-10;
