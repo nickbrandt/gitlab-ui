@@ -1,3 +1,16 @@
+# [25.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.11.1...v25.0.0) (2020-12-23)
+
+
+### Features
+
+* **GlDeprecatedButton:** remove GlDeprecatedButton component ([d9105e7](https://gitlab.com/gitlab-org/gitlab-ui/commit/d9105e78323692ed37e3ac8ca123a77e36a99178))
+
+
+### BREAKING CHANGES
+
+* **GlDeprecatedButton:** This removes the GlDeprecatedButton component. Please
+use GlButton instead.
+
 ## [24.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.11.0...v24.11.1) (2020-12-21)
 
 
