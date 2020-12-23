@@ -2497,7 +2497,7 @@ Before:
 
 After:
 
-<gl-deprecated-button>My button</gl-deprecated-button>
+<gl-button>My button</gl-button>
 
 # [10.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v10.3.3...v10.4.0) (2020-04-02)
 

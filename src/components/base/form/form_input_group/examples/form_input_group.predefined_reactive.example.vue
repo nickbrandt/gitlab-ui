@@ -25,7 +25,7 @@ optionValues = [
     </label>
     <gl-form-input-group v-model="testVal" :predefined-options="optionValues">
       <template #append>
-        <gl-deprecated-button variant="success">Add</gl-deprecated-button>
+        <gl-button variant="success">Add</gl-button>
       </template>
     </gl-form-input-group>
   </div>

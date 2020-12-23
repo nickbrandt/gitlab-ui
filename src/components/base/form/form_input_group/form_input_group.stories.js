@@ -1,11 +1,10 @@
 import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_input_group.md';
-import { GlFormInputGroup, GlInputGroupText, GlDeprecatedButton } from '../../../../../index';
+import { GlFormInputGroup, GlInputGroupText } from '../../../../../index';
 
 const components = {
   GlFormInputGroup,
-  GlDeprecatedButton,
   GlInputGroupText,
 };
 const predefinedOptions = [
