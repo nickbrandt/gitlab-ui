@@ -88,4 +88,25 @@ documentedStoriesOf('base|form/form-select', readme)
     props: generateProps({ state: false }),
     data,
     template,
+  }))
+  .add('with truncation', () => ({
+    components,
+    props: generateProps({
+      options: [
+        {
+          value: 1,
+          text: 'A form select option with a very looooooooong label',
+        },
+      ],
+    }),
+    data() {
+      return {
+        selected: 1,
+      };
+    },
+    template: `
+    <div style="max-width: 300px;">
+      ${template}
+    </div>
+    `,
   }));
