@@ -1,3 +1,10 @@
+## [25.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.0.0...v25.0.1) (2020-12-23)
+
+
+### Bug Fixes
+
+* **GlFormSelect:** stop text overflowing into right icon ([f79cfd1](https://gitlab.com/gitlab-org/gitlab-ui/commit/f79cfd1b41bd097fee118002b961d609cb2f2b72))
+
 # [25.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v24.11.1...v25.0.0) (2020-12-23)
 
 
