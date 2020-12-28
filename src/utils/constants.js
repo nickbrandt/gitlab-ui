@@ -161,6 +161,7 @@ export const alertVariantOptions = {
   danger: 'danger',
   info: 'info',
   tip: 'tip',
+  error: 'error',
 };
 
 export const alertVariantIconMap = {
@@ -169,6 +170,7 @@ export const alertVariantIconMap = {
   danger: 'error',
   info: 'information-o',
   tip: 'bulb',
+  error: 'error',
 };
 
 export const colorThemes = {

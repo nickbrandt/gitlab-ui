@@ -118,40 +118,42 @@ export default {
 
 <template>
   <div :class="['gl-alert', variantClass]" role="alert">
-    <gl-icon
-      :name="iconName"
-      :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
-    />
+    <div class="gl-alert-container">
+      <gl-icon
+        :name="iconName"
+        :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
+      />
 
-    <button
-      v-if="dismissible"
-      ref="dismiss"
-      type="button"
-      class="gl-alert-dismiss"
-      :aria-label="dismissLabel"
-      @click="onDismiss"
-    >
-      <gl-icon name="close" />
-    </button>
+      <gl-button
+        v-if="dismissible"
+        ref="dismiss"
+        category="tertiary"
+        size="small"
+        icon="close"
+        class="gl-alert-dismiss"
+        :aria-label="dismissLabel"
+        @click="onDismiss"
+      />
 
-    <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
-
-    <div class="gl-alert-body">
-      <slot></slot>
-    </div>
-
-    <div v-if="shouldRenderActions" class="gl-alert-actions">
-      <slot name="actions">
-        <gl-button
-          v-for="(actionButton, index) in actionButtons"
-          :key="index"
-          class="gl-alert-action"
-          v-bind="actionButton.attrs"
-          v-on="actionButton.listeners"
-        >
-          {{ actionButton.text }}
-        </gl-button>
-      </slot>
+      <div class="gl-alert-content">
+        <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
+        <div class="gl-alert-body">
+          <slot></slot>
+        </div>
+        <div v-if="shouldRenderActions" class="gl-alert-actions">
+          <slot name="actions">
+            <gl-button
+              v-for="(actionButton, index) in actionButtons"
+              :key="index"
+              class="gl-alert-action"
+              v-bind="actionButton.attrs"
+              v-on="actionButton.listeners"
+            >
+              {{ actionButton.text }}
+            </gl-button>
+          </slot>
+        </div>
+      </div>
     </div>
   </div>
 </template>
