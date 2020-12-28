@@ -112,6 +112,10 @@
   width: max-content;
 }
 
+@mixin gl-layout-w-limited {
+  max-width: $limited-layout-width;
+}
+
 @mixin gl-h-auto {
   height: auto;
 }

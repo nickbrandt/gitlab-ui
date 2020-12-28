@@ -1,8 +1,9 @@
 .gl-alert {
+  @include gl-display-flex;
+  @include gl-justify-content-center;
   @include gl-font-base;
   @include gl-relative;
-  @include gl-px-8;
-  @include gl-py-5;
+  @include gl-p-5;
 
   .gl-link {
     @include gl-text-blue-600;
@@ -14,6 +15,17 @@
   }
 }
 
+.gl-alert-container {
+  @include gl-display-flex;
+  @include gl-justify-content-space-between;
+  @include gl-flex-grow-1;
+  @include gl-layout-w-limited;
+}
+
+.gl-alert-content {
+  @include gl-flex-grow-1;
+}
+
 .gl-alert-title {
   @include gl-font-base;
   @include gl-font-weight-bold;
@@ -23,12 +35,10 @@
 }
 
 .gl-alert-icon {
-  @include gl-absolute;
-  @include gl-top-5;
-  @include gl-left-5;
   @include gl-w-5;
-  @include gl-h-5;
   @include gl-fill-current-color;
+  @include gl-mr-5;
+  @include gl-flex-shrink-0;
 }
 
 .gl-alert-icon-no-title {
@@ -51,14 +61,13 @@
 }
 
 .gl-alert-dismiss {
-  @include gl-absolute;
-  @include gl-top-0;
-  @include gl-right-0;
-  @include gl-p-5;
+  @include gl-align-self-start;
   @include gl-line-height-normal;
   @include gl-bg-none;
   @include gl-border-none;
   @include gl-text-gray-500;
+  @include gl-ml-5;
+  order: 3;
 
   > svg {
     @include gl-fill-current-color;
@@ -68,12 +77,18 @@
   }
 }
 
-.gl-alert-danger {
+.gl-alert-danger,
+.gl-alert-error {
   @include gl-bg-red-50;
 
   .gl-alert-icon {
     @include gl-text-red-600;
   }
+}
+
+.gl-alert-error {
+  @include gl-sticky;
+  @include gl-top-0;
 }
 
 .gl-alert-warning {
