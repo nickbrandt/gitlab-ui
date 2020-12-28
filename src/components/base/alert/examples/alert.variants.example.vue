@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      variants: ['success', 'warning', 'danger', 'info', 'tip'],
+      variants: ['danger', 'warning', 'success', 'info', 'tip'],
     };
   },
 };
