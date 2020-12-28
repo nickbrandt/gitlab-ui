@@ -1,3 +1,10 @@
+# [25.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.0.1...v25.1.0) (2020-12-28)
+
+
+### Features
+
+* **GlAlert:** Adding capability to have error variant ([f0ab708](https://gitlab.com/gitlab-org/gitlab-ui/commit/f0ab708f45740addf0b9340c0dc5777efc367097))
+
 ## [25.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.0.0...v25.0.1) (2020-12-23)
 
 
