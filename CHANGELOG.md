@@ -1,3 +1,10 @@
+## [25.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.1.0...v25.1.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* Use GlButton for clear button template ([d77f56c](https://gitlab.com/gitlab-org/gitlab-ui/commit/d77f56cfb6948b7795279ccd31743c6453dbc8cb))
+
 # [25.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.0.1...v25.1.0) (2020-12-28)
 
 
