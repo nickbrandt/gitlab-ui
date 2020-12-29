@@ -44,7 +44,7 @@ const UserToken = {
       this.loadingView = true;
       setStoryTimeout(() => {
         this.loadingView = false;
-        this.activeUser = fakeUsers.find(u => u.username === this.value.data);
+        this.activeUser = fakeUsers.find((u) => u.username === this.value.data);
       }, 1000);
     },
     loadSuggestions() {
@@ -191,7 +191,7 @@ const LabelToken = {
       this.loadingView = true;
       setStoryTimeout(() => {
         this.loadingView = false;
-        this.activeLabel = fakeLabels.find(l => l.title === this.value.data);
+        this.activeLabel = fakeLabels.find((l) => l.title === this.value.data);
       }, 100);
     },
     loadSuggestions() {

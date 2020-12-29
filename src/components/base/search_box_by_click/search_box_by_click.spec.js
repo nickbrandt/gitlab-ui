@@ -20,7 +20,7 @@ const GlFormInputGroupStub = {
 describe('search box by click component', () => {
   let wrapper;
 
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     wrapper = shallowMount(SearchBoxByClick, {
       propsData,
       stubs: { GlFormInputGroup: GlFormInputGroupStub },

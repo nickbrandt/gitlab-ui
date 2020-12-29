@@ -58,7 +58,7 @@ describe('GlFormTextArea', () => {
   });
 
   describe('debounce', () => {
-    describe.each([10, 100, 1000])('given a debounce of %dms', debounce => {
+    describe.each([10, 100, 1000])('given a debounce of %dms', (debounce) => {
       beforeEach(() => {
         jest.useFakeTimers();
 
@@ -94,7 +94,7 @@ describe('GlFormTextArea', () => {
       expect(wrapper.emitted('update')).toEqual([[newValue]]);
     });
 
-    it.each(['change', 'blur'])('updates model after %s event', event => {
+    it.each(['change', 'blur'])('updates model after %s event', (event) => {
       expect(wrapper.emitted(modelEvent)).toBe(undefined);
 
       wrapper.trigger(event);

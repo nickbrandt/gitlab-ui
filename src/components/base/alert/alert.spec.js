@@ -14,7 +14,7 @@ const secondaryButtonLink = '#bar';
 describe('Alert component', () => {
   let wrapper;
 
-  const createComponent = options => {
+  const createComponent = (options) => {
     wrapper = shallowMount(GlAlert, {
       ...options,
     });

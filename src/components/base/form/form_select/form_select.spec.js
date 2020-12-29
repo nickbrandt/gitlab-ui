@@ -4,7 +4,7 @@ import { formSelectOptions } from './constants';
 import { sizeOptions, formStateOptions } from '../../../../utils/constants';
 
 const DEFAULT_SELECT_CLASSES = ['gl-form-select', 'custom-select'];
-const excludeDefaultNull = values => Object.values(values).filter(value => value !== null);
+const excludeDefaultNull = (values) => Object.values(values).filter((value) => value !== null);
 
 describe('GlFormSelect', () => {
   let wrapper;
@@ -38,7 +38,7 @@ describe('GlFormSelect', () => {
     // Exclude the default null value
     const nonNullSizes = excludeDefaultNull(sizeOptions);
 
-    it.each(nonNullSizes)('adds correct class for size %s', size => {
+    it.each(nonNullSizes)('adds correct class for size %s', (size) => {
       createComponent({ size });
 
       expect(wrapper.classes()).toEqual([...DEFAULT_SELECT_CLASSES, `custom-select-${size}`]);

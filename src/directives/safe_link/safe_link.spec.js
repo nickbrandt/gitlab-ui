@@ -56,7 +56,7 @@ describe('safe link directive', () => {
   });
 
   describe('invalid urls', () => {
-    it.each(javascriptUrls)('%s should be sanitized', url => {
+    it.each(javascriptUrls)('%s should be sanitized', (url) => {
       createComponent({
         href: url,
       });
@@ -71,7 +71,7 @@ describe('safe link directive', () => {
     /* Vue attribute bindings are also automatically escaped
     /* https://vuejs.org/v2/guide/security.html#Injecting-URLs
     */
-    it.each(validUrls)('%s should be rendered', url => {
+    it.each(validUrls)('%s should be rendered', (url) => {
       createComponent({
         href: url,
       });

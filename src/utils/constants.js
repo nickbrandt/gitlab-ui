@@ -9,7 +9,7 @@ function appendDefaultOption(options) {
   return { ...options, default: '' };
 }
 
-export const glThemes = glThemesVariable.split(',').map(glTheme => glTheme.trim());
+export const glThemes = glThemesVariable.split(',').map((glTheme) => glTheme.trim());
 
 export const variantOptions = {
   primary: 'primary',

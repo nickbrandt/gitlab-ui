@@ -47,7 +47,7 @@ export default {
 
   computed: {
     matchingOption() {
-      return this.options?.find(o => o.value === this.value);
+      return this.options?.find((o) => o.value === this.value);
     },
 
     inputValue: {
@@ -75,7 +75,7 @@ export default {
         return match?.value;
       }
 
-      const defaultSuggestion = this.options.find(op => op.default);
+      const defaultSuggestion = this.options.find((op) => op.default);
       return (defaultSuggestion ?? this.options[0])?.value;
     },
   },
@@ -118,7 +118,7 @@ export default {
     },
 
     getMatchingOptionForInputValue(v, { loose } = { loose: false }) {
-      return this.options?.find(o =>
+      return this.options?.find((o) =>
         loose ? o[this.optionTextField].startsWith(v) : [this.optionTextField] === v
       );
     },
@@ -195,7 +195,7 @@ export default {
       this.customInputKeydownHandler(e, {
         suggestedValue,
         inputValue: this.inputValue,
-        applySuggestion: v => this.applySuggestion(v),
+        applySuggestion: (v) => this.applySuggestion(v),
       });
     },
 

@@ -12,8 +12,8 @@ describe('IntersectionObserver', () => {
   let allWrappers;
   const { getInstances, trigger } = useMockIntersectionObserver();
 
-  const hasPrivateProps = obj => Object.keys(obj).some(x => x.startsWith('$_gl_'));
-  const triggerIntersectionObserver = entry => {
+  const hasPrivateProps = (obj) => Object.keys(obj).some((x) => x.startsWith('$_gl_'));
+  const triggerIntersectionObserver = (entry) => {
     trigger(getInstances()[0], null, { entry });
   };
   const createComponent = (props = {}) => {
@@ -33,7 +33,7 @@ describe('IntersectionObserver', () => {
   });
 
   afterEach(() => {
-    allWrappers.forEach(x => x.destroy());
+    allWrappers.forEach((x) => x.destroy());
     allWrappers = null;
     wrapper = null;
 
@@ -98,7 +98,7 @@ describe('IntersectionObserver', () => {
       triggerIntersectionObserver(entry);
 
       expect(allWrappers).toHaveLength(2);
-      expect(allWrappers.map(x => x.emitted())).toEqual(allWrappers.map(createExpectation));
+      expect(allWrappers.map((x) => x.emitted())).toEqual(allWrappers.map(createExpectation));
     });
   });
 

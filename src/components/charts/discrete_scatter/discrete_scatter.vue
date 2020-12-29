@@ -67,7 +67,7 @@ export default {
     series() {
       return this.data.map((series, index) => {
         const defaultColor = colorFromDefaultPalette(index);
-        const getColor = type =>
+        const getColor = (type) =>
           series[type] && series[type].color ? series[type].color : defaultColor;
 
         return merge(

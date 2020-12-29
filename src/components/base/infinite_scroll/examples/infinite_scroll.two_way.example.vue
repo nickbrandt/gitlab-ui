@@ -14,7 +14,7 @@ const createItem = () => {
   };
 };
 
-const createArray = num => {
+const createArray = (num) => {
   const res = [];
   for (let i = 0; i < num; i += 1) {
     res.push(createItem());

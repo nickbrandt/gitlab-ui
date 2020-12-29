@@ -62,17 +62,17 @@ describe('GlTokenSelector', () => {
     });
   };
 
-  const findTokenByName = name => {
+  const findTokenByName = (name) => {
     const tokenWrappers = wrapper.findAll(GlToken);
 
-    return tokenWrappers.wrappers.find(tokenWrapper => tokenWrapper.text() === name);
+    return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
 
-  const findDropdownItemByName = name => {
+  const findDropdownItemByName = (name) => {
     const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
 
     return dropdownItemWrappers.wrappers.find(
-      dropdownItemWrapper => dropdownItemWrapper.text() === name
+      (dropdownItemWrapper) => dropdownItemWrapper.text() === name
     );
   };
 
@@ -316,7 +316,7 @@ describe('GlTokenSelector', () => {
         textInput.setValue('foo bar');
         await textInput.trigger('keydown.delete');
 
-        wrapper.findAll(GlToken).wrappers.forEach(tokenWrapper => {
+        wrapper.findAll(GlToken).wrappers.forEach((tokenWrapper) => {
           expect(tokenWrapper.element).not.toHaveFocus();
         });
       });

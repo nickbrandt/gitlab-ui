@@ -5,10 +5,10 @@ import { getResetAnimationsCSS } from '~/utils/test_utils';
 
 registerRequireContextHook();
 
-const beforeScreenshot = async page => {
+const beforeScreenshot = async (page) => {
   // Reset SVG animations
   await page.evaluate(() => {
-    document.querySelectorAll('animate').forEach(el => {
+    document.querySelectorAll('animate').forEach((el) => {
       el.setAttribute('repeatCount', 'indefinite');
       el.setAttribute('dur', 'indefinite');
     });

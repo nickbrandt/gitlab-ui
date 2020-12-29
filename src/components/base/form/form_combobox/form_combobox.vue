@@ -107,7 +107,7 @@ export default {
         return;
       }
 
-      const filteredTokens = this.tokenList.filter(token =>
+      const filteredTokens = this.tokenList.filter((token) =>
         token.toLowerCase().includes(value.toLowerCase())
       );
 

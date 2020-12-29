@@ -18,7 +18,7 @@ export default {
       type: String,
       required: false,
       default: null,
-      validator: value => Object.values(formInputSizes).includes(value),
+      validator: (value) => Object.values(formInputSizes).includes(value),
     },
   },
   computed: {

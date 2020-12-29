@@ -57,9 +57,9 @@ export default {
   computed: {
     filteredList() {
       if (typeof this.filter === 'function') {
-        return this.list.filter(listItem => this.filter(listItem, this.queryStr));
+        return this.list.filter((listItem) => this.filter(listItem, this.queryStr));
       }
-      return this.list.filter(listItem =>
+      return this.list.filter((listItem) =>
         listItem[this.filter].toLowerCase().includes(this.queryStr.toLowerCase())
       );
     },

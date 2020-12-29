@@ -22,7 +22,7 @@ export class Tree {
    * @returns {array} The values currently selected
    */
   get selected() {
-    return this.nodesList.filter(node => node.isChecked).map(node => node.value);
+    return this.nodesList.filter((node) => node.isChecked).map((node) => node.value);
   }
 
   /**
@@ -52,7 +52,7 @@ export class Tree {
     }
     this.treeDepth = depth > this.treeDepth ? depth : this.treeDepth;
 
-    options.forEach(option => {
+    options.forEach((option) => {
       const isChecked = selected.includes(option.value);
       this.nodes[option.value] = new Node({ ...option, parent, isChecked, depth });
       this.initNodes(option.children, selected, option, depth + 1);
@@ -78,7 +78,7 @@ export class Tree {
           removeIndices.push(nodeIndex);
         }
       });
-      removeIndices.reverse().forEach(index => {
+      removeIndices.reverse().forEach((index) => {
         nodes.splice(index, 1);
       });
     }
@@ -90,7 +90,7 @@ export class Tree {
    * @returns {boolean}
    */
   optionHasAllChildrenChecked(option) {
-    return this.getOptionChildren(option).every(child => child.isChecked);
+    return this.getOptionChildren(option).every((child) => child.isChecked);
   }
 
   /**
@@ -102,7 +102,7 @@ export class Tree {
    * @returns {boolean}
    */
   optionHasSomeChildrenChecked(option) {
-    return this.getOptionChildren(option).some(child => child.isCheckedOrIndeterminate);
+    return this.getOptionChildren(option).some((child) => child.isCheckedOrIndeterminate);
   }
 
   /**
@@ -137,7 +137,7 @@ export class Tree {
    * @param {boolean} checked Whether the options should be checked or unchecked
    */
   toggleAllOptions(checked) {
-    this.nodesList.forEach(node => {
+    this.nodesList.forEach((node) => {
       Tree.toggleNodeState(node, checked);
     });
   }
@@ -158,7 +158,7 @@ export class Tree {
     }
 
     if (node.isParent) {
-      node.children.forEach(child => this.toggleOption(child, checked, false));
+      node.children.forEach((child) => this.toggleOption(child, checked, false));
     }
   }
 

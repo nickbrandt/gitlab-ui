@@ -4,8 +4,8 @@ import isFunction from 'lodash/isFunction';
 
 // the observer instance is shared for performance reasons
 // more information: https://github.com/WICG/ResizeObserver/issues/59
-const observer = new ResizeObserver(entries => {
-  entries.forEach(event => {
+const observer = new ResizeObserver((entries) => {
+  entries.forEach((event) => {
     event.target.glResizeHandler(event);
   });
 });

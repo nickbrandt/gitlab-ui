@@ -12,8 +12,8 @@ export default {
       type: Array,
       required: true,
       default: () => [{ text: '', href: '' }],
-      validator: links => {
-        return links.every(link => {
+      validator: (links) => {
+        return links.every((link) => {
           const keys = Object.keys(link);
           return keys.includes('text') && (keys.includes('href') || keys.includes('to'));
         });

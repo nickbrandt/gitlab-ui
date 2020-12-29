@@ -4,7 +4,7 @@ import GlBroadcastMessage from './broadcast_message.vue';
 describe('Broadcast message component', () => {
   let wrapper;
 
-  const createComponent = options => {
+  const createComponent = (options) => {
     wrapper = shallowMount(GlBroadcastMessage, options);
   };
 

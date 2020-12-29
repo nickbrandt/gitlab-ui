@@ -88,7 +88,7 @@ module.exports = ({ config }) => {
   // which is needed for storyshots to function
   if (process.env.NODE_ENV === 'test') {
     config.entry = config.entry.filter(
-      singleEntry => !singleEntry.includes('/webpack-hot-middleware/')
+      (singleEntry) => !singleEntry.includes('/webpack-hot-middleware/')
     );
   }
 
@@ -97,7 +97,9 @@ module.exports = ({ config }) => {
     console.log(
       'Webpack compilation will start soon - ProgressPlugin disabled on CI due to too much output'
     );
-    config.plugins = config.plugins.filter(plugin => plugin.constructor.name !== 'ProgressPlugin');
+    config.plugins = config.plugins.filter(
+      (plugin) => plugin.constructor.name !== 'ProgressPlugin'
+    );
   }
 
   config.plugins.push(new webpack.IgnorePlugin(/moment/, /pikaday/));

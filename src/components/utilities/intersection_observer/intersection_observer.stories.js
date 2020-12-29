@@ -21,7 +21,7 @@ const commonMethods = {
 
 const generateItems = (startingId = 0) => {
   const items = Array.from(Array(20).keys());
-  return items.map(index => {
+  return items.map((index) => {
     const id = index + startingId + 1;
 
     return {

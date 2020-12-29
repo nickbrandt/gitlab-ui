@@ -16,12 +16,12 @@ export default {
      * and disable the tooltip.
      * https://bootstrap-vue.org/docs/components/tooltip#programmatically-show-and-hide-tooltip
      */
-    TOOLTIP_ACTION_EVENTS.forEach(event =>
+    TOOLTIP_ACTION_EVENTS.forEach((event) =>
       this.$on(event, () => this.$refs.bvTooltip.$emit(event))
     );
   },
   beforeDestroy() {
-    TOOLTIP_ACTION_EVENTS.forEach(event => this.$off(event));
+    TOOLTIP_ACTION_EVENTS.forEach((event) => this.$off(event));
   },
 };
 </script>

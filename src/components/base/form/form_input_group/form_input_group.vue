@@ -25,7 +25,7 @@ export default {
       type: Array,
       required: false,
       default: () => [{ value: '', name: '' }],
-      validator: options => options.every(opt => Object.keys(opt).includes('name', 'value')),
+      validator: (options) => options.every((opt) => Object.keys(opt).includes('name', 'value')),
     },
   },
   data() {

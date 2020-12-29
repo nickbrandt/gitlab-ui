@@ -3,12 +3,12 @@ import { mount, createLocalVue } from '@vue/test-utils';
 import Pagination from './pagination.vue';
 import { breakpoints } from '~/utils/breakpoints';
 
-jest.mock('lodash/debounce', () => jest.fn(fn => fn));
+jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
 
 const localVue = createLocalVue();
 
 const expectClassActive = expect.arrayContaining(['active']);
-const mockResizeWidth = width => {
+const mockResizeWidth = (width) => {
   window.innerWidth = width;
   const resizeEvent = document.createEvent('Event');
   resizeEvent.initEvent('resize', true, true);
@@ -101,7 +101,7 @@ describe('pagination component', () => {
   it('sets links href properly in link-based mode', () => {
     createComponent({
       ...propsData,
-      linkGen: page => `#page${page}`,
+      linkGen: (page) => `#page${page}`,
     });
     const buttons = findButtons();
     expect(buttons.at(1).attributes('href')).toBe('#page1');
@@ -124,7 +124,7 @@ describe('pagination component', () => {
   it('does not prevent link events in link-based mode', () => {
     createComponent({
       ...propsData,
-      linkGen: page => `#page${page}`,
+      linkGen: (page) => `#page${page}`,
     });
 
     const clickEvent = new MouseEvent('click');
@@ -157,7 +157,7 @@ describe('pagination component', () => {
     it('shows 3rd page as active and enables all buttons', () => {
       const buttons = findButtons();
       expect(buttons.at(3).classes()).toEqual(expectClassActive);
-      buttons.wrappers.forEach(button => {
+      buttons.wrappers.forEach((button) => {
         expect(button.is('span')).toBe(false);
       });
     });

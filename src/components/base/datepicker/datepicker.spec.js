@@ -13,10 +13,10 @@ describe('datepicker component', () => {
   const pikadayConfig = () => Pikaday.mock.calls[0][0];
   const currentDate = new Date(2018, 0, 1);
 
-  const findInput = wrapper => wrapper.find('[data-testid="gl-datepicker-input"]');
-  const findClearButton = wrapper => wrapper.find('[data-testid="clear-button"]');
-  const findTriggerButton = wrapper => wrapper.find({ ref: 'calendarTriggerBtn' });
-  const findCalendarIcon = wrapper => wrapper.find('[data-testid="datepicker-calendar-icon"]');
+  const findInput = (wrapper) => wrapper.find('[data-testid="gl-datepicker-input"]');
+  const findClearButton = (wrapper) => wrapper.find('[data-testid="clear-button"]');
+  const findTriggerButton = (wrapper) => wrapper.find({ ref: 'calendarTriggerBtn' });
+  const findCalendarIcon = (wrapper) => wrapper.find('[data-testid="datepicker-calendar-icon"]');
 
   beforeEach(() => {
     jest.clearAllMocks();

@@ -17,7 +17,7 @@ describe('segmented control', () => {
     checked: 'valid-one',
   };
 
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     const options = {
       propsData: {
         ...defaultProps,

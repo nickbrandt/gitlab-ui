@@ -5,7 +5,7 @@ import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../u
 import { focusFirstFocusableElement } from '../../../utils/utils';
 
 function validatorHelper(obj) {
-  return Object.keys(obj).every(val => val === 'text' || val === 'attributes');
+  return Object.keys(obj).every((val) => val === 'text' || val === 'attributes');
 }
 
 export default {
@@ -33,25 +33,25 @@ export default {
       type: Object,
       required: false,
       default: null,
-      validator: obj => validatorHelper(obj),
+      validator: (obj) => validatorHelper(obj),
     },
     actionSecondary: {
       type: Object,
       required: false,
       default: null,
-      validator: obj => validatorHelper(obj),
+      validator: (obj) => validatorHelper(obj),
     },
     actionCancel: {
       type: Object,
       required: false,
       default: null,
-      validator: obj => validatorHelper(obj),
+      validator: (obj) => validatorHelper(obj),
     },
     size: {
       type: String,
       required: false,
       default: modalSizeOptions.md,
-      validator: val => Object.keys(modalSizeOptions).includes(val),
+      validator: (val) => Object.keys(modalSizeOptions).includes(val),
     },
   },
   methods: {

@@ -30,7 +30,7 @@ export const xAxis = merge({}, axes, {
 export const yAxis = merge({}, axes, {
   nameGap: 50,
   axisLabel: {
-    formatter: num => engineeringNotation(num, 2),
+    formatter: (num) => engineeringNotation(num, 2),
   },
 });
 
@@ -145,7 +145,7 @@ export const mergeAnnotationAxisToOptions = (options, hasAnnotations = false) =>
   ...(hasAnnotations && { yAxis: [options.yAxis, annotationsYAxisCoords] }),
 });
 
-export const dataZoomAdjustments = dataZoom => {
+export const dataZoomAdjustments = (dataZoom) => {
   // handle cases where dataZoom is array and object.
   const useSlider = dataZoom && isArray(dataZoom) ? dataZoom.length : Boolean(dataZoom);
 
@@ -322,7 +322,7 @@ export function getThresholdConfig(thresholds) {
  * @param {Array} annotations Array of annotation objects
  * @returns {Object} { areas, lines, points }
  */
-export const parseAnnotations = annotations =>
+export const parseAnnotations = (annotations) =>
   annotations.reduce(
     (acc, annotation) => {
       // because only markLines are supported all cases will
@@ -352,7 +352,7 @@ export const parseAnnotations = annotations =>
  * @param {Array} annotations Array of annotations
  * @returns {Object} { markLines }
  */
-export const getAnnotationsConfig = annotations => {
+export const getAnnotationsConfig = (annotations) => {
   if (!annotations.length) {
     return {};
   }

@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     suggestedTokens() {
-      return this.availableTokens.filter(item =>
+      return this.availableTokens.filter((item) =>
         item.title.toLowerCase().includes(this.value.data.toLowerCase())
       );
     },

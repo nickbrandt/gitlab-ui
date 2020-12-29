@@ -10,7 +10,7 @@ import { ANNOTATIONS_SERIES_NAME, ANNOTATIONS_COMPONENT_TYPE } from './constants
  */
 export const seriesHasAnnotations = (series = []) =>
   (series || []).filter(
-    seriesData =>
+    (seriesData) =>
       seriesData.name === ANNOTATIONS_SERIES_NAME &&
       seriesData[ANNOTATIONS_COMPONENT_TYPE]?.data?.length
   ).length !== 0;

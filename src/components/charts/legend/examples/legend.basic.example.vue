@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     seriesData() {
-      return this.options.series.map(series => ({
+      return this.options.series.map((series) => ({
         type: 'solid',
         name: series.name,
         color: series.color,

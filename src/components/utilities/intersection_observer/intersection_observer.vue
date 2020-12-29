@@ -2,9 +2,9 @@
 import { memoize } from 'lodash';
 
 const getObserver = memoize(
-  options =>
-    new IntersectionObserver(entries => {
-      entries.forEach(entry => {
+  (options) =>
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         entry.target.$_gl_intersectionHandler(entry);
       });
     }, options || {})
@@ -22,7 +22,7 @@ export default {
   mounted() {
     const observer = getObserver(this.options);
 
-    this.$el.$_gl_intersectionHandler = entry => {
+    this.$el.$_gl_intersectionHandler = (entry) => {
       this.$emit('update', entry);
 
       if (entry.isIntersecting) {

@@ -72,7 +72,7 @@ export default {
     xAxisType: {
       type: String,
       required: true,
-      validator: value => ['value', 'category', 'time', 'log'].indexOf(value) !== -1,
+      validator: (value) => ['value', 'category', 'time', 'log'].indexOf(value) !== -1,
     },
   },
   data() {

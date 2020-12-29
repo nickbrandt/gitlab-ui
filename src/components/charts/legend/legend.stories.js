@@ -21,7 +21,7 @@ const generateOptions = (seriesLength, seriesNameType) => {
     yAxis: {
       type: 'value',
     },
-    series: generateSeriesData(seriesLength, seriesNameType).map(data => ({
+    series: generateSeriesData(seriesLength, seriesNameType).map((data) => ({
       color: data.color,
       data: data.data,
       name: data.name,
@@ -34,7 +34,7 @@ const generateOptions = (seriesLength, seriesNameType) => {
 const generateSeriesInfo = (amount, nameType) => {
   const seriesData = generateSeriesData(amount, nameType);
 
-  return seriesData.map(item => ({
+  return seriesData.map((item) => ({
     type: 'solid',
     name: item.name,
     color: item.color,
@@ -42,7 +42,7 @@ const generateSeriesInfo = (amount, nameType) => {
   }));
 };
 
-const generateTemplate = type => {
+const generateTemplate = (type) => {
   const layoutTypeAttribute =
     type === LEGEND_LAYOUT_TABLE ? `:layout="'${LEGEND_LAYOUT_TABLE}'"` : '';
 

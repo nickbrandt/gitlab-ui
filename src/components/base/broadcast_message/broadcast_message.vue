@@ -21,7 +21,7 @@ export default {
       type: String,
       required: false,
       default: Object.keys(colorThemes)[0],
-      validator: value => Object.keys(colorThemes).includes(value),
+      validator: (value) => Object.keys(colorThemes).includes(value),
     },
   },
 };

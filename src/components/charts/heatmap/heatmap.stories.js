@@ -17,7 +17,7 @@ function generateData() {
     [0, 5, 4],
     [0, 6, 6],
   ];
-  data = data.map(item => [item[1], item[0], item[2] || '-']);
+  data = data.map((item) => [item[1], item[0], item[2] || '-']);
   return data;
 }
 

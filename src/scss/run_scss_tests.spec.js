@@ -4,10 +4,10 @@ const fs = require('fs');
 
 const testFiles = fs
   .readdirSync(__dirname)
-  .filter(file => file.endsWith('.spec.scss'))
-  .map(file => path.resolve(__dirname, file));
+  .filter((file) => file.endsWith('.spec.scss'))
+  .map((file) => path.resolve(__dirname, file));
 
-testFiles.forEach(file => {
+testFiles.forEach((file) => {
   sassTrue.runSass(
     { file },
     {

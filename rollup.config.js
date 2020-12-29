@@ -11,7 +11,7 @@ import glob from 'glob';
 /**
  * Returns true if an import is not considered for inlining into the current file.
  */
-const isExternalModule = moduleId => {
+const isExternalModule = (moduleId) => {
   if (
     /*
     SCSS files are considered to be included, because they will be extracted
@@ -53,7 +53,7 @@ const isExternalModule = moduleId => {
  *
  * @param {String} code Compiled code of the file
  */
-const fixImports = code => {
+const fixImports = (code) => {
   return (
     code
       /**
@@ -100,7 +100,7 @@ export default glob
   .concat('utils.js')
   .concat('config.js')
   .concat('utility_classes.js')
-  .map(input => {
+  .map((input) => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
     return {
@@ -159,7 +159,7 @@ export default glob
         {
           name: 'fix-imports',
           generateBundle(options, bundle) {
-            Object.keys(bundle).forEach(key => {
+            Object.keys(bundle).forEach((key) => {
               if (bundle[key].code) {
                 // eslint-disable-next-line no-param-reassign
                 bundle[key].code = fixImports(bundle[key].code);

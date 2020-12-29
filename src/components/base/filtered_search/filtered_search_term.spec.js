@@ -20,7 +20,7 @@ describe('Filtered search term', () => {
     template: '<div><slot name="view"></slot><slot name="suggestions"></slot></div>',
   };
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = shallowMount(FilteredSearchTerm, {
       propsData: { ...defaultProps, ...props },
       stubs: {

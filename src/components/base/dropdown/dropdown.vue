@@ -63,19 +63,19 @@ export default {
       type: String,
       required: false,
       default: newButtonCategoryOptions.primary,
-      validator: value => Object.keys(newButtonCategoryOptions).includes(value),
+      validator: (value) => Object.keys(newButtonCategoryOptions).includes(value),
     },
     variant: {
       type: String,
       required: false,
       default: newDropdownVariantOptions.default,
-      validator: value => Object.keys(newDropdownVariantOptions).includes(value),
+      validator: (value) => Object.keys(newDropdownVariantOptions).includes(value),
     },
     size: {
       type: String,
       required: false,
       default: newButtonSizeOptions.medium,
-      validator: value => Object.keys(newButtonSizeOptions).includes(value),
+      validator: (value) => Object.keys(newButtonSizeOptions).includes(value),
     },
     icon: {
       type: String,

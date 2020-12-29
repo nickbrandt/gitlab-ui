@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import Truncate from './truncate.vue';
 import { POSITION } from './constants';
 
-const removeSpecialChar = text => {
+const removeSpecialChar = (text) => {
   return text.replace(/&lrm;|\u200E/gi, '');
 };
 
@@ -15,7 +15,7 @@ describe('Truncate component', () => {
     text: 'ee/app/assets/javascripts/vue_shared/src/utils_reports/components/utils/index.js',
   };
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = shallowMount(Truncate, {
       propsData: { ...defaultProps, ...props },
     });
@@ -31,13 +31,16 @@ describe('Truncate component', () => {
       createComponent();
     });
 
-    it.each(positionOptions)('%s truncation: should have title, class, original text', position => {
-      createComponent({ position });
+    it.each(positionOptions)(
+      '%s truncation: should have title, class, original text',
+      (position) => {
+        createComponent({ position });
 
-      expect(wrapper.attributes('title')).toBe(defaultProps.text);
-      expect(wrapper.attributes('class')).toBe('gl-truncate');
-      expect(removeSpecialChar(wrapper.text())).toBe(defaultProps.text);
-    });
+        expect(wrapper.attributes('title')).toBe(defaultProps.text);
+        expect(wrapper.attributes('class')).toBe('gl-truncate');
+        expect(removeSpecialChar(wrapper.text())).toBe(defaultProps.text);
+      }
+    );
 
     it('should have the default position', () => {
       expect(wrapper.props('position')).toBe('end');

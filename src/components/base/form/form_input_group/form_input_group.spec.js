@@ -5,7 +5,7 @@ import InputGroup from './form_input_group.vue';
 describe('Input Group', () => {
   let wrapper;
 
-  const createWrapper = options => {
+  const createWrapper = (options) => {
     wrapper = shallowMount(InputGroup, {
       ...options,
     });

@@ -81,7 +81,7 @@ export default {
     tooltipContainer: {
       required: false,
       default: false,
-      validator: value =>
+      validator: (value) =>
         value === false || typeof value === 'string' || value instanceof HTMLElement,
     },
   },

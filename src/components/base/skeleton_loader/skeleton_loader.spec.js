@@ -70,7 +70,7 @@ describe('GlSkeletonLoader', () => {
           },
         });
 
-        findDefaultLines().wrappers.forEach(defaultLine => {
+        findDefaultLines().wrappers.forEach((defaultLine) => {
           expect(defaultLine.attributes('width')).toBe('100%');
         });
       });

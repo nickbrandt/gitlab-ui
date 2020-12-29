@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     enabledOptions() {
-      return this.options.filter(option => !option.disabled);
+      return this.options.filter((option) => !option.disabled);
     },
   },
   watch: {

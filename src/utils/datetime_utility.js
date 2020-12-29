@@ -6,7 +6,7 @@
  *
  * @param {Date} date
  */
-export const newDate = date => (date instanceof Date ? new Date(date.getTime()) : new Date());
+export const newDate = (date) => (date instanceof Date ? new Date(date.getTime()) : new Date());
 
 /**
  * Computes the difference between 2 date objects.

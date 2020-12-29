@@ -25,7 +25,7 @@ export default {
   mounted() {
     const value = this.stringifyValue(this.value);
     if (this.activeOption) {
-      const activeOption = this.predefinedOptions.find(opt => opt.name === this.activeOption);
+      const activeOption = this.predefinedOptions.find((opt) => opt.name === this.activeOption);
       this.localValue = activeOption.value;
     } else if (value !== this.localValue) {
       this.localValue = value;

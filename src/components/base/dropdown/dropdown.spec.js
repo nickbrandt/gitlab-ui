@@ -16,7 +16,7 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
 describe('new dropdown', () => {
   let wrapper;
 
-  const buildWrapper = propsData => {
+  const buildWrapper = (propsData) => {
     wrapper = mount(GlDropdown, {
       propsData,
     });
@@ -145,7 +145,7 @@ describe('new dropdown', () => {
   describe('secondary category', () => {
     it.each(Object.values(newDropdownVariantOptions))(
       'applies %s variant class properly',
-      variant => {
+      (variant) => {
         buildWrapper({ category: 'secondary', variant });
 
         expect(findDropdownToggle().classes()).toContain(`btn-${variant}-secondary`);

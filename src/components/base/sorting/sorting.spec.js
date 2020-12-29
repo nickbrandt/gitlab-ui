@@ -22,7 +22,7 @@ describe('sorting component', () => {
   const selectDirectionButton = () => wrapper.find('.sorting-direction-button');
   const selectDropdown = () => wrapper.find(GlDropdown);
 
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     wrapper = mount(GlSorting, {
       attachToDocument: true,
       components: {

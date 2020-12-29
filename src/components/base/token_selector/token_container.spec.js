@@ -28,7 +28,7 @@ describe('GlTokenContainer', () => {
 
   let wrapper;
 
-  const createComponent = options => {
+  const createComponent = (options) => {
     wrapper = shallowMount(GlTokenContainer, {
       ...options,
       propsData: {
@@ -38,10 +38,10 @@ describe('GlTokenContainer', () => {
     });
   };
 
-  const findTokenByName = name => {
+  const findTokenByName = (name) => {
     const tokenWrappers = wrapper.findAll({ ref: 'tokens' });
 
-    return tokenWrappers.wrappers.find(tokenWrapper => tokenWrapper.text() === name);
+    return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
 
   const blurActiveElement = () => document.activeElement?.blur?.();
@@ -117,7 +117,7 @@ describe('GlTokenContainer', () => {
     });
 
     it('cancels token focus', () => {
-      wrapper.findAll({ ref: 'tokens' }).wrappers.forEach(tokenWrapper => {
+      wrapper.findAll({ ref: 'tokens' }).wrappers.forEach((tokenWrapper) => {
         expect(tokenWrapper.element).not.toHaveFocus();
       });
     });

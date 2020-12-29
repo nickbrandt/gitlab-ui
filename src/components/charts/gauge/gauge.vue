@@ -31,7 +31,7 @@ const gaugeChartSeries = ({ value, text, min, max, splitNumber, axisColor }) => 
     axisLabel: {
       show: true,
       fontSize: AXIS_LABEL_FONT_SIZE_PX,
-      formatter: theValue => (isFinite(theValue) ? theValue : '--'),
+      formatter: (theValue) => (isFinite(theValue) ? theValue : '--'),
       color: `${gaugeNeutralHues[1]}`,
     },
     axisLine: {
@@ -72,8 +72,8 @@ export default {
       type: Array,
       required: false,
       default: () => [],
-      validator: value => {
-        return value?.length ? value.every(item => isFinite(item)) : true;
+      validator: (value) => {
+        return value?.length ? value.every((item) => isFinite(item)) : true;
       },
     },
     text: {
@@ -118,7 +118,7 @@ export default {
       if (!thresholds?.length) return [];
 
       const uniqueThresholds = uniq(thresholds);
-      const filteredThresholds = uniqueThresholds.filter(threshold => {
+      const filteredThresholds = uniqueThresholds.filter((threshold) => {
         return isFinite(threshold) && threshold > min && threshold < max;
       });
       /**

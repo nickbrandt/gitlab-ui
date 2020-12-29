@@ -9,7 +9,7 @@ const isExternalURL = (target, hostname) => {
   return target === '_blank' && hostname !== window.location.hostname;
 };
 
-const secureRel = rel => {
+const secureRel = (rel) => {
   const rels = rel ? rel.trim().split(' ') : [];
 
   if (!rels.includes('noopener')) {
@@ -21,7 +21,7 @@ const secureRel = rel => {
   return rels.join(' ');
 };
 
-const isSafeURL = url => {
+const isSafeURL = (url) => {
   try {
     const parsedURL = new URL(url, getBaseURL());
     return ['http:', 'https:', 'mailto:', 'ftp:'].includes(parsedURL.protocol);
@@ -30,7 +30,7 @@ const isSafeURL = url => {
   }
 };
 
-const transform = el => {
+const transform = (el) => {
   const { href, target, rel, hostname } = el;
 
   if (!isSafeURL(href)) {
@@ -44,7 +44,7 @@ const transform = el => {
 
 const SafeLinkDirective = {
   inserted: transform,
-  update: el => {
+  update: (el) => {
     Vue.nextTick(() => {
       transform(el);
     });

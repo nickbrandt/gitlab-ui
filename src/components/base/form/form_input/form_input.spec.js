@@ -23,7 +23,7 @@ describe('GlFormInput', () => {
     // Exclude the default null value
     const sizes = Object.values(formInputSizes).filter(Boolean);
 
-    it.each(sizes)('adds correct class for size %s', size => {
+    it.each(sizes)('adds correct class for size %s', (size) => {
       createComponent({ size });
 
       expect(wrapper.classes()).toEqual(['gl-form-input', `gl-form-input-${size}`]);
@@ -59,7 +59,7 @@ describe('GlFormInput', () => {
   });
 
   describe('debounce', () => {
-    describe.each([10, 100, 1000])('given a debounce of %dms', debounce => {
+    describe.each([10, 100, 1000])('given a debounce of %dms', (debounce) => {
       beforeEach(() => {
         jest.useFakeTimers();
 
@@ -95,7 +95,7 @@ describe('GlFormInput', () => {
       expect(wrapper.emitted('update')).toEqual([[newValue]]);
     });
 
-    it.each(['change', 'blur'])('updates model after %s event', event => {
+    it.each(['change', 'blur'])('updates model after %s event', (event) => {
       expect(wrapper.emitted(modelEvent)).toBe(undefined);
 
       wrapper.trigger(event);

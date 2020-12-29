@@ -12,12 +12,12 @@ const getOptions = (shape = '') => {
   const options = [];
   const parsed = shape
     .split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length);
+    .map((line) => line.trim())
+    .filter((line) => line.length);
 
-  const makeOption = value => ({ value, label: value, children: [] });
+  const makeOption = (value) => ({ value, label: value, children: [] });
 
-  const getDepthAndValue = str => {
+  const getDepthAndValue = (str) => {
     const [prefix, value] = str.split('.');
     return [prefix.length, value];
   };
@@ -86,17 +86,17 @@ describe('GlFormCheckboxTree', () => {
   const findCheckboxes = (el = wrapper) => el.findAll(GlFormCheckbox);
   const countIndeterminate = () => wrapper.findAll('.js-is-indeterminate').length || 0;
   const countChecked = () => wrapper.findAll('.js-is-checked').length || 0;
-  const findCheckboxByValue = value => wrapper.find(`[data-qa-selector="${QA_PREFIX}${value}"]`);
-  const getCheckboxesCount = el => findCheckboxes(el).length;
-  const findCheckboxInput = checkbox => checkbox.find('input[type="checkbox"]');
-  const expectCheckboxUnchecked = checkbox => {
+  const findCheckboxByValue = (value) => wrapper.find(`[data-qa-selector="${QA_PREFIX}${value}"]`);
+  const getCheckboxesCount = (el) => findCheckboxes(el).length;
+  const findCheckboxInput = (checkbox) => checkbox.find('input[type="checkbox"]');
+  const expectCheckboxUnchecked = (checkbox) => {
     const input = findCheckboxInput(checkbox);
     expect(input.element.checked).toBe(false);
     expect(input.element.indeterminate).toBe(false);
   };
-  const expectCheckboxIndeterminate = checkbox =>
+  const expectCheckboxIndeterminate = (checkbox) =>
     expect(findCheckboxInput(checkbox).element.indeterminate).toBe(true);
-  const expectCheckboxChecked = checkbox =>
+  const expectCheckboxChecked = (checkbox) =>
     expect(findCheckboxInput(checkbox).element.checked).toBe(true);
 
   const createWrapper = (props = {}) => {
@@ -136,14 +136,14 @@ describe('GlFormCheckboxTree', () => {
 
       it('checks boxes based on passed value', () => {
         expect(countChecked()).toBe(initiallyChecked.length);
-        initiallyChecked.forEach(box => {
+        initiallyChecked.forEach((box) => {
           expectCheckboxChecked(findCheckboxByValue(box));
         });
       });
 
       it('sets indeterminate state on checkboxes that have some children checked', () => {
         expect(countIndeterminate()).toBe(indeterminateBoxes.length);
-        indeterminateBoxes.forEach(box => {
+        indeterminateBoxes.forEach((box) => {
           expectCheckboxIndeterminate(findCheckboxByValue(box));
         });
       });
@@ -167,7 +167,7 @@ describe('GlFormCheckboxTree', () => {
 
     it("checks all of the checkbox's children, if any", () => {
       const childrenBoxes = findCheckboxes(checkbox);
-      const checkedChildren = childrenBoxes.filter(box => findCheckboxInput(box).element.checked);
+      const checkedChildren = childrenBoxes.filter((box) => findCheckboxInput(box).element.checked);
       expect(checkedChildren.length).toBe(childrenBoxes.length);
     });
   });
@@ -185,19 +185,19 @@ describe('GlFormCheckboxTree', () => {
     ({ shape, boxesToCheck, indeterminateBoxes, checkedParents }) => {
       beforeEach(() => {
         createWrapper({ options: getOptions(shape) });
-        boxesToCheck.forEach(box => findCheckboxInput(findCheckboxByValue(box)).trigger('click'));
+        boxesToCheck.forEach((box) => findCheckboxInput(findCheckboxByValue(box)).trigger('click'));
         return wrapper.vm.$nextTick();
       });
 
       it('parents that have remaining unchecked children become indeterminate', () => {
         expect(countIndeterminate()).toBe(indeterminateBoxes.length);
-        indeterminateBoxes.forEach(indeterminateBox => {
+        indeterminateBoxes.forEach((indeterminateBox) => {
           expectCheckboxIndeterminate(findCheckboxByValue(indeterminateBox));
         });
       });
 
       it('parents that have all their children checked become checked as well', () => {
-        checkedParents.forEach(checkedParent => {
+        checkedParents.forEach((checkedParent) => {
           expectCheckboxChecked(findCheckboxByValue(checkedParent));
         });
       });
@@ -216,19 +216,21 @@ describe('GlFormCheckboxTree', () => {
     ({ shape, initiallyChecked, boxesToUncheck, indeterminateBoxes, uncheckedBoxes }) => {
       beforeEach(() => {
         createWrapper({ options: getOptions(shape), [V_MODEL.PROP]: initiallyChecked });
-        boxesToUncheck.forEach(box => findCheckboxInput(findCheckboxByValue(box)).trigger('click'));
+        boxesToUncheck.forEach((box) =>
+          findCheckboxInput(findCheckboxByValue(box)).trigger('click')
+        );
         return wrapper.vm.$nextTick();
       });
 
       it("unchecks all of the checkbox's children if any", () => {
-        uncheckedBoxes.forEach(uncheckedBox => {
+        uncheckedBoxes.forEach((uncheckedBox) => {
           expectCheckboxUnchecked(findCheckboxByValue(uncheckedBox));
         });
       });
 
       it('sets parent checkboxes in the indeterminate state if needed', () => {
         expect(countIndeterminate()).toBe(indeterminateBoxes.length);
-        indeterminateBoxes.forEach(indeterminateBox => {
+        indeterminateBoxes.forEach((indeterminateBox) => {
           expectCheckboxIndeterminate(findCheckboxByValue(indeterminateBox));
         });
       });
@@ -262,7 +264,7 @@ describe('GlFormCheckboxTree', () => {
       it('once toggled, puts all checkboxes in the correct state', () => {
         toggleAllCheckbox.trigger('click');
         return wrapper.vm.$nextTick(() => {
-          findCheckboxes().wrappers.forEach(checkbox => {
+          findCheckboxes().wrappers.forEach((checkbox) => {
             expect(findCheckboxInput(checkbox).element.checked).toBe(finallyChecked);
             expect(findCheckboxInput(checkbox).element.indeterminate).toBe(false);
           });

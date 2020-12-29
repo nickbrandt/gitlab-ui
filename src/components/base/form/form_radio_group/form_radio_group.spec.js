@@ -29,7 +29,7 @@ describe('GlFormRadioGroup', () => {
     });
   };
 
-  const findRadio = value => wrapper.find(`input[type="radio"][value="${value}"]`);
+  const findRadio = (value) => wrapper.find(`input[type="radio"][value="${value}"]`);
 
   beforeEach(() => {
     createWrapper();

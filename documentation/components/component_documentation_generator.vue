@@ -137,7 +137,7 @@ export default {
 
       if (bootstrapProps && bootstrapProps.length > 0) {
         const applyableBootstrapProps = bootstrapProps.reduce((actualProps, prop) => {
-          const checkComp = returnProps.find(checkProp => checkProp.prop === prop.prop);
+          const checkComp = returnProps.find((checkProp) => checkProp.prop === prop.prop);
           if (!checkComp) {
             // eslint-disable-next-line no-param-reassign, no-underscore-dangle
             prop._cellVariants = { prop: 'info' };
@@ -174,8 +174,8 @@ export default {
     },
   },
   methods: {
-    getPropsMap: props =>
-      Object.keys(props).map(prop => {
+    getPropsMap: (props) =>
+      Object.keys(props).map((prop) => {
         const selProp = props[prop];
 
         // Copying over values if available from documentation definition
@@ -189,7 +189,7 @@ export default {
         // Figuring out the actual type of this property
         const baseType = selProp.type || Object;
         if (Array.isArray(baseType)) {
-          propsInfo.type = baseType.map(t => t.name).join(' or ');
+          propsInfo.type = baseType.map((t) => t.name).join(' or ');
         } else {
           propsInfo.type = baseType.name;
         }

@@ -6,7 +6,7 @@ const localVue = createLocalVue();
 describe('Friendly wrap component', () => {
   let wrapper;
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = shallowMount(FriendlyWrap, {
       localVue,
       propsData: props,

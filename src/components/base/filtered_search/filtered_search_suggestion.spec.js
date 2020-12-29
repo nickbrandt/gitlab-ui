@@ -7,7 +7,7 @@ describe('Filtered search suggestion component', () => {
   let wrapper;
   let listMock;
 
-  const createComponent = value => {
+  const createComponent = (value) => {
     wrapper = shallowMount(FilteredSearchSuggestion, {
       propsData: { value },
       provide: {

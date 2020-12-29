@@ -60,7 +60,7 @@ const defaultDataWithoutAnnotations = [
   },
 ];
 
-const hoveredMarkPoint = type => ({
+const hoveredMarkPoint = (type) => ({
   ...markPointData[0],
   componentType: type,
 });

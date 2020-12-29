@@ -16,7 +16,7 @@ export default {
       type: String,
       required: false,
       default: 'default',
-      validator: variant => tokenVariants.includes(variant),
+      validator: (variant) => tokenVariants.includes(variant),
     },
   },
   computed: {

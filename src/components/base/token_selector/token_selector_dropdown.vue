@@ -156,7 +156,7 @@ export default {
     },
     getDropdownItemRef(dropdownItem) {
       return this.$refs.dropdownItems?.find(
-        ref => ref.$attrs['data-dropdown-item-id'] === dropdownItem.id
+        (ref) => ref.$attrs['data-dropdown-item-id'] === dropdownItem.id
       );
     },
     dropdownItemIdAttribute(dropdownItem) {

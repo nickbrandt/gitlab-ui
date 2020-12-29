@@ -5,7 +5,7 @@ import GlFormGroup from './form_group.vue';
 describe('Form group component', () => {
   let wrapper;
 
-  const createComponent = options => {
+  const createComponent = (options) => {
     wrapper = shallowMount(GlFormGroup, {
       ...options,
     });

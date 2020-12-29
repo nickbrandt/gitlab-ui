@@ -22,7 +22,7 @@ describe('Filtered search token segment', () => {
   let alignSuggestionsMock;
   let suggestionsMock;
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     alignSuggestionsMock = jest.fn();
     suggestionsMock = {
       methods: {

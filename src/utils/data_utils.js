@@ -1,7 +1,7 @@
 import curry from 'lodash/fp/curry';
 import flatMap from 'lodash/fp/flatMap';
 
-const getRepeatingValue = index => {
+const getRepeatingValue = (index) => {
   const values = [
     100,
     500,
@@ -35,7 +35,7 @@ export const generateTimeSeries = () =>
 // (',' ['a', 'b', 'c']) -> ['a', ',', 'b', ',', 'c']
 export const intersperse = curry((separator, items) => {
   const [head, ...rest] = items;
-  return [head, ...flatMap(item => [separator, item], rest)];
+  return [head, ...flatMap((item) => [separator, item], rest)];
 });
 
 // inserts a value at a given index into an array

@@ -6,7 +6,7 @@ describe('Carousel component', () => {
   const collapseId = 'collapse-id';
   let wrapper;
 
-  const createWrapper = propsData => {
+  const createWrapper = (propsData) => {
     wrapper = shallowMount(Carousel, { propsData });
   };
 

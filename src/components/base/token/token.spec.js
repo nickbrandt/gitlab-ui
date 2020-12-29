@@ -4,12 +4,12 @@ import GlIcon from '../icon/icon.vue';
 
 const localVue = createLocalVue();
 
-const findIcon = wrapper => wrapper.find(GlIcon);
+const findIcon = (wrapper) => wrapper.find(GlIcon);
 
 describe('Token component', () => {
   let wrapper;
 
-  const createComponent = propsData =>
+  const createComponent = (propsData) =>
     shallowMount(Token, {
       localVue,
       propsData,

@@ -6,7 +6,7 @@ import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
 describe('Tab component', () => {
   let wrapper;
 
-  const createComponent = options => {
+  const createComponent = (options) => {
     wrapper = shallowMount(GlTab, {
       ...options,
     });

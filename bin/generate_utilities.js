@@ -10,10 +10,10 @@ const utilitiesPath = path.join(scssDir, 'utilities.scss');
 
 const statefulUtilitiesRegexp = /\$(active|hover|visited|focus): true/g;
 
-const getRuleName = mixinDeclaration => mixinDeclaration.match(/[\w-]+/)[0];
+const getRuleName = (mixinDeclaration) => mixinDeclaration.match(/[\w-]+/)[0];
 
-const getStatefulFlags = mixinDeclaration =>
-  [...mixinDeclaration.matchAll(statefulUtilitiesRegexp)].map(match => match[1]);
+const getStatefulFlags = (mixinDeclaration) =>
+  [...mixinDeclaration.matchAll(statefulUtilitiesRegexp)].map((match) => match[1]);
 
 const buildUtilityClass = (name, important = false) => {
   const baseSelector = `.${name}`;
@@ -23,7 +23,7 @@ const buildUtilityClass = (name, important = false) => {
 };
 
 const buildStatefulClasses = (name, statefulFlags = [], important = false) => {
-  return statefulFlags.map(statefulFlag => {
+  return statefulFlags.map((statefulFlag) => {
     const baseSelector = `.gl-${statefulFlag}-${name.replace('gl-', '')}$1:${statefulFlag}`;
     const selector = baseSelector.replace('$1', important ? '\\!' : '');
 
@@ -31,14 +31,14 @@ const buildStatefulClasses = (name, statefulFlags = [], important = false) => {
   });
 };
 
-const buildImportantDecl = originalDecl => {
+const buildImportantDecl = (originalDecl) => {
   return originalDecl.clone({ important: true });
 };
 
-const createRuleWithImportantDecls = rule => {
+const createRuleWithImportantDecls = (rule) => {
   const importantDeclsRule = rule.clone();
 
-  importantDeclsRule.walkDecls(decl => decl.replaceWith(buildImportantDecl(decl)));
+  importantDeclsRule.walkDecls((decl) => decl.replaceWith(buildImportantDecl(decl)));
 
   return importantDeclsRule;
 };
@@ -46,8 +46,8 @@ const createRuleWithImportantDecls = rule => {
 const resolveDeclarations = (rule, allDeclarations = {}) => {
   const ruleDeclarations = [];
 
-  rule.walkDecls(decl => ruleDeclarations.push(decl));
-  rule.walkAtRules('include', includeRule => {
+  rule.walkDecls((decl) => ruleDeclarations.push(decl));
+  rule.walkAtRules('include', (includeRule) => {
     const mixinName = getRuleName(includeRule.params);
     const decls = allDeclarations[mixinName];
 
@@ -69,13 +69,13 @@ const resolveDeclarations = (rule, allDeclarations = {}) => {
  * http://api.postcss.org/index.html
  */
 const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () => {
-  return root => {
+  return (root) => {
     const allDeclarations = {};
 
-    root.walkComments(comment => comment.remove());
-    root.walkAtRules('import', rule => rule.remove());
+    root.walkComments((comment) => comment.remove());
+    root.walkAtRules('import', (rule) => rule.remove());
 
-    root.walkAtRules('mixin', rule => {
+    root.walkAtRules('mixin', (rule) => {
       const { params } = rule;
       const mixinName = getRuleName(params);
       const statefulFlags = getStatefulFlags(params);
@@ -90,12 +90,12 @@ const generateUtilitiesPlugin = postcss.plugin('postcss-generate-utilities', () 
       allDeclarations[mixinName] = resolveDeclarations(rule, allDeclarations);
       const importantDeclsRule = createRuleWithImportantDecls(rule);
 
-      utilityClasses.forEach(utilityClass => {
+      utilityClasses.forEach((utilityClass) => {
         utilityClass.append(...rule.clone().nodes);
         root.append(utilityClass);
       });
 
-      importantUtilityClasses.forEach(utilityClass => {
+      importantUtilityClasses.forEach((utilityClass) => {
         utilityClass.append(...importantDeclsRule.clone().nodes);
         root.append(utilityClass);
       });
@@ -135,13 +135,13 @@ function main() {
 
     const files = fs.readdirSync(mixinsPath);
 
-    files.forEach(file => {
+    files.forEach((file) => {
       const scss = fs.readFileSync(path.join(mixinsPath, file), { encoding: 'utf-8' });
 
       postcss([generateUtilitiesPlugin])
         .process(scss, { from: file, to: utilitiesPath, syntax: postcssScss })
-        .then(result => writeUtilities(result.css, file))
-        .catch(e => {
+        .then((result) => writeUtilities(result.css, file))
+        .catch((e) => {
           console.log('Could not generate utilities.scss', e);
         });
     });
