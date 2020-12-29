@@ -17,7 +17,10 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 }
 
 .gl-search-box-by-type-clear {
-  @include gl-p-3;
+  @include gl-absolute;
+  @include gl-top-2;
+  @include gl-right-2;
+  @include gl-z-index-3;
 }
 
 .gl-search-box-by-type-input,

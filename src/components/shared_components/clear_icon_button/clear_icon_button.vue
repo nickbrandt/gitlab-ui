@@ -1,10 +1,10 @@
 <script>
-import GlIcon from '../../base/icon/icon.vue';
+import GlButton from '../../base/button/button.vue';
 import GlTooltip from '../../../directives/tooltip';
 
 export default {
   components: {
-    GlIcon,
+    GlButton,
   },
   directives: {
     GlTooltip,
@@ -26,15 +26,16 @@ export default {
 </script>
 
 <template>
-  <button
+  <gl-button
     v-gl-tooltip.hover="{ container: tooltipContainer }"
+    variant="default"
+    category="tertiary"
     class="gl-clear-icon-button"
+    size="small"
     name="clear"
     :title="title"
-    type="button"
+    icon="clear"
     aria-label="Clear"
     v-on="$listeners"
-  >
-    <gl-icon name="clear" />
-  </button>
+  />
 </template>
