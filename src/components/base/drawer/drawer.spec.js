@@ -87,12 +87,7 @@ describe('drawer component', () => {
         },
       });
 
-      expect(
-        wrapper
-          .find('.gl-drawer-header')
-          .find('.test-header')
-          .exists()
-      ).toBe(true);
+      expect(wrapper.find('.gl-drawer-header').find('.test-header').exists()).toBe(true);
     });
   });
 

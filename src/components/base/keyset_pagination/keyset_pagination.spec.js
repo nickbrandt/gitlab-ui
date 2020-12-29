@@ -52,19 +52,11 @@ describe('GlKeysetPagination', () => {
       });
 
       it('renders a left chevron icon in the "Prev" button', () => {
-        expect(
-          findPrevButton()
-            .find('[data-testid="chevron-left-icon"]')
-            .exists()
-        ).toBe(true);
+        expect(findPrevButton().find('[data-testid="chevron-left-icon"]').exists()).toBe(true);
       });
 
       it('renders a right chevron icon in the "Next" button', () => {
-        expect(
-          findNextButton()
-            .find('[data-testid="chevron-right-icon"]')
-            .exists()
-        ).toBe(true);
+        expect(findNextButton().find('[data-testid="chevron-right-icon"]').exists()).toBe(true);
       });
     });
   });
@@ -301,11 +293,7 @@ describe('GlKeysetPagination', () => {
       });
 
       it('renders the provided content inside the "Prev" button', () => {
-        expect(
-          findPrevButton()
-            .find('[data-testid="custom-content"]')
-            .exists()
-        ).toBe(true);
+        expect(findPrevButton().find('[data-testid="custom-content"]').exists()).toBe(true);
       });
     });
   });
@@ -320,11 +308,7 @@ describe('GlKeysetPagination', () => {
     });
 
     it('renders the provided content inside the "Next" button', () => {
-      expect(
-        findNextButton()
-          .find('[data-testid="custom-content"]')
-          .exists()
-      ).toBe(true);
+      expect(findNextButton().find('[data-testid="custom-content"]').exists()).toBe(true);
     });
   });
 });

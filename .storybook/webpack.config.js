@@ -37,7 +37,7 @@ module.exports = ({ config }) => {
         {
           loader: 'style-loader',
           options: {
-            insert: function(styles) {
+            insert: function (styles) {
               document.head.appendChild(styles);
             },
             attributes: {

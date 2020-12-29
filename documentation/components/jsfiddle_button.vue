@@ -63,7 +63,5 @@ export default {
 </script>
 
 <template>
-  <b-button type="button" @click="submit">
-    Edit in JSFiddle
-  </b-button>
+  <b-button type="button" @click="submit">Edit in JSFiddle</b-button>
 </template>

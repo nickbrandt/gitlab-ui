@@ -10710,7 +10710,12 @@ prettier@1.16.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.3.tgz#8c62168453badef702f34b45b6ee899574a6a65d"
   integrity sha512-kn/GU6SMRYPxUakNXhpP0EedT/KmaPzr0H5lIsDogrykbaxOpOfAFfk5XA7DZrJyMAv1wlMV3CPcZruGXVVUZw==
 
-prettier@1.19.1, prettier@^1.18.2:
+prettier@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
+
+prettier@^1.18.2:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
@@ -13021,15 +13026,15 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylelint-config-prettier@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-6.0.0.tgz#600aa218d8e34cf44a025903b0f60c079fd83366"
-  integrity sha512-f/BKiUAczB4KODC1w5eY6LoNgfq6QzdSnSc4ccAATKo1IfYCuG3IZwaxj/5AAxl1kyaW7kPLBOXG66O4gSIKTQ==
+stylelint-config-prettier@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-8.0.2.tgz#da9de33da4c56893cbe7e26df239a7374045e14e"
+  integrity sha512-TN1l93iVTXpF9NJstlvP7nOu9zY2k+mN0NSFQ/VEGz15ZIP9ohdDZTtCWHs5LjctAhSAzaILULGbgiM0ItId3A==
 
-stylelint-prettier@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/stylelint-prettier/-/stylelint-prettier-1.1.1.tgz#213873c1d0097cd0985dafc766197dcd955e21c5"
-  integrity sha512-H7Zjb+9ufF0dTjjJ4qSbN/yeAV14BNUK5rl267lvYfmmW4Swlz4a2rfwqqgiN/YlntHXXzM6Nh/UXHFIvLI8zA==
+stylelint-prettier@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/stylelint-prettier/-/stylelint-prettier-1.1.2.tgz#2b19abe40789c380bffee3d4267c413d981a86ea"
+  integrity sha512-8QZ+EtBpMCXYB6cY0hNE3aCDKMySIx4Q8/malLaqgU/KXXa6Cj2KK8ulG1AJvUMD5XSSP8rOotqaCzR/BW6qAA==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 

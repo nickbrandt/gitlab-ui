@@ -168,18 +168,8 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(
-          wrapper
-            .findAll(GlToken)
-            .at(0)
-            .classes()
-        ).not.toContain('gl-bg-data-viz-blue-500');
-        expect(
-          wrapper
-            .findAll(GlToken)
-            .at(4)
-            .classes()
-        ).toEqual([
+        expect(wrapper.findAll(GlToken).at(0).classes()).not.toContain('gl-bg-data-viz-blue-500');
+        expect(wrapper.findAll(GlToken).at(4).classes()).toEqual([
           'gl-cursor-default',
           'gl-token',
           'gl-token-default-variant',

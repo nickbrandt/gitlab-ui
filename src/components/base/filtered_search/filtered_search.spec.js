@@ -146,10 +146,7 @@ describe('Filtered search', () => {
         .$nextTick()
         .then(() => {
           wrapper.find(FakeToken).vm.$emit('activate');
-          wrapper
-            .findAll(FakeToken)
-            .at(1)
-            .vm.$emit('deactivate');
+          wrapper.findAll(FakeToken).at(1).vm.$emit('deactivate');
           return wrapper.vm.$nextTick();
         })
         .then(() => {
@@ -271,12 +268,7 @@ describe('Filtered search', () => {
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
       wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
       return wrapper.vm.$nextTick().then(() => {
-        expect(
-          wrapper
-            .findAll(GlFilteredSearchTerm)
-            .at(2)
-            .props('active')
-        ).toBe(true);
+        expect(wrapper.findAll(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
           { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
           { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
@@ -522,13 +514,7 @@ describe('Filtered search integration tests', () => {
         return wrapper.vm.$nextTick();
       })
       .then(() => {
-        expect(
-          wrapper
-            .findAll(GlFilteredSearchTerm)
-            .at(1)
-            .find('input')
-            .exists()
-        ).toBe(true);
+        expect(wrapper.findAll(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(true);
       });
   });
 
@@ -539,10 +525,7 @@ describe('Filtered search integration tests', () => {
       .$nextTick()
       .then(() => {
         // Unfortunately backspace is not working in JSDOM
-        wrapper
-          .findAll(GlFilteredSearchTerm)
-          .at(1)
-          .vm.$emit('destroy');
+        wrapper.findAll(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
         return wrapper.vm.$nextTick();
       })
       .then(() => {

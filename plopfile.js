@@ -77,11 +77,7 @@ const setCommonData = data => {
     .split(path.sep)
     .filter(el => el !== 'src')
     .join(path.sep);
-  data.pathToRootDir = data.componentDir
-    .split(path.sep)
-    .filter(Boolean)
-    .fill('..')
-    .join(path.sep);
+  data.pathToRootDir = data.componentDir.split(path.sep).filter(Boolean).fill('..').join(path.sep);
 };
 
 module.exports = plop => {

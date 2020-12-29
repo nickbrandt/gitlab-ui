@@ -207,9 +207,7 @@ export default {
                 <b-col class="text-right">
                   <template v-if="copiedSource">Copied!</template>
                   <b-button-group size="sm">
-                    <b-button :disabled="copiedSource" @click="copySource">
-                      Copy
-                    </b-button>
+                    <b-button :disabled="copiedSource" @click="copySource">Copy</b-button>
                   </b-button-group>
                 </b-col>
               </b-row>
@@ -223,9 +221,7 @@ export default {
                 <b-col class="text-right">
                   <template v-if="copiedOutput">Copied!</template>
                   <b-button-group size="sm">
-                    <b-button :disabled="copiedOutput" @click="copyHtml">
-                      Copy
-                    </b-button>
+                    <b-button :disabled="copiedOutput" @click="copyHtml">Copy</b-button>
                   </b-button-group>
                 </b-col>
               </b-row>

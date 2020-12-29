@@ -54,10 +54,7 @@ describe('Truncate component', () => {
     });
 
     it('should have the special char surrounded', () => {
-      const spanTag = wrapper
-        .findAll('.gl-truncate span')
-        .at(0)
-        .text();
+      const spanTag = wrapper.findAll('.gl-truncate span').at(0).text();
 
       expect(spanTag.charAt(0)).toBe('\u200E');
       expect(spanTag.charAt(spanTag.length - 1)).toBe('\u200E');

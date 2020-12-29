@@ -34,11 +34,7 @@ describe('GlAccordionItem', () => {
   it('renders button text', () => {
     createComponent();
 
-    expect(
-      findButton()
-        .find('span')
-        .text()
-    ).toBe(defaultTitle);
+    expect(findButton().find('span').text()).toBe(defaultTitle);
   });
 
   it('renders slot text', () => {

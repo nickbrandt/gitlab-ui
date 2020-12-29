@@ -57,7 +57,7 @@ const UserToken = {
   },
   watch: {
     // eslint-disable-next-line func-names
-    'value.data': function() {
+    'value.data': function () {
       if (this.active) {
         this.loadSuggestions();
       }
@@ -124,7 +124,7 @@ const MilestoneToken = {
   },
   watch: {
     // eslint-disable-next-line func-names
-    'value.data': function() {
+    'value.data': function () {
       if (this.active) {
         this.loadSuggestions();
       }
@@ -204,7 +204,7 @@ const LabelToken = {
   },
   watch: {
     // eslint-disable-next-line func-names
-    'value.data': function() {
+    'value.data': function () {
       if (this.active) {
         this.loadSuggestions();
       }

@@ -11,9 +11,7 @@
       <p>Another tab's content.</p>
     </gl-tab>
     <template #tabs-end>
-      <li class="nav-item align-self-center">
-        Contentless tab
-      </li>
+      <li class="nav-item align-self-center">Contentless tab</li>
     </template>
   </gl-tabs>
 </template>

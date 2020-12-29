@@ -67,11 +67,7 @@ describe('Broadcast message component', () => {
     it('first breadcrumb has text and href bound', () => {
       createComponent();
 
-      expect(
-        findBreadcrumbItems()
-          .at(0)
-          .attributes()
-      ).toMatchObject({
+      expect(findBreadcrumbItems().at(0).attributes()).toMatchObject({
         text: items[0].text,
         href: items[0].href,
       });
@@ -80,11 +76,7 @@ describe('Broadcast message component', () => {
     it('second breadcrumb has text and to bound', () => {
       createComponent();
 
-      expect(
-        findBreadcrumbItems()
-          .at(1)
-          .attributes()
-      ).toMatchObject({
+      expect(findBreadcrumbItems().at(1).attributes()).toMatchObject({
         text: items[1].text,
         to: items[1].to,
       });

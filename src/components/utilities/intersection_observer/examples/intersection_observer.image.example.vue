@@ -24,6 +24,6 @@ export default {
 
 <template>
   <gl-intersection-observer @appear="appear" @disappear="disappear">
-    <img :src="imageUrl" style="max-width: 100%; height: auto;" />
+    <img :src="imageUrl" style="max-width: 100%; height: auto" />
   </gl-intersection-observer>
 </template>
