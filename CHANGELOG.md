@@ -1,3 +1,10 @@
+## [25.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.2.0...v25.2.1) (2020-12-30)
+
+
+### Bug Fixes
+
+* **GlDrawer:** Use GlButton for drawer close ([bb05667](https://gitlab.com/gitlab-org/gitlab-ui/commit/bb05667e23cf0c13a06086b0b044b63bc19819c7))
+
 # [25.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.1.1...v25.2.0) (2020-12-30)
 
 
