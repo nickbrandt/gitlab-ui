@@ -1,13 +1,11 @@
 <script>
 import GlButton from '../button/button.vue';
-import GlIcon from '../icon/icon.vue';
 import { bannerVariants } from '../../../utils/constants';
 
 export default {
   name: 'GlBanner',
   components: {
     GlButton,
-    GlIcon,
   },
   props: {
     title: {
@@ -59,8 +57,14 @@ export default {
       <slot></slot>
       <gl-button variant="info" category="primary" :href="buttonLink">{{ buttonText }}</gl-button>
     </div>
-    <button type="button" aria-label="Close" class="gl-banner-close close" @click="handleClose">
-      <gl-icon name="close" />
-    </button>
+    <gl-button
+      :variant="isIntroducing ? 'info' : 'default'"
+      category="tertiary"
+      size="small"
+      icon="close"
+      aria-label="Close"
+      class="gl-banner-close"
+      @click="handleClose"
+    />
   </section>
 </template>

@@ -37,9 +37,8 @@
 
 .gl-banner-close {
   @include gl-absolute;
-  @include gl-top-5;
-  @include gl-right-5;
-  @include gl-font-base;
+  @include gl-top-4;
+  @include gl-right-4;
 }
 
 // Introduction variant
@@ -50,10 +49,5 @@
   .gl-banner-title {
     @include gl-font-size-h-display;
     @include gl-line-height-28;
-  }
-
-  .gl-banner-close {
-    @include gl-text-blue-500;
-    @include gl-opacity-10;
   }
 }
