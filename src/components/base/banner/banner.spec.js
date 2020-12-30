@@ -36,7 +36,7 @@ describe('banner component', () => {
 
       it('should emit a `close` event after the close button is clicked', () => {
         expect(wrapper.emitted('close')).toBeFalsy();
-        wrapper.find('.gl-banner-close').trigger('click');
+        wrapper.find('.gl-banner-close').vm.$emit('click');
         expect(wrapper.emitted('close')).toBeTruthy();
       });
     });
