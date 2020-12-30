@@ -43,7 +43,7 @@ describe('drawer component', () => {
       it('emits close event', () => {
         mountWithOpts({ props: { open: true } });
 
-        wrapper.find('.gl-drawer-close-button').trigger('click');
+        wrapper.find('.gl-drawer-close-button').vm.$emit('click');
 
         expect(wrapper.emitted().close.length).toBe(1);
       });
