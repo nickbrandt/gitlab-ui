@@ -1,11 +1,11 @@
 <script>
 import isEmpty from 'lodash/isEmpty';
-import GlIcon from '../icon/icon.vue';
+import GlButton from '../button/button.vue';
 import { maxZIndex } from '../../../utils/constants';
 
 export default {
   components: {
-    GlIcon,
+    GlButton,
   },
   props: {
     open: {
@@ -73,9 +73,14 @@ export default {
         <span>
           <slot name="header"></slot>
         </span>
-        <button class="gl-drawer-close-button" aria-label="Close" @click="$emit('close')">
-          <gl-icon name="close" />
-        </button>
+        <gl-button
+          category="tertiary"
+          size="small"
+          icon="close"
+          class="gl-drawer-close-button"
+          aria-label="Close"
+          @click="$emit('close')"
+        />
       </div>
       <div class="gl-drawer-body">
         <slot></slot>

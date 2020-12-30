@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div>
-    <button type="button" @click="toggle">Toggle drawer</button>
+    <gl-button @click="toggle">Toggle drawer</gl-button>
     <gl-drawer :open="drawerOpened" @close="close">
       <template #header>
         Your Title
