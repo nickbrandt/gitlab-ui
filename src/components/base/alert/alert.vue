@@ -32,7 +32,7 @@ export default {
       type: String,
       required: false,
       default: alertVariantOptions.info,
-      validator: value => Object.keys(alertVariantOptions).includes(value),
+      validator: (value) => Object.keys(alertVariantOptions).includes(value),
     },
     primaryButtonLink: {
       type: String,

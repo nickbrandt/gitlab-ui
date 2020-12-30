@@ -16,7 +16,7 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
 describe('new dropdown', () => {
   let wrapper;
 
-  const buildWrapper = propsData => {
+  const buildWrapper = (propsData) => {
     wrapper = mount(GlDropdown, {
       propsData,
     });
@@ -67,9 +67,7 @@ describe('new dropdown', () => {
     });
 
     it('updates split button classes', () => {
-      const classes = findSplitButton()
-        .classes()
-        .sort();
+      const classes = findSplitButton().classes().sort();
 
       expect(classes).toEqual(
         expect.arrayContaining([...DEFAULT_BTN_CLASSES, ...splitClasses].sort())
@@ -77,9 +75,7 @@ describe('new dropdown', () => {
     });
 
     it('updates dropdown toggle button classes', () => {
-      const classes = findDropdownToggle()
-        .classes()
-        .sort();
+      const classes = findDropdownToggle().classes().sort();
 
       expect(classes).toEqual(
         expect.arrayContaining(
@@ -101,9 +97,7 @@ describe('new dropdown', () => {
     });
 
     it('shows toggle button', () => {
-      const classes = findDropdownToggle()
-        .classes()
-        .sort();
+      const classes = findDropdownToggle().classes().sort();
 
       expect(classes).toEqual(expect.arrayContaining([...DEFAULT_BTN_TOGGLE_CLASSES].sort()));
     });
@@ -122,11 +116,9 @@ describe('new dropdown', () => {
     });
 
     it('updates split button classes', () => {
-      expect(
-        findSplitButton()
-          .classes()
-          .sort()
-      ).toEqual(expect.arrayContaining([...DEFAULT_BTN_CLASSES, 'split-content-button']));
+      expect(findSplitButton().classes().sort()).toEqual(
+        expect.arrayContaining([...DEFAULT_BTN_CLASSES, 'split-content-button'])
+      );
     });
   });
 
@@ -144,18 +136,16 @@ describe('new dropdown', () => {
     });
 
     it(`class is inherited from toggle class of type ${type}`, () => {
-      expect(
-        findDropdownToggle()
-          .classes()
-          .sort()
-      ).toEqual(expect.arrayContaining(expectedClasses.sort()));
+      expect(findDropdownToggle().classes().sort()).toEqual(
+        expect.arrayContaining(expectedClasses.sort())
+      );
     });
   });
 
   describe('secondary category', () => {
     it.each(Object.values(newDropdownVariantOptions))(
       'applies %s variant class properly',
-      variant => {
+      (variant) => {
         buildWrapper({ category: 'secondary', variant });
 
         expect(findDropdownToggle().classes()).toContain(`btn-${variant}-secondary`);

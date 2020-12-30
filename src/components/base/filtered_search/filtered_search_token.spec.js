@@ -32,7 +32,7 @@ describe('Filtered search token', () => {
     availableTokens,
   };
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = shallowMount(GlFilteredSearchToken, {
       propsData: { ...defaultProps, ...props },
     });
@@ -177,7 +177,7 @@ describe('Filtered search token', () => {
 
   it.each(['complete', 'split', 'submit'])(
     'passes-through %s event when data segment emits it',
-    event => {
+    (event) => {
       createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
       findDataSegment().vm.$emit(event);
@@ -233,7 +233,7 @@ describe('Filtered search token', () => {
       }
     });
 
-    const mountComponent = props => {
+    const mountComponent = (props) => {
       wrapper = mount(GlFilteredSearchToken, {
         provide: {
           portalName: 'fake target',

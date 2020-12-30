@@ -31,7 +31,7 @@ export default {
       type: Array,
       required: true,
       validator(seriesInfo) {
-        return seriesInfo.every(series => series.type && series.name && series.color);
+        return seriesInfo.every((series) => series.type && series.name && series.color);
       },
     },
     textStyle: {
@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     sanitizeSeriesData(seriesData) {
-      return seriesData?.filter(d => !Number.isNaN(d)) ?? [];
+      return seriesData?.filter((d) => !Number.isNaN(d)) ?? [];
     },
     seriesAverage(seriesData) {
       const sanitized = this.sanitizeSeriesData(seriesData);

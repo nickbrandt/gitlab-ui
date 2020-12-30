@@ -10,7 +10,7 @@ const BACKGROUND_COLOR_LIGHT_GRAY = '#f0f0f0';
 describe('Path', () => {
   let wrapper;
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     return shallowMount(GlPath, {
       propsData: {
         items,
@@ -27,15 +27,15 @@ describe('Path', () => {
     return wrapper.vm.$refs.pathListItems;
   };
 
-  const pathItemAt = index => {
+  const pathItemAt = (index) => {
     return listItems()[index].children[0];
   };
 
-  const pathItemTextAt = index => {
+  const pathItemTextAt = (index) => {
     return pathItemAt(index).textContent;
   };
 
-  const clickItemAt = index => {
+  const clickItemAt = (index) => {
     pathItemAt(index).click();
   };
 

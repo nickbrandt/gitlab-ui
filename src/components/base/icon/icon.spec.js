@@ -14,7 +14,7 @@ describe('Icon component', () => {
   let wrapper;
   let consoleSpy;
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = shallowMount(Icon, {
       propsData: {
         size: TEST_SIZE,
@@ -25,8 +25,8 @@ describe('Icon component', () => {
     });
   };
 
-  const validateSize = size => Icon.props.size.validator(size);
-  const validateName = name => Icon.props.name.validator(name);
+  const validateSize = (size) => Icon.props.size.validator(size);
+  const validateName = (name) => Icon.props.name.validator(name);
 
   afterEach(() => {
     wrapper.destroy();

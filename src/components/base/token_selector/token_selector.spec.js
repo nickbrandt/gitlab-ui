@@ -62,17 +62,17 @@ describe('GlTokenSelector', () => {
     });
   };
 
-  const findTokenByName = name => {
+  const findTokenByName = (name) => {
     const tokenWrappers = wrapper.findAll(GlToken);
 
-    return tokenWrappers.wrappers.find(tokenWrapper => tokenWrapper.text() === name);
+    return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
 
-  const findDropdownItemByName = name => {
+  const findDropdownItemByName = (name) => {
     const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
 
     return dropdownItemWrappers.wrappers.find(
-      dropdownItemWrapper => dropdownItemWrapper.text() === name
+      (dropdownItemWrapper) => dropdownItemWrapper.text() === name
     );
   };
 
@@ -168,18 +168,8 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(
-          wrapper
-            .findAll(GlToken)
-            .at(0)
-            .classes()
-        ).not.toContain('gl-bg-data-viz-blue-500');
-        expect(
-          wrapper
-            .findAll(GlToken)
-            .at(4)
-            .classes()
-        ).toEqual([
+        expect(wrapper.findAll(GlToken).at(0).classes()).not.toContain('gl-bg-data-viz-blue-500');
+        expect(wrapper.findAll(GlToken).at(4).classes()).toEqual([
           'gl-cursor-default',
           'gl-token',
           'gl-token-default-variant',
@@ -326,7 +316,7 @@ describe('GlTokenSelector', () => {
         textInput.setValue('foo bar');
         await textInput.trigger('keydown.delete');
 
-        wrapper.findAll(GlToken).wrappers.forEach(tokenWrapper => {
+        wrapper.findAll(GlToken).wrappers.forEach((tokenWrapper) => {
           expect(tokenWrapper.element).not.toHaveFocus();
         });
       });

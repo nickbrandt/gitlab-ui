@@ -55,7 +55,7 @@ describe('GlTokenSelectorDropdown', () => {
     const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
 
     const dropdownItem = dropdownItemWrappers.wrappers.find(
-      dropdownItemWrapper => dropdownItemWrapper.text() === name
+      (dropdownItemWrapper) => dropdownItemWrapper.text() === name
     );
 
     return findButton ? dropdownItem.find('button') : dropdownItem;
@@ -237,7 +237,7 @@ describe('GlTokenSelectorDropdown', () => {
       handleEndKey: () => {},
     };
 
-    const registerDropdownEventHandlers = handlers => {
+    const registerDropdownEventHandlers = (handlers) => {
       dropdownEventHandlers = handlers;
     };
 

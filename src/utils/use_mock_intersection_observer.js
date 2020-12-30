@@ -31,7 +31,7 @@ class MockObserver {
   $_triggerObserve(nodeParam, { entry = {}, options = {} } = {}) {
     const nodes = this.$_getNodesFromParam(nodeParam);
 
-    nodes.forEach(node => {
+    nodes.forEach((node) => {
       if (this.$_hasObserver(node, options)) {
         this.$_cb([{ target: node, ...entry }]);
       }

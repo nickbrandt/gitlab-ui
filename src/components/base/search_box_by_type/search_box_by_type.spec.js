@@ -84,7 +84,7 @@ describe('search box by type component', () => {
   });
 
   describe('debounce', () => {
-    describe.each([10, 100, 1000])('given a debounce of %dms', debounce => {
+    describe.each([10, 100, 1000])('given a debounce of %dms', (debounce) => {
       beforeEach(() => {
         jest.useFakeTimers();
 
@@ -112,7 +112,7 @@ describe('search box by type component', () => {
       findInput().setValue(newValue);
     });
 
-    it.each(['change', 'blur'])(`emits ${modelEvent} event after input's %s event`, event => {
+    it.each(['change', 'blur'])(`emits ${modelEvent} event after input's %s event`, (event) => {
       expect(wrapper.emitted(modelEvent)).toBe(undefined);
 
       findInput().trigger(event);

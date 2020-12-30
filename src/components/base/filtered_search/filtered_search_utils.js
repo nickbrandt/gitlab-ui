@@ -8,7 +8,7 @@ export function isEmptyTerm(token) {
 
 export function normalizeTokens(tokens) {
   const result = [];
-  tokens.forEach(token => {
+  tokens.forEach((token) => {
     if (isEmptyTerm(token)) {
       return;
     }
@@ -37,7 +37,7 @@ export function needDenormalization(tokens) {
 
   assertValidTokens(tokens);
 
-  return tokens.some(t => typeof t === 'string');
+  return tokens.some((t) => typeof t === 'string');
 }
 
 export function denormalizeTokens(inputTokens) {
@@ -46,10 +46,10 @@ export function denormalizeTokens(inputTokens) {
   const tokens = Array.isArray(inputTokens) ? inputTokens : [inputTokens];
 
   const result = [];
-  tokens.forEach(t => {
+  tokens.forEach((t) => {
     if (typeof t === 'string') {
       const stringTokens = t.split(' ').filter(Boolean);
-      stringTokens.forEach(strToken =>
+      stringTokens.forEach((strToken) =>
         result.push({ type: TERM_TOKEN_TYPE, value: { data: strToken } })
       );
     } else {
@@ -124,7 +124,7 @@ export function wrapTokenInQuotes(token) {
   const quotes = ["'", '"'];
 
   // If the token starts and ends with a quote, eg. "Foo Bar", then return the original token.
-  if (quotes.some(quote => first(token) === quote && last(token) === quote)) {
+  if (quotes.some((quote) => first(token) === quote && last(token) === quote)) {
     return token;
   }
 

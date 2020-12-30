@@ -28,7 +28,7 @@ describe('Filtered search suggestion list component', () => {
     describe('navigation', () => {
       const stubs = [{ value: 'stub1' }, { value: 'stub2' }, { value: 'stub3' }];
       beforeEach(() => {
-        stubs.forEach(s => {
+        stubs.forEach((s) => {
           wrapper.vm.register(s);
         });
       });

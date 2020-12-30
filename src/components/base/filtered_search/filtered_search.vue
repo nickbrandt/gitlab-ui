@@ -80,7 +80,7 @@ export default {
 
     return {
       portalName: this.portalName,
-      alignSuggestions: ref => this.alignSuggestions(ref),
+      alignSuggestions: (ref) => this.alignSuggestions(ref),
       suggestionsListClass: this.suggestionsListClass,
     };
   },
@@ -101,13 +101,13 @@ export default {
       return this.hasValue ? null : this.placeholder;
     },
     currentAvailableTokens() {
-      return this.availableTokens.filter(token => {
+      return this.availableTokens.filter((token) => {
         if (token.disabled) {
           return false;
         }
 
         if (token.unique) {
-          return !this.tokens.find(t => t.type === token.type);
+          return !this.tokens.find((t) => t.type === token.type);
         }
 
         return true;
@@ -148,7 +148,7 @@ export default {
     },
 
     getTokenEntry(type) {
-      return this.availableTokens.find(t => t.type === type);
+      return this.availableTokens.find((t) => t.type === type);
     },
 
     getTokenComponent(type) {
@@ -209,7 +209,7 @@ export default {
         return;
       }
 
-      const newTokens = newStrings.map(data => ({
+      const newTokens = newStrings.map((data) => ({
         type: TERM_TOKEN_TYPE,
         value: { data },
       }));

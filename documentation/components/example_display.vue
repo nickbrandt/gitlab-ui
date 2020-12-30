@@ -22,7 +22,7 @@ import JsfiddleButton from './jsfiddle_button.vue';
 // We need to register globally all components as we don't know the components that are used in the dynamically compiled .example.vue files
 // This is only for design.gitlab.com and shouldn't be done in our actual application
 Vue.use(BootstrapVue);
-Object.keys(gitlabComponents).forEach(comp => {
+Object.keys(gitlabComponents).forEach((comp) => {
   if (!comp.includes('Directive')) {
     Vue.component(comp, gitlabComponents[comp]);
   }
@@ -42,7 +42,7 @@ function findComponentExample(exampleName) {
     if (component.examples) {
       // Looking for an example in the component documentation definition that matches the exampleName
       for (const exampleGroup of component.examples) {
-        const foundExample = exampleGroup.items.find(example => example.id === exampleName);
+        const foundExample = exampleGroup.items.find((example) => example.id === exampleName);
         if (foundExample) {
           return foundExample;
         }
@@ -207,9 +207,7 @@ export default {
                 <b-col class="text-right">
                   <template v-if="copiedSource">Copied!</template>
                   <b-button-group size="sm">
-                    <b-button :disabled="copiedSource" @click="copySource">
-                      Copy
-                    </b-button>
+                    <b-button :disabled="copiedSource" @click="copySource">Copy</b-button>
                   </b-button-group>
                 </b-col>
               </b-row>
@@ -223,9 +221,7 @@ export default {
                 <b-col class="text-right">
                   <template v-if="copiedOutput">Copied!</template>
                   <b-button-group size="sm">
-                    <b-button :disabled="copiedOutput" @click="copyHtml">
-                      Copy
-                    </b-button>
+                    <b-button :disabled="copiedOutput" @click="copyHtml">Copy</b-button>
                   </b-button-group>
                 </b-col>
               </b-row>

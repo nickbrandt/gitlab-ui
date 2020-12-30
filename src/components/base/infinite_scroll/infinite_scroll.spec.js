@@ -2,7 +2,7 @@ import throttle from 'lodash/throttle';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import InfiniteScroll, { adjustScrollGap } from './infinite_scroll.vue';
 
-jest.mock('lodash/throttle', () => jest.fn(fn => fn));
+jest.mock('lodash/throttle', () => jest.fn((fn) => fn));
 
 const localVue = createLocalVue();
 
@@ -46,7 +46,7 @@ describe('Infinite Scroll component', () => {
       },
       scrollHeight: {
         get: () => mockScrollHeight,
-        set: val => {
+        set: (val) => {
           mockScrollHeight = val;
         },
       },

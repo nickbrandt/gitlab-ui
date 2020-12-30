@@ -69,7 +69,7 @@ export default {
       type: String,
       required: false,
       default: 'stacked',
-      validator: value => ['stacked', 'tiled'].indexOf(value) !== -1,
+      validator: (value) => ['stacked', 'tiled'].indexOf(value) !== -1,
     },
     groupBy: {
       type: Array,
@@ -78,7 +78,7 @@ export default {
     xAxisType: {
       type: String,
       required: true,
-      validator: value => ['value', 'category', 'time', 'log'].indexOf(value) !== -1,
+      validator: (value) => ['value', 'category', 'time', 'log'].indexOf(value) !== -1,
     },
     xAxisTitle: {
       type: String,
@@ -231,7 +231,7 @@ export default {
           name: series.name,
           type: series.type,
           color: colorFromDefaultPalette(index),
-          data: series.data.map(data => data),
+          data: series.data.map((data) => data),
           yAxisIndex: series.yAxisIndex,
         });
         return acc;

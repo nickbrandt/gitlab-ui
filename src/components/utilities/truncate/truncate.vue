@@ -11,7 +11,7 @@ export default {
       type: String,
       required: false,
       default: POSITION.END,
-      validator: value => Object.values(POSITION).includes(value),
+      validator: (value) => Object.values(POSITION).includes(value),
     },
   },
   data() {

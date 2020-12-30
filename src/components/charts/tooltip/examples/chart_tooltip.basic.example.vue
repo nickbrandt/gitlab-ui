@@ -23,9 +23,7 @@ export default {
       top="50%"
       left="0px"
     >
-      <div slot="title">
-        Tooltip Title
-      </div>
+      <div slot="title">Tooltip Title</div>
       Basic Tooltip Content
     </gl-chart-tooltip>
   </div>

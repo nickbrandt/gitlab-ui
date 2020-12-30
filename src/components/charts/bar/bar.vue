@@ -34,7 +34,7 @@ const defaultOptions = {
   xAxis: {
     nameLocation: 'center',
     axisLabel: {
-      formatter: num => engineeringNotation(num, 2),
+      formatter: (num) => engineeringNotation(num, 2),
     },
   },
   yAxis: {
@@ -46,7 +46,7 @@ const defaultOptions = {
     },
     axisLabel: {
       interval: 0,
-      formatter: str =>
+      formatter: (str) =>
         truncate(str, {
           length: AXIS_LABEL_LENGTH,
           separator: '...',

@@ -55,9 +55,9 @@ export default {
       type: Object,
       required: false,
       default: undefined,
-      validator: value =>
+      validator: (value) =>
         Object.values(value).every(
-          tagPair => Array.isArray(tagPair) && tagPair.length === 2 && tagPair.every(isString)
+          (tagPair) => Array.isArray(tagPair) && tagPair.length === 2 && tagPair.every(isString)
         ),
     },
   },

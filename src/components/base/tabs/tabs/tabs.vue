@@ -12,7 +12,7 @@ export default {
       type: String,
       required: false,
       default: 'indigo',
-      validator: theme => glThemes.includes(theme),
+      validator: (theme) => glThemes.includes(theme),
     },
     contentClass: {
       type: [String, Array, Object],

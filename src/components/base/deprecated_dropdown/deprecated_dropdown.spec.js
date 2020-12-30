@@ -13,7 +13,7 @@ const MockBDropdown = {
 describe('Dropdown component', () => {
   let wrapper;
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = mount(Dropdown, {
       attachToDocument: true,
       ...props,

@@ -12,7 +12,7 @@ describe('sorting item component', () => {
   const findActiveIcon = () => wrapper.find('.js-active-icon');
   const findGlDropdownItem = () => wrapper.find(GlDropdownItem);
 
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     wrapper = shallowMount(GlSortingItem, {
       context: {
         children: [sortingItemText],

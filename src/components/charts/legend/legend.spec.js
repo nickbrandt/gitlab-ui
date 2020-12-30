@@ -4,7 +4,7 @@ import Legend from './legend.vue';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
 
 jest.mock('echarts', () => ({
-  getInstanceByDom: jest.fn(instance => instance),
+  getInstanceByDom: jest.fn((instance) => instance),
   init: jest.fn(() => ({
     dispatchAction: jest.fn(),
     resize: jest.fn(),
@@ -46,7 +46,7 @@ describe('chart legend component', () => {
     {
       propsData: { options: {} },
       listeners: {
-        created: chartInstance => {
+        created: (chartInstance) => {
           chart = chartInstance;
           chart.getDom = () => chartInstance;
         },
@@ -175,7 +175,7 @@ describe('chart legend component', () => {
       });
 
       return legendWrapper.vm.$nextTick().then(() => {
-        legendWrapper.findAll('.gl-legend-tabular-details-cell').wrappers.forEach(wrapper => {
+        legendWrapper.findAll('.gl-legend-tabular-details-cell').wrappers.forEach((wrapper) => {
           expect(wrapper.text()).toBe('-');
         });
       });
@@ -202,7 +202,7 @@ describe('chart legend component', () => {
       });
 
       return legendWrapper.vm.$nextTick().then(() => {
-        legendWrapper.findAll('.gl-legend-tabular-details-cell').wrappers.forEach(wrapper => {
+        legendWrapper.findAll('.gl-legend-tabular-details-cell').wrappers.forEach((wrapper) => {
           expect(wrapper.text()).not.toBe('NaN');
         });
       });

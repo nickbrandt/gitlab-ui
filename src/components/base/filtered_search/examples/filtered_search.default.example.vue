@@ -39,7 +39,7 @@ const UserToken = {
       this.loadingView = true;
       setTimeout(() => {
         this.loadingView = false;
-        this.activeUser = fakeUsers.find(u => u.username === this.value.data);
+        this.activeUser = fakeUsers.find((u) => u.username === this.value.data);
       }, 1000);
     },
     loadSuggestions() {
@@ -52,7 +52,7 @@ const UserToken = {
   },
   watch: {
     // eslint-disable-next-line func-names
-    'value.data': function() {
+    'value.data': function () {
       if (this.active) {
         this.loadSuggestions();
       }
@@ -119,7 +119,7 @@ const MilestoneToken = {
   },
   watch: {
     // eslint-disable-next-line func-names
-    'value.data': function() {
+    'value.data': function () {
       if (this.active) {
         this.loadSuggestions();
       }
@@ -186,7 +186,7 @@ const LabelToken = {
       this.loadingView = true;
       setTimeout(() => {
         this.loadingView = false;
-        this.activeLabel = fakeLabels.find(l => l.title === this.value.data);
+        this.activeLabel = fakeLabels.find((l) => l.title === this.value.data);
       }, 100);
     },
     loadSuggestions() {
@@ -199,7 +199,7 @@ const LabelToken = {
   },
   watch: {
     // eslint-disable-next-line func-names
-    'value.data': function() {
+    'value.data': function () {
       if (this.active) {
         this.loadSuggestions();
       }

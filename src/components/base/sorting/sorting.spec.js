@@ -22,7 +22,7 @@ describe('sorting component', () => {
   const selectDirectionButton = () => wrapper.find('.sorting-direction-button');
   const selectDropdown = () => wrapper.find(GlDropdown);
 
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     wrapper = mount(GlSorting, {
       attachToDocument: true,
       components: {
@@ -62,11 +62,7 @@ describe('sorting component', () => {
     createComponent();
 
     expect(wrapper.vm.isAscending).toBe(false);
-    expect(
-      selectDirectionButton()
-        .find(GlIcon)
-        .props('name')
-    ).toBe('sort-highest');
+    expect(selectDirectionButton().find(GlIcon).props('name')).toBe('sort-highest');
   });
 
   it('should show new text value when passed in as a prop', () => {
@@ -88,11 +84,7 @@ describe('sorting component', () => {
     });
 
     expect(wrapper.vm.isAscending).toBe(true);
-    expect(
-      selectDirectionButton()
-        .find(GlIcon)
-        .props('name')
-    ).toBe('sort-lowest');
+    expect(selectDirectionButton().find(GlIcon).props('name')).toBe('sort-lowest');
   });
 
   it('should emit the sortDirectionChange event when direction button is clicked', () => {

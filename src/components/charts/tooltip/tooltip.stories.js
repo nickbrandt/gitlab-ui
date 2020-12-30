@@ -33,7 +33,7 @@ const baseStoryOptions = {
   },
 };
 
-const getStoryOptions = tooltipContent => {
+const getStoryOptions = (tooltipContent) => {
   return {
     ...baseStoryOptions,
     template: `<div class="position-relative">

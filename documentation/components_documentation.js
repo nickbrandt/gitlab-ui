@@ -107,7 +107,7 @@ export { default as GlTruncateDocumentation } from '../src/components/utilities/
 
 const componentList = Object.getPrototypeOf(module).exports;
 
-export const getDocumentationFor = componentName => {
+export const getDocumentationFor = (componentName) => {
   const documentationKey = `${componentName}Documentation`;
   const documentationObject = componentList[documentationKey];
   if (!documentationObject) {

@@ -29,7 +29,7 @@ export default {
       type: Number,
       required: false,
       default: avatarSizeOptions[1],
-      validator: value => avatarSizeOptions.includes(value),
+      validator: (value) => avatarSizeOptions.includes(value),
     },
     shape: {
       type: String,

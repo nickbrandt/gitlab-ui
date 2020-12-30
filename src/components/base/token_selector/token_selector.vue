@@ -85,7 +85,8 @@ export default {
   computed: {
     filteredDropdownItems() {
       return this.dropdownItems.filter(
-        dropdownItem => this.selectedTokens.findIndex(token => token.id === dropdownItem.id) === -1
+        (dropdownItem) =>
+          this.selectedTokens.findIndex((token) => token.id === dropdownItem.id) === -1
       );
     },
     dropdownHasNoItems() {
@@ -219,7 +220,7 @@ export default {
     removeToken(token) {
       this.$emit(
         'input',
-        this.selectedTokens.filter(selectedToken => selectedToken.id !== token.id)
+        this.selectedTokens.filter((selectedToken) => selectedToken.id !== token.id)
       );
       this.$emit('token-remove', token);
     },

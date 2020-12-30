@@ -231,7 +231,7 @@ documentedStoriesOf('charts|area-chart', readme)
   }))
   .add('mult-series', () => ({
     props: generateProps({
-      data: times(10, index => ({
+      data: times(10, (index) => ({
         name: index,
         data: defaultData[0].data.map(([label, value]) => [label, value * index]),
       })),

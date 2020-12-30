@@ -28,7 +28,7 @@ const defaultProps = {
 describe('Label component', () => {
   let wrapper;
 
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     wrapper = shallowMount(Label, {
       propsData,
     });

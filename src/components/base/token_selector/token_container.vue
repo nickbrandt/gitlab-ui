@@ -35,7 +35,7 @@ export default {
       }
 
       const tokenRef = this.$refs.tokens?.find(
-        ref => ref.dataset.tokenId === newValue.id.toString()
+        (ref) => ref.dataset.tokenId === newValue.id.toString()
       );
 
       if (tokenRef) {

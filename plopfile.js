@@ -61,7 +61,7 @@ const makePrompts = (prompts = []) => [
     message: `The component will be placed in ${baseComponentsPath}, does that look right?`,
   },
   {
-    when: answers => !answers.useDefaultComponentDir,
+    when: (answers) => !answers.useDefaultComponentDir,
     type: 'directory',
     name: 'absoluteDir',
     message: 'Where should we put this component?',
@@ -69,22 +69,18 @@ const makePrompts = (prompts = []) => [
   },
 ];
 
-const setCommonData = data => {
+const setCommonData = (data) => {
   data.componentDirAbsolute =
     data.absoluteDir || path.join(__dirname, baseComponentsPath, data.name);
   data.componentDir = data.componentDirAbsolute.replace(__dirname, '');
   data.innerDir = data.componentDir
     .split(path.sep)
-    .filter(el => el !== 'src')
+    .filter((el) => el !== 'src')
     .join(path.sep);
-  data.pathToRootDir = data.componentDir
-    .split(path.sep)
-    .filter(Boolean)
-    .fill('..')
-    .join(path.sep);
+  data.pathToRootDir = data.componentDir.split(path.sep).filter(Boolean).fill('..').join(path.sep);
 };
 
-module.exports = plop => {
+module.exports = (plop) => {
   plop.setPrompt('directory', promptDirectory);
 
   plop.setGenerator('Create Component', {

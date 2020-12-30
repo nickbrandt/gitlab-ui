@@ -20,7 +20,7 @@ const template = `
     :secondary-button-link="secondaryButtonLink"
   >{{ message }}</gl-alert>`;
 
-const defaultValue = prop => GlAlert.props[prop].default;
+const defaultValue = (prop) => GlAlert.props[prop].default;
 
 function generateProps({
   title = defaultValue('title'),

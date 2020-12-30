@@ -8,7 +8,7 @@ const components = {
   GlSortingItem,
 };
 
-const onMount = component => {
+const onMount = (component) => {
   component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
 };
 

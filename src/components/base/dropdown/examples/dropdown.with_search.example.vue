@@ -9,7 +9,7 @@ export default {
 
   computed: {
     filteredTagNames() {
-      return this.tagNames.filter(tagName => tagName.includes(this.searchTerm.toLowerCase()));
+      return this.tagNames.filter((tagName) => tagName.includes(this.searchTerm.toLowerCase()));
     },
     filteredTagNamesLength() {
       return this.filteredTagNames.length === 0;
@@ -19,7 +19,7 @@ export default {
   mounted() {
     const tagNames = new Set();
     const elements = document.querySelectorAll('*');
-    elements.forEach(element => tagNames.add(element.tagName.toLowerCase()));
+    elements.forEach((element) => tagNames.add(element.tagName.toLowerCase()));
     this.tagNames = Array.from(tagNames).sort();
   },
 };

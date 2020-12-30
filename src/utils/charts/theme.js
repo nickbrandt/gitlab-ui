@@ -95,7 +95,7 @@ export const colorPaletteDefault = [
   dataVizGreen500,
   dataVizMagenta600,
 ];
-export const colorFromDefaultPalette = index =>
+export const colorFromDefaultPalette = (index) =>
   colorPaletteDefault[index % colorPaletteDefault.length];
 
 export const sparkline = {

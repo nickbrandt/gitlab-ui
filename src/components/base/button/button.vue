@@ -22,19 +22,19 @@ export default {
       type: String,
       required: false,
       default: newButtonCategoryOptions.primary,
-      validator: value => Object.keys(newButtonCategoryOptions).includes(value),
+      validator: (value) => Object.keys(newButtonCategoryOptions).includes(value),
     },
     variant: {
       type: String,
       required: false,
       default: newButtonVariantOptions.default,
-      validator: value => Object.keys(newButtonVariantOptions).includes(value),
+      validator: (value) => Object.keys(newButtonVariantOptions).includes(value),
     },
     size: {
       type: String,
       required: false,
       default: newButtonSizeOptions.medium,
-      validator: value => Object.keys(newButtonSizeOptions).includes(value),
+      validator: (value) => Object.keys(newButtonSizeOptions).includes(value),
     },
     selected: {
       type: Boolean,

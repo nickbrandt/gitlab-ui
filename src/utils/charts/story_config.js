@@ -37,9 +37,9 @@ export const generateSeriesData = (amount = 10, nameType = SERIES_NAME_SHORT) =>
   const defaultData = [820, 932, 960, 1150, 1290, 1330, 1390];
   const name = SERIES_NAME[nameType];
 
-  return times(amount, index => ({
+  return times(amount, (index) => ({
     color: colorFromDefaultPalette(index),
-    data: defaultData.map(value => value * index),
+    data: defaultData.map((value) => value * index),
     name: `${name}${index + 1}`,
   }));
 };

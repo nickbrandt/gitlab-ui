@@ -148,7 +148,7 @@ export default {
     series() {
       const dataSeries = this.data.map((series, index) => {
         const defaultColor = colorFromDefaultPalette(index);
-        const getColor = type =>
+        const getColor = (type) =>
           series[type] && series[type].color ? series[type].color : defaultColor;
         return merge(
           {
@@ -239,7 +239,7 @@ export default {
             name: series.name,
             type: series.lineStyle.type,
             color: series.lineStyle.color || colorFromDefaultPalette(index),
-            data: this.includeLegendAvgMax ? series.data.map(data => data[1]) : undefined,
+            data: this.includeLegendAvgMax ? series.data.map((data) => data[1]) : undefined,
           });
         }
         return acc;

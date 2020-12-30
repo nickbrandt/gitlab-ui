@@ -3,7 +3,7 @@ import LoadingIcon from './loading_icon.vue';
 
 describe('loading icon component', () => {
   let wrapper;
-  const createComponent = propsData => {
+  const createComponent = (propsData) => {
     wrapper = shallowMount(LoadingIcon, { propsData });
   };
 
@@ -31,7 +31,7 @@ describe('loading icon component', () => {
     const supportedSizes = ['sm', 'md', 'lg'];
     const supportedColors = ['dark', 'light'];
     const sizeColorCombinations = supportedSizes.reduce(
-      (combinations, size) => combinations.concat(supportedColors.map(color => [size, color])),
+      (combinations, size) => combinations.concat(supportedColors.map((color) => [size, color])),
       []
     );
 
@@ -42,7 +42,7 @@ describe('loading icon component', () => {
       expect(spinnerClasses).toContain(baseCssClass);
     });
 
-    it.each(supportedSizes)('should render spinner properly for size %s', size => {
+    it.each(supportedSizes)('should render spinner properly for size %s', (size) => {
       createComponent({ size });
       const spinnerClasses = getSpinnerClasses();
 
@@ -50,7 +50,7 @@ describe('loading icon component', () => {
       expect(spinnerClasses).toContain(`${baseCssClass}-${size}`);
     });
 
-    it.each(supportedColors)('should render spinner properly for color %s', color => {
+    it.each(supportedColors)('should render spinner properly for color %s', (color) => {
       createComponent({ color });
       const spinnerClasses = getSpinnerClasses();
 

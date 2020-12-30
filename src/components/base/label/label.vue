@@ -15,7 +15,7 @@ export default {
     backgroundColor: {
       type: String,
       required: true,
-      validator: value => /^(#|rgb|rgba)/.test(value),
+      validator: (value) => /^(#|rgb|rgba)/.test(value),
     },
     title: {
       type: String,

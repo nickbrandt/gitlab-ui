@@ -6,7 +6,7 @@ const safeLink = jest.fn();
 describe('link component', () => {
   let wrapper;
 
-  const createWrapper = options => {
+  const createWrapper = (options) => {
     wrapper = mount(Link, options);
   };
 

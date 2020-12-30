@@ -17,7 +17,7 @@ const navbar = `
 </template>
 `;
 
-const getThemedBroadcastMessage = theme => `
+const getThemedBroadcastMessage = (theme) => `
 <gl-broadcast-message
   :icon-name="iconName"
   :dismiss-label="dismissLabel"

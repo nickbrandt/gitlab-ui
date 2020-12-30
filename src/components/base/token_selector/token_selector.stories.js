@@ -84,7 +84,7 @@ documentedStoriesOf('base|token_selector', readme)
         }
       },
       filterDropdownItems() {
-        this.filteredDropdownItems = this.dropdownItems.filter(dropdownItem => {
+        this.filteredDropdownItems = this.dropdownItems.filter((dropdownItem) => {
           return dropdownItem.name.toLowerCase().includes(this.inputText.toLowerCase());
         });
       },

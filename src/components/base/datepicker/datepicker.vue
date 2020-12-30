@@ -14,7 +14,7 @@ export const pad = (val, len = 2) => `0${val}`.slice(-len);
  * @param {Date} date UTC format
  * @return {String} Date formated in yyyy-mm-dd
  */
-export const defaultDateFormatter = date => {
+export const defaultDateFormatter = (date) => {
   const day = pad(date.getDate());
   const month = pad(date.getMonth() + 1);
   const year = date.getFullYear();
@@ -24,11 +24,11 @@ export const defaultDateFormatter = date => {
 
 const isBefore = (compareTo, date) => compareTo && date && date.getTime() < compareTo.getTime();
 
-const highlightPastDates = pikaday => {
+const highlightPastDates = (pikaday) => {
   const pikaButtons = pikaday.el.querySelectorAll('.pika-button');
   const today = new Date();
 
-  pikaButtons.forEach(pikaButton => {
+  pikaButtons.forEach((pikaButton) => {
     const { pikaYear, pikaMonth, pikaDay } = pikaButton.dataset;
     const pikaButtonDate = new Date(pikaYear, pikaMonth, pikaDay);
 
@@ -220,11 +220,11 @@ export default {
       disableDayFn: this.disableDayFn,
       firstDay: this.firstDay,
       arialLabel: this.ariaLabel,
-      toString: date => defaultDateFormatter(date),
+      toString: (date) => defaultDateFormatter(date),
       onSelect: this.selected.bind(this),
       onClose: this.closed.bind(this),
       onOpen: this.opened.bind(this),
-      onDraw: pikaday => {
+      onDraw: (pikaday) => {
         highlightPastDates(pikaday);
         drawEvent();
       },

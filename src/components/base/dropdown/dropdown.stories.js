@@ -29,7 +29,7 @@ const components = {
 };
 
 function addClass(component) {
-  component.$el.querySelectorAll('.btn').forEach(el => el.classList.add('gl-button'));
+  component.$el.querySelectorAll('.btn').forEach((el) => el.classList.add('gl-button'));
 }
 
 function generateProps({

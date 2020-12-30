@@ -74,7 +74,7 @@ export default {
       );
     };
 
-    const lineWidth = index => {
+    const lineWidth = (index) => {
       if (props.equalWidthLines) {
         return '100%';
       }
@@ -117,7 +117,7 @@ export default {
             },
             slotIsSet()
               ? slots().default
-              : range(props.lines).map(index =>
+              : range(props.lines).map((index) =>
                   createElement('rect', {
                     key: index,
                     attrs: {

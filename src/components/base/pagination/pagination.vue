@@ -24,13 +24,13 @@ export default {
       type: Number,
       required: false,
       default: 1,
-      validator: x => x > 0,
+      validator: (x) => x > 0,
     },
     perPage: {
       type: Number,
       required: false,
       default: 20,
-      validator: x => x > 0,
+      validator: (x) => x > 0,
     },
     totalItems: {
       type: Number,
@@ -46,8 +46,8 @@ export default {
         md: 9,
         default: 9,
       }),
-      validator: value => {
-        const missingSizes = Object.keys(breakpoints).filter(size => !value[size]).length;
+      validator: (value) => {
+        const missingSizes = Object.keys(breakpoints).filter((size) => !value[size]).length;
         return missingSizes === 0 ? true : value.default;
       },
     },
@@ -104,13 +104,13 @@ export default {
     labelPage: {
       type: Function,
       required: false,
-      default: page => `Go to page ${page}`,
+      default: (page) => `Go to page ${page}`,
     },
     align: {
       type: String,
       required: false,
       default: alignOptions.left,
-      validator: value => Object.keys(alignOptions).includes(value),
+      validator: (value) => Object.keys(alignOptions).includes(value),
     },
     disabled: {
       type: Boolean,
@@ -186,7 +186,7 @@ export default {
         lastPage = Math.max(lastPage, 2);
 
         // Default numbered items
-        items = pageRange(firstPage, lastPage, 1).map(page => this.getPageItem(page));
+        items = pageRange(firstPage, lastPage, 1).map((page) => this.getPageItem(page));
 
         if (this.shouldCollapseLeftSide) {
           items.splice(
@@ -253,7 +253,7 @@ export default {
       if (this.isLinkBased) {
         attrs.href = this.linkGen(page);
       }
-      listeners.click = e => this.handleClick(e, page);
+      listeners.click = (e) => this.handleClick(e, page);
       return {
         content: page,
         component: isDisabled ? 'span' : GlLink,

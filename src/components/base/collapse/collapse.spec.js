@@ -6,7 +6,7 @@ describe('Collapse component', () => {
   const collapseId = 'collapse-id';
   let wrapper;
 
-  const createWrapper = propsData => {
+  const createWrapper = (propsData) => {
     wrapper = shallowMount(Collapse, { propsData });
   };
 

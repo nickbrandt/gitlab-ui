@@ -1,8 +1,16 @@
 <template>
   <div
-    style="background: #fff; border: 1px solid #dfdfdf; box-shadow: 0 1px 2px rgba(0,0,0,0.1); width: 359px; height: 135px; padding: 1rem; border-radius: 0.25rem;"
+    style="
+      background: #fff;
+      border: 1px solid #dfdfdf;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      width: 359px;
+      height: 135px;
+      padding: 1rem;
+      border-radius: 0.25rem;
+    "
   >
-    <div style="width: 327px; height: 102px;">
+    <div style="width: 327px; height: 102px">
       <gl-skeleton-loader :width="327" :height="102">
         <rect width="276" height="16" rx="4" />
         <rect y="18" width="237" height="16" rx="4" />

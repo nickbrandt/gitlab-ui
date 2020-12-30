@@ -20,9 +20,7 @@ export default {
   <div>
     <button type="button" @click="toggle">Toggle drawer</button>
     <gl-drawer :open="drawerOpened" @close="close">
-      <template #header>
-        Your Title
-      </template>
+      <template #header>Your Title</template>
       <template>
         <div>
           <p>First Body Item</p>

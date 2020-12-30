@@ -57,7 +57,7 @@ export default {
     },
 
     availableTokensWithSelf() {
-      return [this.config, ...this.availableTokens.filter(t => t !== this.config)].map(t => ({
+      return [this.config, ...this.availableTokens.filter((t) => t !== this.config)].map((t) => ({
         ...t,
         value: t.title,
       }));
@@ -127,7 +127,7 @@ export default {
     },
 
     replaceToken(newTitle) {
-      const newTokenConfig = this.availableTokens.find(t => t.title === newTitle);
+      const newTokenConfig = this.availableTokens.find((t) => t.title === newTitle);
 
       if (newTokenConfig === this.config) {
         this.$nextTick(() => {

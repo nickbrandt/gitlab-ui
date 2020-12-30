@@ -13,7 +13,7 @@ export default {
       type: String,
       required: false,
       default: 'secondary',
-      validator: variant =>
+      validator: (variant) =>
         ['primary', 'secondary', 'success', 'warning', 'danger'].includes(variant),
     },
   },

@@ -14,7 +14,7 @@ const secondaryButtonLink = '#bar';
 describe('Alert component', () => {
   let wrapper;
 
-  const createComponent = options => {
+  const createComponent = (options) => {
     wrapper = shallowMount(GlAlert, {
       ...options,
     });
@@ -54,11 +54,7 @@ describe('Alert component', () => {
     });
 
     it('renders default slot content', () => {
-      expect(
-        findBodyContainer()
-          .find(DummyComponent)
-          .exists()
-      ).toBe(true);
+      expect(findBodyContainer().find(DummyComponent).exists()).toBe(true);
     });
   });
 
@@ -104,9 +100,7 @@ describe('Alert component', () => {
     });
 
     it('emits a primaryAction event when primary button is clicked', () => {
-      findActionButtons()
-        .at(0)
-        .vm.$emit('click');
+      findActionButtons().at(0).vm.$emit('click');
 
       expect(wrapper.emitted('primaryAction')).toHaveLength(1);
     });
@@ -143,9 +137,7 @@ describe('Alert component', () => {
     });
 
     it('emits a secondaryAction event when secondary button is clicked', () => {
-      findActionButtons()
-        .at(0)
-        .vm.$emit('click');
+      findActionButtons().at(0).vm.$emit('click');
 
       expect(wrapper.emitted('secondaryAction')).toHaveLength(1);
     });

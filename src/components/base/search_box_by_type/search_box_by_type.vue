@@ -42,7 +42,7 @@ export default {
     tooltipContainer: {
       required: false,
       default: false,
-      validator: value =>
+      validator: (value) =>
         value === false || typeof value === 'string' || value instanceof HTMLElement,
     },
   },
@@ -66,7 +66,7 @@ export default {
     inputListeners() {
       return {
         ...this.$listeners,
-        input: value => {
+        input: (value) => {
           this.$emit('input', value);
         },
       };

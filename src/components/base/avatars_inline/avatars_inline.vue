@@ -22,7 +22,7 @@ export default {
     avatarSize: {
       type: Number,
       required: true,
-      validator: value => avatarsInlineSizeOptions.includes(value),
+      validator: (value) => avatarsInlineSizeOptions.includes(value),
     },
     collapsed: {
       type: Boolean,
@@ -68,7 +68,7 @@ export default {
       }
 
       const tooltipTitle = this.hiddenAvatars
-        .map(avatar => get(avatar, this.badgeTooltipProp, '').trim())
+        .map((avatar) => get(avatar, this.badgeTooltipProp, '').trim())
         .join(', ');
 
       // truncate will append '...'

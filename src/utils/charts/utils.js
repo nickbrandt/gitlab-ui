@@ -10,7 +10,7 @@ import { ANNOTATIONS_SERIES_NAME, ANNOTATIONS_COMPONENT_TYPE } from './constants
  */
 export const seriesHasAnnotations = (series = []) =>
   (series || []).filter(
-    seriesData =>
+    (seriesData) =>
       seriesData.name === ANNOTATIONS_SERIES_NAME &&
       seriesData[ANNOTATIONS_COMPONENT_TYPE]?.data?.length
   ).length !== 0;
@@ -43,10 +43,7 @@ export const timeSeriesDateFormatter = (d = '') => {
   }
   const date = new Date(d);
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date
-    .getDate()
-    .toString()
-    .padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
 
   return `${date.getFullYear()}-${month}-${day}`;
 };

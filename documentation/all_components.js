@@ -4,5 +4,5 @@ import * as chartComponents from '../charts';
 export const gitlabComponents = { ...components, ...chartComponents };
 export const gitlabChartComponents = { ...chartComponents };
 
-export const componentValidator = componentName =>
+export const componentValidator = (componentName) =>
   Object.keys(gitlabComponents).includes(componentName);

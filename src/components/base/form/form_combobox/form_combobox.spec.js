@@ -42,10 +42,10 @@ describe('GlFormCombobox', () => {
   // needs new selector now
   const findDropdown = () => wrapper.find('[data-testid="combobox-dropdown"]');
   const findDropdownOptions = () =>
-    wrapper.findAll(GlDropdownItem).wrappers.map(item => item.text());
+    wrapper.findAll(GlDropdownItem).wrappers.map((item) => item.text());
   const findInput = () => wrapper.find(GlFormInput);
   const findInputValue = () => findInput().element.value;
-  const setInput = val => findInput().setValue(val);
+  const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
 
   afterEach(() => {

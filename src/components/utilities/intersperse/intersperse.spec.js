@@ -25,7 +25,7 @@ describe('Intersperse Component', () => {
     ({ defaultSlotContent, selectorsToCheck }) => {
       createComponent(defaultSlotContent);
 
-      selectorsToCheck.forEach(selector => {
+      selectorsToCheck.forEach((selector) => {
         expect(wrapper.find(selector).exists()).toBe(true);
       });
     }

@@ -33,7 +33,7 @@ export default {
 
   watch: {
     initialValue(newValue) {
-      this.activeIdx = this.registeredItems.findIndex(item => item.value === newValue);
+      this.activeIdx = this.registeredItems.findIndex((item) => item.value === newValue);
     },
   },
 

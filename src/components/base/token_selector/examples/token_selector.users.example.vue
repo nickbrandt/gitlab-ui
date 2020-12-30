@@ -168,7 +168,7 @@ export default {
     },
     filterUsers() {
       setTimeout(() => {
-        this.filteredUsers = this.users.filter(user => {
+        this.filteredUsers = this.users.filter((user) => {
           const searchQuery = this.inputText.toLowerCase();
           return (
             user.name.toLowerCase().includes(searchQuery) ||

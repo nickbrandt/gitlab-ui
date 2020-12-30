@@ -11,7 +11,7 @@ jest.mock('~/directives/tooltip');
 const FakeToken = {
   props: ['active'],
   inheritAttrs: false,
-  render: h => h('div'),
+  render: (h) => h('div'),
 };
 
 const localVue = createLocalVue();
@@ -25,7 +25,7 @@ describe('Filtered search', () => {
 
   const findSearchBox = () => wrapper.find({ name: 'GlSearchBoxByClickStub' });
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapper = shallowMount(GlFilteredSearch, {
       propsData: { ...defaultProps, ...props },
       localVue,
@@ -82,8 +82,8 @@ describe('Filtered search', () => {
       });
 
       const inputEventArgs = wrapper.emitted().input[0][0];
-      expect(inputEventArgs.every(t => t.type === TERM_TOKEN_TYPE)).toBe(true);
-      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two', '']);
+      expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
+      expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
 
     it('splits strings if needed', () => {
@@ -92,8 +92,8 @@ describe('Filtered search', () => {
       });
 
       const inputEventArgs = wrapper.emitted().input[0][0];
-      expect(inputEventArgs.every(t => t.type === TERM_TOKEN_TYPE)).toBe(true);
-      expect(inputEventArgs.map(t => t.value.data)).toStrictEqual(['one', 'two', '']);
+      expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
+      expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
   });
 
@@ -130,7 +130,7 @@ describe('Filtered search', () => {
       wrapper.find(FakeToken).vm.$emit('deactivate');
       return wrapper.vm.$nextTick().then(() => {
         expect(
-          wrapper.findAll({ ref: 'tokens' }).filter(w => w.props('active') === true)
+          wrapper.findAll({ ref: 'tokens' }).filter((w) => w.props('active') === true)
         ).toHaveLength(0);
       });
     });
@@ -146,10 +146,7 @@ describe('Filtered search', () => {
         .$nextTick()
         .then(() => {
           wrapper.find(FakeToken).vm.$emit('activate');
-          wrapper
-            .findAll(FakeToken)
-            .at(1)
-            .vm.$emit('deactivate');
+          wrapper.findAll(FakeToken).at(1).vm.$emit('deactivate');
           return wrapper.vm.$nextTick();
         })
         .then(() => {
@@ -271,12 +268,7 @@ describe('Filtered search', () => {
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
       wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
       return wrapper.vm.$nextTick().then(() => {
-        expect(
-          wrapper
-            .findAll(GlFilteredSearchTerm)
-            .at(2)
-            .props('active')
-        ).toBe(true);
+        expect(wrapper.findAll(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
           { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
           { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
@@ -379,7 +371,7 @@ describe('Filtered search integration tests', () => {
     },
   ];
 
-  const mountComponent = props => {
+  const mountComponent = (props) => {
     wrapper = mount(GlFilteredSearch, {
       localVue,
       propsData: {
@@ -389,7 +381,7 @@ describe('Filtered search integration tests', () => {
     });
   };
 
-  const activate = idx =>
+  const activate = (idx) =>
     wrapper
       .findAll(GlFilteredSearchTerm)
       .at(idx)
@@ -399,7 +391,7 @@ describe('Filtered search integration tests', () => {
   const findInput = () =>
     wrapper
       .findAll(GlFilteredSearchTerm)
-      .filter(t => t.props().active)
+      .filter((t) => t.props().active)
       .at(0)
       .find('input');
 
@@ -437,7 +429,7 @@ describe('Filtered search integration tests', () => {
       const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(true);
       expect(suggestions.findAll(GlFilteredSearchSuggestion)).toHaveLength(
-        testTokens.filter(t => !t.disabled).length
+        testTokens.filter((t) => !t.disabled).length
       );
     });
 
@@ -522,13 +514,7 @@ describe('Filtered search integration tests', () => {
         return wrapper.vm.$nextTick();
       })
       .then(() => {
-        expect(
-          wrapper
-            .findAll(GlFilteredSearchTerm)
-            .at(1)
-            .find('input')
-            .exists()
-        ).toBe(true);
+        expect(wrapper.findAll(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(true);
       });
   });
 
@@ -539,10 +525,7 @@ describe('Filtered search integration tests', () => {
       .$nextTick()
       .then(() => {
         // Unfortunately backspace is not working in JSDOM
-        wrapper
-          .findAll(GlFilteredSearchTerm)
-          .at(1)
-          .vm.$emit('destroy');
+        wrapper.findAll(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
         return wrapper.vm.$nextTick();
       })
       .then(() => {
@@ -556,7 +539,7 @@ describe('Filtered search integration tests', () => {
     mountComponent({ value: ['one two three'] });
     wrapper
       .findAll('button')
-      .filter(b => b.attributes('name') === 'clear')
+      .filter((b) => b.attributes('name') === 'clear')
       .trigger('click');
     return wrapper.vm.$nextTick().then(() => {
       expect(wrapper.findAll(GlFilteredSearchTerm)).toHaveLength(1);

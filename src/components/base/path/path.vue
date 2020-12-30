@@ -26,7 +26,7 @@ export default {
       type: String,
       required: false,
       default: 'indigo',
-      validator: theme => glThemes.includes(theme),
+      validator: (theme) => glThemes.includes(theme),
     },
     backgroundColor: {
       type: String,
@@ -63,7 +63,7 @@ export default {
     },
   },
   mounted() {
-    const selectedIndex = this.items.findIndex(item => item.selected);
+    const selectedIndex = this.items.findIndex((item) => item.selected);
     this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
   },
   methods: {
@@ -80,7 +80,7 @@ export default {
       this.width = width;
     },
     scrollPathLeft() {
-      const previousItemToScollTo = findLast(this.$refs.pathListItems, listItem => {
+      const previousItemToScollTo = findLast(this.$refs.pathListItems, (listItem) => {
         return listItem.offsetLeft < this.leftHandBoundary;
       });
 
@@ -96,7 +96,7 @@ export default {
     },
     scrollPathRight() {
       const nextItemToScollTo = this.$refs.pathListItems.find(
-        listItem => listItem.offsetLeft + listItem.offsetWidth > this.rightHandBoundary
+        (listItem) => listItem.offsetLeft + listItem.offsetWidth > this.rightHandBoundary
       );
       let scrollTo = nextItemToScollTo.offsetLeft - BOUNDARY_WIDTH;
 

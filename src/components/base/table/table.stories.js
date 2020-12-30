@@ -67,7 +67,7 @@ documentedStoriesOf('base|table', readme)
       {
         key: 'col_2',
         label: 'Column 2',
-        formatter: value => `${text('formatterExample', '$')}${value}`,
+        formatter: (value) => `${text('formatterExample', '$')}${value}`,
       },
     ],
     items: tableItems,

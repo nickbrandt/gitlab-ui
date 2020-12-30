@@ -154,7 +154,7 @@ describe('Daterange Picker', () => {
     const customClass = 'foobar';
 
     const findLabelsWithCustomClass = () =>
-      wrapper.findAll('label').filter(label => label.classes(customClass));
+      wrapper.findAll('label').filter((label) => label.classes(customClass));
 
     it('does not have the class by default', () => {
       factory();

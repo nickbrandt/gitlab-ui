@@ -116,7 +116,7 @@ describe('sparkline chart component', () => {
 
   it.each(Object.keys(sparkline.variants))(
     'accepts a value that is in `theme.sparkline.variants` as a valid variant',
-    validVariant => {
+    (validVariant) => {
       expect(getVariantPropValidator()(validVariant)).toBe(true);
     }
   );

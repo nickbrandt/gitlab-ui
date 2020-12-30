@@ -30,15 +30,15 @@ export function rgbFromHex(hex) {
   const cleanHex = hex.replace('#', '');
   const rgb =
     cleanHex.length === 3
-      ? cleanHex.split('').map(val => val + val)
+      ? cleanHex.split('').map((val) => val + val)
       : cleanHex.match(/[\da-f]{2}/gi);
-  const [r, g, b] = rgb.map(val => parseInt(val, 16));
+  const [r, g, b] = rgb.map((val) => parseInt(val, 16));
   return [r, g, b];
 }
 
 export function rgbFromString(color, sub) {
   const rgb = color.substring(sub, color.length - 1).split(',');
-  const [r, g, b] = rgb.map(i => parseInt(i, 10));
+  const [r, g, b] = rgb.map((i) => parseInt(i, 10));
   return [r, g, b];
 }
 
@@ -68,9 +68,7 @@ export function colorFromBackground(backgroundColor) {
 }
 
 export function uid() {
-  return Math.random()
-    .toString(36)
-    .substring(2);
+  return Math.random().toString(36).substring(2);
 }
 
 /**
@@ -100,7 +98,7 @@ export function isElementFocusable(elt) {
  */
 
 export function focusFirstFocusableElement(elts) {
-  const focusableElt = elts.find(el => isElementFocusable(el));
+  const focusableElt = elts.find((el) => isElementFocusable(el));
 
   if (focusableElt) focusableElt.focus();
 }

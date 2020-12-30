@@ -32,7 +32,7 @@ describe('Modal component', () => {
   const findSecondaryButton = () => wrapper.find('.js-modal-action-secondary');
   const findCancelButton = () => wrapper.find('.js-modal-action-cancel');
 
-  const createComponent = props => {
+  const createComponent = (props) => {
     wrapperListeners = {
       canceled: jest.fn(),
       close: jest.fn(),
@@ -113,7 +113,7 @@ describe('Modal component', () => {
     });
 
     it('does not emit anything', () => {
-      Object.keys(wrapperListeners).forEach(evt => {
+      Object.keys(wrapperListeners).forEach((evt) => {
         expect(wrapperListeners[evt]).not.toHaveBeenCalled();
       });
     });

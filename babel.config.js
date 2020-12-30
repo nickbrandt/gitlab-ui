@@ -1,4 +1,4 @@
-module.exports = api => {
+module.exports = (api) => {
   // base config for rollup
   const babelPresetEnv = ['@babel/preset-env', { modules: false, targets: { ie: 11 } }];
   const config = {

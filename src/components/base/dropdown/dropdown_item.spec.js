@@ -6,7 +6,7 @@ import GlDropdownItem from './dropdown_item.vue';
 describe('dropdown item', () => {
   let wrapper;
 
-  const buildWrapper = propsData => {
+  const buildWrapper = (propsData) => {
     wrapper = shallowMount(GlDropdownItem, {
       propsData,
     });
