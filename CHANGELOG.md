@@ -1,3 +1,10 @@
+# [25.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.1.1...v25.2.0) (2020-12-30)
+
+
+### Features
+
+* **Banner:** Use GlButton for banner close ([c766a93](https://gitlab.com/gitlab-org/gitlab-ui/commit/c766a9331db9c8eb5d65696a9c6af4b74ead3bf2))
+
 ## [25.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.1.0...v25.1.1) (2020-12-29)
 
 
