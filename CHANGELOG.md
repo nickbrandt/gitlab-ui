@@ -3135,7 +3135,7 @@ upgrade contains the following breaking changes:
 - BPopover and BTooltip components were completely rewritten
 
 For more information about this upgrade, check BootstrapVue changelog
-page https://bootstrap-vue.js.org/docs/misc/changelog
+page https://bootstrap-vue.org/docs/misc/changelog
 
 # [8.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v8.20.0...v8.21.0) (2020-01-23)
 

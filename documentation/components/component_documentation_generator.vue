@@ -307,7 +307,7 @@ export default {
       <p>
         This component uses
         <a
-          :href="`https://bootstrap-vue.js.org/docs/components/${bootstrapComponentLink}`"
+          :href="`https://bootstrap-vue.org/docs/components/${bootstrapComponentLink}`"
           target="blank"
           ><code>&lt;{{ bootstrapComponentName }}&gt;</code></a
         >

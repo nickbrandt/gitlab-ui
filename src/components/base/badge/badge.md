@@ -17,7 +17,7 @@ indicate an issue’s status, a member’s role, or if a branch is protected.
 ## Edge cases
 
 While this component is based on
-[`BBadge`](https://bootstrap-vue.js.org/docs/components/badge) from
+[`BBadge`](https://bootstrap-vue.org/docs/components/badge) from
 `bootstrap-vue`, it is not a drop-in replacement. Specifically, this component:
 
  - Has a different set of valid `variant`s. See the examples or props
