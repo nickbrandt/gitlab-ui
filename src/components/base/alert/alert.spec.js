@@ -73,13 +73,6 @@ describe('Alert component', () => {
     expect(titleWrapper.text()).toContain(title);
   });
 
-  it('sets the given dismissLabel on the close button', () => {
-    const dismissLabel = 'foo';
-    createComponent({ propsData: { dismissLabel } });
-
-    expect(findDismissButton().attributes('aria-label')).toBe(dismissLabel);
-  });
-
   describe('given primaryButtonText', () => {
     beforeEach(() => {
       createComponent({ propsData: { primaryButtonText } });

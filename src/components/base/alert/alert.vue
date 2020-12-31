@@ -1,6 +1,7 @@
 <script>
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import {
   alertVariantOptions,
   alertVariantIconMap,
@@ -11,6 +12,7 @@ export default {
   components: {
     GlIcon,
     GlButton,
+    CloseButton,
   },
   props: {
     title: {
@@ -124,14 +126,11 @@ export default {
         :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
       />
 
-      <gl-button
+      <close-button
         v-if="dismissible"
         ref="dismiss"
-        category="tertiary"
-        size="small"
-        icon="close"
         class="gl-alert-dismiss"
-        :aria-label="dismissLabel"
+        :label="dismissLabel"
         @click="onDismiss"
       />
 
