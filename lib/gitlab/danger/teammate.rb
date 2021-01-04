@@ -2,6 +2,9 @@
 
 require 'cgi'
 
+GITLAB_PROJECT_ID = 'gitlab'
+GITLAB_UI_PROJECT_ID = 'gitlab-ui'
+
 module Gitlab
   module Danger
     class Teammate
@@ -18,22 +21,28 @@ module Gitlab
         "[#{name}](https://gitlab.com/#{username}) (`@#{username}`)"
       end
 
-      def in_project?(name)
-        projects&.has_key?(name)
+      def in_project?
+        projects&.has_key?(GITLAB_PROJECT_ID) || projects&.has_key?(GITLAB_UI_PROJECT_ID)
       end
 
       # Traintainers also count as reviewers
-      def reviewer?(project, category)
-        has_capability?(project, category, :reviewer) ||
-          traintainer?(project, category)
+      def reviewer?(category)
+        !has_capability?(GITLAB_UI_PROJECT_ID, category, :maintainer) &&
+          (
+            has_capability?(GITLAB_PROJECT_ID, category, :reviewer) ||
+            has_capability?(GITLAB_UI_PROJECT_ID, category, :reviewer) ||
+            traintainer?(category)
+          )
       end
 
-      def traintainer?(project, category)
-        has_capability?(project, category, :trainee_maintainer)
+      def traintainer?(category)
+        has_capability?(GITLAB_PROJECT_ID, category, :trainee_maintainer) ||
+          has_capability?(GITLAB_UI_PROJECT_ID, category, :trainee_maintainer)
       end
 
-      def maintainer?(project, category)
-        has_capability?(project, category, :maintainer)
+      def maintainer?(category)
+        has_capability?(GITLAB_PROJECT_ID, category, :maintainer) ||
+          has_capability?(GITLAB_UI_PROJECT_ID, category, :maintainer)
       end
 
       def status
@@ -52,12 +61,12 @@ module Gitlab
 
       # @return [Boolean]
       def out_of_office?
-        status&.dig("message")&.match?(/OOO/i) || false
+        status&.dig('message')&.match?(/OOO/i) || false
       end
 
       # @return [Boolean]
       def has_capacity?
-        status&.dig("emoji") != 'red_circle'
+        status&.dig('emoji') != 'red_circle'
       end
 
       def has_capability?(project, category, kind)

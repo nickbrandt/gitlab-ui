@@ -29,8 +29,8 @@ module Gitlab
       # project_name.
       #
       # @return [Array<Teammate>]
-      def project_team(project_name)
-        team.select { |member| member.in_project?(project_name) }
+      def project_team
+        team.select { |member| member.in_project? }
       end
 
       def new_random(seed)
