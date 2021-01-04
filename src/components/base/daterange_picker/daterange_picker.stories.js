@@ -3,7 +3,7 @@ import { documentedStoriesOf } from '../../../../documentation/documented_storie
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';
 
-const currentYear = new Date().getFullYear();
+const currentYear = 2020;
 
 const defaultStartDate = new Date(currentYear, 7, 27);
 const defaultEndDate = new Date(currentYear, 7, 28);
