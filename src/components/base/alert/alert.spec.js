@@ -40,7 +40,7 @@ describe('Alert component', () => {
     });
 
     it('clicking on dismiss button emits a dismiss event', () => {
-      findDismissButton().vm.$emit('click');
+      findDismissButton().trigger('click');
 
       expect(wrapper.emitted('dismiss')).toHaveLength(1);
     });
