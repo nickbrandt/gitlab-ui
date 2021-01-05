@@ -1,3 +1,10 @@
+# [25.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.3.1...v25.4.0) (2021-01-05)
+
+
+### Features
+
+* **focus:** Initial update to focus state ([7e3ba9f](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e3ba9f673e9db625dade25098d36d5ddcf07712))
+
 ## [25.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.3.0...v25.3.1) (2021-01-05)
 
 
