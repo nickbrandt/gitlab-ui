@@ -25,6 +25,10 @@
       @include gl-btn-gl-segmented-button-active($gray-200);
     }
 
+    &:focus-within {
+      @include gl-focus;
+    }
+
     &.disabled,
     &[disabled] {
       @include gl-bg-gray-50;

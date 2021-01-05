@@ -10,6 +10,7 @@
     @include gl-line-height-normal;
     @include gl-px-4;
     @include gl-py-3;
+    @include gl-text-decoration-none;
 
     &.prev-page-item,
     &.next-page-item {
@@ -21,12 +22,28 @@
       @include gl-tmp-button-hover($gray-400, $gray-50);
       @include gl-z-index-0;
     }
+
+    &:not(.active):focus {
+      @include gl-focus($gl-border-size-2, $gray-400);
+      @include gl-bg-gray-50;
+    }
+
+    &:not(.active):active,
+    &:not(.active).active {
+      @include gl-focus($gl-border-size-2, $gray-600);
+      @include gl-bg-gray-100;
+
+      &:focus {
+        @include gl-focus($gl-border-size-2, $gray-600);
+      }
+    }
   }
 
   .page-item {
     &:not(.disabled) a.active {
       @include gl-bg-blue-500;
       @include gl-border-blue-600;
+      @include gl-text-white;
       @include gl-z-index-2;
     }
 

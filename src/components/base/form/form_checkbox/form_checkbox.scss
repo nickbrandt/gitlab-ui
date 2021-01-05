@@ -30,6 +30,12 @@
 
   .form-check-input {
     @include gl-tmp-form-checkbox-inline-styles;
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus;
+    }
   }
 
   .form-check-label {

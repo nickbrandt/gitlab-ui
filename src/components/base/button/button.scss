@@ -379,7 +379,7 @@
       &:active,
       &:focus,
       &:focus:active {
-        @include gl-focus(null);
+        @include gl-focus;
       }
     }
   }
@@ -480,21 +480,16 @@
       @include gl-text-blue-500;
     }
 
-    &:focus {
-      @include gl-bg-transparent;
-      @include gl-focus(null, false);
-    }
-
     &:active {
-      @include gl-bg-transparent;
-      @include gl-focus;
       @include gl-text-blue-700;
       @include gl-text-decoration-underline;
+    }
 
-      &:focus {
-        @include gl-bg-transparent;
-        @include gl-focus(null, false);
-      }
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-bg-transparent;
+      @include gl-focus;
     }
 
     &.disabled,

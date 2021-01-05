@@ -48,6 +48,12 @@ $breadcrumb-max-width: $grid-size * 16;
     @include media-breakpoint-down(xs) {
       @include str-truncated($breadcrumb-max-width);
     }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus;
+    }
   }
 }
 
