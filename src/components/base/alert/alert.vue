@@ -1,7 +1,6 @@
 <script>
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
-import CloseButton from '../../shared_components/close_button/close_button.vue';
 import {
   alertVariantOptions,
   alertVariantIconMap,
@@ -12,7 +11,6 @@ export default {
   components: {
     GlIcon,
     GlButton,
-    CloseButton,
   },
   props: {
     title: {
@@ -120,39 +118,40 @@ export default {
 
 <template>
   <div :class="['gl-alert', variantClass]" role="alert">
-    <div class="gl-alert-container">
-      <gl-icon
-        :name="iconName"
-        :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
-      />
+    <gl-icon
+      :name="iconName"
+      :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
+    />
 
-      <close-button
-        v-if="dismissible"
-        ref="dismiss"
-        class="gl-alert-dismiss"
-        :label="dismissLabel"
-        @click="onDismiss"
-      />
+    <button
+      v-if="dismissible"
+      ref="dismiss"
+      type="button"
+      class="gl-alert-dismiss"
+      :aria-label="dismissLabel"
+      @click="onDismiss"
+    >
+      <gl-icon name="close" />
+    </button>
 
-      <div class="gl-alert-content">
-        <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
-        <div class="gl-alert-body">
-          <slot></slot>
-        </div>
-        <div v-if="shouldRenderActions" class="gl-alert-actions">
-          <slot name="actions">
-            <gl-button
-              v-for="(actionButton, index) in actionButtons"
-              :key="index"
-              class="gl-alert-action"
-              v-bind="actionButton.attrs"
-              v-on="actionButton.listeners"
-            >
-              {{ actionButton.text }}
-            </gl-button>
-          </slot>
-        </div>
-      </div>
+    <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
+
+    <div class="gl-alert-body">
+      <slot></slot>
+    </div>
+
+    <div v-if="shouldRenderActions" class="gl-alert-actions">
+      <slot name="actions">
+        <gl-button
+          v-for="(actionButton, index) in actionButtons"
+          :key="index"
+          class="gl-alert-action"
+          v-bind="actionButton.attrs"
+          v-on="actionButton.listeners"
+        >
+          {{ actionButton.text }}
+        </gl-button>
+      </slot>
     </div>
   </div>
 </template>

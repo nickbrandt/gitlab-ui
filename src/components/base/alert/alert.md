@@ -8,7 +8,7 @@ not be derived by a user’s action.
 ## Dismissible alerts
 
 Alerts don't handle their own visibility, so it's the parent component's
-responsibility to listen for the `dismiss` event and hide the alert in some way.
+responsbility to listen for the `dismiss` event and hide the alert in some way.
 For example:
 
 ```html
@@ -30,7 +30,3 @@ For example:
   ...
 </template>
 ```
-
-## Sticky alerts
-
-Only the error alert uses `position: sticky`. An error alert happens in a global context that impacts the entire experience, while other alert variants are contextual within a page and scroll with content.
