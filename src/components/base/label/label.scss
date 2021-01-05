@@ -15,6 +15,10 @@ $label-max-width: 100%;
     background-color: var(--label-background-color);
   }
 
+  &:focus-within {
+    @include gl-focus($gl-border-size-2, var(--label-background-color), true);
+  }
+
   .gl-label-link {
     @include gl-line-height-normal;
     @include gl-display-flex;

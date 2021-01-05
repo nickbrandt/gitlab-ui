@@ -22,6 +22,12 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-appearance-none;
   @include gl-text-truncate;
 
+  &:active,
+  &:focus,
+  &:focus:active {
+    @include gl-focus($gl-border-size-1, $gray-900, true);
+  }
+
   &:disabled {
     @include gl-bg-gray-10;
     @include gl-inset-border-1-gray-100;

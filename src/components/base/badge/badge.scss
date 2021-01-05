@@ -24,13 +24,17 @@
       color: $hover-color;
       // Needed to override bootstrap's badge variant background
       background-color: $bg;
-      @include gl-focus($gl-border-size-1, $white-transparent);
     }
 
     &.active,
     &:active {
       color: $active-color;
       background-color: $active-bg;
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
       @include gl-focus($gl-border-size-1, $white-transparent);
     }
   }

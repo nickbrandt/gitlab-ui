@@ -165,6 +165,7 @@ export default {
             ref="closeHistory"
             v-gl-tooltip.hover="{ container: tooltipContainer }"
             :title="closeButtonTitle"
+            category="tertiary"
             class="gl-search-box-by-click-close-history-button"
             name="close"
             icon="close"

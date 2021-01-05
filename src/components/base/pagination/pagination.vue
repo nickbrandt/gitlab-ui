@@ -247,7 +247,7 @@ export default {
       const attrs = { ...commonAttrs };
       const listeners = {};
       if (isActivePage) {
-        attrs.class.push('active', 'btn-primary');
+        attrs.class.push('active');
       }
       // Disable previous and/or next buttons if needed
       if (this.isLinkBased) {
@@ -305,7 +305,7 @@ export default {
     >
       <component
         :is="prevPageIsDisabled ? 'span' : 'a'"
-        class="page-link prev-page-item gl-display-flex"
+        class="gl-link page-link prev-page-item gl-display-flex"
         :aria-disabled="prevPageIsDisabled"
         :aria-label="labelPrevPage || labelPage(value - 1)"
         :href="isLinkBased ? linkGen(value - 1) : '#'"
@@ -347,7 +347,7 @@ export default {
     >
       <component
         :is="nextPageIsDisabled ? 'span' : 'a'"
-        class="page-link next-page-item gl-display-flex"
+        class="gl-link page-link next-page-item gl-display-flex"
         :aria-disabled="nextPageIsDisabled"
         :aria-label="labelNextPage || labelPage(value + 1)"
         :href="isLinkBased ? linkGen(value + 1) : '#'"

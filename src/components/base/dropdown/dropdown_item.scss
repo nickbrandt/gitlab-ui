@@ -70,7 +70,6 @@
       @include gl-bg-gray-50;
       @include gl-text-decoration-none;
       @include gl-text-gray-900;
-      @include gl-outline-0;
 
       // make sure the text color is not overridden
       &.text-danger {
@@ -80,6 +79,12 @@
       .avatar {
         @include gl-border-white;
       }
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus;
     }
   }
 }

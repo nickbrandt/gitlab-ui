@@ -43,26 +43,68 @@
 
 .gl-tab-nav-item-active-indigo {
   @include gl-inset-border-b-2-theme-indigo-500;
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-indigo-500, $focus-ring;
+    @include gl-outline-none;
+  }
 }
 
 .gl-tab-nav-item-active-blue {
   @include gl-inset-border-b-2-theme-blue-500;
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-blue-500, $focus-ring;
+    @include gl-outline-none;
+  }
 }
 
 .gl-tab-nav-item-active-light-blue {
   @include gl-inset-border-b-2-theme-light-blue-500;
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-light-blue-500, $focus-ring;
+    @include gl-outline-none;
+  }
 }
 
 .gl-tab-nav-item-active-red {
   @include gl-inset-border-b-2-theme-red-500;
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-red-500, $focus-ring;
+    @include gl-outline-none;
+  }
 }
 
 .gl-tab-nav-item-active-light-red {
   @include gl-inset-border-b-2-theme-light-red-500;
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-light-red-500, $focus-ring;
+    @include gl-outline-none;
+  }
 }
 
 .gl-tab-nav-item-active-green {
   @include gl-inset-border-b-2-theme-green-500;
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-green-500, $focus-ring;
+    @include gl-outline-none;
+  }
 }
 
 .gl-actions-tabs-start {

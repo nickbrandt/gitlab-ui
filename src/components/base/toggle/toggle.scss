@@ -85,7 +85,8 @@
   }
 
   &:active,
-  &:focus {
+  &:focus,
+  &:focus:active {
     @include gl-focus;
   }
 
