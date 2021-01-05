@@ -52,20 +52,8 @@
 
 .gl-alert-dismiss {
   @include gl-absolute;
-  @include gl-top-0;
-  @include gl-right-0;
-  @include gl-p-5;
-  @include gl-line-height-normal;
-  @include gl-bg-none;
-  @include gl-border-none;
-  @include gl-text-gray-500;
-
-  > svg {
-    @include gl-fill-current-color;
-    @include gl-w-5;
-    @include gl-h-5;
-    @include gl-vertical-align-middle;
-  }
+  @include gl-top-5;
+  @include gl-right-5;
 }
 
 .gl-alert-max-content {
@@ -79,14 +67,12 @@
     @include gl-flex-shrink-0;
   }
 
-  // Todo: Once the button is migrated to the gl-button it can be included as a flexbox item.
-
-  /* .gl-alert-dismiss {
+  .gl-alert-dismiss {
     @include gl-static;
     @include gl-align-self-start;
     @include gl-ml-5;
     order: 3;
-  } */
+  }
 
   .gl-alert-container {
     @include gl-relative;
@@ -99,8 +85,6 @@
 
   .gl-alert-content {
     @include gl-flex-grow-1;
-    // Todo: Padding can be removed once the dismiss button has been migrated to gl-button and is a flexbox item.
-    @include gl-pr-9;
   }
 
   .gl-alert-dismiss {

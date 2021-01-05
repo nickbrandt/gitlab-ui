@@ -8,7 +8,7 @@ not be derived by a user’s action.
 ## Dismissible alerts
 
 Alerts don't handle their own visibility, so it's the parent component's
-responsbility to listen for the `dismiss` event and hide the alert in some way.
+responsibility to listen for the `dismiss` event and hide the alert in some way.
 For example:
 
 ```html

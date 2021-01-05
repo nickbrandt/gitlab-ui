@@ -4,13 +4,13 @@ import {
   alertVariantIconMap,
   newButtonCategoryOptions,
 } from '../../../utils/constants';
-import GlButton from '../button/button.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
     GlIcon,
-    GlButton,
+    CloseButton,
   },
   props: {
     title: {
@@ -129,16 +129,13 @@ export default {
         :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
       />
 
-      <button
+      <close-button
         v-if="dismissible"
         ref="dismiss"
-        type="button"
         class="gl-alert-dismiss"
-        :aria-label="dismissLabel"
+        :label="dismissLabel"
         @click="onDismiss"
-      >
-        <gl-icon name="close" />
-      </button>
+      />
 
       <div class="gl-alert-content">
         <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
