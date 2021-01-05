@@ -12,6 +12,19 @@
       @include gl-text-blue-700;
     }
   }
+
+  @include media-breakpoint-up(xl) {
+    padding-left: calc(((100vw - #{$limited-layout-width}) / 2) + #{$gl-spacing-scale-8});
+    padding-right: calc(((100vw - #{$limited-layout-width}) / 2) + #{$gl-spacing-scale-8});
+
+    .gl-alert-icon {
+      left: calc(((100vw - #{$limited-layout-width}) / 2) + #{$gl-spacing-scale-3});
+    }
+
+    .gl-alert-dismiss {
+      right: calc(((100vw - #{$limited-layout-width}) / 2) + #{$gl-spacing-scale-3});
+    }
+  }
 }
 
 .gl-alert-title {
