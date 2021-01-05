@@ -5,7 +5,6 @@ import AlertTextLinksExample from './alert.text_links.example.vue';
 import AlertTitleExample from './alert.title.example.vue';
 import AlertNonDismissibleExample from './alert.non_dismissible.example.vue';
 import AlertVariantsExample from './alert.variants.example.vue';
-import AlertErrorExample from './alert.error.example.vue';
 
 export default [
   {
@@ -46,12 +45,6 @@ export default [
         name: 'Non-dismissible',
         description: 'Alert which is not dismissible',
         component: AlertNonDismissibleExample,
-      },
-      {
-        id: 'alert-error',
-        name: 'Error',
-        description: 'Error alert',
-        component: AlertErrorExample,
       },
     ],
   },
