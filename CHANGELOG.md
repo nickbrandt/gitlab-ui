@@ -1,3 +1,10 @@
+# [25.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.2.1...v25.3.0) (2021-01-05)
+
+
+### Features
+
+* **GlTabs:** add action buttons prop ([fccb2e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/fccb2e607aa83fc6aae4c6ae91106d773e752bde))
+
 ## [25.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.2.0...v25.2.1) (2020-12-30)
 
 
