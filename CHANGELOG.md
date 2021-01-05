@@ -1,3 +1,15 @@
+## [25.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.3.0...v25.3.1) (2021-01-05)
+
+
+### Bug Fixes
+
+* **GlButton:** Use multiply for tertiary button ([c7b11e0](https://gitlab.com/gitlab-org/gitlab-ui/commit/c7b11e0da506cd74cfef314f9f464598f83eae44))
+
+
+### Reverts
+
+* **GlAlert:** alert template changes ([b75c897](https://gitlab.com/gitlab-org/gitlab-ui/commit/b75c8970e72f3d6c7df64c3133c398ff6b3db74e))
+
 # [25.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.2.1...v25.3.0) (2021-01-05)
 
 
