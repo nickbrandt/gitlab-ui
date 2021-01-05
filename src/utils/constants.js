@@ -200,6 +200,20 @@ export const modalButtonDefaults = {
   },
 };
 
+export const tabsButtonDefaults = {
+  actionPrimary: {
+    variant: 'success',
+    category: 'primary',
+  },
+  actionSecondary: {
+    variant: 'default',
+    category: 'secondary',
+  },
+  actionTertiary: {
+    variant: 'default',
+  },
+};
+
 export const tokenVariants = ['default', 'search-type', 'search-value'];
 
 export const resizeDebounceTime = 200;

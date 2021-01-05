@@ -1,14 +1,23 @@
-import { shallowMount, mount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import Tabs from './tabs.vue';
+import { GlButton } from '../../../../../index';
+import { tabsButtonDefaults } from '../../../../utils/constants';
+
+const getActionButtonProp = ({ type, text = `${type} action!` }) => ({
+  [`action${type}`]: {
+    text,
+  },
+});
 
 describe('tabs component', () => {
   let wrapper;
 
-  const buildTabs = (props = {}, mountFn = shallowMount) => {
+  const buildTabs = (props = {}, mountFn = shallowMount, options = {}) => {
     wrapper = mountFn(Tabs, {
       propsData: {
         ...props,
       },
+      ...options,
     });
   };
 
@@ -50,6 +59,112 @@ describe('tabs component', () => {
 
       expect(findContent().classes('my-class')).toBe(true);
       expect(findContent().classes('my-class-2')).toBe(true);
+    });
+  });
+
+  describe('actions buttons', () => {
+    describe('when no actions are provided', () => {
+      it('does not render the actions tabs', () => {
+        buildTabs({}, mount);
+
+        expect(wrapper.find('[data-testid="actions-tabs-start"').exists()).toBe(false);
+        expect(wrapper.find('[data-testid="actions-tabs-end"').exists()).toBe(false);
+      });
+
+      it('renders BV tabs slots', async () => {
+        buildTabs({}, mount, {
+          slots: {
+            'tabs-start': `<div class="tabs-start-slot"></div>`,
+            'tabs-end': `<div class="tabs-end-slot"></div>`,
+          },
+        });
+
+        expect(wrapper.find('.tabs-start-slot').exists()).toBe(true);
+        expect(wrapper.find('.tabs-end-slot').exists()).toBe(true);
+      });
+    });
+
+    describe('when the actions are provided', () => {
+      describe.each`
+        buttonType
+        ${'Primary'}
+        ${'Secondary'}
+        ${'Tertiary'}
+      `('renders the $buttonType action buttons', ({ buttonType }) => {
+        beforeEach(() => {
+          const props = getActionButtonProp({ type: buttonType });
+          buildTabs(props, mount);
+        });
+
+        it('renders two of a kind', () => {
+          expect(wrapper.findAll(GlButton)).toHaveLength(2);
+        });
+
+        it('passes the correct defaults attributes', () => {
+          const testId = `action-${buttonType.toLowerCase()}`;
+
+          expect(wrapper.find(`[data-testid="${testId}"]`).exists()).toBe(true);
+          expect(wrapper.find(`[data-testid="${testId}"]`).props()).toMatchObject(
+            tabsButtonDefaults[`action${buttonType}`]
+          );
+        });
+      });
+
+      it('correctly passes the props to the button', () => {
+        buildTabs(
+          {
+            actionPrimary: {
+              text: 'A button!',
+              attributes: {
+                variant: 'success',
+                category: 'primary',
+              },
+            },
+          },
+          mount
+        );
+
+        expect(wrapper.find(GlButton).props()).toMatchObject({
+          variant: 'success',
+          category: 'primary',
+        });
+      });
+
+      it.each`
+        buttonType
+        ${'Primary'}
+        ${'Secondary'}
+        ${'Tertiary'}
+      `('emits the $buttonType event when clicked', async ({ buttonType }) => {
+        const testId = `action-${buttonType.toLowerCase()}`;
+        const props = getActionButtonProp({ type: buttonType });
+
+        buildTabs(props, mount);
+        wrapper.find(`[data-testid="${testId}"]`).vm.$emit('click');
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.emitted(`${buttonType.toLowerCase()}`).length).toBe(1);
+      });
+
+      it('only renders action buttons', () => {
+        buildTabs(
+          {
+            actionPrimary: {
+              text: 'Primary action!',
+            },
+          },
+          mount,
+          {
+            slots: {
+              'tabs-start': `<div class="tabs-start-slot"></div>`,
+              'tabs-end': `<div class="tabs-end-slot"></div>`,
+            },
+          }
+        );
+
+        expect(wrapper.find('.tabs-start-slot').exists()).toBe(false);
+        expect(wrapper.find('.tabs-end-slot').exists()).toBe(false);
+      });
     });
   });
 });

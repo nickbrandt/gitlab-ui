@@ -40,3 +40,19 @@ Tabs are used to divide content into meaningful, related sections. Tabs allow us
   </div>
 </div>
 ~~~
+
+**Adding Action Buttons to the Tabs**
+
+Tabs start and end slot can be populated via props: `action-primary`, `action-secondary` and `action-tertiary`.
+These props allow you to handle how a primary, secondary and tertiary button will behave and look. The props receive an object as such:
+~~~js
+{
+  text: 'Save Changes',
+  attributes: [
+    { variant: 'info' },
+    { disabled: this.someState },
+    { class: 'some-class' },
+    ...
+  ]
+}
+~~~
