@@ -2,8 +2,6 @@
 
 require 'digest/md5'
 
-GITLAB_PROJECT_ID = 'gitlab'
-
 MESSAGE = <<~MARKDOWN
   ## Reviewer roulette
 
@@ -36,18 +34,11 @@ MARKDOWN
 NO_REVIEWER = 'No reviewer available'
 NO_MAINTAINER = 'No maintainer available'
 
-def team_for_project(project)
-  roulette.project_team(project)
-rescue StandardError => e
-  warn("Reviewer roulette failed to load #{project} team data: #{e.message}")
-  []
-end
-
-def spin_for_category(team, project, category, random)
+def spin_for_category(team, category, random)
   reviewers, traintainers, maintainers =
     %i[reviewer? traintainer? maintainer?].map do |kind|
       team.select do |member|
-        member.public_send(kind, project, category)
+        member.public_send(kind, category)
       end
     end
 
@@ -67,24 +58,23 @@ categories = changes.keys
 component_labels = helper.component_labels
 
 if changes.any?
+  team = roulette.project_team
   branch_name = gitlab.mr_json['source_branch']
   random = roulette.new_random(branch_name)
 
-  team = team_for_project(GITLAB_PROJECT_ID)
-
   rows = categories.map do |category|
-    spin_for_category(team, GITLAB_PROJECT_ID, category, random)
+    spin_for_category(team, category, random)
   end
 
   # If these are docs-only changes, we need to pick a frontend maintainer for the final review
   if categories == %i[docs]
-    frontend_row = spin_for_category(team, GITLAB_PROJECT_ID, :frontend, random)
+    frontend_row = spin_for_category(team, :frontend, random)
     # We remove the frontend reviewer as the initial review will be performed by a technical writer
     frontend_row[:reviewer] = nil
     rows << frontend_row
   end
 
-  #  Add component-specific UX reviewers
+  # Add component-specific UX reviewers
   component_labels.each do |label|
     ux_teammates = helper.ux_reviewers_for_label(label).map { |username| roulette.teammate_with_username(username) }.compact
     ux_reviewer = roulette.spin_for_person(ux_teammates, random: random)
