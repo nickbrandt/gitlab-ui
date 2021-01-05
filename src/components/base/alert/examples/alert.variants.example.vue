@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      variants: ['danger', 'warning', 'success', 'info', 'tip'],
+      variants: ['danger', 'warning', 'success', 'info', 'tip', 'error'],
     };
   },
 };
@@ -19,7 +19,7 @@ export default {
       secondary-button-text="Secondary"
       class="mb-2"
     >
-      <span class="text-capitalize">{{ variant }}</span> lorem ipsum dolor sit
+      <span class="text-capitalize">{{ variant }}</span> alert message lorem ipsum dolor sit
       <gl-link href="#">text link</gl-link> amet
     </gl-alert>
   </div>
