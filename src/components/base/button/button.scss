@@ -370,6 +370,7 @@
   &.btn-warning {
     &-tertiary {
       @include gl-shadow-none;
+      mix-blend-mode: multiply;
 
       &:hover {
         @include gl-shadow-none;
