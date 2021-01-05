@@ -623,6 +623,13 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+@mixin gl-m-n1 {
+  margin-top: -#{$gl-spacing-scale-1};
+  margin-bottom: -#{$gl-spacing-scale-1};
+  margin-left: -#{$gl-spacing-scale-1};
+  margin-right: -#{$gl-spacing-scale-1};
+}
+
 @mixin gl-my-n1 {
   margin-top: -#{$gl-spacing-scale-1};
   margin-bottom: -#{$gl-spacing-scale-1};
@@ -631,6 +638,13 @@
 @mixin gl-mx-n1 {
   margin-left: -#{$gl-spacing-scale-1};
   margin-right: -#{$gl-spacing-scale-1};
+}
+
+@mixin gl-m-n2 {
+  margin-top: -#{$gl-spacing-scale-2};
+  margin-bottom: -#{$gl-spacing-scale-2};
+  margin-left: -#{$gl-spacing-scale-2};
+  margin-right: -#{$gl-spacing-scale-2};
 }
 
 @mixin gl-my-n2 {
@@ -643,6 +657,13 @@
   margin-right: -#{$gl-spacing-scale-2};
 }
 
+@mixin gl-m-n3 {
+  margin-top: -#{$gl-spacing-scale-3};
+  margin-bottom: -#{$gl-spacing-scale-3};
+  margin-left: -#{$gl-spacing-scale-3};
+  margin-right: -#{$gl-spacing-scale-3};
+}
+
 @mixin gl-my-n3 {
   margin-top: -#{$gl-spacing-scale-3};
   margin-bottom: -#{$gl-spacing-scale-3};
@@ -651,6 +672,13 @@
 @mixin gl-mx-n3 {
   margin-left: -#{$gl-spacing-scale-3};
   margin-right: -#{$gl-spacing-scale-3};
+}
+
+@mixin gl-m-n4 {
+  margin-top: -#{$gl-spacing-scale-4};
+  margin-bottom: -#{$gl-spacing-scale-4};
+  margin-left: -#{$gl-spacing-scale-4};
+  margin-right: -#{$gl-spacing-scale-4};
 }
 
 @mixin gl-my-n4 {
