@@ -34,6 +34,10 @@
   stroke: $blue-400;
 }
 
+@mixin gl-stroke-trans {
+  stroke: transparent;
+}
+
 @mixin gl-fill-gray-400 {
   fill: $gray-400;
 }
