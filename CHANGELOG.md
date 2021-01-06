@@ -1,3 +1,10 @@
+# [25.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.4.0...v25.5.0) (2021-01-06)
+
+
+### Features
+
+* **css:** Add transparent stroke utility ([5873e81](https://gitlab.com/gitlab-org/gitlab-ui/commit/5873e81faa7df12d6a532ac3fa0b9546fec5231f))
+
 # [25.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.3.1...v25.4.0) (2021-01-05)
 
 
