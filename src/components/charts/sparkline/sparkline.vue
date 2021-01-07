@@ -186,13 +186,11 @@ export default {
         :style="{ pointerEvents: 'none' }"
         placement="top"
       >
-        <template>
-          <div slot="title" class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
-          <div slot="default" class="js-tooltip-content d-flex">
-            <span v-if="tooltipLabel" class="pr-4 mr-auto">{{ tooltipLabel }}</span>
-            <strong>{{ tooltip.content }}</strong>
-          </div>
-        </template>
+        <div slot="title" class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
+        <div slot="default" class="js-tooltip-content d-flex">
+          <span v-if="tooltipLabel" class="pr-4 mr-auto">{{ tooltipLabel }}</span>
+          <strong>{{ tooltip.content }}</strong>
+        </div>
       </chart-tooltip>
     </div>
     <span v-if="showLastYValue" class="js-last-y-value d-inline-flex justify-content-center ml-3">{{

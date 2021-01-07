@@ -5,6 +5,7 @@ export default {
   components: {
     GlDropdownItem,
   },
+  inject: ['filteredSearchSuggestionListInstance'],
   inheritAttrs: false,
   props: {
     value: {
@@ -12,7 +13,6 @@ export default {
       validator: () => true,
     },
   },
-  inject: ['filteredSearchSuggestionListInstance'],
   computed: {
     isActive() {
       return this.filteredSearchSuggestionListInstance.activeItem === this;

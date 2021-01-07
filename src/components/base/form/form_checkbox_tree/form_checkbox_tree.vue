@@ -11,6 +11,11 @@ export default {
     GlFormCheckbox,
     GlFormCheckboxTreeNode,
   },
+  provide() {
+    return {
+      tree: this.tree,
+    };
+  },
   model: {
     prop: V_MODEL.PROP,
     event: V_MODEL.EVENT,
@@ -68,11 +73,6 @@ export default {
         this.$emit(V_MODEL.EVENT, selected);
       },
     },
-  },
-  provide() {
-    return {
-      tree: this.tree,
-    };
   },
 };
 </script>

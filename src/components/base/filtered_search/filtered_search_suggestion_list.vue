@@ -1,5 +1,11 @@
 <script>
 export default {
+  inject: ['suggestionsListClass'],
+  provide() {
+    return {
+      filteredSearchSuggestionListInstance: this,
+    };
+  },
   props: {
     initialValue: {
       required: false,
@@ -11,12 +17,6 @@ export default {
     return {
       activeIdx: -1,
       registeredItems: [],
-    };
-  },
-  inject: ['suggestionsListClass'],
-  provide() {
-    return {
-      filteredSearchSuggestionListInstance: this,
     };
   },
 
