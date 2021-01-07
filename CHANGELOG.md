@@ -1,3 +1,10 @@
+# [25.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.5.0...v25.6.0) (2021-01-07)
+
+
+### Features
+
+* **Focus:** Create inset focus ring for clipped components ([d3935cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/d3935cc5eef642393e8dd74c13cab7f3af8a679c))
+
 # [25.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.4.0...v25.5.0) (2021-01-06)
 
 
