@@ -395,6 +395,8 @@ $gl-transition-duration-medium: 0.2s;
 // Focus ring
 $focus-ring: 0 0 0 $gl-border-size-1 rgba($white, 0.4),
   0 0 0 $gl-border-size-4 rgba($blue-500, 0.48);
+$focus-ring-inset: inset 0 0 0 $gl-border-size-3 rgba($blue-500, 0.48),
+  inset 0 0 0 $gl-border-size-4 rgba($white, 0.4);
 
 // Toasts
 $toast-max-width: px-to-rem(586px);

@@ -84,7 +84,7 @@
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus;
+      @include gl-focus($inset: true);
     }
   }
 }
