@@ -5,10 +5,10 @@ import { QA_PREFIX } from './models/constants';
 export default {
   name: 'GlFormCheckboxTreeNode',
   qaPrefix: QA_PREFIX,
-  inject: ['tree'],
   components: {
     GlFormCheckbox,
   },
+  inject: ['tree'],
   props: {
     option: {
       type: Object,

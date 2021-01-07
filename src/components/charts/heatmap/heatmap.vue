@@ -278,10 +278,8 @@ export default {
           <template v-if="computedOptions.xAxis.name">({{ computedOptions.xAxis.name }})</template>
         </div>
       </template>
-      <template>
-        <slot v-if="formatTooltipText" name="tooltip-content"></slot>
-        <tooltip-default-format v-else :tooltip-content="tooltip.content" />
-      </template>
+      <slot v-if="formatTooltipText" name="tooltip-content"></slot>
+      <tooltip-default-format v-else :tooltip-content="tooltip.content" />
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"

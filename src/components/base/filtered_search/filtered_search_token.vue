@@ -198,6 +198,7 @@ export default {
         >
       </template>
     </gl-filtered-search-token-segment>
+    <!-- eslint-disable vue/no-mutating-props -->
     <gl-filtered-search-token-segment
       key="operator-segment"
       v-model="value.operator"
@@ -210,6 +211,7 @@ export default {
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
       @deactivate="$emit('deactivate')"
     >
+      <!-- eslint-enable vue/no-mutating-props -->
       <template #view="{ inputValue }">
         <gl-token
           class="gl-filtered-search-token-operator"
@@ -228,6 +230,7 @@ export default {
         </div>
       </template>
     </gl-filtered-search-token-segment>
+    <!-- eslint-disable vue/no-mutating-props -->
     <gl-filtered-search-token-segment
       v-if="hasDataOrDataSegmentIsCurrentlyActive"
       key="data-segment"
@@ -242,6 +245,7 @@ export default {
       @deactivate="$emit('deactivate')"
       @split="$emit('split', $event)"
     >
+      <!-- eslint-enable vue/no-mutating-props -->
       <template #suggestions>
         <slot name="suggestions"></slot>
       </template>

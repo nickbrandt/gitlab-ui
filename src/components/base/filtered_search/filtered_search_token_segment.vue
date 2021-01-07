@@ -10,8 +10,8 @@ export default {
     GlFilteredSearchSuggestionList,
     GlFilteredSearchSuggestion,
   },
-  inheritAttrs: false,
   inject: ['portalName', 'alignSuggestions'],
+  inheritAttrs: false,
   props: {
     active: {
       type: Boolean,

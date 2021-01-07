@@ -34,6 +34,16 @@ export default {
     GlIcon,
   },
   directives: { GlTooltip },
+  provide() {
+    portalUuid += 1;
+    this.portalName = `filters_portal_${portalUuid}`;
+
+    return {
+      portalName: this.portalName,
+      alignSuggestions: (ref) => this.alignSuggestions(ref),
+      suggestionsListClass: this.suggestionsListClass,
+    };
+  },
   inheritAttrs: false,
   props: {
     value: {
@@ -72,16 +82,6 @@ export default {
       tokens: initialState(),
       activeTokenIdx: null,
       suggestionsStyle: {},
-    };
-  },
-  provide() {
-    portalUuid += 1;
-    this.portalName = `filters_portal_${portalUuid}`;
-
-    return {
-      portalName: this.portalName,
-      alignSuggestions: (ref) => this.alignSuggestions(ref),
-      suggestionsListClass: this.suggestionsListClass,
     };
   },
   computed: {
