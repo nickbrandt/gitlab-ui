@@ -7,19 +7,19 @@
   display: none;
 }
 
-@mixin gl-display-sm-none {
+@mixin gl-sm-display-none {
   @media (min-width: $breakpoint-sm) {
     @include gl-display-none;
   }
 }
 
-@mixin gl-display-md-none {
+@mixin gl-md-display-none {
   @media (min-width: $breakpoint-md) {
     @include gl-display-none;
   }
 }
 
-@mixin gl-display-lg-none {
+@mixin gl-lg-display-none {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-none;
   }
@@ -29,19 +29,19 @@
   display: flex;
 }
 
-@mixin gl-display-sm-flex {
+@mixin gl-sm-display-flex {
   @media (min-width: $breakpoint-sm) {
     @include gl-display-flex;
   }
 }
 
-@mixin gl-display-md-flex {
+@mixin gl-md-display-flex {
   @media (min-width: $breakpoint-md) {
     @include gl-display-flex;
   }
 }
 
-@mixin gl-display-lg-flex {
+@mixin gl-lg-display-flex {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-flex;
   }
@@ -51,7 +51,7 @@
   display: inline-flex;
 }
 
-@mixin gl-display-sm-inline-flex {
+@mixin gl-sm-display-inline-flex {
   @media (min-width: $breakpoint-sm) {
     @include gl-display-inline-flex;
   }
@@ -63,7 +63,7 @@
   }
 }
 
-@mixin gl-display-lg-inline-flex {
+@mixin gl-lg-display-inline-flex {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-inline-flex;
   }
@@ -73,19 +73,19 @@
   display: block;
 }
 
-@mixin gl-display-sm-block {
+@mixin gl-sm-display-block {
   @media (min-width: $breakpoint-sm) {
     @include gl-display-block;
   }
 }
 
-@mixin gl-display-md-block {
+@mixin gl-md-display-block {
   @media (min-width: $breakpoint-md) {
     @include gl-display-block;
   }
 }
 
-@mixin gl-display-lg-block {
+@mixin gl-lg-display-block {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-block;
   }
@@ -99,7 +99,7 @@
   display: inline-block;
 }
 
-@mixin gl-display-lg-inline-block {
+@mixin gl-lg-display-inline-block {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-inline-block;
   }
@@ -121,7 +121,7 @@
   display: grid;
 }
 
-@mixin gl-display-lg-table-cell {
+@mixin gl-lg-display-table-cell {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-table-cell;
   }
