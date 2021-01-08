@@ -1,3 +1,10 @@
+## [25.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.0...v25.7.1) (2021-01-08)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** Make empty state illustration decorative ([8bab39a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8bab39a09022514d57665a229deeaecaf602ea79))
+
 # [25.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.6.0...v25.7.0) (2021-01-08)
 
 
