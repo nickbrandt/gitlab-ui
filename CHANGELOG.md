@@ -1,3 +1,10 @@
+# [25.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.6.0...v25.7.0) (2021-01-08)
+
+
+### Features
+
+* **css:** add gl-md-display-inline-flex utility class ([c0a302f](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0a302f49fb64c3b7b53f3a339354d956fee6f50))
+
 # [25.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.5.0...v25.6.0) (2021-01-07)
 
 
