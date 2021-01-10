@@ -1,6 +1,7 @@
 <script>
 import { BModal } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
 import { focusFirstFocusableElement } from '../../../utils/utils';
 
@@ -12,6 +13,7 @@ export default {
   components: {
     BModal,
     GlButton,
+    CloseButton,
   },
   inheritAttrs: false,
   props: {
@@ -23,6 +25,11 @@ export default {
       type: String,
       required: false,
       default: 'h4',
+    },
+    title: {
+      type: String,
+      required: false,
+      default: null,
     },
     modalClass: {
       type: String,
@@ -52,6 +59,11 @@ export default {
       required: false,
       default: modalSizeOptions.md,
       validator: (val) => Object.keys(modalSizeOptions).includes(val),
+    },
+    dismissLabel: {
+      type: String,
+      required: false,
+      default: 'Close',
     },
   },
   methods: {
@@ -99,7 +111,7 @@ export default {
       // Iterate over the array and if you find the close button,
       // move it to the end
       btnElts.forEach((elt, index) => {
-        if (elt === this.$refs.modal.$refs['close-button']) {
+        if (elt === this.$refs['close-button'].$el) {
           btnElts.push(btnElts.splice(index, 1));
         }
       });
@@ -126,9 +138,14 @@ export default {
     @cancel="canceled"
   >
     <slot></slot>
-    <slot slot="modal-header" name="modal-header"></slot>
-    <slot slot="modal-title" name="modal-title"></slot>
-    <slot slot="modal-header-close" name="modal-header-close"></slot>
+    <template #modal-header>
+      <slot name="modal-header">
+        <h4 class="modal-title">
+          <slot name="modal-title">{{ title }}</slot>
+        </h4>
+      </slot>
+      <close-button ref="close-button" :label="dismissLabel" @click="close" />
+    </template>
     <slot slot="modal-ok" name="modal-ok"></slot>
     <slot slot="modal-cancel" name="modal-cancel"></slot>
     <slot slot="modal-footer" name="modal-footer">

@@ -3,6 +3,7 @@ import { BModal } from 'bootstrap-vue';
 import { merge } from 'lodash';
 import Modal from './modal.vue';
 import Button from '../button/button.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import { modalButtonDefaults } from '~/utils/constants';
 
 const localVue = createLocalVue();
@@ -32,7 +33,9 @@ describe('Modal component', () => {
   const findSecondaryButton = () => wrapper.find('.js-modal-action-secondary');
   const findCancelButton = () => wrapper.find('.js-modal-action-cancel');
 
-  const createComponent = (props) => {
+  const expectCloseButton = () => expect(wrapper.find(CloseButton).exists()).toBe(true);
+
+  const createComponent = ({ props = {}, slots = {} } = {}) => {
     wrapperListeners = {
       canceled: jest.fn(),
       close: jest.fn(),
@@ -47,6 +50,7 @@ describe('Modal component', () => {
         modalId: 'modal-id',
         ...props,
       },
+      slots,
       listeners: wrapperListeners,
       stubs: {
         'b-modal': BModalStub,
@@ -73,6 +77,37 @@ describe('Modal component', () => {
     });
   });
 
+  describe('slots', () => {
+    const title = 'A custom title';
+    const slot = `<h4 class="custom-title">${title}</h4>`;
+
+    it('renders modal-header slot properly', () => {
+      createComponent({
+        slots: { 'modal-header': slot },
+      });
+      const defaultHeader = wrapper.find('h4.modal-title');
+      const customHeader = wrapper.find('h4.custom-title');
+
+      expect(defaultHeader.exists()).toBe(false);
+      expect(customHeader.exists()).toBe(true);
+      expect(customHeader.text()).toBe(title);
+      expectCloseButton();
+    });
+
+    it('renders modal-title slot properly', () => {
+      createComponent({
+        slots: { 'modal-title': slot },
+      });
+      const defaultHeader = wrapper.find('h4.modal-title');
+      const customTitle = defaultHeader.find('h4.custom-title');
+
+      expect(defaultHeader.exists()).toBe(true);
+      expect(customTitle.exists()).toBe(true);
+      expect(customTitle.text()).toBe(title);
+      expectCloseButton();
+    });
+  });
+
   describe('modal footer', () => {
     const props = {
       actionPrimary: {
@@ -89,7 +124,7 @@ describe('Modal component', () => {
     };
 
     beforeEach(() => {
-      createComponent(props);
+      createComponent({ props });
     });
 
     it('should render three buttons', () => {
@@ -170,7 +205,7 @@ describe('Modal component', () => {
   });
 
   it('accepts custom modal class', () => {
-    createComponent({ modalClass: 'modal-class-override another-override' });
+    createComponent({ props: { modalClass: 'modal-class-override another-override' } });
     expect(findModal().props('modalClass')).toContain('gl-modal');
     expect(findModal().props('modalClass')).toContain('modal-class-override another-override');
   });
