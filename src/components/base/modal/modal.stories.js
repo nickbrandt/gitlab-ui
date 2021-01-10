@@ -13,7 +13,7 @@ const directives = {
   GlModalDirective,
 };
 
-function generateTemplate({ visible = false } = {}) {
+function generateTemplate({ visible = false, slots = {} } = {}) {
   return `
     <div>
       <gl-button v-gl-modal-directive="'test-modal-id'" category="primary" variant="info">
@@ -40,6 +40,9 @@ function generateTemplate({ visible = false } = {}) {
       <p v-for="n in contentParagraphs">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
+      ${Object.entries(slots).map(
+        ([slot, contents]) => `<template #${slot}>${contents}</template>`
+      )}
       </gl-modal>
     </div>
   `;
@@ -114,5 +117,16 @@ documentedStoriesOf('base|modal', readme)
     directives,
     template: generateTemplate({
       visible: true,
+    }),
+  }))
+  .add('with a header', () => ({
+    props: generateProps({ contentPagraphs: 100, scrollable: true }),
+    components,
+    directives,
+    template: generateTemplate({
+      visible: true,
+      slots: {
+        'modal-header': '<h4>A custom header</h4>',
+      },
     }),
   }));

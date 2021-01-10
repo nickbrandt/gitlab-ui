@@ -56,8 +56,11 @@ body.modal-open {
 
   .modal-header {
     @include gl-bg-white;
+    @include gl-pr-3;
 
     .modal-title {
+      @include gl-font-lg;
+      @include gl-font-weight-bold;
       @include gl-line-height-24;
     }
 
@@ -82,6 +85,7 @@ body.modal-open {
   .modal-footer {
     @include gl-display-flex;
     @include gl-flex-direction-row;
+    @include gl-p-5;
 
     .btn {
       @include gl-m-0;
