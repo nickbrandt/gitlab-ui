@@ -1,3 +1,10 @@
+## [25.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.1...v25.7.2) (2021-01-10)
+
+
+### Bug Fixes
+
+* **GlModal:** use GitLab SVGs' close icon ([3c707b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c707b588bf61e86c62b17cd06a70bd42acf6330))
+
 ## [25.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.0...v25.7.1) (2021-01-08)
 
 
