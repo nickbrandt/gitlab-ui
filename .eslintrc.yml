@@ -24,7 +24,8 @@ overrides:
     - 'plugin:@gitlab/jest'
   settings:
     import/resolver:
-      jest: {}
+      jest:
+        jestConfigFile: "./jest.config.js"
   rules:
     promise/always-return: off
     jest/expect-expect:

@@ -59,6 +59,7 @@ describe('GlTokenSelector', () => {
         ...defaultProps,
         ...(options?.propsData || {}),
       },
+      attachToDocument: !shallow,
     });
   };
 

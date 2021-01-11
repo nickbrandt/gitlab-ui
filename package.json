@@ -92,7 +92,7 @@
     "@storybook/vue": "^5.3.21",
     "@vue/test-utils": "^1.0.0-beta.30",
     "autoprefixer": "^9.7.6",
-    "babel-jest": "^24.1.0",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-require-context-hook": "^1.0.0",
@@ -103,8 +103,7 @@
     "file-loader": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer-select-directory": "^1.2.0",
-    "jest": "^24.1.0",
-    "jest-localstorage-mock": "^2.4.0",
+    "jest": "^26.6.3",
     "jest-raw-loader": "^1.0.1",
     "jest-serializer-vue": "^2.0.2",
     "markdown-loader-jest": "^0.1.1",
@@ -136,44 +135,9 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.2",
     "vue": "^2.6.11",
-    "vue-jest": "^4.0.0-beta.2",
+    "vue-jest": "4.0.0-rc.0",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "^2.6.11"
-  },
-  "resolutions": {
-    "vue-jest/ts-jest": "24.0.0"
-  },
-  "jest": {
-    "verbose": true,
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "moduleNameMapper": {
-      "^~/(.*)$": "<rootDir>/src/$1",
-      "^@gitlab/ui$": "<rootDir>/index.js",
-      "\\.(css|scss|less)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      ".*\\.example.(vue)$": "vue-jest",
-      ".*\\.(vue)$": "vue-jest",
-      "\\.(svg|html)$": "jest-raw-loader",
-      "^.+\\.md?$": "markdown-loader-jest"
-    },
-    "transformIgnorePatterns": [
-      "/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/))/"
-    ],
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/jest-serializer-vue"
-    ],
-    "setupFiles": [
-      "jest-localstorage-mock"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/tests/jest_setup.js"
-    ]
   },
   "release": {
     "verifyConditions": [

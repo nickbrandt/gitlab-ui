@@ -73,7 +73,7 @@ describe('Path', () => {
   describe('background color selection', () => {
     describe('with no background color specified', () => {
       it('displays the default background color', () => {
-        expect(pathNav().style.PathBgColor).toBe(BACKGROUND_COLOR_WHITE);
+        expect(pathNav().style.getPropertyValue('--path-bg-color')).toBe(BACKGROUND_COLOR_WHITE);
       });
     });
 
@@ -83,7 +83,9 @@ describe('Path', () => {
       });
 
       it('sets the correct background color', () => {
-        expect(pathNav().style.PathBgColor).toBe(BACKGROUND_COLOR_LIGHT_GRAY);
+        expect(pathNav().style.getPropertyValue('--path-bg-color')).toBe(
+          BACKGROUND_COLOR_LIGHT_GRAY
+        );
       });
     });
   });
