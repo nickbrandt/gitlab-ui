@@ -28,7 +28,7 @@ describe('GlTokenContainer', () => {
 
   let wrapper;
 
-  const createComponent = (options, attachToDocument = false) => {
+  const createComponent = (options) => {
     wrapper = mount(GlTokenContainer, {
       ...options,
       propsData: {
