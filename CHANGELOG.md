@@ -1,3 +1,10 @@
+# [25.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.3...v25.8.0) (2021-01-11)
+
+
+### Features
+
+* **css:** add gl-border-gray-50 & gl-w-90p utility mixins ([4cdf421](https://gitlab.com/gitlab-org/gitlab-ui/commit/4cdf4219d561e22c8bd66f155be0025692e72379))
+
 ## [25.7.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.2...v25.7.3) (2021-01-11)
 
 
