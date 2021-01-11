@@ -1,3 +1,10 @@
+## [25.7.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.2...v25.7.3) (2021-01-11)
+
+
+### Bug Fixes
+
+* **Modal:** Autofocus close button, if it is the only focusable element ([daeb209](https://gitlab.com/gitlab-org/gitlab-ui/commit/daeb209a90c4973dcfa3c9c24851b70c3818b7fa))
+
 ## [25.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.1...v25.7.2) (2021-01-10)
 
 
