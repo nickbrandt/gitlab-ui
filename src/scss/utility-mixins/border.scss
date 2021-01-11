@@ -63,6 +63,10 @@
   border-top-color: transparent;
 }
 
+@mixin gl-border-gray-50 {
+  border-color: $gray-100;
+}
+
 @mixin gl-border-gray-100 {
   border-color: $gray-100;
 }
