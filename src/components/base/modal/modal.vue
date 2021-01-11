@@ -105,16 +105,15 @@ export default {
       return prop.attributes;
     },
     setFocus() {
-      const btnElts = Array.from(this.$refs.modal.$refs.modal.querySelectorAll('button'));
+      const btnElts = [...this.$refs.modal.$refs.modal.querySelectorAll('button')];
       const modalElts = [...this.$refs.modal.$refs.body.querySelectorAll(focusableTags.join(','))];
 
       // Iterate over the array and if you find the close button,
       // move it to the end
-      btnElts.forEach((elt, index) => {
-        if (elt === this.$refs['close-button'].$el) {
-          btnElts.push(btnElts.splice(index, 1));
-        }
-      });
+      const closeBtnIndex = btnElts.findIndex((elt) => elt === this.$refs['close-button']?.$el);
+      if (closeBtnIndex > -1) {
+        btnElts.push(...btnElts.splice(closeBtnIndex, 1));
+      }
 
       // ModalElts are the first choice, the btnElts are a backup
       focusFirstFocusableElement([...modalElts, ...btnElts]);
