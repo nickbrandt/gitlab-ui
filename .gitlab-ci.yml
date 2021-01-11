@@ -305,7 +305,7 @@ create_integration_branch:
   needs:
     - build_package
   script:
-    - INTEGRATION_BRANCH="$CI_COMMIT_REF_NAME-gitlab-ui-integration-test"
+    - INTEGRATION_BRANCH="gitlab-ui-integration-$CI_COMMIT_REF_NAME"
     - git config --global user.email "gitlab-bot@gitlab.com"
     - git config --global user.name "GitLab Bot"
     - git clone https://gitlab.com/gitlab-org/gitlab.git gitlab --depth=1
@@ -313,7 +313,7 @@ create_integration_branch:
     - (git remote set-branches origin '*' && git fetch origin $INTEGRATION_BRANCH && git checkout $INTEGRATION_BRANCH) || git checkout -b $INTEGRATION_BRANCH
     - yarn add @gitlab/ui@$DEPENDENCY_URL
     - git add package.json yarn.lock
-    - 'git commit -m "GitLab UI: $CI_COMMIT_REF_NAME integration test"'
+    - 'git commit -m "GitLab UI integration branch for $CI_COMMIT_REF_NAME"'
     - git push -u https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab.git HEAD
 
 publish_to_npm:
