@@ -13,7 +13,11 @@ const directives = {
   GlModalDirective,
 };
 
-function generateTemplate({ visible = false, slots = {} } = {}) {
+function generateTemplate({ props = { visible: false }, slots = {} } = {}) {
+  const extraProps = Object.entries(props)
+    .map(([key, value]) => `:${key}="${value}"`)
+    .join('\n        ');
+
   return `
     <div>
       <gl-button v-gl-modal-directive="'test-modal-id'" category="primary" variant="info">
@@ -28,7 +32,7 @@ function generateTemplate({ visible = false, slots = {} } = {}) {
         :footer-bg-variant="footerBgVariant"
         :footer-border-variant="footerBorderVariant"
         :footer-text-variant="footerTextVariant"
-        :visible="${visible}"
+        ${extraProps}
         :action-primary="{text: 'Okay'}"
         :action-secondary="{text: 'Discard Changes'}"
         :action-cancel="{text: 'Cancel'}"
@@ -109,24 +113,32 @@ documentedStoriesOf('base|modal', readme)
     props: generateProps(),
     components,
     directives,
-    template: generateTemplate({ visible: true }),
+    template: generateTemplate({ props: { visible: true } }),
   }))
   .add('with scrolling content', () => ({
     props: generateProps({ contentPagraphs: 100, scrollable: true }),
     components,
     directives,
     template: generateTemplate({
-      visible: true,
+      props: { visible: true },
     }),
   }))
   .add('with a header', () => ({
-    props: generateProps({ contentPagraphs: 100, scrollable: true }),
+    props: generateProps(),
     components,
     directives,
     template: generateTemplate({
-      visible: true,
+      props: { visible: true },
       slots: {
         'modal-header': '<h4>A custom header</h4>',
       },
+    }),
+  }))
+  .add('without a footer', () => ({
+    props: generateProps(),
+    components,
+    directives,
+    template: generateTemplate({
+      props: { visible: true, 'hide-footer': true },
     }),
   }));
