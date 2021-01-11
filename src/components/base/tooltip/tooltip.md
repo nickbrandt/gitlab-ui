@@ -47,6 +47,6 @@ export default {
 ## Under the hood
 Tooltip uses [`<b-tooltip>`] and [`v-b-tooltip`] internally.
 
-[`<b-tooltip>`]: https://bootstrap-vue.js.org/docs/components/tooltip
+[`<b-tooltip>`]: https://bootstrap-vue.org/docs/components/tooltip
 
-[`v-b-tooltip`]: https://bootstrap-vue.js.org/docs/directives/tooltip
+[`v-b-tooltip`]: https://bootstrap-vue.org/docs/directives/tooltip

@@ -47,7 +47,7 @@ If you are adding or updating a component documented in the
 ## Wrapping a BootstrapVue component
 
 Use `yarn generate:component` to quickly generate a
-[BootstrapVue](https://bootstrap-vue.js.org/) component wrapper in GitLab UI using
+[BootstrapVue](https://bootstrap-vue.org/) component wrapper in GitLab UI using
 the _Wrap BootstrapVue Component_ template. After using the template, follow the same
 instructions described in the general guidelines.
 
