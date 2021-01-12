@@ -16,7 +16,7 @@ fi
 
 TARGET_IMAGE=${PUPPETEER_IMAGE:-gitlab-ui-puppeteer:$PUPPETEER_VERSION}
 
-if docker manifest inspect "$TARGET_IMAGE" 2> /dev/null > /dev/null; then
+if DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect "$TARGET_IMAGE" 2> /dev/null > /dev/null; then
     echo "Docker image $TARGET_IMAGE already exists"
     exit 0
 else
