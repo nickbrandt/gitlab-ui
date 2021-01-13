@@ -1,3 +1,10 @@
+# [25.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.9.0...v25.10.0) (2021-01-13)
+
+
+### Features
+
+* **Button:** Adding affirm button variant ([66ae035](https://gitlab.com/gitlab-org/gitlab-ui/commit/66ae035993185e8d79f63261f0eb970e99c39a6f))
+
 # [25.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.8.0...v25.9.0) (2021-01-13)
 
 
