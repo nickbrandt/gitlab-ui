@@ -128,6 +128,7 @@
     }
   }
 
+  &.btn-confirm,
   &.btn-info,
   &.btn-success,
   &.btn-danger,
@@ -135,6 +136,7 @@
     @include gl-text-white;
   }
 
+  &.btn-confirm,
   &.btn-info {
     @include gl-bg-blue-500;
     @include gl-inset-border-1-blue-600;
@@ -159,6 +161,8 @@
     }
   }
 
+  &.btn-confirm-secondary,
+  &.btn-confirm-tertiary,
   &.btn-info-secondary,
   &.btn-info-tertiary {
     @include gl-bg-transparent;
@@ -353,6 +357,7 @@
 
   &.btn-default,
   &.btn-dashed,
+  &.btn-confirm,
   &.btn-info,
   &.btn-success,
   &.btn-danger,
@@ -364,6 +369,7 @@
 
   &.btn-default,
   &.btn-dashed,
+  &.btn-confirm,
   &.btn-info,
   &.btn-success,
   &.btn-danger,

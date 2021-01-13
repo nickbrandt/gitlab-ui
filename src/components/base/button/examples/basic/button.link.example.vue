@@ -1,3 +1,3 @@
 <template>
-  <gl-button href="#">Link Button</gl-button>
+  <gl-button href="#">Link</gl-button>
 </template>

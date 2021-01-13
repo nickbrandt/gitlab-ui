@@ -12,6 +12,7 @@ import ButtonSecondaryExample from './categories/button.secondary.example.vue';
 /* Variants */
 import ButtonDangerExample from './variants/button.danger.example.vue';
 import ButtonDashedExample from './variants/button.dashed.example.vue';
+import ButtonConfirmExample from './variants/button.confirm.example.vue';
 import ButtonInfoExample from './variants/button.info.example.vue';
 import ButtonSuccessExample from './variants/button.success.example.vue';
 import ButtonVariantsExample from './variants/button.variants.example.vue';
@@ -100,6 +101,12 @@ export default [
         name: 'All Button Variants',
         description: 'All different button variants',
         component: ButtonVariantsExample,
+      },
+      {
+        id: 'button-confirm',
+        name: 'Confirm Button Variant',
+        description: 'Confirm button variant',
+        component: ButtonConfirmExample,
       },
       {
         id: 'button-info',

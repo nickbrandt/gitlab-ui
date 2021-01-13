@@ -85,11 +85,12 @@ export const newButtonCategoryOptions = {
 
 export const newButtonVariantOptions = {
   default: 'default',
-  dashed: 'dashed',
+  confirm: 'confirm',
   info: 'info',
   success: 'success',
   warning: 'warning',
   danger: 'danger',
+  dashed: 'dashed',
   link: 'link',
 };
 
