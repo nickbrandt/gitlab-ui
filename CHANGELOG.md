@@ -1,3 +1,10 @@
+# [25.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.8.0...v25.9.0) (2021-01-13)
+
+
+### Features
+
+* **GlDropdown:** Add header and footer slots to GlDropdown ([c78ac7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/c78ac7cb471b1cb65ea53cbe167a6a430ff74795))
+
 # [25.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.7.3...v25.8.0) (2021-01-11)
 
 
