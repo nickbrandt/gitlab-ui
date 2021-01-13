@@ -122,13 +122,10 @@ build_docker_image:
   tags:
     - gitlab-org-docker
   services:
-    - docker:19.03.13-dind
+    - docker:20.10-dind
   image: docker:stable
   stage: pre-build
   script:
-    - 'mkdir -p ~/.docker'
-    - >
-      echo '{"experimental": "enabled"}' > ~/.docker/config.json
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - ./bin/build-docker.sh
