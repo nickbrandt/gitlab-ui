@@ -1,3 +1,3 @@
 <template>
-  <gl-button size="medium">medium button</gl-button>
+  <gl-button size="medium">Medium button</gl-button>
 </template>
