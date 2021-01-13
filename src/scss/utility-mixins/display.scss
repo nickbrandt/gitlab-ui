@@ -41,6 +41,12 @@
   }
 }
 
+@mixin gl-display-lg-flex {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-display-flex;
+  }
+}
+
 @mixin gl-display-inline-flex {
   display: inline-flex;
 }
