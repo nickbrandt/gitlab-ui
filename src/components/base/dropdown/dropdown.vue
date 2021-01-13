@@ -44,6 +44,11 @@ export default {
       required: false,
       default: '',
     },
+    hideHeaderBorder: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     text: {
       type: String,
       required: false,
@@ -154,6 +159,9 @@ export default {
     },
   },
   methods: {
+    hasSlotContents(slotName) {
+      return Boolean(this.$slots[slotName]);
+    },
     show(...args) {
       this.$refs.dropdown.show(...args);
     },
@@ -179,8 +187,22 @@ export default {
     :right="right"
     v-on="$listeners"
   >
-    <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
-    <slot></slot>
+    <div class="gl-new-dropdown-inner">
+      <div
+        v-if="hasSlotContents('header') || headerText"
+        class="gl-new-dropdown-header"
+        :class="{ 'gl-border-b-0!': hideHeaderBorder }"
+      >
+        <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
+        <slot name="header"></slot>
+      </div>
+      <div class="gl-new-dropdown-contents">
+        <slot></slot>
+      </div>
+      <div v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
+        <slot name="footer"></slot>
+      </div>
+    </div>
     <slot slot="button-content" name="button-content">
       <gl-loading-icon v-if="loading" class="gl-mr-2" />
       <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />

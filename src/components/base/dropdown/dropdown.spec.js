@@ -16,9 +16,10 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
 describe('new dropdown', () => {
   let wrapper;
 
-  const buildWrapper = (propsData) => {
+  const buildWrapper = (propsData, slots = {}) => {
     wrapper = mount(GlDropdown, {
       propsData,
+      slots,
     });
   };
 
@@ -151,5 +152,50 @@ describe('new dropdown', () => {
         expect(findDropdownToggle().classes()).toContain(`btn-${variant}-secondary`);
       }
     );
+  });
+
+  describe('when the header slot exists', () => {
+    const slots = { header: 'Header Content' };
+
+    it('renders the header', () => {
+      buildWrapper({}, slots);
+      expect(wrapper.find('.gl-new-dropdown-header').exists()).toBeTruthy();
+      expect(wrapper.html()).toContain('Header Content');
+    });
+
+    it('has the "gl-border-b-0!" class when header border disabled', () => {
+      buildWrapper({ hideHeaderBorder: true }, slots);
+      expect(wrapper.find('.gl-new-dropdown-header').classes()).toContain('gl-border-b-0!');
+    });
+  });
+
+  describe('with no header slot exists', () => {
+    it('does not render the header', () => {
+      buildWrapper();
+      expect(wrapper.find('.gl-new-dropdown-header').exists()).toBeFalsy();
+    });
+
+    it('does render the header if headerText provided', () => {
+      buildWrapper({ headerText: 'Legacy Header Prop Text' });
+      expect(wrapper.find('.gl-new-dropdown-header').exists()).toBeTruthy();
+      expect(wrapper.html()).toContain('Legacy Header Prop Text');
+    });
+  });
+
+  describe('when the footer slot exists', () => {
+    const slots = { footer: 'Footer Content' };
+
+    it('renders the footer', () => {
+      buildWrapper({}, slots);
+      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeTruthy();
+      expect(wrapper.html()).toContain('Footer Content');
+    });
+  });
+
+  describe('with no footer slot exists', () => {
+    it('does not render the footer', () => {
+      buildWrapper();
+      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeFalsy();
+    });
   });
 });

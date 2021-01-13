@@ -42,6 +42,7 @@ function generateProps({
   textSrOnly = false,
   loading = false,
   headerText = '',
+  hideHeaderBorder = true,
 } = {}) {
   const props = {
     category: {
@@ -90,7 +91,11 @@ function generateProps({
     },
     headerText: {
       type: String,
-      default: textKnob('headerText', headerText),
+      default: textKnob('header text', headerText),
+    },
+    hideHeaderBorder: {
+      type: Boolean,
+      default: boolean('no header boarder', hideHeaderBorder),
     },
     right: {
       type: Boolean,
@@ -116,6 +121,7 @@ function wrap([template]) {
       :split="split"
       :toggle-class="toggleClass"
       :header-text="headerText"
+      :hide-header-border="hideHeaderBorder"
       :loading="loading"
       :right="right"
     >
@@ -198,13 +204,25 @@ documentedStoriesOf('base|dropdown', readme)
       addClass(this);
     },
   }))
-  .add('with header', () => ({
-    props: generateProps({ text: 'Some dropdown', headerText: 'Header' }),
+  .add('with header and footer', () => ({
+    props: generateProps({ text: 'Some dropdown', headerText: 'Header', hideHeaderBorder: true }),
     components,
     template: wrap`
-      <gl-search-box-by-type />
+      <template #header>
+        <gl-search-box-by-type />
+      </template>
       <gl-dropdown-item>First item</gl-dropdown-item>
-      <gl-dropdown-item>Second item</gl-dropdown-item>`,
+      <gl-dropdown-item>Second item</gl-dropdown-item>
+      <gl-dropdown-item>Third item</gl-dropdown-item>
+      <gl-dropdown-item>Fourth item</gl-dropdown-item>
+      <gl-dropdown-item>Fifth item</gl-dropdown-item>
+      <gl-dropdown-item>Sixth item</gl-dropdown-item>
+      <gl-dropdown-item>Seventh item</gl-dropdown-item>
+      <gl-dropdown-item>Eigth item</gl-dropdown-item>
+      <template #footer>
+        <gl-dropdown-item>First footer item</gl-dropdown-item>
+        <gl-dropdown-item>Second footer item</gl-dropdown-item>
+      </template>`,
     mounted() {
       clickDropdown(this);
     },
