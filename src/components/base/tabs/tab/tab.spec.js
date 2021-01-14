@@ -29,7 +29,7 @@ describe('Tab component', () => {
       });
 
       expect(wrapper.html()).toBe(
-        `<b-tab-stub tag="div" title="" titlelinkclass="${expectedProp}"></b-tab-stub>`
+        `<b-tab-stub tag="div" titlelinkclass="${expectedProp}"></b-tab-stub>`
       );
     }
   );

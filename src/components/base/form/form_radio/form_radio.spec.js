@@ -62,7 +62,7 @@ describe('GlFormRadio', () => {
     it('emits an input event, but not a change event on each radio', () => {
       wrapper.findAll(GlFormRadio).wrappers.forEach((radio) => {
         expect(radio.emitted()).toEqual({
-          input: [[secondOption.value]],
+          input: [[secondOption.value], [secondOption.value]],
         });
       });
     });
@@ -86,11 +86,11 @@ describe('GlFormRadio', () => {
       const [formRadioOne, formRadioTwo] = wrapper.findAll(GlFormRadio).wrappers;
 
       expect(formRadioOne.emitted()).toEqual({
-        input: [[secondOption.value]],
+        input: [[secondOption.value], [secondOption.value]],
       });
 
       expect(formRadioTwo.emitted()).toEqual({
-        input: [[secondOption.value]],
+        input: [[secondOption.value], [secondOption.value]],
         change: [[secondOption.value]],
       });
     });
