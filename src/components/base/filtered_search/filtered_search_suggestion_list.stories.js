@@ -2,7 +2,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './filtered_search_suggestion_list.md';
 
-documentedStoriesOf('base|filtered-search/suggestion-list', readme)
+documentedStoriesOf('base/filtered-search/suggestion-list', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     data() {

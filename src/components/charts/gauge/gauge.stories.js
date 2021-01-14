@@ -50,7 +50,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|gauge-chart', readme)
+documentedStoriesOf('charts/gauge-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

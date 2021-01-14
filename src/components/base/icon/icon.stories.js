@@ -9,7 +9,7 @@ const components = {
   GlIcon,
 };
 
-documentedStoriesOf('base|icon', readme)
+documentedStoriesOf('base/icon', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {

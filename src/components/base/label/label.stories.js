@@ -50,7 +50,7 @@ const generateProps = ({
   return props;
 };
 
-documentedStoriesOf('base|label', readme)
+documentedStoriesOf('base/label', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

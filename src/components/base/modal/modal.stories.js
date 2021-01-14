@@ -101,7 +101,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|modal', readme)
+documentedStoriesOf('base/modal', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

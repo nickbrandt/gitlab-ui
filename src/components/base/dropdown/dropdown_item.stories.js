@@ -7,7 +7,7 @@ const components = {
   GlDropdownItem,
 };
 
-documentedStoriesOf('base|dropdown/dropdown-item', readme)
+documentedStoriesOf('base/dropdown/dropdown-item', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},

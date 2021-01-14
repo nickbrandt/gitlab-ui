@@ -11,7 +11,7 @@ const template = `
   <gl-dashboard-skeleton />
 `;
 
-documentedStoriesOf('regions|dashboard-skeleton', readme)
+documentedStoriesOf('regions/dashboard-skeleton', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

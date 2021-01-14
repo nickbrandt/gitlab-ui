@@ -22,7 +22,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|token', readme)
+documentedStoriesOf('base/token', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

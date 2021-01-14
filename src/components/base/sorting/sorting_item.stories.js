@@ -12,7 +12,7 @@ const onMount = (component) => {
   component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
 };
 
-documentedStoriesOf('base|sorting/sorting-item', readme)
+documentedStoriesOf('base/sorting/sorting-item', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},

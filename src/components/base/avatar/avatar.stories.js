@@ -58,7 +58,7 @@ function generateTooltipProps() {
   return props;
 }
 
-documentedStoriesOf('base|avatar', readme)
+documentedStoriesOf('base/avatar', readme)
   .addDecorator(withKnobs)
   .add('image', () => ({
     props: generateImageProps(),

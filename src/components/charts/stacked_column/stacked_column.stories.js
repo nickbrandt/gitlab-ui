@@ -78,7 +78,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|stacked-column-chart', readme)
+documentedStoriesOf('charts/stacked-column-chart', readme)
   .addDecorator(withKnobs)
   .add('stacked', () => ({
     props: generateProps(),

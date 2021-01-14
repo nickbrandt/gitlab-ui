@@ -6,7 +6,7 @@ const components = {
   GlChart,
 };
 
-documentedStoriesOf('charts|chart', readme).add('default', () => ({
+documentedStoriesOf('charts/chart', readme).add('default', () => ({
   props: {},
   components,
   data() {

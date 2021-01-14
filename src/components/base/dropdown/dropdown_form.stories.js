@@ -8,7 +8,7 @@ const components = {
   GlButton,
 };
 
-documentedStoriesOf('base|dropdown/dropdown-form', readme)
+documentedStoriesOf('base/dropdown/dropdown-form', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

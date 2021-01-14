@@ -27,7 +27,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|datepicker', readme)
+documentedStoriesOf('base/datepicker', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

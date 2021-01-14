@@ -17,7 +17,7 @@ const createBaseStory = () => ({
   },
 });
 
-documentedStoriesOf('base|tabs/tabs', docs)
+documentedStoriesOf('base/tabs/tabs', docs)
   .addDecorator(withKnobs)
   .add('default', () => ({
     ...createBaseStory(),

@@ -13,7 +13,7 @@ const staticOptions = [
   { icon: 'eye', value: false, title: 'No' },
 ];
 
-documentedStoriesOf('base|filtered-search/token-segment', readme)
+documentedStoriesOf('base/filtered-search/token-segment', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components: {

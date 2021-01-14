@@ -8,7 +8,7 @@ const components = {
   GlAccordionItem,
 };
 
-documentedStoriesOf('base|accordion', readme).add('default', () => ({
+documentedStoriesOf('base/accordion', readme).add('default', () => ({
   components,
   template: `
     <gl-accordion>

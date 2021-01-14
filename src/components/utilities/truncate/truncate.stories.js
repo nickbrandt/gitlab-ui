@@ -26,7 +26,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('utilities|truncate', readme)
+documentedStoriesOf('utilities/truncate', readme)
   .addParameters({ storyshots: false })
   .addDecorator(withKnobs)
   .add('default', () => ({

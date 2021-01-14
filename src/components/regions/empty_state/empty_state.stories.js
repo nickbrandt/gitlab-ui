@@ -58,7 +58,7 @@ function generateProps({ compact = false } = {}) {
   };
 }
 
-documentedStoriesOf('regions|empty-state', readme)
+documentedStoriesOf('regions/empty-state', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

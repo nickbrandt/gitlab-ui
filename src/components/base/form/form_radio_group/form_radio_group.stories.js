@@ -46,7 +46,7 @@ const template = `
 
 const data = () => ({ selected: 'slot-option' });
 
-documentedStoriesOf('base|form/form-radio-group', readme)
+documentedStoriesOf('base/form/form-radio-group', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

@@ -9,7 +9,7 @@ const components = {
   GlButton,
 };
 
-documentedStoriesOf('base|drawer', readme)
+documentedStoriesOf('base/drawer', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     methods: {

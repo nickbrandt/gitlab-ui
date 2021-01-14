@@ -66,7 +66,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|column-chart', readme)
+documentedStoriesOf('charts/column-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

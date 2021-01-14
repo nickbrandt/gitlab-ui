@@ -28,7 +28,7 @@ function generateProps({ placement = popoverPlacements.top, title = 'Popover' } 
   };
 }
 
-documentedStoriesOf('base|popover', '')
+documentedStoriesOf('base/popover', '')
   .addDecorator(withKnobs)
   .add('default', () => ({
     template,

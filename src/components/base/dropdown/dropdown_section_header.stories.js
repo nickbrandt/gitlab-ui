@@ -7,7 +7,7 @@ const components = {
   GlDropdownSectionHeader,
 };
 
-documentedStoriesOf('base|dropdown/dropdown-section-header', readme)
+documentedStoriesOf('base/dropdown/dropdown-section-header', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},

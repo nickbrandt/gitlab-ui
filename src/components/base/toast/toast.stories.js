@@ -60,7 +60,7 @@ function generateLong() {
   });
 }
 
-documentedStoriesOf('base|toast', readme)
+documentedStoriesOf('base/toast', readme)
   .add('default', generateDefault())
   .add('with actions', generateWithActions())
   .add('with long content', generateLong());

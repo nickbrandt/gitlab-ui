@@ -72,7 +72,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|alert', readme)
+documentedStoriesOf('base/alert', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

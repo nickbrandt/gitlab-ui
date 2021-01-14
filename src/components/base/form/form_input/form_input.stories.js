@@ -37,7 +37,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|form/form-input', readme)
+documentedStoriesOf('base/form/form-input', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

@@ -15,7 +15,7 @@ function generateProps(props = {}) {
   };
 }
 
-documentedStoriesOf('base|form/input-group-text', readme).add('default', () => ({
+documentedStoriesOf('base/form/input-group-text', readme).add('default', () => ({
   components,
   props: generateProps(),
   data: () => ({}),

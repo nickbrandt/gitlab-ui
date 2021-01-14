@@ -5,7 +5,7 @@ import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import readme from './safe_html.md';
 import { GlSafeHtmlDirective } from '../../../index';
 
-documentedStoriesOf('directives|safe-html-directive', readme)
+documentedStoriesOf('directives/safe-html-directive', readme)
   .addDecorator(withKnobs)
   .addParameters({ storyshots: false, knobs: { escapeHTML: false } })
   .add('default', () => ({

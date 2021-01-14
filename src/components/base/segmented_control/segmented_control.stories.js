@@ -28,7 +28,7 @@ function generateProps({ options = defaultOptions } = {}) {
   return props;
 }
 
-documentedStoriesOf('base|segmented control', readme)
+documentedStoriesOf('base/segmented control', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

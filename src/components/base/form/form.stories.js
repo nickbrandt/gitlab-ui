@@ -7,7 +7,7 @@ const components = {
   GlForm,
 };
 
-documentedStoriesOf('base|form/form', readme)
+documentedStoriesOf('base/form/form', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

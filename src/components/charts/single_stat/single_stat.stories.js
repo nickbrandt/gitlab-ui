@@ -6,7 +6,7 @@ const components = {
   GlSingleStat,
 };
 
-documentedStoriesOf('charts|single-stat', readme)
+documentedStoriesOf('charts/single-stat', readme)
   .add('default', () => ({
     components,
     template: `

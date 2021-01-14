@@ -33,6 +33,6 @@ const component = {
   template: '<ui-typescale-demo />',
 };
 
-documentedStoriesOf('scss|typescale', typescaleDocs).add('default', () => component, {
+documentedStoriesOf('scss/typescale', typescaleDocs).add('default', () => component, {
   viewport: { defaultViewport: 'breakpointExtraLarge' },
 });

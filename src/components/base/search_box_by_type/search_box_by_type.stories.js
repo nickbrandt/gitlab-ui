@@ -33,7 +33,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|search-box-by-type', readme)
+documentedStoriesOf('base/search-box-by-type', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

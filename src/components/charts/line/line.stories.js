@@ -92,7 +92,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|line-chart', readme)
+documentedStoriesOf('charts/line-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

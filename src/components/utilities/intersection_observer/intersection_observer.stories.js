@@ -31,7 +31,7 @@ const generateItems = (startingId = 0) => {
   });
 };
 
-documentedStoriesOf('utilities|intersection-observer', readme)
+documentedStoriesOf('utilities/intersection-observer', readme)
   .add('default', () => ({
     components,
     data: commonData,

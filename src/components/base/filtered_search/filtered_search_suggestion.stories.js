@@ -4,7 +4,7 @@ import readme from './filtered_search_suggestion.md';
 
 const noop = () => {};
 
-documentedStoriesOf('base|filtered-search/suggestion', readme)
+documentedStoriesOf('base/filtered-search/suggestion', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     provide: {

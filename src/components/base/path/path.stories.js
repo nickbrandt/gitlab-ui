@@ -15,7 +15,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|path', readme)
+documentedStoriesOf('base/path', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

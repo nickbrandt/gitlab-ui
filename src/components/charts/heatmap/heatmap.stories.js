@@ -21,7 +21,7 @@ function generateData() {
   return data;
 }
 
-documentedStoriesOf('charts|heatmap', readme)
+documentedStoriesOf('charts/heatmap', readme)
   .add('default', () => ({
     data() {
       return {

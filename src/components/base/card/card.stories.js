@@ -8,7 +8,7 @@ const components = {
   GlCard,
 };
 
-documentedStoriesOf('base|card', readme)
+documentedStoriesOf('base/card', readme)
   .addDecorator(withKnobs)
   .add('default card', () => ({
     components,

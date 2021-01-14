@@ -63,7 +63,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|form/form-select', readme)
+documentedStoriesOf('base/form/form-select', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

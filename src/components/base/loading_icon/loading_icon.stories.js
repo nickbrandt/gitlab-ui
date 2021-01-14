@@ -51,7 +51,7 @@ function generateProps({ inline } = {}) {
   };
 }
 
-documentedStoriesOf('base|loading-icon', readme)
+documentedStoriesOf('base/loading-icon', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

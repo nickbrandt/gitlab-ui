@@ -35,7 +35,7 @@ function generateProps(avatars = defaultAvatars) {
   return props;
 }
 
-documentedStoriesOf('base|avatar/avatars-inline', readme)
+documentedStoriesOf('base/avatar/avatars-inline', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

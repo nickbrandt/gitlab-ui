@@ -58,7 +58,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|bar-chart', readme)
+documentedStoriesOf('charts/bar-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

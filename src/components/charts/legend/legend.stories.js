@@ -89,7 +89,7 @@ const getStoryOptions = (seriesLength, seriesNameType, legendLayoutType) => {
   };
 };
 
-documentedStoriesOf('charts|chart-legend', readme)
+documentedStoriesOf('charts/chart-legend', readme)
   .add('default', () => getStoryOptions(10, SERIES_NAME_SHORT))
   .add('default with long series names', () => getStoryOptions(10, SERIES_NAME_LONG))
   .add('default with long series names and no spaces', () =>

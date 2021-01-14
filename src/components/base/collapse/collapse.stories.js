@@ -6,7 +6,7 @@ const components = {
   GlCollapse,
 };
 
-documentedStoriesOf('base|collapse', readme)
+documentedStoriesOf('base/collapse', readme)
   .add('default', () => ({
     components,
     template: `

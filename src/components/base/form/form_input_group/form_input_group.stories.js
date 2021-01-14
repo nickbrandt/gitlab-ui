@@ -12,7 +12,7 @@ const predefinedOptions = [
   { name: 'Share', value: 'https://share.org' },
 ];
 
-documentedStoriesOf('base|form/form-input-group', readme)
+documentedStoriesOf('base/form/form-input-group', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

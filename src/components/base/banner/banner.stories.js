@@ -28,7 +28,7 @@ const getProps = () => ({
   },
 });
 
-documentedStoriesOf('base|banner', '')
+documentedStoriesOf('base/banner', '')
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

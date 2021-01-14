@@ -7,7 +7,7 @@ const components = {
   GlNavbar,
 };
 
-documentedStoriesOf('base|navbar', readme)
+documentedStoriesOf('base/navbar', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

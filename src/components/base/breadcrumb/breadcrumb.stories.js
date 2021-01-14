@@ -36,7 +36,7 @@ const getProps = () => {
   };
 };
 
-documentedStoriesOf('base|breadcrumb', readme)
+documentedStoriesOf('base/breadcrumb', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

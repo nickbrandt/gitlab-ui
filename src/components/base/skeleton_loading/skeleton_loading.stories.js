@@ -23,7 +23,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|skeleton-loading', readme)
+documentedStoriesOf('base/skeleton-loading', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

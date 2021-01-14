@@ -8,7 +8,7 @@ const components = {
   GlNavItem,
 };
 
-documentedStoriesOf('base|nav', readme)
+documentedStoriesOf('base/nav', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

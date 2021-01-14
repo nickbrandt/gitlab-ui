@@ -8,7 +8,7 @@ const components = {
   GlNavItemDropdown,
 };
 
-documentedStoriesOf('base|nav/nav-item-dropdown', readme)
+documentedStoriesOf('base/nav/nav-item-dropdown', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

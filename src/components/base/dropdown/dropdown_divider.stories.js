@@ -7,7 +7,7 @@ const components = {
   GlDropdownDivider,
 };
 
-documentedStoriesOf('base|dropdown/dropdown-divider', readme)
+documentedStoriesOf('base/dropdown/dropdown-divider', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},

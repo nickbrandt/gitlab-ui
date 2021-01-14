@@ -15,7 +15,7 @@ function generateProps(props = {}) {
   };
 }
 
-documentedStoriesOf('base|{{name}}', readme)
+documentedStoriesOf('base/{{name}}', readme)
   .add('default', () => ({
     components,
     props: generateProps(),

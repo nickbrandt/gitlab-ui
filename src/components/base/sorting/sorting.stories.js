@@ -42,7 +42,7 @@ const generateProps = ({
   },
 });
 
-documentedStoriesOf('base|sorting', readme)
+documentedStoriesOf('base/sorting', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
