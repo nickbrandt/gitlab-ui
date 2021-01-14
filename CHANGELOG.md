@@ -1,3 +1,10 @@
+# [25.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.10.0...v25.11.0) (2021-01-14)
+
+
+### Features
+
+* **css:** Add gl-lg-mr-2 lg-flex and gl-lg-mx-2 ([c287106](https://gitlab.com/gitlab-org/gitlab-ui/commit/c2871067de538cf27052090b81ddfb2c614b186c))
+
 # [25.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.9.0...v25.10.0) (2021-01-13)
 
 
