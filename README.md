@@ -17,7 +17,7 @@ yarn add @gitlab/ui
 In your main entrypoint **before** importing or using any component:
 
 ```javascript
-import setConfigs from '@gitlab/ui/dist/config
+import setConfigs from '@gitlab/ui/dist/config'
 
 setConfigs()
 ```
