@@ -1,3 +1,10 @@
+## [25.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.1...v25.11.2) (2021-01-14)
+
+
+### Bug Fixes
+
+* **css:** Correct the form group help text color ([54e9228](https://gitlab.com/gitlab-org/gitlab-ui/commit/54e92281e63a3c6f179229517a02db02174d388f))
+
 ## [25.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.0...v25.11.1) (2021-01-14)
 
 
