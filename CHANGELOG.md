@@ -1,3 +1,10 @@
+## [25.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.0...v25.11.1) (2021-01-14)
+
+
+### Bug Fixes
+
+* **docs:** add missing single quote ([896065f](https://gitlab.com/gitlab-org/gitlab-ui/commit/896065ff2cbc466e5772eb21e1249283ddea1940))
+
 # [25.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.10.0...v25.11.0) (2021-01-14)
 
 
