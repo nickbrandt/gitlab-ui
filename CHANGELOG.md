@@ -1,3 +1,10 @@
+## [25.11.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.2...v25.11.3) (2021-01-14)
+
+
+### Bug Fixes
+
+* **GlButton:** Display deprecated button variants in examples ([c1cec43](https://gitlab.com/gitlab-org/gitlab-ui/commit/c1cec43d38f77733a66b706f0c00a8f952e1d089))
+
 ## [25.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.1...v25.11.2) (2021-01-14)
 
 
