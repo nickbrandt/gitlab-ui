@@ -28,7 +28,7 @@ function generateProps({
     },
     variant: {
       type: String,
-      default: select('variant', newButtonVariantOptions, variant),
+      default: select('variant', Object.values(newButtonVariantOptions), variant),
     },
     size: {
       type: String,
@@ -260,7 +260,7 @@ documentedStoriesOf('base|button', readme)
             Default borderless
         </gl-button>
         <gl-button
-          variant="success"
+          variant="confirm"
           :category="category"
           :size="size"
           :block="block"

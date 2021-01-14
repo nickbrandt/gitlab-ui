@@ -13,10 +13,12 @@ import ButtonSecondaryExample from './categories/button.secondary.example.vue';
 import ButtonDangerExample from './variants/button.danger.example.vue';
 import ButtonDashedExample from './variants/button.dashed.example.vue';
 import ButtonConfirmExample from './variants/button.confirm.example.vue';
-import ButtonInfoExample from './variants/button.info.example.vue';
-import ButtonSuccessExample from './variants/button.success.example.vue';
 import ButtonVariantsExample from './variants/button.variants.example.vue';
-import ButtonWarningExample from './variants/button.warning.example.vue';
+
+/* Deprecated variants */
+import ButtonInfoExample from './deprecated-variants/button.info.example.vue';
+import ButtonSuccessExample from './deprecated-variants/button.success.example.vue';
+import ButtonWarningExample from './deprecated-variants/button.warning.example.vue';
 
 /* Combinations */
 import ButtonEllipsisExample from './combinations/button.ellipsis.example.vue';
@@ -109,24 +111,6 @@ export default [
         component: ButtonConfirmExample,
       },
       {
-        id: 'button-info',
-        name: 'Info Button Variant',
-        description: 'Info button variant',
-        component: ButtonInfoExample,
-      },
-      {
-        id: 'button-success',
-        name: 'Success Button Variant',
-        description: 'Success button variant',
-        component: ButtonSuccessExample,
-      },
-      {
-        id: 'button-warning',
-        name: 'Warning Button Variant',
-        description: 'Warning button variant',
-        component: ButtonWarningExample,
-      },
-      {
         id: 'button-danger',
         name: 'Danger Button Variant',
         description: 'Danger button variant',
@@ -137,6 +121,29 @@ export default [
         name: 'Dashed Button Variant',
         description: 'Dashed button variant',
         component: ButtonDashedExample,
+      },
+    ],
+  },
+  {
+    name: 'Deprecated variants',
+    items: [
+      {
+        id: 'button-info',
+        name: 'Info Button Variant (Deprecated)',
+        description: 'Info button variant (Deprecated)',
+        component: ButtonInfoExample,
+      },
+      {
+        id: 'button-success',
+        name: 'Success Button Variant (Deprecated)',
+        description: 'Success button variant (Deprecated)',
+        component: ButtonSuccessExample,
+      },
+      {
+        id: 'button-warning',
+        name: 'Warning Button Variant (Deprecated)',
+        description: 'Warning button variant (Deprecated)',
+        component: ButtonWarningExample,
       },
     ],
   },

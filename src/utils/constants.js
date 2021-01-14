@@ -86,9 +86,9 @@ export const newButtonCategoryOptions = {
 export const newButtonVariantOptions = {
   default: 'default',
   confirm: 'confirm',
-  info: 'info',
-  success: 'success',
-  warning: 'warning',
+  info: 'info (deprecated)',
+  success: 'success (deprecated)',
+  warning: 'warning (deprecated)',
   danger: 'danger',
   dashed: 'dashed',
   link: 'link',
