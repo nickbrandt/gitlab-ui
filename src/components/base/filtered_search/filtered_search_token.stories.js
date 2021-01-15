@@ -10,7 +10,7 @@ Vue.use(PortalVue);
 
 const noop = () => {};
 
-documentedStoriesOf('base|filtered-search/token', readme)
+documentedStoriesOf('base/filtered-search/token', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components: {

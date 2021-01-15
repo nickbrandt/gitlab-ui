@@ -6,7 +6,7 @@ const components = {
   GlFormText,
 };
 
-documentedStoriesOf('base|form/form-text', readme).add('default', () => ({
+documentedStoriesOf('base/form/form-text', readme).add('default', () => ({
   components,
   template: `
       <div class="gl-form-group">

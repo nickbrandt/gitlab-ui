@@ -55,7 +55,7 @@ function generateProps({ showLastYValue = true } = {}) {
   };
 }
 
-documentedStoriesOf('charts|sparkline-chart', readme)
+documentedStoriesOf('charts/sparkline-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

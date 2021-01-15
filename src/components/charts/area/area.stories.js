@@ -68,7 +68,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|area-chart', readme)
+documentedStoriesOf('charts/area-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

@@ -7,7 +7,7 @@ const components = {
   GlDropdownText,
 };
 
-documentedStoriesOf('base|dropdown/dropdown-text', readme)
+documentedStoriesOf('base/dropdown/dropdown-text', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},

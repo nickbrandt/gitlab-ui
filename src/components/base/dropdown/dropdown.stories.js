@@ -133,7 +133,7 @@ function clickDropdown(component) {
   component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
 }
 
-documentedStoriesOf('base|dropdown', readme)
+documentedStoriesOf('base/dropdown', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps({ text: 'Some dropdown' }),

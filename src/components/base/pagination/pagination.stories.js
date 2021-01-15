@@ -51,7 +51,7 @@ const defaults = {
   },
 };
 
-documentedStoriesOf('base|pagination', readme)
+documentedStoriesOf('base/pagination', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateFullProps(),

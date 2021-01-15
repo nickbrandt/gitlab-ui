@@ -7,6 +7,6 @@ const template = `
   </div>
 `;
 
-documentedStoriesOf('base|tabs/tab', '').add('default', () => ({
+documentedStoriesOf('base/tabs/tab', '').add('default', () => ({
   template,
 }));

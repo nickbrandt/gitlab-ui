@@ -8,7 +8,7 @@ const components = {
   GlMarkdown,
 };
 
-documentedStoriesOf('base|markdown', readme)
+documentedStoriesOf('base/markdown', readme)
   .addDecorator(withKnobs)
   .add(
     'typescale',

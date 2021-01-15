@@ -38,7 +38,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('base|form/form-group', readme)
+documentedStoriesOf('base/form/form-group', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

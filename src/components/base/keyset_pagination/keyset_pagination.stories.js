@@ -54,7 +54,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|keyset-pagination', readme)
+documentedStoriesOf('base/keyset-pagination', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

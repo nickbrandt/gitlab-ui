@@ -26,7 +26,7 @@ function makeTooltip(modifier = '') {
   });
 }
 
-documentedStoriesOf('base|tooltip', readme)
+documentedStoriesOf('base/tooltip', readme)
   .addDecorator(withKnobs)
   .add('top (default)', makeTooltip())
   .add('right', makeTooltip('.right'))

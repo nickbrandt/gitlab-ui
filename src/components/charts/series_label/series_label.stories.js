@@ -30,7 +30,7 @@ const template = `<gl-chart-series-label
     {{$options.text}}
   </gl-chart-series-label>`;
 
-documentedStoriesOf('charts|chart-series-label', readme)
+documentedStoriesOf('charts/chart-series-label', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

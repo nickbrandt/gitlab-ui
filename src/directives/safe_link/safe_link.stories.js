@@ -22,7 +22,7 @@ function generateProps({ href = 'javascript:alert(1)', target = '_blank' } = {})
   };
 }
 
-documentedStoriesOf('directives|safe-link-directive', readme)
+documentedStoriesOf('directives/safe-link-directive', readme)
   .addParameters({ storyshots: false })
   .addDecorator(withKnobs)
   .add('default', () => ({

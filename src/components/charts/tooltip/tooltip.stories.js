@@ -58,7 +58,7 @@ const getStoryOptions = (tooltipContent) => {
   };
 };
 
-documentedStoriesOf('charts|chart-tooltip', readme)
+documentedStoriesOf('charts/chart-tooltip', readme)
   .add('default', () => getStoryOptions('Example Content'))
   .add('with long series label', () =>
     getStoryOptions(`

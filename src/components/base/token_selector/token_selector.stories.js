@@ -43,7 +43,7 @@ const generateProps = () => {
   };
 };
 
-documentedStoriesOf('base|token_selector', readme)
+documentedStoriesOf('base/token_selector', readme)
   .addDecorator(withKnobs)
   .addParameters({ storyshots: false })
   .add('default', () => ({

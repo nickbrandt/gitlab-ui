@@ -13,7 +13,7 @@ const availableTokens = [
   { title: 'Demo2', type: 'demo2', icon: 'rocket', token: {} },
 ];
 
-documentedStoriesOf('base|filtered-search/term', readme)
+documentedStoriesOf('base/filtered-search/term', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components: {

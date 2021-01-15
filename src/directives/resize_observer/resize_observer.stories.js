@@ -3,7 +3,7 @@ import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import readme from './resize_observer.md';
 import { GlResizeObserverDirective } from '../../../index';
 
-documentedStoriesOf('directives|resize-observer-directive', readme)
+documentedStoriesOf('directives/resize-observer-directive', readme)
   .addParameters({ storyshots: false })
   .addDecorator(withKnobs)
   .add('default', () => ({

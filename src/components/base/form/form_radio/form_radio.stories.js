@@ -22,7 +22,7 @@ function generateProps({ name = 'radio-group-name' } = {}) {
   };
 }
 
-documentedStoriesOf('base|form/form-radio', readme)
+documentedStoriesOf('base/form/form-radio', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

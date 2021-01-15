@@ -52,7 +52,7 @@ function generateTooltipProps() {
   return props;
 }
 
-documentedStoriesOf('base|avatar/labeled', readme)
+documentedStoriesOf('base/avatar/labeled', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

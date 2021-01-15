@@ -39,7 +39,7 @@ const groupComponent = () => ({
     `,
 });
 
-documentedStoriesOf('base|form/form-checkbox', readme)
+documentedStoriesOf('base/form/form-checkbox', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

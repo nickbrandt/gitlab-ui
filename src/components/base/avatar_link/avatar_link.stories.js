@@ -39,7 +39,7 @@ const generateImageProps = () => ({
   },
 });
 
-documentedStoriesOf('base|avatar/avatar-link', readme)
+documentedStoriesOf('base/avatar/avatar-link', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: { ...generateDefaultProps(), ...generateImageProps() },

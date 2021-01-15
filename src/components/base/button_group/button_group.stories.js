@@ -39,7 +39,7 @@ function generateProps({
   return props;
 }
 
-documentedStoriesOf('base|button group', readme)
+documentedStoriesOf('base/button group', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

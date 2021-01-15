@@ -24,7 +24,7 @@ function generateProps({ message = 'Written by %{author}', placeholders } = {}) 
   return props;
 }
 
-documentedStoriesOf('utilities|sprintf', readme)
+documentedStoriesOf('utilities/sprintf', readme)
   .addDecorator(withKnobs)
   .add('sentence with link', () => ({
     props: generateProps({

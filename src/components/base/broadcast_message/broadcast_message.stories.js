@@ -59,7 +59,7 @@ const generateComputedProps = () => ({
   },
 });
 
-documentedStoriesOf('base|broadcast message', readme)
+documentedStoriesOf('base/broadcast message', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

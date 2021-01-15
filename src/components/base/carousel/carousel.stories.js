@@ -8,7 +8,7 @@ const components = {
   GlCarouselSlide,
 };
 
-documentedStoriesOf('base|carousel', readme).add('default carousel', () => ({
+documentedStoriesOf('base/carousel', readme).add('default carousel', () => ({
   components,
   template: `
     <gl-carousel

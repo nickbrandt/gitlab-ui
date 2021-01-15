@@ -6,7 +6,7 @@ const components = {
   GlAccordionItem,
 };
 
-documentedStoriesOf('base|accordion/accordion-item', readme).add('default', () => ({
+documentedStoriesOf('base/accordion/accordion-item', readme).add('default', () => ({
   components,
   template: `
       <gl-accordion-item title="Item 1" visible>

@@ -43,7 +43,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|daterange-picker', readme)
+documentedStoriesOf('base/daterange-picker', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

@@ -24,7 +24,7 @@ function generateProps({ disabled = false, value = '', placeholder = 'Search' } 
   };
 }
 
-documentedStoriesOf('base|search-box-by-click', readme)
+documentedStoriesOf('base/search-box-by-click', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

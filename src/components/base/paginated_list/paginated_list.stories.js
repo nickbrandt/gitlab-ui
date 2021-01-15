@@ -141,7 +141,7 @@ function generateProps() {
   };
 }
 
-documentedStoriesOf('base|paginated-list', readme)
+documentedStoriesOf('base/paginated-list', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

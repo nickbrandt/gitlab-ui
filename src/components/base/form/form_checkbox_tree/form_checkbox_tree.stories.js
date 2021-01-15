@@ -9,7 +9,7 @@ const components = {
   GlToken,
 };
 
-documentedStoriesOf('base|form/form-checkbox-tree', readme)
+documentedStoriesOf('base/form/form-checkbox-tree', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {

@@ -6,7 +6,7 @@ const components = {
   GlSkeletonLoader,
 };
 
-documentedStoriesOf('base|skeleton-loader', readme).add('default', () => ({
+documentedStoriesOf('base/skeleton-loader', readme).add('default', () => ({
   props: {},
   components,
   template: `

@@ -4,7 +4,7 @@ import readme from './infinite_scroll.md';
 
 const ITEMS_BATCH_SIZE = 20;
 
-documentedStoriesOf('base|infinite-scroll', readme).add('default', () => ({
+documentedStoriesOf('base/infinite-scroll', readme).add('default', () => ({
   data() {
     return {
       isLoading: false,

@@ -7,7 +7,7 @@ const components = {
   GlDeprecatedDropdownItem,
 };
 
-documentedStoriesOf('base|deprecated-dropdown/deprecated-dropdown-item', readme)
+documentedStoriesOf('base/deprecated-dropdown/deprecated-dropdown-item', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: {},

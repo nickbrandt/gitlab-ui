@@ -47,7 +47,7 @@ const generateProps = ({
   },
 });
 
-documentedStoriesOf('base|badge', readme)
+documentedStoriesOf('base/badge', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

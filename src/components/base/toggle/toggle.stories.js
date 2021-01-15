@@ -6,7 +6,7 @@ const components = {
   GlToggle,
 };
 
-documentedStoriesOf('base|toggle', '')
+documentedStoriesOf('base/toggle', '')
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

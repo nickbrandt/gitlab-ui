@@ -34,7 +34,7 @@ function generateProps({ noResize = GlFormTextarea.props.noResize.default } = {}
   };
 }
 
-documentedStoriesOf('base|form/form-textarea', readme)
+documentedStoriesOf('base/form/form-textarea', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,

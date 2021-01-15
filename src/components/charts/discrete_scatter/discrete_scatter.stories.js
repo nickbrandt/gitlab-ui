@@ -52,7 +52,7 @@ function generateProps({
   };
 }
 
-documentedStoriesOf('charts|discrete-scatter-chart', readme)
+documentedStoriesOf('charts/discrete-scatter-chart', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),

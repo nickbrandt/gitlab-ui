@@ -283,7 +283,7 @@ const components = {
   GlFilteredSearch,
 };
 
-documentedStoriesOf('base|filtered-search', readme)
+documentedStoriesOf('base/filtered-search', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     data() {
