@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { keyboard } from '~/utils/constants';
 
 import GlToken from '../token/token.vue';
@@ -29,12 +29,13 @@ describe('GlTokenContainer', () => {
   let wrapper;
 
   const createComponent = (options) => {
-    wrapper = shallowMount(GlTokenContainer, {
+    wrapper = mount(GlTokenContainer, {
       ...options,
       propsData: {
         ...defaultProps,
         ...(options?.propsData || {}),
       },
+      attachToDocument: true,
     });
   };
 
@@ -125,11 +126,14 @@ describe('GlTokenContainer', () => {
 
   describe('keyboard navigation', () => {
     const setup = async (focusedTokenIndex, key) => {
-      createComponent({
-        data() {
-          return { focusedTokenIndex };
+      createComponent(
+        {
+          data() {
+            return { focusedTokenIndex };
+          },
         },
-      });
+        true
+      );
 
       const focusedToken = findTokenByName(tokens[focusedTokenIndex].name);
 
@@ -204,7 +208,7 @@ describe('GlTokenContainer', () => {
       });
 
       it('keeps track of focused token when token is focused by click/tap', async () => {
-        createComponent();
+        createComponent({});
 
         const focusedToken = findTokenByName(tokens[3].name);
 
