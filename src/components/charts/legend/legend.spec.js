@@ -64,8 +64,9 @@ describe('chart legend component', () => {
     });
   };
 
-  beforeEach(() => {
+  beforeEach(async () => {
     chartWrapper = shallowMount(...chartArgs);
+    await chartWrapper.vm.$nextTick();
     // Runs after mounting the chart so that it has an up to date reference
     buildLegend();
   });
