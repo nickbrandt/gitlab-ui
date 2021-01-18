@@ -83,6 +83,9 @@ export const mockAnnotationsSeries = {
         symbol: 'path://m5 229 5 8h-10z',
         symbolSize: '8',
         symbolOffset: [0, ' 60%'],
+        itemStyle: {
+          color: blue500,
+        },
         data: [
           {
             name: 'annotations',
