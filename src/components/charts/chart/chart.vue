@@ -64,7 +64,9 @@ export default {
       echarts.registerTheme(themeName, theme);
     }
   },
-  mounted() {
+  async mounted() {
+    await this.$nextTick();
+
     this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
       renderer: this.renderer,
     });
