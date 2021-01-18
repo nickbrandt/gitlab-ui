@@ -216,3 +216,7 @@
 @mixin gl-max-w-full {
   max-width: 100%;
 }
+
+@mixin gl-max-h-full {
+  max-height: 100%;
+}
