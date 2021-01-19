@@ -43,40 +43,24 @@ describe('chart component', () => {
     expect(echarts.registerTheme).toHaveBeenCalledWith(themeName, theme);
   });
 
-  it('waits a tick before creating the chart', async () => {
-    wrapper = shallowMount(...mountArgs);
-
-    expect(wrapper.vm.chart).toBe(null);
-
-    await wrapper.vm.$nextTick();
-
-    expect(wrapper.vm.chart).toBeDefined();
-  });
-
   describe('custom sizing', () => {
     const width = 1234;
     const height = 123;
 
-    it('sets chart to custom width and height if specified', async () => {
+    it('sets chart to custom width and height if specified', () => {
       wrapper = shallowMount(Chart, { propsData: { options: {}, width, height } });
-
-      await wrapper.vm.$nextTick();
 
       expect(wrapper.vm.chart.resize).toHaveBeenCalledWith({ width, height });
     });
 
-    it('sets chart to custom width if specified', async () => {
+    it('sets chart to custom width if specified', () => {
       wrapper = shallowMount(Chart, { propsData: { options: {}, width } });
-
-      await wrapper.vm.$nextTick();
 
       expect(wrapper.vm.chart.resize).toHaveBeenCalledWith({ width, height: defaultHeight });
     });
 
-    it('sets chart to custom height if specified', async () => {
+    it('sets chart to custom height if specified', () => {
       wrapper = shallowMount(Chart, { propsData: { options: {}, height } });
-
-      await wrapper.vm.$nextTick();
 
       expect(wrapper.vm.chart.resize).toHaveBeenCalledWith({ width: 'auto', height });
     });
