@@ -1,3 +1,10 @@
+# [25.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.4...v25.12.0) (2021-01-19)
+
+
+### Features
+
+* **css:** Add gl-max-h-full class ([37d2c2c](https://gitlab.com/gitlab-org/gitlab-ui/commit/37d2c2c527b7a0d08b83d65d7a4ebf18fb533b15))
+
 ## [25.11.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.3...v25.11.4) (2021-01-18)
 
 
