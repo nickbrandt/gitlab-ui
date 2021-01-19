@@ -1,14 +1,14 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlTabs, GlTab } from '../../../../index';
 import { GlChart } from '../../../../charts';
 import readme from './chart.md';
 
-const createStory = (template) => ({
-  components: {
-    GlChart,
-    GlTabs,
-    GlTab,
-  },
+const components = {
+  GlChart,
+};
+
+documentedStoriesOf('charts/chart', readme).add('default', () => ({
+  props: {},
+  components,
   data() {
     return {
       options: {
@@ -28,21 +28,7 @@ const createStory = (template) => ({
       },
     };
   },
-  template,
-});
-
-documentedStoriesOf('charts/chart', readme)
-  .add('default', () =>
-    createStory(`<gl-chart
+  template: `<gl-chart
       :options="options"
-    />`)
-  )
-  .add('tab', () =>
-    createStory(`
-      <gl-tabs>
-        <gl-tab title="Chart">
-          <gl-chart :options="options" />
-        </gl-tab>
-      </gl-tabs>
-    `)
-  );
+    />`,
+}));
