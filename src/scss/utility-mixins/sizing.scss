@@ -116,6 +116,10 @@
   width: max-content;
 }
 
+@mixin gl-w-fit-content {
+  width: fit-content;
+}
+
 @mixin gl-h-auto {
   height: auto;
 }
