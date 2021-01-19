@@ -1,3 +1,10 @@
+## [25.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.12.0...v25.12.1) (2021-01-19)
+
+
+### Bug Fixes
+
+* **Chart:** Revert Wait Tick For Charts ([525ade2](https://gitlab.com/gitlab-org/gitlab-ui/commit/525ade26afbe94e8dbcd6d445e86a41c3c12dd5d))
+
 # [25.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.11.4...v25.12.0) (2021-01-19)
 
 
