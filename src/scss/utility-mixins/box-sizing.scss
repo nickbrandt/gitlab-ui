@@ -1,0 +1,9 @@
+/**
+* box-sizing utilities
+*
+* naming convention: gl-box-sizing-{value}
+*/
+
+@mixin gl-box-sizing-content-box {
+  box-sizing: content-box;
+}

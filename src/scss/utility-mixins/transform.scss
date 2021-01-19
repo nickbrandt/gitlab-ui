@@ -13,6 +13,10 @@
   transform: translateX(100%);
 }
 
+@mixin gl-translate-x-n100 {
+  transform: translateX(-100%);
+}
+
 @mixin gl-translate-y-0 {
   transform: translateY(0);
 }
@@ -47,4 +51,8 @@
 
 @mixin gl-flip-both {
   transform: scale(-1, -1);
+}
+
+@mixin gl-transform-none {
+  transform: none;
 }

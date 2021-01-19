@@ -375,6 +375,14 @@
   margin-right: 0;
 }
 
+@mixin gl-mr-100 {
+  margin-right: 100%;
+}
+
+@mixin gl-mr-n100 {
+  margin-right: -100%;
+}
+
 @mixin gl-mr-1 {
   margin-right: $gl-spacing-scale-1;
 }

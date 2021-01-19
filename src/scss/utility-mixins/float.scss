@@ -1,0 +1,13 @@
+/**
+* float utilities
+*
+* naming convention: gl-float-{value}
+*/
+
+@mixin gl-float-left {
+  float: left;
+}
+
+@mixin gl-float-right {
+  float: right;
+}

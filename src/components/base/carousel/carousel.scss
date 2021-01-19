@@ -13,7 +13,7 @@
 
 .gl-carousel {
   .carousel {
-    position: relative;
+    @include gl-relative;
 
     &.pointer-event {
       touch-action: pan-y;
@@ -21,36 +21,36 @@
   }
 
   .carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+    @include gl-relative;
+    @include gl-w-full;
+    @include gl-overflow-hidden;
     @include clearfix();
   }
 
   .carousel-item {
-    position: relative;
-    display: none;
-    float: left;
-    width: 100%;
-    margin-right: -100%;
-    backface-visibility: hidden;
+    @include gl-relative;
+    @include gl-display-none;
     @include transition($carousel-transition);
+    @include gl-w-full;
+    @include gl-float-left;
+    @include gl-mr-n100;
+    backface-visibility: hidden;
   }
 
   .carousel-item.active,
   .carousel-item-next,
   .carousel-item-prev {
-    display: block;
+    @include gl-display-block;
   }
 
   .carousel-item-next:not(.carousel-item-left),
   .active.carousel-item-right {
-    transform: translateX(100%);
+    @include gl-translate-x-100;
   }
 
   .carousel-item-prev:not(.carousel-item-right),
   .active.carousel-item-left {
-    transform: translateX(-100%);
+    @include gl-translate-x-n100;
   }
 
   //
@@ -59,22 +59,22 @@
 
   .carousel-fade {
     .carousel-item {
-      opacity: 0;
-      transition-property: opacity;
-      transform: none;
+      @include gl-opacity-0;
+      @include gl-transition-property-opacity;
+      @include gl-transform-none;
     }
 
     .carousel-item.active,
     .carousel-item-next.carousel-item-left,
     .carousel-item-prev.carousel-item-right {
-      z-index: 1;
-      opacity: 1;
+      @include gl-z-index-1;
+      @include gl-opacity-10;
     }
 
     .active.carousel-item-left,
     .active.carousel-item-right {
-      z-index: 0;
-      opacity: 0;
+      @include gl-z-index-0;
+      @include gl-opacity-0;
       @include transition(0s $carousel-transition-duration opacity);
     }
   }
@@ -85,37 +85,39 @@
 
   .carousel-control-prev,
   .carousel-control-next {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include gl-absolute;
+    @include gl-top-0;
+    @include gl-bottom-0;
+    @include gl-z-index-1;
+    @include gl-display-flex;
+    @include gl-align-items-center;
+    @include gl-justify-content-center;
+    @include gl-text-center;
+    @include transition($carousel-control-transition);
+
     width: $carousel-control-width;
     color: $carousel-control-color;
-    text-align: center;
     opacity: $carousel-control-opacity;
-    @include transition($carousel-control-transition);
 
     // Hover/focus state
     @include hover-focus {
+      @include gl-text-decoration-none;
+      @include gl-outline-0;
+
       color: $carousel-control-color;
-      text-decoration: none;
-      outline: 0;
       opacity: $carousel-control-hover-opacity;
     }
   }
 
   .carousel-control-prev {
-    left: 0;
+    @include gl-left-0;
     @if $enable-gradients {
       background: linear-gradient(90deg, rgba($black, 0.25), rgba($black, 0.001));
     }
   }
 
   .carousel-control-next {
-    right: 0;
+    @include gl-right-0;
     @if $enable-gradients {
       background: linear-gradient(270deg, rgba($black, 0.25), rgba($black, 0.001));
     }
@@ -124,7 +126,7 @@
   // Icons for within
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    display: inline-block;
+    @include gl-display-inline-block;
     width: $carousel-control-icon-width;
     height: $carousel-control-icon-width;
     background: no-repeat 50% / 100% 100%;
@@ -144,39 +146,38 @@
   // slide your carousel holds.
 
   .carousel-indicators {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 15;
-    display: flex;
-    justify-content: center;
-    padding-left: 0; // override <ol> default
+    @include gl-absolute;
+    @include gl-right-0;
+    @include gl-bottom-0;
+    @include gl-left-0;
+    @include gl-z-index-9999;
+    @include gl-display-flex;
+    @include gl-justify-content-center;
+    @include gl-pl-0; // override <ol> default
+    @include gl-list-style-none;
     // Use the .carousel-control's width as margin so we don't overlay those
     margin-right: $carousel-control-width;
     margin-left: $carousel-control-width;
-    list-style: none;
 
     li {
-      box-sizing: content-box;
-      flex: 0 1 auto;
+      @include gl-box-sizing-content-box;
       width: $carousel-indicator-width;
       height: $carousel-indicator-height;
       margin-right: $carousel-indicator-spacer;
       margin-left: $carousel-indicator-spacer;
-      text-indent: -999px;
-      cursor: pointer;
+      @include gl-text-indent-hide;
+      @include gl-cursor-pointer;
       background-color: $carousel-indicator-active-bg;
       background-clip: padding-box;
       // Use transparent borders to increase the hit area by 10px on top and bottom.
       border-top: $carousel-indicator-hit-area-height solid transparent;
       border-bottom: $carousel-indicator-hit-area-height solid transparent;
-      opacity: 0.5;
+      @include gl-opacity-5;
       @include transition($carousel-indicator-transition);
     }
 
     .active {
-      opacity: 1;
+      @include gl-opacity-10;
     }
   }
 
@@ -185,14 +186,14 @@
   //
 
   .carousel-caption {
-    position: absolute;
+    @include gl-absolute;
+    @include gl-z-index-9999;
+    @include gl-text-center;
     right: (100% - $carousel-caption-width) / 2;
-    bottom: 20px;
+    bottom: $gl-carousel-caption-spacing;
     left: (100% - $carousel-caption-width) / 2;
-    z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: $gl-carousel-caption-spacing;
+    padding-bottom: $gl-carousel-caption-spacing;
     color: $carousel-caption-color;
-    text-align: center;
   }
 }
