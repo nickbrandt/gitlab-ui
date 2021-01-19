@@ -8,7 +8,7 @@ export default {
 };
 </script>
 <template>
-  <b-carousel v-bind="$attrs" v-on="$listeners">
+  <b-carousel class="gl-carousel" v-bind="$attrs" v-on="$listeners">
     <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
   </b-carousel>
 </template>
