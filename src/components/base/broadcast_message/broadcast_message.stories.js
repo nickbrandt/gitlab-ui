@@ -1,4 +1,4 @@
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs/vue';
+import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './broadcast_message.md';

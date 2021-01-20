@@ -1,4 +1,4 @@
-import { withKnobs, date } from '@storybook/addon-knobs/dist/deprecated';
+import { withKnobs, date } from '@storybook/addon-knobs';
 import useFakeDate from '../../../utils/use_fake_date';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './datepicker.md';

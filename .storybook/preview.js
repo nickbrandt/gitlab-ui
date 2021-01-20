@@ -1,5 +1,6 @@
 import { addParameters, addDecorator } from '@storybook/vue';
-import { withA11y } from '@storybook/addon-a11y';
+import { addReadme } from 'storybook-readme/vue';
+import { setupStorybookReadme } from '../documentation/documented_stories';
 
 const stylesheetsRequireCtx = require.context('../src/scss', true, /(storybook|bootstrap)\.scss$/);
 
@@ -14,7 +15,20 @@ function addSbClass(c, a) {
 }
 
 addDecorator(addSbClass);
-addDecorator(withA11y);
+addDecorator(addReadme);
+
+/**
+ * When running in test mode, we do small adjustments to help with visual regression testing:
+ * - Skip storybook-readme's setup to avoid rendering the READMEs.
+ * - Set the layout to fullscreen to ensure stories are full-width.
+ */
+const parameters = {};
+if (process.env.NODE_ENV !== 'test') {
+  setupStorybookReadme();
+} else {
+  parameters.layout = 'fullscreen';
+}
+export { parameters };
 
 addParameters({
   a11y: {

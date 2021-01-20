@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs/vue';
+import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './form.md';
 import { GlForm } from '../../../../index';

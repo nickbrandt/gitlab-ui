@@ -1,5 +1,5 @@
-import { withKnobs } from '@storybook/addon-knobs/vue';
-import { object } from '@storybook/addon-knobs';
+import { withKnobs, object } from '@storybook/addon-knobs';
+
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlBreadcrumb } from '../../../../index';
 import readme from './breadcrumb.md';
