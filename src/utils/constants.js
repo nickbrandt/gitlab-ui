@@ -38,6 +38,8 @@ export const badgeVariantOptions = {
 };
 
 export const variantCssColorMap = {
+  muted: 'gl-text-gray-500',
+  neutral: 'gl-text-blue-100',
   info: 'gl-text-blue-500',
   success: 'gl-text-green-500',
   warning: 'gl-text-orange-500',
