@@ -1,4 +1,4 @@
-import { withKnobs, select } from '@storybook/addon-knobs/vue';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlTabs, GlTab } from '../../../../../index';
 import { glThemes } from '../../../../utils/constants';

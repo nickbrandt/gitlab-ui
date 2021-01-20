@@ -1,4 +1,4 @@
-import { withKnobs, date, number, boolean } from '@storybook/addon-knobs/dist/deprecated';
+import { withKnobs, date, number, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';

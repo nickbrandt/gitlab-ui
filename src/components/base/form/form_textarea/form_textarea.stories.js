@@ -1,4 +1,4 @@
-import { withKnobs, boolean } from '@storybook/addon-knobs/vue';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './form_textarea.md';
 import { GlFormTextarea } from '../../../../../index';

@@ -1,4 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs/dist/deprecated';
+import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './deprecated_dropdown_item.md';
 import { GlDeprecatedDropdownItem } from '../../../../index';

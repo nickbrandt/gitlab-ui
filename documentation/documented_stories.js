@@ -1,8 +1,7 @@
+import { storiesOf } from '@storybook/vue';
 import camelCase from 'lodash/camelCase';
 import upperFirst from 'lodash/upperFirst';
-
-import { storiesOf } from '@storybook/vue';
-import { withDocs } from 'storybook-readme';
+import { configureReadme } from 'storybook-readme';
 
 import 'url-search-params-polyfill';
 
@@ -54,60 +53,55 @@ function getComponentName() {
   return componentName;
 }
 
-const withCustomPreview = withDocs({
-  PreviewComponent: {
-    data() {
-      return {
-        // Style the preview component container
-        // Default container forcefully centers the preview element
-        styles: {
-          padding: '50px 35px',
-          margin: '16px 0',
-          border: '1px dashed rgb(229, 229, 229)',
-        },
-      };
+export const setupStorybookReadme = () =>
+  configureReadme({
+    StoryPreview: {
+      components: {
+        GlComponentDocumentation,
+        GlExampleExplorer,
+      },
+      data() {
+        return {
+          componentName: null,
+          error: '',
+          // Style the preview component container
+          // Default container forcefully centers the preview element
+          styles: {
+            padding: '50px 35px',
+            margin: '16px 0',
+            border: '1px dashed rgb(229, 229, 229)',
+          },
+        };
+      },
+      mounted() {
+        try {
+          this.componentName = getComponentName();
+          this.error = '';
+        } catch (error) {
+          this.componentName = false;
+          this.error = error.message;
+        }
+      },
+      template: `
+      <div>
+        <div class="story-container" v-bind:style="styles"><slot></slot></div>
+        {{ error }}
+        <template v-if="componentName">
+          <gl-example-explorer :componentName="componentName" />
+          <gl-component-documentation :componentName="componentName" />
+        </template>
+      </div>`,
     },
-    template: '<div class="story-container" v-bind:style="styles"><slot></slot></div>',
-  },
-  // Disable default footer's dashed bottom border
-  FooterComponent: {
-    data() {
-      return {
-        componentName: null,
-        error: '',
-      };
-    },
-    components: {
-      GlComponentDocumentation,
-      GlExampleExplorer,
-    },
-    template: `<div>
-                {{ error }}
-                <template v-if="componentName">
-                  <gl-example-explorer :componentName="componentName" />
-                  <gl-component-documentation :componentName="componentName" />
-                </template>
-              </div>`,
-    mounted() {
-      try {
-        this.componentName = getComponentName();
-        this.error = '';
-      } catch (error) {
-        this.componentName = false;
-        this.error = error.message;
-      }
-    },
-  },
-});
+  });
 
-function documentedStoriesOf(storyName, readme) {
-  const story = storiesOf(storyName, module);
-
+export const documentedStoriesOf = (name, readme) => {
+  const story = storiesOf(name, module);
   if (process.env.NODE_ENV !== 'test') {
-    story.addDecorator(withCustomPreview(readme));
+    story.addParameters({
+      readme: {
+        content: readme,
+      },
+    });
   }
-
   return story;
-}
-
-export { documentedStoriesOf };
+};
