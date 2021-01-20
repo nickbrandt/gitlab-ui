@@ -428,6 +428,12 @@ $gl-modal-small-width: px-to-rem(512px);
 $gl-modal-medium-width: px-to-rem(768px);
 $gl-modal-large-width: px-to-rem(990px);
 
+// Modal bootstrap variables
+$modal-header-border-color: $gray-200;
+$modal-footer-border-color: $gray-200;
+$modal-title-line-height: $gl-line-height-20;
+$modal-backdrop-opacity: 0.64;
+
 // Bootstrap overrides
 // these should ideally be moved further up in the file to the compoent-relevant sections
 // but they can wait here for now
