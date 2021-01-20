@@ -198,4 +198,12 @@ describe('new dropdown', () => {
       expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeFalsy();
     });
   });
+
+  describe('when `toggleAttrs` prop is passed', () => {
+    it('adds passed HTML attributes to dropdown toggle', () => {
+      buildWrapper({ toggleAttrs: { 'data-qa-selector': 'foo_bar' } });
+
+      expect(findDropdownToggle().attributes('data-qa-selector')).toBe('foo_bar');
+    });
+  });
 });

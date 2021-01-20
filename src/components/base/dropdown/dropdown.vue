@@ -107,6 +107,11 @@ export default {
       required: false,
       default: null,
     },
+    toggleAttrs: {
+      type: Object,
+      required: false,
+      default: null,
+    },
     right: {
       type: Boolean,
       required: false,
@@ -157,6 +162,22 @@ export default {
     buttonText() {
       return this.split && this.icon ? null : this.text;
     },
+  },
+  mounted() {
+    // Bootstrap Vue and GlDropdown to not support adding attributes to the dropdown toggle
+    // As of now, this is the cleanest way to acheive this
+    if (!this.toggleAttrs) {
+      return;
+    }
+
+    const dropdownToggle = this.$refs.dropdown.$el.querySelector('.gl-dropdown-toggle');
+
+    if (dropdownToggle) {
+      Object.keys(this.toggleAttrs).forEach((attr) => {
+        const value = this.toggleAttrs[attr];
+        dropdownToggle.setAttribute(attr, value);
+      });
+    }
   },
   methods: {
     hasSlotContents(slotName) {
