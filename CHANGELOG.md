@@ -1,3 +1,10 @@
+## [25.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.12.1...v25.12.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* **GlModal:** Update gl-modal to design guidelines ([46f7239](https://gitlab.com/gitlab-org/gitlab-ui/commit/46f7239ced60eb605fcb3a4f5e349413f2ce6a25))
+
 ## [25.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.12.0...v25.12.1) (2021-01-19)
 
 
