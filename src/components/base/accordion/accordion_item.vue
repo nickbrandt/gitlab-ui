@@ -2,7 +2,7 @@
 import { uniqueId } from 'lodash';
 import { BCollapse } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
-import GlCollapseToggleDirective from '../../../directives/collapse_toggle';
+import GlCollapseToggle from '../../../directives/collapse_toggle';
 
 export default {
   name: 'GlAccordionItem',
@@ -11,7 +11,7 @@ export default {
     GlButton,
   },
   directives: {
-    GlCollapseToggleDirective,
+    GlCollapseToggle,
   },
   inheritAttrs: false,
   props: {
