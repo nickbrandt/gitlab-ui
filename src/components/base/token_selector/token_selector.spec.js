@@ -198,6 +198,20 @@ describe('GlTokenSelector', () => {
         expect(textInput.attributes(attribute)).toBe(value);
       });
     });
+
+    describe('textInputAttrs', () => {
+      it('renders passed HTML attributes on text input', () => {
+        createComponent({
+          propsData: {
+            textInputAttrs: {
+              'data-qa-selector': 'foo_bar',
+            },
+          },
+        });
+
+        expect(findTextInput().attributes('data-qa-selector')).toBe('foo_bar');
+      });
+    });
   });
 
   describe('custom v-model', () => {
