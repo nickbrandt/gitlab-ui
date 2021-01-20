@@ -1,5 +1,7 @@
 import SingleStatSimpleExample from './single_stat.simple.example.vue';
-import SingleStatIconExample from './single_stat.icon.example.vue';
+import SingleStatIconExample from './single_stat.meta_icon.example.vue';
+import SingleStatBadgeExample from './single_stat.badge.example.vue';
+import SingleStatTitleIconExample from './single_stat.title_icon.example.vue';
 
 export default [
   {
@@ -11,9 +13,19 @@ export default [
         component: SingleStatSimpleExample,
       },
       {
-        id: 'icon',
-        name: 'Icon',
+        id: 'metaIcon',
+        name: 'Meta Icon',
         component: SingleStatIconExample,
+      },
+      {
+        id: 'badge',
+        name: 'Badge',
+        component: SingleStatBadgeExample,
+      },
+      {
+        id: 'titleIcon',
+        name: 'Title Icon',
+        component: SingleStatTitleIconExample,
       },
     ],
   },
