@@ -1,0 +1,9 @@
+/**
+* Touch action utilities
+*
+* naming convention: gl-touch-action-{value}
+*/
+
+@mixin gl-touch-action-pan-y {
+  touch-action: pan-y;
+}

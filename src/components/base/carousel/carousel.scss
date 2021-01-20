@@ -16,7 +16,7 @@
     @include gl-relative;
 
     &.pointer-event {
-      touch-action: pan-y;
+      @include gl-touch-action-pan-y;
     }
   }
 
@@ -33,8 +33,8 @@
     @include transition($carousel-transition);
     @include gl-w-full;
     @include gl-float-left;
-    @include gl-mr-n100;
-    backface-visibility: hidden;
+    @include gl-mr-n100p;
+    @include gl-backface-visibility-hidden;
   }
 
   .carousel-item.active,
@@ -127,9 +127,11 @@
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     @include gl-display-inline-block;
+    @include gl-bg-no-repeat;
+    @include gl-bg-x-50-p;
+    @include gl-bg-size-100p;
     width: $carousel-control-icon-width;
     height: $carousel-control-icon-width;
-    background: no-repeat 50% / 100% 100%;
   }
 
   .carousel-control-prev-icon {
@@ -161,19 +163,19 @@
 
     li {
       @include gl-box-sizing-content-box;
+      @include gl-text-indent-hide;
+      @include gl-cursor-pointer;
+      @include gl-opacity-5;
+      @include transition($carousel-indicator-transition);
+      @include gl-bg-clip-padding-box;
       width: $carousel-indicator-width;
       height: $carousel-indicator-height;
       margin-right: $carousel-indicator-spacer;
       margin-left: $carousel-indicator-spacer;
-      @include gl-text-indent-hide;
-      @include gl-cursor-pointer;
       background-color: $carousel-indicator-active-bg;
-      background-clip: padding-box;
       // Use transparent borders to increase the hit area by 10px on top and bottom.
       border-top: $carousel-indicator-hit-area-height solid transparent;
       border-bottom: $carousel-indicator-hit-area-height solid transparent;
-      @include gl-opacity-5;
-      @include transition($carousel-indicator-transition);
     }
 
     .active {

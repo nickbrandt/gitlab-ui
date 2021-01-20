@@ -347,6 +347,10 @@
   background-position: center;
 }
 
+@mixin gl-bg-x-50-p {
+  background-position-x: 50%;
+}
+
 /**
 * Background size utilities.
 *
@@ -384,4 +388,13 @@
 
 @mixin gl-bg-chevron-down {
   background-image: url($gl-icon-chevron-down);
+}
+
+/**
+* Background clip utilities.
+*
+* naming convention: gl-bg-clip-{value}
+*/
+@mixin gl-bg-clip-padding-box {
+  background-clip: padding-box;
 }

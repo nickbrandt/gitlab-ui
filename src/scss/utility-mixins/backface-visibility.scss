@@ -1,0 +1,9 @@
+/**
+* Touch action utilities
+*
+* naming convention: gl-backface-visibility-{value}
+*/
+
+@mixin gl-backface-visibility-hidden {
+  backface-visibility: hidden;
+}
