@@ -1,3 +1,24 @@
+# [26.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.12.2...v26.0.0) (2021-01-20)
+
+
+### Bug Fixes
+
+* **GlAccordionItem:** properly resolve collapse directive ([10eb214](https://gitlab.com/gitlab-org/gitlab-ui/commit/10eb21486e7a859a05290c6488f40d1873c00efc))
+
+
+### Features
+
+* **GlSingleStat:** Restyle and enhance component ([4917aa4](https://gitlab.com/gitlab-org/gitlab-ui/commit/4917aa49728edb3c98990e92be68361ad49c414f))
+
+
+### BREAKING CHANGES
+
+* **GlSingleStat:** Update component API
+
+The component is being restyled from the ground up.
+Additional props are being exposed via the component
+API in order to display additional functionality.
+
 ## [25.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.12.1...v25.12.2) (2021-01-20)
 
 
