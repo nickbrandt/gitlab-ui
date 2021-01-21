@@ -1,3 +1,10 @@
+# [26.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.0.0...v26.1.0) (2021-01-21)
+
+
+### Features
+
+* **css:** Add gl-lg-ml-2 ([62313a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/62313a603c2e9d682ad73a9d608cccc17bfd767f))
+
 # [26.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v25.12.2...v26.0.0) (2021-01-20)
 
 
