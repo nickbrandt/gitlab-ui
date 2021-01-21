@@ -743,6 +743,12 @@
   }
 }
 
+@mixin gl-lg-ml-2 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-ml-2;
+  }
+}
+
 @mixin gl-lg-ml-3 {
   @media (min-width: $breakpoint-lg) {
     @include gl-ml-3;
