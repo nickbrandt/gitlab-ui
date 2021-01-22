@@ -56,6 +56,11 @@ export default {
       required: false,
       default: null,
     },
+    textInputAttrs: {
+      type: Object,
+      required: false,
+      default: null,
+    },
     // Used for custom `v-model`
     selectedTokens: {
       type: Array,
@@ -284,6 +289,7 @@ export default {
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"
             :placeholder="placeholder"
+            v-bind="textInputAttrs"
             @input="inputText = $event.target.value"
             @focus="handleFocus"
             @blur="handleBlur"

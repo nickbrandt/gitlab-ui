@@ -26,6 +26,10 @@ export default {
       additionalInfo:
         'CSS classes to add to the main token selector container (`.gl-token-selector`)',
     },
+    textInputAttrs: {
+      additionalInfo:
+        'HTML attributes to add to the text input. Helpful for adding `data-testid` and `data-qa-selector` attributes',
+    },
   },
   slots: [
     {
