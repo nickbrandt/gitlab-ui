@@ -128,7 +128,7 @@
   .carousel-control-next-icon {
     @include gl-display-inline-block;
     @include gl-bg-no-repeat;
-    @include gl-bg-x-50-p;
+    @include gl-bg-x-50p;
     @include gl-bg-size-100p;
     width: $carousel-control-icon-width;
     height: $carousel-control-icon-width;
