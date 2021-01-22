@@ -1,3 +1,10 @@
+# [26.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.1.0...v26.2.0) (2021-01-22)
+
+
+### Features
+
+* **GlTokenSelector:** Add `textInputAttrs` prop ([063f872](https://gitlab.com/gitlab-org/gitlab-ui/commit/063f872d7fbf936fe368a9b873ef994cd017732f))
+
 # [26.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.0.0...v26.1.0) (2021-01-21)
 
 
