@@ -1,3 +1,32 @@
+# [27.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.4.0...v27.0.0) (2021-01-25)
+
+
+### Bug Fixes
+
+* **css:** rename display mixins to match naming conventions ([2513af8](https://gitlab.com/gitlab-org/gitlab-ui/commit/2513af850b7b5aefca64be6f2026f81fc9ee3c8e))
+
+
+### BREAKING CHANGES
+
+* **css:** This renames responsive display CSS mixins to adhere to
+GitLab UI's naming conventions. Any project that uses one of those
+mixins, or their corresponding utility classes will have to proceed to
+the following replacements:
+
+* `gl-display-sm-none` -> `gl-sm-display-none`
+* `gl-display-md-none` -> `gl-md-display-none`
+* `gl-display-lg-none` -> `gl-lg-display-none`
+* `gl-display-sm-flex` -> `gl-sm-display-flex`
+* `gl-display-md-flex` -> `gl-md-display-flex`
+* `gl-display-lg-flex` -> `gl-lg-display-flex`
+* `gl-display-sm-inline-flex` -> `gl-sm-display-inline-flex`
+* `gl-display-lg-inline-flex` -> `gl-lg-display-inline-flex`
+* `gl-display-sm-block` -> `gl-sm-display-block`
+* `gl-display-md-block` -> `gl-md-display-block`
+* `gl-display-lg-block` -> `gl-lg-display-block`
+* `gl-display-lg-inline-block` -> `gl-lg-display-inline-block`
+* `gl-display-lg-table-cell` -> `gl-lg-display-table-cell`
+
 # [26.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.3.0...v26.4.0) (2021-01-25)
 
 
