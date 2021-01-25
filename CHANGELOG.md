@@ -1,3 +1,10 @@
+# [26.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.3.0...v26.4.0) (2021-01-25)
+
+
+### Features
+
+* **css:** Add gl-table-layout-fixed class ([e67f25a](https://gitlab.com/gitlab-org/gitlab-ui/commit/e67f25a64313f2eb0ecf8050e7971b5a4adcc3b6))
+
 # [26.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.2.0...v26.3.0) (2021-01-22)
 
 
