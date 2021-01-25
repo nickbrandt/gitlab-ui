@@ -112,7 +112,7 @@
   @include gl-display-flex;
   @include gl-flex-direction-column;
   @include gl-mt-3;
-  @include gl-display-md-none;
+  @include gl-md-display-none;
 }
 
 .gl-actions-tabs-end {
@@ -122,7 +122,7 @@
   @include gl-align-items-center;
   @include gl-flex-direction-row;
   @include gl-mt-0;
-  @include gl-display-md-flex;
+  @include gl-md-display-flex;
 }
 
 .gl-actions-tabs-start,
