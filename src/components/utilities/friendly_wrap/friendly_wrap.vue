@@ -3,6 +3,7 @@ import { splitAfterSymbols } from '../../../utils/string_utils';
 import { intersperse } from '../../../utils/data_utils';
 
 export default {
+  functional: true,
   props: {
     text: {
       type: String,
@@ -14,8 +15,9 @@ export default {
       default: () => ['/'],
     },
   },
-  render(createElement) {
-    const textParts = splitAfterSymbols(this.symbols, this.text);
+  render(createElement, { props }) {
+    const { symbols, text } = props;
+    const textParts = splitAfterSymbols(symbols, text);
     const content = intersperse(() => createElement('wbr'), textParts);
 
     return createElement('span', { class: 'text-break' }, content);
