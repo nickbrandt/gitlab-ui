@@ -1,8 +1,9 @@
 <script>
-import escape from 'lodash/escape';
-import escapeRegExp from 'lodash/escapeRegExp';
+import { splitAfterSymbols } from '../../../utils/string_utils';
+import { intersperse } from '../../../utils/data_utils';
 
 export default {
+  functional: true,
   props: {
     text: {
       type: String,
@@ -14,19 +15,12 @@ export default {
       default: () => ['/'],
     },
   },
-  computed: {
-    displayText() {
-      const symbolsRegex = this.symbols.reduce(
-        (acc, symbol, index) => (symbol ? `${acc}${index ? '|' : ''}${escapeRegExp(symbol)}` : acc),
-        ''
-      );
-      return escape(this.text).replace(new RegExp(`(${symbolsRegex})`, 'g'), `$1<wbr>`);
-    },
+  render(createElement, { props }) {
+    const { symbols, text } = props;
+    const textParts = splitAfterSymbols(symbols, text);
+    const content = intersperse(() => createElement('wbr'), textParts);
+
+    return createElement('span', { class: 'text-break' }, content);
   },
 };
 </script>
-
-<template>
-  <!-- eslint-disable-next-line vue/no-v-html -->
-  <span class="text-break" v-html="displayText"></span>
-</template>

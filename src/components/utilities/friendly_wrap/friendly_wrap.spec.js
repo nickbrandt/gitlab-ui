@@ -1,14 +1,11 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import FriendlyWrap from './friendly_wrap.vue';
-
-const localVue = createLocalVue();
 
 describe('Friendly wrap component', () => {
   let wrapper;
 
   const createComponent = (props) => {
     wrapper = shallowMount(FriendlyWrap, {
-      localVue,
       propsData: props,
     });
   };
@@ -63,10 +60,22 @@ describe('Friendly wrap component', () => {
 
   it(`does not break with sensitive symbols like '<' or 'w' or 'b' or 'r' or '>'`, () => {
     const text = '< or w or b or r or >';
-    const textWrapped = '&lt;<wbr> or<wbr> w<wbr> or<wbr> b<wbr> or<wbr> r<wbr> or<wbr> &gt;<wbr>';
+    const textWrapped = '&lt;<wbr> or<wbr> w<wbr> or<wbr> b<wbr> or<wbr> r<wbr> or<wbr> &gt;';
     createComponent({
       text,
-      symbols: ['&lt;', ...'wbr'.split(''), '&gt;'],
+      symbols: ['<', ...'wbr'.split(''), '>'],
+    });
+
+    expect(wrapper.text()).toBe(text);
+    expect(wrapper.html()).toMatch(textWrapped);
+  });
+
+  it('allows HTML entities as words', () => {
+    const text = 'foo&lt;foo&gt;foo>foo<foo';
+    const textWrapped = 'foo&amp;lt;<wbr>foo&amp;gt;<wbr>foo&gt;foo&lt;foo';
+    createComponent({
+      text,
+      symbols: ['&lt;', '&gt;'],
     });
 
     expect(wrapper.text()).toBe(text);
@@ -82,5 +91,25 @@ describe('Friendly wrap component', () => {
 
     expect(wrapper.text()).toBe(text);
     expect(wrapper.html()).toMatch(textWrapped);
+  });
+
+  it('does not unnecessarily insert a wbr at the end', () => {
+    const text = '/';
+    createComponent({
+      text,
+    });
+
+    expect(wrapper.text()).toBe(text);
+    expect(wrapper.find('wbr').exists()).toBe(false);
+  });
+
+  it('does not insert unnecessary whitespace', () => {
+    const text = '';
+    createComponent({
+      text,
+    });
+
+    // Cannot use `wrapper.text()`, since that automatically trims whitespace
+    expect(wrapper.element.textContent).toBe(text);
   });
 });
