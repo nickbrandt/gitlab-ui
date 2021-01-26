@@ -21,8 +21,7 @@ export const splitAfterSymbols = (symbols, string) => {
   let textPartStartIndex = 0;
 
   if (string.length === 0) {
-    textParts.push(string);
-    return textParts;
+    return [string];
   }
 
   for (let i = 0; i < string.length; ) {
@@ -36,10 +35,9 @@ export const splitAfterSymbols = (symbols, string) => {
         continue;
       }
 
-      const symbolIndex = string.indexOf(symbol, i);
+      symbolFound = string.slice(i, i + symbol.length) === symbol;
 
-      if (symbolIndex === i) {
-        symbolFound = true;
+      if (symbolFound) {
         const textPartEndIndex = i + symbol.length;
         const textPart = string.slice(textPartStartIndex, textPartEndIndex);
         textParts.push(textPart);
