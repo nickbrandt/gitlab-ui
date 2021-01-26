@@ -1,3 +1,11 @@
+## [27.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.0...v27.1.1) (2021-01-26)
+
+
+### Performance Improvements
+
+* Improve splitAfterSymbols ([84fe3ce](https://gitlab.com/gitlab-org/gitlab-ui/commit/84fe3cef20e196d23c4a3c2d9b5afa0429f86901))
+* Make FriendlyWrap a functional component ([9d7a86d](https://gitlab.com/gitlab-org/gitlab-ui/commit/9d7a86d59cc82434be314015c02b3df1d46f0c4a))
+
 # [27.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.0.0...v27.1.0) (2021-01-26)
 
 
