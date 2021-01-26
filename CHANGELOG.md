@@ -1,3 +1,10 @@
+# [27.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.0.0...v27.1.0) (2021-01-26)
+
+
+### Features
+
+* **css:** add gl-w-30p utility ([299402b](https://gitlab.com/gitlab-org/gitlab-ui/commit/299402bd8b0990c95e0a56df437122b94ffb822c))
+
 # [27.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v26.4.0...v27.0.0) (2021-01-25)
 
 
