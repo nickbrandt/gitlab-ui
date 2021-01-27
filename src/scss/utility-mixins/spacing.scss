@@ -723,7 +723,7 @@
 
 @mixin gl-md-mt-0 {
   @media (min-width: $breakpoint-md) {
-    @include gl-mx-0;
+    @include gl-mt-0;
   }
 }
 
