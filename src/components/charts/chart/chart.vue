@@ -50,7 +50,9 @@ export default {
   },
   watch: {
     options() {
-      this.draw();
+      if (this.chart) {
+        this.draw();
+      }
     },
     width() {
       this.setChartSize();
@@ -65,17 +67,21 @@ export default {
     }
   },
   mounted() {
-    this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
-      renderer: this.renderer,
+    /* eslint-disable promise/catch-or-return, promise/always-return */
+    this.$nextTick().then(() => {
+      this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
+        renderer: this.renderer,
+      });
+      if (this.groupId.length) {
+        this.chart.group = this.groupId;
+        echarts.connect(this.groupId);
+      }
+      this.chart.on('click', this.clickHandler);
+      this.$emit('created', this.chart);
+      this.draw();
+      this.setChartSize();
     });
-    if (this.groupId.length) {
-      this.chart.group = this.groupId;
-      echarts.connect(this.groupId);
-    }
-    this.chart.on('click', this.clickHandler);
-    this.$emit('created', this.chart);
-    this.draw();
-    this.setChartSize();
+    /* eslint-enable */
   },
   beforeDestroy() {
     this.chart.off('click', this.clickHandler);
