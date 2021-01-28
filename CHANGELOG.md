@@ -1,3 +1,10 @@
+## [27.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.1...v27.1.2) (2021-01-28)
+
+
+### Bug Fixes
+
+* **Chart:** Wait Tick Before Initializing Chart ([856836e](https://gitlab.com/gitlab-org/gitlab-ui/commit/856836e9469c4c959bd8c5bece4541b179263983))
+
 ## [27.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.0...v27.1.1) (2021-01-26)
 
 
