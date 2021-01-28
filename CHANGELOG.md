@@ -1,3 +1,10 @@
+## [27.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.2...v27.1.3) (2021-01-28)
+
+
+### Bug Fixes
+
+* **GlDropdown:** adjust spacing to match design specs ([d71fe91](https://gitlab.com/gitlab-org/gitlab-ui/commit/d71fe91ecb5b1c4aceed2be87ba7999056b05289))
+
 ## [27.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.1...v27.1.2) (2021-01-28)
 
 
