@@ -1,3 +1,10 @@
+## [27.1.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.3...v27.1.4) (2021-01-29)
+
+
+### Bug Fixes
+
+* **GlTabs:** Fix tab with counter badges height ([40bc958](https://gitlab.com/gitlab-org/gitlab-ui/commit/40bc958fdf990a932ac5a9f352fd8d397f0ca72e))
+
 ## [27.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.2...v27.1.3) (2021-01-28)
 
 
