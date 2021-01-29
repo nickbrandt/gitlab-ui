@@ -3,7 +3,7 @@
     title="Upgrade your plan to activate Service Desk"
     button-text="Upgrade your plan"
     button-link="https://gitlab.com"
-    svg-path="https://gitlab.com/gitlab-org/gitlab-svgs/raw/master/illustrations/service_desk_callout.svg"
+    svg-path="https://gitlab.com/gitlab-org/gitlab-svgs/raw/v1.152.0/illustrations/service_desk_callout.svg"
   >
     <p>
       GitLab Service Desk is a simple way to allow people to create issues in your GitLab instance
