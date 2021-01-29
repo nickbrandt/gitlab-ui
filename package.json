@@ -140,6 +140,9 @@
     "vue-template-compiler": "^2.6.11"
   },
   "release": {
+    "branches": [
+      "main"
+    ],
     "verifyConditions": [
       "@semantic-release/changelog",
       "@semantic-release/npm",
