@@ -54,7 +54,7 @@ Example:
 
 In the example above, you might want to keep `1a1a1a1` and `3c3c3c3` separated to help in the review process and that would be fine.
 
-> **Note:** It would NOT be all right for `3c3c3c3` to follow the conventions because it doesn't bring any meaningful change to `master`.
+> **Note:** It would NOT be all right for `3c3c3c3` to follow the conventions because it doesn't bring any meaningful change to `main`.
 > Conventional commits should only be used to describe changes that will land in the main branch, NOT for changes to your own branch.
 
 ## What types can I use for my commit messages?

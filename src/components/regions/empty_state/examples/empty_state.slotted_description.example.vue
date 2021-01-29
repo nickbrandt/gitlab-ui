@@ -1,7 +1,7 @@
 <template>
   <gl-empty-state
     title="Slotted description example"
-    svg-path="https://gitlab.com/gitlab-org/gitlab-svgs/raw/master/illustrations/issues.svg"
+    svg-path="https://gitlab.com/gitlab-org/gitlab-svgs/raw/v1.152.0/illustrations/issues.svg"
     primary-button-link="#"
     primary-button-text="Learn more"
   >

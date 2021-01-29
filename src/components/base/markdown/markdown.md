@@ -28,7 +28,7 @@ export default {
 
 ### `gl-markdown` class selector
 
-Follow the [GitLab UI CSS guidelines](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/master/doc/css.md) to
+Follow the [GitLab UI CSS guidelines](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/css.md) to
 include GitLab UI CSS in your application. Afterwards, you can apply the `gl-markdown` class selector to the root
 element that contains the markdown-generated HTML.
 

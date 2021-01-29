@@ -12,9 +12,9 @@
   a GitLab UI component, we must determine which class is more specific.
   When this happens, every specific GitLab component stylesheet loads
   later, and overwrites GitLab UI with its specificity. This is often when we
-  need to use [`!important` classes](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/master/doc/css.md#utility-class-specifity).
+  need to use [`!important` classes](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/css.md#utility-class-specifity).
 - In GitLab, you can use utility classes as a way to use GitLab UI styles. You
-  can also run into specificity issues here, as Gitlab may have more-targeted classes. 
+  can also run into specificity issues here, as Gitlab may have more-targeted classes.
   Using the
-  [`!important` classes](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/master/doc/css.md#utility-class-specifity)
+  [`!important` classes](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/css.md#utility-class-specifity)
   can help solve this problem.
