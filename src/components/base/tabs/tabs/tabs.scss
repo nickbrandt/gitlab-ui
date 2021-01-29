@@ -11,6 +11,8 @@
   @include gl-py-5;
   @include gl-line-height-normal;
   @include gl-font-base;
+  @include gl-display-flex;
+  @include gl-justify-content-center;
 
   transition: box-shadow 100ms linear;
 
@@ -26,6 +28,7 @@
   > .gl-tab-counter-badge {
     font-weight: inherit;
     color: inherit;
+    @include gl-ml-2;
   }
 }
 
