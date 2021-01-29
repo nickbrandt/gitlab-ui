@@ -8,14 +8,14 @@ with the substitution of `mixins/@include` for `@extend`.
 This approach will make it possible to use GitLab UI components in several projects.
 
 You should use utility mixins to implement components’ styles. See
-[`utility-mixins`](https://gitlab.com/gitlab-org/gitlab-ui/blob/master/src/scss/utility-mixins/)
+[`utility-mixins`](https://gitlab.com/gitlab-org/gitlab-ui/blob/main/src/scss/utility-mixins/)
 for a comprehensive list of the available utilities. If what you are
 looking for is not available, add it following the naming conventions
 indicated in the appropriate file.
 
 When running `yarn generate:component`, the component's SCSS file will be created in the right place
 and imported in the main `components.scss`. Read more about
-[adding new components](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/master/doc/contributing/adding_components.md#general-guidelines).
+[adding new components](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/adding_components.md#general-guidelines).
 
 Each component's stylesheet should contain its "modularized" style:
 
@@ -33,7 +33,7 @@ into the application, you should still follow the
 [`utility-first`](https://docs.gitlab.com/ce/development/fe_guide/style_guide_scss.html#utility-classes)
 approach for basic layout and other styles.
 
-See [`GlToken`'s stylesheet](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/master/src/components/base/token/token.scss)
+See [`GlToken`'s stylesheet](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/src/components/base/token/token.scss)
 for an example of how we use utility mixins in GitLab UI.
 
 Some components styles still need to be migrated from GitLab into GitLab UI, keep track of the
