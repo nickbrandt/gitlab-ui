@@ -19,7 +19,7 @@ expect.extend({
   },
 });
 
-// Adopted from https://github.com/testing-library/jest-dom/blob/master/src/to-have-focus.js
+// Adopted from https://github.com/testing-library/jest-dom/blob/main/src/to-have-focus.js
 expect.extend({
   toHaveFocus(element) {
     return {

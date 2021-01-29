@@ -1,6 +1,6 @@
 # Visual regressions testing
 
-We use the [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots) addon
+We use the [storyshots](https://github.com/storybookjs/storybook/tree/next/addons/storyshots) addon
 to generate and compare image snapshots based on [storybook](https://github.com/storybookjs/storybook)
 stories. Occasionally, component or dependency updates can create visual differences which can cause
 the pipeline to fail on `main` because of the failing `visual` job.
