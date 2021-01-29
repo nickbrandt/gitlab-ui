@@ -33,7 +33,7 @@ include:
   - project: 'gitlab-org/frontend/frontend-build-images'
     file: '/semantic-release/.gitlab-ci-template.yml'
 
-# Ensure that the scanning is only executed on MRs and master
+# Ensure that the scanning is only executed on MRs and the default branch
 # This potentially can be made obsolete once:
 # https://gitlab.com/gitlab-org/gitlab/-/issues/217668 lands
 .secure-jobs-config: &secure-jobs-config
@@ -102,10 +102,10 @@ container_scanning:
     <<: *cache-template
     policy: pull
 
-# Only start pipelines on Merge Requests or master
+# Only start pipelines on Merge Requests or the default branch
 workflow:
   rules:
-    - if: $CI_COMMIT_REF_NAME == "master"
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       when: always
     - if: $CI_MERGE_REQUEST_IID
       when: always
@@ -289,8 +289,8 @@ pages:
   artifacts:
     paths:
       - public
-  only:
-    - master@gitlab-org/gitlab-ui
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"
 
 create_integration_branch:
   rules:
@@ -324,6 +324,7 @@ publish_to_npm:
   # run in case another job in the previous stages fails
   dependencies:
     - build_package
+  # Semantic release doesn't support rule-syntax (yet)
   only:
     refs:
-      - master@gitlab-org/gitlab-ui
+      - main@gitlab-org/gitlab-ui
