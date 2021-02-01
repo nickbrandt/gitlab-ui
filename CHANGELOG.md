@@ -1,3 +1,10 @@
+## [27.1.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.4...v27.1.5) (2021-02-01)
+
+
+### Bug Fixes
+
+* Fix gl-md-mt-0 utility mixin ([a9710a3](https://gitlab.com/gitlab-org/gitlab-ui/commit/a9710a3d172acc3809c21aa0cbeeb9ec4c90afe7))
+
 ## [27.1.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.3...v27.1.4) (2021-01-29)
 
 
