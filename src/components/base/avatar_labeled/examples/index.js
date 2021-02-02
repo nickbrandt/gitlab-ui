@@ -1,6 +1,7 @@
 import AvatarLabeledExample from './avatar.labeled.example.vue';
 import AvatarLabeledTooltipExample from './avatar.labeled_tooltip.example.vue';
 import AvatarLabeledBadgesExample from './avatar.labeled_badges.example.vue';
+import AvatarLabeledSlotsExample from './avatar.labeled_links.example.vue';
 
 export default [
   {
@@ -23,6 +24,12 @@ export default [
         name: 'With badges',
         description: 'Avatar labeled with badges',
         component: AvatarLabeledBadgesExample,
+      },
+      {
+        id: 'avatar-labeled-links',
+        name: 'With label links',
+        description: 'Avatar labeled with links',
+        component: AvatarLabeledSlotsExample,
       },
     ],
   },

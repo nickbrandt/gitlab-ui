@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import Avatar from '../avatar/avatar.vue';
 import AvatarLabeled from './avatar_labeled.vue';
+import GlLink from '../link/link.vue';
 
 describe('avatar labeled', () => {
   let wrapper;
@@ -48,5 +49,33 @@ describe('avatar labeled', () => {
     );
 
     expect(wrapper.find('[data-testid="user-meta"]').exists()).toBe(true);
+  });
+
+  describe('with label links', () => {
+    beforeEach(() => {
+      buildWrapper({ label, subLabel, labelLink: 'http://label', subLabelLink: 'http://subLabel' });
+    });
+
+    it('displays the avatar label link', () => {
+      const labelLink = wrapper.findAll(GlLink).at(0);
+      expect(labelLink.text()).toBe(label);
+      expect(labelLink.attributes('href')).toBe('http://label');
+    });
+
+    it('displays the avatar sub-label link', () => {
+      const subLabelLink = wrapper.findAll(GlLink).at(1);
+      expect(subLabelLink.text()).toBe(subLabel);
+      expect(subLabelLink.attributes('href')).toBe('http://subLabel');
+    });
+  });
+
+  describe('without label links', () => {
+    beforeEach(() => {
+      buildWrapper({ label, subLabel });
+    });
+
+    it('does not display any link', () => {
+      expect(wrapper.findAll(GlLink).exists()).toBe(false);
+    });
   });
 });

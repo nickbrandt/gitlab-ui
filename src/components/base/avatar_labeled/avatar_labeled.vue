@@ -1,9 +1,11 @@
 <script>
 import GlAvatar from '../avatar/avatar.vue';
+import GlLink from '../link/link.vue';
 
 export default {
   components: {
     GlAvatar,
+    GlLink,
   },
   props: {
     label: {
@@ -15,6 +17,24 @@ export default {
       required: false,
       default: '',
     },
+    labelLink: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    subLabelLink: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
+  computed: {
+    hasLabelLink() {
+      return Boolean(this.labelLink);
+    },
+    hasSubLabelLink() {
+      return Boolean(this.subLabelLink);
+    },
   },
 };
 </script>
@@ -25,10 +45,16 @@ export default {
       <div
         class="gl-display-flex gl-flex-wrap gl-align-items-center gl-text-left! gl-mx-n1 gl-my-n1"
       >
-        <span class="gl-avatar-labeled-label">{{ label }}</span>
+        <gl-link v-if="hasLabelLink" :href="labelLink" class="gl-avatar-link">
+          <span class="gl-avatar-labeled-label">{{ label }}</span>
+        </gl-link>
+        <span v-else class="gl-avatar-labeled-label">{{ label }}</span>
         <slot name="meta"></slot>
       </div>
-      <span class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
+      <gl-link v-if="hasSubLabelLink" :href="subLabelLink" class="gl-avatar-link">
+        <span class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
+      </gl-link>
+      <span v-else class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
     </div>
   </div>
 </template>
