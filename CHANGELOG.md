@@ -1,3 +1,10 @@
+# [27.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.5...v27.2.0) (2021-02-02)
+
+
+### Features
+
+* **GlAvatarLabeled:** Add optional label & sublabel links ([805ab02](https://gitlab.com/gitlab-org/gitlab-ui/commit/805ab02754194eca70be683ec26f42d752e6e882))
+
 ## [27.1.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.4...v27.1.5) (2021-02-01)
 
 
