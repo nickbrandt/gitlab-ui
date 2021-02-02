@@ -18,6 +18,7 @@ const template = `
     :secondary-button-text="secondaryButtonText"
     :primary-button-link="primaryButtonLink"
     :secondary-button-link="secondaryButtonLink"
+    :contained="contained"
   >{{ message }}</gl-alert>`;
 
 const defaultValue = (prop) => GlAlert.props[prop].default;
@@ -31,6 +32,7 @@ function generateProps({
   primaryButtonLink = defaultValue('primaryButtonLink'),
   secondaryButtonText = defaultValue('secondaryButtonText'),
   secondaryButtonLink = defaultValue('secondaryButtonLink'),
+  contained = defaultValue('contained'),
 } = {}) {
   return {
     title: {
@@ -69,6 +71,9 @@ function generateProps({
       type: String,
       default: text('secondary button link', secondaryButtonLink),
     },
+    contained: {
+      default: boolean('contained', contained),
+    },
   };
 }
 
@@ -95,6 +100,13 @@ documentedStoriesOf('base/alert', readme)
       primaryButtonText: 'Primary action',
       secondaryButtonText: 'Secondary action',
       secondaryButtonLink: '#',
+    }),
+    template,
+  }))
+  .add('contained', () => ({
+    components,
+    props: generateProps({
+      contained: true,
     }),
     template,
   }));
