@@ -2,6 +2,7 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { sizeOptions } from '../../../../utils/constants';
 import { GlFormGroup } from '../../../../../index';
+import { validationStates } from './form_group.vue';
 import readme from './form_group.md';
 
 const components = {
@@ -79,40 +80,36 @@ documentedStoriesOf('base/form/form-group', readme)
     `,
   }))
   .add('with validations', () => ({
-    props: generateProps({ label: 'Name', description: 'Please enter your name' }),
-    components,
+    data: () => ({
+      username: 'an illegally long username',
+    }),
     computed: {
       state() {
-        return this.name.length >= 4;
-      },
-      invalidFeedback() {
-        let feedbackText = 'Please enter something';
-
-        if (this.name.length > 4) {
-          feedbackText = '';
-        } else if (this.name.length > 0) {
-          feedbackText = 'Enter at least 4 characters';
+        const { username } = this;
+        if (username.length === 0) {
+          return validationStates.DEFAULT;
         }
-
-        return feedbackText;
+        if (username.length <= 10) {
+          return validationStates.VALID;
+        }
+        if (username.length <= 15) {
+          return validationStates.WARNING;
+        }
+        return validationStates.INVALID;
       },
-    },
-    data() {
-      return {
-        name: '',
-      };
     },
     template: `
-    <gl-form-group
-      :id="id"
-      :label="label"
-      :label-size="labelSize"
-      :description="description"
-      :invalid-feedback="invalidFeedback"
-      :state="state"
-      label-for="label1"
-    >
-      <gl-form-input id="input1" :state="state" v-model.trim="name" />
-    </gl-form-group>
+      <gl-form-group label="Username" description="Enter your username" :state="state">
+        <gl-form-input v-model="username" />
+        <template #valid-feedback>
+          Great username
+        </template>
+        <template #warning-feedback>
+          Your username is getting a bit long
+        </template>
+        <template #invalid-feedback>
+          Your username is definitely too long
+        </template>
+      </gl-form-group>
     `,
   }));
