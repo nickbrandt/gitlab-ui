@@ -1,6 +1,3 @@
-# Alert
-
-<!-- STORY -->
 Alerts allow the application to pass along relevant system information to the
 user without impeding their journey. Alerts are system generated and may or may
 not be derived by a user’s action.

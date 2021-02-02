@@ -1,12 +1,6 @@
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { alertVariantOptions } from '../../../utils/constants';
 import readme from './alert.md';
 import { GlAlert } from '../../../../index';
-
-const components = {
-  GlAlert,
-};
 
 const template = `
   <gl-alert
@@ -35,78 +29,64 @@ function generateProps({
   contained = defaultValue('contained'),
 } = {}) {
   return {
-    title: {
-      type: String,
-      default: text('title', title),
-    },
-    message: {
-      type: String,
-      default: text('message', 'Lorem ipsum dolor sit amet'),
-    },
-    variant: {
-      type: String,
-      default: select('variant', alertVariantOptions, variant),
-    },
-    dismissible: {
-      type: Boolean,
-      default: boolean('dismissible', dismissible),
-    },
-    dismissLabel: {
-      type: String,
-      default: text('dismiss label', dismissLabel),
-    },
-    primaryButtonText: {
-      type: String,
-      default: text('primary button text', primaryButtonText),
-    },
-    primaryButtonLink: {
-      type: String,
-      default: text('primary button link', primaryButtonLink),
-    },
-    secondaryButtonText: {
-      type: String,
-      default: text('secondary button text', secondaryButtonText),
-    },
-    secondaryButtonLink: {
-      type: String,
-      default: text('secondary button link', secondaryButtonLink),
-    },
-    contained: {
-      default: boolean('contained', contained),
-    },
+    title,
+    message: 'Lorem ipsum dolor sit amet',
+    variant,
+    dismissible,
+    dismissLabel,
+    primaryButtonText,
+    primaryButtonLink,
+    secondaryButtonText,
+    secondaryButtonLink,
+    contained,
   };
 }
 
-documentedStoriesOf('base/alert', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template,
-  }))
-  .add('titled warning', () => ({
-    components,
-    props: generateProps({
-      title: 'A warning',
-      variant: alertVariantOptions.warning,
-    }),
-    template,
-  }))
-  .add('undismissible danger with actions', () => ({
-    components,
-    props: generateProps({
-      variant: alertVariantOptions.danger,
-      dismissible: false,
-      primaryButtonText: 'Primary action',
-      secondaryButtonText: 'Secondary action',
-      secondaryButtonLink: '#',
-    }),
-    template,
-  }))
-  .add('contained', () => ({
-    components,
-    props: generateProps({
-      contained: true,
-    }),
-    template,
-  }));
+export default {
+  title: 'base/Alert',
+  component: GlAlert,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: alertVariantOptions,
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { GlAlert },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const TitledWarning = Template.bind({});
+TitledWarning.args = generateProps({
+  title: 'A warning',
+  variant: alertVariantOptions.warning,
+});
+
+export const UndismissibleDangerWithActions = Template.bind({});
+UndismissibleDangerWithActions.args = generateProps({
+  variant: alertVariantOptions.danger,
+  dismissible: false,
+  primaryButtonText: 'Primary action',
+  secondaryButtonText: 'Secondary action',
+  secondaryButtonLink: '#',
+});
+
+export const Contained = Template.bind({});
+Contained.args = generateProps({
+  contained: true,
+});
