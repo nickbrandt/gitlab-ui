@@ -1,3 +1,10 @@
+# [27.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.3.0...v27.4.0) (2021-02-02)
+
+
+### Features
+
+* **GlAlert:** create opt-in for content max-width ([5247500](https://gitlab.com/gitlab-org/gitlab-ui/commit/5247500e986cff992a46c549aa55cd7a093163f1))
+
 # [27.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.2.0...v27.3.0) (2021-02-02)
 
 
