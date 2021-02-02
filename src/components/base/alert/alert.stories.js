@@ -1,12 +1,6 @@
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlAlert } from '../../../../index';
+import { GlAlert, GlToggle } from '../../../../index';
 import { alertVariantOptions } from '../../../utils/constants';
 import readme from './alert.md';
-
-const components = {
-  GlAlert,
-};
 
 const template = `
   <gl-alert
@@ -24,7 +18,7 @@ const template = `
 
 const defaultValue = (prop) => GlAlert.props[prop].default;
 
-function generateProps({
+const generateProps = ({
   title = defaultValue('title'),
   variant = defaultValue('variant'),
   dismissible = defaultValue('dismissible'),
@@ -35,97 +29,132 @@ function generateProps({
   secondaryButtonLink = defaultValue('secondaryButtonLink'),
   contained = defaultValue('contained'),
   sticky = defaultValue('sticky'),
-} = {}) {
-  return {
-    title: {
-      type: String,
-      default: text('title', title),
-    },
-    message: {
-      type: String,
-      default: text('message', 'Lorem ipsum dolor sit amet'),
-    },
-    variant: {
-      type: String,
-      default: select('variant', alertVariantOptions, variant),
-    },
-    dismissible: {
-      type: Boolean,
-      default: boolean('dismissible', dismissible),
-    },
-    dismissLabel: {
-      type: String,
-      default: text('dismiss label', dismissLabel),
-    },
-    primaryButtonText: {
-      type: String,
-      default: text('primary button text', primaryButtonText),
-    },
-    primaryButtonLink: {
-      type: String,
-      default: text('primary button link', primaryButtonLink),
-    },
-    secondaryButtonText: {
-      type: String,
-      default: text('secondary button text', secondaryButtonText),
-    },
-    secondaryButtonLink: {
-      type: String,
-      default: text('secondary button link', secondaryButtonLink),
-    },
-    contained: {
-      default: boolean('contained', contained),
-    },
-    sticky: {
-      default: boolean('sticky', sticky),
-    },
-  };
-}
+} = {}) => ({
+  title,
+  message: 'Lorem ipsum dolor sit amet',
+  variant,
+  dismissible,
+  dismissLabel,
+  primaryButtonText,
+  primaryButtonLink,
+  secondaryButtonText,
+  secondaryButtonLink,
+  contained,
+  sticky,
+});
 
-documentedStoriesOf('base/alert', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template,
-  }))
-  .add('titled warning', () => ({
-    components,
-    props: generateProps({
-      title: 'A warning',
-      variant: alertVariantOptions.warning,
-    }),
-    template,
-  }))
-  .add('undismissible danger with actions', () => ({
-    components,
-    props: generateProps({
-      variant: alertVariantOptions.danger,
-      dismissible: false,
-      primaryButtonText: 'Primary action',
-      secondaryButtonText: 'Secondary action',
-      secondaryButtonLink: '#',
-    }),
-    template,
-  }))
-  .add('contained', () => ({
-    components,
-    props: generateProps({
-      contained: true,
-    }),
-    template,
-  }))
-  .add('sticky', () => ({
-    components,
-    props: generateProps({
-      sticky: true,
-    }),
-    template: `
-      <div style="max-height: 200px; overflow-y: auto;">
-        ${template}
-        <div style="height: 200px;" class="gl-bg-red-100 gl-my-3"><p>Scrolling content…</p></div>
-        <div style="height: 200px;" class="gl-bg-green-100 gl-my-3"><p>Scrolling content…</p></div>
-        <div style="height: 200px;" class="gl-bg-blue-100 gl-my-3"><p>Scrolling content…</p></div>
-      </div>
-    `,
-  }));
+export default {
+  title: 'base/Alert',
+  component: GlAlert,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: alertVariantOptions,
+      },
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  components: { GlAlert },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const TitledWarning = Template.bind({});
+TitledWarning.args = generateProps({
+  title: 'A warning',
+  variant: alertVariantOptions.warning,
+});
+
+export const UndismissibleDangerWithActions = Template.bind({});
+UndismissibleDangerWithActions.args = generateProps({
+  variant: alertVariantOptions.danger,
+  dismissible: false,
+  primaryButtonText: 'Primary action',
+  secondaryButtonText: 'Secondary action',
+  secondaryButtonLink: '#',
+});
+
+export const CustomActions = () => ({
+  components: { GlAlert, GlToggle },
+  data: () => ({
+    toggle: false,
+  }),
+  template: `
+    <gl-alert>
+      Lorem ipsum dolor sit amet
+      <template #actions>
+        <gl-toggle v-model="toggle" />
+      </template>
+    </gl-alert>`,
+});
+CustomActions.parameters = {
+  storyshots: { disable: true },
+};
+
+export const TextLinks = () => ({
+  components: { GlAlert },
+  template: `
+    <gl-alert>
+      Lorem ipsum dolor sit <a class="gl-link" href="#">text link</a> amet
+    </gl-alert>`,
+});
+TextLinks.parameters = {
+  storyshots: { disable: true },
+};
+
+export const Variants = () => ({
+  components: { GlAlert },
+  variants: alertVariantOptions,
+  template: `
+  <div>
+    <gl-alert
+      v-for="variant in $options.variants"
+      :key="variant"
+      :variant="variant"
+      title="Alert title"
+      primary-button-text="Primary"
+      secondary-button-text="Secondary"
+      class="mb-2"
+    >
+      <span class="text-capitalize">{{ variant }}</span> lorem ipsum dolor sit
+      <gl-link href="#">text link</gl-link> amet
+    </gl-alert>
+  </div>`,
+});
+Variants.parameters = {
+  storyshots: { disable: true },
+};
+
+export const Contained = Template.bind({});
+Contained.args = generateProps({
+  contained: true,
+});
+
+export const Sticky = () => ({
+  components: { GlAlert },
+  variants: alertVariantOptions,
+  data: () => generateProps({ sticky: true }),
+  template: `
+  <div style="max-height: 200px; overflow-y: auto;">
+    ${template}
+    <div style="height: 200px;" class="gl-bg-red-100 gl-my-3"><p>Scrolling content…</p></div>
+    <div style="height: 200px;" class="gl-bg-green-100 gl-my-3"><p>Scrolling content…</p></div>
+    <div style="height: 200px;" class="gl-bg-blue-100 gl-my-3"><p>Scrolling content…</p></div>
+  </div>`,
+});
+// Sticky.args = generateProps({
+//   sticky: true,
+// })
