@@ -17,6 +17,10 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Toggle's state
+     * @model
+     */
     value: {
       type: Boolean,
       required: false,
@@ -58,8 +62,11 @@ export default {
   },
 
   computed: {
+    isLabelHidden() {
+      return this.labelPosition === 'hidden';
+    },
     ariaLabel() {
-      return this.labelPosition === 'hidden' ? this.labelText : undefined;
+      return this.isLabelHidden ? this.labelText : undefined;
     },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
@@ -68,7 +75,12 @@ export default {
 
   methods: {
     toggleFeature() {
-      if (!this.disabled) this.$emit('change', !this.value);
+      if (!this.disabled) {
+        /**
+         * Emitted when the toggle's state changes.
+         */
+        this.$emit('change', !this.value);
+      }
     },
   },
 };
@@ -80,7 +92,8 @@ export default {
       class="gl-toggle-wrapper"
       :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
     >
-      <span v-if="label" class="gl-toggle-label">
+      <span v-if="!isLabelHidden && label" class="gl-toggle-label">
+        <!-- @slot Toggle's label. -->
         <slot name="label">{{ label }}</slot>
       </span>
       <input v-if="name" :name="name" :value="value" type="hidden" />
@@ -102,6 +115,7 @@ export default {
       </button>
     </div>
     <span v-if="help" class="gl-help-label">
+      <!-- @slot Help text to show below the toggle. -->
       <slot name="help">{{ help }}</slot>
     </span>
   </label>
