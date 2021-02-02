@@ -1,3 +1,10 @@
+# [27.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.2.0...v27.3.0) (2021-02-02)
+
+
+### Features
+
+* **GlFormGroup:** Add validation states and style text ([8791369](https://gitlab.com/gitlab-org/gitlab-ui/commit/8791369cdf2800ebcbbf7cc70a22e3ca5d89061e))
+
 # [27.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.1.5...v27.2.0) (2021-02-02)
 
 
