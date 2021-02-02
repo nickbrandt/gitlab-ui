@@ -68,6 +68,46 @@
   }
 }
 
+.gl-alert-max-content {
+  @include gl-display-flex;
+  @include gl-justify-content-center;
+  @include gl-p-5;
+
+  .gl-alert-icon {
+    @include gl-static;
+    @include gl-mr-5;
+    @include gl-flex-shrink-0;
+  }
+
+  // Todo: Once the button is migrated to the gl-button it can be included as a flexbox item.
+
+  /* .gl-alert-dismiss {
+    @include gl-static;
+    @include gl-align-self-start;
+    @include gl-ml-5;
+    order: 3;
+  } */
+
+  .gl-alert-container {
+    @include gl-relative;
+    @include gl-display-flex;
+    @include gl-justify-content-space-between;
+    @include gl-flex-grow-1;
+    @include gl-layout-w-limited;
+    @include gl-mx-auto;
+  }
+
+  .gl-alert-content {
+    @include gl-flex-grow-1;
+    // Todo: Padding can be removed once the dismiss button has been migrated to gl-button and is a flexbox item.
+    @include gl-pr-9;
+  }
+
+  .gl-alert-dismiss {
+    @include gl-top-n5;
+  }
+}
+
 .gl-alert-danger {
   @include gl-bg-red-50;
 
