@@ -2,6 +2,13 @@
 import { BFormGroup } from 'bootstrap-vue';
 import { isString, isArray, isPlainObject } from 'lodash';
 
+export const validationStates = {
+  DEFAULT: 'DEFAULT',
+  VALID: 'VALID',
+  INVALID: 'INVALID',
+  WARNING: 'WARNING',
+};
+
 export default {
   components: {
     BFormGroup,
@@ -12,6 +19,26 @@ export default {
       type: [String, Array, Object],
       required: false,
       default: null,
+    },
+    state: {
+      type: [String, Boolean],
+      required: false,
+      default: validationStates.DEFAULT,
+    },
+    validFeedback: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    warningFeedback: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    invalidFeedback: {
+      type: String,
+      required: false,
+      default: '',
     },
   },
   computed: {
@@ -30,11 +57,50 @@ export default {
       }
       return defaultClass;
     },
+    isValid() {
+      return this.state === validationStates.VALID || this.state === true;
+    },
+    isWarning() {
+      return this.state === validationStates.WARNING;
+    },
+    isInvalid() {
+      return this.state === validationStates.INVALID || this.state === false;
+    },
+    formValidationClass() {
+      const defaultValidationClass = '';
+
+      if (this.isValid) {
+        return 'gl-is-valid';
+      }
+      if (this.isInvalid) {
+        return 'gl-is-invalid';
+      }
+      if (this.isWarning) {
+        return 'gl-is-warning';
+      }
+      return defaultValidationClass;
+    },
   },
+  feedbackTextClass: 'gl-font-base gl-line-height-normal gl-mt-3',
 };
 </script>
 <template>
-  <b-form-group v-bind="$attrs" class="gl-form-group" :label-class="actualLabelClass">
-    <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
+  <b-form-group
+    v-bind="$attrs"
+    :class="['gl-form-group', formValidationClass]"
+    :label-class="actualLabelClass"
+  >
+    <slot></slot>
+    <slot slot="description" name="description"></slot>
+    <slot slot="label" name="label"></slot>
+    <div v-if="isValid" :class="$options.feedbackTextClass" class="gl-text-green-500">
+      <slot name="valid-feedback">{{ validFeedback }}</slot>
+    </div>
+    <div v-if="isWarning" :class="$options.feedbackTextClass" class="gl-text-orange-500">
+      <slot name="warning-feedback">{{ warningFeedback }}</slot>
+    </div>
+    <div v-if="isInvalid" :class="$options.feedbackTextClass" class="gl-text-red-500">
+      <slot name="invalid-feedback">{{ invalidFeedback }}</slot>
+    </div>
   </b-form-group>
 </template>
