@@ -81,20 +81,14 @@
       @include gl-border-0;
       @include gl-content-empty;
       @include gl-display-block;
-      @include gl-w-5;
       @include gl-h-5;
-      @include gl-bg-chevron-down;
-    }
+      @include gl-bg-mask-chevron-down;
 
-    &.btn-success,
-    &.btn-info,
-    &.btn-warning,
-    &.btn-danger {
-      margin-left: 1px;
-
-      &::after {
-        filter: brightness(0) invert(1);
-      }
+      // Boostrap button variants use border-color to alter the chevron color, so making
+      // the border encompass the full width of the element under the mask will preserve
+      // this behavior.
+      box-sizing: border-box;
+      border-right: $gl-spacing-scale-5 solid;
     }
 
     &[class*='-secondary'] {

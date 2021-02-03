@@ -385,3 +385,10 @@
 @mixin gl-bg-chevron-down {
   background-image: url($gl-icon-chevron-down);
 }
+
+@mixin gl-bg-mask-chevron-down {
+  mask-image: url($gl-icon-chevron-down);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+}
