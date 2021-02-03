@@ -9,5 +9,5 @@ export default {
 </script>
 
 <template>
-  <gl-toggle v-model="toggleValue" />
+  <gl-toggle v-model="toggleValue" label="Toggle label" label-position="hidden" />
 </template>
