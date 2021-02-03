@@ -1,3 +1,10 @@
+## [27.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.0...v27.4.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* **GlToggle:** Make toggle accessible ([ba894e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/ba894e38dc5a5540e43f5e83da4becc3b89e3e36))
+
 # [27.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.3.0...v27.4.0) (2021-02-02)
 
 
