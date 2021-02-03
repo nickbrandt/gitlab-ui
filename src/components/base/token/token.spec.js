@@ -4,7 +4,7 @@ import GlIcon from '../icon/icon.vue';
 
 const localVue = createLocalVue();
 
-const findIcon = (wrapper) => wrapper.find(GlIcon);
+const findIcon = (wrapper) => wrapper.findComponent(GlIcon);
 
 describe('Token component', () => {
   let wrapper;

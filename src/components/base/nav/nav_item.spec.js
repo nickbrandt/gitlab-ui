@@ -15,6 +15,6 @@ describe('GlNavItem', () => {
       },
     });
 
-    expect(wrapper.find(GlNavItem).text()).toBe('Hello, World!');
+    expect(wrapper.findComponent(GlNavItem).text()).toBe('Hello, World!');
   });
 });

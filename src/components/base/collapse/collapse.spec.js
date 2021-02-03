@@ -22,7 +22,7 @@ describe('Collapse component', () => {
     });
 
     it('renders a BCollapse', () => {
-      expect(wrapper.find(BCollapse).exists()).toBe(true);
+      expect(wrapper.findComponent(BCollapse).exists()).toBe(true);
     });
   });
 });
