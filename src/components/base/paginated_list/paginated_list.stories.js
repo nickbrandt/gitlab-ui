@@ -1,7 +1,7 @@
 import { withKnobs, object, array, boolean, number, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './paginated_list.md';
 import { GlPaginatedList, GlButton } from '../../../../index';
+import readme from './paginated_list.md';
 
 const components = {
   GlPaginatedList,

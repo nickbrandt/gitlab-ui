@@ -1,7 +1,6 @@
 import { withKnobs, object, text, array, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlStackedColumnChart } from '../../../../charts';
-import readme from './stacked_column.md';
 import { columnOptions } from '../../../utils/constants';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
@@ -10,6 +9,7 @@ import {
   mockDefaultStackedBarData,
   mockSecondaryData,
 } from '../../../utils/charts/mock_data';
+import readme from './stacked_column.md';
 
 const components = {
   GlStackedColumnChart,

@@ -1,8 +1,8 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlTruncate } from '../../../../index';
 import { POSITION } from './constants';
 import readme from './truncate.md';
-import { GlTruncate } from '../../../../index';
 
 const components = {
   GlTruncate,

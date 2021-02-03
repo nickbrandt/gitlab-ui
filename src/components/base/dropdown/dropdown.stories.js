@@ -5,7 +5,6 @@ import {
   newDropdownVariantOptions,
   newButtonSizeOptions,
 } from '../../../utils/constants';
-import readme from './dropdown.md';
 import {
   GlAvatar,
   GlIcon,
@@ -16,6 +15,7 @@ import {
   GlDropdownText,
   GlDropdownForm,
 } from '../../../../index';
+import readme from './dropdown.md';
 
 const components = {
   GlAvatar,

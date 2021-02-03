@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 
-import GlDropdown from './dropdown.vue';
 import { newDropdownVariantOptions } from '../../../utils/constants';
+import GlDropdown from './dropdown.vue';
 
 const DEFAULT_BTN_CLASSES = ['btn', 'btn-default', 'btn-md', 'gl-button'];
 const DEFAULT_BTN_TOGGLE_CLASSES = [

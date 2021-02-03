@@ -6,8 +6,8 @@ import { engineeringNotation } from '../number_utils';
 import { hexToRgba } from '../utils';
 import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';
-import { ANNOTATIONS_SERIES_NAME, arrowSymbol, CHART_TYPE_BAR, CHART_TYPE_LINE } from './constants';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { ANNOTATIONS_SERIES_NAME, arrowSymbol, CHART_TYPE_BAR, CHART_TYPE_LINE } from './constants';
 
 export const defaultAreaOpacity = 0.2;
 export const defaultFontSize = 12;

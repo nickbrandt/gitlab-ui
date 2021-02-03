@@ -1,9 +1,9 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './icon.md';
 import { GlIcon } from '../../../../index';
 import { iconSizeOptions } from '../../../utils/constants';
+import readme from './icon.md';
 
 const components = {
   GlIcon,

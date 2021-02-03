@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 
-import HeatMapChart from './heatmap.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
+import HeatMapChart from './heatmap.vue';
 import { TOOLTIP_LEFT_OFFSET } from '~/utils/charts/constants';
 
 let mockChartInstance;

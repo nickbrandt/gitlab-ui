@@ -1,9 +1,9 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import { BModal } from 'bootstrap-vue';
 import { merge } from 'lodash';
-import Modal from './modal.vue';
 import Button from '../button/button.vue';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
+import Modal from './modal.vue';
 import { modalButtonDefaults } from '~/utils/constants';
 
 const localVue = createLocalVue();

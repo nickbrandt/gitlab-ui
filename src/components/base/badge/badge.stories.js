@@ -1,9 +1,9 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
 import readme from './badge.md';
 import GlBadge from './badge.vue';
-import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
 
 const components = {
   GlBadge,

@@ -1,8 +1,8 @@
 import { withKnobs, text, color, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
-import readme from './label.md';
 import { GlLabel } from '../../../../index';
+import readme from './label.md';
 
 const components = {
   GlLabel,

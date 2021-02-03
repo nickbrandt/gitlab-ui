@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import readme from './toast.md';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlToast } from '../../../../index';
+import readme from './toast.md';
 
 Vue.use(GlToast);
 

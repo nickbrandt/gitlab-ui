@@ -1,6 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import SearchBoxByType from './search_box_by_type.vue';
 import LoadingIcon from '../loading_icon/loading_icon.vue';
+import SearchBoxByType from './search_box_by_type.vue';
 import ClearIcon from '~/components/shared_components/clear_icon_button/clear_icon_button.vue';
 
 const modelEvent = SearchBoxByType.model.event;

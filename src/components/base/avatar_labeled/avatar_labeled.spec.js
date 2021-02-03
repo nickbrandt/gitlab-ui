@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 
 import Avatar from '../avatar/avatar.vue';
-import AvatarLabeled from './avatar_labeled.vue';
 import GlLink from '../link/link.vue';
+import AvatarLabeled from './avatar_labeled.vue';
 
 describe('avatar labeled', () => {
   let wrapper;

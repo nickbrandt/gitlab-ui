@@ -1,7 +1,7 @@
 import Pikaday from 'pikaday';
 import { mount, shallowMount } from '@vue/test-utils';
-import GlDatepicker from './datepicker.vue';
 import { defaultDateFormat } from '../../../utils/constants';
+import GlDatepicker from './datepicker.vue';
 
 jest.mock('pikaday');
 

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import BarChart from './bar.vue';
 import Chart from '../chart/chart.vue';
+import BarChart from './bar.vue';
 import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
 import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 

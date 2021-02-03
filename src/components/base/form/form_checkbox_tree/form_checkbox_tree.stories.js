@@ -1,8 +1,8 @@
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
+import GlToken from '../../token/token.vue';
 import readme from './form_checkbox_tree.md';
 import GlFormCheckboxTree from './form_checkbox_tree.vue';
-import GlToken from '../../token/token.vue';
 
 const components = {
   GlFormCheckboxTree,

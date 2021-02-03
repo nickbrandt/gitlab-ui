@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import Label from './label.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
+import Label from './label.vue';
 
 // Light color
 const grey = {

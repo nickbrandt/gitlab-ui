@@ -1,7 +1,6 @@
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChartSeriesLabel } from '../../../../charts';
-import readme from './series_label.md';
 import { colorPaletteDefault } from '../../../utils/charts/theme';
 import {
   SERIES_NAME,
@@ -9,6 +8,7 @@ import {
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_utils';
+import readme from './series_label.md';
 
 const components = {
   GlChartSeriesLabel,

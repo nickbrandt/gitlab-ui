@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { BNavItemDropdown } from 'bootstrap-vue';
-import GlNavItemDropdown from './nav_item_dropdown.vue';
 import GlIcon from '../icon/icon.vue';
+import GlNavItemDropdown from './nav_item_dropdown.vue';
 
 describe('GlNavItemDropdown', () => {
   let wrapper;

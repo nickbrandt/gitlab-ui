@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './navbar.md';
 import { GlNavbar } from '../../../../index';
+import readme from './navbar.md';
 
 const components = {
   GlNavbar,

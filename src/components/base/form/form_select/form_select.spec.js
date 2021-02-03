@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
+import { sizeOptions, formStateOptions } from '../../../../utils/constants';
 import GlFormSelect from './form_select.vue';
 import { formSelectOptions } from './constants';
-import { sizeOptions, formStateOptions } from '../../../../utils/constants';
 
 const DEFAULT_SELECT_CLASSES = ['gl-form-select', 'custom-select'];
 const excludeDefaultNull = (values) => Object.values(values).filter((value) => value !== null);

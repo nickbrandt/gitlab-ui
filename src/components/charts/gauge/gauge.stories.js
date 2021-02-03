@@ -1,8 +1,8 @@
 import { withKnobs, object, number, text as textKnob, array } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { toolbox } from '../../../utils/charts/story_config';
 import readme from './gauge.md';
 import GlGauge from './gauge.vue';
-import { toolbox } from '../../../utils/charts/story_config';
 
 const template = `
   <gl-gauge 

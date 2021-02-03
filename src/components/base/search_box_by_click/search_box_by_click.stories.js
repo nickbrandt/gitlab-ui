@@ -1,7 +1,7 @@
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './search_box_by_click.md';
 import { GlSearchBoxByClick } from '../../../../index';
+import readme from './search_box_by_click.md';
 
 const components = {
   GlSearchBoxByClick,

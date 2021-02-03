@@ -1,8 +1,8 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './filtered_search.md';
 import { GlFilteredSearch, GlFilteredSearchToken } from '../../../../index';
 import { setStoryTimeout } from '../../../utils/test_utils';
+import readme from './filtered_search.md';
 
 const fakeUsers = [
   { id: 1, name: 'User Alpha', username: 'alpha' },

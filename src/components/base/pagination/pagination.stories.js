@@ -1,8 +1,8 @@
 import { withKnobs, number, text, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { alignOptions } from '../../../utils/constants';
 import GlPagination from './pagination.vue';
 import readme from './pagination.md';
-import { alignOptions } from '../../../utils/constants';
 
 const components = {
   GlPagination,

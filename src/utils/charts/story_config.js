@@ -1,5 +1,4 @@
 import times from 'lodash/times';
-import { colorFromDefaultPalette } from './theme';
 import { SERIES_NAME, SERIES_NAME_SHORT } from '../stories_utils';
 
 import {
@@ -8,6 +7,7 @@ import {
   clearAllSvgPath,
   downloadSvgPath,
 } from '../svgs/svg_paths';
+import { colorFromDefaultPalette } from './theme';
 
 export const toolbox = {
   feature: {

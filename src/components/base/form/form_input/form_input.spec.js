@@ -1,6 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import GlFormInput from './form_input.vue';
 import { formInputSizes } from '../../../../utils/constants';
+import GlFormInput from './form_input.vue';
 
 const modelEvent = GlFormInput.model.event;
 const newValue = 'foo';

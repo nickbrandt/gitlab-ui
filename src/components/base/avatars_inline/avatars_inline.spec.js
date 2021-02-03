@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 
 import Avatar from '../avatar/avatar.vue';
-import AvatarsInline from './avatars_inline.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
+import AvatarsInline from './avatars_inline.vue';
 
 describe('avatars inline', () => {
   let wrapper;
