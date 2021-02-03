@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './form.md';
 import { GlForm } from '../../../../index';
+import readme from './form.md';
 
 const components = {
   GlForm,

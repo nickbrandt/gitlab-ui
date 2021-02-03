@@ -3,13 +3,13 @@ import { documentedStoriesOf } from '../../../../documentation/documented_storie
 import { GlColumnChart } from '../../../../charts';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
-import readme from './column.md';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
   mockSecondaryBarData,
   mockSecondaryTrendlineData,
 } from '../../../utils/charts/mock_data';
+import readme from './column.md';
 
 const components = {
   GlColumnChart,

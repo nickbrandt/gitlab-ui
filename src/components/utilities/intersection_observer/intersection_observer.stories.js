@@ -1,6 +1,6 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './intersection_observer.md';
 import { GlIntersectionObserver } from '../../../../index';
+import readme from './intersection_observer.md';
 
 const components = {
   GlIntersectionObserver,

@@ -1,8 +1,8 @@
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import readme from './form_input.md';
 import { GlFormInput } from '../../../../../index';
 import { formInputSizes } from '../../../../utils/constants';
+import readme from './form_input.md';
 
 const components = {
   GlFormInput,

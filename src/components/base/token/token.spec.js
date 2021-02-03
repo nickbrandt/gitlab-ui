@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import Token from './token.vue';
 import GlIcon from '../icon/icon.vue';
+import Token from './token.vue';
 
 const localVue = createLocalVue();
 

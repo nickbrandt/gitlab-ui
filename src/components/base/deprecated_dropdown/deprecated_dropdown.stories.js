@@ -1,12 +1,12 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './deprecated_dropdown.md';
 import {
   GlDeprecatedDropdown,
   GlDeprecatedDropdownDivider,
   GlDeprecatedDropdownHeader,
   GlDeprecatedDropdownItem,
 } from '../../../../index';
+import readme from './deprecated_dropdown.md';
 
 const components = {
   GlDeprecatedDropdown,

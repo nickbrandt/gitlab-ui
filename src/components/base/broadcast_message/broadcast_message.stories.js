@@ -1,9 +1,9 @@
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './broadcast_message.md';
 import { GlBroadcastMessage } from '../../../../index';
 import { colorThemes } from '../../../utils/constants';
+import readme from './broadcast_message.md';
 
 const components = {
   GlBroadcastMessage,

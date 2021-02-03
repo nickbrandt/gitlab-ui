@@ -1,5 +1,7 @@
 import merge from 'lodash/merge';
 import Breakpoints from '../breakpoints';
+import { columnOptions } from '../constants';
+import { hexToRgba } from '../utils';
 import {
   getDataZoomConfig,
   getThresholdConfig,
@@ -15,8 +17,6 @@ import {
   mockDefaultLineData,
 } from './mock_data';
 import { colorFromDefaultPalette } from './theme';
-import { columnOptions } from '../constants';
-import { hexToRgba } from '../utils';
 
 describe('chart config helpers', () => {
   describe('getThresholdConfig', () => {

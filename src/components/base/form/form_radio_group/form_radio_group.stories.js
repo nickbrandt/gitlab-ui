@@ -1,7 +1,7 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import readme from './form_radio_group.md';
 import { GlFormRadioGroup } from '../../../../../index';
+import readme from './form_radio_group.md';
 
 const components = {
   GlFormRadioGroup,

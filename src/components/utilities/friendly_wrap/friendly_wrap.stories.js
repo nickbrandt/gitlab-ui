@@ -1,7 +1,7 @@
 import { withKnobs, text, array } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './friendly_wrap.md';
 import { GlFriendlyWrap } from '../../../../index';
+import readme from './friendly_wrap.md';
 
 const components = {
   GlFriendlyWrap,

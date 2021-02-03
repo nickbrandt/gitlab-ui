@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './dashboard_skeleton.md';
 import { GlDashboardSkeleton } from '../../../../index';
+import readme from './dashboard_skeleton.md';
 
 const components = {
   GlDashboardSkeleton,

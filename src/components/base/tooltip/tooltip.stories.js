@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './tooltip.md';
 import { GlTooltipDirective } from '../../../../index';
+import readme from './tooltip.md';
 
 const directives = {
   GlTooltip: GlTooltipDirective,

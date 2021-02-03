@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { BCollapse } from 'bootstrap-vue';
-import GlAccordionItem from './accordion_item.vue';
 import GlButton from '../button/button.vue';
 import GlCollapseToggleDirective from '../../../directives/collapse_toggle';
+import GlAccordionItem from './accordion_item.vue';
 
 describe('GlAccordionItem', () => {
   let wrapper;

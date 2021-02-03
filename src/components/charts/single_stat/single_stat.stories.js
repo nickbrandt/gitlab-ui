@@ -1,9 +1,9 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './single_stat.md';
 import { GlSingleStat } from '../../../../charts';
 import { badgeVariantOptions } from '../../../utils/constants';
+import readme from './single_stat.md';
 
 const components = {
   GlSingleStat,

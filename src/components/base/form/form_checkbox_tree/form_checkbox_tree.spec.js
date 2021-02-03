@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import GlFormCheckboxTree from './form_checkbox_tree.vue';
 import GlFormCheckbox from '../form_checkbox/form_checkbox.vue';
+import GlFormCheckboxTree from './form_checkbox_tree.vue';
 import { V_MODEL, QA_PREFIX } from './models/constants';
 
 /**

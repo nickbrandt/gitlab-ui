@@ -1,7 +1,7 @@
 import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './avatar_link.md';
 import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
+import readme from './avatar_link.md';
 
 const generateDefaultProps = () => ({
   href: {

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import GlBanner from './banner.vue';
 import GlButton from '../button/button.vue';
+import GlBanner from './banner.vue';
 
 describe('banner component', () => {
   const propsData = {

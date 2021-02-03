@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import GlAlert from './alert.vue';
 import { newButtonCategoryOptions } from '../../../utils/constants';
+import GlAlert from './alert.vue';
 
 const DummyComponent = {
   template: '<p>dummy</p>',

@@ -1,7 +1,7 @@
 import { withKnobs, text as textKnob, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './sorting.md';
 import { GlSorting, GlSortingItem } from '../../../../index';
+import readme from './sorting.md';
 
 const components = {
   GlSorting,

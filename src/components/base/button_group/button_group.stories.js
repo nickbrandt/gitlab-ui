@@ -5,8 +5,8 @@ import {
   newButtonCategoryOptions,
   newButtonVariantOptions,
 } from '../../../utils/constants';
-import readme from './button_group.md';
 import { GlButtonGroup } from '../../../../index';
+import readme from './button_group.md';
 
 const components = {
   GlButtonGroup,

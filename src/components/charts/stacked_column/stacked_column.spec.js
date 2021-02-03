@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
 
-import StackedColumnChart from './stacked_column.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import {
@@ -8,6 +7,7 @@ import {
   mockDefaultStackedBarData,
   mockSecondaryData,
 } from '../../../utils/charts/mock_data';
+import StackedColumnChart from './stacked_column.vue';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 

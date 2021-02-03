@@ -1,7 +1,7 @@
 import { withKnobs, text, object } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './sprintf.md';
 import { GlSprintf, GlButton } from '../../../../index';
+import readme from './sprintf.md';
 
 const components = {
   GlSprintf,

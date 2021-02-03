@@ -2,8 +2,9 @@
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
-import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlIcon from '../icon/icon.vue';
+import GlTooltip from '../../../directives/tooltip';
+import GlFilteredSearchTerm from './filtered_search_term.vue';
 import {
   isEmptyTerm,
   TERM_TOKEN_TYPE,
@@ -11,7 +12,6 @@ import {
   denormalizeTokens,
   needDenormalization,
 } from './filtered_search_utils';
-import GlTooltip from '../../../directives/tooltip';
 
 Vue.use(PortalVue);
 

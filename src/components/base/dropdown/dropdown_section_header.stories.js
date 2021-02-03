@@ -1,7 +1,7 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './dropdown_section_header.md';
 import { GlDropdownSectionHeader } from '../../../../index';
+import readme from './dropdown_section_header.md';
 
 const components = {
   GlDropdownSectionHeader,

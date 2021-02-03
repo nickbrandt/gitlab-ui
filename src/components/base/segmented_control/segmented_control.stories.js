@@ -1,7 +1,7 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './segmented_control.md';
 import { GlSegmentedControl } from '../../../../index';
+import readme from './segmented_control.md';
 
 const components = {
   GlSegmentedControl,

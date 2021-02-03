@@ -6,8 +6,8 @@ import {
   newButtonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
-import readme from './button.md';
 import { GlButton } from '../../../../index';
+import readme from './button.md';
 
 const components = {
   GlButton,

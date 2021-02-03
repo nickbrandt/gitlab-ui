@@ -1,8 +1,7 @@
 import { array, text, withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './intersperse.md';
-
 import { GlIntersperse } from '../../../../index';
+import readme from './intersperse.md';
 
 const template = `
   <div>

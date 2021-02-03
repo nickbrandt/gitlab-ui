@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import GlSingleStat from './single_stat.vue';
 import { variantCssColorMap } from '../../../utils/constants';
+import GlSingleStat from './single_stat.vue';
 
 const title = 'Singe stat title';
 const value = '100';

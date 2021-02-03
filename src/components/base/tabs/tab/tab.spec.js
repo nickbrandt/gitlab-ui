@@ -1,7 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import GlTab from './tab.vue';
-
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
+import GlTab from './tab.vue';
 
 describe('Tab component', () => {
   let wrapper;

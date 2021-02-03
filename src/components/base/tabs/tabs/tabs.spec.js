@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import Tabs from './tabs.vue';
 import { GlButton } from '../../../../../index';
 import { tabsButtonDefaults } from '../../../../utils/constants';
+import Tabs from './tabs.vue';
 
 const getActionButtonProp = ({ type, text = `${type} action!` }) => ({
   [`action${type}`]: {

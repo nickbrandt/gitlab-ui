@@ -1,6 +1,6 @@
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './collapse.md';
 import { GlCollapse } from '../../../../index';
+import readme from './collapse.md';
 
 const components = {
   GlCollapse,

@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 
-import LineChart from './line.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import LineChart from './line.vue';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 
