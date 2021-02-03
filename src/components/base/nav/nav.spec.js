@@ -17,7 +17,7 @@ describe('GlNav', () => {
         },
       });
 
-      expect(wrapper.findAll(GlNavItem).exists()).toBeTruthy();
+      expect(wrapper.findAllComponents(GlNavItem).exists()).toBeTruthy();
     });
   });
 });

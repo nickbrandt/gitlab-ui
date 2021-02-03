@@ -22,7 +22,7 @@ describe('Carousel component', () => {
     });
 
     it('renders a BCarousel component', () => {
-      expect(wrapper.find(BCarousel).exists()).toBe(true);
+      expect(wrapper.findComponent(BCarousel).exists()).toBe(true);
     });
   });
 });

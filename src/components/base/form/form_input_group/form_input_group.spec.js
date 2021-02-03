@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { BInputGroup } from 'bootstrap-vue';
 import GlDeprecatedDropdownItem from '../../deprecated_dropdown/deprecated_dropdown_item.vue';
 import InputGroup from './form_input_group.vue';
 
@@ -17,7 +18,7 @@ describe('Input Group', () => {
 
   it('renders without errors', () => {
     createWrapper();
-    expect(wrapper.isVueInstance()).toBe(true);
+    expect(wrapper.findComponent(BInputGroup).exists()).toBe(true);
     expect(global.console.error).not.toHaveBeenCalled();
   });
 

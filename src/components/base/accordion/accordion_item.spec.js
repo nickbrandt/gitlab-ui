@@ -28,8 +28,8 @@ describe('GlAccordionItem', () => {
     });
   };
 
-  const findButton = () => wrapper.find(GlButton);
-  const findCollapse = () => wrapper.find(BCollapse);
+  const findButton = () => wrapper.findComponent(GlButton);
+  const findCollapse = () => wrapper.findComponent(BCollapse);
 
   it('renders button text', () => {
     createComponent();
@@ -47,7 +47,7 @@ describe('GlAccordionItem', () => {
     createComponent();
 
     expect(findButton().props('icon')).toBe('chevron-right');
-    expect(findCollapse().isVisible()).toBe(false);
+    expect(findCollapse().props('visible')).toBe(false);
   });
 
   it('is expanded on button click', async () => {
@@ -56,7 +56,7 @@ describe('GlAccordionItem', () => {
     await findButton().trigger('click');
 
     expect(findButton().props('icon')).toBe('chevron-down');
-    expect(findCollapse().isVisible()).toBe(true);
+    expect(findCollapse().props('visible')).toBe(true);
   });
 
   it('passes accordion identifier to BCollapse', () => {
@@ -73,6 +73,6 @@ describe('GlAccordionItem', () => {
     await wrapper.vm.$nextTick();
 
     expect(findButton().props('icon')).toBe('chevron-down');
-    expect(findCollapse().isVisible()).toBe(true);
+    expect(findCollapse().props('visible')).toBe(true);
   });
 });

@@ -15,7 +15,7 @@ describe('Navbar Component', () => {
     });
 
     it('should add the `navbar-dark` class', () => {
-      expect(wrapper.contains('.navbar-dark')).toBe(true);
+      expect(wrapper.find('.navbar-dark').exists()).toBe(true);
     });
   });
 });

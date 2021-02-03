@@ -126,10 +126,6 @@ describe('GlFormCheckboxTree', () => {
         createWrapper({ options: getOptions(shape), [V_MODEL.PROP]: initiallyChecked });
       });
 
-      it('renders properly', () => {
-        expect(wrapper.isVueInstance()).toBe(true);
-      });
-
       it('renders as many checkboxes as there are options', () => {
         expect(getCheckboxesCount()).toBe(expected);
       });
