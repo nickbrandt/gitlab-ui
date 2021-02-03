@@ -150,7 +150,7 @@ documentedStoriesOf('base/button', readme)
     `,
   }))
   .add('dropdown split button', () => ({
-    props: generateProps(),
+    props: generateProps({ category: 'primary', variant: 'confirm' }),
     components,
     template: `
       <gl-dropdown
@@ -167,7 +167,7 @@ documentedStoriesOf('base/button', readme)
     `,
   }))
   .add('dropdown icon split button', () => ({
-    props: generateProps(),
+    props: generateProps({ category: 'secondary', variant: 'danger' }),
     components,
     template: `
       <gl-dropdown
