@@ -1,6 +1,8 @@
+import * as description from './toggle.md';
 import examples from './examples';
 
 export default {
+  description,
   followsDesignSystem: true,
   examples,
   events: [

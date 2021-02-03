@@ -1,6 +1,9 @@
 <script>
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import { toggleLabelPosition } from '../../../utils/constants';
+
+let uuid = 0;
 
 export default {
   components: {
@@ -42,28 +45,31 @@ export default {
       required: false,
       default: undefined,
     },
-    ariaDescribedby: {
-      type: String,
-      required: false,
-      default: undefined,
-    },
     labelPosition: {
       type: String,
       required: false,
       default: 'top',
       validator(position) {
-        return ['hidden', 'top', 'left'].includes(position);
+        return Object.values(toggleLabelPosition).includes(position);
       },
     },
   },
 
   computed: {
-    ariaLabel() {
-      return this.labelPosition === 'hidden' ? this.labelText : undefined;
-    },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
     },
+    shouldShowLabel() {
+      return this.label && this.labelPosition !== 'hidden';
+    },
+    helpId() {
+      return this.help ? `toggle-help-${this.uuid}` : undefined;
+    },
+  },
+
+  beforeCreate() {
+    this.uuid = uuid;
+    uuid += 1;
   },
 
   methods: {
@@ -76,17 +82,19 @@ export default {
 
 <template>
   <label class="gl-display-flex gl-flex-direction-column gl-mb-0 gl-w-max-content">
-    <div
+    <span
       class="gl-toggle-wrapper"
       :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
     >
-      <span v-if="label" class="gl-toggle-label">
+      <span v-if="shouldShowLabel" class="gl-toggle-label" data-testid="toggle-label">
         <slot name="label">{{ label }}</slot>
       </span>
       <input v-if="name" :name="name" :value="value" type="hidden" />
       <button
+        role="switch"
+        :aria-checked="value"
         :aria-label="label"
-        :aria-describedby="help"
+        :aria-describedby="helpId"
         :class="{
           'gl-toggle': true,
           'is-checked': value,
@@ -100,8 +108,8 @@ export default {
           <gl-icon :name="icon" :size="16" />
         </span>
       </button>
-    </div>
-    <span v-if="help" class="gl-help-label">
+    </span>
+    <span v-if="help" :id="helpId" class="gl-help-label" data-testid="toggle-help">
       <slot name="help">{{ help }}</slot>
     </span>
   </label>

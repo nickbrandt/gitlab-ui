@@ -318,3 +318,9 @@ export const formInputSizes = {
   xl: 'xl',
   '(unset or null)': null,
 };
+
+export const toggleLabelPosition = {
+  hidden: 'hidden',
+  left: 'left',
+  top: 'top',
+};
