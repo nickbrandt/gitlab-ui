@@ -91,6 +91,14 @@
       border-right: $gl-spacing-scale-5 solid;
     }
 
+    &.btn-confirm,
+    &.btn-info,
+    &.btn-success,
+    &.btn-danger,
+    &.btn-warning {
+      margin-left: 1px;
+    }
+
     &[class*='-secondary'] {
       margin-left: -1px;
     }
