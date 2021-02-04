@@ -20,7 +20,6 @@ export default {
     <b-form-checkbox-group
       v-bind="$attrs"
       class="gl-form-checkbox-group"
-      plain
       stacked
       @change="$emit('change', $event)"
       @input="$emit('input', $event)"

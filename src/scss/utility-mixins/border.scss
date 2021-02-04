@@ -95,8 +95,16 @@
   border-color: $blue-300;
 }
 
+@mixin gl-border-blue-500 {
+  border-color: $blue-500;
+}
+
 @mixin gl-border-blue-600 {
   border-color: $blue-600;
+}
+
+@mixin gl-border-blue-700 {
+  border-color: $blue-700;
 }
 
 @mixin gl-border-gray-a-08 {
@@ -251,6 +259,10 @@
 
 @mixin gl-rounded-small {
   border-radius: $gl-border-radius-small;
+}
+
+@mixin gl-rounded-smallish {
+  border-radius: $gl-border-radius-base * 0.8;
 }
 
 @mixin gl-rounded-lg {
