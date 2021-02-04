@@ -261,10 +261,6 @@
   border-radius: $gl-border-radius-small;
 }
 
-@mixin gl-rounded-smallish {
-  border-radius: $gl-border-radius-base * 0.8;
-}
-
 @mixin gl-rounded-lg {
   border-radius: $gl-border-radius-large;
 }

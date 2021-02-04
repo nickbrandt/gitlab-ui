@@ -18,7 +18,6 @@ export default {
 <template>
   <b-form-radio-group
     class="gl-form-checkbox-group"
-    plain
     stacked
     v-bind="$attrs"
     v-on="$listeners"
