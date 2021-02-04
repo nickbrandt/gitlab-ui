@@ -48,6 +48,11 @@ export default {
       required: false,
       default: false,
     },
+    isCheckCentered: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     secondaryText: {
       type: String,
       required: false,
@@ -65,6 +70,13 @@ export default {
     },
     shouldShowCheckIcon() {
       return this.isChecked || this.isCheckItem;
+    },
+    checkedClasses() {
+      if (this.isCheckCentered) {
+        return '';
+      }
+
+      return 'gl-mt-3 gl-align-self-start';
     },
   },
   methods: {
@@ -85,7 +97,12 @@ export default {
     <gl-icon
       v-if="shouldShowCheckIcon"
       name="mobile-issue-close"
-      :class="['gl-new-dropdown-item-check-icon', { 'gl-visibility-hidden': !isChecked }]"
+      data-testid="dropdown-item-checkbox"
+      :class="[
+        'gl-new-dropdown-item-check-icon',
+        { 'gl-visibility-hidden': !isChecked },
+        checkedClasses,
+      ]"
     />
     <gl-icon
       v-if="iconName"
