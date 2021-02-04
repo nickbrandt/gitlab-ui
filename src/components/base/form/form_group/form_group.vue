@@ -3,7 +3,7 @@ import { BFormGroup } from 'bootstrap-vue';
 import { isString, isArray, isPlainObject } from 'lodash';
 
 export const validationStates = {
-  DEFAULT: 'DEFAULT',
+  DEFAULT: null,
   VALID: 'VALID',
   INVALID: 'INVALID',
   WARNING: 'WARNING',
@@ -28,17 +28,17 @@ export default {
     validFeedback: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     warningFeedback: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     invalidFeedback: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
   },
   computed: {
