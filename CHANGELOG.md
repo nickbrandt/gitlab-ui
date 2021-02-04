@@ -1,3 +1,10 @@
+## [27.4.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.2...v27.4.3) (2021-02-04)
+
+
+### Reverts
+
+* feat(GlFormGroup): Add validation states and style text ([15e9c17](https://gitlab.com/gitlab-org/gitlab-ui/commit/15e9c17724049fdf26acb11abc67ff5d87cb1cb5))
+
 ## [27.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.1...v27.4.2) (2021-02-04)
 
 
