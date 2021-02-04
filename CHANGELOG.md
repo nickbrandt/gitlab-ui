@@ -1,3 +1,10 @@
+## [27.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.1...v27.4.2) (2021-02-04)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Uncenter dropdown item check ([88fe7e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/88fe7e619041e801751a08658ec6c181f8f57a48))
+
 ## [27.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.0...v27.4.1) (2021-02-03)
 
 
