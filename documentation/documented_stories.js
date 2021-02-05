@@ -56,6 +56,7 @@ function getComponentName() {
 export const setupStorybookReadme = () =>
   configureReadme({
     StoryPreview: {
+      disableForComponents: [],
       components: {
         GlComponentDocumentation,
         GlExampleExplorer,
@@ -86,7 +87,7 @@ export const setupStorybookReadme = () =>
       <div>
         <div class="story-container" v-bind:style="styles"><slot></slot></div>
         {{ error }}
-        <template v-if="componentName">
+        <template v-if="componentName && !$options.disableForComponents.includes(componentName)">
           <gl-example-explorer :componentName="componentName" />
           <gl-component-documentation :componentName="componentName" />
         </template>

@@ -9,6 +9,12 @@ const sassLoaderOptions = {
 module.exports = ({ config }) => {
   config.module.rules = [
     {
+      test: /src\/components\/.*\.vue$/,
+      loader: 'vue-docgen-loader',
+      enforce: 'post',
+      exclude: /\.example\.vue$/,
+    },
+    {
       test: /\.(md|html)$/,
       loader: 'raw-loader',
     },
