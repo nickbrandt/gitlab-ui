@@ -24,12 +24,9 @@ describe('GlPopover', () => {
     wrapper = null;
   });
 
-  it.each(tooltipActionEvents)(
-    'passes through the %s event to the bvPopover instance',
-    (event) => {
-      wrapper.vm.$emit(event);
+  it.each(tooltipActionEvents)('passes through the %s event to the bvPopover instance', (event) => {
+    wrapper.vm.$emit(event);
 
-      expect(findBVPopover().emitted(event)).toHaveLength(1);
-    }
-  );
+    expect(findBVPopover().emitted(event)).toHaveLength(1);
+  });
 });
