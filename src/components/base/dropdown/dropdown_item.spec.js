@@ -33,6 +33,7 @@ describe('dropdown item', () => {
       ${{ isChecked: false, isCheckCentered: false }} | ${['gl-visibility-hidden', 'gl-mt-3', 'gl-align-self-start']}
       ${{ isChecked: true, isCheckCentered: false }}  | ${['gl-mt-3', 'gl-align-self-start']}
       ${{ isChecked: false, isCheckCentered: true }}  | ${['gl-visibility-hidden']}
+      ${{ isChecked: true, isCheckCentered: true }}   | ${[]}
     `(
       'with isCheckItem and props=$props, then classes include $expectedClasses',
       ({ props, expectedClasses }) => {
