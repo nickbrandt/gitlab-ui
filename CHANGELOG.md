@@ -1,3 +1,10 @@
+## [27.4.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.3...v27.4.4) (2021-02-05)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByType:** fix overlapping clear button and loading icon ([b72c70e](https://gitlab.com/gitlab-org/gitlab-ui/commit/b72c70ec62d96b7ccaf4c2ddfade457da079292c))
+
 ## [27.4.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.2...v27.4.3) (2021-02-04)
 
 
