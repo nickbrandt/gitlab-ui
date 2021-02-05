@@ -101,7 +101,7 @@
     "babel-preset-vue": "^2.0.2",
     "bootstrap": "4.4.1",
     "eslint": "7.19.0",
-    "eslint-import-resolver-jest": "^3.0.0",
+    "eslint-import-resolver-jest": "3.0.0",
     "file-loader": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer-select-directory": "^1.2.0",
