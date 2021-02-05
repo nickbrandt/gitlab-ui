@@ -18,17 +18,17 @@ documentedStoriesOf('base/dropdown/dropdown-item', readme)
     props: {},
     components,
     template:
-      '<ul class="list-unstyled"><gl-dropdown-item :is-checked="true" :is-check-item="true">Some item</gl-dropdown-item></ul>',
+      '<ul class="list-unstyled"><gl-dropdown-item is-checked is-check-item>Some item</gl-dropdown-item></ul>',
   }))
   .add('checked with avatar', () => ({
     props: {},
     components,
     template: `<ul class="list-unstyled">
       <gl-dropdown-item
-        :is-checked="true"
-        :is-check-item="true"
-        :is-check-centered="true"
-        avatar-url="https://secure.gravatar.com/avatar/78b060780d36f51a6763ac9831a4f022?s=180&d=identicon"
+        is-checked
+        is-check-item
+        is-check-centered
+        avatar-url="/img/avatar.png"
         secondary-text="@sytses"
       >
         Sid Sijbrandij
@@ -38,5 +38,5 @@ documentedStoriesOf('base/dropdown/dropdown-item', readme)
     props: {},
     components,
     template:
-      '<ul class="list-unstyled"><gl-dropdown-item :is-checked="true" :is-check-item="true" secondary-text="Lorem ipsum dolar sit amit...">Some item</gl-dropdown-item></ul>',
+      '<ul class="list-unstyled"><gl-dropdown-item is-checked is-check-item secondary-text="Lorem ipsum dolar sit amit...">Some item</gl-dropdown-item></ul>',
   }));
