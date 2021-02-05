@@ -25,7 +25,7 @@ describe('GlPopover', () => {
   });
 
   it.each(tooltipActionEvents)(
-    'passes through the $event event to the bvPopover instance',
+    'passes through the %s event to the bvPopover instance',
     (event) => {
       wrapper.vm.$emit(event);
 
