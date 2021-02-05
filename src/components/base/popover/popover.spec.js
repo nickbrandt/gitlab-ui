@@ -1,19 +1,19 @@
 import { shallowMount } from '@vue/test-utils';
 import { tooltipActionEvents } from '../../../utils/constants';
-import GlTooltip from './tooltip.vue';
+import GlPopover from './popover.vue';
 
-describe('GlTooltip', () => {
+describe('GlPopover', () => {
   let wrapper;
 
   const createWrapper = () => {
-    wrapper = shallowMount(GlTooltip, {
+    wrapper = shallowMount(GlPopover, {
       propsData: {
         target: document.body,
       },
     });
   };
 
-  const findBVTooltip = () => wrapper.find({ ref: 'bvTooltip' });
+  const findBVPopover = () => wrapper.find({ ref: 'bPopover' });
 
   beforeEach(() => {
     createWrapper();
@@ -30,9 +30,9 @@ describe('GlTooltip', () => {
     ${tooltipActionEvents.open}
     ${tooltipActionEvents.disable}
     ${tooltipActionEvents.enable}
-  `('passes through the $event event to the bvTooltip instance', ({ event }) => {
+  `('passes through the $event event to the bvPopover instance', ({ event }) => {
     wrapper.vm.$emit(event);
 
-    expect(findBVTooltip().emitted(event)).toHaveLength(1);
+    expect(findBVPopover().emitted(event)).toHaveLength(1);
   });
 });
