@@ -11,11 +11,11 @@ export default (tooltipRefName) => ({
      * https://bootstrap-vue.org/docs/components/popover#programmatically-show-and-hide-popover
      * https://bootstrap-vue.org/docs/components/tooltip#programmatically-show-and-hide-tooltip
      */
-    Object.keys(tooltipActionEvents).forEach((event) =>
+    tooltipActionEvents.forEach((event) =>
       this.$on(event, () => this.$refs[tooltipRefName].$emit(event))
     );
   },
   beforeDestroy() {
-    Object.keys(tooltipActionEvents).forEach((event) => this.$off(event));
+    tooltipActionEvents.forEach((event) => this.$off(event));
   },
 });

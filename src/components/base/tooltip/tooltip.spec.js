@@ -24,13 +24,7 @@ describe('GlTooltip', () => {
     wrapper = null;
   });
 
-  it.each`
-    event
-    ${tooltipActionEvents.open}
-    ${tooltipActionEvents.open}
-    ${tooltipActionEvents.disable}
-    ${tooltipActionEvents.enable}
-  `('passes through the $event event to the bvTooltip instance', ({ event }) => {
+  it.each(tooltipActionEvents)('passes through the %s event to the bvTooltip instance', (event) => {
     wrapper.vm.$emit(event);
 
     expect(findBVTooltip().emitted(event)).toHaveLength(1);

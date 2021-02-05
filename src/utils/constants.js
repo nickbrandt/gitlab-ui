@@ -325,9 +325,4 @@ export const toggleLabelPosition = {
   top: 'top',
 };
 
-export const tooltipActionEvents = {
-  open: 'open',
-  close: 'close',
-  enable: 'enable',
-  disable: 'disable',
-};
+export const tooltipActionEvents = ['open', 'close', 'enable', 'disable'];

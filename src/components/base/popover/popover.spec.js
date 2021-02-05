@@ -13,7 +13,7 @@ describe('GlPopover', () => {
     });
   };
 
-  const findBVPopover = () => wrapper.find({ ref: 'bPopover' });
+  const findBVPopover = () => wrapper.findComponent({ ref: 'bPopover' });
 
   beforeEach(() => {
     createWrapper();
@@ -24,15 +24,12 @@ describe('GlPopover', () => {
     wrapper = null;
   });
 
-  it.each`
-    event
-    ${tooltipActionEvents.open}
-    ${tooltipActionEvents.open}
-    ${tooltipActionEvents.disable}
-    ${tooltipActionEvents.enable}
-  `('passes through the $event event to the bvPopover instance', ({ event }) => {
-    wrapper.vm.$emit(event);
+  it.each(tooltipActionEvents)(
+    'passes through the $event event to the bvPopover instance',
+    (event) => {
+      wrapper.vm.$emit(event);
 
-    expect(findBVPopover().emitted(event)).toHaveLength(1);
-  });
+      expect(findBVPopover().emitted(event)).toHaveLength(1);
+    }
+  );
 });
