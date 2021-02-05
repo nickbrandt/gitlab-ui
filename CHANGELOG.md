@@ -1,3 +1,10 @@
+## [27.4.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.5...v27.4.6) (2021-02-05)
+
+
+### Bug Fixes
+
+* **GlPopover:** Pass through popover manual events ([3bd7635](https://gitlab.com/gitlab-org/gitlab-ui/commit/3bd7635ee1600f47cdfd7cf958b0e499c73fb427))
+
 ## [27.4.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.4...v27.4.5) (2021-02-05)
 
 
