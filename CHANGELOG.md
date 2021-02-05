@@ -1,3 +1,10 @@
+## [27.4.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.4...v27.4.5) (2021-02-05)
+
+
+### Bug Fixes
+
+* **GlChart:** Upgrade to echarts 4.9.0 ([1a832ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/1a832ed73d8db84220f4348b1c299acb78c1986d))
+
 ## [27.4.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.3...v27.4.4) (2021-02-05)
 
 
