@@ -65,6 +65,10 @@
   color: $gray-950;
 }
 
+@mixin gl-text-blue-200 {
+  color: $blue-200;
+}
+
 @mixin gl-text-blue-300 {
   color: $blue-300;
 }
