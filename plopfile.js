@@ -10,19 +10,8 @@ const templateFolder = 'templates';
 const commonActions = [
   {
     type: 'add',
-    path: `{{componentDirAbsolute}}/examples/{{name}}.basic.example.vue`,
-    templateFile: `${templateFolder}/basic.example.vue.hbs`,
-  },
-  {
-    type: 'add',
     path: `{{componentDirAbsolute}}/{{name}}.spec.js`,
     templateFile: `${templateFolder}/spec.js.hbs`,
-  },
-  {
-    type: 'add',
-    path: `{{componentDirAbsolute}}/examples/index.js`,
-    templateFile: `${templateFolder}/example.index.js.hbs`,
-    skipIfExists: true,
   },
   {
     type: 'append',

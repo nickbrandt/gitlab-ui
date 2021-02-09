@@ -1,26 +1,34 @@
-import { documentedStoriesOf } from '{{pathToRootDir}}/documentation/documented_stories';
-import readme from './{{name}}.md';
 import Gl{{pascalCase name}} from './{{name}}.vue';
+import readme from './{{name}}.md';
 
-const components = {
-  Gl{{pascalCase name}},
+const defaultValue = (prop) => Gl{{pascalCase name}}.props[prop].default;
+
+const generateProps = ({
+  // label = defaultValue('label'),
+} = {}) => ({
+  // label
+});
+
+export default {
+  title: 'base/{{name}}',
+  component: Gl{{pascalCase name}},
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {},
 };
 
-const defaultProps = {};
+const Template = (args, { argTypes }) => ({
+  components: { Gl{{pascalCase name}} },
+  props: Object.keys(argTypes),
+  template: `
+    <gl-{{kebabCase name}} />
+  `,
+});
 
-function generateProps(props = {}) {
-  return {
-    ...defaultProps,
-    ...props,
-  };
-}
-
-documentedStoriesOf('base/{{name}}', readme)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    data: () => ({}),
-    template: `
-      <gl-{{kebabCase name}} />
-    `,
-  }));
+export const Default = Template.bind({});
+Default.args = generateProps();
