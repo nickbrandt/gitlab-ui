@@ -1,3 +1,12 @@
+## [27.4.7](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.6...v27.4.7) (2021-02-09)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Add space between split dropdown for btn-confirm ([5bc8823](https://gitlab.com/gitlab-org/gitlab-ui/commit/5bc8823cf035fb4790d2d6e1d17a3b366de43452))
+* **GlDropdown:** Match chevron color and fix disabled spacing ([69d5b44](https://gitlab.com/gitlab-org/gitlab-ui/commit/69d5b446d58bc2d31300b6f10f7d6615ef7c2496))
+* **GlDropdown:** Update split dropdown chevron to match border-color ([3438c83](https://gitlab.com/gitlab-org/gitlab-ui/commit/3438c83b81860230a983d920b95dc4a9901bcec0))
+
 ## [27.4.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.5...v27.4.6) (2021-02-05)
 
 
