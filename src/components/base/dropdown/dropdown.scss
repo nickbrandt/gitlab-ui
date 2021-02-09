@@ -83,20 +83,24 @@
       @include gl-display-block;
       @include gl-w-5;
       @include gl-h-5;
-      @include gl-bg-chevron-down;
+      @include gl-bg-current-color;
+      @include gl-mask-chevron-down;
     }
 
-    &.btn-success,
+    &.btn-default:not(:disabled)::after {
+      @include gl-border-gray-500;
+    }
+
+    &.btn-confirm,
     &.btn-info,
-    &.btn-warning,
-    &.btn-danger {
+    &.btn-success,
+    &.btn-danger,
+    &.btn-warning {
       margin-left: 1px;
-
-      &::after {
-        filter: brightness(0) invert(1);
-      }
     }
 
+    &:disabled,
+    &.disabled,
     &[class*='-secondary'] {
       margin-left: -1px;
     }
