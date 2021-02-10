@@ -1141,12 +1141,13 @@
     eslint-plugin-vue "^7.5.0"
     vue-eslint-parser "^7.0.0"
 
-"@gitlab/stylelint-config@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/stylelint-config/-/stylelint-config-2.1.0.tgz#db00d5f9f958ad4ebcb343fac689ab5790b5a7a0"
-  integrity sha512-OXbox+poofjVMyOy417TYwJ0bBzASYok08V5CS8oU70F9dY6Dlcm0FQ5eE8nf/kVSQ1cdT1G0XnOFLxJtKARZg==
+"@gitlab/stylelint-config@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@gitlab/stylelint-config/-/stylelint-config-2.2.1.tgz#d3defb62d47bffda14b9d458451bfad0d2804602"
+  integrity sha512-ztANLXJrtTEtgDMoYBwGD6tMSWOKQ94iLNqRswdz8VqtDWbdPyjRswb1WvVDi8F7r/CYRZgFjNZIxHqPggE1Rg==
   dependencies:
     stylelint "^13.2.1"
+    stylelint-declaration-strict-value "^1.7.7"
     stylelint-scss "^3.18.0"
 
 "@gitlab/svgs@1.182.0":
@@ -5303,6 +5304,11 @@ css-selector-tokenizer@^0.7.0:
     fastparse "^1.1.1"
     regexpu-core "^1.0.0"
 
+css-shorthand-properties@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/css-shorthand-properties/-/css-shorthand-properties-1.1.1.tgz#1c808e63553c283f289f2dd56fcee8f3337bd935"
+  integrity sha512-Md+Juc7M3uOdbAFwOYlTrccIZ7oCFuzrhKYQjdeUEW/sE1hv17Jp/Bws+ReOPpGVBTYCBoYo+G17V5Qo8QQ75A==
+
 css-tree@1.0.0-alpha.28:
   version "1.0.0-alpha.28"
   resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha.28.tgz#8e8968190d886c9477bc8d61e96f61af3f7ffa7f"
@@ -5328,6 +5334,15 @@ css-url-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/css-url-regex/-/css-url-regex-1.1.0.tgz#83834230cc9f74c457de59eebd1543feeb83b7ec"
   integrity sha1-g4NCMMyfdMRX3lnuvRVD/uuDt+w=
+
+css-values@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/css-values/-/css-values-0.1.0.tgz#128b7ce103d4dc027a814a5d5995c54781d7b4c6"
+  integrity sha1-Eot84QPU3AJ6gUpdWZXFR4HXtMY=
+  dependencies:
+    css-color-names "0.0.4"
+    ends-with "^0.2.0"
+    postcss-value-parser "^3.3.0"
 
 css-what@2.1, css-what@^2.1.2:
   version "2.1.3"
@@ -6038,6 +6053,11 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
+
+ends-with@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ends-with/-/ends-with-0.2.0.tgz#2f9da98d57a50cfda4571ce4339000500f4e6b8a"
+  integrity sha1-L52pjVelDP2kVxzkM5AAUA9Oa4o=
 
 enhanced-resolve@^4.0.0, enhanced-resolve@^4.3.0:
   version "4.5.0"
@@ -12169,7 +12189,7 @@ postcss-unique-selectors@^4.0.1:
     postcss "^7.0.0"
     uniqs "^2.0.0"
 
-postcss-value-parser@^3.0.0, postcss-value-parser@^3.3.1:
+postcss-value-parser@^3.0.0, postcss-value-parser@^3.3.0, postcss-value-parser@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
   integrity sha512-pISE66AbVkp4fDQ7VHBwRNXzAAKJjw4Vw7nWI/+Q3vuly7SNfgYXvm6i5IgFylHGK5sP/xHAbB7N49OS4gWNyQ==
@@ -14202,6 +14222,13 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
+shortcss@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/shortcss/-/shortcss-0.1.3.tgz#ee2a7904d80b7f5502c98408f4a2f313faadfb48"
+  integrity sha1-7ip5BNgLf1UCyYQI9KLzE/qt+0g=
+  dependencies:
+    css-shorthand-properties "^1.0.0"
+
 side-channel@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/side-channel/-/side-channel-1.0.2.tgz#df5d1abadb4e4bf4af1cd8852bf132d2f7876947"
@@ -14862,6 +14889,14 @@ stylelint-config-prettier@^8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-8.0.2.tgz#da9de33da4c56893cbe7e26df239a7374045e14e"
   integrity sha512-TN1l93iVTXpF9NJstlvP7nOu9zY2k+mN0NSFQ/VEGz15ZIP9ohdDZTtCWHs5LjctAhSAzaILULGbgiM0ItId3A==
+
+stylelint-declaration-strict-value@^1.7.7:
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/stylelint-declaration-strict-value/-/stylelint-declaration-strict-value-1.7.7.tgz#d2f0aabc7f3e701a8988207f27d9696bd1d1ed0d"
+  integrity sha512-Gr5RZYMIS7af6N6PGRD3vmCJM/NlKY4D/jWdidQqxcXkhBtsmV6C99GjQOB0nfdYtjfJEQZLMlTNBztY4tRGfA==
+  dependencies:
+    css-values "^0.1.0"
+    shortcss "^0.1.3"
 
 stylelint-prettier@^1.1.2:
   version "1.1.2"
