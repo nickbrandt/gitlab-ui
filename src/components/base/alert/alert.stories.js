@@ -43,26 +43,6 @@ const generateProps = ({
   sticky,
 });
 
-export default {
-  title: 'base/Alert',
-  component: GlAlert,
-  parameters: {
-    docs: {
-      description: {
-        component: readme,
-      },
-    },
-  },
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        options: alertVariantOptions,
-      },
-    },
-  },
-};
-
 const Template = (args, { argTypes }) => ({
   components: { GlAlert },
   props: Object.keys(argTypes),
@@ -155,6 +135,23 @@ export const Sticky = () => ({
     <div style="height: 200px;" class="gl-bg-blue-100 gl-my-3"><p>Scrolling content…</p></div>
   </div>`,
 });
-// Sticky.args = generateProps({
-//   sticky: true,
-// })
+
+export default {
+  title: 'base/Alert',
+  component: GlAlert,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: alertVariantOptions,
+      },
+    },
+  },
+};
