@@ -1,3 +1,10 @@
+# [27.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.7...v27.5.0) (2021-02-11)
+
+
+### Features
+
+* **GlTokenSelector:** Add new CSS props and dropdown slot ([8a5deff](https://gitlab.com/gitlab-org/gitlab-ui/commit/8a5defff847f71daceba5bcc42543e07246375d0))
+
 ## [27.4.7](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.6...v27.4.7) (2021-02-09)
 
 
