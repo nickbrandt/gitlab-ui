@@ -41,6 +41,11 @@ export default {
       required: false,
       default: '',
     },
+    menuClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: '',
+    },
     autocomplete: {
       type: String,
       required: false,
@@ -308,6 +313,7 @@ export default {
     </div>
     <gl-token-selector-dropdown
       v-model="focusedDropdownItem"
+      :menu-class="menuClass"
       :show="dropdownIsOpen"
       :loading="loading"
       :dropdown-items="filteredDropdownItems"
@@ -331,6 +337,9 @@ export default {
       </template>
       <template #dropdown-item-content="{ dropdownItem }">
         <slot name="dropdown-item-content" :dropdown-item="dropdownItem"></slot>
+      </template>
+      <template #dropdown-footer>
+        <slot name="dropdown-footer"></slot>
       </template>
     </gl-token-selector-dropdown>
   </div>
