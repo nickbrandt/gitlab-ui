@@ -154,6 +154,23 @@ describe('GlTokenSelector', () => {
       });
     });
 
+    describe('menuClass', () => {
+      describe.each`
+        menuClass
+        ${'foo-bar-baz'}
+        ${['foo-bar-baz']}
+        ${{ 'foo-bar-baz': true }}
+      `('when `menuClass` is $menuClass', ({ menuClass }) => {
+        it('adds `foo-bar-baz` to CSS classes', () => {
+          createComponent({
+            propsData: { menuClass },
+          });
+
+          expect(findDropdownMenu().classes()).toContain('foo-bar-baz');
+        });
+      });
+    });
+
     describe('token category class', () => {
       it('renders token with correct CSS classes based on category props', () => {
         createComponent({
@@ -234,6 +251,7 @@ describe('GlTokenSelector', () => {
       ${'user-defined-token-content'} | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
       ${'no-results-content'}         | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
       ${'dropdown-item-content'}      | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
+      ${'dropdown-footer'}            | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
     `('passes `$slot` to `$componentName`', ({ slot, component }) => {
       createComponent({ propsData: { dropdownItems, selectedTokens: tokens } });
 

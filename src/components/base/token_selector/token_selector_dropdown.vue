@@ -10,6 +10,11 @@ export default {
       type: Boolean,
       required: true,
     },
+    menuClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: '',
+    },
     loading: {
       type: Boolean,
       required: false,
@@ -167,13 +172,13 @@ export default {
 </script>
 
 <template>
-  <div class="dropdown b-dropdown gl-new-dropdown gl-relative">
+  <div class="dropdown b-dropdown gl-new-dropdown gl-relative" :class="{ show }">
     <ul
       ref="dropdownMenu"
       role="menu"
       class="dropdown-menu gl-absolute"
       :aria-activedescendant="dropdownItemIdAttribute(focusedDropdownItem)"
-      :class="{ show }"
+      :class="[{ show }, menuClass]"
     >
       <gl-dropdown-item v-if="loading" disabled>
         <slot name="loading-content">Searching...</slot>
@@ -215,6 +220,7 @@ export default {
           <slot name="no-results-content">No matches found</slot>
         </gl-dropdown-item>
       </template>
+      <slot name="dropdown-footer"></slot>
     </ul>
   </div>
 </template>

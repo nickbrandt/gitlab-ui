@@ -26,6 +26,9 @@ export default {
       additionalInfo:
         'CSS classes to add to the main token selector container (`.gl-token-selector`)',
     },
+    menuClass: {
+      additionalInfo: 'CSS classes to add to dropdown menu `ul` element',
+    },
     textInputAttrs: {
       additionalInfo:
         'HTML attributes to add to the text input. Helpful for adding `data-testid` and `data-qa-selector` attributes',
@@ -57,6 +60,11 @@ export default {
       description: 'Dropdown item content',
       default: '{{ dropdownItem.name }}',
       scopedProps: 'dropdownItem (Object)',
+    },
+    {
+      name: 'dropdown-footer',
+      description:
+        'Content to add to the bottom of the dropdown. Can be used in conjunction with `gl-intersection-observer` to load more items as the user scrolls',
     },
     {
       name: 'loading-content',

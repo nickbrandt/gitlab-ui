@@ -51,6 +51,8 @@ describe('GlTokenSelectorDropdown', () => {
     });
   };
 
+  const findDropdownMenu = () => wrapper.find({ ref: 'dropdownMenu' });
+
   const findDropdownItemByName = (name, findButton = true) => {
     const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
 
@@ -85,7 +87,25 @@ describe('GlTokenSelectorDropdown', () => {
           propsData: { show: true },
         });
 
-        expect(wrapper.find({ ref: 'dropdownMenu' }).classes()).toContain('show');
+        expect(wrapper.classes()).toContain('show');
+        expect(findDropdownMenu().classes()).toContain('show');
+      });
+    });
+
+    describe('menuClass', () => {
+      describe.each`
+        menuClass
+        ${'foo-bar-baz'}
+        ${['foo-bar-baz']}
+        ${{ 'foo-bar-baz': true }}
+      `('when `menuClass` is $menuClass', ({ menuClass }) => {
+        it('adds `foo-bar-baz` to CSS classes', () => {
+          createComponent({
+            propsData: { menuClass },
+          });
+
+          expect(findDropdownMenu().classes()).toContain('foo-bar-baz');
+        });
       });
     });
 
@@ -226,6 +246,16 @@ describe('GlTokenSelectorDropdown', () => {
       });
 
       expect(wrapper.find('#custom-no-results-content').exists()).toBe(true);
+    });
+
+    it('renders `dropdown-footer` slot', () => {
+      createComponent({
+        slots: {
+          'dropdown-footer': '<span id="loading-text">Loading more results</span>',
+        },
+      });
+
+      expect(wrapper.find('#loading-text').exists()).toBe(true);
     });
   });
 
