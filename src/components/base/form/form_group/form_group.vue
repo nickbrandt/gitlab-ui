@@ -99,7 +99,11 @@ export default {
     <div v-if="isWarning" :class="$options.feedbackTextClass" class="gl-text-orange-500">
       <slot name="warning-feedback">{{ warningFeedback }}</slot>
     </div>
-    <div v-if="isInvalid" :class="$options.feedbackTextClass" class="invalid-feedback gl-text-red-500">
+    <div
+      v-if="isInvalid"
+      :class="$options.feedbackTextClass"
+      class="invalid-feedback gl-text-red-500"
+    >
       <slot name="invalid-feedback">{{ invalidFeedback }}</slot>
     </div>
   </b-form-group>
