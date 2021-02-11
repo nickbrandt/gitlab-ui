@@ -41,7 +41,7 @@ export default {
     return {
       portalName: this.portalName,
       alignSuggestions: (ref) => this.alignSuggestions(ref),
-      suggestionsListClass: this.suggestionsListClass,
+      suggestionsListClass: () => this.suggestionsListClass,
     };
   },
   inheritAttrs: false,
