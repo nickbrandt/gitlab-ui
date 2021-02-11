@@ -82,6 +82,8 @@ describe('GlTokenSelector', () => {
   const findDropdownMenu = () =>
     wrapper.find(GlTokenSelectorDropdown).find({ ref: 'dropdownMenu' });
 
+  const findContainerEl = () => wrapper.find({ ref: 'container' });
+
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
       HTMLElement.prototype.scrollIntoView = jest.fn();
@@ -150,7 +152,7 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(wrapper.find({ ref: 'container' }).classes()).toContain('gl-h-auto');
+        expect(findContainerEl().classes()).toContain('gl-h-auto');
       });
     });
 
@@ -187,13 +189,15 @@ describe('GlTokenSelector', () => {
         });
 
         expect(wrapper.findAll(GlToken).at(0).classes()).not.toContain('gl-bg-data-viz-blue-500');
-        expect(wrapper.findAll(GlToken).at(4).classes()).toEqual([
-          'gl-cursor-default',
-          'gl-token',
-          'gl-token-default-variant',
-          'gl-text-white',
-          'gl-bg-data-viz-blue-500',
-        ]);
+        expect(wrapper.findAll(GlToken).at(4).classes()).toEqual(
+          expect.arrayContaining([
+            'gl-cursor-default',
+            'gl-token',
+            'gl-token-default-variant',
+            'gl-text-white',
+            'gl-bg-data-viz-blue-500',
+          ])
+        );
       });
     });
 
@@ -227,6 +231,60 @@ describe('GlTokenSelector', () => {
         });
 
         expect(findTextInput().attributes('data-qa-selector')).toBe('foo_bar');
+      });
+    });
+
+    describe('disabled', () => {
+      it('passes prop to `gl-token-selector-dropdown` component', () => {
+        createComponent({ propsData: { disabled: true } });
+
+        expect(wrapper.find(GlTokenContainer).props('disabled')).toBe(true);
+      });
+
+      describe('when `disabled` is `true`', () => {
+        beforeEach(() => {
+          createComponent({ propsData: { disabled: true } });
+        });
+
+        it('adds `disabled` class to token selector container', () => {
+          expect(findContainerEl().classes()).toContain('disabled');
+        });
+
+        it('adds `aria-disabled` attribute to token selector container', () => {
+          expect(findContainerEl().attributes('aria-disabled')).toBe('true');
+        });
+
+        it('adds `disabled` attribute to text input', () => {
+          expect(findTextInput().attributes('disabled')).toBe('disabled');
+        });
+
+        it('adds `gl-cursor-not-allowed` class to text input', () => {
+          expect(findTextInput().classes()).toContain('gl-cursor-not-allowed');
+        });
+      });
+
+      describe('when `disabled` is `false`', () => {
+        beforeEach(() => {
+          createComponent({ propsData: { disabled: false } });
+        });
+
+        it('adds `gl-inset-border-1-gray-400!` and `gl-cursor-text!` classes to token selector container', () => {
+          expect(findContainerEl().classes()).toEqual(
+            expect.arrayContaining(['gl-inset-border-1-gray-400!', 'gl-cursor-text!'])
+          );
+        });
+
+        it('does not add `aria-disabled` attribute to token selector container', () => {
+          expect(findContainerEl().attributes('aria-disabled')).toBeUndefined();
+        });
+
+        it('does not add `disabled` attribute to text input', () => {
+          expect(findTextInput().attributes('disabled')).toBeUndefined();
+        });
+
+        it('does not add `gl-cursor-not-allowed` class to text input', () => {
+          expect(findTextInput().classes()).not.toContain('gl-cursor-not-allowed');
+        });
       });
     });
   });
@@ -502,7 +560,7 @@ describe('GlTokenSelector', () => {
     it('focuses on the text input', async () => {
       createComponent();
 
-      const container = wrapper.find({ ref: 'container' });
+      const container = findContainerEl();
       container.element.closest = () => null;
 
       container.trigger('click');

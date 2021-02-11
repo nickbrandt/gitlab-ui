@@ -102,4 +102,28 @@ documentedStoriesOf('base/token_selector', readme)
         {{ selectedTokens }}
       </div>
     `,
+  }))
+  .add('disabled', () => ({
+    props: generateProps(),
+    data() {
+      return {
+        selectedTokens: [
+          {
+            id: 1,
+            name: 'Vue.js',
+          },
+        ],
+      };
+    },
+    components,
+    template: `
+      <div>
+        <gl-token-selector
+          v-model="selectedTokens"
+          :dropdown-items="dropdownItems"
+          :allow-user-defined-tokens="allowUserDefinedTokens"
+          disabled />
+        {{ selectedTokens }}
+      </div>
+    `,
   }));

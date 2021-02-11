@@ -24,7 +24,11 @@ describe('GlTokenContainer', () => {
     },
   ];
   const mockedRegisterFocusOnToken = jest.fn();
-  const defaultProps = { tokens, registerFocusOnToken: mockedRegisterFocusOnToken };
+  const defaultProps = {
+    tokens,
+    disabled: false,
+    registerFocusOnToken: mockedRegisterFocusOnToken,
+  };
 
   let wrapper;
 
@@ -59,6 +63,44 @@ describe('GlTokenContainer', () => {
         createComponent();
 
         expect(wrapper.findAll(GlToken).length).toBe(4);
+      });
+    });
+
+    describe('disabled', () => {
+      describe('when `disabled` is `true`', () => {
+        beforeEach(() => {
+          createComponent({ propsData: { disabled: true } });
+        });
+
+        it("does not add `tabindex` attribute to tokens so it can't be focused", () => {
+          expect(findTokenByName('Vue.js').attributes('tabindex')).toBeUndefined();
+        });
+
+        it('adds `gl-cursor-not-allowed` class to tokens', () => {
+          expect(wrapper.find(GlToken).classes()).toContain('gl-cursor-not-allowed');
+        });
+
+        it('sets `view-only` token prop to `true`', () => {
+          expect(wrapper.find(GlToken).props('viewOnly')).toBe(true);
+        });
+      });
+
+      describe('when `disabled` is `false`', () => {
+        beforeEach(() => {
+          createComponent({ propsData: { disabled: false } });
+        });
+
+        it('adds `tabindex="-1"` attribute to token so it can be focused', () => {
+          expect(findTokenByName('Vue.js').attributes('tabindex')).toBe('-1');
+        });
+
+        it('adds `gl-cursor-default` class to tokens', () => {
+          expect(wrapper.find(GlToken).classes()).toContain('gl-cursor-default');
+        });
+
+        it('sets `view-only` token prop to `false`', () => {
+          expect(wrapper.find(GlToken).props('viewOnly')).toBe(false);
+        });
       });
     });
 

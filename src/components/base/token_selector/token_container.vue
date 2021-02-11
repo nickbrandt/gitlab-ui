@@ -12,6 +12,10 @@ export default {
       validator: tokensValidator,
       required: true,
     },
+    disabled: {
+      type: Boolean,
+      required: true,
+    },
     registerFocusOnToken: {
       type: Function,
       required: true,
@@ -26,6 +30,9 @@ export default {
   computed: {
     focusedToken() {
       return this.tokens[this.focusedTokenIndex] || null;
+    },
+    disabledClasses() {
+      return this.disabled ? 'gl-cursor-not-allowed' : 'gl-cursor-default';
     },
   },
   watch: {
@@ -130,10 +137,14 @@ export default {
       :data-token-id="token.id"
       class="gl-token-selector-token-container gl-px-1 gl-py-1 gl-outline-none"
       role="option"
-      tabindex="-1"
+      :tabindex="!disabled && -1"
       @focus="bindFocusEvent ? handleTokenFocus(index) : null"
     >
-      <gl-token class="gl-cursor-default" :class="token.class" @close="handleClose(token)">
+      <gl-token
+        :class="[disabledClasses, token.class]"
+        :view-only="disabled"
+        @close="handleClose(token)"
+      >
         <slot name="token-content" :token="token">
           <span>
             {{ token.name }}

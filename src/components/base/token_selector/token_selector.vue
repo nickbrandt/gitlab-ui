@@ -66,6 +66,11 @@ export default {
       required: false,
       default: null,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     // Used for custom `v-model`
     selectedTokens: {
       type: Array,
@@ -115,6 +120,9 @@ export default {
       }
 
       return false;
+    },
+    disabledClasses() {
+      return this.disabled ? ['disabled'] : ['gl-inset-border-1-gray-400!', 'gl-cursor-text!'];
     },
   },
   watch: {
@@ -270,13 +278,15 @@ export default {
   <div>
     <div
       ref="container"
-      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-inset-border-1-gray-400! gl-cursor-text! gl-py-2! gl-px-3!"
-      :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass]"
+      class="gl-token-selector gl-form-input form-control gl-py-2! gl-px-3!"
+      :class="[{ 'gl-token-selector-focus-glow': inputFocused }, disabledClasses, containerClass]"
+      :aria-disabled="disabled"
       @click="handleContainerClick"
     >
       <gl-token-container
         :tokens="selectedTokens"
         :register-focus-on-token="registerFocusOnToken"
+        :disabled="disabled"
         @token-remove="removeToken"
         @cancel-focus="cancelTokenFocus"
       >
@@ -290,10 +300,12 @@ export default {
             ref="textInput"
             type="text"
             class="gl-token-selector-input gl-bg-none gl-font-regular gl-font-base gl-line-height-normal gl-px-1 gl-h-auto gl-text-gray-900 gl-border-none gl-outline-none gl-flex-grow-1"
+            :class="{ 'gl-cursor-not-allowed': disabled }"
             :value="inputText"
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"
             :placeholder="placeholder"
+            :disabled="disabled"
             v-bind="textInputAttrs"
             @input="inputText = $event.target.value"
             @focus="handleFocus"
