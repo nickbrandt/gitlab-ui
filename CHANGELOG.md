@@ -1,3 +1,10 @@
+# [27.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.5.0...v27.6.0) (2021-02-11)
+
+
+### Features
+
+* **css:** Add gl-text-blue-200 utility class ([269ec74](https://gitlab.com/gitlab-org/gitlab-ui/commit/269ec74e44b36a72eae2f90debc269534fbdaf99))
+
 # [27.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.7...v27.5.0) (2021-02-11)
 
 
