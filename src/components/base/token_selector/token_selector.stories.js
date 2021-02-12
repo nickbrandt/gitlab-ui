@@ -45,7 +45,7 @@ const generateProps = () => {
 
 documentedStoriesOf('base/token_selector', readme)
   .addDecorator(withKnobs)
-  .addParameters({ storyshots: false })
+  .addParameters()
   .add('default', () => ({
     props: generateProps(),
     data() {
@@ -61,9 +61,6 @@ documentedStoriesOf('base/token_selector', readme)
       };
     },
     components,
-    mounted() {
-      document.querySelector('.gl-token-selector input[type="text"]').focus();
-    },
     methods: {
       handleTextInput(value) {
         this.inputText = value;

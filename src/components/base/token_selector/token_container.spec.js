@@ -72,7 +72,7 @@ describe('GlTokenContainer', () => {
           createComponent({ propsData: { disabled: true } });
         });
 
-        it("does not add `tabindex` attribute to tokens so it can't be focused", () => {
+        it("does not add `tabindex` attribute to tokens so they can't be focused", () => {
           expect(findTokenByName('Vue.js').attributes('tabindex')).toBeUndefined();
         });
 
@@ -90,7 +90,7 @@ describe('GlTokenContainer', () => {
           createComponent({ propsData: { disabled: false } });
         });
 
-        it('adds `tabindex="-1"` attribute to token so it can be focused', () => {
+        it('adds `tabindex="-1"` attribute to tokens so they can be focused', () => {
           expect(findTokenByName('Vue.js').attributes('tabindex')).toBe('-1');
         });
 
