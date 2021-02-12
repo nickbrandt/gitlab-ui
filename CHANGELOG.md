@@ -1,3 +1,10 @@
+## [27.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.6.0...v27.6.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* set color for .gl-avatar-labeled ([e0c8b80](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0c8b8071ffe0e9896e8b466f98fcaa83e74b6a6))
+
 # [27.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.5.0...v27.6.0) (2021-02-11)
 
 
