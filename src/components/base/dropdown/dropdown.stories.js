@@ -1,11 +1,6 @@
 import { withKnobs, select, boolean, text as textKnob } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
-  newButtonCategoryOptions,
-  newDropdownVariantOptions,
-  newButtonSizeOptions,
-} from '../../../utils/constants';
-import {
   GlAvatar,
   GlIcon,
   GlDropdown,
@@ -15,6 +10,11 @@ import {
   GlDropdownText,
   GlDropdownForm,
 } from '../../../../index';
+import {
+  newButtonCategoryOptions,
+  newDropdownVariantOptions,
+  newButtonSizeOptions,
+} from '../../../utils/constants';
 import readme from './dropdown.md';
 
 const components = {

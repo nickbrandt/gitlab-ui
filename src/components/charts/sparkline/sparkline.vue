@@ -1,15 +1,13 @@
 <script>
 import merge from 'lodash/merge';
-import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
-
+import resizeObserver from '../../../directives/resize_observer/resize_observer';
 import defaultChartOptions, {
   mergeSeriesToOptions,
   symbolSize,
 } from '../../../utils/charts/config';
-import resizeObserver from '../../../directives/resize_observer/resize_observer';
-
 import { sparkline } from '../../../utils/charts/theme';
+import Chart from '../chart/chart.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 
 const { variants, defaultVariant } = sparkline;
 // the padding is needed so the mark points don't overflow when visible

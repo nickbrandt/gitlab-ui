@@ -1,9 +1,9 @@
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import Vue from 'vue';
 import PortalVue from 'portal-vue';
+import Vue from 'vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import readme from './filtered_search_term.md';
+import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 
 Vue.use(PortalVue);
 const noop = () => {};

@@ -1,5 +1,5 @@
-import * as description from './intersection_observer.md';
 import examples from './examples';
+import * as description from './intersection_observer.md';
 
 export default {
   description,

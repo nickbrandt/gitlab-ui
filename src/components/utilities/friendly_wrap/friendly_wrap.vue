@@ -1,6 +1,6 @@
 <script>
-import { splitAfterSymbols } from '../../../utils/string_utils';
 import { intersperse } from '../../../utils/data_utils';
+import { splitAfterSymbols } from '../../../utils/string_utils';
 
 export default {
   functional: true,

@@ -1,10 +1,10 @@
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
 import GlFilteredSearch from './filtered_search.vue';
-import { TERM_TOKEN_TYPE } from './filtered_search_utils';
-import GlFilteredSearchTerm from './filtered_search_term.vue';
-import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
+import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
+import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlFilteredSearchToken from './filtered_search_token.vue';
+import { TERM_TOKEN_TYPE } from './filtered_search_utils';
 
 jest.mock('~/directives/tooltip');
 

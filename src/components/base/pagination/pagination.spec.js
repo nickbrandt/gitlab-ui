@@ -1,5 +1,5 @@
-import debounce from 'lodash/debounce';
 import { mount, createLocalVue } from '@vue/test-utils';
+import debounce from 'lodash/debounce';
 import Pagination from './pagination.vue';
 import { breakpoints } from '~/utils/breakpoints';
 

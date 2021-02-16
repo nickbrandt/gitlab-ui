@@ -1,5 +1,5 @@
-import description from './legend.md';
 import examples from './examples';
+import description from './legend.md';
 
 export default {
   description,

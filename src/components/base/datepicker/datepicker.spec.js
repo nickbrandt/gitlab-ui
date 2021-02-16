@@ -1,5 +1,5 @@
-import Pikaday from 'pikaday';
 import { mount, shallowMount } from '@vue/test-utils';
+import Pikaday from 'pikaday';
 import { defaultDateFormat } from '../../../utils/constants';
 import GlDatepicker from './datepicker.vue';
 

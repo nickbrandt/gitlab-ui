@@ -1,7 +1,7 @@
 import FormSelectBasicExample from './form_select.basic.example.vue';
+import FormSelectDisabledExample from './form_select.disabled.example.vue';
 import FormSelectManualOptionsExample from './form_select.manual_options.example.vue';
 import FormSelectMixedOptionsExample from './form_select.mixed_options.example.vue';
-import FormSelectDisabledExample from './form_select.disabled.example.vue';
 
 export default [
   {

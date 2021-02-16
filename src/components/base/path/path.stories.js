@@ -1,8 +1,8 @@
 import { withKnobs, object, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { glThemes } from '../../../utils/constants';
-import readme from './path.md';
 import items from './examples/data';
+import readme from './path.md';
 
 function generateProps() {
   return {

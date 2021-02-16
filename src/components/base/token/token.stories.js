@@ -1,8 +1,8 @@
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlToken } from '../../../../index';
 import { tokenVariants } from '../../../utils/constants';
 
-import { GlToken } from '../../../../index';
 import readme from './token.md';
 
 const components = {

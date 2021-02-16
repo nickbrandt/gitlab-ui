@@ -1,5 +1,5 @@
-import description from './pagination.md';
 import examples from './examples';
+import description from './pagination.md';
 
 export default {
   followsDesignSystem: true,

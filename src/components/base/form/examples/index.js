@@ -1,6 +1,6 @@
 import FormExample from './form.basic.example.vue';
-import InlineFormExample from './form.inline.example.vue';
 import EditFormExample from './form.edit.example.vue';
+import InlineFormExample from './form.inline.example.vue';
 import NoValidateFormExample from './form.novalidate.example.vue';
 
 export default [

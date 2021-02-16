@@ -1,5 +1,5 @@
-import * as description from './keyset_pagination.md';
 import examples from './examples';
+import * as description from './keyset_pagination.md';
 
 export default {
   description,

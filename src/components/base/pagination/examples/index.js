@@ -1,8 +1,8 @@
 import PaginationBasicExample from './pagination.basic.example.vue';
 import PaginationCompactExample from './pagination.compact.example.vue';
-import PaginationLinksExample from './pagination.links.example.vue';
-import PaginationEventExample from './pagination.event.example.vue';
 import PaginationDoubleTruncation from './pagination.double_truncation.example.vue';
+import PaginationEventExample from './pagination.event.example.vue';
+import PaginationLinksExample from './pagination.links.example.vue';
 
 export default [
   {

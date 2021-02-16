@@ -1,5 +1,5 @@
-import * as description from './nav.md';
 import examples from './examples';
+import * as description from './nav.md';
 
 export default {
   description,

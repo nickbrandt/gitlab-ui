@@ -1,6 +1,6 @@
 import FilteredSearchDefaultExample from './filtered_search.default.example.vue';
-import FilteredSearchSingleUniqueExample from './filtered_search.single_unique.example.vue';
 import FilteredSearchHistoryExample from './filtered_search.history.example.vue';
+import FilteredSearchSingleUniqueExample from './filtered_search.single_unique.example.vue';
 
 export default [
   {

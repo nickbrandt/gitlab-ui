@@ -1,9 +1,9 @@
 <script>
 import { BModal } from 'bootstrap-vue';
-import GlButton from '../button/button.vue';
-import CloseButton from '../../shared_components/close_button/close_button.vue';
 import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
 import { focusFirstFocusableElement } from '../../../utils/utils';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
+import GlButton from '../button/button.vue';
 
 function validatorHelper(obj) {
   return Object.keys(obj).every((val) => val === 'text' || val === 'attributes');

@@ -1,5 +1,5 @@
-import { Node } from './node';
 import { CHECKED_STATE } from './constants';
+import { Node } from './node';
 
 export class Tree {
   constructor(options, selected) {

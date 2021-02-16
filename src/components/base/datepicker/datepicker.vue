@@ -1,11 +1,11 @@
 <script>
-import Pikaday from 'pikaday';
 import { isString } from 'lodash';
+import Pikaday from 'pikaday';
+import { defaultDateFormat } from '../../../utils/constants';
+import { areDatesEqual } from '../../../utils/datetime_utility';
+import GlButton from '../button/button.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
-import GlButton from '../button/button.vue';
-import { areDatesEqual } from '../../../utils/datetime_utility';
-import { defaultDateFormat } from '../../../utils/constants';
 
 export const pad = (val, len = 2) => `0${val}`.slice(-len);
 

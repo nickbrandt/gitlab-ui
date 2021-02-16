@@ -1,12 +1,12 @@
-import merge from 'lodash/merge';
 import castArray from 'lodash/castArray';
 import isArray from 'lodash/isArray';
+import merge from 'lodash/merge';
+import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import Breakpoints from '../breakpoints';
-import { engineeringNotation } from '../number_utils';
-import { hexToRgba } from '../utils';
 import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';
-import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { engineeringNotation } from '../number_utils';
+import { hexToRgba } from '../utils';
 import { ANNOTATIONS_SERIES_NAME, arrowSymbol, CHART_TYPE_BAR, CHART_TYPE_LINE } from './constants';
 
 export const defaultAreaOpacity = 0.2;

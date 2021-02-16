@@ -1,7 +1,7 @@
 import { withKnobs, number, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { variantOptions } from '../../../utils/constants';
 import { GlProgressBar } from '../../../../index';
+import { variantOptions } from '../../../utils/constants';
 
 const components = {
   GlProgressBar,

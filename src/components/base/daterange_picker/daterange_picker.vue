@@ -1,6 +1,6 @@
 <script>
-import GlDatepicker from '../datepicker/datepicker.vue';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
+import GlDatepicker from '../datepicker/datepicker.vue';
 
 export default {
   components: {

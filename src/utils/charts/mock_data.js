@@ -1,5 +1,5 @@
-import { hexToRgba } from '../utils';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { hexToRgba } from '../utils';
 import { colorFromDefaultPalette } from './theme';
 
 export const mockDefaultDataZoomConfig = {

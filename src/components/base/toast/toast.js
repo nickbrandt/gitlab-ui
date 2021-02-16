@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
-import Toasted from '@gitlab/vue-toasted';
 import iconsPath from '@gitlab/svgs/dist/icons.svg';
+import Toasted from '@gitlab/vue-toasted';
 
 const DEFAULT_OPTIONS = {
   action: {

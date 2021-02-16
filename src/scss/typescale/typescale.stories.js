@@ -1,8 +1,8 @@
 import has from 'lodash/has';
 import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import typescaleDocs from './typescale.md';
-import uiTypescaleDemoStyles from './typescale_demo.scss';
 import uiTypescaleDemoContent from './typescale_demo.html';
+import uiTypescaleDemoStyles from './typescale_demo.scss';
 
 const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) => {
   if (!has(window, 'customElements') || customElements.get(componentName)) {

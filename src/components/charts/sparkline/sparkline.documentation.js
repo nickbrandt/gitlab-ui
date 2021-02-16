@@ -1,6 +1,6 @@
 import { sparkline } from '../../../utils/charts/theme';
-import description from './sparkline.md';
 import examples from './examples';
+import description from './sparkline.md';
 
 export default {
   followsDesignSystem: false,

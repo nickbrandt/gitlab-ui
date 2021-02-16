@@ -1,5 +1,5 @@
-import description from './form_input.md';
 import examples from './examples/form_input';
+import description from './form_input.md';
 
 export default {
   description,

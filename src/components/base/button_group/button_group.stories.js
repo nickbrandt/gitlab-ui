@@ -1,11 +1,11 @@
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlButtonGroup } from '../../../../index';
 import {
   newButtonSizeOptions,
   newButtonCategoryOptions,
   newButtonVariantOptions,
 } from '../../../utils/constants';
-import { GlButtonGroup } from '../../../../index';
 import readme from './button_group.md';
 
 const components = {

@@ -1,8 +1,8 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlBarChart } from '../../../../charts';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { toolbox } from '../../../utils/charts/story_config';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './bar.md';
 
 const components = {

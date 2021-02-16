@@ -1,9 +1,9 @@
-import { text, select, withKnobs } from '@storybook/addon-knobs';
-import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
 import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.svg';
+import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
+import { text, select, withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { bannerVariants } from '../../../utils/constants';
 import { GlBanner, GlLink } from '../../../../index';
+import { bannerVariants } from '../../../utils/constants';
 
 const components = {
   GlBanner,

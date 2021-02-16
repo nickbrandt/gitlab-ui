@@ -1,10 +1,7 @@
 <script>
 import echarts from 'echarts';
-import GlChartSeriesLabel from '../series_label/series_label.vue';
-import GlTruncate from '../../utilities/truncate/truncate.vue';
-import { average, engineeringNotation } from '../../../utils/number_utils';
-import { defaultFontSize } from '../../../utils/charts/config';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { defaultFontSize } from '../../../utils/charts/config';
 import {
   LEGEND_LAYOUT_INLINE,
   LEGEND_LAYOUT_TABLE,
@@ -13,6 +10,9 @@ import {
   LEGEND_MIN_TEXT,
   LEGEND_MAX_TEXT,
 } from '../../../utils/charts/constants';
+import { average, engineeringNotation } from '../../../utils/number_utils';
+import GlTruncate from '../../utilities/truncate/truncate.vue';
+import GlChartSeriesLabel from '../series_label/series_label.vue';
 
 export default {
   components: {

@@ -1,6 +1,6 @@
+import { GlChart } from '../../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlTabs, GlTab } from '../../../../index';
-import { GlChart } from '../../../../charts';
 import readme from './chart.md';
 
 const createStory = (template) => ({

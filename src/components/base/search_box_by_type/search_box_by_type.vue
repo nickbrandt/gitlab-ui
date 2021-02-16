@@ -1,7 +1,7 @@
 <script>
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
-import GlIcon from '../icon/icon.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
+import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
 const model = {

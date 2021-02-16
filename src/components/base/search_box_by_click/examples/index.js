@@ -1,6 +1,6 @@
 import SearchBoxByClickDefaultExample from './search_box_by_click.default.example.vue';
-import SearchBoxByClickVModelExample from './search_box_by_click.v_model.example.vue';
 import SearchBoxByClickHistoryExample from './search_box_by_click.history.example.vue';
+import SearchBoxByClickVModelExample from './search_box_by_click.v_model.example.vue';
 
 export default [
   {

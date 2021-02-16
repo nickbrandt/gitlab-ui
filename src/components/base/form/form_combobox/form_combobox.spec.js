@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
-import GlFormCombobox from './form_combobox.vue';
 import { tokenList, labelText } from './constants';
+import GlFormCombobox from './form_combobox.vue';
 
 const partialToken = 'do';
 const partialTokenMatch = ['dog', 'dodo', 'komodo dragon'];

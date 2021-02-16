@@ -1,9 +1,9 @@
+import InfiniteScrollAllItemsExample from './infinite_scroll.all_items.example.vue';
 import InfiniteScrollBasicExample from './infinite_scroll.basic.example.vue';
 import InfiniteScrollWithFiniteTotalItemsExample from './infinite_scroll.finite_total_items.example.vue';
-import InfiniteScrollWithSmallNumberOfFetchedItemsExample from './infinite_scroll.small_fetched_items.example.vue';
 import InfiniteScrollWithLargeNumberOfFetchedItemsExample from './infinite_scroll.large_fetched_items.example.vue';
-import InfiniteScrollAllItemsExample from './infinite_scroll.all_items.example.vue';
 import InfiniteScrollReverseExample from './infinite_scroll.reverse.example.vue';
+import InfiniteScrollWithSmallNumberOfFetchedItemsExample from './infinite_scroll.small_fetched_items.example.vue';
 import InfiniteScrollTwoWayExample from './infinite_scroll.two_way.example.vue';
 
 export default [

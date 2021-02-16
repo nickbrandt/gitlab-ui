@@ -1,6 +1,6 @@
 <script>
-import GlSearchBoxByType from '../search_box_by_type/search_box_by_type.vue';
 import GlPagination from '../pagination/pagination.vue';
+import GlSearchBoxByType from '../search_box_by_type/search_box_by_type.vue';
 
 export default {
   components: {

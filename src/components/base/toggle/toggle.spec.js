@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
+import { toggleLabelPosition } from '../../../utils/constants';
 import Icon from '../icon/icon.vue';
 import LoadingIcon from '../loading_icon/loading_icon.vue';
-import { toggleLabelPosition } from '../../../utils/constants';
 import Toggle from './toggle.vue';
 
 describe('toggle', () => {
