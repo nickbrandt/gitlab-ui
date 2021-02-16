@@ -1,3 +1,10 @@
+# [27.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.6.1...v27.7.0) (2021-02-16)
+
+
+### Features
+
+* add util class for 100vw max width ([e2fc649](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2fc6496949cf38dc8510efdf02484f308e172e1))
+
 ## [27.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.6.0...v27.6.1) (2021-02-12)
 
 
