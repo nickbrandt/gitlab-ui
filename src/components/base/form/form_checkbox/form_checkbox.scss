@@ -50,6 +50,8 @@
 
   &.custom-control {
     .custom-control-input ~ .custom-control-label {
+      @include gl-cursor-pointer;
+
       &::before,
       &::after {
         @include gl-top-0;
