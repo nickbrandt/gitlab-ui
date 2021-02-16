@@ -5,20 +5,9 @@ import ButtonLinkExample from './basic/button.link.example.vue';
 import ButtonSelectedExample from './basic/button.selected.example.vue';
 
 /* Categories */
-import ButtonTertiaryExample from './categories/button.tertiary.example.vue';
 import ButtonPrimaryExample from './categories/button.primary.example.vue';
 import ButtonSecondaryExample from './categories/button.secondary.example.vue';
-
-/* Variants */
-import ButtonDangerExample from './variants/button.danger.example.vue';
-import ButtonDashedExample from './variants/button.dashed.example.vue';
-import ButtonConfirmExample from './variants/button.confirm.example.vue';
-import ButtonVariantsExample from './variants/button.variants.example.vue';
-
-/* Deprecated variants */
-import ButtonInfoExample from './deprecated-variants/button.info.example.vue';
-import ButtonSuccessExample from './deprecated-variants/button.success.example.vue';
-import ButtonWarningExample from './deprecated-variants/button.warning.example.vue';
+import ButtonTertiaryExample from './categories/button.tertiary.example.vue';
 
 /* Combinations */
 import ButtonEllipsisExample from './combinations/button.ellipsis.example.vue';
@@ -28,19 +17,30 @@ import ButtonIconAndTextExample from './combinations/button.icon_and_text.exampl
 import ButtonLabelExample from './combinations/button.label.example.vue';
 import ButtonLoadingExample from './combinations/button.loading.example.vue';
 
+/* Deprecated variants */
+import ButtonInfoExample from './deprecated-variants/button.info.example.vue';
+import ButtonSuccessExample from './deprecated-variants/button.success.example.vue';
+import ButtonWarningExample from './deprecated-variants/button.warning.example.vue';
+
+/* Dropdowns */
+import ButtonDropdownExample from './dropdowns/button.dropdown.example.vue';
+import ButtonDropdownFullWidthExample from './dropdowns/button.dropdown_full_width.example.vue';
+import ButtonDropdownSplitExample from './dropdowns/button.dropdown_split.example.vue';
+import ButtonDropdownWithIconExample from './dropdowns/button.dropdown_with_icon.example.vue';
+import ButtonDropdownWithIconAndSplitExample from './dropdowns/button.dropdown_with_icon_and_split.example.vue';
+import ButtonDropdownWithIconAndTextExample from './dropdowns/button.dropdown_with_icon_and_text.example.vue';
+
 /* Sizing */
 import ButtonFullWidthExample from './sizing/button.full_width.example.vue';
 import ButtonMediumExample from './sizing/button.medium.example.vue';
 import ButtonSizesExample from './sizing/button.sizes.example.vue';
 import ButtonSmallExample from './sizing/button.small.example.vue';
 
-/* Dropdowns */
-import ButtonDropdownExample from './dropdowns/button.dropdown.example.vue';
-import ButtonDropdownSplitExample from './dropdowns/button.dropdown_split.example.vue';
-import ButtonDropdownWithIconExample from './dropdowns/button.dropdown_with_icon.example.vue';
-import ButtonDropdownWithIconAndTextExample from './dropdowns/button.dropdown_with_icon_and_text.example.vue';
-import ButtonDropdownWithIconAndSplitExample from './dropdowns/button.dropdown_with_icon_and_split.example.vue';
-import ButtonDropdownFullWidthExample from './dropdowns/button.dropdown_full_width.example.vue';
+/* Variants */
+import ButtonConfirmExample from './variants/button.confirm.example.vue';
+import ButtonDangerExample from './variants/button.danger.example.vue';
+import ButtonDashedExample from './variants/button.dashed.example.vue';
+import ButtonVariantsExample from './variants/button.variants.example.vue';
 
 export default [
   {

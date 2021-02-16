@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import Chart from '../chart/chart.vue';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
   mockSecondaryData,
 } from '../../../utils/charts/mock_data';
+import Chart from '../chart/chart.vue';
 import ColumnChart from './column.vue';
 
 describe('column chart component', () => {

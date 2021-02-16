@@ -1,7 +1,7 @@
 import { withKnobs, select, number, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import { GlModal, GlModalDirective, GlButton } from '../../../../index';
+import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import readme from './modal.md';
 
 const components = {

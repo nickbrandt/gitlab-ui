@@ -1,6 +1,6 @@
 const sassTrue = require('sass-true');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
 
 const testFiles = fs
   .readdirSync(__dirname)

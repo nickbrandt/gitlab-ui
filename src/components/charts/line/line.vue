@@ -18,10 +18,7 @@
  */
 
 import merge from 'lodash/merge';
-import Chart from '../chart/chart.vue';
-import ChartLegend from '../legend/legend.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
+import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import defaultChartOptions, {
   grid,
   getThresholdConfig,
@@ -33,8 +30,6 @@ import defaultChartOptions, {
   lineStyle,
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
-import { debounceByAnimationFrame } from '../../../utils/utils';
-import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import {
   ANNOTATION_TOOLTIP_TOP_OFFSET,
   DATA_TOOLTIP_LEFT_OFFSET,
@@ -45,9 +40,14 @@ import {
   LEGEND_MIN_TEXT,
   LEGEND_MAX_TEXT,
 } from '../../../utils/charts/constants';
-import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
+import { debounceByAnimationFrame } from '../../../utils/utils';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import Chart from '../chart/chart.vue';
+import ChartLegend from '../legend/legend.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 
 export default {
   components: {

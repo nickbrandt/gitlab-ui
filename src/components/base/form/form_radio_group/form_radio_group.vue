@@ -1,6 +1,6 @@
 <script>
-import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
 import { BFormRadioGroup } from 'bootstrap-vue';
+import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
 import GlFormRadio from '../form_radio/form_radio.vue';
 
 const { model } = BFormRadioGroup.options;

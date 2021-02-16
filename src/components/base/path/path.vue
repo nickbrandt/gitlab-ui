@@ -1,9 +1,9 @@
 <script>
-import findLast from 'lodash/findLast';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import GlIcon from '../icon/icon.vue';
+import findLast from 'lodash/findLast';
 import GlResizeObserverDirective from '../../../directives/resize_observer/resize_observer';
 import { glThemes } from '../../../utils/constants';
+import GlIcon from '../icon/icon.vue';
 
 const BOUNDARY_WIDTH = 40;
 const PATH_ITEM_CLASS = 'gl-path-button';

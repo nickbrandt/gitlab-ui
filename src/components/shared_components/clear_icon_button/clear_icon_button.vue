@@ -1,6 +1,6 @@
 <script>
-import GlButton from '../../base/button/button.vue';
 import GlTooltip from '../../../directives/tooltip';
+import GlButton from '../../base/button/button.vue';
 
 export default {
   components: {

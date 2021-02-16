@@ -1,7 +1,7 @@
 <script>
 import { badgeVariantOptions, variantCssColorMap } from '../../../utils/constants';
-import GlIcon from '../../base/icon/icon.vue';
 import GlBadge from '../../base/badge/badge.vue';
+import GlIcon from '../../base/icon/icon.vue';
 
 export default {
   components: {

@@ -1,17 +1,17 @@
 <script>
 import merge from 'lodash/merge';
+import { white, gray100 } from '../../../../scss_to_js/scss_variables';
+import resizeObserver from '../../../directives/resize_observer/resize_observer';
+import { getDefaultTooltipContent } from '../../../utils/charts/config';
+import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
+import { heatmapHues } from '../../../utils/charts/theme';
+import { engineeringNotation } from '../../../utils/number_utils';
+import { debounceByAnimationFrame } from '../../../utils/utils';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
-import { heatmapHues } from '../../../utils/charts/theme';
-import { engineeringNotation } from '../../../utils/number_utils';
-import { white, gray100 } from '../../../../scss_to_js/scss_variables';
-import { debounceByAnimationFrame } from '../../../utils/utils';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
-import { getDefaultTooltipContent } from '../../../utils/charts/config';
-import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
-import resizeObserver from '../../../directives/resize_observer/resize_observer';
 
 const defaultOptions = {
   visualMap: {

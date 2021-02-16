@@ -1,7 +1,7 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChart, GlChartLegend } from '../../../../charts';
-import { generateSeriesData } from '../../../utils/charts/story_config';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { LEGEND_LAYOUT_TABLE } from '../../../utils/charts/constants';
+import { generateSeriesData } from '../../../utils/charts/story_config';
 import {
   SERIES_NAME_SHORT,
   SERIES_NAME_LONG,

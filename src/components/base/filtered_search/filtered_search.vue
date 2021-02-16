@@ -1,9 +1,9 @@
 <script>
-import Vue from 'vue';
 import PortalVue from 'portal-vue';
-import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
-import GlIcon from '../icon/icon.vue';
+import Vue from 'vue';
 import GlTooltip from '../../../directives/tooltip';
+import GlIcon from '../icon/icon.vue';
+import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import {
   isEmptyTerm,

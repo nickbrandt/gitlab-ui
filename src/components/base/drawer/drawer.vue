@@ -1,7 +1,7 @@
 <script>
 import isEmpty from 'lodash/isEmpty';
-import GlButton from '../button/button.vue';
 import { maxZIndex } from '../../../utils/constants';
+import GlButton from '../button/button.vue';
 
 export default {
   components: {

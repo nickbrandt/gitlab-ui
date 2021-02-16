@@ -1,8 +1,8 @@
 import BasicExample from './keyset_pagination.basic.example.vue';
-import SlotsExample from './keyset_pagination.slots.example.vue';
-import LinksExample from './keyset_pagination.links.example.vue';
 import EventsExample from './keyset_pagination.events.example.vue';
 import I18nExample from './keyset_pagination.internationalization.example.vue';
+import LinksExample from './keyset_pagination.links.example.vue';
+import SlotsExample from './keyset_pagination.slots.example.vue';
 
 export default [
   {

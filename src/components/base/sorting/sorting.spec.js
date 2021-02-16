@@ -1,9 +1,9 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlDropdown from '../dropdown/dropdown.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
-import GlSortingItem from './sorting_item';
 import GlSorting from './sorting.vue';
+import GlSortingItem from './sorting_item';
 
 const localVue = createLocalVue();
 

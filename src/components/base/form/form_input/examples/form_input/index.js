@@ -1,6 +1,6 @@
 import FormInputTextExample from './form_input.text.example.vue';
-import FormInputTextReactiveExample from './form_input.text_reactive.example.vue';
 import FormInputTextDisabledExample from './form_input.text_disabled.example.vue';
+import FormInputTextReactiveExample from './form_input.text_reactive.example.vue';
 
 export default [
   {

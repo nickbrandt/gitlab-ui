@@ -1,5 +1,5 @@
-import BreadcrumbSeparatorExample from './breadcrumb.separator.example.vue';
 import BreadcrumbBasicExample from './breadcrumb.basic.example.vue';
+import BreadcrumbSeparatorExample from './breadcrumb.separator.example.vue';
 
 export default [
   {

@@ -1,7 +1,7 @@
 import { withKnobs, object, select, text, number, boolean } from '@storybook/addon-knobs';
+import { GlSparklineChart } from '../../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { sparkline } from '../../../utils/charts/theme';
-import { GlSparklineChart } from '../../../../charts';
 import readme from './sparkline.md';
 
 // only show the storybook knob if there are more than one variants configured

@@ -1,6 +1,5 @@
-import ResizeObserver from 'resize-observer-polyfill';
-
 import isFunction from 'lodash/isFunction';
+import ResizeObserver from 'resize-observer-polyfill';
 
 // the observer instance is shared for performance reasons
 // more information: https://github.com/WICG/ResizeObserver/issues/59

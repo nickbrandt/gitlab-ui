@@ -1,5 +1,5 @@
-import description from './sorting.md';
 import examples from './examples';
+import description from './sorting.md';
 
 export default {
   description,

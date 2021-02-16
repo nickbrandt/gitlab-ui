@@ -1,5 +1,5 @@
-import FormRadioGroupSlots from './form_radio_group.slots.example.vue';
 import FormRadioGroupOptionsArray from './form_radio_group.options_array.example.vue';
+import FormRadioGroupSlots from './form_radio_group.slots.example.vue';
 
 export default [
   {

@@ -1,11 +1,11 @@
 import BasicTabsExample from './tabs.basic.example.vue';
-import DisabledTabExample from './tabs.disabled.example.vue';
-import CustomTitleExample from './tabs.custom_title.example.vue';
 import ContentlessTabExample from './tabs.contentless_tab.example.vue';
-import NoTabsExample from './tabs.no_tabs.example.vue';
 import TabsWithCounterBadgesExample from './tabs.counterbadges.example.vue';
-import TabsStylesOnlyExample from './tabs.styles_only.example.vue';
+import CustomTitleExample from './tabs.custom_title.example.vue';
+import DisabledTabExample from './tabs.disabled.example.vue';
 import JustifiedTabsExample from './tabs.justified.example.vue';
+import NoTabsExample from './tabs.no_tabs.example.vue';
+import TabsStylesOnlyExample from './tabs.styles_only.example.vue';
 
 export default [
   {

@@ -1,5 +1,5 @@
-import ToastDefaultExample from './toast.default.example.vue';
 import ToastActionExample from './toast.action.example.vue';
+import ToastDefaultExample from './toast.default.example.vue';
 
 export default [
   {

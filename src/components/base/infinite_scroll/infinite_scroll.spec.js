@@ -1,5 +1,5 @@
-import throttle from 'lodash/throttle';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
+import throttle from 'lodash/throttle';
 import InfiniteScroll, { adjustScrollGap } from './infinite_scroll.vue';
 
 jest.mock('lodash/throttle', () => jest.fn((fn) => fn));

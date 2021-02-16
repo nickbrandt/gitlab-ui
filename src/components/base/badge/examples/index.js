@@ -1,9 +1,9 @@
-import BadgeBasicExample from './badge.basic.example.vue';
-import BadgeSizesExample from './badge.sizes.example.vue';
-import BadgeVariantsExample from './badge.variants.example.vue';
 import BadgeActionableExample from './badge.action.example.vue';
+import BadgeBasicExample from './badge.basic.example.vue';
 import BadgeButtonExample from './badge.button.example.vue';
 import BadgeIconExample from './badge.icon.example.vue';
+import BadgeSizesExample from './badge.sizes.example.vue';
+import BadgeVariantsExample from './badge.variants.example.vue';
 
 export default [
   {

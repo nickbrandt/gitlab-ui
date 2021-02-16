@@ -1,8 +1,8 @@
-import BasicPathExample from './path.basic.example.vue';
-import PathBackgroundExample from './path.background.example.vue';
-import PathWithMetricExample from './path.metric.example.vue';
-import PathWithIconExample from './path.icon.example.vue';
 import PathWithAllOptionsExample from './path.all.example.vue';
+import PathBackgroundExample from './path.background.example.vue';
+import BasicPathExample from './path.basic.example.vue';
+import PathWithIconExample from './path.icon.example.vue';
+import PathWithMetricExample from './path.metric.example.vue';
 
 export default [
   {

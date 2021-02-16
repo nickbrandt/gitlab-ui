@@ -1,5 +1,5 @@
-import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import GlFormRadio from './form_radio.vue';
 
 describe('GlFormRadio', () => {

@@ -1,5 +1,5 @@
-import * as description from './token_selector.md';
 import examples from './examples';
+import * as description from './token_selector.md';
 
 export default {
   description,

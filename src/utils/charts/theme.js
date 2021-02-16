@@ -1,4 +1,3 @@
-import { hexToRgba } from '../utils';
 import {
   gray100,
   gray200,
@@ -42,6 +41,7 @@ import {
   dataVizOrange950,
   dataVizOrange900,
 } from '../../../scss_to_js/scss_variables';
+import { hexToRgba } from '../utils';
 
 export const themeName = 'gitlab';
 

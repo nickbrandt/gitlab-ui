@@ -1,5 +1,5 @@
-import description from './friendly_wrap.md';
 import examples from './examples';
+import description from './friendly_wrap.md';
 
 export default {
   description,

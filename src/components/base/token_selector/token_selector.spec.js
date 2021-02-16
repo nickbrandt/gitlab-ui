@@ -1,10 +1,10 @@
-import { nextTick } from 'vue';
 import { mount, shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 
-import GlToken from '../token/token.vue';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
-import GlTokenSelector from './token_selector.vue';
+import GlToken from '../token/token.vue';
 import GlTokenContainer from './token_container.vue';
+import GlTokenSelector from './token_selector.vue';
 import GlTokenSelectorDropdown from './token_selector_dropdown.vue';
 
 describe('GlTokenSelector', () => {

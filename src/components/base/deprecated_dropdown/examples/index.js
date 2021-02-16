@@ -1,11 +1,11 @@
 import DropdownDefaultExample from './deprecated_dropdown.default.example.vue';
 import DropdownDisabledItemExample from './deprecated_dropdown.disabled_item.example.vue';
 import DropdownLinksExample from './deprecated_dropdown.links.example.vue';
+import DropdownNoCaretExample from './deprecated_dropdown.no_caret.example.vue';
+import DropdownSplitExample from './deprecated_dropdown.split.example.vue';
 import DropdownWithDividerExample from './deprecated_dropdown.with_divider.example.vue';
 import DropdownWithHeaderExample from './deprecated_dropdown.with_header.example.vue';
 import DropdownWithSearchExample from './deprecated_dropdown.with_search.example.vue';
-import DropdownNoCaretExample from './deprecated_dropdown.no_caret.example.vue';
-import DropdownSplitExample from './deprecated_dropdown.split.example.vue';
 
 export default [
   {

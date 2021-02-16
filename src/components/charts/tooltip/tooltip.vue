@@ -1,7 +1,7 @@
 <script>
 import echarts from 'echarts';
-import GlPopover from '../../base/popover/popover.vue';
 import { uid } from '../../../utils/utils';
+import GlPopover from '../../base/popover/popover.vue';
 
 export default {
   components: {

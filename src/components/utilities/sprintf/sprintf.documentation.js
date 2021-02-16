@@ -1,5 +1,5 @@
-import description from './sprintf.md';
 import examples from './examples';
+import description from './sprintf.md';
 
 export default {
   followsDesignSystem: false,

@@ -1,10 +1,10 @@
 import PaginatedListBasicExample from './paginated_list.basic.example.vue';
 import PaginatedListNoFilterExample from './paginated_list.no_filter.example.vue';
 import PaginatedListWithEmptyListExample from './paginated_list.with_empty_list.example.vue';
-import PaginatedListWithHeaderSlotExample from './paginated_list.with_header_slot.example.vue';
-import PaginatedListWithSubheaderSlotExample from './paginated_list.with_subheader_slot.example.vue';
-import PaginatedListWithRowSlotExample from './paginated_list.with_row_slot.example.vue';
 import PaginatedListWithFilterFunctionExample from './paginated_list.with_filter_function.example.vue';
+import PaginatedListWithHeaderSlotExample from './paginated_list.with_header_slot.example.vue';
+import PaginatedListWithRowSlotExample from './paginated_list.with_row_slot.example.vue';
+import PaginatedListWithSubheaderSlotExample from './paginated_list.with_subheader_slot.example.vue';
 
 export default [
   {

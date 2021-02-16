@@ -1,7 +1,7 @@
 import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { alertVariantOptions } from '../../../utils/constants';
 import { GlAlert } from '../../../../index';
+import { alertVariantOptions } from '../../../utils/constants';
 import readme from './alert.md';
 
 const components = {

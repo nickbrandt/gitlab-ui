@@ -1,5 +1,5 @@
-import description from './modal.md';
 import examples from './examples';
+import description from './modal.md';
 
 export default {
   description,

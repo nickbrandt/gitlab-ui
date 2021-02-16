@@ -1,5 +1,5 @@
-import description from './tabs.md';
 import examples from './examples';
+import description from './tabs.md';
 
 export default {
   description,

@@ -1,14 +1,14 @@
 <script>
 import { BButton } from 'bootstrap-vue';
-import GlIcon from '../icon/icon.vue';
-import GlLoadingIcon from '../loading_icon/loading_icon.vue';
-import RelMixin from '../../mixins/rel_mixin';
 import {
   newButtonCategoryOptions,
   newButtonVariantOptions,
   newButtonSizeOptions,
   newButtonSizeOptionsMap,
 } from '../../../utils/constants';
+import RelMixin from '../../mixins/rel_mixin';
+import GlIcon from '../icon/icon.vue';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
 export default {
   components: {

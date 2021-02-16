@@ -1,5 +1,5 @@
-import description from './link.md';
 import examples from './examples';
+import description from './link.md';
 
 export default {
   description,

@@ -1,9 +1,9 @@
 <script>
 import { BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
 import { variantCssColorMap } from '../../../utils/constants';
-import GlIcon from '../icon/icon.vue';
 import GlAvatar from '../avatar/avatar.vue';
 import GlButton from '../button/button.vue';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {

@@ -1,5 +1,5 @@
-import description from './heatmap.md';
 import examples from './examples';
+import description from './heatmap.md';
 
 export default {
   description,

@@ -1,12 +1,12 @@
 import { withKnobs, object, boolean, array } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlLineChart } from '../../../../charts';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
+import { toolbox } from '../../../utils/charts/story_config';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
-import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
-import { toolbox } from '../../../utils/charts/story_config';
 import readme from './line.md';
 
 const components = {

@@ -1,12 +1,12 @@
 import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
 import { times } from 'lodash';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlAreaChart } from '../../../../charts';
-import { generateTimeSeries } from '../../../utils/data_utils';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
-import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import { toolbox } from '../../../utils/charts/story_config';
+import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
+import { generateTimeSeries } from '../../../utils/data_utils';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './area.md';
 
 const components = {

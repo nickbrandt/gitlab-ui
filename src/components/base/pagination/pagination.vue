@@ -1,11 +1,11 @@
 <script>
-import range from 'lodash/range';
-import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
-import GlLink from '../link/link.vue';
-import GlIcon from '../icon/icon.vue';
+import isFunction from 'lodash/isFunction';
+import range from 'lodash/range';
 import Breakpoints, { breakpoints } from '../../../utils/breakpoints';
 import { alignOptions, resizeDebounceTime } from '../../../utils/constants';
+import GlIcon from '../icon/icon.vue';
+import GlLink from '../link/link.vue';
 
 const pageRange = (from, to) => range(from, to + 1, 1);
 

@@ -1,5 +1,5 @@
-import * as description from './skeleton_loader.md';
 import examples from './examples';
+import * as description from './skeleton_loader.md';
 
 export default {
   followsDesignSystem: true,

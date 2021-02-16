@@ -1,7 +1,7 @@
 import BasicExample from './form_input_group.basic.example.vue';
-import ReactiveExample from './form_input_group.reactive.example.vue';
 import PredefinedOptionsExample from './form_input_group.predefined_options.example.vue';
 import PredefinedReactiveExample from './form_input_group.predefined_reactive.example.vue';
+import ReactiveExample from './form_input_group.reactive.example.vue';
 
 export default [
   {

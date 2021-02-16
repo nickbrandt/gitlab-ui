@@ -1,12 +1,12 @@
 import FormCheckboxChecked from './form_checkbox.checked.example.vue';
-import FormCheckboxUnchecked from './form_checkbox.unchecked.example.vue';
-import FormCheckboxDisabled from './form_checkbox.disabled.example.vue';
 import FormCheckboxCheckedDisabled from './form_checkbox.checked_disabled.example.vue';
-import FormCheckboxValues from './form_checkbox.values.example.vue';
-import FormCheckboxIndeterminate from './form_checkbox.indeterminant.example.vue';
+import FormCheckboxDisabled from './form_checkbox.disabled.example.vue';
 import FormCheckboxHelp from './form_checkbox.help.example.vue';
-import FormCheckboxGroupSlots from './form_checkbox_group.slots.example.vue';
+import FormCheckboxIndeterminate from './form_checkbox.indeterminant.example.vue';
+import FormCheckboxUnchecked from './form_checkbox.unchecked.example.vue';
+import FormCheckboxValues from './form_checkbox.values.example.vue';
 import FormCheckboxGroupOptionsArray from './form_checkbox_group.options_array.example.vue';
+import FormCheckboxGroupSlots from './form_checkbox_group.slots.example.vue';
 
 export default [
   {

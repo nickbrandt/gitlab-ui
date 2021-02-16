@@ -1,6 +1,6 @@
 <script>
-import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
+import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 
 export default {
   components: {

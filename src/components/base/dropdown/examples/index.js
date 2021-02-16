@@ -3,12 +3,12 @@ import DropdownLinksExample from './dropdown.links.example.vue';
 import DropdownWithAvatarAndSecondaryText from './dropdown.with_avatar_and_secondary_text.example.vue';
 import DropdownWithCheckedItemsExample from './dropdown.with_checked_items.example.vue';
 import DropdownWithDividerExample from './dropdown.with_divider.example.vue';
+import DropdownWithFormExample from './dropdown.with_form.example.vue';
 import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
 import DropdownWithIcons from './dropdown.with_icons.example.vue';
-import DropdownWithSectionHeadersExample from './dropdown.with_section_headers.example.vue';
 import DropdownWithRightAlignExample from './dropdown.with_right_align.example.vue';
 import DropdownWithSearchExample from './dropdown.with_search.example.vue';
-import DropdownWithFormExample from './dropdown.with_form.example.vue';
+import DropdownWithSectionHeadersExample from './dropdown.with_section_headers.example.vue';
 
 export default [
   {

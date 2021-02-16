@@ -1,7 +1,7 @@
 import BarChartBasicExample from './bar.basic.example.vue';
 import BarChartLongLablesExample from './bar.long_labels.example.vue';
-import BarChartNegativeValuesExample from './bar.negative_values.example.vue';
 import BarChartMultipleSeriesExample from './bar.multiple_series.example.vue';
+import BarChartNegativeValuesExample from './bar.negative_values.example.vue';
 
 export default [
   {

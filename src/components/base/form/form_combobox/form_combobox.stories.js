@@ -1,8 +1,8 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
+import { tokenList, labelText } from './constants';
 import readme from './form_combobox.md';
 import GlFormCombobox from './form_combobox.vue';
-import { tokenList, labelText } from './constants';
 
 const components = {
   GlFormCombobox,
