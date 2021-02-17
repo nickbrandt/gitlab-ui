@@ -1,3 +1,10 @@
+## [27.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.7.0...v27.7.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **GlSingleStat:** Update component examples ([eac46db](https://gitlab.com/gitlab-org/gitlab-ui/commit/eac46dbc3c35909863bb817bcab57402875563c9))
+
 # [27.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.6.1...v27.7.0) (2021-02-16)
 
 
