@@ -23,9 +23,9 @@ const template = `
 
 const generateProps = ({
   variant = GlSingleStat.props.variant.default,
-  title = 'Single stat title',
+  title = 'Single stat',
   value = '100',
-  unit = 'ms',
+  unit = null,
   metaText = null,
   metaIcon = null,
   titleIcon = null,
