@@ -73,7 +73,7 @@ export default {
           text: this.primaryButtonText,
           attrs: {
             href: this.primaryButtonLink,
-            variant: 'info',
+            variant: 'confirm',
             category: newButtonCategoryOptions.primary,
           },
           listeners: {
