@@ -1,5 +1,5 @@
-import LastAppearedExample from './intersection_observer.last_appeared.example.vue';
 import ImageExample from './intersection_observer.image.example.vue';
+import LastAppearedExample from './intersection_observer.last_appeared.example.vue';
 
 export default [
   {

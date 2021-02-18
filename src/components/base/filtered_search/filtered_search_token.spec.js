@@ -1,5 +1,5 @@
-import { observable, nextTick } from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
+import { observable, nextTick } from 'vue';
 import GlFilteredSearchToken from './filtered_search_token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 

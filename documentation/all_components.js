@@ -1,5 +1,5 @@
-import * as components from '../index';
 import * as chartComponents from '../charts';
+import * as components from '../index';
 
 export const gitlabComponents = { ...components, ...chartComponents };
 export const gitlabChartComponents = { ...chartComponents };

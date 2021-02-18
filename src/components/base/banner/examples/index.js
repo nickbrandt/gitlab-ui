@@ -1,6 +1,6 @@
+import BannerIntroducingIllustrationExample from './banner.introducing_illustration.example.vue';
 import BannerPromotingExample from './banner.promoting.example.vue';
 import BannerPromotingIllustrationExample from './banner.promoting_illustration.example.vue';
-import BannerIntroducingIllustrationExample from './banner.introducing_illustration.example.vue';
 
 export default [
   {

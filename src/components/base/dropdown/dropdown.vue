@@ -1,8 +1,6 @@
 <script>
-import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import { BDropdown } from 'bootstrap-vue';
-import GlIcon from '../icon/icon.vue';
-import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import {
   newButtonCategoryOptions,
   newDropdownVariantOptions,
@@ -10,6 +8,8 @@ import {
   dropdownIconSizeOptions,
 } from '../../../utils/constants';
 import ButtonMixin from '../../mixins/button_mixin';
+import GlIcon from '../icon/icon.vue';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
 // Return an Array of visible items
 function filterVisible(els) {

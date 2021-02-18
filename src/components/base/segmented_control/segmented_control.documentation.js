@@ -1,5 +1,5 @@
-import description from './segmented_control.md';
 import examples from './examples';
+import description from './segmented_control.md';
 
 export default {
   followsDesignSystem: false,

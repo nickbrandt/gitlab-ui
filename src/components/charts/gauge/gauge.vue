@@ -1,8 +1,8 @@
 <script>
 import { merge, isFinite, uniq, sortBy } from 'lodash';
-import Chart from '../chart/chart.vue';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
 import { gaugeNeutralHues, gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
+import Chart from '../chart/chart.vue';
 
 const AXIS_LABEL_FONT_SIZE_PX = 14;
 

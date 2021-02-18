@@ -1,10 +1,10 @@
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import Vue from 'vue';
 import PortalVue from 'portal-vue';
+import Vue from 'vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import GlFilteredSearchToken from './filtered_search_token.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_token.md';
+import GlFilteredSearchToken from './filtered_search_token.vue';
 
 Vue.use(PortalVue);
 

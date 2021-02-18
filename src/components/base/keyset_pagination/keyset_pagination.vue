@@ -1,6 +1,6 @@
 <script>
-import GlButtonGroup from '../button_group/button_group.vue';
 import GlButton from '../button/button.vue';
+import GlButtonGroup from '../button_group/button_group.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {

@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import FilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import FilteredSearchSuggestion from './filtered_search_suggestion.vue';
+import FilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 
 describe('Filtered search suggestion list component', () => {
   let wrapper;

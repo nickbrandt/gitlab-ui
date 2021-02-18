@@ -1,5 +1,5 @@
-import description from './form_select.md';
 import examples from './examples';
+import description from './form_select.md';
 
 export default {
   description,

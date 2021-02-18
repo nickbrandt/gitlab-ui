@@ -1,5 +1,5 @@
-import description from './toast.md';
 import examples from './examples';
+import description from './toast.md';
 
 export default {
   followsDesignSystem: false,

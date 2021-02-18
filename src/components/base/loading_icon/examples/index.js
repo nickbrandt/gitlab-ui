@@ -1,9 +1,9 @@
-import LoadingIconSmallExample from './loading_icon.small.example.vue';
-import LoadingIconMediumExample from './loading_icon.medium.example.vue';
-import LoadingIconLargeExample from './loading_icon.large.example.vue';
+import LoadingIconAllOptionsExample from './loading_icon.all.example.vue';
 import LoadingIconExtraLargeExample from './loading_icon.extra_large.example.vue';
 import LoadingIconInlineExample from './loading_icon.inline.example.vue';
-import LoadingIconAllOptionsExample from './loading_icon.all.example.vue';
+import LoadingIconLargeExample from './loading_icon.large.example.vue';
+import LoadingIconMediumExample from './loading_icon.medium.example.vue';
+import LoadingIconSmallExample from './loading_icon.small.example.vue';
 
 export default [
   {

@@ -1,5 +1,5 @@
-import description from './form_checkbox.md';
 import examples from './examples';
+import description from './form_checkbox.md';
 
 export default {
   description,

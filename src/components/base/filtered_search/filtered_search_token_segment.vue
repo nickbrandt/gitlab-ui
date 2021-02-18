@@ -1,7 +1,7 @@
 <script>
 import { Portal } from 'portal-vue';
-import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
+import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
 
 export default {

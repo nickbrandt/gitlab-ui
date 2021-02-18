@@ -1,5 +1,5 @@
-import * as description from './token_selector.md';
 import examples from './examples';
+import * as description from './token_selector.md';
 
 export default {
   description,
@@ -25,6 +25,9 @@ export default {
     containerClass: {
       additionalInfo:
         'CSS classes to add to the main token selector container (`.gl-token-selector`)',
+    },
+    menuClass: {
+      additionalInfo: 'CSS classes to add to dropdown menu `ul` element',
     },
     textInputAttrs: {
       additionalInfo:
@@ -57,6 +60,11 @@ export default {
       description: 'Dropdown item content',
       default: '{{ dropdownItem.name }}',
       scopedProps: 'dropdownItem (Object)',
+    },
+    {
+      name: 'dropdown-footer',
+      description:
+        'Content to add to the bottom of the dropdown. Can be used in conjunction with `gl-intersection-observer` to load more items as the user scrolls',
     },
     {
       name: 'loading-content',

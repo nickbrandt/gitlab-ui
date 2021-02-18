@@ -1,9 +1,9 @@
 <script>
 import { uniqueId } from 'lodash';
 
+import { tokensValidator } from './helpers';
 import GlTokenContainer from './token_container.vue';
 import GlTokenSelectorDropdown from './token_selector_dropdown.vue';
-import { tokensValidator } from './helpers';
 
 export default {
   name: 'GlTokenSelector',
@@ -38,6 +38,11 @@ export default {
     },
     containerClass: {
       type: String,
+      required: false,
+      default: '',
+    },
+    menuClass: {
+      type: [String, Array, Object],
       required: false,
       default: '',
     },
@@ -308,6 +313,7 @@ export default {
     </div>
     <gl-token-selector-dropdown
       v-model="focusedDropdownItem"
+      :menu-class="menuClass"
       :show="dropdownIsOpen"
       :loading="loading"
       :dropdown-items="filteredDropdownItems"
@@ -331,6 +337,9 @@ export default {
       </template>
       <template #dropdown-item-content="{ dropdownItem }">
         <slot name="dropdown-item-content" :dropdown-item="dropdownItem"></slot>
+      </template>
+      <template #dropdown-footer>
+        <slot name="dropdown-footer"></slot>
       </template>
     </gl-token-selector-dropdown>
   </div>

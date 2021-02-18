@@ -1,5 +1,5 @@
-import description from './skeleton_loading.md';
 import examples from './examples';
+import description from './skeleton_loading.md';
 
 export default {
   description,

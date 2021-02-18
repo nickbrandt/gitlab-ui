@@ -1,8 +1,8 @@
 <script>
-import { uniqueId } from 'lodash';
 import { BCollapse } from 'bootstrap-vue';
-import GlButton from '../button/button.vue';
+import { uniqueId } from 'lodash';
 import GlCollapseToggle from '../../../directives/collapse_toggle';
+import GlButton from '../button/button.vue';
 
 export default {
   name: 'GlAccordionItem',

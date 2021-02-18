@@ -1,5 +1,5 @@
-import description from './table.md';
 import examples from './examples';
+import description from './table.md';
 
 export default {
   followsDesignSystem: false,

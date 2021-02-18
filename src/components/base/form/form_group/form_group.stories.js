@@ -1,8 +1,8 @@
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { sizeOptions } from '../../../../utils/constants';
 import { GlFormGroup } from '../../../../../index';
 import { validationStates } from './form_group.vue';
+import { sizeOptions } from '../../../../utils/constants';
 import readme from './form_group.md';
 
 const components = {

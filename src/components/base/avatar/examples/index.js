@@ -1,6 +1,6 @@
+import AvatarProjectFallbackExample from './avatar.fallback.example.vue';
 import AvatarImageExample from './avatar.image.example.vue';
 import AvatarRectExample from './avatar.rect.example.vue';
-import AvatarProjectFallbackExample from './avatar.fallback.example.vue';
 import AvatarTooltipExample from './avatar.tooltip.example.vue';
 
 export default [

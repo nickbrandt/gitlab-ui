@@ -1,21 +1,20 @@
 <script>
-import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue';
 import * as vueComponents from 'bootstrap-vue/src/components/index';
-import kebabCase from 'lodash/kebabCase';
-import camelCase from 'lodash/camelCase';
-import merge from 'lodash/merge';
-import isFunction from 'lodash/isFunction';
-import isArray from 'lodash/isArray';
 import { isString, isUndefined } from 'lodash';
+import camelCase from 'lodash/camelCase';
+import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
+import kebabCase from 'lodash/kebabCase';
+import merge from 'lodash/merge';
+import Vue from 'vue';
 
+import GlBadge from '../../src/components/base/badge/badge.vue';
+import GlTable from '../../src/components/base/table/table.vue';
 import * as enumConstants from '../../src/utils/constants';
 import { getValidationInfoText } from '../../src/utils/validation_utils';
 
 import { gitlabComponents, gitlabChartComponents, componentValidator } from '../all_components';
-
-import GlTable from '../../src/components/base/table/table.vue';
-import GlBadge from '../../src/components/base/badge/badge.vue';
 
 import { getDocumentationFor } from '../components_documentation';
 

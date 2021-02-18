@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Chart from '../chart/chart.vue';
 import { gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
+import Chart from '../chart/chart.vue';
 import GlGauge from './gauge.vue';
 
 const placeholder = '--';

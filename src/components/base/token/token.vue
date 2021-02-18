@@ -1,6 +1,6 @@
 <script>
-import GlIcon from '../icon/icon.vue';
 import { tokenVariants } from '../../../utils/constants';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {

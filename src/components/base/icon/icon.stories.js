@@ -1,5 +1,5 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
+import { withKnobs, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlIcon } from '../../../../index';
 import { iconSizeOptions } from '../../../utils/constants';

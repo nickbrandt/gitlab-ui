@@ -1,7 +1,7 @@
 import ButtonGroupBasicExample from './button_group.basic.example.vue';
 import ButtonGroupBasicDropdown from './button_group.dropdown.example.vue';
-import ButtonGroupVariantsExample from './button_group.variants.example.vue';
 import ButtonGroupSizesExample from './button_group.sizes.example.vue';
+import ButtonGroupVariantsExample from './button_group.variants.example.vue';
 
 export default [
   {

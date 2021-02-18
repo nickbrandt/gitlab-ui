@@ -1,9 +1,9 @@
 <script>
-import GlLink from '../link/link.vue';
-import GlTooltip from '../tooltip/tooltip.vue';
-import GlIcon from '../icon/icon.vue';
 import { labelColorOptions } from '../../../utils/constants';
 import { colorFromBackground } from '../../../utils/utils';
+import GlIcon from '../icon/icon.vue';
+import GlLink from '../link/link.vue';
+import GlTooltip from '../tooltip/tooltip.vue';
 
 export default {
   components: {

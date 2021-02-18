@@ -1,5 +1,5 @@
-import * as description from './input_group_text.md';
 import examples from './examples';
+import * as description from './input_group_text.md';
 
 export default {
   description,

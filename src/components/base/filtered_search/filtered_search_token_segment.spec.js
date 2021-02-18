@@ -1,5 +1,5 @@
-import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 
 const OPTIONS = [{ value: '=' }, { value: '!=' }];

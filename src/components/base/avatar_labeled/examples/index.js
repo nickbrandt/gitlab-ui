@@ -1,7 +1,7 @@
 import AvatarLabeledExample from './avatar.labeled.example.vue';
-import AvatarLabeledTooltipExample from './avatar.labeled_tooltip.example.vue';
 import AvatarLabeledBadgesExample from './avatar.labeled_badges.example.vue';
 import AvatarLabeledSlotsExample from './avatar.labeled_links.example.vue';
+import AvatarLabeledTooltipExample from './avatar.labeled_tooltip.example.vue';
 
 export default [
   {

@@ -1,8 +1,8 @@
 <script>
+import GlTooltip from '../../../directives/tooltip';
 import GlButton from '../button/button.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import GlDropdown from '../dropdown/dropdown.vue';
-import GlTooltip from '../../../directives/tooltip';
 
 export default {
   name: 'GlSorting',

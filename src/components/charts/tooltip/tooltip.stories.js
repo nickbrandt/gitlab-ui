@@ -1,5 +1,5 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../../charts';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
   SERIES_NAME,
   SERIES_NAME_LONG,

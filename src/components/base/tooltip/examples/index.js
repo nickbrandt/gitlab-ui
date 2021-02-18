@@ -1,7 +1,7 @@
-import TooltipDirectiveDefaultExample from './tooltip.directive_default.example.vue';
-import TooltipDirectiveRightExample from './tooltip.directive_right.example.vue';
 import TooltipDirectiveBottomExample from './tooltip.directive_bottom.example.vue';
+import TooltipDirectiveDefaultExample from './tooltip.directive_default.example.vue';
 import TooltipDirectiveLeftExample from './tooltip.directive_left.example.vue';
+import TooltipDirectiveRightExample from './tooltip.directive_right.example.vue';
 
 export default [
   {

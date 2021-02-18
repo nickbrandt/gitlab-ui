@@ -1,8 +1,8 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import Vue from 'vue';
 import GlLink from '../../components/base/link/link.vue';
-import safeLink from './safe_link';
 import { absoluteUrls, javascriptUrls, encodedJavaScriptUrls, relativeUrls } from './mock_data';
+import safeLink from './safe_link';
 
 const httpLink = 'https://gitlab.com';
 

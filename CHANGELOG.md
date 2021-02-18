@@ -1,3 +1,68 @@
+## [27.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.7.0...v27.7.1) (2021-02-17)
+
+
+### Bug Fixes
+
+* **GlSingleStat:** Update component examples ([eac46db](https://gitlab.com/gitlab-org/gitlab-ui/commit/eac46dbc3c35909863bb817bcab57402875563c9))
+
+# [27.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.6.1...v27.7.0) (2021-02-16)
+
+
+### Features
+
+* add util class for 100vw max width ([e2fc649](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2fc6496949cf38dc8510efdf02484f308e172e1))
+
+## [27.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.6.0...v27.6.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* set color for .gl-avatar-labeled ([e0c8b80](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0c8b8071ffe0e9896e8b466f98fcaa83e74b6a6))
+
+# [27.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.5.0...v27.6.0) (2021-02-11)
+
+
+### Features
+
+* **css:** Add gl-text-blue-200 utility class ([269ec74](https://gitlab.com/gitlab-org/gitlab-ui/commit/269ec74e44b36a72eae2f90debc269534fbdaf99))
+
+# [27.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.7...v27.5.0) (2021-02-11)
+
+
+### Features
+
+* **GlTokenSelector:** Add new CSS props and dropdown slot ([8a5deff](https://gitlab.com/gitlab-org/gitlab-ui/commit/8a5defff847f71daceba5bcc42543e07246375d0))
+
+## [27.4.7](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.6...v27.4.7) (2021-02-09)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Add space between split dropdown for btn-confirm ([5bc8823](https://gitlab.com/gitlab-org/gitlab-ui/commit/5bc8823cf035fb4790d2d6e1d17a3b366de43452))
+* **GlDropdown:** Match chevron color and fix disabled spacing ([69d5b44](https://gitlab.com/gitlab-org/gitlab-ui/commit/69d5b446d58bc2d31300b6f10f7d6615ef7c2496))
+* **GlDropdown:** Update split dropdown chevron to match border-color ([3438c83](https://gitlab.com/gitlab-org/gitlab-ui/commit/3438c83b81860230a983d920b95dc4a9901bcec0))
+
+## [27.4.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.5...v27.4.6) (2021-02-05)
+
+
+### Bug Fixes
+
+* **GlPopover:** Pass through popover manual events ([3bd7635](https://gitlab.com/gitlab-org/gitlab-ui/commit/3bd7635ee1600f47cdfd7cf958b0e499c73fb427))
+
+## [27.4.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.4...v27.4.5) (2021-02-05)
+
+
+### Bug Fixes
+
+* **GlChart:** Upgrade to echarts 4.9.0 ([1a832ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/1a832ed73d8db84220f4348b1c299acb78c1986d))
+
+## [27.4.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.3...v27.4.4) (2021-02-05)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByType:** fix overlapping clear button and loading icon ([b72c70e](https://gitlab.com/gitlab-org/gitlab-ui/commit/b72c70ec62d96b7ccaf4c2ddfade457da079292c))
+
 ## [27.4.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.4.2...v27.4.3) (2021-02-04)
 
 

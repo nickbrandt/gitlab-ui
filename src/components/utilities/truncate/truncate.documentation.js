@@ -1,5 +1,5 @@
-import description from './truncate.md';
 import examples from './examples';
+import description from './truncate.md';
 
 export default {
   description,

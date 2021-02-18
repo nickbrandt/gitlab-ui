@@ -1,22 +1,16 @@
 <script>
 /* eslint-disable vue/no-v-html */
 
-import Vue from 'vue';
-import BootstrapVue from 'bootstrap-vue';
-
 import * as Babel from '@babel/standalone';
-import { parseComponent } from 'vue-template-compiler';
-
-import { html } from 'js-beautify';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/monokai.css';
-
+import BootstrapVue from 'bootstrap-vue';
 import copyToClipboard from 'copy-to-clipboard';
-
+import hljs from 'highlight.js';
+import { html } from 'js-beautify';
+import Vue from 'vue';
+import { parseComponent } from 'vue-template-compiler';
+import 'highlight.js/styles/monokai.css';
 import { gitlabComponents } from '../all_components';
-
 import * as Documentation from '../components_documentation';
-
 import JsfiddleButton from './jsfiddle_button.vue';
 
 // We need to register globally all components as we don't know the components that are used in the dynamically compiled .example.vue files

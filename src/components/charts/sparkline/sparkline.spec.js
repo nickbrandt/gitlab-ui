@@ -3,9 +3,8 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import SparklineChart from './sparkline.vue';
-import { waitForAnimationFrame } from '~/utils/test_utils';
-
 import { sparkline } from '~/utils/charts/theme';
+import { waitForAnimationFrame } from '~/utils/test_utils';
 
 const mockResize = jest.fn();
 const mockChartInstance = {

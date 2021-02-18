@@ -1,6 +1,6 @@
 import FriendlyWrapBasicExample from './friendly_wrap.basic.example.vue';
-import FriendlyWrapWordsExample from './friendly_wrap.words.example.vue';
 import FriendlyWrapMultipleSymbolsExample from './friendly_wrap.multiple_symbols.example.vue';
+import FriendlyWrapWordsExample from './friendly_wrap.words.example.vue';
 
 export default [
   {

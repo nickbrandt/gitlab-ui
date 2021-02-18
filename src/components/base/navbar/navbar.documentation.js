@@ -1,5 +1,5 @@
-import * as description from './navbar.md';
 import examples from './examples';
+import * as description from './navbar.md';
 
 export default {
   description,

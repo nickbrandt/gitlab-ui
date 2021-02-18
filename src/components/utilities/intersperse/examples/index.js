@@ -1,7 +1,7 @@
-import Intersperse from './intersperse.default.example.vue';
-import IntersperseCustomSeparator from './intersperse.custom_separator.example.vue';
 import IntersperseCustomLastSeparator from './intersperse.custom_last_separator.example.vue';
 import IntersperseCustomLastSeparatorTwoItems from './intersperse.custom_last_separator_two_items.example.vue';
+import IntersperseCustomSeparator from './intersperse.custom_separator.example.vue';
+import Intersperse from './intersperse.default.example.vue';
 
 export default [
   {

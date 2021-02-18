@@ -1,7 +1,7 @@
 <script>
 import { BBadge } from 'bootstrap-vue';
-import GlIcon from '../icon/icon.vue';
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {

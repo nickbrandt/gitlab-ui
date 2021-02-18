@@ -1,8 +1,8 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import { targetOptions } from '../../utils/constants';
-import readme from './safe_link.md';
 import GlSafeLink from './safe_link';
+import readme from './safe_link.md';
 
 const directives = {
   GlSafeLink,

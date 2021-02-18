@@ -1,10 +1,10 @@
-import { nextTick } from 'vue';
 import { mount, shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 
-import GlToken from '../token/token.vue';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
-import GlTokenSelector from './token_selector.vue';
+import GlToken from '../token/token.vue';
 import GlTokenContainer from './token_container.vue';
+import GlTokenSelector from './token_selector.vue';
 import GlTokenSelectorDropdown from './token_selector_dropdown.vue';
 
 describe('GlTokenSelector', () => {
@@ -154,6 +154,23 @@ describe('GlTokenSelector', () => {
       });
     });
 
+    describe('menuClass', () => {
+      describe.each`
+        menuClass
+        ${'foo-bar-baz'}
+        ${['foo-bar-baz']}
+        ${{ 'foo-bar-baz': true }}
+      `('when `menuClass` is $menuClass', ({ menuClass }) => {
+        it('adds `foo-bar-baz` to CSS classes', () => {
+          createComponent({
+            propsData: { menuClass },
+          });
+
+          expect(findDropdownMenu().classes()).toContain('foo-bar-baz');
+        });
+      });
+    });
+
     describe('token category class', () => {
       it('renders token with correct CSS classes based on category props', () => {
         createComponent({
@@ -234,6 +251,7 @@ describe('GlTokenSelector', () => {
       ${'user-defined-token-content'} | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
       ${'no-results-content'}         | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
       ${'dropdown-item-content'}      | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
+      ${'dropdown-footer'}            | ${GlTokenSelectorDropdown} | ${'GlTokenSelectorDropdown'}
     `('passes `$slot` to `$componentName`', ({ slot, component }) => {
       createComponent({ propsData: { dropdownItems, selectedTokens: tokens } });
 

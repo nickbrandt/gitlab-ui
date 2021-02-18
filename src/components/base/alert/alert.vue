@@ -1,11 +1,11 @@
 <script>
-import GlIcon from '../icon/icon.vue';
-import GlButton from '../button/button.vue';
 import {
   alertVariantOptions,
   alertVariantIconMap,
   newButtonCategoryOptions,
 } from '../../../utils/constants';
+import GlButton from '../button/button.vue';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {

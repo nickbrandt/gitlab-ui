@@ -1,14 +1,14 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlColumnChart } from '../../../../charts';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
-import { toolbox } from '../../../utils/charts/story_config';
+import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
   mockSecondaryBarData,
   mockSecondaryTrendlineData,
 } from '../../../utils/charts/mock_data';
+import { toolbox } from '../../../utils/charts/story_config';
+import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './column.md';
 
 const components = {

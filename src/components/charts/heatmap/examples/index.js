@@ -1,7 +1,7 @@
-import HourlyExample from './heatmap.hourly.example.vue';
-import TotalsExample from './heatmap.totals.example.vue';
 import CustomOptionsExample from './heatmap.custom_options.example.vue';
+import HourlyExample from './heatmap.hourly.example.vue';
 import CustomResponsiveExample from './heatmap.responsive.example.vue';
+import TotalsExample from './heatmap.totals.example.vue';
 
 export default [
   {

@@ -1,5 +1,5 @@
-import * as description from './toggle.md';
 import examples from './examples';
+import * as description from './toggle.md';
 
 export default {
   description,

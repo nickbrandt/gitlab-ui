@@ -1,7 +1,7 @@
 <script>
+import { toggleLabelPosition } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
-import { toggleLabelPosition } from '../../../utils/constants';
 
 let uuid = 0;
 

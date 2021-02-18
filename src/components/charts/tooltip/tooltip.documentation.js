@@ -1,5 +1,5 @@
-import description from './tooltip.md';
 import examples from './examples';
+import description from './tooltip.md';
 
 export default {
   followsDesignSystem: false,

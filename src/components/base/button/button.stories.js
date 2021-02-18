@@ -1,12 +1,12 @@
 import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlButton } from '../../../../index';
 import {
   newButtonCategoryOptions,
   newButtonVariantOptions,
   newButtonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
-import { GlButton } from '../../../../index';
 import readme from './button.md';
 
 const components = {
@@ -150,7 +150,7 @@ documentedStoriesOf('base/button', readme)
     `,
   }))
   .add('dropdown split button', () => ({
-    props: generateProps(),
+    props: generateProps({ category: 'primary', variant: 'confirm' }),
     components,
     template: `
       <gl-dropdown
@@ -167,7 +167,7 @@ documentedStoriesOf('base/button', readme)
     `,
   }))
   .add('dropdown icon split button', () => ({
-    props: generateProps(),
+    props: generateProps({ category: 'secondary', variant: 'danger' }),
     components,
     template: `
       <gl-dropdown

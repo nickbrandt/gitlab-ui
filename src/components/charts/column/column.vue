@@ -1,8 +1,5 @@
 <script>
 import merge from 'lodash/merge';
-import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
 import defaultChartOptions, {
   grid,
   gridWithSecondaryYAxis,
@@ -13,11 +10,14 @@ import defaultChartOptions, {
   generateBarSeries,
   generateLineSeries,
 } from '../../../utils/charts/config';
-import { debounceByAnimationFrame } from '../../../utils/utils';
-import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import { TOOLTIP_LEFT_OFFSET, CHART_TYPE_LINE } from '../../../utils/charts/constants';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
+import { debounceByAnimationFrame } from '../../../utils/utils';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import Chart from '../chart/chart.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 
 const yAxisDefaults = {
   ...yAxis,

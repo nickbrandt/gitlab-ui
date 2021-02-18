@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import Truncate from './truncate.vue';
 import { POSITION } from './constants';
+import Truncate from './truncate.vue';
 
 const removeSpecialChar = (text) => {
   return text.replace(/&lrm;|\u200E/gi, '');

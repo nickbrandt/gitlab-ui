@@ -1,11 +1,12 @@
 import { shallowMount } from '@vue/test-utils';
-import Tooltip from './tooltip.vue';
+import { tooltipActionEvents } from '../../../utils/constants';
+import GlTooltip from './tooltip.vue';
 
-describe('tooltip', () => {
+describe('GlTooltip', () => {
   let wrapper;
 
   const createWrapper = () => {
-    wrapper = shallowMount(Tooltip, {
+    wrapper = shallowMount(GlTooltip, {
       propsData: {
         target: document.body,
       },
@@ -23,13 +24,7 @@ describe('tooltip', () => {
     wrapper = null;
   });
 
-  it.each`
-    event
-    ${'open'}
-    ${'close'}
-    ${'disable'}
-    ${'enable'}
-  `('passes through the $event event to the bvTooltip instance', ({ event }) => {
+  it.each(tooltipActionEvents)('passes through the %s event to the bvTooltip instance', (event) => {
     wrapper.vm.$emit(event);
 
     expect(findBVTooltip().emitted(event)).toHaveLength(1);

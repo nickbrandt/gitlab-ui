@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import FilteredSearchTerm from './filtered_search_term.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
+import FilteredSearchTerm from './filtered_search_term.vue';
 
 const availableTokens = [
   { type: 'foo', title: 'test1-foo', token: 'stub', icon: 'eye' },

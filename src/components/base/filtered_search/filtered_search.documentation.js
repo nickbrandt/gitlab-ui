@@ -1,5 +1,5 @@
-import * as description from './filtered_search.md';
 import examples from './examples';
+import * as description from './filtered_search.md';
 
 export default {
   description,

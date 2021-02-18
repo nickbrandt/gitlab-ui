@@ -1,16 +1,16 @@
 <script>
 import merge from 'lodash/merge';
-import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
+import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import defaultChartOptions, {
   dataZoomAdjustments,
   mergeSeriesToOptions,
 } from '../../../utils/charts/config';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { debounceByAnimationFrame } from '../../../utils/utils';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import Chart from '../chart/chart.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 
 export default {
   components: {

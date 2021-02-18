@@ -1,12 +1,12 @@
 import path from 'path';
-import babel from 'rollup-plugin-babel';
-import vue from 'rollup-plugin-vue';
-import resolve from '@rollup/plugin-node-resolve';
-import { string } from 'rollup-plugin-string';
-import postcss from 'rollup-plugin-postcss';
 import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import glob from 'glob';
+import babel from 'rollup-plugin-babel';
+import postcss from 'rollup-plugin-postcss';
+import { string } from 'rollup-plugin-string';
+import vue from 'rollup-plugin-vue';
 
 /**
  * Returns true if an import is not considered for inlining into the current file.

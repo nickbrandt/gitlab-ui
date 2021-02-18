@@ -1,9 +1,9 @@
 <script>
-import GlFormGroup from '../form_group/form_group.vue';
 import GlFormCheckbox from '../form_checkbox/form_checkbox.vue';
-import { Tree } from './models/tree';
+import GlFormGroup from '../form_group/form_group.vue';
 import GlFormCheckboxTreeNode from './checkbox_tree_node.vue';
 import { V_MODEL } from './models/constants';
+import { Tree } from './models/tree';
 
 export default {
   components: {

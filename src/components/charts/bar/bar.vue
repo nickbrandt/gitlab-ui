@@ -1,15 +1,15 @@
 <script>
 import merge from 'lodash/merge';
 import truncate from 'lodash/truncate';
+import { grid, dataZoomAdjustments, mergeSeriesToOptions } from '../../../utils/charts/config';
+import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
+import { engineeringNotation } from '../../../utils/number_utils';
+import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
+import ToolboxMixin from '../../mixins/toolbox_mixin';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
-import { grid, dataZoomAdjustments, mergeSeriesToOptions } from '../../../utils/charts/config';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
-import { engineeringNotation } from '../../../utils/number_utils';
-import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
-import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 
 /**
  * `nameGap` in charts/config is set to 50 but it is not

@@ -1,5 +1,5 @@
-import description from './infinite_scroll.md';
 import examples from './examples';
+import description from './infinite_scroll.md';
 
 export default {
   followsDesignSystem: true,

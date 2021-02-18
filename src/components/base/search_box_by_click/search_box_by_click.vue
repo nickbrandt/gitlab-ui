@@ -1,14 +1,14 @@
 <script>
-import GlFormInputGroup from '../form/form_input_group/form_input_group.vue';
+import GlTooltip from '../../../directives/tooltip';
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
-import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
 import GlDropdown from '../dropdown/dropdown.vue';
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlDropdownText from '../dropdown/dropdown_text.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
-import GlTooltip from '../../../directives/tooltip';
+import GlFormInputGroup from '../form/form_input_group/form_input_group.vue';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {

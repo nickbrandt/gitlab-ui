@@ -1,6 +1,6 @@
 <script>
-import GlButton from '../button/button.vue';
 import { bannerVariants } from '../../../utils/constants';
+import GlButton from '../button/button.vue';
 
 export default {
   name: 'GlBanner',

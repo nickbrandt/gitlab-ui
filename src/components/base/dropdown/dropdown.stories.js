@@ -1,11 +1,6 @@
 import { withKnobs, select, boolean, text as textKnob } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
-  newButtonCategoryOptions,
-  newDropdownVariantOptions,
-  newButtonSizeOptions,
-} from '../../../utils/constants';
-import {
   GlAvatar,
   GlIcon,
   GlDropdown,
@@ -15,6 +10,11 @@ import {
   GlDropdownText,
   GlDropdownForm,
 } from '../../../../index';
+import {
+  newButtonCategoryOptions,
+  newDropdownVariantOptions,
+  newButtonSizeOptions,
+} from '../../../utils/constants';
 import readme from './dropdown.md';
 
 const components = {
@@ -262,7 +262,7 @@ documentedStoriesOf('base/dropdown', readme)
     components,
     template: wrap`
       <gl-dropdown-item
-        avatar-url="https://secure.gravatar.com/avatar/78b060780d36f51a6763ac9831a4f022?s=180&d=identicon"
+        avatar-url="/img/avatar.png"
         secondary-text="@sytses"
       >
         Sid Sijbrandij

@@ -1,6 +1,6 @@
 import AccordionBasicExample from './accordion.basic.example.vue';
-import AccordionInitialVisibleExample from './accordion.initial_visible.example.vue';
 import AccordionCollapseOtherExample from './accordion.collapse_other.example.vue';
+import AccordionInitialVisibleExample from './accordion.initial_visible.example.vue';
 
 export default [
   {

@@ -2,8 +2,8 @@ import { withKnobs, boolean, select, number, object } from '@storybook/addon-kno
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlFormSelect } from '../../../../../index';
 import { sizeOptions, formStateOptions } from '../../../../utils/constants';
-import readme from './form_select.md';
 import { formSelectOptions } from './constants';
+import readme from './form_select.md';
 
 const components = {
   GlFormSelect,
