@@ -414,8 +414,8 @@ $gl-icon-chevron-right: 'data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns=
 $gl-icon-chevron-down: 'data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill-rule="evenodd" d="M7.293 10.707a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0-1.414-1.414L8 8.586 5.707 6.293a1 1 0 0 0-1.414 1.414l3 3z"/></svg>';
 
 // Icons
-$default-icon-size: px-to-rem(18px);
-$gl-icon-sizes: 8 10 12 14 16 18 24 32 48 72;
+$default-icon-size: px-to-rem(16px);
+$gl-icon-sizes: 8 12 14 16 24 32 48 72;
 
 // Dropdowns
 $gl-dropdown-width: px-to-rem(240px);
