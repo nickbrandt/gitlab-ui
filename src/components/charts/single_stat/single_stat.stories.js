@@ -43,7 +43,7 @@ const generateProps = ({
     default: text('value', value),
   },
   unit: {
-    type: String,
+    type: [String, Number],
     default: text('unit', unit),
   },
   metaText: {

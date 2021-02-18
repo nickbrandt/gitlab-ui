@@ -18,7 +18,7 @@ export default {
       required: true,
     },
     unit: {
-      type: String,
+      type: [String, Number],
       required: false,
       default: null,
     },
