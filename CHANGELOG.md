@@ -1,3 +1,10 @@
+# [27.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.7.1...v27.8.0) (2021-02-19)
+
+
+### Features
+
+* **GlSingleStat:** allow unit prop to accept string or number ([52dbd6f](https://gitlab.com/gitlab-org/gitlab-ui/commit/52dbd6fb8152075ece2fd9a868c3dc065a588787))
+
 ## [27.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.7.0...v27.7.1) (2021-02-17)
 
 
