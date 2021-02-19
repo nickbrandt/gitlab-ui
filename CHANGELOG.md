@@ -1,3 +1,10 @@
+# [27.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.8.1...v27.9.0) (2021-02-19)
+
+
+### Features
+
+* **css:** gl-order-n1 utility class ([1e5e637](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e5e6371a122c9c83d0f20c87e2c916655285c86))
+
 ## [27.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.8.0...v27.8.1) (2021-02-19)
 
 
