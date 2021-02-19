@@ -69,8 +69,6 @@ describe('Input Group', () => {
     });
 
     it('throws an error if the options format does not match the required one', () => {
-      global.console.error = jest.fn();
-
       createWrapper({
         propsData: { predefinedOptions: [{ foo: 'bar' }] },
       });
