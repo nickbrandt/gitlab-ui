@@ -218,3 +218,13 @@
     @include gl-align-self-center;
   }
 }
+
+/**
+ * Order utilities
+ *
+ * naming convention: gl-order-{position}
+ */
+
+@mixin gl-order-n1 {
+  order: -1;
+}
