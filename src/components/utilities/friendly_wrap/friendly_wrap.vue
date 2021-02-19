@@ -17,7 +17,7 @@ export default {
   },
   render(createElement, { props }) {
     const { symbols, text } = props;
-    const textParts = splitAfterSymbols(symbols, text);
+    const textParts = splitAfterSymbols(symbols, text ?? '');
     const content = intersperse(() => createElement('wbr'), textParts);
 
     return createElement('span', { class: 'text-break' }, content);

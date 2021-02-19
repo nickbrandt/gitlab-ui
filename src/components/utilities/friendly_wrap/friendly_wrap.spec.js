@@ -112,4 +112,19 @@ describe('Friendly wrap component', () => {
     // Cannot use `wrapper.text()`, since that automatically trims whitespace
     expect(wrapper.element.textContent).toBe(text);
   });
+
+  it.each([null, undefined])('gracefully handles %p', (text) => {
+    createComponent({
+      text,
+    });
+
+    // Assert prop validation failed
+    expect(global.console).toHaveLoggedVueErrors();
+
+    // But it still rendered
+    expect(wrapper.text()).toBe('');
+
+    // Prevent test failure due to console.error calls
+    global.console.error.mockReset();
+  });
 });
