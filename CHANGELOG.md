@@ -1,3 +1,11 @@
+## [27.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.8.0...v27.8.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **FriendlyWrap:** Gracefully handle nullish text ([39f5d1d](https://gitlab.com/gitlab-org/gitlab-ui/commit/39f5d1db596330ab0cd62c35c679d9442d456a16))
+* correcting spacing for top dropdown ([9238e27](https://gitlab.com/gitlab-org/gitlab-ui/commit/9238e27ab6de08f93383f37e1f848f50eb2f0234))
+
 # [27.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.7.1...v27.8.0) (2021-02-19)
 
 
