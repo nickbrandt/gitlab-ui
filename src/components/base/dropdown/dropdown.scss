@@ -22,7 +22,8 @@
   .gl-new-dropdown-inner {
     @include gl-display-flex;
     @include gl-flex-direction-column;
-    max-height: $gl-max-dropdown-max-height;
+    // Subtract the height of the border. 1px border top and bottom = 2px.
+    max-height: px-to-rem($gl-max-dropdown-max-height-px - 2px);
 
     > :first-child {
       @include gl-pt-3;
