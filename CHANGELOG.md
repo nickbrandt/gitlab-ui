@@ -1,3 +1,10 @@
+# [27.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.9.1...v27.10.0) (2021-02-22)
+
+
+### Features
+
+* **GlFilteredSearch:** Add OR multi-select capability ([d85e072](https://gitlab.com/gitlab-org/gitlab-ui/commit/d85e07275ee9dcd139c2483eb23e324de77df068))
+
 ## [27.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.9.0...v27.9.1) (2021-02-22)
 
 
