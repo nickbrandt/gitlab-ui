@@ -12,7 +12,7 @@ The `modal-footer` slot should only be populated via props: `action-primary`, `a
 {
   text: 'Save Changes',
   attributes: [
-    { variant: 'info' },
+    { variant: 'confirm' },
     { disabled: this.someState },
     { class: 'some-class' },
     ...
