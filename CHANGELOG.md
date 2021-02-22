@@ -1,3 +1,11 @@
+## [27.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.9.0...v27.9.1) (2021-02-22)
+
+
+### Bug Fixes
+
+* **alert:** Remove deprecated info button variant in favor of confirm ([7871f7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/7871f7c9c720605097a0693a4c60774a091cf27f))
+* **modal:** Remove depreacted button variants from modals ([71cb98d](https://gitlab.com/gitlab-org/gitlab-ui/commit/71cb98d15b91608f6b1f2e04ea3fd9eef0c0c886))
+
 # [27.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.8.1...v27.9.0) (2021-02-19)
 
 
