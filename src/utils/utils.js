@@ -1,4 +1,4 @@
-import { labelColorOptions, focusableTags } from './constants';
+import { COMMA, labelColorOptions, focusableTags } from './constants';
 
 export function debounceByAnimationFrame(fn) {
   let requestId;
@@ -37,7 +37,7 @@ export function rgbFromHex(hex) {
 }
 
 export function rgbFromString(color, sub) {
-  const rgb = color.substring(sub, color.length - 1).split(',');
+  const rgb = color.substring(sub, color.length - 1).split(COMMA);
   const [r, g, b] = rgb.map((i) => parseInt(i, 10));
   return [r, g, b];
 }

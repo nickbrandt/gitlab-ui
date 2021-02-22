@@ -1,6 +1,11 @@
 <script>
 import { BModal } from 'bootstrap-vue';
-import { focusableTags, modalButtonDefaults, modalSizeOptions } from '../../../utils/constants';
+import {
+  COMMA,
+  focusableTags,
+  modalButtonDefaults,
+  modalSizeOptions,
+} from '../../../utils/constants';
 import { focusFirstFocusableElement } from '../../../utils/utils';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlButton from '../button/button.vue';
@@ -106,7 +111,9 @@ export default {
     },
     setFocus() {
       const btnElts = [...this.$refs.modal.$refs.modal.querySelectorAll('button')];
-      const modalElts = [...this.$refs.modal.$refs.body.querySelectorAll(focusableTags.join(','))];
+      const modalElts = [
+        ...this.$refs.modal.$refs.body.querySelectorAll(focusableTags.join(COMMA)),
+      ];
 
       // Iterate over the array and if you find the close button,
       // move it to the end

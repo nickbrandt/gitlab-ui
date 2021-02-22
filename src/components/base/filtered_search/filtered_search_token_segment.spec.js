@@ -1,5 +1,4 @@
 import { shallowMount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 
 const OPTIONS = [{ value: '=' }, { value: '!=' }];
@@ -73,9 +72,7 @@ describe('Filtered search token segment', () => {
 
     wrapper.trigger('mousedown.left');
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().activate).toHaveLength(1);
-    });
+    expect(wrapper.emitted().activate).toHaveLength(1);
   });
 
   it('ignores mousedown if active', () => {
@@ -83,54 +80,50 @@ describe('Filtered search token segment', () => {
 
     wrapper.trigger('mousedown');
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().mousedown).toBeUndefined();
-    });
+    expect(wrapper.emitted().mousedown).toBeUndefined();
   });
 
   it('selects next suggestion if down arrow is pressed', () => {
     createComponent({ active: true, options: OPTIONS, value: false });
     wrapper.find('input').trigger('keydown', { key: 'ArrowDown' });
 
-    return nextTick().then(() => {
-      expect(suggestionsMock.methods.nextItem).toHaveBeenCalled();
-    });
+    expect(suggestionsMock.methods.nextItem).toHaveBeenCalled();
   });
 
   it('selects previous suggestion if down arrow is pressed', () => {
     createComponent({ active: true, options: OPTIONS, value: false });
     wrapper.find('input').trigger('keydown', { key: 'ArrowUp' });
 
-    return nextTick().then(() => {
-      expect(suggestionsMock.methods.prevItem).toHaveBeenCalled();
-    });
+    expect(suggestionsMock.methods.prevItem).toHaveBeenCalled();
   });
 
   it('emits submit if Enter is pressed', () => {
     createComponent({ active: true, value: false });
     wrapper.find('input').trigger('keydown', { key: 'Enter' });
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().submit).toHaveLength(1);
-    });
+    expect(wrapper.emitted().submit).toHaveLength(1);
+  });
+
+  it('emits complete if Escape is pressed', () => {
+    createComponent({ active: true, value: false });
+
+    wrapper.find('input').trigger('keydown', { key: 'Escape' });
+
+    expect(wrapper.emitted('complete')).toEqual([[]]);
   });
 
   it('emits backspace event if value is empty and Backspace is pressed', () => {
     createComponent({ active: true, value: '' });
     wrapper.find('input').trigger('keydown', { key: 'Backspace' });
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().backspace).toHaveLength(1);
-    });
+    expect(wrapper.emitted().backspace).toHaveLength(1);
   });
 
   it('does not emit backspace event if value is not empty and Backspace is pressed', () => {
     createComponent({ active: true, value: 'something' });
     wrapper.find('input').trigger('keydown', { key: 'Backspace' });
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().backspace).toBeUndefined();
-    });
+    expect(wrapper.emitted().backspace).toBeUndefined();
   });
 
   it('invokes custom input handler if provided', () => {
@@ -142,16 +135,14 @@ describe('Filtered search token segment', () => {
     });
     wrapper.find('input').trigger('keydown', { key: 's' });
 
-    return nextTick().then(() => {
-      expect(customInputKeydownHandler).toHaveBeenCalledWith(
-        expect.any(Event),
-        expect.objectContaining({
-          applySuggestion: expect.any(Function),
-          inputValue: 'something',
-          suggestedValue: undefined,
-        })
-      );
-    });
+    expect(customInputKeydownHandler).toHaveBeenCalledWith(
+      expect.any(Event),
+      expect.objectContaining({
+        applySuggestion: expect.any(Function),
+        inputValue: 'something',
+        suggestedValue: undefined,
+      })
+    );
   });
 
   it('deactivates when input is blurred', () => {
@@ -159,12 +150,10 @@ describe('Filtered search token segment', () => {
 
     wrapper.find('input').trigger('blur');
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().deactivate).toHaveLength(1);
-    });
+    expect(wrapper.emitted().deactivate).toHaveLength(1);
   });
 
-  it('resets value to previously selected if options are provided and input is invalid', () => {
+  it('resets value to previously selected if options are provided and input is invalid', async () => {
     const originalValue = '!=';
     createWrappedComponent({
       value: originalValue,
@@ -173,20 +162,10 @@ describe('Filtered search token segment', () => {
       active: true,
     });
 
-    return nextTick()
-      .then(() => {
-        wrapper.setData({ value: 'invalid' });
-        return nextTick();
-      })
-      .then(() => {
-        wrapper.setProps({ active: false });
-        return nextTick();
-      })
-      .then(() => {
-        expect(wrapper.find(GlFilteredSearchTokenSegment).emitted().input[0][0]).toBe(
-          originalValue
-        );
-      });
+    await wrapper.setData({ value: 'invalid' });
+    await wrapper.setProps({ active: false });
+
+    expect(wrapper.find(GlFilteredSearchTokenSegment).emitted().input[0][0]).toBe(originalValue);
   });
 
   describe('applySuggestion', () => {
@@ -197,10 +176,8 @@ describe('Filtered search token segment', () => {
 
       wrapper.vm.applySuggestion(token);
 
-      return nextTick().then(() => {
-        expect(wrapper.emitted().input[0][0]).toBe(token);
-        expect(wrapper.emitted().complete[0][0]).toBe(token);
-      });
+      expect(wrapper.emitted().input[0][0]).toBe(token);
+      expect(wrapper.emitted().complete[0][0]).toBe(token);
     });
 
     it('emits wrapped token when spaces are present', () => {
@@ -211,10 +188,32 @@ describe('Filtered search token segment', () => {
 
       wrapper.vm.applySuggestion(token);
 
-      return nextTick().then(() => {
-        expect(wrapper.emitted().input[0][0]).toBe(formattedToken);
-        expect(wrapper.emitted().complete[0][0]).toBe(formattedToken);
+      expect(wrapper.emitted().input[0][0]).toBe(formattedToken);
+      expect(wrapper.emitted().select[0][0]).toBe(formattedToken);
+      expect(wrapper.emitted().complete[0][0]).toBe(formattedToken);
+    });
+  });
+
+  describe('when multi select', () => {
+    const token = 'gamma';
+
+    beforeEach(() => {
+      createComponent({
+        active: true,
+        multiSelect: true,
+        value: 'beta',
       });
+
+      wrapper.vm.applySuggestion(token);
+    });
+
+    it('selecting an item in the suggestions list emits input and select events', () => {
+      expect(wrapper.emitted('input')).toEqual([[token]]);
+      expect(wrapper.emitted('select')).toEqual([[token]]);
+    });
+
+    it('selecting an item in the suggestions list does not emit complete event to keep the list open', () => {
+      expect(wrapper.emitted('complete')).toBeUndefined();
     });
   });
 });

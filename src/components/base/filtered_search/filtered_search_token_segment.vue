@@ -1,5 +1,7 @@
 <script>
+import { last } from 'lodash';
 import { Portal } from 'portal-vue';
+import { COMMA } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
@@ -14,6 +16,11 @@ export default {
   inheritAttrs: false,
   props: {
     active: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    multiSelect: {
       type: Boolean,
       required: false,
       default: false,
@@ -66,7 +73,7 @@ export default {
 
     defaultSuggestedValue() {
       if (!this.options) {
-        return this.value;
+        return this.multiSelect ? last(this.value.split(COMMA)) : this.value;
       }
       if (this.value) {
         const match =
@@ -150,7 +157,11 @@ export default {
       const formattedSuggestedValue = wrapTokenInQuotes(suggestedValue);
 
       this.$emit('input', formattedSuggestedValue);
-      this.$emit('complete', formattedSuggestedValue);
+      this.$emit('select', formattedSuggestedValue);
+
+      if (!this.multiSelect) {
+        this.$emit('complete', formattedSuggestedValue);
+      }
     },
 
     handleInputKeydown(e) {
@@ -172,6 +183,9 @@ export default {
           } else {
             this.$emit('submit');
           }
+        },
+        Escape: () => {
+          this.$emit('complete');
         },
       };
 
