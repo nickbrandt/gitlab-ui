@@ -20,7 +20,7 @@ function generateTemplate({ props = { visible: false }, slots = {} } = {}) {
 
   return `
     <div>
-      <gl-button v-gl-modal-directive="'test-modal-id'" category="primary" variant="info">
+      <gl-button v-gl-modal-directive="'test-modal-id'" category="primary" variant="confirm">
         Open modal
       </gl-button>
       <gl-modal

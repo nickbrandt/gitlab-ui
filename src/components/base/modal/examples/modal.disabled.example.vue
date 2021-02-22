@@ -9,13 +9,13 @@ export default {
     primaryProps() {
       return {
         text: 'Okay',
-        attributes: [{ disabled: !this.canSubmit }, { variant: 'danger' }],
+        attributes: [{ disabled: !this.canSubmit }, { variant: 'confirm' }],
       };
     },
     secondaryProps() {
       return {
         text: 'Secondary',
-        attributes: [{ disabled: !this.canSubmit }, { variant: 'warning' }],
+        attributes: [{ disabled: !this.canSubmit }, { variant: 'confirm', category: 'secondary' }],
       };
     },
     cancelProps() {
@@ -37,7 +37,7 @@ export default {
 
 <template>
   <div>
-    <gl-button v-gl-modal-directive="'basic-modal-id'" category="primary" variant="info">
+    <gl-button v-gl-modal-directive="'basic-modal-id'" category="primary" variant="confirm">
       Open modal
     </gl-button>
     <gl-modal

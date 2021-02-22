@@ -189,11 +189,11 @@ export const colorThemes = {
 
 export const modalButtonDefaults = {
   actionPrimary: {
-    variant: 'success',
+    variant: 'confirm',
     category: 'primary',
   },
   actionSecondary: {
-    variant: 'warning',
+    variant: 'confirm',
     category: 'secondary',
   },
   actionCancel: {
