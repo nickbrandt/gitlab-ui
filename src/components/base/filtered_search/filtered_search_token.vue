@@ -1,4 +1,5 @@
 <script>
+import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import { TERM_TOKEN_TYPE } from './filtered_search_utils';
@@ -34,6 +35,11 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    multiSelectValues: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     value: {
       type: Object,
@@ -166,6 +172,13 @@ export default {
       }
     },
 
+    handleComplete() {
+      if (this.config.multiSelect) {
+        this.$emit('input', { ...this.value, data: this.multiSelectValues.join(COMMA) });
+      }
+      this.$emit('complete');
+    },
+
     destroyByClose(event) {
       if (event.target.closest(TOKEN_CLOSE_SELECTOR)) {
         event.preventDefault();
@@ -236,11 +249,13 @@ export default {
       key="data-segment"
       v-model="value.data"
       :active="isSegmentActive($options.segments.SEGMENT_DATA)"
+      :multi-select="config.multiSelect"
       :options="config.options"
       option-text-field="title"
       @activate="activateSegment($options.segments.SEGMENT_DATA)"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
-      @complete="$emit('complete')"
+      @complete="handleComplete"
+      @select="$emit('select', $event)"
       @submit="$emit('submit')"
       @deactivate="$emit('deactivate')"
       @split="$emit('split', $event)"

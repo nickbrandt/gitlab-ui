@@ -48,9 +48,7 @@ describe('Filtered search token', () => {
       createComponent();
       findOperatorSegment().vm.$emit('activate');
 
-      return nextTick().then(() => {
-        expect(wrapper.emitted().activate).toHaveLength(1);
-      });
+      expect(wrapper.emitted().activate).toHaveLength(1);
     });
 
     it('activates operator segment if value is empty', () => {
@@ -65,10 +63,9 @@ describe('Filtered search token', () => {
         value: { data: '' },
         config: { operators: [{ value: '=', title: 'is' }] },
       });
-      return nextTick().then(() => {
-        expect(findDataSegment().props().active).toBe(true);
-        expect(wrapper.emitted().input[0][0]).toStrictEqual({ data: '', operator: '=' });
-      });
+
+      expect(findDataSegment().props().active).toBe(true);
+      expect(wrapper.emitted().input[0][0]).toStrictEqual({ data: '', operator: '=' });
     });
 
     it('activates data segment if value is not empty', () => {
@@ -78,34 +75,28 @@ describe('Filtered search token', () => {
     });
   });
 
-  it('activates operator segment when clicked', () => {
+  it('activates operator segment when clicked', async () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-    findOperatorSegment().vm.$emit('activate');
+    await findOperatorSegment().vm.$emit('activate');
 
-    return nextTick().then(() => {
-      expect(findOperatorSegment().props().active).toBe(true);
-    });
+    expect(findOperatorSegment().props().active).toBe(true);
   });
 
-  it('activates data segment when clicked', () => {
+  it('activates data segment when clicked', async () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-    findOperatorSegment().vm.$emit('activate');
+    await findOperatorSegment().vm.$emit('activate');
 
-    return nextTick().then(() => {
-      expect(findOperatorSegment().props().active).toBe(true);
-    });
+    expect(findOperatorSegment().props().active).toBe(true);
   });
 
-  it('activates title segment when title is clicked', () => {
+  it('activates title segment when title is clicked', async () => {
     createComponent({ active: true, value: { operator: '=' } });
 
-    findTitleSegment().vm.$emit('activate');
+    await findTitleSegment().vm.$emit('activate');
 
-    return nextTick().then(() => {
-      expect(findTitleSegment().props().active).toBe(true);
-    });
+    expect(findTitleSegment().props().active).toBe(true);
   });
 
   it('replaces itself when value is empty and backspace is pressed', () => {
@@ -113,9 +104,7 @@ describe('Filtered search token', () => {
 
     findOperatorSegment().vm.$emit('backspace');
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().replace).toHaveLength(1);
-    });
+    expect(wrapper.emitted().replace).toHaveLength(1);
   });
 
   it('ignores backspace when value is not empty and backspace is pressed', () => {
@@ -123,9 +112,7 @@ describe('Filtered search token', () => {
 
     findOperatorSegment().vm.$emit('backspace');
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().replace).toBeUndefined();
-    });
+    expect(wrapper.emitted().replace).toBeUndefined();
   });
 
   it('jumps to data segment when operator segment is completed', () => {
@@ -134,9 +121,7 @@ describe('Filtered search token', () => {
     findOperatorSegment().vm.$emit('input', '=');
     findOperatorSegment().vm.$emit('complete');
 
-    return nextTick().then(() => {
-      expect(findDataSegment().props().active).toBe(true);
-    });
+    expect(findDataSegment().props().active).toBe(true);
   });
 
   it.each`
@@ -147,44 +132,34 @@ describe('Filtered search token', () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
     selector().vm.$emit('deactivate');
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().deactivate).toHaveLength(1);
-    });
+    expect(wrapper.emitted().deactivate).toHaveLength(1);
   });
 
-  it('emits destroy when deactivated and value is empty', () => {
+  it('emits destroy when deactivated and value is empty', async () => {
     createComponent({ active: true });
 
-    return nextTick()
-      .then(() => {
-        wrapper.setProps({ active: false });
-        return nextTick();
-      })
-      .then(() => {
-        expect(wrapper.emitted().destroy).toHaveLength(1);
-      });
+    await nextTick();
+    await wrapper.setProps({ active: false });
+
+    expect(wrapper.emitted().destroy).toHaveLength(1);
   });
 
-  it('activates operator segment when backspace is pressed in data segmented', () => {
+  it('activates operator segment when backspace is pressed in data segmented', async () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-    findDataSegment().vm.$emit('backspace');
+    await findDataSegment().vm.$emit('backspace');
 
-    return nextTick().then(() => {
-      expect(findOperatorSegment().props().active).toBe(true);
-    });
+    expect(findOperatorSegment().props().active).toBe(true);
   });
 
-  it.each(['complete', 'split', 'submit'])(
+  it.each(['complete', 'split', 'submit', 'select'])(
     'passes-through %s event when data segment emits it',
     (event) => {
       createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
       findDataSegment().vm.$emit(event);
 
-      return nextTick().then(() => {
-        expect(wrapper.emitted(event)).toHaveLength(1);
-      });
+      expect(wrapper.emitted(event)).toHaveLength(1);
     }
   );
 
@@ -198,10 +173,8 @@ describe('Filtered search token', () => {
 
     findTitleSegment().vm.$emit('complete', availableTokens[1].title);
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().replace).toHaveLength(1);
-      expect(wrapper.emitted().replace[0][0].value).toStrictEqual(originalValue);
-    });
+    expect(wrapper.emitted().replace).toHaveLength(1);
+    expect(wrapper.emitted().replace[0][0].value).toStrictEqual(originalValue);
   });
 
   it('resets value when replaced by incompatible token', () => {
@@ -214,10 +187,8 @@ describe('Filtered search token', () => {
 
     findTitleSegment().vm.$emit('complete', availableTokens[2].title);
 
-    return nextTick().then(() => {
-      expect(wrapper.emitted().replace).toHaveLength(1);
-      expect(wrapper.emitted().replace[0][0].value).toStrictEqual({ data: '' });
-    });
+    expect(wrapper.emitted().replace).toHaveLength(1);
+    expect(wrapper.emitted().replace[0][0].value).toStrictEqual({ data: '' });
   });
 
   describe('integration tests', () => {
@@ -260,35 +231,42 @@ describe('Filtered search token', () => {
       closeWrapper.element.closest = () => closeWrapper.element;
       closeWrapper.trigger('mousedown');
 
-      return nextTick().then(() => {
-        expect(wrapper.emitted().destroy).toHaveLength(1);
-      });
+      expect(wrapper.emitted().destroy).toHaveLength(1);
     });
 
-    it('jumps to data segment and applies selection if no match is available for key and data is empty', () => {
+    it('jumps to data segment and applies selection if no match is available for key and data is empty', async () => {
       mountComponent({ active: true, value: observable({ operator: '', data: '' }) });
-      return nextTick()
-        .then(() => {
-          wrapper.find('input').trigger('keydown', { key: 'q' });
-          return nextTick();
-        })
-        .then(() => {
-          expect(wrapper.emitted().input[0][0].operator).toBe('=');
-          expect(findDataSegment().props().active).toBe(true);
-        });
+
+      await wrapper.find('input').trigger('keydown', { key: 'q' });
+
+      expect(wrapper.emitted().input[0][0].operator).toBe('=');
+      expect(findDataSegment().props().active).toBe(true);
     });
 
-    it('jumps to data segment and applies selection when space is pressed', () => {
+    it('jumps to data segment and applies selection when space is pressed', async () => {
       mountComponent({ active: true, value: observable({ operator: '!=', data: '' }) });
-      return nextTick()
-        .then(() => {
-          wrapper.find('input').trigger('keydown', { key: ' ' });
-          return nextTick();
-        })
-        .then(() => {
-          expect(wrapper.emitted().input[0][0].operator).toBe('=');
-          expect(findDataSegment().props().active).toBe(true);
-        });
+
+      await wrapper.find('input').trigger('keydown', { key: ' ' });
+
+      expect(wrapper.emitted().input[0][0].operator).toBe('=');
+      expect(findDataSegment().props().active).toBe(true);
+    });
+  });
+
+  describe('when multi select', () => {
+    beforeEach(() => {
+      createComponent({
+        active: true,
+        config: { multiSelect: true },
+        multiSelectValues: ['alpha', 'beta'],
+        value: { operator: '=', data: 'alpha' },
+      });
+
+      findDataSegment().vm.$emit('complete');
+    });
+
+    it('emits input event when complete event is received', () => {
+      expect(wrapper.emitted('input')).toEqual([[{ data: 'alpha,beta', operator: '=' }]]);
     });
   });
 });

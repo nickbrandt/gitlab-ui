@@ -1,8 +1,11 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlFilteredSearch, GlFilteredSearchToken } from '../../../../index';
+import { COMMA } from '../../../utils/constants';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import readme from './filtered_search.md';
+
+const ajaxDelay = 500;
 
 const fakeUsers = [
   { id: 1, name: 'User Alpha', username: 'alpha' },
@@ -29,15 +32,24 @@ const fakeLabels = [
 ];
 
 const UserToken = {
-  props: ['value', 'active'],
+  multiSelectLimit: 2,
+  props: ['value', 'active', 'config'],
   inheritAttrs: false,
   data() {
     return {
       loadingView: false,
       loadingSuggestions: false,
-      users: [],
+      users: fakeUsers,
+      selectedUsernames: this.value.data ? this.value.data.split(COMMA) : [],
       activeUser: null,
     };
+  },
+  computed: {
+    selectedUsers() {
+      return this.config.multiSelect
+        ? this.users.filter((user) => this.selectedUsernames.includes(user.username))
+        : this.users.filter((user) => user.username === this.activeUser);
+    },
   },
   methods: {
     loadView() {
@@ -45,14 +57,31 @@ const UserToken = {
       setStoryTimeout(() => {
         this.loadingView = false;
         this.activeUser = fakeUsers.find((u) => u.username === this.value.data);
-      }, 1000);
+      }, ajaxDelay);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.users = fakeUsers;
-      }, 2000);
+      }, ajaxDelay);
+    },
+    handleSelect(username) {
+      if (!this.config.multiSelect) {
+        return;
+      }
+
+      if (this.selectedUsernames.includes(username)) {
+        this.selectedUsernames = this.selectedUsernames.filter((user) => user !== username);
+      } else {
+        this.selectedUsernames.push(username);
+        if (this.selectedUsernames.length > this.$options.multiSelectLimit) {
+          this.selectedUsernames.splice(0, 1);
+        }
+      }
+    },
+    isLastUser(index) {
+      return index === this.selectedUsers.length - 1;
     },
   },
   watch: {
@@ -77,19 +106,32 @@ const UserToken = {
     <gl-filtered-search-token
       v-bind="{ ...this.$props, ...this.$attrs }"
       v-on="$listeners"
+      :multi-select-values="selectedUsernames"
+      @select="handleSelect"
     >
-      <template #view="{ inputValue }">
-        <gl-loading-icon size="sm" v-if="loadingView" />
-        <gl-avatar :size="16" :entity-name="inputValue" shape="circle" v-else />
-        {{ activeUser ? activeUser.name : inputValue }}
-      </template>
-      <template #suggestions>
-        <template v-if="loadingSuggestions">
-          <gl-loading-icon />
+    <template #view="{ inputValue }">
+      <gl-loading-icon size="sm" v-if="loadingView" />
+      <template v-else>
+        <template v-for="(user, index) in selectedUsers">
+          <gl-avatar :size="16" :entity-name="user.username" shape="circle" />
+          {{ user.name }}
+          <span v-if="!isLastUser(index)" class="gl-mx-2">OR</span>
         </template>
-        <template v-else>
+      </template>
+    </template>
+    <template #suggestions>
+      <template v-if="loadingSuggestions">
+        <gl-loading-icon />
+      </template>
+      <template v-else>
         <gl-filtered-search-suggestion :key="user.id" v-for="user in users" :value="user.username">
-          <div class="gl-display-flex">
+          <div class="gl-display-flex gl-align-items-center">
+            <gl-icon
+              v-if="config.multiSelect"
+              name="check"
+              class="gl-mr-3 gl-text-gray-700"
+              :class="{ 'gl-visibility-hidden': !selectedUsernames.includes(user.username) }"
+            />
             <gl-avatar :size="32" :entity-name="user.username" />
             <div>
               <p class="gl-m-0">{{ user.name }}</p>
@@ -97,8 +139,8 @@ const UserToken = {
             </div>
           </div>
         </gl-filtered-search-suggestion>
-        </template>
       </template>
+    </template>
     </gl-filtered-search-token>
   `,
 };
@@ -259,6 +301,7 @@ const tokens = [
     icon: 'pencil',
     title: 'Author',
     dataType: 'user',
+    multiSelect: true,
     unique: true,
     token: UserToken,
   },
@@ -291,6 +334,7 @@ documentedStoriesOf('base/filtered-search', readme)
         tokens,
         value: [
           { type: 'user', value: { data: 'beta', operator: '=' } },
+          { type: 'author', value: { data: 'alpha,beta', operator: '=' } },
           { type: 'label', value: { data: 'Bug', operator: '=' } },
           'raw text',
         ],
