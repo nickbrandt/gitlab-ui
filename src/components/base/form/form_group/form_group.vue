@@ -81,7 +81,7 @@ export default {
       return defaultValidationClass;
     },
   },
-  feedbackTextClass: 'gl-display-flex gl-font-base gl-line-height-normal gl-mt-3',
+  feedbackTextClass: 'gl-display-block gl-font-base gl-line-height-normal gl-mt-3',
 };
 </script>
 <template>

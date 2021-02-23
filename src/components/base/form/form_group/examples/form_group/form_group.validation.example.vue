@@ -1,5 +1,5 @@
 <script>
-export const validationStates = {
+const validationStates = {
   DEFAULT: 'DEFAULT',
   VALID: 'VALID',
   INVALID: 'INVALID',
