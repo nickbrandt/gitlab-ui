@@ -1,3 +1,10 @@
+# [27.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.10.0...v27.11.0) (2021-02-23)
+
+
+### Features
+
+* **css:** gl-pl-8 utility class ([53799fc](https://gitlab.com/gitlab-org/gitlab-ui/commit/53799fc313a2a84ca2c6cee3f1237c738b0ab4e7))
+
 # [27.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.9.1...v27.10.0) (2021-02-22)
 
 
