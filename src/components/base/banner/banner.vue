@@ -55,10 +55,12 @@ export default {
     <div class="gl-banner-content">
       <h1 class="gl-banner-title">{{ title }}</h1>
       <slot></slot>
-      <gl-button variant="info" category="primary" :href="buttonLink">{{ buttonText }}</gl-button>
+      <gl-button variant="confirm" category="primary" :href="buttonLink">{{
+        buttonText
+      }}</gl-button>
     </div>
     <gl-button
-      :variant="isIntroducing ? 'info' : 'default'"
+      :variant="isIntroducing ? 'confirm' : 'default'"
       category="tertiary"
       size="small"
       icon="close"
