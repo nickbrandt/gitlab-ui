@@ -93,6 +93,7 @@ export { default as GlAccordion } from './src/components/base/accordion/accordio
 export { default as GlAccordionItem } from './src/components/base/accordion/accordion_item.vue';
 export { default as GlCarousel } from './src/components/base/carousel/carousel.vue';
 export { default as GlCarouselSlide } from './src/components/base/carousel/carousel_slide.vue';
+export { default as RichTextEditor } from './src/components/editors/rich_text_editor/rich_text_editor.vue';
 
 // Utilities
 export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
