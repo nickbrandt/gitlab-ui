@@ -59,6 +59,11 @@ export default {
       required: false,
       default: false,
     },
+    sticky: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     iconName() {
@@ -122,7 +127,15 @@ export default {
 </script>
 
 <template>
-  <div :class="['gl-alert', { 'gl-alert-max-content': contained }, variantClass]" role="alert">
+  <div
+    :class="[
+      'gl-alert',
+      { 'gl-alert-max-content': contained },
+      { 'gl-alert-sticky': sticky },
+      variantClass,
+    ]"
+    role="alert"
+  >
     <div class="gl-alert-container">
       <gl-icon
         :name="iconName"

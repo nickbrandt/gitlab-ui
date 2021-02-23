@@ -19,6 +19,7 @@ const template = `
     :primary-button-link="primaryButtonLink"
     :secondary-button-link="secondaryButtonLink"
     :contained="contained"
+    :sticky="sticky"
   >{{ message }}</gl-alert>`;
 
 const defaultValue = (prop) => GlAlert.props[prop].default;
@@ -33,6 +34,7 @@ function generateProps({
   secondaryButtonText = defaultValue('secondaryButtonText'),
   secondaryButtonLink = defaultValue('secondaryButtonLink'),
   contained = defaultValue('contained'),
+  sticky = defaultValue('sticky'),
 } = {}) {
   return {
     title: {
@@ -74,6 +76,9 @@ function generateProps({
     contained: {
       default: boolean('contained', contained),
     },
+    sticky: {
+      default: boolean('sticky', sticky),
+    },
   };
 }
 
@@ -109,4 +114,18 @@ documentedStoriesOf('base/alert', readme)
       contained: true,
     }),
     template,
+  }))
+  .add('sticky', () => ({
+    components,
+    props: generateProps({
+      sticky: true,
+    }),
+    template: `
+      <div style="max-height: 200px; overflow-y: auto;">
+        ${template}
+        <div style="height: 200px;" class="gl-bg-red-100 gl-my-3"><p>Scrolling content…</p></div>
+        <div style="height: 200px;" class="gl-bg-green-100 gl-my-3"><p>Scrolling content…</p></div>
+        <div style="height: 200px;" class="gl-bg-blue-100 gl-my-3"><p>Scrolling content…</p></div>
+      </div>
+    `,
   }));

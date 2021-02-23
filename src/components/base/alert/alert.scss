@@ -14,6 +14,11 @@
   }
 }
 
+.gl-alert-sticky {
+  @include gl-sticky;
+  @include gl-top-0;
+}
+
 .gl-alert-title {
   @include gl-font-base;
   @include gl-font-weight-bold;
