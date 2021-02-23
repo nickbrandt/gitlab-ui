@@ -1,3 +1,10 @@
+# [27.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.11.0...v27.12.0) (2021-02-23)
+
+
+### Features
+
+* **GlAlert:** Add sticky property ([edb326f](https://gitlab.com/gitlab-org/gitlab-ui/commit/edb326f10c792dfaba460164553c86cb7e76be4c))
+
 # [27.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.10.0...v27.11.0) (2021-02-23)
 
 
