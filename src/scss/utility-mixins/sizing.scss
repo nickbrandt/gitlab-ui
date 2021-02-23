@@ -194,6 +194,12 @@
   }
 }
 
+@mixin gl-md-w-auto {
+  @media (min-width: $breakpoint-md) {
+    width: auto;
+  }
+}
+
 /**
 * Minimum/Maximun dimension (width/height) utilities
 *
