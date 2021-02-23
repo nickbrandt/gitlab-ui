@@ -1,3 +1,10 @@
+## [27.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.12.0...v27.12.1) (2021-02-23)
+
+
+### Bug Fixes
+
+* **banner:** Remove deprecated info button variant in favor of confirm ([5e5c1e9](https://gitlab.com/gitlab-org/gitlab-ui/commit/5e5c1e95dd42f29cc72a83cdac09c30ec1cd217c))
+
 # [27.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.11.0...v27.12.0) (2021-02-23)
 
 
