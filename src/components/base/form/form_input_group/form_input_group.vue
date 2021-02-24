@@ -1,7 +1,7 @@
 <script>
 import { BInputGroup, BInputGroupPrepend, BInputGroupAppend, BFormInput } from 'bootstrap-vue';
-import GlDeprecatedDropdown from '../../deprecated_dropdown/deprecated_dropdown.vue';
-import GlDeprecatedDropdownItem from '../../deprecated_dropdown/deprecated_dropdown_item.vue';
+import GlDropdown from '../../dropdown/dropdown.vue';
+import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import InputGroupMixin from './form_input_group_mixin';
 
 export default {
@@ -11,8 +11,8 @@ export default {
     BInputGroupPrepend,
     BInputGroupAppend,
     BFormInput,
-    GlDeprecatedDropdown,
-    GlDeprecatedDropdownItem,
+    GlDropdown,
+    GlDropdownItem,
   },
   mixins: [InputGroupMixin],
   props: {
@@ -52,16 +52,17 @@ export default {
     <b-input-group>
       <b-input-group-prepend v-if="activeOption || $scopedSlots.prepend">
         <slot name="prepend"></slot>
-        <gl-deprecated-dropdown v-if="activeOption" :text="activeOption">
-          <gl-deprecated-dropdown-item
+        <gl-dropdown v-if="activeOption" :text="activeOption">
+          <gl-dropdown-item
             v-for="option in predefinedOptions"
             :key="option.value"
-            :active="activeOption === option.name"
+            is-check-item
+            :is-checked="activeOption === option.name"
             @click="updateValue(option)"
           >
             {{ option.name }}
-          </gl-deprecated-dropdown-item>
-        </gl-deprecated-dropdown>
+          </gl-dropdown-item>
+        </gl-dropdown>
       </b-input-group-prepend>
       <slot>
         <b-form-input
