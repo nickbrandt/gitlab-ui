@@ -1,3 +1,10 @@
+# [27.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.12.2...v27.13.0) (2021-02-24)
+
+
+### Features
+
+* **css:** Add gl-md-w-auto ([93bb29a](https://gitlab.com/gitlab-org/gitlab-ui/commit/93bb29a09c036ce2ac6101494cdd083ea70b47a7))
+
 ## [27.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.12.1...v27.12.2) (2021-02-24)
 
 
