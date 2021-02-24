@@ -4,7 +4,7 @@
   @include gl-px-8;
   @include gl-py-5;
 
-  .gl-link {
+  .gl-link:not(.gl-label-link) {
     @include gl-text-blue-600;
     @include gl-text-decoration-underline;
 
