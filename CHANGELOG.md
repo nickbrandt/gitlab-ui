@@ -1,3 +1,10 @@
+## [27.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.13.0...v27.13.1) (2021-02-24)
+
+
+### Bug Fixes
+
+* **GlFormInputGroup:** Migrate GlDeprecatedDropdown to GlDropdown ([4950fef](https://gitlab.com/gitlab-org/gitlab-ui/commit/4950feff8442c5c44ce8b3f68a73b1695fdf800c))
+
 # [27.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.12.2...v27.13.0) (2021-02-24)
 
 
