@@ -378,7 +378,7 @@ describe('Filtered search integration tests', () => {
         availableTokens: testTokens,
         ...props,
       },
-      attachToDocument: true,
+      attachTo: document.body,
     });
   };
 

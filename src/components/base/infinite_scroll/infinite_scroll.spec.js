@@ -28,7 +28,7 @@ describe('Infinite Scroll component', () => {
       localVue,
       propsData,
       listeners,
-      attachToDocument: true,
+      attachTo: document.body,
     });
 
     // Mock properties on the container that are not in JSDOM

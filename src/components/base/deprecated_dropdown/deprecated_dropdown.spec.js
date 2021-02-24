@@ -15,7 +15,7 @@ describe('Dropdown component', () => {
 
   const createComponent = (props) => {
     wrapper = mount(Dropdown, {
-      attachToDocument: true,
+      attachTo: document.body,
       ...props,
     });
   };

@@ -121,8 +121,8 @@ describe('chart legend component', () => {
 
   it('renders the inline layout by default', () => {
     expect(legendWrapper.props().layout).toMatch('inline');
-    expect(legendWrapper.contains('.gl-legend-inline')).toBe(true);
-    expect(legendWrapper.contains('.gl-legend-tabular')).toBe(false);
+    expect(legendWrapper.find('.gl-legend-inline').exists()).toBe(true);
+    expect(legendWrapper.find('.gl-legend-tabular').exists()).toBe(false);
   });
 
   describe('when setting the layout prop to table', () => {
@@ -132,11 +132,11 @@ describe('chart legend component', () => {
     });
 
     it('renders the table layout', () => {
-      expect(legendWrapper.contains('.gl-legend-tabular')).toBe(true);
+      expect(legendWrapper.find('.gl-legend-tabular').exists()).toBe(true);
     });
 
     it('does not render the inline layout', () => {
-      expect(legendWrapper.contains('.gl-legend-inline')).toBe(false);
+      expect(legendWrapper.find('.gl-legend-inline').exists()).toBe(false);
     });
 
     it('allows user to override min value label text using props', () => {

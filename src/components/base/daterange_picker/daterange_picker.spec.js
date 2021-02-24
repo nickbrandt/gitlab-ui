@@ -59,7 +59,7 @@ describe('Daterange Picker', () => {
         });
 
         it('does not emit the "input" event when there is a date range violation', () => {
-          expect(wrapper.emittedByOrder()).toEqual([]);
+          expect(Object.keys(wrapper.emitted())).toHaveLength(0);
         });
 
         it('sets openToCalendar=true', () => {
@@ -73,12 +73,7 @@ describe('Daterange Picker', () => {
 
       describe('with no date range violation', () => {
         it('emits the "input" event', () => {
-          expect(wrapper.emittedByOrder()).toEqual([
-            {
-              name: 'input',
-              args: [{ startDate, endDate: wrapper.vm.endDate }],
-            },
-          ]);
+          expect(wrapper.emitted('input')).toEqual([[{ startDate, endDate: wrapper.vm.endDate }]]);
         });
       });
     });
@@ -100,12 +95,7 @@ describe('Daterange Picker', () => {
       });
 
       it('calls the event handler', () => {
-        expect(wrapper.emittedByOrder()).toEqual([
-          {
-            name: 'input',
-            args: [{ startDate: wrapper.vm.startDate, endDate }],
-          },
-        ]);
+        expect(wrapper.emitted('input')).toEqual([[{ startDate: wrapper.vm.startDate, endDate }]]);
       });
     });
   });

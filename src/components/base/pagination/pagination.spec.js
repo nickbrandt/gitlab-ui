@@ -142,7 +142,7 @@ describe('pagination component', () => {
       disabled: true,
     });
 
-    expect(findButtons().is('span')).toBe(true);
+    expect(findButtons().wrappers.every((w) => w.element.tagName === 'SPAN')).toBe(true);
   });
 
   describe('with a total of 4 pages and 3rd page active', () => {
@@ -158,7 +158,7 @@ describe('pagination component', () => {
       const buttons = findButtons();
       expect(buttons.at(3).classes()).toEqual(expectClassActive);
       buttons.wrappers.forEach((button) => {
-        expect(button.is('span')).toBe(false);
+        expect(button.element.tagName).not.toBe('SPAN');
       });
     });
 
@@ -198,9 +198,9 @@ describe('pagination component', () => {
 
     it('shows 1st page as active and disables previous button', () => {
       const buttons = findButtons();
-      expect(buttons.at(0).is('span')).toBe(true);
+      expect(buttons.at(0).element.tagName).toBe('SPAN');
       expect(buttons.at(1).classes()).toEqual(expectClassActive);
-      expect(buttons.at(buttons.length - 1).is('span')).toBe(false);
+      expect(buttons.at(buttons.length - 1).element.tagName).not.toBe('SPAN');
     });
 
     it('shows first 5 pages and collapses right side on desktop', () => {
@@ -286,9 +286,9 @@ describe('pagination component', () => {
 
     it('shows 15th page as active and disables next button', () => {
       const buttons = findButtons();
-      expect(buttons.at(0).is('span')).toBe(false);
+      expect(buttons.at(0).element.tagName).not.toBe('SPAN');
       expect(buttons.at(7).classes()).toEqual(expectClassActive);
-      expect(buttons.at(buttons.length - 1).is('span')).toBe(true);
+      expect(buttons.at(buttons.length - 1).element.tagName).toBe('SPAN');
     });
 
     it('shows pages 11 to 15 and collapses left side on desktop', () => {
@@ -351,7 +351,7 @@ describe('pagination component', () => {
         nextPage: 2,
       });
       const prevButton = findButtons().at(0);
-      expect(prevButton.is('span')).toBe(true);
+      expect(prevButton.element.tagName).toBe('SPAN');
       expect(prevButton.attributes('aria-disabled')).toBe('true');
     });
 
@@ -362,7 +362,7 @@ describe('pagination component', () => {
         prevPage: 1,
       });
       const nextButton = findButtons().at(1);
-      expect(nextButton.is('span')).toBe(true);
+      expect(nextButton.element.tagName).toBe('SPAN');
       expect(nextButton.attributes('aria-disabled')).toBe('true');
     });
   });

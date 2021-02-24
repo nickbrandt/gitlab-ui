@@ -53,7 +53,7 @@ describe('segmented control', () => {
 
     it('should not warn or emit', () => {
       expect(global.console.warn).not.toHaveBeenCalled();
-      expect(wrapper.emittedByOrder().length).toBe(0);
+      expect(Object.keys(wrapper.emitted)).toHaveLength(0);
     });
   });
 
@@ -71,7 +71,7 @@ describe('segmented control', () => {
     });
 
     it('should emit', () => {
-      expect(wrapper.emittedByOrder()).toEqual([{ name: 'input', args: ['valid-one'] }]);
+      expect(wrapper.emitted('input')).toEqual([['valid-one']]);
     });
   });
 
@@ -84,7 +84,7 @@ describe('segmented control', () => {
     });
 
     it('should not emit', () => {
-      expect(wrapper.emittedByOrder().length).toBe(0);
+      expect(Object.keys(wrapper.emitted())).toHaveLength(0);
     });
   });
 
@@ -100,7 +100,7 @@ describe('segmented control', () => {
     });
 
     it('should emit value', () => {
-      expect(wrapper.emittedByOrder()).toEqual([{ name: 'input', args: ['valid-one'] }]);
+      expect(wrapper.emitted('input')).toEqual([['valid-one']]);
     });
   });
 
@@ -116,7 +116,7 @@ describe('segmented control', () => {
     });
 
     it('should emit value', () => {
-      expect(wrapper.emittedByOrder()).toEqual([{ name: 'input', args: ['bogus'] }]);
+      expect(wrapper.emitted('input')).toEqual([['bogus']]);
     });
   });
 
@@ -133,10 +133,7 @@ describe('segmented control', () => {
     });
 
     it('should only emit a legitimate value', () => {
-      expect(wrapper.emittedByOrder()).toEqual([
-        { name: 'input', args: ['valid-one'] },
-        { name: 'input', args: ['valid-one'] },
-      ]);
+      expect(wrapper.emitted('input')).toEqual([['valid-one'], ['valid-one']]);
     });
   });
 });

@@ -1,3 +1,5 @@
+const { config: testUtilsConfig } = require('@vue/test-utils');
+
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
 const get = require('lodash/get');
 const isString = require('lodash/isString');
@@ -18,6 +20,19 @@ expect.extend({
     };
   },
 });
+
+testUtilsConfig.deprecationWarningHandler = (method, message) => {
+  const ALLOWED_DEPRECATED_METHODS = [
+    // https://gitlab.com/gitlab-org/gitlab/-/issues/295679
+    'finding components with `find` or `get`',
+
+    // https://gitlab.com/gitlab-org/gitlab/-/issues/295680
+    'finding components with `findAll`',
+  ];
+  if (!ALLOWED_DEPRECATED_METHODS.includes(method)) {
+    throw new Error(message);
+  }
+};
 
 // Adopted from https://github.com/testing-library/jest-dom/blob/main/src/to-have-focus.js
 expect.extend({
