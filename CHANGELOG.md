@@ -1,3 +1,10 @@
+## [27.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.12.1...v27.12.2) (2021-02-24)
+
+
+### Bug Fixes
+
+* ensure labels are not underlined in gl-alerts ([c2740b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/c2740b51570b20ea7e444b7e48a51f6fb7e995a1))
+
 ## [27.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.12.0...v27.12.1) (2021-02-23)
 
 
