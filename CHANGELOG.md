@@ -1,3 +1,15 @@
+# [27.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.13.1...v27.14.0) (2021-02-25)
+
+
+### Features
+
+* **css:** Add gl-mt-11 ([8c94546](https://gitlab.com/gitlab-org/gitlab-ui/commit/8c9454616d51be4166c3078370cae8a3cb9c8dcd))
+
+
+### Reverts
+
+* temporarily revert the update for icon sizes ([5d09680](https://gitlab.com/gitlab-org/gitlab-ui/commit/5d0968075198d6d19c262e9603946208be7fc769))
+
 ## [27.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.13.0...v27.13.1) (2021-02-24)
 
 
