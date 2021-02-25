@@ -16,7 +16,7 @@ describe('Infinite Scroll component', () => {
   let mockScrollTop;
   let mockScrollTo;
 
-  const findInfiniteContainer = () => wrapper.find({ ref: 'infiniteContainer' });
+  const findInfiniteContainer = () => wrapper.findComponent({ ref: 'infiniteContainer' });
 
   const props = {
     fetchedItems: 2,

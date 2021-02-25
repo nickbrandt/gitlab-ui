@@ -16,7 +16,7 @@ describe('GlNavItemDropdown', () => {
     });
   };
 
-  const findBNavItemDropdown = () => wrapper.find(BNavItemDropdown);
+  const findBNavItemDropdown = () => wrapper.findComponent(BNavItemDropdown);
 
   afterEach(() => {
     wrapper.destroy();
@@ -38,7 +38,7 @@ describe('GlNavItemDropdown', () => {
       it('renders default template', () => {
         factory();
 
-        const glIcon = wrapper.find(GlIcon);
+        const glIcon = wrapper.findComponent(GlIcon);
 
         expect(glIcon.exists()).toBeTruthy();
         expect(glIcon.classes('dropdown-chevron')).toBeTruthy();

@@ -51,10 +51,10 @@ describe('GlTokenSelectorDropdown', () => {
     });
   };
 
-  const findDropdownMenu = () => wrapper.find({ ref: 'dropdownMenu' });
+  const findDropdownMenu = () => wrapper.findComponent({ ref: 'dropdownMenu' });
 
   const findDropdownItemByName = (name, findButton = true) => {
-    const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
+    const dropdownItemWrappers = wrapper.findAllComponents(GlDropdownItem);
 
     const dropdownItem = dropdownItemWrappers.wrappers.find(
       (dropdownItemWrapper) => dropdownItemWrapper.text() === name
@@ -115,7 +115,7 @@ describe('GlTokenSelectorDropdown', () => {
           propsData: { show: true, loading: true },
         });
 
-        expect(wrapper.find(GlDropdownItem).text()).toBe('Searching...');
+        expect(wrapper.findComponent(GlDropdownItem).text()).toBe('Searching...');
       });
     });
 
@@ -124,7 +124,7 @@ describe('GlTokenSelectorDropdown', () => {
         it('displays passed dropdown items', () => {
           createComponent();
 
-          expect(wrapper.findAll(GlDropdownItem).length).toBe(4);
+          expect(wrapper.findAllComponents(GlDropdownItem).length).toBe(4);
         });
       });
 
@@ -138,7 +138,7 @@ describe('GlTokenSelectorDropdown', () => {
             },
           });
 
-          expect(wrapper.find(GlDropdownItem).text()).toBe('Add "foo bar"');
+          expect(wrapper.findComponent(GlDropdownItem).text()).toBe('Add "foo bar"');
         });
 
         it('displays no results message when `allowUserDefinedTokens` is `false`', () => {
@@ -150,7 +150,7 @@ describe('GlTokenSelectorDropdown', () => {
             },
           });
 
-          expect(wrapper.find(GlDropdownItem).text()).toBe('No matches found');
+          expect(wrapper.findComponent(GlDropdownItem).text()).toBe('No matches found');
         });
 
         it('displays no results message when `inputText` is empty', () => {
@@ -162,7 +162,7 @@ describe('GlTokenSelectorDropdown', () => {
             },
           });
 
-          expect(wrapper.find(GlDropdownItem).text()).toBe('No matches found');
+          expect(wrapper.findComponent(GlDropdownItem).text()).toBe('No matches found');
         });
       });
     });
@@ -205,7 +205,7 @@ describe('GlTokenSelectorDropdown', () => {
         },
       });
 
-      const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
+      const dropdownItemWrappers = wrapper.findAllComponents(GlDropdownItem);
 
       expect(
         dropdownItemWrappers.wrappers.every(

@@ -38,10 +38,10 @@ describe('Label component', () => {
     wrapper.destroy();
   });
 
-  const findLink = () => wrapper.find(GlLink);
+  const findLink = () => wrapper.findComponent(GlLink);
   const findTitle = () => wrapper.find('.gl-label-text');
   const findSubTitle = () => wrapper.find('.gl-label-text-scoped');
-  const findTooltipText = () => wrapper.find(GlTooltip).text();
+  const findTooltipText = () => wrapper.findComponent(GlTooltip).text();
   const findCloseButton = () => wrapper.find('button');
 
   describe('basic label', () => {
@@ -104,7 +104,7 @@ describe('Label component', () => {
 
       createComponent(props);
 
-      expect(wrapper.find(GlLink).attributes('href')).toEqual(props.target);
+      expect(wrapper.findComponent(GlLink).attributes('href')).toEqual(props.target);
     });
 
     describe('close button', () => {

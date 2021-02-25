@@ -16,10 +16,10 @@ describe('line component', () => {
   let wrapper;
   let option;
 
-  const findChart = () => wrapper.find(Chart);
-  const findLegend = () => wrapper.find(ChartLegend);
-  const findDataTooltip = () => wrapper.find({ ref: 'dataTooltip' });
-  const findAnnotationsTooltip = () => wrapper.find({ ref: 'annotationsTooltip' });
+  const findChart = () => wrapper.findComponent(Chart);
+  const findLegend = () => wrapper.findComponent(ChartLegend);
+  const findDataTooltip = () => wrapper.findComponent({ ref: 'dataTooltip' });
+  const findAnnotationsTooltip = () => wrapper.findComponent({ ref: 'annotationsTooltip' });
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 

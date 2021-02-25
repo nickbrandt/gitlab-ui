@@ -22,7 +22,7 @@ describe('column chart component', () => {
   };
 
   const chartItemClickedSpy = jest.fn();
-  const findChart = () => wrapper.find(Chart);
+  const findChart = () => wrapper.findComponent(Chart);
 
   const factory = (props = defaultChartProps) => {
     wrapper = shallowMount(ColumnChart, {

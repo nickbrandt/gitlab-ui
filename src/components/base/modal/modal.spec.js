@@ -28,12 +28,12 @@ describe('Modal component', () => {
   let wrapperListeners;
   let wrapper;
 
-  const findModal = () => wrapper.find(BModalStub);
+  const findModal = () => wrapper.findComponent(BModalStub);
   const findPrimaryButton = () => wrapper.find('.js-modal-action-primary');
   const findSecondaryButton = () => wrapper.find('.js-modal-action-secondary');
   const findCancelButton = () => wrapper.find('.js-modal-action-cancel');
 
-  const expectCloseButton = () => expect(wrapper.find(CloseButton).exists()).toBe(true);
+  const expectCloseButton = () => expect(wrapper.findComponent(CloseButton).exists()).toBe(true);
 
   const createComponent = ({ props = {}, slots = {} } = {}) => {
     wrapperListeners = {
@@ -128,7 +128,7 @@ describe('Modal component', () => {
     });
 
     it('should render three buttons', () => {
-      expect(wrapper.findAll(Button)).toHaveLength(3);
+      expect(wrapper.findAllComponents(Button)).toHaveLength(3);
     });
 
     it('buttons should render prop text', () => {

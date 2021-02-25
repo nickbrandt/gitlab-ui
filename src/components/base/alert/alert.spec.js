@@ -20,7 +20,7 @@ describe('Alert component', () => {
     });
   };
 
-  const findDismissButton = () => wrapper.find({ ref: 'dismiss' });
+  const findDismissButton = () => wrapper.findComponent({ ref: 'dismiss' });
   const findTitle = () => wrapper.find('.gl-alert-title');
   const findBodyContainer = () => wrapper.find('.gl-alert-body');
   const findActionsContainer = () => wrapper.find('.gl-alert-actions');

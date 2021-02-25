@@ -13,8 +13,8 @@ describe('search box by type component', () => {
     wrapper = mountFn(SearchBoxByType, { propsData, listeners });
   };
 
-  const findClearIcon = () => wrapper.find(ClearIcon);
-  const findInput = () => wrapper.find({ ref: 'input' });
+  const findClearIcon = () => wrapper.findComponent(ClearIcon);
+  const findInput = () => wrapper.findComponent({ ref: 'input' });
 
   afterEach(() => {
     wrapper.destroy();
@@ -124,6 +124,6 @@ describe('search box by type component', () => {
   it('renders loading icon when `isLoading` prop is provided', () => {
     createComponent({ isLoading: true });
 
-    expect(wrapper.find(LoadingIcon).exists()).toBe(true);
+    expect(wrapper.findComponent(LoadingIcon).exists()).toBe(true);
   });
 });

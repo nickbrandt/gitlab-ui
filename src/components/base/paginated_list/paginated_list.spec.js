@@ -68,7 +68,7 @@ describe('Paginated List', () => {
     it('renders the list filtered by search results', async () => {
       createComponent({ list });
 
-      const search = wrapper.find(GlSearchBoxByType);
+      const search = wrapper.findComponent(GlSearchBoxByType);
       search.vm.$emit('input', 'ba');
 
       await wrapper.vm.$nextTick();
@@ -79,7 +79,7 @@ describe('Paginated List', () => {
     it('renders the default empty search message when there are no search results', async () => {
       createComponent({ list });
 
-      const search = wrapper.find(GlSearchBoxByType);
+      const search = wrapper.findComponent(GlSearchBoxByType);
       search.vm.$emit('input', 'qux');
 
       await wrapper.vm.$nextTick();
@@ -93,7 +93,7 @@ describe('Paginated List', () => {
 
       createComponent({ list, emptySearchMessage: msg });
 
-      const search = wrapper.find(GlSearchBoxByType);
+      const search = wrapper.findComponent(GlSearchBoxByType);
       search.vm.$emit('input', 'qux');
 
       await wrapper.vm.$nextTick();
@@ -124,8 +124,8 @@ describe('Paginated List', () => {
       createComponent({ list });
 
       expect(wrapper.findAll('.item').length).toEqual(10);
-      expect(wrapper.find(GlPagination).props('totalItems')).toEqual(13);
-      expect(wrapper.find(GlPagination).props('perPage')).toEqual(10);
+      expect(wrapper.findComponent(GlPagination).props('totalItems')).toEqual(13);
+      expect(wrapper.findComponent(GlPagination).props('perPage')).toEqual(10);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -133,8 +133,8 @@ describe('Paginated List', () => {
       createComponent({ list, perPage: 20 });
 
       expect(wrapper.findAll('.item').length).toEqual(13);
-      expect(wrapper.find(GlPagination).props('totalItems')).toEqual(13);
-      expect(wrapper.find(GlPagination).props('perPage')).toEqual(20);
+      expect(wrapper.findComponent(GlPagination).props('totalItems')).toEqual(13);
+      expect(wrapper.findComponent(GlPagination).props('perPage')).toEqual(20);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -142,8 +142,8 @@ describe('Paginated List', () => {
       createComponent({ list, perPage: 5 });
 
       expect(wrapper.findAll('.item').length).toEqual(5);
-      expect(wrapper.find(GlPagination).props('totalItems')).toEqual(13);
-      expect(wrapper.find(GlPagination).props('perPage')).toEqual(5);
+      expect(wrapper.findComponent(GlPagination).props('totalItems')).toEqual(13);
+      expect(wrapper.findComponent(GlPagination).props('perPage')).toEqual(5);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -167,7 +167,7 @@ describe('Paginated List', () => {
       it('has search enabled by default', () => {
         createComponent();
 
-        expect(wrapper.find(GlSearchBoxByType).exists()).toBeTruthy();
+        expect(wrapper.findComponent(GlSearchBoxByType).exists()).toBeTruthy();
       });
 
       it('has search disabled when filterable prop set to false', () => {

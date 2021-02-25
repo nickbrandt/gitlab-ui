@@ -61,12 +61,12 @@ describe('empty state component', () => {
     });
 
     it('should only render one button', () => {
-      const buttons = component.findAll(Button);
+      const buttons = component.findAllComponents(Button);
       expect(buttons).toHaveLength(1);
     });
 
     it('should render the primary button', () => {
-      const button = component.find(Button);
+      const button = component.findComponent(Button);
       expect(button.attributes().href).toEqual(props.primaryButtonLink);
     });
   });
@@ -86,17 +86,17 @@ describe('empty state component', () => {
     });
 
     it('should render two buttons', () => {
-      const buttons = component.findAll(Button);
+      const buttons = component.findAllComponents(Button);
       expect(buttons).toHaveLength(2);
     });
 
     it('should render the primary button', () => {
-      const button = component.find(Button);
+      const button = component.findComponent(Button);
       expect(button.attributes().href).toEqual(props.primaryButtonLink);
     });
 
     it('should also render the secondary button', () => {
-      const button = component.findAll(Button).at(1);
+      const button = component.findAllComponents(Button).at(1);
       expect(button.attributes().href).toEqual(props.secondaryButtonLink);
     });
   });
@@ -119,7 +119,7 @@ describe('empty state component', () => {
     });
 
     it(`should render slot's contents instead of default buttons`, () => {
-      const defaultButtons = component.findAll(Button);
+      const defaultButtons = component.findAllComponents(Button);
       const customButtons = component.find('button');
       expect(defaultButtons.length).toBe(0);
       expect(customButtons.exists()).toBe(true);

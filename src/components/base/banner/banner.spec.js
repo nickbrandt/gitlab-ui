@@ -24,7 +24,7 @@ describe('banner component', () => {
       });
 
       it('should render the button', () => {
-        const button = wrapper.find(GlButton);
+        const button = wrapper.findComponent(GlButton);
 
         expect(button.text()).toEqual(propsData.buttonText);
         expect(button.attributes('href')).toEqual(propsData.buttonLink);

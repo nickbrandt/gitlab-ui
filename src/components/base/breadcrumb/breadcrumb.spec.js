@@ -16,7 +16,7 @@ describe('Broadcast message component', () => {
 
   const findAvatarSlot = () => wrapper.find('[data-testid="avatar-slot"]');
   const findSeparatorSlot = () => wrapper.find('[data-testid="separator-slot"]');
-  const findBreadcrumbItems = () => wrapper.findAll(BBreadcrumbItem);
+  const findBreadcrumbItems = () => wrapper.findAllComponents(BBreadcrumbItem);
   const findAllSeparators = () => wrapper.findAll('[data-testid="separator"]');
 
   const createComponent = (propsData = { items }) => {

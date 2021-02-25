@@ -83,7 +83,7 @@ _.12
 describe('GlFormCheckboxTree', () => {
   let wrapper;
 
-  const findCheckboxes = (el = wrapper) => el.findAll(GlFormCheckbox);
+  const findCheckboxes = (el = wrapper) => el.findAllComponents(GlFormCheckbox);
   const countIndeterminate = () => wrapper.findAll('.js-is-indeterminate').length || 0;
   const countChecked = () => wrapper.findAll('.js-is-checked').length || 0;
   const findCheckboxByValue = (value) => wrapper.find(`[data-qa-selector="${QA_PREFIX}${value}"]`);

@@ -10,7 +10,7 @@ describe('sorting item component', () => {
   const defaultProps = {};
 
   const findActiveIcon = () => wrapper.find('.js-active-icon');
-  const findGlDropdownItem = () => wrapper.find(GlDropdownItem);
+  const findGlDropdownItem = () => wrapper.findComponent(GlDropdownItem);
 
   const createComponent = (propsData) => {
     wrapper = shallowMount(GlSortingItem, {

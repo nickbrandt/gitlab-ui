@@ -27,7 +27,7 @@ describe('avatar labeled', () => {
 
     buildWrapper({ alt: altText });
 
-    expect(wrapper.find(Avatar).props('alt')).not.toEqual(altText);
+    expect(wrapper.findComponent(Avatar).props('alt')).not.toEqual(altText);
   });
 
   it('displays the avatar label', () => {
@@ -57,13 +57,13 @@ describe('avatar labeled', () => {
     });
 
     it('displays the avatar label link', () => {
-      const labelLink = wrapper.findAll(GlLink).at(0);
+      const labelLink = wrapper.findAllComponents(GlLink).at(0);
       expect(labelLink.text()).toBe(label);
       expect(labelLink.attributes('href')).toBe('http://label');
     });
 
     it('displays the avatar sub-label link', () => {
-      const subLabelLink = wrapper.findAll(GlLink).at(1);
+      const subLabelLink = wrapper.findAllComponents(GlLink).at(1);
       expect(subLabelLink.text()).toBe(subLabel);
       expect(subLabelLink.attributes('href')).toBe('http://subLabel');
     });
@@ -75,7 +75,7 @@ describe('avatar labeled', () => {
     });
 
     it('does not display any link', () => {
-      expect(wrapper.findAll(GlLink).exists()).toBe(false);
+      expect(wrapper.findAllComponents(GlLink).exists()).toBe(false);
     });
   });
 });

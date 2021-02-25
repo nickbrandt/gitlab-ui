@@ -130,7 +130,7 @@ describe('Filtered search', () => {
       wrapper.find(FakeToken).vm.$emit('deactivate');
       return wrapper.vm.$nextTick().then(() => {
         expect(
-          wrapper.findAll({ ref: 'tokens' }).filter((w) => w.props('active') === true)
+          wrapper.findAllComponents({ ref: 'tokens' }).filter((w) => w.props('active') === true)
         ).toHaveLength(0);
       });
     });
@@ -146,7 +146,7 @@ describe('Filtered search', () => {
         .$nextTick()
         .then(() => {
           wrapper.find(FakeToken).vm.$emit('activate');
-          wrapper.findAll(FakeToken).at(1).vm.$emit('deactivate');
+          wrapper.findAllComponents(FakeToken).at(1).vm.$emit('deactivate');
           return wrapper.vm.$nextTick();
         })
         .then(() => {
@@ -155,7 +155,7 @@ describe('Filtered search', () => {
     });
 
     it('removes empty term tokens on deactivate', () => {
-      const findSecondTerm = () => wrapper.findAll(GlFilteredSearchTerm).at(1);
+      const findSecondTerm = () => wrapper.findAllComponents(GlFilteredSearchTerm).at(1);
       createComponent({
         value: [{ type: 'faketoken', value: { data: '' } }, 'one', 'two', 'three'],
       });
@@ -268,7 +268,7 @@ describe('Filtered search', () => {
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
       wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.findAll(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
+        expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
         expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
           { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
           { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
@@ -384,14 +384,14 @@ describe('Filtered search integration tests', () => {
 
   const activate = (idx) =>
     wrapper
-      .findAll(GlFilteredSearchTerm)
+      .findAllComponents(GlFilteredSearchTerm)
       .at(idx)
       .find('div.gl-filtered-search-token-segment')
       .trigger('mousedown');
 
   const findInput = () =>
     wrapper
-      .findAll(GlFilteredSearchTerm)
+      .findAllComponents(GlFilteredSearchTerm)
       .filter((t) => t.props().active)
       .at(0)
       .find('input');
@@ -429,7 +429,7 @@ describe('Filtered search integration tests', () => {
     it('displays suggestions list', () => {
       const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(true);
-      expect(suggestions.findAll(GlFilteredSearchSuggestion)).toHaveLength(
+      expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(
         testTokens.filter((t) => !t.disabled).length
       );
     });
@@ -440,7 +440,7 @@ describe('Filtered search integration tests', () => {
       return wrapper.vm.$nextTick().then(() => {
         const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
         expect(suggestions.exists()).toBe(true);
-        expect(suggestions.findAll(GlFilteredSearchSuggestion)).toHaveLength(1);
+        expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(1);
       });
     });
 
@@ -450,7 +450,7 @@ describe('Filtered search integration tests', () => {
       return wrapper.vm.$nextTick().then(() => {
         const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
         expect(suggestions.exists()).toBe(true);
-        expect(suggestions.findAll(GlFilteredSearchSuggestion)).toHaveLength(3);
+        expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(3);
       });
     });
 
@@ -501,7 +501,7 @@ describe('Filtered search integration tests', () => {
     return wrapper.vm.$nextTick().then(() => {
       const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(true);
-      expect(suggestions.findAll(GlFilteredSearchSuggestion)).toHaveLength(2);
+      expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
     });
   });
 
@@ -515,7 +515,9 @@ describe('Filtered search integration tests', () => {
         return wrapper.vm.$nextTick();
       })
       .then(() => {
-        expect(wrapper.findAll(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(true);
+        expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(
+          true
+        );
       });
   });
 
@@ -526,7 +528,7 @@ describe('Filtered search integration tests', () => {
       .$nextTick()
       .then(() => {
         // Unfortunately backspace is not working in JSDOM
-        wrapper.findAll(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
+        wrapper.findAllComponents(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
         return wrapper.vm.$nextTick();
       })
       .then(() => {
@@ -543,7 +545,7 @@ describe('Filtered search integration tests', () => {
       .filter((b) => b.attributes('name') === 'clear')
       .trigger('click');
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.findAll(GlFilteredSearchTerm)).toHaveLength(1);
+      expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(1);
     });
   });
 });

@@ -51,7 +51,7 @@ describe('GlFormRadioGroup', () => {
     });
 
     it('emits an input event, but not a change event', () => {
-      expect(wrapper.find(GlFormRadioGroup).emitted()).toEqual({
+      expect(wrapper.findComponent(GlFormRadioGroup).emitted()).toEqual({
         input: [[secondOption.value]],
       });
     });
@@ -72,7 +72,7 @@ describe('GlFormRadioGroup', () => {
     });
 
     it('emits an input event and a change event', () => {
-      expect(wrapper.find(GlFormRadioGroup).emitted()).toEqual({
+      expect(wrapper.findComponent(GlFormRadioGroup).emitted()).toEqual({
         input: [[secondOption.value]],
         change: [[secondOption.value]],
       });

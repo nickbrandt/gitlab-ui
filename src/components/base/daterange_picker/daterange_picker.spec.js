@@ -19,8 +19,8 @@ describe('Daterange Picker', () => {
     });
   };
 
-  const findStartPicker = () => wrapper.findAll(Datepicker).at(0);
-  const findEndPicker = () => wrapper.findAll(Datepicker).at(1);
+  const findStartPicker = () => wrapper.findAllComponents(Datepicker).at(0);
+  const findEndPicker = () => wrapper.findAllComponents(Datepicker).at(1);
 
   afterEach(() => {
     wrapper.destroy();

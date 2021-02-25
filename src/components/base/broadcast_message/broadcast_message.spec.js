@@ -8,7 +8,7 @@ describe('Broadcast message component', () => {
     wrapper = shallowMount(GlBroadcastMessage, options);
   };
 
-  const findDismissButton = () => wrapper.find({ ref: 'dismiss' });
+  const findDismissButton = () => wrapper.findComponent({ ref: 'dismiss' });
 
   beforeEach(() => {
     createComponent({ slots: { default: 'some message' } });

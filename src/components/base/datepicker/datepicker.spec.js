@@ -15,7 +15,7 @@ describe('datepicker component', () => {
 
   const findInput = (wrapper) => wrapper.find('[data-testid="gl-datepicker-input"]');
   const findClearButton = (wrapper) => wrapper.find('[data-testid="clear-button"]');
-  const findTriggerButton = (wrapper) => wrapper.find({ ref: 'calendarTriggerBtn' });
+  const findTriggerButton = (wrapper) => wrapper.findComponent({ ref: 'calendarTriggerBtn' });
   const findCalendarIcon = (wrapper) => wrapper.find('[data-testid="datepicker-calendar-icon"]');
 
   beforeEach(() => {

@@ -97,7 +97,7 @@ describe('tabs component', () => {
         });
 
         it('renders two of a kind', () => {
-          expect(wrapper.findAll(GlButton)).toHaveLength(2);
+          expect(wrapper.findAllComponents(GlButton)).toHaveLength(2);
         });
 
         it('passes the correct defaults attributes', () => {
@@ -124,7 +124,7 @@ describe('tabs component', () => {
           mount
         );
 
-        expect(wrapper.find(GlButton).props()).toMatchObject({
+        expect(wrapper.findComponent(GlButton).props()).toMatchObject({
           variant: 'success',
           category: 'primary',
         });

@@ -10,7 +10,7 @@ describe('button component', () => {
       propsData,
     });
   };
-  const findLoadingIcon = () => wrapper.find(GlLoadingIcon);
+  const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
 
   afterEach(() => {
     wrapper.destroy();

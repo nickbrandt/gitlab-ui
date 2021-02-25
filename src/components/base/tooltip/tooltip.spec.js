@@ -13,7 +13,7 @@ describe('GlTooltip', () => {
     });
   };
 
-  const findBVTooltip = () => wrapper.find({ ref: 'bvTooltip' });
+  const findBVTooltip = () => wrapper.findComponent({ ref: 'bvTooltip' });
 
   beforeEach(() => {
     createWrapper();
