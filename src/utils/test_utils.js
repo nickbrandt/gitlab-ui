@@ -6,6 +6,8 @@ export function setStoryTimeout(fn, timeout) {
   return setTimeout(fn, process.env.IS_VISUAL_TEST ? 0 : timeout);
 }
 
+export const flushPromises = () => new Promise((resolve) => setImmediate(resolve));
+
 // adopted this method from Bootstraps utils
 // https://github.com/bootstrap-vue/bootstrap-vue/blob/2fd03f0b1d0cc41f9930078ba8b1c16b10e4ac2f/tests/utils.js#L6
 export const waitForAnimationFrame = () => new Promise((resolve) => requestAnimationFrame(resolve));

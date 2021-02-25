@@ -65,6 +65,8 @@
     "lodash": "^4.17.20",
     "portal-vue": "^2.1.6",
     "resize-observer-polyfill": "^1.5.1",
+    "tiptap": "^1.32.1",
+    "tiptap-extensions": "^1.35.1",
     "url-search-params-polyfill": "^5.0.0",
     "vue-runtime-helpers": "^1.1.2"
   },
