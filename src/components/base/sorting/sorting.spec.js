@@ -24,7 +24,7 @@ describe('sorting component', () => {
 
   const createComponent = (propsData) => {
     wrapper = mount(GlSorting, {
-      attachToDocument: true,
+      attachTo: document.body,
       components: {
         GlSortingItem,
       },

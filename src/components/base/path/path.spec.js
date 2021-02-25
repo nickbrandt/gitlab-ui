@@ -185,11 +185,7 @@ describe('Path', () => {
         clickItemAt(4);
         clickItemAt(6);
 
-        expect(wrapper.emittedByOrder()).toEqual([
-          { name: 'selected', args: [items[1]] },
-          { name: 'selected', args: [items[4]] },
-          { name: 'selected', args: [items[6]] },
-        ]);
+        expect(wrapper.emitted('selected')).toEqual([[items[1]], [items[4]], [items[6]]]);
       });
     });
   });

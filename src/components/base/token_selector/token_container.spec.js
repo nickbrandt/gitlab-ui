@@ -35,7 +35,7 @@ describe('GlTokenContainer', () => {
         ...defaultProps,
         ...(options?.propsData || {}),
       },
-      attachToDocument: true,
+      attachTo: document.body,
     });
   };
 
