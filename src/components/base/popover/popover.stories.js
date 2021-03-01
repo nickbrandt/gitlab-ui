@@ -35,7 +35,11 @@ documentedStoriesOf('base/popover', '')
     props: generateProps(),
     computed: {
       content() {
-        return `Placement ${this.placement}`;
+        return `
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat a nisi non
+          pellentesque. Pellentesque efficitur vulputate rutrum. Fusce nisl magna, porttitor in
+          massa ac, porta condimentum libero. Ut id lacus tristique, egestas arcu non, molestie nisi.
+        `;
       },
     },
   }));
