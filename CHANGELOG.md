@@ -1,3 +1,10 @@
+# [27.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.14.0...v27.15.0) (2021-03-01)
+
+
+### Features
+
+* **GlPopover:** Update popover max-width to match Figma specs ([c4cfb42](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4cfb4212d3f587f855bd4de522ca8e6afa055dd))
+
 # [27.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.13.1...v27.14.0) (2021-02-25)
 
 
