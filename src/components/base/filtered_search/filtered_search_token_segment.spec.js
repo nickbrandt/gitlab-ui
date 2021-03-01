@@ -165,7 +165,9 @@ describe('Filtered search token segment', () => {
     await wrapper.setData({ value: 'invalid' });
     await wrapper.setProps({ active: false });
 
-    expect(wrapper.find(GlFilteredSearchTokenSegment).emitted().input[0][0]).toBe(originalValue);
+    expect(wrapper.findComponent(GlFilteredSearchTokenSegment).emitted().input[0][0]).toBe(
+      originalValue
+    );
   });
 
   describe('applySuggestion', () => {

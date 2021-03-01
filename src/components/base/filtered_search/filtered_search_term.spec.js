@@ -52,7 +52,7 @@ describe('Filtered search term', () => {
   it('filters suggestions by input', () => {
     createComponent({ availableTokens, active: true, value: { data: 'test1' } });
     return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.findAll(GlFilteredSearchSuggestion)).toHaveLength(2);
+      expect(wrapper.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
     });
   });
 

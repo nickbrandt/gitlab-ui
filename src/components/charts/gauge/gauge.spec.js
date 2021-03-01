@@ -22,7 +22,7 @@ describe('gauge component', () => {
   let wrapper;
   let options;
 
-  const findChart = () => wrapper.find(Chart);
+  const findChart = () => wrapper.findComponent(Chart);
   const findChartOptions = () => findChart().props('options');
 
   const findSeries = () => findChartOptions().series[0];

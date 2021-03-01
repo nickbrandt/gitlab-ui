@@ -30,9 +30,13 @@ describe('chart component', () => {
   });
 
   it('initializes chart using $refs.chart', () => {
-    expect(echarts.init).toHaveBeenCalledWith(wrapper.find({ ref: 'chart' }).element, themeName, {
-      renderer: wrapper.props().renderer,
-    });
+    expect(echarts.init).toHaveBeenCalledWith(
+      wrapper.findComponent({ ref: 'chart' }).element,
+      themeName,
+      {
+        renderer: wrapper.props().renderer,
+      }
+    );
   });
 
   it('emits "created" after initializing chart', () => {

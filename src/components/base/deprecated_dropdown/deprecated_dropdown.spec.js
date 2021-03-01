@@ -43,7 +43,7 @@ describe('Dropdown component', () => {
 
     it('renders a BDropdown', () => {
       createComponent();
-      expect(wrapper.find(BDropdown).exists()).toBe(true);
+      expect(wrapper.findComponent(BDropdown).exists()).toBe(true);
     });
 
     it('hide method does hide the dropdown', () => {

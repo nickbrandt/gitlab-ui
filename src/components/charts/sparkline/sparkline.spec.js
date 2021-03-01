@@ -52,9 +52,9 @@ describe('sparkline chart component', () => {
   };
 
   // helpers
-  const getChart = () => wrapper.find(Chart);
+  const getChart = () => wrapper.findComponent(Chart);
 
-  const getTooltip = () => wrapper.find(ChartTooltip);
+  const getTooltip = () => wrapper.findComponent(ChartTooltip);
   const getTooltipTitle = () => getTooltip().find('.js-tooltip-title');
   const getTooltipContent = () => getTooltip().find('.js-tooltip-content');
 
@@ -94,7 +94,7 @@ describe('sparkline chart component', () => {
   });
 
   it('renders a chart', () => {
-    expect(wrapper.find(Chart).exists()).toBe(true);
+    expect(wrapper.findComponent(Chart).exists()).toBe(true);
   });
 
   it('has a default height of 50', () => {

@@ -21,14 +21,14 @@ describe('avatars inline', () => {
     });
   };
 
-  const findBadgeTooltip = () => wrapper.find(GlTooltip);
+  const findBadgeTooltip = () => wrapper.findComponent(GlTooltip);
 
   afterEach(() => wrapper.destroy());
 
   it('displays all avatars when component is not collapsed', () => {
     buildWrapper({ avatars, maxVisible: 1, avatarSize: 24, collapsed: false });
 
-    expect(wrapper.findAll(Avatar).length).toBe(avatars.length);
+    expect(wrapper.findAllComponents(Avatar).length).toBe(avatars.length);
   });
 
   it('adds collapsed class selector when collapsed=true', () => {
@@ -43,14 +43,14 @@ describe('avatars inline', () => {
     });
 
     it('displays all avatars', () => {
-      expect(wrapper.findAll(Avatar).length).toBe(avatars.length);
+      expect(wrapper.findAllComponents(Avatar).length).toBe(avatars.length);
     });
   });
 
   it('hides all additional avatars beyond maxVisible', () => {
     buildWrapper({ avatars, maxVisible: avatars.length - 1, avatarSize: 24, collapsed: true });
 
-    expect(wrapper.findAll(Avatar).length).toBe(2);
+    expect(wrapper.findAllComponents(Avatar).length).toBe(2);
   });
 
   it('adds md class selector to badge when avatar size is 24', () => {

@@ -64,23 +64,23 @@ describe('GlTokenSelector', () => {
   };
 
   const findTokenByName = (name) => {
-    const tokenWrappers = wrapper.findAll(GlToken);
+    const tokenWrappers = wrapper.findAllComponents(GlToken);
 
     return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
 
   const findDropdownItemByName = (name) => {
-    const dropdownItemWrappers = wrapper.findAll(GlDropdownItem);
+    const dropdownItemWrappers = wrapper.findAllComponents(GlDropdownItem);
 
     return dropdownItemWrappers.wrappers.find(
       (dropdownItemWrapper) => dropdownItemWrapper.text() === name
     );
   };
 
-  const findTextInput = () => wrapper.find({ ref: 'textInput' });
+  const findTextInput = () => wrapper.findComponent({ ref: 'textInput' });
 
   const findDropdownMenu = () =>
-    wrapper.find(GlTokenSelectorDropdown).find({ ref: 'dropdownMenu' });
+    wrapper.findComponent(GlTokenSelectorDropdown).findComponent({ ref: 'dropdownMenu' });
 
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
@@ -111,7 +111,7 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(wrapper.findAll(GlDropdownItem).length).toBe(4);
+        expect(wrapper.findAllComponents(GlDropdownItem).length).toBe(4);
       });
     });
 
@@ -119,7 +119,9 @@ describe('GlTokenSelector', () => {
       it('passes prop to `gl-token-selector-dropdown` component', () => {
         createComponent({ propsData: { allowUserDefinedTokens: true } });
 
-        expect(wrapper.find(GlTokenSelectorDropdown).vm.$props.allowUserDefinedTokens).toBe(true);
+        expect(
+          wrapper.findComponent(GlTokenSelectorDropdown).vm.$props.allowUserDefinedTokens
+        ).toBe(true);
       });
     });
 
@@ -127,7 +129,7 @@ describe('GlTokenSelector', () => {
       it('passes prop to `gl-token-selector-dropdown` component', () => {
         createComponent({ propsData: { loading: true } });
 
-        expect(wrapper.find(GlTokenSelectorDropdown).vm.$props.loading).toBe(true);
+        expect(wrapper.findComponent(GlTokenSelectorDropdown).vm.$props.loading).toBe(true);
       });
     });
 
@@ -150,7 +152,7 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(wrapper.find({ ref: 'container' }).classes()).toContain('gl-h-auto');
+        expect(wrapper.findComponent({ ref: 'container' }).classes()).toContain('gl-h-auto');
       });
     });
 
@@ -186,8 +188,10 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(wrapper.findAll(GlToken).at(0).classes()).not.toContain('gl-bg-data-viz-blue-500');
-        expect(wrapper.findAll(GlToken).at(4).classes()).toEqual([
+        expect(wrapper.findAllComponents(GlToken).at(0).classes()).not.toContain(
+          'gl-bg-data-viz-blue-500'
+        );
+        expect(wrapper.findAllComponents(GlToken).at(4).classes()).toEqual([
           'gl-cursor-default',
           'gl-token',
           'gl-token-default-variant',
@@ -239,7 +243,7 @@ describe('GlTokenSelector', () => {
         },
       });
 
-      expect(wrapper.findAll(GlToken).length).toBe(4);
+      expect(wrapper.findAllComponents(GlToken).length).toBe(4);
     });
   });
 
@@ -255,7 +259,7 @@ describe('GlTokenSelector', () => {
     `('passes `$slot` to `$componentName`', ({ slot, component }) => {
       createComponent({ propsData: { dropdownItems, selectedTokens: tokens } });
 
-      expect(wrapper.find(component).vm.$scopedSlots).toHaveProperty(slot);
+      expect(wrapper.findComponent(component).vm.$scopedSlots).toHaveProperty(slot);
     });
   });
 
@@ -349,7 +353,7 @@ describe('GlTokenSelector', () => {
         textInput.setValue('foo bar');
         await textInput.trigger('keydown.delete');
 
-        wrapper.findAll(GlToken).wrappers.forEach((tokenWrapper) => {
+        wrapper.findAllComponents(GlToken).wrappers.forEach((tokenWrapper) => {
           expect(tokenWrapper.element).not.toHaveFocus();
         });
       });
@@ -462,7 +466,7 @@ describe('GlTokenSelector', () => {
         propsData: { dropdownItems },
       });
 
-      wrapper.find(GlTokenSelectorDropdown).vm.$emit('dropdown-item-click', item);
+      wrapper.findComponent(GlTokenSelectorDropdown).vm.$emit('dropdown-item-click', item);
 
       await nextTick();
     });
@@ -484,7 +488,7 @@ describe('GlTokenSelector', () => {
         propsData: { selectedTokens: [token] },
       });
 
-      wrapper.find(GlTokenContainer).vm.$emit('token-remove', token);
+      wrapper.findComponent(GlTokenContainer).vm.$emit('token-remove', token);
 
       await nextTick();
     });
@@ -502,7 +506,7 @@ describe('GlTokenSelector', () => {
     it('focuses on the text input', async () => {
       createComponent();
 
-      const container = wrapper.find({ ref: 'container' });
+      const container = wrapper.findComponent({ ref: 'container' });
       container.element.closest = () => null;
 
       container.trigger('click');
@@ -526,7 +530,7 @@ describe('GlTokenSelector', () => {
         selectedTokens: tokens,
       });
 
-      wrapper.find(GlTokenContainer).vm.$emit('cancel-focus');
+      wrapper.findComponent(GlTokenContainer).vm.$emit('cancel-focus');
 
       await nextTick();
 

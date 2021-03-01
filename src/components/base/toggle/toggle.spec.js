@@ -81,11 +81,11 @@ describe('toggle', () => {
     });
 
     it(`${isLoading ? 'shows' : 'does not show'} loading spinner`, () => {
-      expect(wrapper.find(LoadingIcon).exists()).toBe(isLoading);
+      expect(wrapper.findComponent(LoadingIcon).exists()).toBe(isLoading);
     });
 
     it(`${isLoading ? 'does not show' : 'shows'} toggle icon`, () => {
-      expect(wrapper.find(Icon).exists()).toBe(!isLoading);
+      expect(wrapper.findComponent(Icon).exists()).toBe(!isLoading);
     });
   });
 

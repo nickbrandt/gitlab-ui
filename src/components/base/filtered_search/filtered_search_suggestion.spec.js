@@ -56,7 +56,7 @@ describe('Filtered search suggestion component', () => {
   it('emits suggestion event on list instance when clicked', () => {
     const value = 'demo';
     createComponent(value);
-    wrapper.find(GlDropdownItem).trigger('mousedown');
+    wrapper.findComponent(GlDropdownItem).trigger('mousedown');
     expect(listMock.$emit).toHaveBeenCalledWith('suggestion', value);
   });
 
@@ -64,7 +64,7 @@ describe('Filtered search suggestion component', () => {
     createComponent();
     listMock.activeItem = wrapper.vm;
     return wrapper.vm.$nextTick(() => {
-      expect(wrapper.find(GlDropdownItem).classes()).toContain(
+      expect(wrapper.findComponent(GlDropdownItem).classes()).toContain(
         'gl-filtered-search-suggestion-active'
       );
     });

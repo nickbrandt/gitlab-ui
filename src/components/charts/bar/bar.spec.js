@@ -33,8 +33,8 @@ const defaultChartProps = {
 describe('Bar chart component', () => {
   let wrapper;
 
-  const findChart = () => wrapper.find(Chart);
-  const findChartTooltip = () => wrapper.find(ChartTooltip);
+  const findChart = () => wrapper.findComponent(Chart);
+  const findChartTooltip = () => wrapper.findComponent(ChartTooltip);
   const getOptions = () => findChart().props('options');
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 

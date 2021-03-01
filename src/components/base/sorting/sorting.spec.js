@@ -20,7 +20,7 @@ describe('sorting component', () => {
 
   const selectDropdownButton = () => wrapper.find('.gl-new-dropdown button');
   const selectDirectionButton = () => wrapper.find('.sorting-direction-button');
-  const selectDropdown = () => wrapper.find(GlDropdown);
+  const selectDropdown = () => wrapper.findComponent(GlDropdown);
 
   const createComponent = (propsData) => {
     wrapper = mount(GlSorting, {
@@ -62,7 +62,7 @@ describe('sorting component', () => {
     createComponent();
 
     expect(wrapper.vm.isAscending).toBe(false);
-    expect(selectDirectionButton().find(GlIcon).props('name')).toBe('sort-highest');
+    expect(selectDirectionButton().findComponent(GlIcon).props('name')).toBe('sort-highest');
   });
 
   it('should show new text value when passed in as a prop', () => {
@@ -84,7 +84,7 @@ describe('sorting component', () => {
     });
 
     expect(wrapper.vm.isAscending).toBe(true);
-    expect(selectDirectionButton().find(GlIcon).props('name')).toBe('sort-lowest');
+    expect(selectDirectionButton().findComponent(GlIcon).props('name')).toBe('sort-lowest');
   });
 
   it('should emit the sortDirectionChange event when direction button is clicked', () => {

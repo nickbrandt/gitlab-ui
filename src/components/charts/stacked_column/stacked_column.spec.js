@@ -30,8 +30,8 @@ describe('stacked column chart component', () => {
   let wrapper;
   let options;
 
-  const findChart = () => wrapper.find(Chart);
-  const findLegend = () => wrapper.find(ChartLegend);
+  const findChart = () => wrapper.findComponent(Chart);
+  const findLegend = () => wrapper.findComponent(ChartLegend);
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 

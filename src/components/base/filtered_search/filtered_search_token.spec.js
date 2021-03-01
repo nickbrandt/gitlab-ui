@@ -6,9 +6,9 @@ import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 describe('Filtered search token', () => {
   let wrapper;
 
-  const findTitleSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(0);
-  const findOperatorSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(1);
-  const findDataSegment = () => wrapper.findAll(GlFilteredSearchTokenSegment).at(2);
+  const findTitleSegment = () => wrapper.findAllComponents(GlFilteredSearchTokenSegment).at(0);
+  const findOperatorSegment = () => wrapper.findAllComponents(GlFilteredSearchTokenSegment).at(1);
+  const findDataSegment = () => wrapper.findAllComponents(GlFilteredSearchTokenSegment).at(2);
   const availableTokens = [
     {
       type: 'compatible1',

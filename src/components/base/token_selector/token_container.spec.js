@@ -40,7 +40,7 @@ describe('GlTokenContainer', () => {
   };
 
   const findTokenByName = (name) => {
-    const tokenWrappers = wrapper.findAll({ ref: 'tokens' });
+    const tokenWrappers = wrapper.findAllComponents({ ref: 'tokens' });
 
     return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
@@ -58,7 +58,7 @@ describe('GlTokenContainer', () => {
       it('renders passed tokens', () => {
         createComponent();
 
-        expect(wrapper.findAll(GlToken).length).toBe(4);
+        expect(wrapper.findAllComponents(GlToken).length).toBe(4);
       });
     });
 
@@ -79,7 +79,7 @@ describe('GlTokenContainer', () => {
         },
       });
 
-      const tokenWrappers = wrapper.findAll(GlToken);
+      const tokenWrappers = wrapper.findAllComponents(GlToken);
 
       expect(
         tokenWrappers.wrappers.every(
@@ -109,7 +109,7 @@ describe('GlTokenContainer', () => {
         },
       });
 
-      const firstToken = wrapper.find(GlToken);
+      const firstToken = wrapper.findComponent(GlToken);
       firstToken.vm.$emit('close');
     });
 
@@ -118,7 +118,7 @@ describe('GlTokenContainer', () => {
     });
 
     it('cancels token focus', () => {
-      wrapper.findAll({ ref: 'tokens' }).wrappers.forEach((tokenWrapper) => {
+      wrapper.findAllComponents({ ref: 'tokens' }).wrappers.forEach((tokenWrapper) => {
         expect(tokenWrapper.element).not.toHaveFocus();
       });
     });

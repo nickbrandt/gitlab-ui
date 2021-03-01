@@ -81,7 +81,7 @@ describe('chart legend component', () => {
   });
 
   it('displays correct number of series labels', () => {
-    expect(legendWrapper.findAll(GlChartSeriesLabel).length).toBe(3);
+    expect(legendWrapper.findAllComponents(GlChartSeriesLabel).length).toBe(3);
   });
 
   it('allows user to override max value label text using props', () => {
@@ -114,7 +114,7 @@ describe('chart legend component', () => {
 
   describe('when clicking on a series label', () => {
     it('dispatches a `highlight` action on the chart', () => {
-      legendWrapper.find(GlChartSeriesLabel).trigger('click');
+      legendWrapper.findComponent(GlChartSeriesLabel).trigger('click');
       expect(chart.dispatchAction).toHaveBeenCalled();
     });
   });

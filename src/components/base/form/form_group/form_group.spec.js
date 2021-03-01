@@ -26,7 +26,7 @@ describe('Form group component', () => {
         },
       });
 
-      expect(wrapper.find(BFormGroup).props('labelClass')).toEqual(expectedProp);
+      expect(wrapper.findComponent(BFormGroup).props('labelClass')).toEqual(expectedProp);
     }
   );
 });
