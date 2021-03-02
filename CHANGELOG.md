@@ -1,3 +1,29 @@
+# [28.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.15.0...v28.0.0) (2021-03-02)
+
+
+### Bug Fixes
+
+* **GlFormCheckbox:** Show pointer cursor on hover ([dd1f45a](https://gitlab.com/gitlab-org/gitlab-ui/commit/dd1f45aadd9e0a540e14a2c0bd2e39b709361508))
+* **GlFormCheckboxTree:** Increase indentation to better align checkbox ([1e4e301](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e4e301950c8609655b48378e4552202ecad12ec))
+
+
+### Features
+
+* **GlFormCheckbox:** Style checkboxes according to design ([ec54f68](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec54f68fcda42481bd8f967026644d4bb2676a75))
+* **GlFormRadio:** Style custom radio boxes and improve text spacing ([874260f](https://gitlab.com/gitlab-org/gitlab-ui/commit/874260f5bed2bda705a31ab547fd7f95864ea251))
+
+
+### BREAKING CHANGES
+
+* **GlFormRadio:** updates gitlab-ui radio box elements to utilize some
+of the same stylings as the checkboxes taking advantage of bootstrap's
+styled radio implementation, with alternations made to conform to the
+UI kit design including colors, hover states, and other enhancements
+* **GlFormCheckbox:** updates gitlab-ui checkboxes to utilize bootstrap's
+styled checkbox implementation, with alternations made to conform to
+the UI kit design including colors, hover states, and other
+enhancements
+
 # [27.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.14.0...v27.15.0) (2021-03-01)
 
 
