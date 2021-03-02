@@ -28,7 +28,7 @@ export default {
       return this.node.label || this.node.value;
     },
     rootClass() {
-      return this.isNested ? 'gl-ml-3' : null;
+      return this.isNested ? 'gl-ml-6' : null;
     },
     checkboxClass() {
       const { isChecked, isIndeterminate } = this.node;

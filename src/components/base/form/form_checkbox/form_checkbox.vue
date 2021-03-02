@@ -16,7 +16,6 @@ export default {
 
 <template>
   <b-form-checkbox
-    plain
     v-bind="$attrs"
     class="gl-form-checkbox"
     @change="$emit('change', $event)"

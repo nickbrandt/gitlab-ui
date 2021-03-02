@@ -13,8 +13,7 @@ export default {
 
 <template>
   <b-form-radio
-    class="gl-form-checkbox"
-    plain
+    class="gl-form-radio"
     v-bind="$attrs"
     v-on="$listeners"
     @input="$emit('input', $event)"

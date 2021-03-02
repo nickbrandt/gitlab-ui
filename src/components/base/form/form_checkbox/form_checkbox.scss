@@ -7,15 +7,14 @@
   @include gl-mr-0;
 }
 
-.gl-form-checkbox,
 .gl-form-checkbox-group {
   @include gl-line-height-normal;
 }
 
-.gl-form-checkbox {
-  @include gl-mr-5;
-  @include gl-mb-3;
+.gl-form-checkbox,
+.gl-form-radio {
   @include gl-font-base;
+  @include gl-line-height-normal;
   @include gl-text-gray-900;
 
   &.form-check {
@@ -49,10 +48,74 @@
     @include gl-text-gray-500;
   }
 
+  &.custom-control {
+    .custom-control-input ~ .custom-control-label {
+      @include gl-cursor-pointer;
+
+      &::before,
+      &::after {
+        @include gl-top-0;
+      }
+
+      &::before {
+        @include gl-bg-white;
+        @include gl-border-gray-400;
+      }
+    }
+
+    .custom-control-input:not(:disabled) ~ .custom-control-label:hover,
+    .custom-control-input:not(:disabled):focus ~ .custom-control-label {
+      &::before {
+        @include gl-border-gray-500;
+      }
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+      &::before {
+        @include gl-bg-blue-500;
+        @include gl-border-blue-500;
+      }
+    }
+
+    .custom-control-input:not(:disabled):checked ~ .custom-control-label:hover,
+    .custom-control-input:not(:disabled):focus:checked ~ .custom-control-label {
+      &::before {
+        @include gl-bg-blue-700;
+        @include gl-border-blue-700;
+      }
+    }
+
+    &.custom-checkbox {
+      .custom-control-input:indeterminate ~ .custom-control-label {
+        &::before {
+          @include gl-bg-blue-500;
+          @include gl-border-blue-500;
+        }
+      }
+
+      .custom-control-input:not(:disabled):indeterminate ~ .custom-control-label:hover,
+      .custom-control-input:not(:disabled):focus:indeterminate ~ .custom-control-label {
+        &::before {
+          @include gl-bg-blue-700;
+          @include gl-border-blue-700;
+        }
+      }
+    }
+
+    .custom-control-input:disabled ~ .custom-control-label {
+      @include gl-cursor-not-allowed;
+
+      &::before {
+        @include gl-opacity-5;
+        @include gl-pointer-events-auto;
+      }
+    }
+  }
+
   .help-text {
     @include gl-mt-2;
     @include gl-text-gray-500;
-    @include gl-mb-0;
+    @include gl-mb-3;
     @include gl-font-base;
     @include gl-line-height-normal;
   }
