@@ -1,3 +1,10 @@
+# [28.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.0.0...v28.1.0) (2021-03-03)
+
+
+### Features
+
+* **css:** Add gl-flex-fill-2 ([fe44017](https://gitlab.com/gitlab-org/gitlab-ui/commit/fe44017304f323bd2a4a981d554717331c82f466))
+
 # [28.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v27.15.0...v28.0.0) (2021-03-02)
 
 
