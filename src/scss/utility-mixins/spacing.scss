@@ -77,6 +77,13 @@
   padding-right: $gl-spacing-scale-7;
 }
 
+@mixin gl-lg-px-7 {
+  @media (min-width: $breakpoint-lg) {
+    padding-left: $gl-spacing-scale-7;
+    padding-right: $gl-spacing-scale-7;
+  }
+}
+
 @mixin gl-px-8 {
   padding-left: $gl-spacing-scale-8;
   padding-right: $gl-spacing-scale-8;
