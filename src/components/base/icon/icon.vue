@@ -45,10 +45,13 @@ export default {
       type: Number,
       required: false,
       default: 16,
-      validator: (value) => iconSizeOptions.includes(value),
+    },
+    useDeprecatedSizes: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
-
   computed: {
     spriteHref() {
       return `${iconsPath}#${this.name}`;
@@ -56,6 +59,13 @@ export default {
     iconSizeClass() {
       return this.size ? `s${this.size}` : '';
     },
+  },
+
+  created() {
+    if (!iconSizeOptions.includes(this.size) && !this.useDeprecatedSizes) {
+      // eslint-disable-next-line no-console
+      console.warn(`[gitlab-ui] Unexpected value '${this.size}' was provided for the icon size`);
+    }
   },
 };
 </script>

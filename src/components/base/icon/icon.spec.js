@@ -25,7 +25,6 @@ describe('Icon component', () => {
     });
   };
 
-  const validateSize = (size) => Icon.props.size.validator(size);
   const validateName = (name) => Icon.props.name.validator(name);
 
   afterEach(() => {
@@ -47,14 +46,35 @@ describe('Icon component', () => {
   });
 
   describe('size validator', () => {
+    beforeEach(() => {
+      consoleSpy = jest.spyOn(console, 'warn').mockImplementation();
+    });
+
     const maxSize = Math.max(...iconSizeOptions);
 
-    it('fails with size outside options', () => {
-      expect(validateSize(maxSize + 10)).toBe(false);
+    it('fails with size outside options', async () => {
+      createComponent({
+        size: maxSize + 10,
+      });
+
+      expect(consoleSpy).toBeCalledWith(
+        `[gitlab-ui] Unexpected value '${maxSize + 10}' was provided for the icon size`
+      );
+    });
+
+    it('passes with use-deprecated-sizes', () => {
+      createComponent({
+        size: maxSize + 10,
+        useDeprecatedSizes: true,
+      });
+
+      expect(consoleSpy).not.toBeCalled();
     });
 
     it('passes with size in options', () => {
-      expect(validateSize(maxSize)).toBe(true);
+      createComponent({ size: maxSize });
+
+      expect(consoleSpy).not.toBeCalled();
     });
   });
 
