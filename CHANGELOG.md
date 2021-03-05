@@ -1,3 +1,10 @@
+# [28.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.1.0...v28.2.0) (2021-03-05)
+
+
+### Features
+
+* **css:** Add gl-sm-display-inline-block class ([730e11f](https://gitlab.com/gitlab-org/gitlab-ui/commit/730e11fc2ca4d62e69b2475c5d7c94d61ec0e2cc))
+
 # [28.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.0.0...v28.1.0) (2021-03-03)
 
 
