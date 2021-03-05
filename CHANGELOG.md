@@ -1,3 +1,10 @@
+# [28.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.2.0...v28.3.0) (2021-03-05)
+
+
+### Features
+
+* **GlIcon:** update validator for deprecated icons sizes ([3c6e65b](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c6e65bc60cadd7778988c13e73f77c27f6856f9))
+
 # [28.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.1.0...v28.2.0) (2021-03-05)
 
 
