@@ -11,6 +11,14 @@
   @include gl-display-inline-flex;
 }
 
+.gl-button:not(.btn-link) {
+  &:focus,
+  &:active,
+  &:focus:active {
+    @include gl-text-decoration-none;
+  }
+}
+
 .gl-button.gl-button,
 .gl-button.gl-button.btn-block {
   @include gl-border-0;
@@ -107,7 +115,6 @@
     &:hover,
     &:focus {
       @include gl-bg-gray-50;
-      @include gl-text-decoration-none;
     }
 
     &:hover {
