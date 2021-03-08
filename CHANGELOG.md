@@ -1,3 +1,10 @@
+# [28.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.3.0...v28.4.0) (2021-03-08)
+
+
+### Features
+
+* **Button:** Prevent text underline ([52aa80f](https://gitlab.com/gitlab-org/gitlab-ui/commit/52aa80fc81cd44dd0d93dab05cc612a018d0a11b))
+
 # [28.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.2.0...v28.3.0) (2021-03-05)
 
 
