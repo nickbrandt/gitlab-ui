@@ -748,9 +748,21 @@
   }
 }
 
+@mixin gl-lg-mb-5 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-mb-5;
+  }
+}
+
 @mixin gl-md-mr-3 {
   @media (min-width: $breakpoint-md) {
     @include gl-mr-3;
+  }
+}
+
+@mixin gl-md-mr-5 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-mr-5;
   }
 }
 
@@ -790,9 +802,21 @@
   }
 }
 
+@mixin gl-lg-my-5 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-my-5;
+  }
+}
+
 @mixin gl-lg-mt-0 {
   @media (min-width: $breakpoint-lg) {
     @include gl-mt-0;
+  }
+}
+
+@mixin gl-lg-mt-5 {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-mt-5;
   }
 }
 
