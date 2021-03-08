@@ -1,3 +1,10 @@
+# [28.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.4.0...v28.5.0) (2021-03-08)
+
+
+### Features
+
+* **css:** add additional md and lg margins ([ef4192d](https://gitlab.com/gitlab-org/gitlab-ui/commit/ef4192dd252b4fe7a808674c90853d2366f43fa5))
+
 # [28.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.3.0...v28.4.0) (2021-03-08)
 
 
