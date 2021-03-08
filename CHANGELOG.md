@@ -1,3 +1,10 @@
+# [28.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.5.0...v28.6.0) (2021-03-08)
+
+
+### Features
+
+* Add float alignment utilities ([541cb7f](https://gitlab.com/gitlab-org/gitlab-ui/commit/541cb7fcbc61ca8cdeea0317baf902b91ea384d8))
+
 # [28.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.4.0...v28.5.0) (2021-03-08)
 
 
