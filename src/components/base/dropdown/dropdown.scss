@@ -72,6 +72,14 @@
       @include gl-display-none;
     }
 
+    &.dropdown-toggle-no-caret {
+      @include gl-p-3;
+
+      .dropdown-chevron {
+        display: none;
+      }
+    }
+
     &.gl-button {
       @include gl-pr-3;
     }

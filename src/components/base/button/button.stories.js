@@ -149,6 +149,23 @@ documentedStoriesOf('base/button', readme)
       </gl-dropdown>
     `,
   }))
+  .add('dropdown icon only button', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-dropdown
+        icon="ellipsis_v"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+        no-caret
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    `,
+  }))
   .add('dropdown split button', () => ({
     props: generateProps({ category: 'primary', variant: 'confirm' }),
     components,
