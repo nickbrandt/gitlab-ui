@@ -1,3 +1,10 @@
+# [28.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.7.0...v28.8.0) (2021-03-09)
+
+
+### Features
+
+* **GlDaterangePicker:** Expose datepicker props and events ([772d1ad](https://gitlab.com/gitlab-org/gitlab-ui/commit/772d1ad130a5cd650847bf299635a52afa09cd11))
+
 # [28.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.6.0...v28.7.0) (2021-03-09)
 
 
