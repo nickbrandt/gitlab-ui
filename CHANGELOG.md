@@ -1,3 +1,10 @@
+# [28.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.6.0...v28.7.0) (2021-03-09)
+
+
+### Features
+
+* **css:** Add gl-focus-outline-none utility class ([2913030](https://gitlab.com/gitlab-org/gitlab-ui/commit/29130302099477745b3bce050a4a1e07a1a3e8d7))
+
 # [28.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.5.0...v28.6.0) (2021-03-08)
 
 
