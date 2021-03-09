@@ -50,6 +50,18 @@ describe('Daterange Picker', () => {
         expect(findEndPicker().props('minDate')).toEqual(toCalendarMinDate);
       });
 
+      it('emits `start-date-open` event on component when `open` event fires', () => {
+        findStartPicker().vm.$emit('open');
+
+        expect(wrapper.emitted('start-picker-open')).toBeTruthy();
+      });
+
+      it('emits `start-date-close` event on component when `close` event fires', () => {
+        findStartPicker().vm.$emit('close');
+
+        expect(wrapper.emitted('start-picker-close')).toBeTruthy();
+      });
+
       describe('with a date range violation', () => {
         beforeEach(() => {
           factory({
@@ -97,6 +109,18 @@ describe('Daterange Picker', () => {
       it('calls the event handler', () => {
         expect(wrapper.emitted('input')).toEqual([[{ startDate: wrapper.vm.startDate, endDate }]]);
       });
+
+      it('emits `end-date-open` event on component when `open` event fires', () => {
+        findEndPicker().vm.$emit('open');
+
+        expect(wrapper.emitted('end-picker-open')).toBeTruthy();
+      });
+
+      it('emits `end-date-close` event on component when `close` event fires', () => {
+        findEndPicker().vm.$emit('close');
+
+        expect(wrapper.emitted('end-picker-close')).toBeTruthy();
+      });
     });
   });
 
@@ -109,6 +133,34 @@ describe('Daterange Picker', () => {
       const maxDate = new Date('2020-09-06');
 
       expect(findEndPicker().props('maxDate')).toEqual(maxDate);
+    });
+  });
+
+  describe('with startPickerTarget/endPickerTarget defined', () => {
+    beforeEach(() => {
+      factory({ startPickerTarget: '.btn', endPickerTarget: '.btn' });
+    });
+
+    it('sets the `target` prop to startPickerTarget', () => {
+      expect(findStartPicker().props('target')).toBe('.btn');
+    });
+
+    it('sets the `target` prop to endPickerTarget', () => {
+      expect(findEndPicker().props('target')).toBe('.btn');
+    });
+  });
+
+  describe('with startPickerContainer/endPickerContainer defined', () => {
+    beforeEach(() => {
+      factory({ startPickerContainer: 'body', endPickerContainer: 'body' });
+    });
+
+    it('sets the `container` prop to startPickerContainer', () => {
+      expect(findStartPicker().props('container')).toBe('body');
+    });
+
+    it('sets the `container` prop to endPickerContainer', () => {
+      expect(findEndPicker().props('container')).toBe('body');
     });
   });
 

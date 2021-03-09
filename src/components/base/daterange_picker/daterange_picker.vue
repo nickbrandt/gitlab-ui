@@ -57,7 +57,27 @@ export default {
       required: false,
       default: '',
     },
+    startPickerTarget: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    startPickerContainer: {
+      type: String,
+      required: false,
+      default: '',
+    },
     endPickerClass: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    endPickerTarget: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    endPickerContainer: {
       type: String,
       required: false,
       default: '',
@@ -155,7 +175,11 @@ export default {
         :end-range="fromCalendarMaxDate"
         :theme="theme"
         :i18n="i18n"
+        :target="startPickerTarget"
+        :container="startPickerContainer"
         @input="onStartDateSelected"
+        @open="$emit('start-picker-open')"
+        @close="$emit('start-picker-close')"
       />
     </div>
     <div :class="endPickerClass">
@@ -169,9 +193,13 @@ export default {
         :end-range="toCalendarMaxDate"
         :theme="theme"
         :i18n="i18n"
+        :target="endPickerTarget"
+        :container="endPickerContainer"
         :start-opened="openToCalendar"
         :default-date="toCalendarDefaultDate"
         @input="onEndDateSelected"
+        @open="$emit('end-picker-open')"
+        @close="$emit('end-picker-close')"
       />
     </div>
   </div>
