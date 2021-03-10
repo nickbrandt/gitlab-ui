@@ -1,3 +1,10 @@
+# [28.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.8.0...v28.9.0) (2021-03-10)
+
+
+### Features
+
+* **css:** add md variant of display-inline-block ([83c27c0](https://gitlab.com/gitlab-org/gitlab-ui/commit/83c27c09ecb08e5f5e7a082c371e2a71f293437a))
+
 # [28.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.7.0...v28.8.0) (2021-03-09)
 
 
