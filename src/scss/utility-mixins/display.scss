@@ -105,6 +105,12 @@
   }
 }
 
+@mixin gl-md-display-inline-block {
+  @media (min-width: $breakpoint-md) {
+    @include gl-display-inline-block;
+  }
+}
+
 @mixin gl-lg-display-inline-block {
   @media (min-width: $breakpoint-lg) {
     @include gl-display-inline-block;
