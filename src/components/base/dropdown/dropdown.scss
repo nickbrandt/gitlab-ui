@@ -82,6 +82,10 @@
 
     &.gl-button {
       @include gl-pr-3;
+
+      &.btn-sm {
+        @include gl-pr-2;
+      }
     }
   }
 
