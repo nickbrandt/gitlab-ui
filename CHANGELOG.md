@@ -1,3 +1,10 @@
+## [28.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.9.0...v28.9.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* **GlButton:** Fix non-hidden caret with no-caret dropdown button ([8daf56d](https://gitlab.com/gitlab-org/gitlab-ui/commit/8daf56db960326fcd490c4590254f37529a471fd))
+
 # [28.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.8.0...v28.9.0) (2021-03-10)
 
 
