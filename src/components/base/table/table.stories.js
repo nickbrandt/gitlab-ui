@@ -24,7 +24,7 @@ const tableItems = [
 ];
 
 function generateProps() {
-  const props = {
+  return {
     fixed: {
       type: Boolean,
       default: boolean('fixed', false),
@@ -38,8 +38,6 @@ function generateProps() {
       default: select('stacked', ['sm', 'md', 'lg', 'xl', true, false], false),
     },
   };
-
-  return props;
 }
 
 documentedStoriesOf('base/table', readme)
@@ -91,4 +89,29 @@ documentedStoriesOf('base/table', readme)
         filter: null,
       };
     },
+  }))
+  .add('borderless', () => ({
+    components,
+    template: `
+      <gl-table
+        borderless
+        :items="$options.items"
+        :fields="$options.fields"
+      />
+    `,
+    fields: [
+      {
+        key: 'column_one',
+        label: 'Column One',
+        variant: select('variant', variantOptions, variantOptions.secondary),
+        sortable: boolean('sortable', false),
+        isRowHeader: boolean('isRowHeader', false),
+      },
+      {
+        key: 'col_2',
+        label: 'Column 2',
+        formatter: (value) => `${text('formatterExample', '$')}${value}`,
+      },
+    ],
+    items: tableItems,
   }));

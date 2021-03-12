@@ -2,6 +2,15 @@ table.gl-table {
   @include gl-text-gray-500;
   @include gl-bg-transparent;
 
+  &.table-borderless {
+    tr {
+      th,
+      td {
+        @include gl-border-none;
+      }
+    }
+  }
+
   tr {
     th,
     td {
