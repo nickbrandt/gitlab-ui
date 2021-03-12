@@ -73,6 +73,7 @@ export default {
       :visible="isVisible"
       :accordion="accordion"
       class="gl-mt-3 gl-font-base"
+      :data-testid="`accordion-item-collapse-${accordionItemId}`"
     >
       <slot></slot>
     </b-collapse>
