@@ -1,3 +1,10 @@
+# [28.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.9.1...v28.10.0) (2021-03-15)
+
+
+### Features
+
+* **GlEmptyState:** allow only secondary button ([e10d1fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/e10d1fb39d12c27bcb2196992884b96600fd9639))
+
 ## [28.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.9.0...v28.9.1) (2021-03-11)
 
 
