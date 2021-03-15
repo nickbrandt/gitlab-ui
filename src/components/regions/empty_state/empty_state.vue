@@ -62,9 +62,7 @@ export default {
       return Boolean(this.primaryButtonLink && this.primaryButtonText);
     },
     shouldRenderSecondaryButton() {
-      return Boolean(
-        this.shouldRenderPrimaryButton && this.secondaryButtonLink && this.secondaryButtonText
-      );
+      return Boolean(this.secondaryButtonLink && this.secondaryButtonText);
     },
   },
 };

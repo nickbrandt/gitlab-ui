@@ -83,6 +83,10 @@ documentedStoriesOf('regions/empty-state', readme)
         type: String,
         default: null,
       },
+      secondaryButtonText: {
+        type: String,
+        default: null,
+      },
     },
     components,
     template,
