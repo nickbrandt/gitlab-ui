@@ -3,6 +3,7 @@ import EmptyStateNoCustomActions from './empty_state.custom_actions.example.vue'
 import EmptyStateMultipleButtonExample from './empty_state.multiple_button.example.vue';
 import EmptyStateNoIllustrationExample from './empty_state.no_illustration.example.vue';
 import EmptyStatePrimaryButtonExample from './empty_state.primary_button.example.vue';
+import EmptyStateSecondaryButtonExample from './empty_state.secondary_button.example.vue';
 import EmptyStateSlottedDescription from './empty_state.slotted_description.example.vue';
 
 export default [
@@ -20,6 +21,12 @@ export default [
         name: 'Primary Button',
         description: 'Empty State With Primary Button',
         component: EmptyStatePrimaryButtonExample,
+      },
+      {
+        id: 'empty-state-secondary-button',
+        name: 'Secondary Button',
+        description: 'Empty State With Secondary Button',
+        component: EmptyStateSecondaryButtonExample,
       },
       {
         id: 'empty-state-multiple-buttons',

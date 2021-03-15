@@ -29,17 +29,17 @@ describe('empty state component', () => {
 
     it('should render the title', () => {
       const title = component.find('h1');
-      expect(title.text()).toEqual(props.title);
+      expect(title.text()).toBe(props.title);
     });
 
     it('should render the description', () => {
       const description = component.find('p');
-      expect(description.text()).toEqual(props.description);
+      expect(description.text()).toBe(props.description);
     });
 
     it('should pass through the SVG path', () => {
       const image = component.find('img');
-      expect(image.attributes().src).toEqual(props.svgPath);
+      expect(image.attributes().src).toBe(props.svgPath);
     });
 
     it('should pass through the SVG height integer', () => {
@@ -67,7 +67,29 @@ describe('empty state component', () => {
 
     it('should render the primary button', () => {
       const button = component.findComponent(Button);
-      expect(button.attributes().href).toEqual(props.primaryButtonLink);
+      expect(button.attributes().href).toBe(props.primaryButtonLink);
+    });
+  });
+
+  describe('with a secondary button', () => {
+    beforeEach(() => {
+      component = shallowMount(EmptyState, {
+        propsData: {
+          title: props.title,
+          secondaryButtonLink: props.secondaryButtonLink,
+          secondaryButtonText: props.secondaryButtonText,
+        },
+      });
+    });
+
+    it('should only render the secondary button', () => {
+      const buttons = component.findAllComponents(Button);
+      const button = buttons.at(0);
+
+      expect(buttons).toHaveLength(1);
+      expect(button.props('variant')).toBe('default');
+      expect(button.text()).toBe(props.secondaryButtonText);
+      expect(button.attributes('href')).toBe(props.secondaryButtonLink);
     });
   });
 
@@ -92,12 +114,12 @@ describe('empty state component', () => {
 
     it('should render the primary button', () => {
       const button = component.findComponent(Button);
-      expect(button.attributes().href).toEqual(props.primaryButtonLink);
+      expect(button.attributes().href).toBe(props.primaryButtonLink);
     });
 
     it('should also render the secondary button', () => {
       const button = component.findAllComponents(Button).at(1);
-      expect(button.attributes().href).toEqual(props.secondaryButtonLink);
+      expect(button.attributes().href).toBe(props.secondaryButtonLink);
     });
   });
 
@@ -135,7 +157,7 @@ describe('empty state component', () => {
       });
 
       const description = component.find('p');
-      expect(description.text()).toEqual(props.description);
+      expect(description.text()).toBe(props.description);
     });
 
     it('should render description from slot', () => {
@@ -152,7 +174,7 @@ describe('empty state component', () => {
       });
 
       const description = component.find('#slotted');
-      expect(description.text()).toEqual(slotDescription);
+      expect(description.text()).toBe(slotDescription);
     });
 
     it('should render a slotted description over a props description', () => {
@@ -170,7 +192,7 @@ describe('empty state component', () => {
       const description = component.find('#slotted');
       const p = component.find('p');
 
-      expect(description.text()).toEqual(slotDescription);
+      expect(description.text()).toBe(slotDescription);
       expect(p.text()).not.toBe(props.description);
     });
   });
