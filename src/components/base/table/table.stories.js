@@ -23,6 +23,21 @@ const tableItems = [
   },
 ];
 
+const tableFields = [
+  {
+    key: 'column_one',
+    label: 'Column One',
+    variant: select('variant', variantOptions, variantOptions.secondary),
+    sortable: boolean('sortable', false),
+    isRowHeader: boolean('isRowHeader', false),
+  },
+  {
+    key: 'col_2',
+    label: 'Column 2',
+    formatter: (value) => `${text('formatterExample', '$')}${value}`,
+  },
+];
+
 function generateProps() {
   return {
     fixed: {
@@ -54,20 +69,7 @@ documentedStoriesOf('base/table', readme)
         :foot-clone="footClone"
       />
     `,
-    fields: [
-      {
-        key: 'column_one',
-        label: 'Column One',
-        variant: select('variant', variantOptions, variantOptions.secondary),
-        sortable: boolean('sortable', false),
-        isRowHeader: boolean('isRowHeader', false),
-      },
-      {
-        key: 'col_2',
-        label: 'Column 2',
-        formatter: (value) => `${text('formatterExample', '$')}${value}`,
-      },
-    ],
+    fields: tableFields,
     items: tableItems,
   }))
   .add('empty', () => ({
@@ -99,19 +101,6 @@ documentedStoriesOf('base/table', readme)
         :fields="$options.fields"
       />
     `,
-    fields: [
-      {
-        key: 'column_one',
-        label: 'Column One',
-        variant: select('variant', variantOptions, variantOptions.secondary),
-        sortable: boolean('sortable', false),
-        isRowHeader: boolean('isRowHeader', false),
-      },
-      {
-        key: 'col_2',
-        label: 'Column 2',
-        formatter: (value) => `${text('formatterExample', '$')}${value}`,
-      },
-    ],
+    fields: tableFields,
     items: tableItems,
   }));
