@@ -1,3 +1,10 @@
+# [28.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.10.0...v28.11.0) (2021-03-16)
+
+
+### Features
+
+* **css:** gl-pl-11 utility class ([b4f5cf3](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4f5cf3da51770c03282290219ca28eb7fbcd143))
+
 # [28.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.9.1...v28.10.0) (2021-03-15)
 
 
