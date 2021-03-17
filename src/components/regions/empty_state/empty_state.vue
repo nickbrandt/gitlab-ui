@@ -83,17 +83,26 @@ export default {
             {{ description }}
           </slot>
         </p>
-        <div>
+        <div
+          class="gl-display-flex gl-flex-wrap"
+          :class="{ 'gl-justify-content-center': !compact }"
+        >
           <slot name="actions">
             <gl-button
               v-if="shouldRenderPrimaryButton"
-              variant="success"
+              variant="confirm"
+              :class="compact ? 'gl-mr-3' : 'gl-mx-2'"
+              class="gl-mb-3"
               :href="primaryButtonLink"
               >{{ primaryButtonText }}</gl-button
             >
-            <gl-button v-if="shouldRenderSecondaryButton" :href="secondaryButtonLink">{{
-              secondaryButtonText
-            }}</gl-button>
+            <gl-button
+              v-if="shouldRenderSecondaryButton"
+              class="gl-mb-3 gl-mr-3"
+              :class="{ 'gl-mx-2!': !compact }"
+              :href="secondaryButtonLink"
+              >{{ secondaryButtonText }}
+            </gl-button>
           </slot>
         </div>
       </div>
