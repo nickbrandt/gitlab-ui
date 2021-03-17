@@ -119,9 +119,14 @@ documentedStoriesOf('regions/empty-state', readme)
       >
       <template #actions>
         <gl-button
-          variant="success"
+          variant="confirm"
+          class="gl-mb-3"
         >Custom button</gl-button>
-        <a href="#" @click.prevent>Custom link</a>
+        <gl-button
+          variant="link"
+          class="gl-mb-3 gl-ml-3"
+          href="#" @click.prevent
+        >Custom link</gl-button>
       </template>
       </gl-empty-state>
     `,
