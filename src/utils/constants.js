@@ -100,9 +100,10 @@ export const newButtonVariantOptions = {
 
 export const newDropdownVariantOptions = {
   default: 'default',
-  info: 'info',
-  success: 'success',
-  warning: 'warning',
+  confirm: 'confirm',
+  info: 'info (deprecated)',
+  success: 'success (deprecated)',
+  warning: 'warning (deprecated)',
   danger: 'danger',
   link: 'link',
 };
