@@ -1,3 +1,10 @@
+## [28.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.11.1...v28.11.2) (2021-03-17)
+
+
+### Bug Fixes
+
+* **empty-states:** Remove deprecated button variant and fix spacing ([df6f321](https://gitlab.com/gitlab-org/gitlab-ui/commit/df6f321b3759eb1cc24d20154666b9cb0c679ab5))
+
 ## [28.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.11.0...v28.11.1) (2021-03-17)
 
 
