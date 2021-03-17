@@ -1,3 +1,10 @@
+## [28.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.11.0...v28.11.1) (2021-03-17)
+
+
+### Bug Fixes
+
+* **dropdown:** Add deprecation notice to button variants ([ccd2157](https://gitlab.com/gitlab-org/gitlab-ui/commit/ccd215786010dacb803d61fd79c8524a650633ff))
+
 # [28.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.10.0...v28.11.0) (2021-03-16)
 
 
