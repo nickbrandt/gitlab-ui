@@ -144,7 +144,7 @@ describe('new dropdown', () => {
   });
 
   describe('secondary category', () => {
-    it.each(Object.values(newDropdownVariantOptions))(
+    it.each(Object.keys(newDropdownVariantOptions))(
       'applies %s variant class properly',
       (variant) => {
         buildWrapper({ category: 'secondary', variant });

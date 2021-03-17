@@ -89,6 +89,9 @@ describe('button component', () => {
     ${'default'} | ${'primary'}   | ${'btn-default'}
     ${'default'} | ${'secondary'} | ${'btn-default-secondary'}
     ${'default'} | ${'tertiary'}  | ${'btn-default-tertiary'}
+    ${'confirm'} | ${'primary'}   | ${'btn-confirm'}
+    ${'confirm'} | ${'secondary'} | ${'btn-confirm-secondary'}
+    ${'confirm'} | ${'tertiary'}  | ${'btn-confirm-tertiary'}
     ${'info'}    | ${'primary'}   | ${'btn-info'}
     ${'info'}    | ${'secondary'} | ${'btn-info-secondary'}
     ${'info'}    | ${'tertiary'}  | ${'btn-info-tertiary'}

@@ -51,7 +51,7 @@ function generateProps({
     },
     variant: {
       type: String,
-      default: select('variant', newDropdownVariantOptions, variant),
+      default: select('variant', Object.values(newDropdownVariantOptions), variant),
     },
     size: {
       type: String,
@@ -161,7 +161,7 @@ documentedStoriesOf('base/dropdown', readme)
     props: generateProps({
       text: 'Some dropdown',
       category: newButtonCategoryOptions.secondary,
-      variant: newDropdownVariantOptions.success,
+      variant: newDropdownVariantOptions.confirm,
     }),
     components,
     template: wrap`
