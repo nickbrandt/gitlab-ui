@@ -22,13 +22,18 @@ addDecorator(addReadme);
  * - Skip storybook-readme's setup to avoid rendering the READMEs.
  * - Set the layout to fullscreen to ensure stories are full-width.
  */
-const parameters = {};
+export const parameters = {
+  options: {
+    storySort: {
+      method: 'alphabetical',
+    },
+  },
+};
 if (process.env.NODE_ENV !== 'test') {
   setupStorybookReadme();
 } else {
   parameters.layout = 'fullscreen';
 }
-export { parameters };
 
 addParameters({
   a11y: {
