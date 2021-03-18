@@ -137,7 +137,7 @@ export const Sticky = () => ({
 });
 
 export default {
-  title: 'base/Alert',
+  title: 'base/alert',
   component: GlAlert,
   parameters: {
     docs: {
