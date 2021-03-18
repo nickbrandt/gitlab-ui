@@ -1,3 +1,10 @@
+## [28.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.12.0...v28.12.1) (2021-03-18)
+
+
+### Bug Fixes
+
+* **GlButton:** Adjust right padding for small dropdown icon only button ([8ff2a8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/8ff2a8b236fac6ebd3db9a79d990d3b6c40fe876))
+
 # [28.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.11.3...v28.12.0) (2021-03-18)
 
 
