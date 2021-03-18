@@ -1,3 +1,10 @@
+## [28.11.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.11.2...v28.11.3) (2021-03-18)
+
+
+### Bug Fixes
+
+* **GlButton:** Default all dropdown button icon sizes to 16 ([bc33d94](https://gitlab.com/gitlab-org/gitlab-ui/commit/bc33d94bac9978fc26c039d501fff95b65cf01b8))
+
 ## [28.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.11.1...v28.11.2) (2021-03-17)
 
 
