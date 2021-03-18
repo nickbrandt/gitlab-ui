@@ -84,10 +84,11 @@ export const setupStorybookReadme = () =>
         }
       },
       template: `
-      <div>
+      <slot v-if="$options.disableForComponents.includes(componentName)"></slot>
+      <div v-else>
         <div class="story-container" v-bind:style="styles"><slot></slot></div>
         {{ error }}
-        <template v-if="componentName && !$options.disableForComponents.includes(componentName)">
+        <template v-if="componentName">
           <gl-example-explorer :componentName="componentName" />
           <gl-component-documentation :componentName="componentName" />
         </template>
