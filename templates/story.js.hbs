@@ -9,6 +9,17 @@ const generateProps = ({
   // label
 });
 
+const Template = (args, { argTypes }) => ({
+  components: { Gl{{pascalCase name}} },
+  props: Object.keys(argTypes),
+  template: `
+    <gl-{{kebabCase name}} />
+  `,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
 export default {
   title: 'base/{{name}}',
   component: Gl{{pascalCase name}},
@@ -21,14 +32,3 @@ export default {
   },
   argTypes: {},
 };
-
-const Template = (args, { argTypes }) => ({
-  components: { Gl{{pascalCase name}} },
-  props: Object.keys(argTypes),
-  template: `
-    <gl-{{kebabCase name}} />
-  `,
-});
-
-export const Default = Template.bind({});
-Default.args = generateProps();
