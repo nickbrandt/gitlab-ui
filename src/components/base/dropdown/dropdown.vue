@@ -5,7 +5,6 @@ import {
   newButtonCategoryOptions,
   newDropdownVariantOptions,
   newButtonSizeOptions,
-  dropdownIconSizeOptions,
 } from '../../../utils/constants';
 import ButtonMixin from '../../mixins/button_mixin';
 import GlIcon from '../icon/icon.vue';
@@ -120,11 +119,6 @@ export default {
       }
       return true;
     },
-    iconSize() {
-      return this.size === newButtonSizeOptions.small
-        ? dropdownIconSizeOptions[0]
-        : dropdownIconSizeOptions[1];
-    },
     toggleButtonClasses() {
       return [
         this.toggleClass,
@@ -205,7 +199,7 @@ export default {
     </div>
     <slot slot="button-content" name="button-content">
       <gl-loading-icon v-if="loading" class="gl-mr-2" />
-      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" :size="iconSize" />
+      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" />
       <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">{{
         buttonText
       }}</span>

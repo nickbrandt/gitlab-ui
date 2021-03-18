@@ -118,8 +118,6 @@ export const newButtonSizeOptionsMap = {
   medium: 'md',
 };
 
-export const dropdownIconSizeOptions = [12, 16];
-
 // size options all have corresponding styles (e.g. .s12 defined in icon.scss)
 export const iconSizeOptions = glIconSizesVariable.split(' ').map(Number);
 
