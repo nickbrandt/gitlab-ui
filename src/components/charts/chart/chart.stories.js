@@ -1,14 +1,14 @@
 import { GlChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlTabs, GlTab } from '../../../../index';
 import readme from './chart.md';
 
-const createStory = (template) => ({
+const Template = (args, { argTypes = {} }) => ({
   components: {
     GlChart,
     GlTabs,
     GlTab,
   },
+  props: Object.keys(argTypes),
   data() {
     return {
       options: {
@@ -28,21 +28,84 @@ const createStory = (template) => ({
       },
     };
   },
-  template,
+  ...args,
 });
 
-documentedStoriesOf('charts/chart', readme)
-  .add('default', () =>
-    createStory(`<gl-chart
-      :options="options"
-    />`)
-  )
-  .add('tab', () =>
-    createStory(`
+export const Default = Template.bind(
+  {},
+  {
+    template: `
+      <gl-chart
+        :options="options"
+      />
+      `,
+  }
+);
+
+export const Tab = Template.bind(
+  {},
+  {
+    template: `
       <gl-tabs>
         <gl-tab title="Chart">
           <gl-chart :options="options" />
         </gl-tab>
       </gl-tabs>
-    `)
-  );
+      `,
+  }
+);
+
+export const Connected = Template.bind(
+  {},
+  {
+    methods: {
+      optionsFromData(data) {
+        return {
+          xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          },
+          yAxis: {
+            type: 'value',
+          },
+          axisPointer: {
+            show: true,
+          },
+          series: [
+            {
+              data,
+              type: 'bar',
+            },
+          ],
+        };
+      },
+    },
+    template: `
+      <div>
+        <gl-chart
+          group-id="connected-chart-unique-id"
+          :options="optionsFromData([820, 932, 901, 934, 1290, 1330, 1320])"
+        />
+        <gl-chart
+          group-id="connected-chart-unique-id"
+          :options="optionsFromData([540, 759, 140, 757, 675, 1500, 457])"
+        />
+      </div>
+      `,
+  }
+);
+Connected.parameters = {
+  storyshots: { disable: true },
+};
+
+export default {
+  title: 'charts/chart',
+  component: GlChart,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};
