@@ -17,18 +17,20 @@ function addSbClass(c, a) {
 addDecorator(addSbClass);
 addDecorator(addReadme);
 
-/**
- * When running in test mode, we do small adjustments to help with visual regression testing:
- * - Skip storybook-readme's setup to avoid rendering the READMEs.
- * - Set the layout to fullscreen to ensure stories are full-width.
- */
 export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
     },
   },
+  actions: { disabled: true },
 };
+
+/**
+ * When running in test mode, we do small adjustments to help with visual regression testing:
+ * - Skip storybook-readme's setup to avoid rendering the READMEs.
+ * - Set the layout to fullscreen to ensure stories are full-width.
+ */
 if (process.env.NODE_ENV !== 'test') {
   setupStorybookReadme();
 } else {
