@@ -54,3 +54,8 @@ sanitization. This component exposes the `is-unsafe-link` prop for that purpose.
 
 [SafeLinkDirective docs]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/docs/directives-safe-link-directive--default
 [Data URL]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
+
+## vue-bootstrap component
+
+This component uses [`BButton`](https://bootstrap-vue.org/docs/components/button) from vue-bootstrap
+internally. So please take a look also there at their extensive documentation.

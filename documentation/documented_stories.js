@@ -68,6 +68,7 @@ export const setupStorybookReadme = () =>
         'GlBreadcrumb',
         'GlBroadcastMessage',
         'GlToken',
+        'GlButton',
       ],
       components: {
         GlComponentDocumentation,

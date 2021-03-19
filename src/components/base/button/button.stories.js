@@ -1,5 +1,3 @@
-import { withKnobs, select, boolean, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlButton } from '../../../../index';
 import {
   newButtonCategoryOptions,
@@ -9,68 +7,41 @@ import {
 } from '../../../utils/constants';
 import readme from './button.md';
 
-const components = {
-  GlButton,
-};
+const components = { GlButton };
 
-function generateProps({
-  category = newButtonCategoryOptions.primary,
-  variant = newButtonVariantOptions.default,
-  size = newButtonSizeOptions.medium,
+const defaultValue = (prop) => GlButton.props[prop].default;
+
+const generateProps = ({
+  category = defaultValue('category'),
+  variant = defaultValue('variant'),
+  size = defaultValue('size'),
   withLink = false,
+  href = '#',
+  target = null,
   block = false,
-  loading = false,
-} = {}) {
-  let props = {
-    category: {
-      type: String,
-      default: select('category', newButtonCategoryOptions, category),
-    },
-    variant: {
-      type: String,
-      default: select('variant', Object.values(newButtonVariantOptions), variant),
-    },
-    size: {
-      type: String,
-      default: select('size', newButtonSizeOptions, size),
-    },
-    block: {
-      type: Boolean,
-      default: boolean('block', block),
-    },
-    disabled: {
-      type: Boolean,
-      default: boolean('disabled', false),
-    },
-    loading: {
-      type: Boolean,
-      default: boolean('loading', loading),
-    },
-  };
+  disabled = defaultValue('disabled'),
+  loading = defaultValue('loading'),
+  selected = defaultValue('selected'),
+} = {}) => ({
+  category,
+  variant,
+  size,
+  block,
+  disabled,
+  loading,
+  selected,
+  ...(withLink && {
+    href,
+    target,
+  }),
+});
 
-  if (withLink) {
-    props = {
-      ...props,
-      href: {
-        type: String,
-        default: text('href', '#'),
-      },
-      target: {
-        type: String,
-        default: select('target', targetOptions, targetOptions.null),
-      },
-    };
-  }
+const wrapDropdownButton = (template) => `<div class="gl-h-11">${template}<div>`;
 
-  return props;
-}
-
-documentedStoriesOf('base/button', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
+export const Default = (args, { argTypes = {} }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
       <gl-button
         :category="category"
         :variant="variant"
@@ -78,15 +49,18 @@ documentedStoriesOf('base/button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :selected="selected"
       >
         This is a button
       </gl-button>
     `,
-  }))
-  .add('block button', () => ({
-    props: generateProps({ block: true }),
-    components,
-    template: `
+});
+Default.args = generateProps();
+
+export const BlockButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
       <gl-button
         :category="category"
         :variant="variant"
@@ -94,34 +68,49 @@ documentedStoriesOf('base/button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :selected="selected"
       >
         This is a block button
       </gl-button>
     `,
-  }))
-  .add('icon button', () => ({
-    props: generateProps({
-      category: newButtonCategoryOptions.primary,
-      variant: newButtonVariantOptions.danger,
-    }),
-    components,
-    template: `
-      <gl-button
-        :category="category"
-        :variant="variant"
-        :size="size"
-        :block="block"
-        :disabled="disabled"
-        :loading="loading"
-        icon="star-o"
-        aria-label="Star"
-      />
+});
+BlockButton.args = generateProps({ block: true });
+
+export const IconButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
+      <div>
+        <gl-button
+          :category="category"
+          :variant="variant"
+          :size="size"
+          :block="block"
+          :disabled="disabled"
+          :loading="loading"
+          :selected="selected"
+          icon="star-o"
+        />
+        <div class="gl-mt-3">
+          <gl-button icon="star-o" />
+          <gl-button size="small" icon="star-o" />
+        </div>
+        <div class="gl-mt-3">
+          <gl-button icon="star-o">Icon text</gl-button>
+          <gl-button size="small" icon="star-o">Icon text</gl-button>
+        </div>
+      </div>
     `,
-  }))
-  .add('dropdown button', () => ({
-    props: generateProps(),
-    components,
-    template: `
+});
+IconButton.args = generateProps({
+  category: newButtonCategoryOptions.primary,
+  variant: newButtonVariantOptions.danger,
+});
+
+export const DropdownButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrapDropdownButton(`
       <gl-dropdown
         text="Some dropdown"
         :category="category"
@@ -132,12 +121,14 @@ documentedStoriesOf('base/button', readme)
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
-    `,
-  }))
-  .add('dropdown icon button', () => ({
-    props: generateProps(),
-    components,
-    template: `
+    `),
+});
+DropdownButton.args = generateProps();
+
+export const DropdownIconButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrapDropdownButton(`
       <gl-dropdown
         icon="download"
         text="Download"
@@ -150,12 +141,33 @@ documentedStoriesOf('base/button', readme)
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
-    `,
-  }))
-  .add('dropdown icon only button', () => ({
-    props: generateProps({ category: newButtonCategoryOptions.tertiary }),
-    components,
-    template: `
+    `),
+});
+DropdownIconButton.args = generateProps();
+
+export const DropdownIconTextButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrapDropdownButton(`
+      <gl-dropdown
+        icon="notifications"
+        text="Notifications"
+        :category="category"
+        :variant="variant"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    `),
+});
+DropdownIconButton.args = generateProps();
+
+export const DropdownIconOnlyButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrapDropdownButton(`
       <gl-dropdown
         icon="ellipsis_v"
         text="More actions"
@@ -169,12 +181,16 @@ documentedStoriesOf('base/button', readme)
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
-    `,
-  }))
-  .add('dropdown split button', () => ({
-    props: generateProps({ category: 'primary', variant: 'confirm' }),
-    components,
-    template: `
+    `),
+});
+DropdownIconOnlyButton.args = generateProps({
+  category: newButtonCategoryOptions.tertiary,
+});
+
+export const DropdownSplitButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrapDropdownButton(`
       <gl-dropdown
         split
         text="Some dropdown"
@@ -186,12 +202,14 @@ documentedStoriesOf('base/button', readme)
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
-    `,
-  }))
-  .add('dropdown icon split button', () => ({
-    props: generateProps({ category: 'secondary', variant: 'danger' }),
-    components,
-    template: `
+    `),
+});
+DropdownSplitButton.args = generateProps({ category: 'primary', variant: 'confirm' });
+
+export const DropdownIconSplitButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrapDropdownButton(`
       <gl-dropdown
         split
         icon="download"
@@ -204,21 +222,25 @@ documentedStoriesOf('base/button', readme)
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
-    `,
-  }))
-  .add('dropdown loading button', () => ({
-    props: generateProps({ category: 'secondary' }),
-    components,
-    template: `
+    `),
+});
+DropdownIconSplitButton.args = generateProps({ category: 'secondary', variant: 'danger' });
+
+export const DropdownLoadingButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
       <gl-dropdown text="Some dropdown" :category="category" :loading="true">
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
       </gl-dropdown>
     `,
-  }))
-  .add('loading button', () => ({
-    props: generateProps({ loading: true }),
-    components,
-    template: `
+});
+DropdownLoadingButton.args = generateProps({ category: 'secondary' });
+
+export const LoadingButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
       <gl-button
         :category="category"
         :variant="variant"
@@ -226,15 +248,18 @@ documentedStoriesOf('base/button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :selected="selected"
       >
         Loading button
       </gl-button>
     `,
-  }))
-  .add('link button', () => ({
-    props: generateProps({ withLink: true }),
-    components,
-    template: `
+});
+LoadingButton.args = generateProps({ loading: true });
+
+export const LinkButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
       <gl-button
         :category="category"
         :variant="variant"
@@ -242,17 +267,20 @@ documentedStoriesOf('base/button', readme)
         :block="block"
         :disabled="disabled"
         :loading="loading"
+        :selected="selected"
         :href="href"
         :target="target"
       >
         This is a link button
       </gl-button>
     `,
-  }))
-  .add('icon button with overflowed text', () => ({
-    props: generateProps(),
-    components,
-    template: `
+});
+LinkButton.args = generateProps({ withLink: true });
+
+export const IconButtonWithOverflowedText = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
         <gl-button
           :category="category"
           :variant="variant"
@@ -260,17 +288,20 @@ documentedStoriesOf('base/button', readme)
           :block="block"
           :disabled="disabled"
           :loading="loading"
+          :selected="selected"
           icon="star-o"
           style="width: 130px;"
         >
             Apply suggestion
         </gl-button>
     `,
-  }))
-  .add('borderless (tertiary)', () => ({
-    props: generateProps({ category: 'tertiary' }),
-    components,
-    template: `
+});
+IconButtonWithOverflowedText.args = generateProps();
+
+export const BorderlessTertiary = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
       <div class="gl-display-inline-flex">
         <gl-button
           :category="category"
@@ -278,6 +309,7 @@ documentedStoriesOf('base/button', readme)
           :block="block"
           :disabled="disabled"
           :loading="loading"
+          :selected="selected"
         >
             Default borderless
         </gl-button>
@@ -288,15 +320,19 @@ documentedStoriesOf('base/button', readme)
           :block="block"
           :disabled="disabled"
           :loading="loading"
+          :selected="selected"
         >
             Primary borderless
         </gl-button>
       </div>
     `,
-  }))
-  .add('label button', () => ({
-    components,
-    template: `
+});
+BorderlessTertiary.args = generateProps({ category: 'tertiary' });
+
+export const LabelButton = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
       <div>
         <gl-button label>Label</gl-button>
         <gl-button size="small" label>Label</gl-button>
@@ -312,4 +348,142 @@ documentedStoriesOf('base/button', readme)
         </gl-button-group>
       </div>
     `,
-  }));
+});
+LabelButton.parameters = { controls: { disabled: true } };
+
+export const AllVariantsAndCategories = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  variants: Object.keys(newButtonVariantOptions).filter(
+    (variant) => !newButtonVariantOptions[variant].includes('deprecated')
+  ),
+  categories: newButtonCategoryOptions,
+  style: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 150px)',
+    rowGap: '10px',
+    textAlign: 'center',
+  },
+  template: `
+      <div :style="$options.style">
+        <template v-for="variant in $options.variants" :key="variant">
+          <div v-for="category in $options.categories">
+            <gl-button :key="category" :category="category" :variant="variant">
+              {{ category }} {{ variant }}
+            </gl-button>
+          </div>
+        </template>
+      </div>
+    `,
+});
+AllVariantsAndCategories.parameters = { controls: { disabled: true } };
+
+export const Emojis = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
+      <div>
+        <gl-button selected>
+          <template #emoji>
+            <gl-emoji title="thumbs up sign" data-name="thumbsup" data-unicode-version="6.0"
+              >👍</gl-emoji
+            >
+          </template>
+          1
+        </gl-button>
+        <gl-button>
+          <template #emoji>
+            <gl-emoji title="thumbs down sign" data-name="thumbsdown" data-unicode-version="6.0"
+              >👎</gl-emoji
+            >
+          </template>
+          0
+        </gl-button>
+        <gl-button selected size="small">
+          <template #emoji>
+            <gl-emoji title="thumbs up sign" data-name="thumbsup" data-unicode-version="6.0"
+              >👍</gl-emoji
+            >
+          </template>
+          1
+        </gl-button>
+        <gl-button size="small">
+          <template #emoji>
+            <gl-emoji title="thumbs down sign" data-name="thumbsdown" data-unicode-version="6.0"
+              >👎</gl-emoji
+            >
+          </template>
+          0
+        </gl-button>
+      </div>
+    `,
+});
+Emojis.parameters = { controls: { disabled: true } };
+
+export const Ellipsis = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
+    <gl-button icon="ellipsis_h" />
+  `,
+});
+Ellipsis.parameters = { controls: { disabled: true } };
+
+export const Sizes = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
+    <div>
+      <gl-button size="small">Small button</gl-button>
+      <gl-button>Default button</gl-button>
+      <div class="mt-2">
+        <gl-button size="small" block>Full width small button</gl-button>
+      </div>
+      <div class="mt-2">
+        <gl-button block>Full width button</gl-button>
+      </div>
+    </div>
+  `,
+});
+Sizes.parameters = { controls: { disabled: true } };
+
+export default {
+  title: 'base/button',
+  component: GlButton,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+    knobs: {
+      disabled: true,
+    },
+  },
+  argTypes: {
+    category: {
+      control: {
+        type: 'select',
+        options: newButtonCategoryOptions,
+      },
+    },
+    variant: {
+      control: {
+        type: 'select',
+        options: newButtonVariantOptions,
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: newButtonSizeOptions,
+      },
+    },
+    target: {
+      control: {
+        type: 'select',
+        options: targetOptions,
+      },
+    },
+  },
+};
