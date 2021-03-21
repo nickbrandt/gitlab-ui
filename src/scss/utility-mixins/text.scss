@@ -103,6 +103,12 @@
   word-break: break-all;
 }
 
+@mixin gl-overflow-break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
 // Deprecated, prefer `gl-text-truncate`
 @mixin gl-str-truncated {
   @include str-truncated;
