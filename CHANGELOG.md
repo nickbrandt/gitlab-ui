@@ -1,3 +1,10 @@
+# [28.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.12.1...v28.13.0) (2021-03-21)
+
+
+### Features
+
+* Add utility class for break-word ([0bcc4c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/0bcc4c2237677c02ea0e8631f732f04570c862b7))
+
 ## [28.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.12.0...v28.12.1) (2021-03-18)
 
 
