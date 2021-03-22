@@ -8,8 +8,16 @@ Tests should be added in the `cypress/integration` folder, only when testing a c
 
 ## Running Cypress tests
 
-Tests can be ran locally with the following command:
+Tests can be ran locally with the following command, which open the cypress dashboard:
 
 ```shell
 yarn run cypress open
 ```
+
+To run tests as a headless browser, run the following command:
+
+```shell
+yarn test:integration
+```
+
+In both cases, the server needs to be running.

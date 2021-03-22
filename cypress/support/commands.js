@@ -1,3 +1,5 @@
+import { isString } from 'lodash';
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +25,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('visitStory', (component, story = 'default') => {
+  if (!isString(component) || component.length === 0) {
+    throw new Error('Provide a valid component name');
+  }
+
+  cy.visit(`iframe.html?id=base-${component}--${story}&viewMode=story`);
+});

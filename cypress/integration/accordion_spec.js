@@ -1,27 +1,19 @@
 describe('GlAccordion', () => {
   before(() => {
-    cy.visit('iframe.html?id=base-accordion--default&viewMode=story');
+    cy.visitStory('accordion');
   });
 
+  const accordionContentId = '[data-testid="accordion-item-collapse-accordion-item-2"]';
+
   it('clicking on collapsed chevron icon expands accordion item then collapses when clicked again', () => {
-    cy.get('[data-testid="accordion-item-collapse-accordion-item-2"]').should(
-      'not.have.class',
-      'show'
-    );
-
-    cy.get('.gl-accordion-item').first().find('button').click();
-
-    cy.get('[data-testid="accordion-item-collapse-accordion-item-2"]').should('have.class', 'show');
+    cy.get(accordionContentId).should('not.be.visible');
+    cy.contains('Item 1').click();
+    cy.get(accordionContentId).should('be.visible');
   });
 
   it('clicking on expanded chevron icon collapses accordion item', () => {
-    cy.get('[data-testid="accordion-item-collapse-accordion-item-2"]').should('have.class', 'show');
-
-    cy.get('.gl-accordion-item').first().find('button').click();
-
-    cy.get('[data-testid="accordion-item-collapse-accordion-item-2"]').should(
-      'not.have.class',
-      'show'
-    );
+    cy.get(accordionContentId).should('be.visible');
+    cy.contains('Item 1').click();
+    cy.get(accordionContentId).should('not.be.visible');
   });
 });
