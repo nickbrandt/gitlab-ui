@@ -1,3 +1,10 @@
+## [28.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.13.0...v28.13.1) (2021-03-23)
+
+
+### Bug Fixes
+
+* Make accessibility improvements to components ([dc6246d](https://gitlab.com/gitlab-org/gitlab-ui/commit/dc6246d121e7be9b97953ed506347bd6db3b276c))
+
 # [28.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.12.1...v28.13.0) (2021-03-21)
 
 
