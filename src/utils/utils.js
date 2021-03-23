@@ -104,14 +104,11 @@ export function focusFirstFocusableElement(elts) {
 }
 
 /**
- * Prints a warning message to the console
- * @param {string} message An array of element to potentially focus
+ * Prints a warning message to the console in non-test and non-production environments.
+ * @param {string} message message to print to the console
  */
-export function deprecationWarning(message = '') {
-  if (message.length) {
-    if (!['test', 'production'].includes(process.env.NODE_ENV)) {
-      /* eslint-disable-next-line no-console */
-      console.warn(message);
-    }
+export function logWarning(message = '') {
+  if (message.length && !['test', 'production'].includes(process.env.NODE_ENV)) {
+    console.warn(message); // eslint-disable-line no-console
   }
 }
