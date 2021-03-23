@@ -1,3 +1,10 @@
+# [28.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.13.1...v28.14.0) (2021-03-23)
+
+
+### Features
+
+* **GlPath:** Allow to append custom content to path items ([f01a502](https://gitlab.com/gitlab-org/gitlab-ui/commit/f01a5029d288dafc0eaa2652a8ffe050cd6f3320))
+
 ## [28.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.13.0...v28.13.1) (2021-03-23)
 
 
