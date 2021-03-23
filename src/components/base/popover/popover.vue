@@ -30,6 +30,7 @@ export default {
   <b-popover
     :ref="$options.popoverRefName"
     :custom-class="customClass"
+    triggers="hover focus"
     v-bind="$attrs"
     v-on="$listeners"
   >
