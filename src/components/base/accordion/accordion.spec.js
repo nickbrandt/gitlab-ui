@@ -14,9 +14,9 @@ describe('GlAccordion', () => {
     });
   };
 
-  it('has role attribute', () => {
+  it('has no role attribute', () => {
     createComponent();
-    expect(wrapper.attributes('role')).toBe('tablist');
+    expect(wrapper.attributes('role')).not.toBe('tablist');
   });
 
   it('renders the slot content', () => {
