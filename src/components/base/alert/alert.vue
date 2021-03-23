@@ -173,7 +173,6 @@ export default {
       { 'gl-alert-sticky': sticky },
       variantClass,
     ]"
-    role="alert"
   >
     <div class="gl-alert-container">
       <gl-icon
@@ -181,18 +180,7 @@ export default {
         :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
       />
 
-      <button
-        v-if="dismissible"
-        ref="dismiss"
-        type="button"
-        class="gl-alert-dismiss"
-        :aria-label="dismissLabel"
-        @click="onDismiss"
-      >
-        <gl-icon name="close" />
-      </button>
-
-      <div class="gl-alert-content">
+      <div class="gl-alert-content" role="alert">
         <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
 
         <div class="gl-alert-body">
@@ -215,6 +203,17 @@ export default {
           </slot>
         </div>
       </div>
+
+      <button
+        v-if="dismissible"
+        ref="dismiss"
+        type="button"
+        class="gl-alert-dismiss"
+        :aria-label="dismissLabel"
+        @click="onDismiss"
+      >
+        <gl-icon name="close" />
+      </button>
     </div>
   </div>
 </template>

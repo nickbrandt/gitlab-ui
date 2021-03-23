@@ -42,7 +42,6 @@ export default {
         ref="dismiss"
         type="button"
         class="gl-broadcast-message-dismiss"
-        :aria-label="dismissLabel"
         @click="$emit('dismiss')"
       >
         <gl-icon class="gl-broadcast-message-dismiss-icon" name="close" />
