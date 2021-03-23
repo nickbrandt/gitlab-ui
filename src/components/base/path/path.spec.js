@@ -10,12 +10,13 @@ const BACKGROUND_COLOR_LIGHT_GRAY = '#f0f0f0';
 describe('Path', () => {
   let wrapper;
 
-  const createComponent = (props) => {
+  const createComponent = (props = {}, options = {}) => {
     return shallowMount(GlPath, {
       propsData: {
         items,
         ...props,
       },
+      ...options,
     });
   };
 
@@ -186,6 +187,31 @@ describe('Path', () => {
         clickItemAt(6);
 
         expect(wrapper.emitted('selected')).toEqual([[items[1]], [items[4]], [items[6]]]);
+      });
+    });
+  });
+
+  describe('slots', () => {
+    beforeEach(() => {
+      wrapper = createComponent(null, {
+        scopedSlots: {
+          default: `
+            <div
+              :data-pathid="props.pathId"
+              data-testid="path-item-slot-content">
+              {{ props.pathItem.title }}
+            </div>
+          `,
+        },
+      });
+    });
+
+    it('contains all elements passed into the default slot', () => {
+      items.forEach((item, index) => {
+        const pathItem = wrapper.findAll('[data-testid="path-item-slot-content"]').at(index);
+
+        expect(pathItem.text()).toBe(item.title);
+        expect(pathItem.attributes('data-pathid')).toContain('path-');
       });
     });
   });

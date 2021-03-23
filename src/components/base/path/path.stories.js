@@ -20,4 +20,19 @@ documentedStoriesOf('base/path', readme)
   .add('default', () => ({
     props: generateProps(),
     template: `<gl-path :items="items" :theme="theme"/>`,
+  }))
+  .add('with popovers', () => ({
+    props: generateProps(),
+    template: `
+      <gl-path :items="items" :theme="theme">
+        <template #default="{ pathItem, pathId }">
+          <gl-popover triggers="hover" placement="bottom" :target="pathId">
+            <template #title>
+              <strong>{{ pathItem.title }}</strong>
+            </template>
+            {{ pathItem.metric }}
+          </gl-popover>
+        </template>
+      </gl-path>
+    `,
   }));
