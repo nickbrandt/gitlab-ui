@@ -74,7 +74,10 @@ export const setupStorybookReadme = () =>
           },
         };
       },
-      mounted() {
+      // We infer the component's name from the URL so that we can load related examples and docs.
+      // This needs to be done in the created hook to make sure that componentName is always set
+      // to a valid value once the story loads.
+      created() {
         try {
           this.componentName = getComponentName();
           this.error = '';
@@ -84,13 +87,15 @@ export const setupStorybookReadme = () =>
         }
       },
       template: `
-      <slot v-if="$options.disableForComponents.includes(componentName)"></slot>
-      <div v-else>
-        <div class="story-container" v-bind:style="styles"><slot></slot></div>
-        {{ error }}
-        <template v-if="componentName">
-          <gl-example-explorer :componentName="componentName" />
-          <gl-component-documentation :componentName="componentName" />
+      <div>
+        <slot v-if="$options.disableForComponents.includes(componentName)" />
+        <template v-else>
+          <div class="story-container" v-bind:style="styles"><slot></slot></div>
+          {{ error }}
+          <template v-if="componentName">
+            <gl-example-explorer :componentName="componentName" />
+            <gl-component-documentation :componentName="componentName" />
+          </template>
         </template>
       </div>`,
     },
