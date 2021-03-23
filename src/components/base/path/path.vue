@@ -1,6 +1,6 @@
 <script>
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import findLast from 'lodash/findLast';
+import { uniqueId, findLast } from 'lodash';
 import GlResizeObserverDirective from '../../../directives/resize_observer/resize_observer';
 import { glThemes } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
@@ -66,6 +66,9 @@ export default {
     const selectedIndex = this.items.findIndex((item) => item.selected);
     this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
   },
+  beforeCreate() {
+    this.pathUuid = uniqueId('path-');
+  },
   methods: {
     pathItemClass(index) {
       return index === this.selectedIndex
@@ -115,6 +118,9 @@ export default {
     shouldDisplayIcon(icon) {
       return icon && iconSpriteInfo.icons.includes(icon);
     },
+    pathId(index) {
+      return `${this.pathUuid}-item-${index}`;
+    },
   },
 };
 </script>
@@ -134,6 +140,7 @@ export default {
     <ul ref="pathNavList" class="gl-path-nav-list">
       <li
         v-for="(item, index) in items"
+        :id="pathId(index)"
         ref="pathListItems"
         :key="index"
         class="gl-path-nav-list-item"
@@ -148,6 +155,7 @@ export default {
           {{ item.title
           }}<span v-if="item.metric" class="gl-font-weight-normal gl-pl-2">{{ item.metric }}</span>
         </button>
+        <slot :path-item="item" :path-id="pathId(index)"></slot>
       </li>
     </ul>
     <span v-show="displayScrollRight" class="gl-path-fade gl-path-fade-right">

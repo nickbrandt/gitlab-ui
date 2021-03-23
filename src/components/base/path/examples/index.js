@@ -3,6 +3,7 @@ import PathBackgroundExample from './path.background.example.vue';
 import BasicPathExample from './path.basic.example.vue';
 import PathWithIconExample from './path.icon.example.vue';
 import PathWithMetricExample from './path.metric.example.vue';
+import PathWithPopoversExample from './path.popover.example.vue';
 
 export default [
   {
@@ -42,6 +43,12 @@ export default [
         name: 'With All Options',
         description: 'With All Options',
         component: PathWithAllOptionsExample,
+      },
+      {
+        id: 'path-popover',
+        name: 'With Popovers',
+        description: 'With Popovers',
+        component: PathWithPopoversExample,
       },
     ],
   },
