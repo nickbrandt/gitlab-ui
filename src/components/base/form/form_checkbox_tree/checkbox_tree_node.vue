@@ -44,7 +44,6 @@ export default {
       :checked="node.isChecked"
       :indeterminate="node.isIndeterminate"
       :class="checkboxClass"
-      :aria-label="label"
       @change="tree.toggleOption(option, $event)"
     >
       {{ label }}

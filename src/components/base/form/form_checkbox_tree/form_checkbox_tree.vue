@@ -84,7 +84,6 @@ export default {
       class="gl-form-checkbox-tree-toggle-all"
       :checked="tree.allOptionsChecked"
       :indeterminate="tree.someOptionsChecked"
-      :aria-label="toggleAllLabel"
       @change="tree.toggleAllOptions"
     >
       {{ toggleAllLabel }}
