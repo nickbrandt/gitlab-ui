@@ -1,3 +1,10 @@
+# [28.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.14.0...v28.15.0) (2021-03-23)
+
+
+### Features
+
+* **GlPopover:** Make popover accessible by hover and focus by default ([d4f199a](https://gitlab.com/gitlab-org/gitlab-ui/commit/d4f199a46369abd3e23db8dd9628f305886889ed))
+
 # [28.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.13.1...v28.14.0) (2021-03-23)
 
 
