@@ -1,3 +1,10 @@
+# [28.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.15.0...v28.16.0) (2021-03-24)
+
+
+### Features
+
+* **css:** add gl-font-style-normal class ([15e8056](https://gitlab.com/gitlab-org/gitlab-ui/commit/15e80561dda6cf290869e50559e01975a2165c45))
+
 # [28.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.14.0...v28.15.0) (2021-03-23)
 
 
