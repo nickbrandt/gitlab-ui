@@ -29,7 +29,16 @@ export default {
       type: Number,
       required: false,
       default: avatarSizeOptions[1],
-      validator: (value) => avatarSizeOptions.includes(value),
+      validator: (value) => {
+        const invalid = avatarSizeOptions.includes(value);
+
+        if (invalid) {
+          /* eslint-disable-next-line no-console */
+          console.error(`Avatar size should be one of ${avatarSizeOptions}`);
+        }
+
+        return invalid;
+      },
     },
     shape: {
       type: String,
