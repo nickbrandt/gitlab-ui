@@ -1,3 +1,10 @@
+## [28.16.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.16.1...v28.16.2) (2021-03-25)
+
+
+### Bug Fixes
+
+* **GlModal:** Update modal header background to white ([84f62e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/84f62e499a133bbb3b0baa467aa51c22c3d53cf3))
+
 ## [28.16.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.16.0...v28.16.1) (2021-03-25)
 
 
