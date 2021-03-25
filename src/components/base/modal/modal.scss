@@ -52,7 +52,7 @@ body.modal-open {
   }
 
   .modal-header {
-    @include gl-bg-gray-10;
+    @include gl-bg-white;
     @include gl-pr-3;
 
     .modal-title {
