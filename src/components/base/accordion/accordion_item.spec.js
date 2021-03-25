@@ -20,6 +20,7 @@ describe('GlAccordionItem', () => {
       },
       propsData: {
         title: defaultTitle,
+        headerLevel: 3,
         ...props,
       },
       slots: {
@@ -35,6 +36,12 @@ describe('GlAccordionItem', () => {
     createComponent();
 
     expect(findButton().find('span').text()).toBe(defaultTitle);
+  });
+
+  it('renders the appropriate header element', () => {
+    createComponent({ headerLevel: 4 });
+
+    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBeTruthy();
   });
 
   it('renders slot text', () => {
