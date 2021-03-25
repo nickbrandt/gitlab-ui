@@ -1,11 +1,13 @@
 <script>
 import { bannerVariants } from '../../../utils/constants';
 import GlButton from '../button/button.vue';
+import GlCard from '../card/card.vue';
 
 export default {
   name: 'GlBanner',
   components: {
     GlButton,
+    GlCard,
   },
   props: {
     title: {
@@ -48,7 +50,11 @@ export default {
 </script>
 
 <template>
-  <section class="gl-banner" :class="{ 'gl-banner-introduction': isIntroducing }">
+  <gl-card
+    class="gl-px-8 gl-py-6 gl-line-height-20"
+    :class="{ 'gl-banner-introduction': isIntroducing }"
+    body-class="gl-display-flex gl-p-0!"
+  >
     <div v-if="svgPath" class="gl-banner-illustration">
       <img :src="svgPath" alt="" role="presentation" />
     </div>
@@ -58,6 +64,7 @@ export default {
       <gl-button variant="confirm" category="primary" :href="buttonLink">{{
         buttonText
       }}</gl-button>
+      <slot name="actions"></slot>
     </div>
     <gl-button
       :variant="isIntroducing ? 'confirm' : 'default'"
@@ -68,5 +75,5 @@ export default {
       class="gl-banner-close"
       @click="handleClose"
     />
-  </section>
+  </gl-card>
 </template>
