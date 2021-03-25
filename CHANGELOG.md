@@ -1,3 +1,10 @@
+# [28.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.16.2...v28.17.0) (2021-03-25)
+
+
+### Features
+
+* **GlBanner:** Add ability to add custom actions to the right of button ([2bd5103](https://gitlab.com/gitlab-org/gitlab-ui/commit/2bd510305fb6937f8859df2e8a27e5545f5b10bf))
+
 ## [28.16.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.16.1...v28.16.2) (2021-03-25)
 
 
