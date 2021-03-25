@@ -1,3 +1,10 @@
+## [28.16.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.16.0...v28.16.1) (2021-03-25)
+
+
+### Bug Fixes
+
+* **GlAccordion:** Remove incorrect role attributes ([9853a4e](https://gitlab.com/gitlab-org/gitlab-ui/commit/9853a4ebb86413ab494dd210d287e80fa7c5e72f))
+
 # [28.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.15.0...v28.16.0) (2021-03-24)
 
 
