@@ -11,12 +11,17 @@ describe('banner component', () => {
   const svgPath = 'https://about.gitlab.com/images/press/logo/svg/gitlab-icon-rgb.svg';
   let wrapper;
 
+  const createWrapper = ({ props, slots = {} } = {}) => {
+    wrapper = shallowMount(GlBanner, {
+      propsData: { ...propsData, ...props },
+      slots,
+    });
+  };
+
   describe('Promotion', () => {
     describe('with only the required props', () => {
       beforeEach(() => {
-        wrapper = shallowMount(GlBanner, {
-          propsData,
-        });
+        createWrapper();
       });
 
       it('should render the correct title', () => {
@@ -43,8 +48,8 @@ describe('banner component', () => {
 
     describe('with image', () => {
       beforeEach(() => {
-        wrapper = shallowMount(GlBanner, {
-          propsData: { ...propsData, svgPath },
+        createWrapper({
+          props: { svgPath },
         });
       });
 
@@ -56,13 +61,28 @@ describe('banner component', () => {
 
   describe('Introduction', () => {
     beforeEach(() => {
-      wrapper = shallowMount(GlBanner, {
-        propsData: { ...propsData, variant: 'introduction' },
+      createWrapper({
+        props: { variant: 'introduction' },
       });
     });
 
     it('should add the `gl-banner-introduction` class', () => {
       expect(wrapper.classes()).toContain('gl-banner-introduction');
+    });
+  });
+
+  describe('custom actions', () => {
+    it('shows the custom actions', () => {
+      const mockAction = {
+        name: 'MockAction',
+        template: '<span>Mock Action</span>',
+      };
+
+      createWrapper({
+        slots: { actions: mockAction },
+      });
+
+      expect(wrapper.findComponent(mockAction).exists()).toBe(true);
     });
   });
 });

@@ -2,12 +2,13 @@ import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.s
 import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
 import { text, select, withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlBanner, GlLink } from '../../../../index';
+import { GlBanner, GlLink, GlButton } from '../../../../index';
 import { bannerVariants } from '../../../utils/constants';
 
 const components = {
   GlBanner,
   GlLink,
+  GlButton,
 };
 
 const getProps = () => ({
@@ -71,6 +72,22 @@ documentedStoriesOf('base/banner', '')
       >
        <p>Auto DevOps can be enabled for this project. It will automatically build, test, and deploy your application based on a predefined CI/CD configuration.</p>
        <p>Learn more in the <gl-link href="#">Auto DevOps documentation</gl-link>.</p>
+      </gl-banner>
+    `,
+  }))
+  .add('with actions', () => ({
+    components,
+    props: getProps(),
+    template: `
+      <gl-banner
+        title="Button with actions banner"
+        button-text="Primary Button"
+        :button-link="buttonLink"
+      >
+        <p>There should be a primary button and a link button below this text.</p>
+        <template #actions>
+          <gl-button class="gl-ml-3" variant="link">Ask again later</gl-button>
+        </template>
       </gl-banner>
     `,
   }));
