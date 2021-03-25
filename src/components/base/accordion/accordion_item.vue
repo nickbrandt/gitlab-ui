@@ -50,7 +50,6 @@ export default {
       v-gl-collapse-toggle="accordionItemId"
       variant="link"
       button-text-classes="gl-display-flex"
-      role="tab"
       :icon="icon"
     >
       {{ title }}
@@ -61,7 +60,6 @@ export default {
       :visible="isVisible"
       :accordion="accordion"
       class="gl-mt-3 gl-font-base"
-      role="tabpanel"
     >
       <slot></slot>
     </b-collapse>
