@@ -1,5 +1,5 @@
 <template>
-  <gl-accordion>
+  <gl-accordion :header-level="4">
     <gl-accordion-item title="Item 1">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, a!
     </gl-accordion-item>

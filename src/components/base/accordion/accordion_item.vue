@@ -13,6 +13,7 @@ export default {
   directives: {
     GlCollapseToggle,
   },
+  inject: ['accordionSetId', 'defaultHeaderLevel'],
   inheritAttrs: false,
   props: {
     title: {
@@ -24,14 +25,13 @@ export default {
       default: false,
       required: false,
     },
-    accordion: {
-      type: String,
-      default: '',
-      required: false,
-    },
     headerLevel: {
       type: Number,
-      required: true,
+      required: false,
+      default: null,
+      validator(value) {
+        return value > 0 && value <= 6;
+      },
     },
   },
   data() {
@@ -42,7 +42,11 @@ export default {
   },
   computed: {
     headerComponent() {
-      return `h${this.headerLevel}`;
+      const level = this.headerLevel || this.defaultHeaderLevel;
+      return `h${level}`;
+    },
+    accordion() {
+      return this.accordionSetId || undefined;
     },
     icon() {
       return this.isVisible ? 'chevron-down' : 'chevron-right';

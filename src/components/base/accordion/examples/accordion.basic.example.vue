@@ -1,5 +1,5 @@
 <template>
-  <gl-accordion>
+  <gl-accordion :header-level="3">
     <gl-accordion-item title="Item 1">
       Each accordion can be expanded or collapsed independently of others.
     </gl-accordion-item>
