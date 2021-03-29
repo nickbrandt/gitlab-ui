@@ -5,6 +5,7 @@
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlFormInvalidFeedback } from './src/components/base/form/form_invalid_feedback/form_invalid_feedback.vue';
 export { default as GlDropdownForm } from './src/components/base/dropdown/dropdown_form.vue';
 export { default as GlKeysetPagination } from './src/components/base/keyset_pagination/keyset_pagination.vue';
 export { default as GlInputGroupText } from './src/components/base/form/input_group_text/input_group_text.vue';
