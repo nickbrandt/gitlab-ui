@@ -6,7 +6,7 @@
 * - Strictly based design system color palette. See variables.scss
 * for a comprehensive list.
 */
-@mixin gl-bg-transparent {
+@mixin gl-bg-transparent($hover: true) {
   background-color: $transparent;
 }
 
