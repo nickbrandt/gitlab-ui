@@ -16,6 +16,11 @@ export default {
       required: false,
       default: () => [],
     },
+    triggers: {
+      type: String,
+      required: false,
+      default: 'hover focus',
+    },
   },
   computed: {
     customClass() {
@@ -30,7 +35,7 @@ export default {
   <b-popover
     :ref="$options.popoverRefName"
     :custom-class="customClass"
-    triggers="hover focus"
+    :triggers="triggers"
     v-bind="$attrs"
     v-on="$listeners"
   >
