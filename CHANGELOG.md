@@ -1,3 +1,10 @@
+# [28.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.17.1...v28.18.0) (2021-03-30)
+
+
+### Features
+
+* **css:** add hover variant for gl-bg-transparent ([2af7b2d](https://gitlab.com/gitlab-org/gitlab-ui/commit/2af7b2dec4d3bd03bd84a3eef401dc61232b1439))
+
 ## [28.17.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.17.0...v28.17.1) (2021-03-30)
 
 
