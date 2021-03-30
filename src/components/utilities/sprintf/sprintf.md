@@ -1,7 +1,3 @@
-# GlSprintf
-
-<!-- STORY -->
-
 ## Overview
 
 The `GlSprintf` component lets you do `sprintf`-style string interpolation with

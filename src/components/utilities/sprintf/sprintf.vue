@@ -47,10 +47,18 @@ function getPlaceholderDefinition(chunk, placeholdersByStartTag) {
 export default {
   functional: true,
   props: {
+    /**
+     * A translated string with named placeholders, e.g., "Written by %{author}".
+     */
     message: {
       type: String,
       required: true,
     },
+    /**
+     * An object mapping slot names to custom start/end placeholders. Use this
+     * to avoid changing an existing message, and in turn invalidating existing
+     * translations, in the case it uses non-default placeholders.
+     */
     placeholders: {
       type: Object,
       required: false,
@@ -62,13 +70,23 @@ export default {
     },
   },
   /**
-   * While a functional style is generally preferred, an imperative style is
-   * used here, as it lends itself better to the message parsing algorithm.
-   * This approach is also more performant, as it minimizes (relatively) object
-   * creation/garbage collection, which is important given how frequently this
-   * code may run on a given page.
+   * Available slots are determined by the placeholders in the provided
+   * message prop. For example, a message of "Written by %{author}" has
+   * a slot called "author", and its content is used to replace "%{author}"
+   * in the rendered output. When two placeholders indicate a start and an
+   * end region in the message, e.g., "%{linkStart}foo%{linkEnd}", the common
+   * base name can be used as a scoped slot, where the content between the
+   * placeholders is passed via the `content` scoped slot prop.
+   * @slot * (arbitrary)
+   * @binding {string} content The content to place between start and end placeholders.
    */
   render(createElement, context) {
+    // While a functional style is generally preferred, an imperative style is
+    // used here, as it lends itself better to the message parsing algorithm.
+    // This approach is also more performant, as it minimizes (relatively) object
+    // creation/garbage collection, which is important given how frequently this
+    // code may run on a given page.
+
     let i = 0;
     const vnodes = [];
     const slots = context.scopedSlots;
