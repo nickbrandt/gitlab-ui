@@ -30,14 +30,14 @@ export default {
       required: false,
       default: avatarSizeOptions[1],
       validator: (value) => {
-        const invalid = avatarSizeOptions.includes(value);
+        const isValidSize = avatarSizeOptions.includes(value);
 
-        if (invalid) {
+        if (!isValidSize) {
           /* eslint-disable-next-line no-console */
-          console.error(`Avatar size should be one of ${avatarSizeOptions}`);
+          console.error(`Avatar size should be one of [${avatarSizeOptions}], received: ${value}`);
         }
 
-        return invalid;
+        return isValidSize;
       },
     },
     shape: {
