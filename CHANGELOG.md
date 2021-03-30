@@ -1,3 +1,11 @@
+## [28.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.18.0...v28.18.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* **GlAvatar:** Fix incorrect size property validation logic ([d62e915](https://gitlab.com/gitlab-org/gitlab-ui/commit/d62e91528a1d4d372121b2c1731f85af29a7b23b))
+* **GlForm:** Add invalid styling to form select ([daf8c98](https://gitlab.com/gitlab-org/gitlab-ui/commit/daf8c9837243c1af8568180fdedb60ebc7ecbf46))
+
 # [28.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.17.1...v28.18.0) (2021-03-30)
 
 
