@@ -1,3 +1,10 @@
+## [28.17.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.17.0...v28.17.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* **GlPopover:** Fix custom triggers not working due to hard-coded triggers ([5889093](https://gitlab.com/gitlab-org/gitlab-ui/commit/58890935d1e1b4cd49f7efd9ab1631a113006ec0))
+
 # [28.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.16.2...v28.17.0) (2021-03-25)
 
 
