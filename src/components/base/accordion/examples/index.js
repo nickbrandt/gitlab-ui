@@ -1,5 +1,5 @@
+import AccordionAutoCollapseExample from './accordion.auto_collapse.example.vue';
 import AccordionBasicExample from './accordion.basic.example.vue';
-import AccordionCollapseOtherExample from './accordion.collapse_other.example.vue';
 import AccordionInitialVisibleExample from './accordion.initial_visible.example.vue';
 
 export default [
@@ -19,10 +19,10 @@ export default [
         component: AccordionInitialVisibleExample,
       },
       {
-        id: 'accordion-collapse-other',
-        name: 'Collapse Other',
-        description: 'Collapse Other in an accordion group',
-        component: AccordionCollapseOtherExample,
+        id: 'accordion-auto-collapse',
+        name: 'Auto Collapse',
+        description: 'Auto collapse in an accordion group',
+        component: AccordionAutoCollapseExample,
       },
     ],
   },
