@@ -1,3 +1,10 @@
+# [29.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.0.0...v29.1.0) (2021-03-31)
+
+
+### Features
+
+* **GlDropdown:** Allow custom button text content while still keeping default loading spinner, icon, and dropdown caret ([d34f970](https://gitlab.com/gitlab-org/gitlab-ui/commit/d34f97012e7f49a0e4a1fec5c63a76222fa9511e))
+
 # [29.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.18.2...v29.0.0) (2021-03-31)
 
 
