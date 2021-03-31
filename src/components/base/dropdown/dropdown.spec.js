@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 
 import { newDropdownVariantOptions } from '../../../utils/constants';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlDropdown from './dropdown.vue';
 
 const DEFAULT_BTN_CLASSES = ['btn', 'btn-default', 'btn-md', 'gl-button'];
@@ -27,6 +28,9 @@ describe('new dropdown', () => {
 
   const findSplitButton = () => wrapper.find('.btn:not(.gl-dropdown-toggle)');
   const findDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
+  const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
+  const findIcon = () => wrapper.find('.dropdown-icon');
+  const findCaret = () => wrapper.find('.dropdown-chevron');
 
   it('renders when text is null', () => {
     buildWrapper({ text: null });
@@ -196,6 +200,30 @@ describe('new dropdown', () => {
     it('does not render the footer', () => {
       buildWrapper();
       expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeFalsy();
+    });
+  });
+
+  describe('button content templates', () => {
+    const mockComponent = {
+      template: '<span>mock</span>',
+    };
+
+    it('shows the button text template with the default loading spinner, icon, and dropdown caret', () => {
+      const slots = { 'button-text': mockComponent };
+      buildWrapper({ loading: true, icon: 'close' }, slots);
+      expect(wrapper.findComponent(mockComponent).exists()).toBe(true);
+      expect(findLoadingIcon().exists()).toBe(true);
+      expect(findIcon().exists()).toBe(true);
+      expect(findCaret().exists()).toBe(true);
+    });
+
+    it('shows only the button content template', () => {
+      const slots = { 'button-content': mockComponent };
+      buildWrapper({ loading: true, icon: 'close' }, slots);
+      expect(wrapper.findComponent(mockComponent).exists()).toBe(true);
+      expect(findLoadingIcon().exists()).toBe(false);
+      expect(findIcon().exists()).toBe(false);
+      expect(findCaret().exists()).toBe(false);
     });
   });
 });
