@@ -1,3 +1,16 @@
+# [29.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.18.2...v29.0.0) (2021-03-31)
+
+
+### Features
+
+* **GlAccordion:** Move props from GlAccordionItem to GlAccordion ([394baff](https://gitlab.com/gitlab-org/gitlab-ui/commit/394baff56b7fefb7054860c319bd225f5979d448))
+* **GlAccordion:** Wrap the accordion trigger button in header element ([dbafc41](https://gitlab.com/gitlab-org/gitlab-ui/commit/dbafc4172872d085eb1eb4add519f235d1938fa9))
+
+
+### BREAKING CHANGES
+
+* **GlAccordion:** this adds a new required property to GlAccordionItem
+
 ## [28.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.18.1...v28.18.2) (2021-03-31)
 
 
