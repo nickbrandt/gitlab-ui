@@ -1,3 +1,10 @@
+## [28.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.18.1...v28.18.2) (2021-03-31)
+
+
+### Bug Fixes
+
+* **GlAlert:** Migrate dismiss btn to CloseButton ([8968fc1](https://gitlab.com/gitlab-org/gitlab-ui/commit/8968fc1d5ddb13c42f1acce244226aeea764a19e))
+
 ## [28.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v28.18.0...v28.18.1) (2021-03-30)
 
 
