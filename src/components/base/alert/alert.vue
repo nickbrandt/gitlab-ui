@@ -4,12 +4,14 @@ import {
   alertVariantIconMap,
   newButtonCategoryOptions,
 } from '../../../utils/constants';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
     GlIcon,
+    CloseButton,
     GlButton,
   },
   props: {
@@ -171,6 +173,7 @@ export default {
       'gl-alert',
       { 'gl-alert-max-content': contained },
       { 'gl-alert-sticky': sticky },
+      { 'gl-alert-not-dismissible': !dismissible },
       variantClass,
     ]"
   >
@@ -178,6 +181,14 @@ export default {
       <gl-icon
         :name="iconName"
         :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
+      />
+
+      <close-button
+        v-if="dismissible"
+        ref="dismiss"
+        class="gl-dismiss-btn"
+        :label="dismissLabel"
+        @click="onDismiss"
       />
 
       <div class="gl-alert-content" role="alert">
@@ -203,17 +214,6 @@ export default {
           </slot>
         </div>
       </div>
-
-      <button
-        v-if="dismissible"
-        ref="dismiss"
-        type="button"
-        class="gl-alert-dismiss"
-        :aria-label="dismissLabel"
-        @click="onDismiss"
-      >
-        <gl-icon name="close" />
-      </button>
     </div>
   </div>
 </template>
