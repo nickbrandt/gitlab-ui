@@ -1,10 +1,28 @@
 <script>
-// This component currently does virtually nothing, but is kept here
-// for legacy purposes and to provide an option to style the
-// accordion_item parent element in the future
+import { uniqueId } from 'lodash';
 
 export default {
   name: 'GlAccordion',
+  provide() {
+    return {
+      defaultHeaderLevel: this.headerLevel,
+      accordionSetId: this.autoCollapse && uniqueId('accordion-set-'),
+    };
+  },
+  props: {
+    autoCollapse: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    headerLevel: {
+      type: Number,
+      required: true,
+      validator(value) {
+        return value > 0 && value <= 6;
+      },
+    },
+  },
 };
 </script>
 

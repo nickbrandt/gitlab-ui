@@ -13,6 +13,7 @@ export default {
   directives: {
     GlCollapseToggle,
   },
+  inject: ['accordionSetId', 'defaultHeaderLevel'],
   inheritAttrs: false,
   props: {
     title: {
@@ -24,10 +25,13 @@ export default {
       default: false,
       required: false,
     },
-    accordion: {
-      type: String,
-      default: '',
+    headerLevel: {
+      type: Number,
       required: false,
+      default: null,
+      validator(value) {
+        return value > 0 && value <= 6;
+      },
     },
   },
   data() {
@@ -37,6 +41,13 @@ export default {
     };
   },
   computed: {
+    headerComponent() {
+      const level = this.headerLevel || this.defaultHeaderLevel;
+      return `h${level}`;
+    },
+    accordion() {
+      return this.accordionSetId || undefined;
+    },
     icon() {
       return this.isVisible ? 'chevron-down' : 'chevron-right';
     },
@@ -46,14 +57,16 @@ export default {
 
 <template>
   <div class="gl-accordion-item">
-    <gl-button
-      v-gl-collapse-toggle="accordionItemId"
-      variant="link"
-      button-text-classes="gl-display-flex"
-      :icon="icon"
-    >
-      {{ title }}
-    </gl-button>
+    <component :is="headerComponent" class="gl-accordion-item-header">
+      <gl-button
+        v-gl-collapse-toggle="accordionItemId"
+        variant="link"
+        button-text-classes="gl-display-flex"
+        :icon="icon"
+      >
+        {{ title }}
+      </gl-button>
+    </component>
     <b-collapse
       :id="accordionItemId"
       v-model="isVisible"

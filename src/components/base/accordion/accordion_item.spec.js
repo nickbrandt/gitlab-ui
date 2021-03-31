@@ -13,10 +13,14 @@ describe('GlAccordionItem', () => {
     wrapper.destroy();
   });
 
-  const createComponent = (props = {}) => {
+  const createComponent = (props = {}, { defaultHeaderLevel = 3, accordionSetId = false } = {}) => {
     wrapper = mount(GlAccordionItem, {
       directives: {
         GlCollapseToggle: GlCollapseToggleDirective,
+      },
+      provide: {
+        defaultHeaderLevel,
+        accordionSetId,
       },
       propsData: {
         title: defaultTitle,
@@ -35,6 +39,20 @@ describe('GlAccordionItem', () => {
     createComponent();
 
     expect(findButton().find('span').text()).toBe(defaultTitle);
+  });
+
+  it('renders the appropriate header element', () => {
+    createComponent({}, { defaultHeaderLevel: 3 });
+
+    expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBeTruthy();
+    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBeFalsy();
+  });
+
+  it('renders the appropriate header element when overridden', () => {
+    createComponent({ headerLevel: 4 }, { defaultHeaderLevel: 3 });
+
+    expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBeFalsy();
+    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBeTruthy();
   });
 
   it('renders slot text', () => {
@@ -62,7 +80,7 @@ describe('GlAccordionItem', () => {
   it('passes accordion identifier to BCollapse', () => {
     const accordionId = 'my-accordion';
 
-    createComponent({ accordion: accordionId });
+    createComponent({}, { accordionSetId: accordionId });
 
     expect(findCollapse().props('accordion')).toBe(accordionId);
   });
