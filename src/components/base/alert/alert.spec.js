@@ -40,7 +40,7 @@ describe('Alert component', () => {
     });
 
     it('clicking on dismiss button emits a dismiss event', () => {
-      findDismissButton().trigger('click');
+      findDismissButton().vm.$emit('click');
 
       expect(wrapper.emitted('dismiss')).toHaveLength(1);
     });
@@ -153,5 +153,34 @@ describe('Alert component', () => {
     const actionsContainer = findActionsContainer();
     expect(actionsContainer.exists()).toBe(true);
     expect(actionsContainer.find(DummyComponent).exists()).toBe(true);
+  });
+
+  describe('top-level classes', () => {
+    describe.each`
+      prop             | cssClass                      | presentIf
+      ${'contained'}   | ${'gl-alert-max-content'}     | ${true}
+      ${'sticky'}      | ${'gl-alert-sticky'}          | ${true}
+      ${'dismissible'} | ${'gl-alert-not-dismissible'} | ${false}
+    `('$cssClass', ({ prop, cssClass, presentIf }) => {
+      it(`adds class ${cssClass} when ${prop} is ${presentIf}`, () => {
+        createComponent({
+          propsData: {
+            [prop]: presentIf,
+          },
+        });
+
+        expect(wrapper.classes()).toContain(cssClass);
+      });
+
+      it(`does not add class ${cssClass} when ${prop} is ${!presentIf}`, () => {
+        createComponent({
+          propsData: {
+            [prop]: !presentIf,
+          },
+        });
+
+        expect(wrapper.classes()).not.toContain(cssClass);
+      });
+    });
   });
 });

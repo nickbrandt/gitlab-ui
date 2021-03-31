@@ -1,8 +1,12 @@
 .gl-alert {
   @include gl-font-base;
   @include gl-relative;
-  @include gl-px-8;
+  @include gl-px-9;
   @include gl-py-5;
+
+  &-not-dismissible {
+    @include gl-pr-5;
+  }
 
   .gl-link:not(.gl-label-link) {
     @include gl-text-blue-600;
@@ -55,6 +59,7 @@
   @include gl-line-height-normal;
 }
 
+// Todo: deprecate the .gl-alert-dismiss styles after all instances from HAML and Ruby have been migrated
 .gl-alert-dismiss {
   @include gl-absolute;
   @include gl-top-0;
@@ -73,6 +78,13 @@
   }
 }
 
+// This is the replacement for .gl-alert-dismiss
+.gl-dismiss-btn {
+  @include gl-absolute;
+  @include gl-top-4;
+  @include gl-right-4;
+}
+
 .gl-alert-max-content {
   @include gl-display-flex;
   @include gl-justify-content-center;
@@ -84,14 +96,15 @@
     @include gl-flex-shrink-0;
   }
 
-  // Todo: Once the button is migrated to the gl-button it can be included as a flexbox item.
-
-  /* .gl-alert-dismiss {
+  .gl-dismiss-btn {
     @include gl-static;
     @include gl-align-self-start;
-    @include gl-ml-5;
+    @include gl-ml-4;
+    // The negative margins optically align the × with the title text and right padding
+    margin-top: -$gl-spacing-scale-2;
+    margin-right: -$gl-spacing-scale-2;
     order: 3;
-  } */
+  }
 
   .gl-alert-container {
     @include gl-relative;
@@ -104,12 +117,6 @@
 
   .gl-alert-content {
     @include gl-flex-grow-1;
-    // Todo: Padding can be removed once the dismiss button has been migrated to gl-button and is a flexbox item.
-    @include gl-pr-9;
-  }
-
-  .gl-alert-dismiss {
-    @include gl-top-n5;
   }
 }
 
