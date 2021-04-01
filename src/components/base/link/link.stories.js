@@ -4,33 +4,32 @@ import { GlLink } from '../../../../index';
 import { targetOptions } from '../../../utils/constants';
 import readme from './link.md';
 
-const components = {
-  GlLink,
+const generateProps = ({ 
+  href = '#'
+} = {}) => ({
+  href,
+  target
+});
+
+export const Default = () => ({
+  components: { GlLink },
+  template: `
+    <gl-link
+      :href="href"
+      :target="target"
+    >
+        This is a link
+    </gl-link>`,
+});
+
+export default {
+  title: 'base/link',
+  component: GlLink,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
 };
-
-function generateProps({ href = '#' } = {}) {
-  return {
-    href: {
-      type: String,
-      default: text('href', href),
-    },
-    target: {
-      type: String,
-      default: select('target', targetOptions, null),
-    },
-  };
-}
-
-documentedStoriesOf('base/link', readme)
-  .addDecorator(withKnobs)
-  .add('default link', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-link
-        :href="href"
-        :target="target"
-      >
-          This is a link
-      </gl-link>`,
-  }));
