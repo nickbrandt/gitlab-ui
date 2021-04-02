@@ -56,7 +56,7 @@ function getComponentName() {
 export const setupStorybookReadme = () =>
   configureReadme({
     StoryPreview: {
-      disableForComponents: ['GlAlert', 'GlSprintf'],
+      disableForComponents: ['GlAlert', 'GlSprintf', 'GlLink'],
       components: {
         GlComponentDocumentation,
         GlExampleExplorer,

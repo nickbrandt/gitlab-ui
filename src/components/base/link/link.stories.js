@@ -1,36 +1,50 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlLink } from '../../../../index';
 import { targetOptions } from '../../../utils/constants';
 import readme from './link.md';
 
-const components = {
-  GlLink,
-};
+const defaultValue = (prop) => GlLink.props[prop].default;
 
-function generateProps({ href = '#' } = {}) {
-  return {
-    href: {
-      type: String,
-      default: text('href', href),
+const generateProps = ({ href = '#', target = defaultValue('target') } = {}) => ({
+  href,
+  target,
+});
+
+const makeStory = (options) => (args, { argTypes }) => ({
+  components: {
+    GlLink,
+  },
+  props: Object.keys(argTypes),
+  ...options,
+});
+
+export const DefaultLink = makeStory({
+  components: { GlLink },
+  template: `
+    <gl-link
+      :href="href"
+      :target="target"
+    >
+        This is a link
+    </gl-link>`,
+});
+DefaultLink.args = generateProps();
+
+export default {
+  title: 'base/link',
+  component: GlLink,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
     },
+  },
+  argTypes: {
     target: {
-      type: String,
-      default: select('target', targetOptions, null),
+      control: {
+        type: 'select',
+        options: targetOptions,
+      },
     },
-  };
-}
-
-documentedStoriesOf('base/link', readme)
-  .addDecorator(withKnobs)
-  .add('default link', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-link
-        :href="href"
-        :target="target"
-      >
-          This is a link
-      </gl-link>`,
-  }));
+  },
+};

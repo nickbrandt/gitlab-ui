@@ -22,6 +22,7 @@ export default {
 </script>
 <template>
   <b-link v-safe-link v-bind="$attrs" :target="target" class="gl-link" v-on="$listeners">
+    <!-- @slot The link to display. -->
     <slot></slot>
   </b-link>
 </template>
