@@ -17,7 +17,7 @@ const makeStory = (options) => (args, { argTypes }) => ({
   ...options,
 });
 
-export const Default = makeStory({
+export const DefaultLink = makeStory({
   components: { GlLink },
   template: `
     <gl-link
@@ -27,7 +27,7 @@ export const Default = makeStory({
         This is a link
     </gl-link>`,
 });
-Default.args = generateProps();
+DefaultLink.args = generateProps();
 
 export default {
   title: 'base/link',
