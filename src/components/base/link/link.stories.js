@@ -1,17 +1,23 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlLink } from '../../../../index';
 import { targetOptions } from '../../../utils/constants';
 import readme from './link.md';
 
-const generateProps = ({ 
-  href = '#'
-} = {}) => ({
+const defaultValue = (prop) => GlLink.props[prop].default;
+
+const generateProps = ({ href = '#', target = defaultValue('target') } = {}) => ({
   href,
-  target
+  target,
 });
 
-export const Default = () => ({
+const makeStory = (options) => (args, { argTypes }) => ({
+  components: {
+    GlLink,
+  },
+  props: Object.keys(argTypes),
+  ...options,
+});
+
+export const Default = makeStory({
   components: { GlLink },
   template: `
     <gl-link
@@ -21,6 +27,7 @@ export const Default = () => ({
         This is a link
     </gl-link>`,
 });
+Default.args = generateProps();
 
 export default {
   title: 'base/link',
@@ -29,6 +36,14 @@ export default {
     docs: {
       description: {
         component: readme,
+      },
+    },
+  },
+  argTypes: {
+    target: {
+      control: {
+        type: 'select',
+        options: targetOptions,
       },
     },
   },
