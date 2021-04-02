@@ -1,3 +1,10 @@
+# [29.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.1.1...v29.2.0) (2021-04-02)
+
+
+### Features
+
+* add gl-translate-y-n50 utility class ([81f1dee](https://gitlab.com/gitlab-org/gitlab-ui/commit/81f1deec2059525de4ecefb512a1e7a1b1b8d8cd))
+
 ## [29.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.1.0...v29.1.1) (2021-04-02)
 
 
