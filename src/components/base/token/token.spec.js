@@ -1,10 +1,10 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import GlIcon from '../icon/icon.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import Token from './token.vue';
 
 const localVue = createLocalVue();
 
-const findIcon = (wrapper) => wrapper.findComponent(GlIcon);
+const findIcon = (wrapper) => wrapper.findComponent(CloseButton);
 
 describe('Token component', () => {
   let wrapper;

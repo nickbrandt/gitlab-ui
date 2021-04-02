@@ -1,10 +1,10 @@
 <script>
 import { tokenVariants } from '../../../utils/constants';
-import GlIcon from '../icon/icon.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 export default {
   components: {
-    GlIcon,
+    CloseButton,
   },
   props: {
     viewOnly: {
@@ -34,9 +34,9 @@ export default {
 
 <template>
   <span :class="['gl-token', variantClass]" v-on="$listeners">
-    <span class="gl-token-content">
+    <span class="gl-token-content gl-pt-0! gl-pr-0! gl-pb-0!">
       <slot></slot>
-      <gl-icon v-if="!viewOnly" class="gl-token-close" name="close" :size="16" @click="close" />
+      <close-button v-if="!viewOnly" class="gl-token-close" label="close" @click="close" />
     </span>
   </span>
 </template>
