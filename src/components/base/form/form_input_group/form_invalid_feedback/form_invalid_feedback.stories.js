@@ -21,7 +21,7 @@ Default.args = generateProps({
 });
 
 export default {
-  title: 'base/form/form_invalid_feedback',
+  title: 'base/form/form_input_group/form_invalid_feedback',
   component: GlFormInvalidFeedback,
   parameters: {
     docs: {
