@@ -1,3 +1,10 @@
+## [29.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.1.0...v29.1.1) (2021-04-02)
+
+
+### Bug Fixes
+
+* **GlForm:** Remove background image icon ([f2f4900](https://gitlab.com/gitlab-org/gitlab-ui/commit/f2f49002a10b8c2b5187364afed589277db94a7e))
+
 # [29.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.0.0...v29.1.0) (2021-03-31)
 
 
