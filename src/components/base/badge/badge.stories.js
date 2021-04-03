@@ -1,5 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlBadge, GlButton } from "../../../../index";
+import { GlBadge, GlButton } from '../../../../index';
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
 import readme from './badge.md';
 
@@ -15,12 +15,12 @@ const template = `
 const defaultValue = (prop) => GlBadge.props[prop].default;
 
 const generateProps = ({
-   variant = defaultValue('variant'),
-   size = defaultValue('size'),
-   href = '',
-   content = 'TestBadge',
-   icon = '',
-  } = {}) => ({
+  variant = defaultValue('variant'),
+  size = defaultValue('size'),
+  href = '',
+  content = 'TestBadge',
+  icon = '',
+} = {}) => ({
   variant,
   size,
   href,
@@ -37,23 +37,23 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
-export const ActionableWarning = Template.bind({})
+export const ActionableWarning = Template.bind({});
 ActionableWarning.args = generateProps({
   href: '#foo',
-  variant: badgeVariantOptions.warning
-})
+  variant: badgeVariantOptions.warning,
+});
 
-export const LargeDanger = Template.bind({})
+export const LargeDanger = Template.bind({});
 LargeDanger.args = generateProps({
   size: badgeSizeOptions.lg,
-  variant: badgeVariantOptions.danger
-})
+  variant: badgeVariantOptions.danger,
+});
 
-export const BadgeIcon = Template.bind({})
+export const BadgeIcon = Template.bind({});
 BadgeIcon.args = generateProps({
   variant: badgeVariantOptions.success,
-  icon: 'calendar'
-})
+  icon: 'calendar',
+});
 
 const ButtonBadgeStory = (args, { argTypes }) => ({
   components: { GlBadge, GlButton },
@@ -68,8 +68,8 @@ ButtonBadgeStory.parameters = {
   storyshots: { disable: true },
 };
 
-export const ButtonBadge = ButtonBadgeStory.bind({})
-ButtonBadge.args = generateProps()
+export const ButtonBadge = ButtonBadgeStory.bind({});
+ButtonBadge.args = generateProps();
 
 export default {
   title: 'base/badge',
@@ -97,7 +97,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: ['', ...iconSpriteInfo.icons]
+        options: ['', ...iconSpriteInfo.icons],
       },
     },
   },
