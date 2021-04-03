@@ -1,13 +1,7 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlBadge, GlButton } from "../../../../index";
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
 import readme from './badge.md';
-import GlBadge from './badge.vue';
-
-const components = {
-  GlBadge,
-};
 
 const template = `
     <gl-badge
@@ -18,54 +12,93 @@ const template = `
     >{{ content }}</gl-badge>
   `;
 
+const defaultValue = (prop) => GlBadge.props[prop].default;
+
 const generateProps = ({
-  variant = GlBadge.props.variant.default,
-  size = GlBadge.props.size.default,
-  href = '',
-  icon = '',
-  content = 'TestBadge',
-} = {}) => ({
-  variant: {
-    type: String,
-    default: select('variant', Object.values(badgeVariantOptions), variant),
-  },
-  size: {
-    type: String,
-    default: select('size', Object.values(badgeSizeOptions), size),
-  },
-  href: {
-    type: String,
-    default: text('href', href),
-  },
-  content: {
-    type: String,
-    default: text('content', content),
-  },
-  icon: {
-    type: String,
-    default: select('icon', ['', ...iconSpriteInfo.icons], icon),
-  },
+   variant = defaultValue('variant'),
+   size = defaultValue('size'),
+   href = '',
+   content = 'TestBadge',
+   icon = '',
+  } = {}) => ({
+  variant,
+  size,
+  href,
+  content,
+  icon,
 });
 
-documentedStoriesOf('base/badge', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template,
-  }))
-  .add('actionable warning', () => ({
-    components,
-    props: generateProps({ href: '#foo', variant: badgeVariantOptions.warning }),
-    template,
-  }))
-  .add('large danger', () => ({
-    components,
-    props: generateProps({ size: badgeSizeOptions.lg, variant: badgeVariantOptions.danger }),
-    template,
-  }))
-  .add('badge icon', () => ({
-    components,
-    props: generateProps({ variant: badgeVariantOptions.success, icon: 'calendar' }),
-    template,
-  }));
+const Template = (args, { argTypes }) => ({
+  components: { GlBadge },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const ActionableWarning = Template.bind({})
+ActionableWarning.args = generateProps({
+  href: '#foo',
+  variant: badgeVariantOptions.warning
+})
+
+export const LargeDanger = Template.bind({})
+LargeDanger.args = generateProps({
+  size: badgeSizeOptions.lg,
+  variant: badgeVariantOptions.danger
+})
+
+export const BadgeIcon = Template.bind({})
+BadgeIcon.args = generateProps({
+  variant: badgeVariantOptions.success,
+  icon: 'calendar'
+})
+
+const ButtonBadgeStory = (args, { argTypes }) => ({
+  components: { GlBadge, GlButton },
+  props: Object.keys(argTypes),
+  template: `
+    <gl-button category="primary" variant="info">
+      To-Do
+      ${template}
+    </gl-button>`,
+});
+ButtonBadgeStory.parameters = {
+  storyshots: { disable: true },
+};
+
+export const ButtonBadge = ButtonBadgeStory.bind({})
+ButtonBadge.args = generateProps()
+
+export default {
+  title: 'base/badge',
+  component: GlBadge,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: badgeVariantOptions,
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: badgeSizeOptions,
+      },
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: ['', ...iconSpriteInfo.icons]
+      },
+    },
+  },
+};
