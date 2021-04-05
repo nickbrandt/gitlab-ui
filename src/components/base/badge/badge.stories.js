@@ -64,12 +64,12 @@ const ButtonBadgeStory = (args, { argTypes }) => ({
       ${template}
     </gl-button>`,
 });
-ButtonBadgeStory.parameters = {
-  storyshots: { disable: true },
-};
 
 export const ButtonBadge = ButtonBadgeStory.bind({});
 ButtonBadge.args = generateProps();
+ButtonBadge.parameters = {
+  storyshots: { disable: true },
+};
 
 export default {
   title: 'base/badge',
