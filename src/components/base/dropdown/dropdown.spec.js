@@ -59,14 +59,36 @@ describe('new dropdown', () => {
   });
 
   describe.each`
-    props                                           | splitClasses                                             | toggleClasses
-    ${{ split: true }}                              | ${[]}                                                    | ${[]}
-    ${{ split: true, text: 'text' }}                | ${['split-content-button']}                              | ${[]}
-    ${{ split: true, text: 'text', icon: 'close' }} | ${['split-content-button', 'icon-split-content-button']} | ${['dropdown-icon-text']}
-    ${{ split: true, icon: 'close' }}               | ${['icon-split-content-button']}                         | ${['dropdown-icon-only']}
-  `('with props $props', ({ props, splitClasses, toggleClasses }) => {
+    props                                                | toggleClasses
+    ${{}}                                                | ${[]}
+    ${{ text: 'text' }}                                  | ${[]}
+    ${{ text: 'text', icon: 'close' }}                   | ${['dropdown-icon-text']}
+    ${{ icon: 'close' }}                                 | ${['dropdown-icon-only']}
+    ${{ icon: 'close', text: 'text', textSrOnly: true }} | ${['dropdown-icon-only']}
+    ${{ icon: 'close', textSrOnly: true }}               | ${['dropdown-icon-only']}
+  `('dropdown with props $props', ({ props, toggleClasses }) => {
     beforeEach(async () => {
       buildWrapper(props);
+
+      await wrapper.vm.$nextTick();
+    });
+
+    it('sets toggle button classes', () => {
+      const classes = findDropdownToggle().classes().sort();
+
+      expect(classes).toEqual([...DEFAULT_BTN_TOGGLE_CLASSES, ...toggleClasses].sort());
+    });
+  });
+
+  describe.each`
+    props                              | splitClasses                                             | toggleClasses
+    ${{}}                              | ${[]}                                                    | ${[]}
+    ${{ text: 'text' }}                | ${['split-content-button']}                              | ${[]}
+    ${{ text: 'text', icon: 'close' }} | ${['split-content-button', 'icon-split-content-button']} | ${['dropdown-icon-text']}
+    ${{ icon: 'close' }}               | ${['icon-split-content-button']}                         | ${['dropdown-icon-only']}
+  `('split dropdown with props $props', ({ props, splitClasses, toggleClasses }) => {
+    beforeEach(async () => {
+      buildWrapper({ split: true, ...props });
 
       await wrapper.vm.$nextTick();
     });
