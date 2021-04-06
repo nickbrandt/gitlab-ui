@@ -1,3 +1,10 @@
+## [29.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.2.0...v29.2.1) (2021-04-06)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Dropdown icon only fix with textSrOnly ([ddbdd4b](https://gitlab.com/gitlab-org/gitlab-ui/commit/ddbdd4b4a3cae1a1cc7db063afc36f223eaaa52b))
+
 # [29.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.1.1...v29.2.0) (2021-04-02)
 
 
