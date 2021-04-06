@@ -116,6 +116,12 @@ export default {
     renderCaret() {
       return !this.split;
     },
+    isIconOnly() {
+      return Boolean(this.icon && (!this.text?.length || this.textSrOnly));
+    },
+    isIconWithText() {
+      return Boolean(this.icon && this.text?.length && !this.textSrOnly);
+    },
     toggleButtonClasses() {
       return [
         this.toggleClass,
@@ -127,8 +133,8 @@ export default {
             (this.category === newButtonCategoryOptions.tertiary && this.split),
           [`btn-${this.variant}-tertiary`]:
             this.category === newButtonCategoryOptions.tertiary && !this.split,
-          'dropdown-icon-only': !this.text?.length && this.icon,
-          'dropdown-icon-text': this.text?.length && this.icon,
+          'dropdown-icon-only': this.isIconOnly,
+          'dropdown-icon-text': this.isIconWithText,
         },
       ];
     },
