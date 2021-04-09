@@ -1,3 +1,10 @@
+# [29.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.2.1...v29.3.0) (2021-04-09)
+
+
+### Features
+
+* **GlFormSelect:** apply invalid state styles ([91df9e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/91df9e3f3c09d608109295ecfc6d3df6a3e78950))
+
 ## [29.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.2.0...v29.2.1) (2021-04-06)
 
 
