@@ -21,7 +21,9 @@ export default {
   },
   computed: {
     variantClass() {
-      return `gl-token-${this.variant}-variant`;
+      let classes = `gl-token-${this.variant}-variant`;
+      if (!this.viewOnly) classes += ' gl-pt-0! gl-pr-0! gl-pb-0!';
+      return classes;
     },
   },
   methods: {
@@ -33,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <span :class="['gl-token gl-pt-0! gl-pr-0! gl-pb-0!', variantClass]" v-on="$listeners">
+  <span :class="['gl-token', variantClass]" v-on="$listeners">
     <span class="gl-token-content">
       <slot></slot>
       <close-button v-if="!viewOnly" class="gl-token-close" label="close" @click="close" />
