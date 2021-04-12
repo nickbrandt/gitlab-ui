@@ -1,3 +1,10 @@
+# [29.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.3.0...v29.4.0) (2021-04-12)
+
+
+### Features
+
+* **GlTooltip:** Add longer delay on show ([6416778](https://gitlab.com/gitlab-org/gitlab-ui/commit/6416778a8e8f062a2f0b306653e52184f5453fcc))
+
 # [29.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.2.1...v29.3.0) (2021-04-09)
 
 
