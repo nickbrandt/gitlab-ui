@@ -43,14 +43,17 @@ export default {
   },
   computed: {
     hasIconOnly() {
-      return Object.keys(this.$slots).length === 0 && this.icon;
+      return Boolean(this.icon && Object.keys(this.$slots).length === 0);
+    },
+    role() {
+      return this.hasIconOnly ? 'img' : undefined;
     },
   },
 };
 </script>
 
 <template>
-  <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" pill>
+  <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" :role="role" pill>
     <gl-icon v-if="icon" class="gl-badge-icon" :class="{ 'gl-mr-2': !hasIconOnly }" :name="icon" />
     <!-- @slot The badge content to display. -->
     <slot></slot>
