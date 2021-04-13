@@ -128,6 +128,17 @@
       @include gl-line-height-20;
     }
   }
+
+  blockquote {
+    @include gl-text-gray-300;
+    @include gl-py-3;
+    @include gl-px-7;
+    @include gl-my-5;
+    @include gl-mx-0;
+    @include gl-border-l-solid;
+    @include gl-border-l-4;
+    @include gl-border-l-gray-50;
+  }
 }
 
 .gl-compact-markdown {
