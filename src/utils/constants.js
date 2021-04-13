@@ -136,7 +136,7 @@ export const tooltipPlacements = {
 
 // in milliseconds
 export const tooltipDelay = {
-  show: 200,
+  show: 500,
   hide: 0,
 };
 
