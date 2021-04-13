@@ -1,4 +1,4 @@
-import * as description from './badge.md';
+import description from './badge.md';
 
 export default {
   description,
