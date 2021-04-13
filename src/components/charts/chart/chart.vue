@@ -77,6 +77,9 @@ export default {
         echarts.connect(this.groupId);
       }
       this.chart.on('click', this.clickHandler);
+      /**
+       * Emitted after calling `echarts.init`
+       */
       this.$emit('created', this.chart);
       this.draw();
       this.setChartSize();
@@ -89,6 +92,9 @@ export default {
   methods: {
     draw() {
       this.chart.setOption(this.options);
+      /**
+       * Emitted after calling `echarts.setOption`
+       */
       this.$emit('updated', this.chart);
     },
     setChartSize() {
@@ -98,6 +104,12 @@ export default {
       });
     },
     clickHandler(params) {
+      /**
+       * Emitted when clicked on a data item in the chart (e.g., a bar/column).
+       *
+       * @property {object} chart The chart instance
+       * @property {object} params A params object, see also https://echarts.apache.org/en/api.html#events.Mouse%20events
+       */
       this.$emit('chartItemClicked', { chart: this.chart, params });
     },
   },
