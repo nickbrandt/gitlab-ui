@@ -1,3 +1,10 @@
+# [29.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.4.0...v29.5.0) (2021-04-14)
+
+
+### Features
+
+* **AnimatedNumber:** Add AnimatedNumber component ([efe5f91](https://gitlab.com/gitlab-org/gitlab-ui/commit/efe5f91364e4d758558522d9d592a81e8a219c93))
+
 # [29.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.3.0...v29.4.0) (2021-04-12)
 
 
