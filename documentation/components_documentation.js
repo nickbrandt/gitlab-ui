@@ -101,6 +101,7 @@ export { default as GlAccordionItemDocumentation } from '../src/components/base/
 export { default as GlCarouselDocumentation } from '../src/components/base/carousel/carousel.documentation';
 export { default as GlSafeLinkDirectiveDocumentation } from '../src/directives/safe_link/safe_link.documentation';
 export { default as GlSafeHtmlDirectiveDocumentation } from '../src/directives/safe_html/safe_html.documentation';
+export { default as GlAnimatedNumberDocumentation } from '../src/components/utilities/animated_number/animated_number.documentation';
 export { default as GlFriendlyWrapDocumentation } from '../src/components/utilities/friendly_wrap/friendly_wrap.documentation';
 export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';
 export { default as GlSprintfDocumentation } from '../src/components/utilities/sprintf/sprintf.documentation';

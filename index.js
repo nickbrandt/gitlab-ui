@@ -96,6 +96,7 @@ export { default as GlCarouselSlide } from './src/components/base/carousel/carou
 export { default as RichTextEditor } from './src/components/editors/rich_text_editor/rich_text_editor.vue';
 
 // Utilities
+export { default as GlAnimatedNumber } from './src/components/utilities/animated_number/animated_number.vue';
 export { default as GlFriendlyWrap } from './src/components/utilities/friendly_wrap/friendly_wrap.vue';
 export { default as GlIntersperse } from './src/components/utilities/intersperse/intersperse.vue';
 export { default as GlSprintf } from './src/components/utilities/sprintf/sprintf.vue';
