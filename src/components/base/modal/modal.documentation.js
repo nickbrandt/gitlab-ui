@@ -2,6 +2,7 @@ import examples from './examples';
 import description from './modal.md';
 
 export default {
+  bootstrapComponent: 'b-modal',
   followsDesignSystem: true,
   description,
   examples,
