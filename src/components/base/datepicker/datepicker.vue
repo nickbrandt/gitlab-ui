@@ -145,6 +145,11 @@ export default {
       required: false,
       default: null,
     },
+    inputLabel: {
+      type: String,
+      required: false,
+      default: 'Enter date',
+    },
     inputName: {
       type: String,
       required: false,
@@ -305,6 +310,7 @@ export default {
           :placeholder="placeholder"
           :autocomplete="inputAutocomplete"
           :disabled="disabled"
+          :aria-label="inputLabel"
           @keydown.enter="onKeydown"
         />
       </slot>

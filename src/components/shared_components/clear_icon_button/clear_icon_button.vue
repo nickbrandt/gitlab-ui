@@ -33,9 +33,9 @@ export default {
     class="gl-clear-icon-button"
     size="small"
     name="clear"
-    :title="title"
     icon="clear"
-    aria-label="Clear"
+    :title="title"
+    :aria-label="title"
     v-on="$listeners"
   />
 </template>

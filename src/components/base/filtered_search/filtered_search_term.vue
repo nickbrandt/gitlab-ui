@@ -76,6 +76,7 @@ export default {
           v-if="placeholder"
           class="gl-filtered-search-term-input"
           :placeholder="placeholder"
+          :aria-label="placeholder"
         />
         <template v-else>{{ value.data }}</template>
       </template>

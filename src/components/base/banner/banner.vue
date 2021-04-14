@@ -71,7 +71,7 @@ export default {
       category="tertiary"
       size="small"
       icon="close"
-      aria-label="Close"
+      aria-label="Close banner"
       class="gl-banner-close"
       @click="handleClose"
     />

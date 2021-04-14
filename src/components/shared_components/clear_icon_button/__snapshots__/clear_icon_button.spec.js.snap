@@ -2,7 +2,7 @@
 
 exports[`Clear Icon Button renders successfully 1`] = `
 <gl-button-stub
-  aria-label="Clear"
+  aria-label="Tooltip Text"
   buttontextclasses=""
   category="tertiary"
   class="gl-clear-icon-button"
