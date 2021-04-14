@@ -6,10 +6,7 @@ const transform = (el, binding) => {
   if (binding.oldValue !== binding.value) {
     const config = { ...DEFAULT_CONFIG, ...(binding.arg ?? {}) };
 
-    while (el.firstChild) {
-      el.firstChild.remove();
-    }
-
+    el.textContent = '';
     el.appendChild(sanitize(binding.value, config));
   }
 };
