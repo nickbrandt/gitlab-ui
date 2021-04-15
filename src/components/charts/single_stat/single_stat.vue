@@ -2,11 +2,13 @@
 import { badgeVariantOptions, variantCssColorMap } from '../../../utils/constants';
 import GlBadge from '../../base/badge/badge.vue';
 import GlIcon from '../../base/icon/icon.vue';
+import GlAnimatedNumber from '../../utilities/animated_number/animated_number.vue';
 
 export default {
   components: {
     GlIcon,
     GlBadge,
+    GlAnimatedNumber,
   },
   props: {
     title: {
@@ -43,6 +45,16 @@ export default {
       required: false,
       default: null,
     },
+    shouldAnimate: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    animationDecimalPlaces: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
   },
   computed: {
     showMetaIcon() {
@@ -57,6 +69,9 @@ export default {
     textColor() {
       return variantCssColorMap[this.variant];
     },
+    canAnimate() {
+      return this.shouldAnimate && !Number.isNaN(Number(this.value));
+    },
   },
 };
 </script>
@@ -68,9 +83,14 @@ export default {
       <span class="gl-font-base gl-font-weight-normal" data-testid="title-text">{{ title }}</span>
     </div>
     <div class="gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900">
-      <span class="gl-font-size-h-display" :class="{ 'gl-mr-2': !unit }" data-testid="value">{{
-        value
-      }}</span>
+      <span class="gl-font-size-h-display" :class="{ 'gl-mr-2': !unit }" data-testid="displayValue">
+        <gl-animated-number
+          v-if="canAnimate"
+          :number="Number(value)"
+          :decimal-places="animationDecimalPlaces"
+        />
+        <span v-else data-testid="non-animated-value">{{ value }}</span></span
+      >
       <span v-if="unit" class="gl-font-sm gl-mr-2" data-testid="unit">{{ unit }}</span>
       <gl-icon v-if="showMetaIcon" :class="textColor" :name="metaIcon" data-testid="meta-icon" />
       <gl-badge v-if="showBadge" :variant="variant" :icon="metaIcon" data-testid="meta-badge">{{

@@ -1,5 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean, number } from '@storybook/addon-knobs';
 import { GlSingleStat } from '../../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { badgeVariantOptions } from '../../../utils/constants';
@@ -18,6 +18,8 @@ const template = `
       :meta-text="metaText"
       :meta-icon="metaIcon"
       :title-icon="titleIcon"
+      :should-animate="shouldAnimate"
+      :animation-decimal-places="animationDecimalPlaces"
     />
   `;
 
@@ -29,6 +31,8 @@ const generateProps = ({
   metaText = null,
   metaIcon = null,
   titleIcon = null,
+  shouldAnimate = false,
+  animationDecimalPlaces = 0,
 } = {}) => ({
   variant: {
     type: String,
@@ -57,6 +61,14 @@ const generateProps = ({
   titleIcon: {
     type: String,
     default: select('titleIcon', ['', ...iconSpriteInfo.icons], titleIcon),
+  },
+  shouldAnimate: {
+    type: Boolean,
+    default: boolean('shouldAnimate', shouldAnimate),
+  },
+  animationDecimalPlaces: {
+    type: Number,
+    default: number('animationDecimalPlaces', animationDecimalPlaces),
   },
 });
 
