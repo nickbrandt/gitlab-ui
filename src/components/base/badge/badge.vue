@@ -10,6 +10,9 @@ export default {
   },
   inheritAttrs: false,
   props: {
+    /**
+     * The size of the badge.
+     */
     size: {
       type: String,
       default: badgeSizeOptions.md,
@@ -18,6 +21,9 @@ export default {
       },
       required: false,
     },
+    /**
+     * The variant of the badge.
+     */
     variant: {
       type: String,
       default: badgeVariantOptions.muted,
@@ -26,6 +32,9 @@ export default {
       },
       required: false,
     },
+    /**
+     * The icon to show next to the text
+     */
     icon: {
       type: String,
       required: false,
@@ -43,6 +52,7 @@ export default {
 <template>
   <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" pill>
     <gl-icon v-if="icon" class="gl-badge-icon" :class="{ 'gl-mr-2': !hasIconOnly }" :name="icon" />
+    <!-- @slot The badge content to display. -->
     <slot></slot>
   </b-badge>
 </template>

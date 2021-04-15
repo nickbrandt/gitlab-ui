@@ -1,7 +1,3 @@
-# GlBadge
-
-<!-- STORY -->
-
 Badges highlight metadata of objects, the kind of information that always needs
 some context and isn’t useful on its own. For example, they can be used to
 indicate an issue’s status, a member’s role, or if a branch is protected.
