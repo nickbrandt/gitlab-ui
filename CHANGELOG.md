@@ -1,3 +1,10 @@
+## [29.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.5.0...v29.5.1) (2021-04-15)
+
+
+### Performance Improvements
+
+* **v-safe-html:** Remove looping node removal for text setter ([3f026eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/3f026eb9c3916bd76e711a20021a9985652e98d0))
+
 # [29.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.4.0...v29.5.0) (2021-04-14)
 
 
