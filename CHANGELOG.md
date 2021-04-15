@@ -1,3 +1,10 @@
+## [29.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.0...v29.7.1) (2021-04-15)
+
+
+### Bug Fixes
+
+* Add and improve accessible names within components ([28c9d07](https://gitlab.com/gitlab-org/gitlab-ui/commit/28c9d07ab36a0945ae756606de39f3f92e442523))
+
 # [29.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.6.0...v29.7.0) (2021-04-15)
 
 
