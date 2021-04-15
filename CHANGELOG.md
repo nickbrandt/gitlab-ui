@@ -1,3 +1,10 @@
+# [29.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.5.1...v29.6.0) (2021-04-15)
+
+
+### Features
+
+* **SingleStat:** Integrate animated-number ([dee4ec2](https://gitlab.com/gitlab-org/gitlab-ui/commit/dee4ec27300c0fb7e06ee781001970d1f0442c52))
+
 ## [29.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.5.0...v29.5.1) (2021-04-15)
 
 
