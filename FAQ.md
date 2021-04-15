@@ -79,4 +79,4 @@ Examples have been moved to [design.gitlab.com](https://gitlab.com/gitlab-org/gi
 We will iteratively migrate all stories to the new Component Story Format (CSF) and remove examples
 as we go. If you're looking to write an example to be displayed in Pajamas specifications website,
 here's how:
-https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/master/doc/component-examples.md#component-examples.
+https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/main/doc/component-examples.md#component-examples.

@@ -8,6 +8,6 @@ if changed_examples?
     'This Merge Request either changed or added component examples (`.example.vue` files). '\
     'Note that examples should not be written in GitLab UI anymore. '\
     'Please consider moving them to `design.gitlab.com`. ' \
-    'Read more about this here: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/master/doc/component-examples.md.'
+    'Read more about this here: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/main/doc/component-examples.md.'
   )
 end
