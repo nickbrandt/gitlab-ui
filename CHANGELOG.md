@@ -1,3 +1,10 @@
+## [29.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.1...v29.7.2) (2021-04-15)
+
+
+### Bug Fixes
+
+* Point Pajamas anchors to main branch ([ad9f5aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/ad9f5aac253d4e4fbce36aade9a6bbeea0e18ef8))
+
 ## [29.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.0...v29.7.1) (2021-04-15)
 
 
