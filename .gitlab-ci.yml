@@ -15,7 +15,6 @@ default:
 variables:
   PUPPETEER_VERSION: '5.2.1'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
-  DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
   # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
   SAST_DISABLE_DIND: 'true'
   DS_DISABLE_DIND: 'true'
@@ -117,7 +116,7 @@ workflow:
 
 # Only run on merge requests that come from GitLab UI.
 .if-mr-from-gitlab-ui: &if-mr-from-gitlab-ui
-  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_PROJECT_PATH =~ /gitlab-org\\/gitlab-ui/'
+  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_PROJECT_PATH =~ /gitlab-org\\/gitlab-ui/'
 
 build_docker_image:
   variables:
@@ -152,8 +151,10 @@ populate_npm_cache:
     - when: never
 
 danger-review:
+  variables:
+    DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
   rules:
-    - if: '$DANGER_GITLAB_API_TOKEN && $CI_MERGE_REQUEST_IID'
+    - if: '$GITLAB_TOKEN && $CI_MERGE_REQUEST_IID'
       when: always
   image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
   stage: test
