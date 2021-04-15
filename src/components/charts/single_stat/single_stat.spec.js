@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { variantCssColorMap } from '../../../utils/constants';
+import GlAnimatedNumber from '../../utilities/animated_number/animated_number.vue';
 import GlSingleStat from './single_stat.vue';
 
 const title = 'Singe stat title';
@@ -34,13 +35,14 @@ describe('GlSingleStat', () => {
     beforeEach(() => createWrapper());
 
     describe.each`
-      element                 | testId          | shouldDisplay | expected
-      ${'metric value'}       | ${'value'}      | ${true}       | ${value}
-      ${'metric title'}       | ${'title-text'} | ${true}       | ${title}
-      ${'metric value units'} | ${'unit'}       | ${false}      | ${null}
-      ${'metric title icon'}  | ${'title-icon'} | ${false}      | ${null}
-      ${'meta icon'}          | ${'meta-icon'}  | ${false}      | ${null}
-      ${'meta badge'}         | ${'meta-badge'} | ${false}      | ${null}
+      element                 | testId                  | shouldDisplay | expected
+      ${'metric value'}       | ${'displayValue'}       | ${true}       | ${value}
+      ${'non animated value'} | ${'non-animated-value'} | ${true}       | ${value}
+      ${'metric title'}       | ${'title-text'}         | ${true}       | ${title}
+      ${'metric value units'} | ${'unit'}               | ${false}      | ${null}
+      ${'metric title icon'}  | ${'title-icon'}         | ${false}      | ${null}
+      ${'meta icon'}          | ${'meta-icon'}          | ${false}      | ${null}
+      ${'meta badge'}         | ${'meta-badge'}         | ${false}      | ${null}
     `('for the $element', ({ shouldDisplay, testId, expected, element }) => {
       it(`${shouldDisplay ? 'displays' : "doesn't display"} the ${element}`, () => {
         const el = findIemByTestId(testId);
@@ -50,6 +52,22 @@ describe('GlSingleStat', () => {
         if (shouldDisplay) expect(el.text()).toBe(expected);
       });
     });
+  });
+
+  describe('shouldAnimate', () => {
+    it.each`
+      propValue | shouldUseAnimatedComponent
+      ${'abc'}  | ${false}
+      ${'123'}  | ${true}
+    `(
+      'renders the correct display type for $propValue',
+      ({ propValue, shouldUseAnimatedComponent }) => {
+        createWrapper({ value: propValue, shouldAnimate: true });
+
+        const el = wrapper.find(GlAnimatedNumber);
+        expect(el.exists()).toBe(shouldUseAnimatedComponent);
+      }
+    );
   });
 
   describe('optional data', () => {
