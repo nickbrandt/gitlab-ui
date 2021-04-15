@@ -1,3 +1,10 @@
+# [29.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.6.0...v29.7.0) (2021-04-15)
+
+
+### Features
+
+* **Markdown:** Style blockquote blocks ([e541a7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/e541a7ed1f61b13db7aa1defd475b78eb0f4090c))
+
 # [29.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.5.1...v29.6.0) (2021-04-15)
 
 
