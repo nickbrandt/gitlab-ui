@@ -20,6 +20,11 @@ export default {
       required: false,
       default: false,
     },
+    label: {
+      type: String,
+      required: false,
+      default: 'Search',
+    },
     multiSelect: {
       type: Boolean,
       required: false,
@@ -233,6 +238,7 @@ export default {
         ref="input"
         v-model="inputValue"
         class="gl-filtered-search-token-segment-input"
+        :aria-label="label"
         @keydown="handleInputKeydown"
         @blur="handleBlur"
       />

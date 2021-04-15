@@ -78,7 +78,7 @@ export default {
           size="small"
           icon="close"
           class="gl-drawer-close-button"
-          aria-label="Close"
+          aria-label="Close drawer"
           @click="$emit('close')"
         />
       </div>
