@@ -1,12 +1,12 @@
 <script>
 import { BButton } from 'bootstrap-vue';
+import SafeLink from '../../../directives/safe_link/safe_link';
 import {
   newButtonCategoryOptions,
   newButtonVariantOptions,
   newButtonSizeOptions,
   newButtonSizeOptionsMap,
 } from '../../../utils/constants';
-import RelMixin from '../../mixins/rel_mixin';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
@@ -16,7 +16,9 @@ export default {
     GlIcon,
     GlLoadingIcon,
   },
-  mixins: [RelMixin],
+  directives: {
+    SafeLink,
+  },
   props: {
     category: {
       type: String,
@@ -66,6 +68,13 @@ export default {
       required: false,
       default: false,
     },
+    // This prevents bootstrap-vue setting target="_self"
+    // when target attribute is not present
+    target: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     hasIcon() {
@@ -110,7 +119,7 @@ export default {
   <component
     :is="label ? 'span' : 'b-button'"
     v-bind="$attrs"
-    :rel="relType"
+    v-safe-link
     :target="target"
     :variant="variant"
     :size="buttonSize"
