@@ -37,6 +37,7 @@ export { default as GlButton } from './src/components/base/button/button.vue';
 export { default as GlTooltip } from './src/components/base/tooltip/tooltip.vue';
 export { default as GlToast } from './src/components/base/toast/toast';
 export { default as GlDashboardSkeleton } from './src/components/regions/dashboard_skeleton/dashboard_skeleton.vue';
+export { default as GlChartSkeleton } from './src/components/regions/chart_skeleton/chart_skeleton.vue';
 export { default as GlEmptyState } from './src/components/regions/empty_state/empty_state.vue';
 export { default as GlForm } from './src/components/base/form/form.vue';
 export { default as GlFormInput } from './src/components/base/form/form_input/form_input.vue';

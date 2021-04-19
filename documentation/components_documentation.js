@@ -46,6 +46,7 @@ export { default as GlPopoverDocumentation } from '../src/components/base/popove
 export { default as GlProgressBarDocumentation } from '../src/components/base/progress_bar/progress_bar.documentation';
 export { default as GlTooltipDocumentation } from '../src/components/base/tooltip/tooltip.documentation';
 export { default as GlDashboardSkeletonDocumentation } from '../src/components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
+export { default as GlChartSkeletonDocumentation } from '../src/components/regions/chart_skeleton/chart_skeleton.documentation';
 export { default as GlEmptyStateDocumentation } from '../src/components/regions/empty_state/empty_state.documentation';
 export { default as GlFormDocumentation } from '../src/components/base/form/form.documentation';
 export { default as GlFormInputDocumentation } from '../src/components/base/form/form_input/form_input.documentation';
