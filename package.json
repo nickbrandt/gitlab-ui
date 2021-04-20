@@ -137,10 +137,10 @@
     "storybook-readme": "5.0.9",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.2",
-    "vue": "^2.6.11",
+    "vue": "2.6.12",
     "vue-jest": "4.0.0-rc.0",
     "vue-loader": "^15.8.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "2.6.12"
   },
   "release": {
     "branches": [
