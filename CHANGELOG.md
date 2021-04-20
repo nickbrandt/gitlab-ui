@@ -1,3 +1,10 @@
+## [29.7.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.3...v29.7.4) (2021-04-20)
+
+
+### Bug Fixes
+
+* **GlTabs:** Update hover state bottom border color ([09aa059](https://gitlab.com/gitlab-org/gitlab-ui/commit/09aa059a2c338f2d5c33218f66c42a7614134dac))
+
 ## [29.7.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.2...v29.7.3) (2021-04-16)
 
 
