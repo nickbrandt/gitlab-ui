@@ -64,3 +64,7 @@
     outline: none if-important($important);
   }
 }
+
+@mixin gl-bg-gradient-blur($direction, $color) {
+  background-image: linear-gradient(to $direction, $transparent-rgba, $color 33%);
+}

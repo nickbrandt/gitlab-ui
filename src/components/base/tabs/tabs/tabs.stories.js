@@ -1,8 +1,37 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
+import { range } from 'lodash';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlTabs, GlTab } from '../../../../../index';
+import { GlTabs, GlTab, GlScrollableTabs } from '../../../../../index';
 import { glThemes } from '../../../../utils/constants';
 import docs from './tabs.md';
+
+const ScrollableTabsGenerator = {
+  components: {
+    GlScrollableTabs,
+    GlTab,
+  },
+  props: {
+    count: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    tabs() {
+      return range(this.count).map((i) => ({
+        title: `Lorem ${i + 1}`,
+        content: `(${i + 1}) Lorem ipsum dolar sit amit...`,
+      }));
+    },
+  },
+  template: `
+    <gl-scrollable-tabs v-bind="$attrs">
+      <gl-tab v-for="tab in tabs" :key="tab.title" :title="tab.title">
+        {{ tab.content }}
+      </gl-tab>
+    </gl-scrollable-tabs>
+  `,
+};
 
 const createBaseStory = () => ({
   components: {
@@ -28,6 +57,42 @@ documentedStoriesOf('base/tabs/tabs', docs)
         </gl-tab>
         <gl-tab title="Second">
           second tab content
+        </gl-tab>
+        <gl-tab title="Third">
+          third tab content
+        </gl-tab>
+        <gl-tab title="Fourth">
+          fourth tab content
+        </gl-tab>
+        <gl-tab title="Fifth">
+          fifth tab content
+        </gl-tab>
+        <gl-tab title="Sixth">
+          sixth tab content
+        </gl-tab>
+        <gl-tab title="Seventh">
+          seventh tab content
+        </gl-tab>
+        <gl-tab title="Eighth">
+          eighth tab content
+        </gl-tab>
+        <gl-tab title="Ninth">
+          ninth tab content
+        </gl-tab>
+        <gl-tab title="Tenth">
+          tenth tab content
+        </gl-tab>
+        <gl-tab title="Eleventh">
+          eleventh tab content
+        </gl-tab>
+        <gl-tab title="Twelfth">
+          twelfth tab content
+        </gl-tab>
+        <gl-tab title="Thirteenth">
+          thirteenth tab content
+        </gl-tab>
+        <gl-tab title="Fourteenth">
+          fourteenth tab content
         </gl-tab>
       </gl-tabs>
     `,
@@ -100,4 +165,29 @@ documentedStoriesOf('base/tabs/tabs', docs)
         </gl-tab>
       </gl-tabs>
     `,
+  }))
+  .add('with scroll', () => ({
+    ...createBaseStory(),
+    components: {
+      ScrollableTabsGenerator,
+    },
+    template: '<scrollable-tabs-generator :count="50" :theme="theme" />',
+  }))
+  .add('with scroll and growing', () => ({
+    ...createBaseStory(),
+    components: {
+      ScrollableTabsGenerator,
+    },
+    data() {
+      return {
+        count: 2,
+        intervalId: 0,
+      };
+    },
+    mounted() {
+      this.intervalId = setInterval(() => {
+        this.count += 1;
+      }, 2000);
+    },
+    template: '<scrollable-tabs-generator :count="count" :theme="theme" />',
   }));

@@ -28,8 +28,6 @@ $breakpoint-xl: px-to-rem(1200px);
 // Max widths
 $limited-layout-width: 990px !default;
 
-$transparent: transparent;
-
 // Color schema
 $black: #000 !default;
 $black-normal: #333 !default;
@@ -38,6 +36,7 @@ $white: #fff !default;
 $white-normal: #f0f0f0 !default;
 $white-dark: #eaeaea !default;
 $white-transparent: rgba(255, 255, 255, 0.8) !default;
+$transparent-rgba: rgba($white, 0);
 
 $green-50: #ecf4ee !default;
 $green-100: #c3e6cd !default;
