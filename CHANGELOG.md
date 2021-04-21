@@ -1,3 +1,10 @@
+# [29.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.4...v29.8.0) (2021-04-21)
+
+
+### Features
+
+* **GlTabs:** Add horizontal scrolling interaction ([0bd52e9](https://gitlab.com/gitlab-org/gitlab-ui/commit/0bd52e9ed84129c989392a73fbb89d3db921c907))
+
 ## [29.7.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.7.3...v29.7.4) (2021-04-20)
 
 
