@@ -5,6 +5,7 @@ import CustomTitleExample from './tabs.custom_title.example.vue';
 import DisabledTabExample from './tabs.disabled.example.vue';
 import JustifiedTabsExample from './tabs.justified.example.vue';
 import NoTabsExample from './tabs.no_tabs.example.vue';
+import TabsScrollableExample from './tabs.scrollable.example.vue';
 import TabsStylesOnlyExample from './tabs.styles_only.example.vue';
 
 export default [
@@ -55,6 +56,16 @@ export default [
         id: 'justified-tabs',
         name: 'Justified tabs',
         component: JustifiedTabsExample,
+      },
+    ],
+  },
+  {
+    name: 'Scrollable',
+    items: [
+      {
+        id: 'tabs-scrollable',
+        name: 'Scrollable tabs with lots of tabs',
+        component: TabsScrollableExample,
       },
     ],
   },

@@ -26,7 +26,7 @@
   @include gl-relative;
 
   &::after {
-    background-image: linear-gradient(to bottom, $transparent, $white);
+    background-image: linear-gradient(to bottom, $transparent-rgba, $white);
     @include gl-bottom-0;
     @include gl-content-empty;
     @include gl-display-block;

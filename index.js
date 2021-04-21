@@ -60,6 +60,7 @@ export { default as GlDropdown } from './src/components/base/dropdown/dropdown.v
 export { default as GlPath } from './src/components/base/path/path.vue';
 export { default as GlTable } from './src/components/base/table/table.vue';
 export { default as GlBreadcrumb } from './src/components/base/breadcrumb/breadcrumb.vue';
+export { default as GlScrollableTabs } from './src/components/base/tabs/tabs/scrollable_tabs.vue';
 export { default as GlTabs } from './src/components/base/tabs/tabs/tabs.vue';
 export { default as GlTab } from './src/components/base/tabs/tab/tab.vue';
 export { default as GlButtonGroup } from './src/components/base/button_group/button_group.vue';
