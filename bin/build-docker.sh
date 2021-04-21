@@ -2,7 +2,7 @@
 
 set -e
 
-BASE_IMAGE=dev.gitlab.org:5005/gitlab/gitlab-build-images:gitlab-puppeteer
+BASE_IMAGE=registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-puppeteer
 CURRENT_PUPPETEER_VERSION=$(grep '^puppeteer@' -A 1 yarn.lock | grep 'version' | sed 's#.*"\(.*\)".*#\1#')
 
 echo "puppeteer version: $PUPPETEER_VERSION"
