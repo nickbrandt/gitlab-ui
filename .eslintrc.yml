@@ -49,7 +49,6 @@ overrides:
   - "src/components/base/form/form_input_group/form_input_group_mixin.js"
   - "src/components/base/path/examples/data.js"
   - "src/components/mixins/button_mixin.js"
-  - "src/components/mixins/rel_mixin.js"
   - "src/components/mixins/toolbox_mixin.js"
   - "src/directives/collapse_toggle.js"
   - "src/directives/modal.js"
