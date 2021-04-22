@@ -1,3 +1,15 @@
+# [29.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.8.2...v29.9.0) (2021-04-22)
+
+
+### Features
+
+* add gl-max-w-15 utility class ([d1b8c78](https://gitlab.com/gitlab-org/gitlab-ui/commit/d1b8c78b95c1febd9bd2c98f776d90d32bd8f3dd))
+
+
+### Reverts
+
+* fix(GlButton): use safe link directive ([e891e14](https://gitlab.com/gitlab-org/gitlab-ui/commit/e891e141bedaa5bc355e6930028094b299e0a4ef))
+
 ## [29.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.8.1...v29.8.2) (2021-04-22)
 
 
