@@ -20,6 +20,7 @@ const template = `
       :title-icon="titleIcon"
       :should-animate="shouldAnimate"
       :animation-decimal-places="animationDecimalPlaces"
+      :tooltip-text="tooltipText"
     />
   `;
 
@@ -33,6 +34,7 @@ const generateProps = ({
   titleIcon = null,
   shouldAnimate = false,
   animationDecimalPlaces = 0,
+  tooltipText = null,
 } = {}) => ({
   variant: {
     type: String,
@@ -69,6 +71,10 @@ const generateProps = ({
   animationDecimalPlaces: {
     type: Number,
     default: number('animationDecimalPlaces', animationDecimalPlaces),
+  },
+  tooltipText: {
+    type: String,
+    default: text('tooltipText', tooltipText),
   },
 });
 

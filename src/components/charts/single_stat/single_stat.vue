@@ -1,4 +1,5 @@
 <script>
+import GlTooltip from '../../../directives/tooltip';
 import { badgeVariantOptions, variantCssColorMap } from '../../../utils/constants';
 import GlBadge from '../../base/badge/badge.vue';
 import GlIcon from '../../base/icon/icon.vue';
@@ -9,6 +10,9 @@ export default {
     GlIcon,
     GlBadge,
     GlAnimatedNumber,
+  },
+  directives: {
+    GlTooltip,
   },
   props: {
     title: {
@@ -55,6 +59,11 @@ export default {
       required: false,
       default: 0,
     },
+    tooltipText: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     showMetaIcon() {
@@ -81,6 +90,14 @@ export default {
     <div class="gl-display-flex gl-align-items-center gl-text-gray-700 gl-mb-2">
       <gl-icon v-if="showTitleIcon" :name="titleIcon" class="gl-mr-2" data-testid="title-icon" />
       <span class="gl-font-base gl-font-weight-normal" data-testid="title-text">{{ title }}</span>
+      <span v-if="tooltipText" class="gl-display-inline-flex gl-ml-2" data-testid="tooltip">
+        <gl-icon
+          v-gl-tooltip="{ title: tooltipText }"
+          :size="14"
+          class="gl-vertical-align-middle"
+          name="question"
+        />
+      </span>
     </div>
     <div class="gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900">
       <span class="gl-font-size-h-display" :class="{ 'gl-mr-2': !unit }" data-testid="displayValue">

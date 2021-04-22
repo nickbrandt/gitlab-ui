@@ -10,6 +10,7 @@ const titleIcon = 'hourglass';
 const metaIcon = 'heart';
 const metaText = 'Success';
 const variant = 'info';
+const tooltipText = 'Dummy tooltip text';
 
 describe('GlSingleStat', () => {
   let wrapper;
@@ -125,6 +126,7 @@ describe('GlSingleStat', () => {
       element                 | testId          | mockData
       ${'metric value units'} | ${'unit'}       | ${{ unit }}
       ${'metric title icon'}  | ${'title-icon'} | ${{ titleIcon }}
+      ${'tooltip text'}       | ${'tooltip'}    | ${{ tooltipText }}
     `('$element', ({ testId, mockData }) => {
       beforeEach(() => createWrapper(mockData));
 
