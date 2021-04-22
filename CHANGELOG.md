@@ -1,3 +1,10 @@
+## [29.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.8.1...v29.8.2) (2021-04-22)
+
+
+### Bug Fixes
+
+* **GlButton:** use safe link directive ([6836db7](https://gitlab.com/gitlab-org/gitlab-ui/commit/6836db7703ebbfe83999b62f9ec8ed4c3da42291))
+
 ## [29.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.8.0...v29.8.1) (2021-04-22)
 
 
