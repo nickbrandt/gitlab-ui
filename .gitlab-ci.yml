@@ -100,7 +100,7 @@ container_scanning_new:
 
 .yarn_install:
   before_script:
-    - yarn install --frozen-lockfile
+    - yarn install --immutable
   cache:
     <<: *cache-template
     policy: pull
