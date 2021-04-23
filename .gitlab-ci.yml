@@ -114,9 +114,24 @@ workflow:
       when: always
     - when: never
 
-# Only run on merge requests that come from GitLab UI.
-.if-mr-from-gitlab-ui: &if-mr-from-gitlab-ui
-  if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_PROJECT_PATH =~ /gitlab-org\\/gitlab-ui/'
+# Only run on GitLab UI default branches
+.rules:gitlab-ui-default-branch:
+  rules: 
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
+
+# Only run on merge requests that come from GitLab UI or
+# from forks when a GitLab UI team member triggered a pipeline
+.if-gitlab-ui-mr: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
+
+.rules:gitlab-ui-mr:
+  rules: 
+    - if: !reference [.if-gitlab-ui-mr] 
+
+.rules:gitlab-ui-mr-manual:
+  rules: 
+    - if: !reference [.if-gitlab-ui-mr] 
+      when: manual
+      allow_failure: true
 
 build_docker_image:
   variables:
@@ -238,9 +253,11 @@ unit_tests:
     - yarn test:unit
 
 update_screenshots:
-  extends: [.puppeteer, .yarn_install]
+  extends:
+    - .puppeteer
+    - .yarn_install
+    - .rules:gitlab-ui-mr-manual
   stage: manual
-  when: manual
   script:
     - yarn test:visual:update
     - git config --global user.email "gitlab-bot@gitlab.com"
@@ -250,9 +267,8 @@ update_screenshots:
     - git push https://gitlab-bot:$GITLAB_TOKEN@gitlab.com/gitlab-org/gitlab-ui.git HEAD:$CI_COMMIT_REF_NAME &>/dev/null
 
 review:
-  rules:
-    - <<: *if-mr-from-gitlab-ui
-      when: always
+  extends:
+    - .rules:gitlab-ui-mr
   stage: deploy
   needs:
     - build_storybook
@@ -268,10 +284,8 @@ review:
     - deploy
 
 review_stop:
-  rules:
-    - <<: *if-mr-from-gitlab-ui
-      when: manual
-      allow_failure: true
+  extends:
+    - .rules:gitlab-ui-mr-manual
   stage: manual
   needs:
     - review
@@ -286,6 +300,8 @@ review_stop:
     - deploy
 
 pages:
+  extends:
+    - .rules:gitlab-ui-default-branch
   stage: deploy
   needs:
     - build_storybook
@@ -294,15 +310,11 @@ pages:
   artifacts:
     paths:
       - public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"
 
 create_integration_branch:
-  rules:
-    - <<: *if-mr-from-gitlab-ui
-      when: manual
-      allow_failure: true
-  extends: .node
+  extends:
+    - .node
+    - .rules:gitlab-ui-mr-manual
   stage: manual
   needs:
     - build_package
