@@ -20,7 +20,8 @@ export default {
     },
     buttonLink: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     svgPath: {
       type: String,
@@ -61,9 +62,14 @@ export default {
     <div class="gl-banner-content">
       <h1 class="gl-banner-title">{{ title }}</h1>
       <slot></slot>
-      <gl-button variant="confirm" category="primary" :href="buttonLink">{{
-        buttonText
-      }}</gl-button>
+      <gl-button
+        variant="confirm"
+        category="primary"
+        data-testid="gl-banner-primary-button"
+        :href="buttonLink"
+        @click="$emit('primary')"
+        >{{ buttonText }}</gl-button
+      >
       <slot name="actions"></slot>
     </div>
     <gl-button
