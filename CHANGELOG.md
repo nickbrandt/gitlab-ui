@@ -1,3 +1,10 @@
+# [29.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.9.0...v29.10.0) (2021-04-23)
+
+
+### Features
+
+* **GlOutsideDirective:** Add new directive ([3d2664d](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d2664dfc353a2864819f79f557bf2fe936c1935))
+
 # [29.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.8.2...v29.9.0) (2021-04-22)
 
 
