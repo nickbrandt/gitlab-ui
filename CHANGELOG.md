@@ -1,3 +1,10 @@
+# [29.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.10.0...v29.11.0) (2021-04-23)
+
+
+### Features
+
+* **GlBanner:** emit a primary event ([d0e5306](https://gitlab.com/gitlab-org/gitlab-ui/commit/d0e5306acec02aafdf09fa1630f8d2423bf5d81b))
+
 # [29.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.9.0...v29.10.0) (2021-04-23)
 
 
