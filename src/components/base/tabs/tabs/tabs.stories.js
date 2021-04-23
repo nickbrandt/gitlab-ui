@@ -173,21 +173,25 @@ documentedStoriesOf('base/tabs/tabs', docs)
     },
     template: '<scrollable-tabs-generator :count="50" :theme="theme" />',
   }))
-  .add('with scroll and growing', () => ({
-    ...createBaseStory(),
-    components: {
-      ScrollableTabsGenerator,
-    },
-    data() {
-      return {
-        count: 2,
-        intervalId: 0,
-      };
-    },
-    mounted() {
-      this.intervalId = setInterval(() => {
-        this.count += 1;
-      }, 2000);
-    },
-    template: '<scrollable-tabs-generator :count="count" :theme="theme" />',
-  }));
+  .add(
+    'with scroll and growing',
+    () => ({
+      ...createBaseStory(),
+      components: {
+        ScrollableTabsGenerator,
+      },
+      data() {
+        return {
+          count: 2,
+          intervalId: 0,
+        };
+      },
+      mounted() {
+        this.intervalId = setInterval(() => {
+          this.count += 1;
+        }, 2000);
+      },
+      template: '<scrollable-tabs-generator :count="count" :theme="theme" />',
+    }),
+    { storyshots: false }
+  );
