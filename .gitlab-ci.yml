@@ -80,7 +80,7 @@ container_scanning_new:
   needs: ['build_docker_image']
 
 .node:
-  image: node:12
+  image: node:14
   variables:
     PUPPETEER_SKIP_DOWNLOAD: 'true'
 
