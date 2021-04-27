@@ -63,6 +63,7 @@ export const setupStorybookReadme = () =>
         'GlChart',
         'GlBadge',
         'GlOutsideDirective',
+        'GlBanner',
       ],
       components: {
         GlComponentDocumentation,

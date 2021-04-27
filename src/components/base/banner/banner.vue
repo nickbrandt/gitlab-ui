@@ -10,24 +10,39 @@ export default {
     GlCard,
   },
   props: {
+    /**
+     * Used to set the title of the banner.
+     */
     title: {
       type: String,
       required: true,
     },
+    /**
+     * Text for the submit button.
+     */
     buttonText: {
       type: String,
       required: true,
     },
+    /**
+     * Link for the submit button.
+     */
     buttonLink: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The illustration's URL.
+     */
     svgPath: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The variant of the banner.
+     */
     variant: {
       type: String,
       required: false,
@@ -44,7 +59,22 @@ export default {
   },
   methods: {
     handleClose() {
+      /**
+       * Emitted when the close button is clicked.
+       *
+       * @event close
+       * @type {object}
+       */
       this.$emit('close');
+    },
+    primaryButtonClicked() {
+      /**
+       * Emitted when the primary action button is clicked.
+       *
+       * @event primary
+       * @type {object}
+       */
+      this.$emit('primary');
     },
   },
 };
@@ -61,15 +91,17 @@ export default {
     </div>
     <div class="gl-banner-content">
       <h1 class="gl-banner-title">{{ title }}</h1>
+      <!-- @slot The banner content to display -->
       <slot></slot>
       <gl-button
         variant="confirm"
         category="primary"
         data-testid="gl-banner-primary-button"
         :href="buttonLink"
-        @click="$emit('primary')"
+        @click="primaryButtonClicked"
         >{{ buttonText }}</gl-button
       >
+      <!-- @slot The banner actions to display -->
       <slot name="actions"></slot>
     </div>
     <gl-button
