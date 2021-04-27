@@ -45,12 +45,18 @@ export const NoImage = Template.bind({});
 NoImage.args = generateProps({
   svgPath: null,
 });
+NoImage.parameters = {
+  storyshots: { disable: true },
+};
 
 export const Introduction = Template.bind({});
 Introduction.args = generateProps({
   svgPath: `${illustrationsUrl}/illustrations/cluster_popover.svg`,
   variant: bannerVariants[1],
 });
+Introduction.parameters = {
+  storyshots: { disable: true },
+};
 
 const WithActionsStory = (args, { argTypes }) => ({
   components: {
