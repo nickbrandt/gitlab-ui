@@ -17,5 +17,6 @@ module.exports = {
     '/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/))/',
   ],
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
+  setupFiles: ['jest-localstorage-mock'],
   setupFilesAfterEnv: ['<rootDir>/tests/jest_setup.js'],
 };

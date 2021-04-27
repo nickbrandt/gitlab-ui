@@ -3569,7 +3569,7 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-atob@^2.1.1:
+atob@^2.1.1, atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
@@ -4543,7 +4543,7 @@ check-more-types@2.24.0:
   resolved "https://registry.yarnpkg.com/check-more-types/-/check-more-types-2.24.0.tgz#1420ffb10fd444dcfc79b43891bbfffd32a84600"
   integrity sha1-FCD/sQ/URNz8ebQ4kbv//TKoRgA=
 
-"chokidar@>=2.0.0 <4.0.0", chokidar@^3.4.1, chokidar@^3.4.2:
+"chokidar@>=2.0.0 <4.0.0", "chokidar@>=3.0.0 <4.0.0", chokidar@^3.4.1, chokidar@^3.4.2:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
   integrity sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==
@@ -5423,7 +5423,7 @@ css-what@2.1, css-what@^2.1.2:
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.3.tgz#a6d7604573365fe74686c3f311c56513d88285f2"
   integrity sha512-a+EPoD+uZiNfh+5fxw2nO9QwFa6nJe2Or35fGY6Ipw1R3R4AGz1d1TEZrCegvw2YTmZ0jXirGYlzxxpYSHwpEg==
 
-css@^2.1.0, css@^2.2.1:
+css@^2.1.0:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
   integrity sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw==
@@ -5432,6 +5432,15 @@ css@^2.1.0, css@^2.2.1:
     source-map "^0.6.1"
     source-map-resolve "^0.5.2"
     urix "^0.1.0"
+
+css@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/css/-/css-3.0.0.tgz#4447a4d58fdd03367c516ca9f64ae365cee4aa5d"
+  integrity sha512-DG9pFfwOrzc+hawpmqX/dHYHJG+Bsdb0klhyi1sDneOgGOXy9wQIC8hzyVp1e4NRYDBdxcylvywPkkXCHAzTyQ==
+  dependencies:
+    inherits "^2.0.4"
+    source-map "^0.6.1"
+    source-map-resolve "^0.6.0"
 
 cssesc@^0.1.0:
   version "0.1.0"
@@ -9246,6 +9255,11 @@ jest-leak-detector@^26.6.2:
     jest-get-type "^26.3.0"
     pretty-format "^26.6.2"
 
+jest-localstorage-mock@^2.4.10:
+  version "2.4.10"
+  resolved "https://registry.yarnpkg.com/jest-localstorage-mock/-/jest-localstorage-mock-2.4.10.tgz#bee6eb18d4041735572fa68e714e3812a7fe9863"
+  integrity sha512-aTEpZXuuFRtsjivomLg3NqW0iJEUAdxLzqGzBlA7OCEspEb2Qa9duzuhmjNX5rKnPKveFBbtzX9y6Di9ZAUpmg==
+
 jest-matcher-utils@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-26.6.2.tgz#8e6fd6e863c8b2d31ac6472eeb237bc595e53e7a"
@@ -9907,16 +9921,6 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
-lodash.find@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.find/-/lodash.find-4.6.0.tgz#cb0704d47ab71789ffa0de8b97dd926fb88b13b1"
-  integrity sha1-ywcE1Hq3F4n/oN6Ll92Sb7iLE7E=
-
-lodash.foreach@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
-  integrity sha1-Gmo16s5AEoDH8G3d7DUWWrJ+PlM=
-
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
@@ -9926,11 +9930,6 @@ lodash.kebabcase@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
   integrity sha1-hImxyw0p/4gZXM7KRI/21swpXDY=
-
-lodash.last@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash.last/-/lodash.last-3.0.0.tgz#242f663112dd4c6e63728c60a3c909d1bdadbd4c"
-  integrity sha1-JC9mMRLdTG5jcoxgo8kJ0b2tvUw=
 
 lodash.memoize@4.x, lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -10851,7 +10850,7 @@ node-sass-magic-importer@^5.3.2:
     postcss-scss "^2.0.0"
     resolve "^1.10.1"
 
-node-sass@^4.14.1, node-sass@^4.5.2:
+node-sass@^4.14.1:
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.1.tgz#99c87ec2efb7047ed638fb4c9db7f3a42e2217b5"
   integrity sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g==
@@ -13961,14 +13960,14 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass-export@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/sass-export/-/sass-export-1.0.3.tgz#b8cdad1ae5ccae09c7c8165eb23e2cf6cda216d8"
-  integrity sha512-o8LbtNkMNV9btFZtyonTsn2sN1J7/KX5JGzQKUFiMoXjfBTYmLn26n86eGLp9YDBvf5xUWeKBhOqPAZqSv58bw==
+sass-export@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/sass-export/-/sass-export-2.0.1.tgz#f37654757cafdf26d86736477c6bdb58deea6d9b"
+  integrity sha512-JGUqg88OpoJEYKxwIU88+vY+0p97k1pby5UiHSzSdzgIQCztW0dYuQ4l1HqlIu0Z752G2SJrCJLUeTRYvFDwTg==
   dependencies:
-    glob "^7.1.2"
-    minimist "^1.2.0"
-    node-sass "^4.5.2"
+    glob "^7.1.6"
+    minimist "^1.2.5"
+    sass "^1.32.8"
 
 sass-graph@2.2.5:
   version "2.2.5"
@@ -13992,16 +13991,14 @@ sass-loader@^7.1.0:
     pify "^3.0.0"
     semver "^5.5.0"
 
-sass-true@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-5.0.0.tgz#b93cecd7af9fdb8796323ce2cfc94387a48a4848"
-  integrity sha512-Q2HONu8QJcx8Lsdn8RqSHRGGB0aPlqCpXMDONtuXedaNIecz6QD3NCwkZiR4mprr5ZDiFcZwYT6fHDbyBXmDLQ==
+sass-true@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-6.0.1.tgz#c159fa27df2f9ee22bb624a851144a8af7dc8a32"
+  integrity sha512-Ow72fStIgw+qRRUc0r77emeWry06a3e1hXtadPEzDL/GFiEjtQKZel5fr+gu85zC8JYmLkZofMn6x9b/sq+wfg==
   dependencies:
-    chalk "^2.4.2"
-    css "^2.2.1"
-    lodash.find "^4.6.0"
-    lodash.foreach "^4.5.0"
-    lodash.last "^3.0.0"
+    chalk "^4.1.0"
+    css "^3.0.0"
+    lodash "^4.17.19"
 
 sass@^1.18.0:
   version "1.22.1"
@@ -14009,6 +14006,13 @@ sass@^1.18.0:
   integrity sha512-VsWrNdfIzCLbD2TO2bq9tCaUzEE0UUSGtP3r9IhHi8ypAPCb3FOVP99kMRil+ZROEcTnKReZcQP9vk6ArV2eLw==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
+
+sass@^1.32.8:
+  version "1.32.11"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.32.11.tgz#b236b3ea55c76602c2ef2bd0445f0db581baa218"
+  integrity sha512-O9tRcob/fegUVSIV1ihLLZcftIOh0AF1VpKgusUfLqnb2jQ0GLDwI5ivv1FYWivGv8eZ/AwntTyTzjcHu0c/qw==
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
 
 sax@0.5.x:
   version "0.5.8"
@@ -14388,6 +14392,14 @@ source-map-resolve@^0.5.0, source-map-resolve@^0.5.2:
     resolve-url "^0.2.1"
     source-map-url "^0.4.0"
     urix "^0.1.0"
+
+source-map-resolve@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/source-map-resolve/-/source-map-resolve-0.6.0.tgz#3d9df87e236b53f16d01e58150fc7711138e5ed2"
+  integrity sha512-KXBr9d/fO/bWo97NXsPIAW1bFSBOuCnjbNTBMO7N59hsv5i9yzRDfcYwwt0l04+VqnKC+EwzvJZIP/qkuMgR/w==
+  dependencies:
+    atob "^2.1.2"
+    decode-uri-component "^0.2.0"
 
 source-map-support@^0.5.16, source-map-support@^0.5.6, source-map-support@~0.5.12:
   version "0.5.19"
