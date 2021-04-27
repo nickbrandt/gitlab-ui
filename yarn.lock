@@ -4543,7 +4543,7 @@ check-more-types@2.24.0:
   resolved "https://registry.yarnpkg.com/check-more-types/-/check-more-types-2.24.0.tgz#1420ffb10fd444dcfc79b43891bbfffd32a84600"
   integrity sha1-FCD/sQ/URNz8ebQ4kbv//TKoRgA=
 
-"chokidar@>=2.0.0 <4.0.0", chokidar@^3.4.1, chokidar@^3.4.2:
+"chokidar@>=2.0.0 <4.0.0", "chokidar@>=3.0.0 <4.0.0", chokidar@^3.4.1, chokidar@^3.4.2:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.1.tgz#ee9ce7bbebd2b79f49f304799d5468e31e14e68a"
   integrity sha512-9+s+Od+W0VJJzawDma/gvBNQqkTiqYTWLuZoyAsivsI4AaWTCzHG06/TMjsf1cYe9Cb97UCEhjz7HvnPk2p/tw==
@@ -10851,7 +10851,7 @@ node-sass-magic-importer@^5.3.2:
     postcss-scss "^2.0.0"
     resolve "^1.10.1"
 
-node-sass@^4.14.1, node-sass@^4.5.2:
+node-sass@^4.14.1:
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.1.tgz#99c87ec2efb7047ed638fb4c9db7f3a42e2217b5"
   integrity sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g==
@@ -13961,14 +13961,14 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass-export@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/sass-export/-/sass-export-1.0.3.tgz#b8cdad1ae5ccae09c7c8165eb23e2cf6cda216d8"
-  integrity sha512-o8LbtNkMNV9btFZtyonTsn2sN1J7/KX5JGzQKUFiMoXjfBTYmLn26n86eGLp9YDBvf5xUWeKBhOqPAZqSv58bw==
+sass-export@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/sass-export/-/sass-export-2.0.0.tgz#e0195a6ef9a70ffd9ea3cbc8174fc681ad31e7e0"
+  integrity sha512-W4BXEdSehnZVKdxCVrzM3dY2LiD+/91gDtWDdrRsNlCHgPTyyjdL6lvuTx4nbrYY41px5K24GHvJWxaic0GCWA==
   dependencies:
-    glob "^7.1.2"
-    minimist "^1.2.0"
-    node-sass "^4.5.2"
+    glob "^7.1.6"
+    minimist "^1.2.5"
+    sass "^1.32.8"
 
 sass-graph@2.2.5:
   version "2.2.5"
@@ -14009,6 +14009,13 @@ sass@^1.18.0:
   integrity sha512-VsWrNdfIzCLbD2TO2bq9tCaUzEE0UUSGtP3r9IhHi8ypAPCb3FOVP99kMRil+ZROEcTnKReZcQP9vk6ArV2eLw==
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
+
+sass@^1.32.8:
+  version "1.32.11"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.32.11.tgz#b236b3ea55c76602c2ef2bd0445f0db581baa218"
+  integrity sha512-O9tRcob/fegUVSIV1ihLLZcftIOh0AF1VpKgusUfLqnb2jQ0GLDwI5ivv1FYWivGv8eZ/AwntTyTzjcHu0c/qw==
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
 
 sax@0.5.x:
   version "0.5.8"
