@@ -1,3 +1,10 @@
+## [29.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.11.0...v29.11.1) (2021-04-28)
+
+
+### Bug Fixes
+
+* **GlBadge:** set badge's role when icon-only ([6260794](https://gitlab.com/gitlab-org/gitlab-ui/commit/62607945ac62b292cfdbad41a8c83ffec3082ce4))
+
 # [29.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.10.0...v29.11.0) (2021-04-23)
 
 
