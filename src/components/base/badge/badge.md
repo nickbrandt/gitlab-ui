@@ -10,6 +10,18 @@ indicate an issue’s status, a member’s role, or if a branch is protected.
 
 > Note: Native support for icons in badges will be added in a future version.
 
+### Using icon-only badges
+
+When a badge only has an icon and no slot content, be sure to set the `aria-label` attribute of the badge for best accessibility.
+
+```html
+<!-- bad -->
+<gl-badge icon="eye" />
+
+<!-- good -->
+<gl-badge icon="eye" aria-label="Mark as confidential" />
+```
+
 ## Edge cases
 
 While this component is based on
