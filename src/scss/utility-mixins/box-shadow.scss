@@ -39,6 +39,14 @@
   box-shadow: inset 0 ($gl-border-size-1 * -1) 0 0 $gray-300;
 }
 
+@mixin gl-inset-border-b-2-gray-300 {
+  box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $gray-300;
+}
+
+@mixin gl-inset-border-b-2-gray-500 {
+  box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $gray-500;
+}
+
 @mixin gl-inset-border-b-1-gray-900 {
   box-shadow: inset 0 ($gl-border-size-1 * -1) 0 0 $gray-900;
 }
@@ -87,6 +95,10 @@
   box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-indigo-500;
 }
 
+@mixin gl-inset-border-b-2-theme-indigo-300 {
+  box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-indigo-300;
+}
+
 @mixin gl-inset-border-b-2-theme-red-500 {
   box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-red-500;
 }
@@ -101,6 +113,10 @@
 
 @mixin gl-inset-border-b-2-theme-light-blue-500 {
   box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-light-blue-500;
+}
+
+@mixin gl-inset-border-b-2-theme-green-300 {
+  box-shadow: inset 0 ($gl-border-size-2 * -1) 0 0 $theme-green-300;
 }
 
 @mixin gl-inset-border-b-2-theme-green-500 {

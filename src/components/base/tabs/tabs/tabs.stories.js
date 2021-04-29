@@ -2,7 +2,7 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 import { range } from 'lodash';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlTabs, GlTab, GlScrollableTabs } from '../../../../../index';
-import { glThemes } from '../../../../utils/constants';
+import { colorThemes } from '../../../../utils/constants';
 import docs from './tabs.md';
 
 const ScrollableTabsGenerator = {
@@ -41,7 +41,11 @@ const createBaseStory = () => ({
   props: {
     theme: {
       type: String,
-      default: select('theme', glThemes, 'indigo'),
+      default: select(
+        'theme',
+        [...Object.keys(colorThemes), 'gl-dark'],
+        Object.keys(colorThemes)[0]
+      ),
     },
   },
 });
