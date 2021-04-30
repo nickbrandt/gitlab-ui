@@ -1,12 +1,9 @@
 # Engineering
-
-@ClemMakesApps @ealcantara @filipa @mishunov @pgascouvaillancourt @sarahghp @timzallmann
+* @gitlab-org/maintainers/frontend
 
 # UI
-
-@rverissimo @tauriedavis
+*.scss @rayana @tauriedavis @gitlab-org/maintainers/frontend
 
 # Technical Writing
-
 /documentation/ @marcia
 /doc/ @marcia
