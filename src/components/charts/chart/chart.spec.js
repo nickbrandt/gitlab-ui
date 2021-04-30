@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 import Chart from './chart.vue';
 import theme from '~/utils/charts/theme';
 

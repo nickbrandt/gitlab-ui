@@ -1,5 +1,5 @@
 <script>
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 import { defaultHeight, validRenderers } from '../../../utils/charts/config';
 import theme, { themeName } from '../../../utils/charts/theme';
 
