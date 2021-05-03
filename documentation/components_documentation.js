@@ -107,6 +107,7 @@ export { default as GlFriendlyWrapDocumentation } from '../src/components/utilit
 export { default as GlIntersperseDocumentation } from '../src/components/utilities/intersperse/intersperse.documentation';
 export { default as GlSprintfDocumentation } from '../src/components/utilities/sprintf/sprintf.documentation';
 export { default as GlTruncateDocumentation } from '../src/components/utilities/truncate/truncate.documentation';
+export { default as GlHoverLoadDirectiveDocumentation } from '../src/directives/hover_load/hover_load.documentation';
 
 const componentList = Object.getPrototypeOf(module).exports;
 

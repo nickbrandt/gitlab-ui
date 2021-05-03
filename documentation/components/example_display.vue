@@ -28,6 +28,7 @@ Vue.directive('gl-resize-observer-directive', gitlabComponents.GlResizeObserverD
 Vue.directive('gl-safe-html-directive', gitlabComponents.GlSafeHtmlDirective);
 Vue.directive('gl-collapse-toggle', gitlabComponents.GlCollapseToggleDirective);
 Vue.directive('gl-outside', gitlabComponents.GlOutsideDirective);
+Vue.directive('gl-hover-load', gitlabComponents.GlHoverLoadDirective);
 
 function findComponentExample(exampleName) {
   /* eslint-disable no-restricted-syntax */
