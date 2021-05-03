@@ -1,3 +1,10 @@
+# [29.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.11.1...v29.12.0) (2021-05-03)
+
+
+### Features
+
+* **GlFilteredSearch:** Add friendly text option + improvements ([de537f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/de537f6e6741fa8a085250bbcceaf327f22fff7f))
+
 ## [29.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.11.0...v29.11.1) (2021-04-28)
 
 
