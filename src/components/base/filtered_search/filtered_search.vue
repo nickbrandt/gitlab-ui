@@ -76,6 +76,11 @@ export default {
       required: false,
       default: null,
     },
+    showFriendlyText: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -268,6 +273,7 @@ export default {
             :current-value="tokens"
             :index="idx"
             :placeholder="termPlaceholder"
+            :show-friendly-text="showFriendlyText"
             class="gl-filtered-search-item"
             :class="{
               'gl-filtered-search-last-item': isLastToken(idx),

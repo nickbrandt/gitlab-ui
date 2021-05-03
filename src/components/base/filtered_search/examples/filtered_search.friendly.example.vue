@@ -1,9 +1,4 @@
-import { withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlFilteredSearch, GlFilteredSearchToken } from '../../../../index';
-import { setStoryTimeout } from '../../../utils/test_utils';
-import readme from './filtered_search.md';
-
+<script>
 const fakeUsers = [
   { id: 1, name: 'User Alpha', username: 'alpha' },
   { id: 2, name: 'User Beta', username: 'beta' },
@@ -42,14 +37,14 @@ const UserToken = {
   methods: {
     loadView() {
       this.loadingView = true;
-      setStoryTimeout(() => {
+      setTimeout(() => {
         this.loadingView = false;
         this.activeUser = fakeUsers.find((u) => u.username === this.value.data);
       }, 1000);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
-      setStoryTimeout(() => {
+      setTimeout(() => {
         this.loadingSuggestions = false;
         this.users = fakeUsers;
       }, 2000);
@@ -78,16 +73,16 @@ const UserToken = {
       v-bind="{ ...this.$props, ...this.$attrs }"
       v-on="$listeners"
     >
-      <template #view="{ inputValue }">
-        <gl-loading-icon size="sm" v-if="loadingView" />
-        <gl-avatar :size="16" :entity-name="inputValue" shape="circle" v-else />
-        {{ activeUser ? activeUser.name : inputValue }}
+    <template #view="{ inputValue }">
+      <gl-loading-icon size="sm" v-if="loadingView" />
+      <gl-avatar :size="16" :entity-name="inputValue" shape="circle" v-else />
+      {{ activeUser ? activeUser.name : inputValue }}
+    </template>
+    <template #suggestions>
+      <template v-if="loadingSuggestions">
+        <gl-loading-icon />
       </template>
-      <template #suggestions>
-        <template v-if="loadingSuggestions">
-          <gl-loading-icon />
-        </template>
-        <template v-else>
+      <template v-else>
         <gl-filtered-search-suggestion :key="user.id" v-for="user in users" :value="user.username">
           <div class="gl-display-flex">
             <gl-avatar :size="32" :entity-name="user.username" />
@@ -97,8 +92,8 @@ const UserToken = {
             </div>
           </div>
         </gl-filtered-search-suggestion>
-        </template>
       </template>
+    </template>
     </gl-filtered-search-token>
   `,
 };
@@ -116,7 +111,7 @@ const MilestoneToken = {
   methods: {
     loadSuggestions() {
       this.loadingSuggestions = true;
-      setStoryTimeout(() => {
+      setTimeout(() => {
         this.loadingSuggestions = false;
         this.milestones = fakeMilestones;
       }, 2000);
@@ -143,21 +138,22 @@ const MilestoneToken = {
       v-bind="{ ...this.$props, ...this.$attrs }"
       v-on="$listeners"
     >
-      <template #suggestions>
-        <gl-filtered-search-suggestion value="None">None</gl-filtered-search-suggestion>
-        <gl-filtered-search-suggestion value="Any">Any</gl-filtered-search-suggestion>
-        <gl-filtered-search-suggestion value="Upcoming">Upcoming</gl-filtered-search-suggestion>
-        <gl-filtered-search-suggestion value="Started">Started</gl-filtered-search-suggestion>
-        <gl-dropdown-divider v-if="loadingSuggestions || milestones.length" />
-        <template v-if="loadingSuggestions">
-          <gl-loading-icon />
-        </template>
-        <template v-else>
-        <gl-filtered-search-suggestion :key="milestone.id" v-for="milestone in milestones" :value="milestone.name">
-        {{ milestone.title }}
-        </gl-filtered-search-suggestion>
-        </template>
+    <template #suggestions>
+      <gl-filtered-search-suggestion value="None">None</gl-filtered-search-suggestion>
+      <gl-filtered-search-suggestion value="Any">Any</gl-filtered-search-suggestion>
+      <gl-filtered-search-suggestion value="Upcoming">Upcoming</gl-filtered-search-suggestion>
+      <gl-filtered-search-suggestion value="Started">Started</gl-filtered-search-suggestion>
+      <gl-dropdown-divider v-if="loadingSuggestions || milestones.length" />
+      <template v-if="loadingSuggestions">
+        <gl-loading-icon />
       </template>
+      <template v-else>
+        <gl-filtered-search-suggestion :key="milestone.id" v-for="milestone in milestones"
+                                       :value="milestone.name">
+          {{ milestone.title }}
+        </gl-filtered-search-suggestion>
+      </template>
+    </template>
     </gl-filtered-search-token>
   `,
 };
@@ -189,14 +185,14 @@ const LabelToken = {
   methods: {
     loadView() {
       this.loadingView = true;
-      setStoryTimeout(() => {
+      setTimeout(() => {
         this.loadingView = false;
         this.activeLabel = fakeLabels.find((l) => l.title === this.value.data);
       }, 100);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
-      setStoryTimeout(() => {
+      setTimeout(() => {
         this.loadingSuggestions = false;
         this.labels = fakeLabels;
       }, 2000);
@@ -225,19 +221,19 @@ const LabelToken = {
       v-bind="{ ...this.$props, ...this.$attrs }"
       v-on="$listeners"
     >
-      <template #view-token="{ inputValue, cssClasses, listeners }">
-        <gl-token variant="search-value" :class="cssClasses" :style="containerStyle" v-on="listeners">
-          {{ activeLabel ? activeLabel.title : inputValue }}
-        </gl-token>
+    <template #view-token="{ inputValue, cssClasses, listeners }">
+      <gl-token variant="search-value" :class="cssClasses" :style="containerStyle" v-on="listeners">
+        {{ activeLabel ? activeLabel.title : inputValue }}
+      </gl-token>
+    </template>
+    <template #suggestions>
+      <gl-filtered-search-suggestion value="None">None</gl-filtered-search-suggestion>
+      <gl-filtered-search-suggestion value="Any">Any</gl-filtered-search-suggestion>
+      <gl-dropdown-divider v-if="loadingSuggestions || labels.length" />
+      <template v-if="loadingSuggestions">
+        <gl-loading-icon />
       </template>
-      <template #suggestions>
-        <gl-filtered-search-suggestion value="None">None</gl-filtered-search-suggestion>
-        <gl-filtered-search-suggestion value="Any">Any</gl-filtered-search-suggestion>
-        <gl-dropdown-divider v-if="loadingSuggestions || labels.length" />
-        <template v-if="loadingSuggestions">
-          <gl-loading-icon />
-        </template>
-        <template v-else>
+      <template v-else>
         <gl-filtered-search-suggestion :key="label.id" v-for="label in labels" :value="label.title">
           <div class="d-flex">
             <span
@@ -247,8 +243,8 @@ const LabelToken = {
             {{ label.title }}
           </div>
         </gl-filtered-search-suggestion>
-        </template>
       </template>
+    </template>
     </gl-filtered-search-token>
   `,
 };
@@ -265,13 +261,19 @@ const tokens = [
   { type: 'user', icon: 'user', title: 'Assignee', dataType: 'user', token: UserToken },
   { type: 'milestone', icon: 'clock', title: 'Milestone', unique: true, token: MilestoneToken },
   { type: 'label', icon: 'labels', title: 'Label', token: LabelToken },
-  { type: 'weight', icon: 'weight', title: 'Weight', unique: true, token: GlFilteredSearchToken },
+  {
+    type: 'weight',
+    icon: 'weight',
+    title: 'Weight',
+    unique: true,
+    token: 'gl-filtered-search-token',
+  },
   {
     type: 'confidential',
     icon: 'eye-slash',
     title: 'Confidential',
     unique: true,
-    token: GlFilteredSearchToken,
+    token: 'gl-filtered-search-token',
     options: [
       { icon: 'eye-slash', value: 'Yes', title: 'Yes' },
       { icon: 'eye', value: 'No', title: 'No' },
@@ -279,23 +281,20 @@ const tokens = [
   },
 ];
 
-const components = {
-  GlFilteredSearch,
+export default {
+  data() {
+    return {
+      tokens,
+      value: [
+        { type: 'user', value: { data: 'beta', operator: '=' } },
+        { type: 'label', value: { data: 'Bug', operator: '=' } },
+        'raw text',
+      ],
+    };
+  },
 };
+</script>
 
-documentedStoriesOf('base/filtered-search', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    data() {
-      return {
-        tokens,
-        value: [
-          { type: 'user', value: { data: 'beta', operator: '=' } },
-          { type: 'label', value: { data: 'Bug', operator: '=' } },
-          'raw text',
-        ],
-      };
-    },
-    components,
-    template: `<gl-filtered-search :available-tokens="tokens" :value="value" />`,
-  }));
+<template>
+  <gl-filtered-search v-model="value" :available-tokens="tokens" :show-friendly-text="true" />
+</template>

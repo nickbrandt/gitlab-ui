@@ -11,10 +11,15 @@ Prepare array of available token configurations with the following fields:
 - `type`: unique identifier of token type
 - `title`: human-readable title of the token
 - `icon`: token icon
+- `token`: (optional) the token Vue component to use (e.g. `AuthorToken`)
 - `dataType`: (optional) identifier of type (for example "user") for this filter. Tokens
-  of the same type could be switched without loosing their values
+  of the same type could be switched without losing their values
 - `unique`: (optional) indicate this token could appear only once in the filter
 - `disabled`: (optional) indicate this token should be hidden from the dropdown
+- `operators`: (optional) an array of selectable operators.
+  Each array item is an object that must contain `value` and `description`, and optionally `default`
+  (e.g. `{ value: '=', description: 'is', default: 'true' }`)
+- `multiSelect`: (optional) when `true`, the suggestions list becomes multi-select instead of single-select
 - `options`: (optional) an array of options which the user can pick after the operator has been selected.
   The option object can have the following properties defined: `value`, `icon`, `text`, and `default` 
   all of which are expected be of type `string`. If the `default` is omitted, the `value` of the first 
@@ -23,6 +28,7 @@ Prepare array of available token configurations with the following fields:
 
 Each token for filtered search is a Vue component with the following props:
 
+- `value`: an object with a `data` property containing the current value, and optionally an `operator` value containing the operator value
 - `active`: indicates if the token is currently active. It's the token's responsibility
   to render proper control for editing (for example input).
 - `current-value`: current tokens of the filtered search.
