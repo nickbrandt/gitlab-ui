@@ -62,9 +62,15 @@ export default {
       return this.options?.find((o) => o.value === this.value);
     },
 
+    nonMultipleValue() {
+      return this.multiSelect ? last(this.value.split(COMMA)) : this.value;
+    },
+
     inputValue: {
       get() {
-        return this.matchingOption ? this.matchingOption[this.optionTextField] : this.value;
+        return this.matchingOption
+          ? this.matchingOption[this.optionTextField]
+          : this.nonMultipleValue;
       },
 
       set(v) {
@@ -78,7 +84,7 @@ export default {
 
     defaultSuggestedValue() {
       if (!this.options) {
-        return this.multiSelect ? last(this.value.split(COMMA)) : this.value;
+        return this.nonMultipleValue;
       }
       if (this.value) {
         const match =

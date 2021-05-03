@@ -46,6 +46,11 @@ export default {
       required: false,
       default: () => ({ operator: '', data: '' }),
     },
+    showFriendlyText: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -67,6 +72,11 @@ export default {
         ...t,
         value: t.title,
       }));
+    },
+
+    operatorDescription() {
+      const operator = this.operators.find((op) => op.value === this.value.operator);
+      return this.showFriendlyText ? operator?.description : operator?.value;
     },
   },
   segments: {
@@ -225,13 +235,13 @@ export default {
       @deactivate="$emit('deactivate')"
     >
       <!-- eslint-enable vue/no-mutating-props -->
-      <template #view="{ inputValue }">
+      <template #view>
         <gl-token
           class="gl-filtered-search-token-operator"
           variant="search-value"
           :class="getAdditionalSegmentClasses($options.segments.SEGMENT_OPERATOR)"
           view-only
-          >{{ inputValue }}</gl-token
+          >{{ operatorDescription }}</gl-token
         >
       </template>
       <template #option="{ option }">
