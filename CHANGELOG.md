@@ -1,3 +1,10 @@
+# [29.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.12.1...v29.13.0) (2021-05-04)
+
+
+### Features
+
+* **css:** Add margin top auto ([b0cd6e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/b0cd6e62efaf5c67355b295aa1b48f9abe5366c3))
+
 ## [29.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.12.0...v29.12.1) (2021-05-03)
 
 
