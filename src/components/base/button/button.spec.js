@@ -187,18 +187,31 @@ describe('button component', () => {
     });
 
     describe('unsafe urls', () => {
+      // eslint-disable-next-line no-script-url
+      const unsafeUrl = 'javascript:alert(1)';
+
       /* GlSafeLinkDirective is actually responsible to handle the unsafe URLs
       /* and GlButton uses this directive to make all the links secure by default
       */
       it('should set href to blank ', () => {
         buildWrapper({
           propsData: {
-            // eslint-disable-next-line no-script-url
-            href: 'javascript:alert(1)',
+            href: unsafeUrl,
           },
         });
 
         expect(wrapper.attributes('href')).toBe('about:blank');
+      });
+
+      it('should allow unsafe URL if isUnsafeLink is true', () => {
+        buildWrapper({
+          propsData: {
+            href: unsafeUrl,
+            isUnsafeLink: true,
+          },
+        });
+
+        expect(wrapper.attributes('href')).toBe(unsafeUrl);
       });
     });
   });

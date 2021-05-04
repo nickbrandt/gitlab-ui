@@ -30,7 +30,11 @@ const isSafeURL = (url) => {
   }
 };
 
-const transform = (el) => {
+const transform = (el, { arg: { skipSanitization = false } = {} } = {}) => {
+  if (skipSanitization) {
+    return;
+  }
+
   const { href, target, rel, hostname } = el;
 
   if (!isSafeURL(href)) {
