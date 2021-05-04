@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { BCollapse } from 'bootstrap-vue';
 import GlCollapseToggleDirective from '../../../directives/collapse_toggle';
+import { waitForAnimationFrame } from '../../../utils/test_utils';
 import GlButton from '../button/button.vue';
 import GlAccordionItem from './accordion_item.vue';
 
@@ -71,6 +72,7 @@ describe('GlAccordionItem', () => {
   it('is expanded on button click', async () => {
     createComponent();
 
+    await waitForAnimationFrame();
     await findButton().trigger('click');
 
     expect(findButton().props('icon')).toBe('chevron-down');
