@@ -2,7 +2,7 @@ import { shallowMount, mount } from '@vue/test-utils';
 import Vue from 'vue';
 import GlLink from '../../components/base/link/link.vue';
 import { absoluteUrls, javascriptUrls, encodedJavaScriptUrls, relativeUrls } from './mock_data';
-import safeLink from './safe_link';
+import { SafeLinkDirective } from './safe_link';
 
 const httpLink = 'https://gitlab.com';
 
@@ -17,7 +17,7 @@ describe('safe link directive', () => {
   } = {}) => {
     const component = {
       directives: {
-        safeLink,
+        SafeLink: SafeLinkDirective,
       },
       components,
       data() {

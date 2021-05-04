@@ -1,4 +1,4 @@
-import SafeLinkDirective from '../../directives/safe_link/safe_link';
+import { SafeLinkDirective } from '../../directives/safe_link/safe_link';
 
 export const SafeLinkMixin = {
   directives: {
