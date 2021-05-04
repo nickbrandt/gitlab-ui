@@ -18,4 +18,11 @@ export const SafeLinkMixin = {
       default: null,
     },
   },
+  computed: {
+    safeLinkConfig() {
+      return {
+        skipSanitization: this.isUnsafeLink,
+      };
+    },
+  },
 };
