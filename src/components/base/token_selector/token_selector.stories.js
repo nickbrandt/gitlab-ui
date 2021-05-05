@@ -1,4 +1,4 @@
-import { withKnobs, object, boolean } from '@storybook/addon-knobs';
+import { withKnobs, object, boolean, radios } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './token_selector.md';
 import GlTokenSelector from './token_selector.vue';
@@ -8,6 +8,19 @@ const components = {
 };
 
 const generateProps = () => {
+  const stateRadiosBoolean = (value) => {
+    switch (value) {
+      case 'null':
+        return null;
+      case 'true':
+        return true;
+      case 'false':
+        return false;
+      default:
+        return null;
+    }
+  };
+
   return {
     dropdownItems: {
       default: object('Dropdown items', [
@@ -39,6 +52,11 @@ const generateProps = () => {
     },
     hideDropdownWithNoItems: {
       default: boolean('Hide dropdown with no items', false),
+    },
+    state: {
+      default: stateRadiosBoolean(
+        radios('Validation state', { true: 'true', false: 'false', null: 'null' }, 'null')
+      ),
     },
   };
 };
@@ -97,6 +115,7 @@ documentedStoriesOf('base/token_selector', readme)
           :allow-user-defined-tokens="allowUserDefinedTokens"
           :loading="loading"
           :hide-dropdown-with-no-items="hideDropdownWithNoItems"
+          :state="state"
           @text-input="handleTextInput"
           @focus="handleFocus" />
         {{ selectedTokens }}

@@ -66,6 +66,11 @@ export default {
       required: false,
       default: null,
     },
+    state: {
+      type: Boolean,
+      required: false,
+      default: null,
+    },
     // Used for custom `v-model`
     selectedTokens: {
       type: Array,
@@ -115,6 +120,15 @@ export default {
       }
 
       return false;
+    },
+    stateClass() {
+      if (this.state === null) {
+        return 'gl-inset-border-1-gray-400!';
+      }
+
+      return this.state
+        ? 'is-valid gl-inset-border-1-gray-400!'
+        : 'is-invalid gl-inset-border-1-red-500!';
     },
   },
   watch: {
@@ -270,12 +284,13 @@ export default {
   <div>
     <div
       ref="container"
-      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-inset-border-1-gray-400! gl-cursor-text! gl-py-2! gl-px-3!"
-      :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass]"
+      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-cursor-text! gl-py-2! gl-px-3!"
+      :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass, stateClass]"
       @click="handleContainerClick"
     >
       <gl-token-container
         :tokens="selectedTokens"
+        :state="state"
         :register-focus-on-token="registerFocusOnToken"
         @token-remove="removeToken"
         @cancel-focus="cancelTokenFocus"

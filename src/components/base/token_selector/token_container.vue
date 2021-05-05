@@ -12,6 +12,11 @@ export default {
       validator: tokensValidator,
       required: true,
     },
+    state: {
+      type: Boolean,
+      required: false,
+      default: null,
+    },
     registerFocusOnToken: {
       type: Function,
       required: true,
@@ -115,6 +120,7 @@ export default {
     role="listbox"
     aria-multiselectable="false"
     aria-orientation="horizontal"
+    :aria-invalid="state === false && 'true'"
     @keydown.left="handleLeftArrow"
     @keydown.right="handleRightArrow"
     @keydown.home="handleHome"

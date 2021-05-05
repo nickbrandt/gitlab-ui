@@ -82,6 +82,8 @@ describe('GlTokenSelector', () => {
   const findDropdownMenu = () =>
     wrapper.findComponent(GlTokenSelectorDropdown).findComponent({ ref: 'dropdownMenu' });
 
+  const findContainer = () => wrapper.findComponent({ ref: 'container' });
+
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
       HTMLElement.prototype.scrollIntoView = jest.fn();
@@ -152,7 +154,7 @@ describe('GlTokenSelector', () => {
           },
         });
 
-        expect(wrapper.findComponent({ ref: 'container' }).classes()).toContain('gl-h-auto');
+        expect(findContainer().classes()).toContain('gl-h-auto');
       });
     });
 
@@ -232,6 +234,48 @@ describe('GlTokenSelector', () => {
 
         expect(findTextInput().attributes('data-qa-selector')).toBe('foo_bar');
       });
+    });
+
+    describe('state', () => {
+      describe.each`
+        value    | expectedClasses
+        ${true}  | ${['is-valid', 'gl-inset-border-1-gray-400!']}
+        ${false} | ${['is-invalid', 'gl-inset-border-1-red-500!']}
+        ${null}  | ${['gl-inset-border-1-gray-400!']}
+      `('when `state` is `$value`', ({ value, expectedClasses }) => {
+        it(`adds \`${expectedClasses}\` to CSS classes`, () => {
+          createComponent({
+            propsData: {
+              state: value,
+            },
+          });
+
+          expect(findContainer().classes()).toEqual(expect.arrayContaining(expectedClasses));
+        });
+      });
+
+      describe('when `state` is `null`', () => {
+        it('does not add `is-valid` or `is-invalid` CSS classes', () => {
+          createComponent({
+            propsData: {
+              state: null,
+            },
+          });
+
+          expect(findContainer().classes()).not.toContain('is-valid');
+          expect(findContainer().classes()).not.toContain('is-invalid');
+        });
+      });
+    });
+
+    it('passes prop to `token-container` component', () => {
+      createComponent({
+        propsData: {
+          state: true,
+        },
+      });
+
+      expect(wrapper.findComponent(GlTokenContainer).props('state')).toBe(true);
     });
   });
 

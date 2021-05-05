@@ -45,6 +45,8 @@ describe('GlTokenContainer', () => {
     return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
 
+  const findTokenContainer = () => wrapper.find({ ref: 'tokenContainer' });
+
   const blurActiveElement = () => document.activeElement?.blur?.();
 
   afterEach(() => {
@@ -59,6 +61,36 @@ describe('GlTokenContainer', () => {
         createComponent();
 
         expect(wrapper.findAllComponents(GlToken).length).toBe(4);
+      });
+    });
+
+    describe('state', () => {
+      describe('when `state` is `false`', () => {
+        it('adds `aria-invalid="true"` attribute`', () => {
+          createComponent({
+            propsData: {
+              state: false,
+            },
+          });
+
+          expect(findTokenContainer().attributes('aria-invalid')).toBe('true');
+        });
+      });
+
+      describe.each`
+        value
+        ${true}
+        ${null}
+      `('when `state` is `$value`', ({ value }) => {
+        it('does not add `aria-invalid` attribute', () => {
+          createComponent({
+            propsData: {
+              state: value,
+            },
+          });
+
+          expect(findTokenContainer().attributes('aria-invalid')).toBeUndefined();
+        });
       });
     });
 
