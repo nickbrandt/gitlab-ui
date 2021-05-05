@@ -1,4 +1,5 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 import Label from './label.vue';
@@ -28,8 +29,8 @@ const defaultProps = {
 describe('Label component', () => {
   let wrapper;
 
-  const createComponent = (propsData) => {
-    wrapper = shallowMount(Label, {
+  const createComponent = (propsData, { mountFn = shallowMount } = {}) => {
+    wrapper = mountFn(Label, {
       propsData,
     });
   };
@@ -42,7 +43,7 @@ describe('Label component', () => {
   const findTitle = () => wrapper.find('.gl-label-text');
   const findSubTitle = () => wrapper.find('.gl-label-text-scoped');
   const findTooltipText = () => wrapper.findComponent(GlTooltip).text();
-  const findCloseButton = () => wrapper.find('button');
+  const findCloseButton = () => wrapper.findComponent(CloseButton);
 
   describe('basic label', () => {
     it('renders the label title', () => {
@@ -125,7 +126,7 @@ describe('Label component', () => {
       it('emits close when "x" is clicked', () => {
         const props = { ...defaultProps, showCloseButton: true };
 
-        createComponent(props);
+        createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeTruthy();
@@ -134,7 +135,7 @@ describe('Label component', () => {
       it('does not emit close when "x" is clicked when disabled', () => {
         const props = { ...defaultProps, showCloseButton: true, disabled: true };
 
-        createComponent(props);
+        createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeFalsy();
@@ -208,7 +209,7 @@ describe('Label component', () => {
       it('emits close when "x" is clicked', () => {
         const props = { ...scopedProps, showCloseButton: true };
 
-        createComponent(props);
+        createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeTruthy();
@@ -217,7 +218,7 @@ describe('Label component', () => {
       it('does not emit close when "x" is clicked when disabled', () => {
         const props = { ...scopedProps, showCloseButton: true, disabled: true };
 
-        createComponent(props);
+        createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeFalsy();
