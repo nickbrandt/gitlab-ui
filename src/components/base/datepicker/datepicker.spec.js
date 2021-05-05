@@ -18,6 +18,13 @@ describe('datepicker component', () => {
   const findTriggerButton = (wrapper) => wrapper.findComponent({ ref: 'calendarTriggerBtn' });
   const findCalendarIcon = (wrapper) => wrapper.find('[data-testid="datepicker-calendar-icon"]');
 
+  const assertDefaultDates = () => {
+    const { setDefaultDate, defaultDate } = pikadayConfig();
+
+    expect(defaultDate).toEqual(currentDate);
+    expect(setDefaultDate).toBe(true);
+  };
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -30,7 +37,28 @@ describe('datepicker component', () => {
     );
   });
 
-  it('sets initial value as the calendar default date', () => {
+  it("does not set default date when 'value' and 'defaultDate' props aren't set ", () => {
+    mountWithOptions();
+
+    expect(Pikaday).toHaveBeenCalled();
+    expect(pikadayConfig()).toMatchObject({
+      setDefaultDate: false,
+    });
+  });
+
+  it("uses 'defaultDate' over 'value' as the calendar default date", () => {
+    mountWithOptions({
+      propsData: {
+        value: new Date(2000, 1, 1),
+        defaultDate: currentDate,
+      },
+    });
+
+    expect(Pikaday).toHaveBeenCalled();
+    assertDefaultDates();
+  });
+
+  it("uses 'value' as the calendar default date", () => {
     mountWithOptions({
       propsData: {
         value: currentDate,
@@ -38,10 +66,7 @@ describe('datepicker component', () => {
     });
 
     expect(Pikaday).toHaveBeenCalled();
-    expect(pikadayConfig()).toMatchObject({
-      defaultDate: currentDate,
-      setDefaultDate: true,
-    });
+    assertDefaultDates();
   });
 
   it('opens calendar after mounting when start-opened property equals true', () => {

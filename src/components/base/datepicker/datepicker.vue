@@ -216,8 +216,8 @@ export default {
       field: this.$el.querySelector('input[type="text"]'),
       // `position-absolute` is needed because of this bug: https://github.com/Pikaday/Pikaday/issues/840
       theme: `gl-datepicker-theme position-absolute ${this.theme}`,
-      defaultDate: this.value || this.defaultDate,
-      setDefaultDate: Boolean(this.value),
+      defaultDate: this.defaultDate || this.value,
+      setDefaultDate: Boolean(this.value) || Boolean(this.defaultDate),
       minDate: this.minDate,
       maxDate: this.maxDate,
       // Only supports default gitlab format YYYY-MM-DD. We have to decide if we want to support other formats.
