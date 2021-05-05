@@ -1,3 +1,15 @@
+# [29.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.13.0...v29.14.0) (2021-05-05)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** use defaultDate as an initial value ([e9a0532](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9a0532a9f712c253a489b05be6a050821ad1c1b))
+
+
+### Features
+
+* **GlSingleStat:** Add light gray on hover ([b9bd376](https://gitlab.com/gitlab-org/gitlab-ui/commit/b9bd376953c958b8ecdbe8bd7d27085b345407d6))
+
 # [29.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.12.1...v29.13.0) (2021-05-04)
 
 
