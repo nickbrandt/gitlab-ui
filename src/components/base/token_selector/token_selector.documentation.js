@@ -33,6 +33,10 @@ export default {
       additionalInfo:
         'HTML attributes to add to the text input. Helpful for adding `data-testid` and `data-qa-selector` attributes',
     },
+    state: {
+      additionalInfo:
+        'Controls the validation state appearance of the component. `true` for valid, `false` for invalid, or `null` for no validation state',
+    },
   },
   slots: [
     {
