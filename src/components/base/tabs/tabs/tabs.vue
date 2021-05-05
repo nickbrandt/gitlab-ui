@@ -34,7 +34,7 @@ export default {
     theme: {
       type: String,
       required: false,
-      default: Object.keys(colorThemes)[0],
+      default: 'indigo',
       validator: (value) => Object.keys(colorThemes).includes(value) || value === 'gl-dark',
     },
     contentClass: {

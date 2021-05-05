@@ -41,11 +41,7 @@ const createBaseStory = () => ({
   props: {
     theme: {
       type: String,
-      default: select(
-        'theme',
-        [...Object.keys(colorThemes), 'gl-dark'],
-        Object.keys(colorThemes)[0]
-      ),
+      default: select('theme', [...Object.keys(colorThemes), 'gl-dark'], 'indigo'),
     },
   },
 });

@@ -24,6 +24,13 @@ describe('tabs component', () => {
   const findNav = () => wrapper.find('.gl-tabs-nav');
   const findContent = () => wrapper.find('.gl-tab-content');
 
+  describe('default', () => {
+    it('should have a default theme of indigo', () => {
+      buildTabs();
+      expect(wrapper.attributes('activenavitemclass')).toContain('gl-tab-nav-item-active-indigo');
+    });
+  });
+
   describe('nav', () => {
     it('should have class "gl-tabs-nav"', () => {
       buildTabs({}, mount);
