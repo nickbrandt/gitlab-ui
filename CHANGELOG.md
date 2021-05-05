@@ -1,3 +1,10 @@
+# [29.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.14.0...v29.15.0) (2021-05-05)
+
+
+### Features
+
+* **GlTokenSelector:** add `state` prop for validation ([eb9c8ea](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb9c8ea074b14dfc1a773bc827c153b301ea9ee0))
+
 # [29.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.13.0...v29.14.0) (2021-05-05)
 
 
