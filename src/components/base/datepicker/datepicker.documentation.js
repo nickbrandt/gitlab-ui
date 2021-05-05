@@ -21,6 +21,9 @@ export default {
       additionalInfo:
         'Defaults to `off` when datepicker opens on focus, otherwise defaults to `null`.',
     },
+    defaultDate: {
+      additionalInfo: 'Use this prop to set the initial date for the datepicker.',
+    },
   },
   events: [
     {
