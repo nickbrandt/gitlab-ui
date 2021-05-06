@@ -1,3 +1,10 @@
+# [29.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.16.0...v29.17.0) (2021-05-06)
+
+
+### Features
+
+* Add gl-word-break-word utility class ([bc7d76a](https://gitlab.com/gitlab-org/gitlab-ui/commit/bc7d76aad5c25098c8d156819ea55e4433f804d2))
+
 # [29.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.15.0...v29.16.0) (2021-05-06)
 
 
