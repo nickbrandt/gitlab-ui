@@ -103,6 +103,10 @@
   word-break: break-all;
 }
 
+@mixin gl-word-break-word {
+  word-break: break-word;
+}
+
 @mixin gl-overflow-break-word {
   overflow-wrap: break-word;
   word-wrap: break-word;
