@@ -1,3 +1,10 @@
+# [29.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.15.0...v29.16.0) (2021-05-06)
+
+
+### Features
+
+* **GlHoverLoadDirective:** Add hover load directive ([2b80072](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b800726f58abe2a765c5fd32d8da4e39f253aa8))
+
 # [29.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.14.0...v29.15.0) (2021-05-05)
 
 
