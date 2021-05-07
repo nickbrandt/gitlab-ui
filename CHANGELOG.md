@@ -1,3 +1,10 @@
+# [29.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.17.0...v29.18.0) (2021-05-07)
+
+
+### Features
+
+* add 70% util class to sizing.scss ([464a4e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/464a4e49faca0b1ecff5e5ca25bbb810cf261f0b))
+
 # [29.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.16.0...v29.17.0) (2021-05-06)
 
 
