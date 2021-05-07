@@ -1,8 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Link from './link.vue';
 
-const safeLink = jest.fn();
-
 describe('link component', () => {
   let wrapper;
 
@@ -17,7 +15,7 @@ describe('link component', () => {
 
   describe('default settings', () => {
     beforeEach(() => {
-      createWrapper({ directives: { safeLink } });
+      createWrapper();
     });
 
     it('should not have a target attribute', () => {
@@ -30,10 +28,6 @@ describe('link component', () => {
 
     it('should have a default href as #', () => {
       expect(wrapper.attributes('href')).toBe('#');
-    });
-
-    it('should have called the safe-link directive', () => {
-      expect(safeLink).toHaveBeenCalled();
     });
   });
 
@@ -50,10 +44,9 @@ describe('link component', () => {
     });
 
     it('should set noopener rel for hrefs for the same domain', () => {
-      /* This behavior is due to the fact that
-      /* bootstrap-vue link component adds rel="noopener" when target is set as "_blank"
-      /* https://github.com/bootstrap-vue/bootstrap-vue/pull/418/files#diff-997fcb1eb150236aec5306a4d72229beR25
-      */
+      // This behavior is due to the fact that
+      // bootstrap-vue link component adds rel="noopener" when target is set as "_blank"
+      // https://github.com/bootstrap-vue/bootstrap-vue/pull/418/files#diff-997fcb1eb150236aec5306a4d72229beR25
       createWrapper({
         propsData: {
           target: '_blank',
@@ -64,7 +57,7 @@ describe('link component', () => {
     });
 
     it('should keep rel attribute for hrefs in the same domain', () => {
-      createWrapper({ attrs: { rel: 'nofollow' } });
+      createWrapper({ attrs: { rel: 'nofollow', href: window.location.hostname } });
 
       expect(wrapper.attributes('rel')).toBe('nofollow');
     });
@@ -74,9 +67,8 @@ describe('link component', () => {
     // eslint-disable-next-line no-script-url
     const unsafeUrl = 'javascript:alert(1)';
 
-    /* GlSafeLinkDirective is actually responsible to handle the unsafe URLs
-    /* and GlLink uses this directive to make all the links secure by default
-    */
+    // GlSafeLinkDirective is actually responsible to handle the unsafe URLs
+    // and GlLink uses this directive to make all the links secure by default
     it('should set href to blank ', () => {
       createWrapper({
         propsData: {

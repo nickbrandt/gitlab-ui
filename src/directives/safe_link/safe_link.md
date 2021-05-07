@@ -20,12 +20,16 @@ replaced with `about:blank` to prevent [URL injections].
 
 ```html
 <script>
-  import { GlSafeLinkDirective as SafeLink } from '@gitlab/ui';
+import { GlSafeLinkDirective as SafeLink } from '@gitlab/ui';
 
-  export default {
-    data: () => ({ url: 'javascript:alert(1)' }),
-    directives: { SafeLink },
-  };
+export default {
+  data() {
+    return {
+      url: 'javascript:alert(1)',
+    };
+  },
+  directives: { SafeLink },
+};
 </script>
 <template>
   <a v-safe-link href="url" target="_blank">Click</a>
