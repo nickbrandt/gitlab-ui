@@ -341,6 +341,10 @@
   margin: $gl-spacing-scale-5;
 }
 
+@mixin gl-m-auto {
+  margin: auto;
+}
+
 @mixin gl-mt-auto {
   margin-top: auto;
 }
