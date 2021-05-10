@@ -1,3 +1,15 @@
+# [29.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.18.0...v29.19.0) (2021-05-10)
+
+
+### Bug Fixes
+
+* Make GlTabs explicitly default to indigo ([a88c62d](https://gitlab.com/gitlab-org/gitlab-ui/commit/a88c62de62f6578116034dfd780d3c1e2133e3e0))
+
+
+### Features
+
+* **Tabs:** Add additional color themes to GlTabs ([d8fabea](https://gitlab.com/gitlab-org/gitlab-ui/commit/d8fabeaa77a65d1ca299ee5c9a95cbba7624d10d))
+
 # [29.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.17.0...v29.18.0) (2021-05-07)
 
 
