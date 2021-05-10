@@ -1,6 +1,6 @@
 <script>
 import { BTabs } from 'bootstrap-vue';
-import { glThemes, tabsButtonDefaults } from '../../../../utils/constants';
+import { colorThemes, tabsButtonDefaults } from '../../../../utils/constants';
 import GlButton from '../../button/button.vue';
 
 const validatorHelper = (obj) =>
@@ -35,7 +35,7 @@ export default {
       type: String,
       required: false,
       default: 'indigo',
-      validator: (theme) => glThemes.includes(theme),
+      validator: (value) => Object.keys(colorThemes).includes(value) || value === 'gl-dark',
     },
     contentClass: {
       type: [String, Array, Object],
