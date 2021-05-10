@@ -1,3 +1,10 @@
+# [29.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.19.0...v29.20.0) (2021-05-10)
+
+
+### Features
+
+* Add gl-m-auto utility classi ([6bd5d59](https://gitlab.com/gitlab-org/gitlab-ui/commit/6bd5d59ed876bd7f0c083242d9572de21e5db9e8))
+
 # [29.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.18.0...v29.19.0) (2021-05-10)
 
 
