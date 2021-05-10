@@ -98,6 +98,13 @@ export const newButtonVariantOptions = {
   link: 'link',
 };
 
+export const badgeForButtonOptions = {
+  [newButtonVariantOptions.default]: badgeVariantOptions.neutral,
+  [newButtonVariantOptions.confirm]: badgeVariantOptions.info,
+  [newButtonVariantOptions.danger]: badgeVariantOptions.danger,
+  [newButtonVariantOptions.dashed]: badgeVariantOptions.neutral,
+};
+
 export const newDropdownVariantOptions = {
   default: 'default',
   confirm: 'confirm',

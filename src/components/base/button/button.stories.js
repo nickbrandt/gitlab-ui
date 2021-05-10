@@ -5,6 +5,7 @@ import {
   newButtonCategoryOptions,
   newButtonVariantOptions,
   newButtonSizeOptions,
+  badgeForButtonOptions,
   targetOptions,
 } from '../../../utils/constants';
 import readme from './button.md';
@@ -285,6 +286,26 @@ documentedStoriesOf('base/button', readme)
           :loading="loading"
         >
             Primary borderless
+        </gl-button>
+      </div>
+    `,
+  }))
+  .add('with badge', () => ({
+    props: generateProps({
+      category: newButtonCategoryOptions.primary,
+      variant: newButtonVariantOptions.confirm,
+    }),
+    components,
+    computed: {
+      badgeVariant() {
+        return badgeForButtonOptions[this.variant];
+      },
+    },
+    template: `
+      <div>
+        <gl-button :category="category" :variant="variant" :size="size">
+          Submit review
+          <gl-badge size="sm" :variant="badgeVariant" class="gl-ml-2">42</gl-badge>
         </gl-button>
       </div>
     `,
