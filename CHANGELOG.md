@@ -1,3 +1,10 @@
+# [29.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.20.0...v29.21.0) (2021-05-11)
+
+
+### Features
+
+* Add gl-border-x-0 utility classes ([e1f4a68](https://gitlab.com/gitlab-org/gitlab-ui/commit/e1f4a68b5071ca62ecb56e0f27fb36d21c32c62a))
+
 # [29.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.19.0...v29.20.0) (2021-05-10)
 
 
