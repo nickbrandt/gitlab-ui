@@ -214,6 +214,12 @@
   }
 }
 
+@mixin gl-max-lg-justify-content-end {
+  @media (max-width: $breakpoint-lg) {
+    @include gl-justify-content-end;
+  }
+}
+
 @mixin gl-justify-content-space-between {
   justify-content: space-between;
 }
