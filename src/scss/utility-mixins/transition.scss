@@ -7,6 +7,10 @@
   transition-property: border-color;
 }
 
+@mixin gl-transition-property-width {
+  transition-property: width;
+}
+
 @mixin gl-transition-duration-slow {
   transition-duration: $gl-transition-duration-slow;
 }
