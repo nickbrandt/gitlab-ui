@@ -1,3 +1,10 @@
+# [29.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.21.0...v29.22.0) (2021-05-12)
+
+
+### Features
+
+* add gl-lg-justify-content-start ([f04fc93](https://gitlab.com/gitlab-org/gitlab-ui/commit/f04fc93ff045e4df72e11a678da59d687ed6f385))
+
 # [29.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.20.0...v29.21.0) (2021-05-11)
 
 
