@@ -228,6 +228,12 @@
   }
 }
 
+@mixin gl-lg-justify-content-start {
+  @media (min-width: $breakpoint-lg) {
+    @include gl-justify-content-start;
+  }
+}
+
 @mixin gl-align-self-start {
   align-self: flex-start;
 }
