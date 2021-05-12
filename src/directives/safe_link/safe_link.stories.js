@@ -1,11 +1,11 @@
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import { targetOptions } from '../../utils/constants';
-import GlSafeLink from './safe_link';
+import { SafeLinkDirective as SafeLink } from './safe_link';
 import readme from './safe_link.md';
 
 const directives = {
-  GlSafeLink,
+  SafeLink,
 };
 
 // eslint-disable-next-line no-script-url
@@ -32,7 +32,7 @@ documentedStoriesOf('directives/safe-link-directive', readme)
       <a
         :href="href"
         :target="target"
-        v-gl-safe-link
+        v-safe-link
       >
           This is a secure link
       </a>`,

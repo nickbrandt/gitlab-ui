@@ -6,7 +6,7 @@ import {
   newButtonSizeOptions,
   newButtonSizeOptionsMap,
 } from '../../../utils/constants';
-import RelMixin from '../../mixins/rel_mixin';
+import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
@@ -16,7 +16,7 @@ export default {
     GlIcon,
     GlLoadingIcon,
   },
-  mixins: [RelMixin],
+  mixins: [SafeLinkMixin],
   props: {
     category: {
       type: String,
@@ -110,7 +110,7 @@ export default {
   <component
     :is="label ? 'span' : 'b-button'"
     v-bind="$attrs"
-    :rel="relType"
+    v-safe-link:[safeLinkConfig]
     :target="target"
     :variant="variant"
     :size="buttonSize"

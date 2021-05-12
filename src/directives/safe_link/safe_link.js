@@ -30,7 +30,11 @@ const isSafeURL = (url) => {
   }
 };
 
-const transform = (el) => {
+const transform = (el, { arg: { skipSanitization = false } = {} } = {}) => {
+  if (skipSanitization) {
+    return;
+  }
+
   const { href, target, rel, hostname } = el;
 
   if (!isSafeURL(href)) {
@@ -42,7 +46,7 @@ const transform = (el) => {
   }
 };
 
-const SafeLinkDirective = {
+export const SafeLinkDirective = {
   inserted: transform,
   update: (el) => {
     Vue.nextTick(() => {
@@ -50,5 +54,3 @@ const SafeLinkDirective = {
     });
   },
 };
-
-export default SafeLinkDirective;

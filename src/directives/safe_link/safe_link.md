@@ -4,38 +4,38 @@ A Vue directive to make the hyperlinks secure by default.
 
 <!-- STORY -->
 
-## Usage
+## Security measures
 
-It can be used to prevent the following security concerns related to hyperlinks:
+### rel
 
-1. [Target="\_blank" Vulnerability](https://web.dev/external-anchors-use-rel-noopener/)
+When setting target to `_blank`, the rel attribute gets set automatically to `noopener noreferrer`,
+this is done to avoid the `window.opener` [API exploit]. If you set the `rel` attribute manually,
+this will overwrite the aforementioned logic.
 
-The directive makes sure all the external urls have `noopener noreferrer` rel attributes. It also preserves the existing `rel` attribute values.
+### href
 
-2. [URL Injection](https://vuejs.org/v2/guide/security.html#Injecting-URLs)
-
-Hyperlinks are vulnerable to `javascript://` based Cross-site scripting vulnerabilty. A simple vulnerable code would look like
-
-```html
-<a href="javascript:alert(document.domain)">click me</a>
-```
-
-The directive makes sure all such XSS payloads are sanitized by replacing them with `about:blank`.
+This directive enforces "safe" URLs. What this means is that, if the provided `href`
+doesn't point to a safe protocol (one of `http:`, `https:`, `mailto:` or `ftp:`), then it is
+replaced with `about:blank` to prevent [URL injections].
 
 ```html
 <script>
-  import { GlSafeLinkDirective as SafeLink } from '@gitlab/ui';
+import { GlSafeLinkDirective as SafeLink } from '@gitlab/ui';
 
-  export default {
-    data() {
-      return {
-        url: 'javascript:alert(1)',
-      };
-    },
-    directives: { SafeLink },
-  };
+export default {
+  data() {
+    return {
+      url: 'javascript:alert(1)',
+    };
+  },
+  directives: { SafeLink },
+};
 </script>
 <template>
   <a v-safe-link href="url" target="_blank">Click</a>
+  <!-- Renders to: <a href="about:blank" target="_blank">Click</a> -->
 </template>
 ```
+
+[API exploit]: https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
+[URL injections]: https://vuejs.org/v2/guide/security.html#Injecting-URLs
