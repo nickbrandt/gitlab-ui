@@ -1,3 +1,10 @@
+# [29.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.23.0...v29.24.0) (2021-05-12)
+
+
+### Features
+
+* Add transition property width class ([9b5e1ec](https://gitlab.com/gitlab-org/gitlab-ui/commit/9b5e1ec5db82667f33e17f1d7ac17f23861455dc))
+
 # [29.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.22.0...v29.23.0) (2021-05-12)
 
 
