@@ -1,3 +1,10 @@
+# [29.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.24.0...v29.25.0) (2021-05-12)
+
+
+### Features
+
+* Add transition duration medium class ([bd3ff16](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd3ff1646304522d6c3f316bfb47a544e122dec6))
+
 # [29.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.23.0...v29.24.0) (2021-05-12)
 
 
