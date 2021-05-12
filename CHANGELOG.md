@@ -1,3 +1,15 @@
+# [29.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.22.0...v29.23.0) (2021-05-12)
+
+
+### Bug Fixes
+
+* **GlButton:** use safe link directive ([8fd31c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/8fd31c85d1167d7a3361937bd6b9e8f58b6535b9))
+
+
+### Features
+
+* allow unsafe links via the isUnsafeLink prop ([3fd35c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/3fd35c2f51d0ee2c2f912f32805089a971fedae0))
+
 # [29.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.21.0...v29.22.0) (2021-05-12)
 
 
