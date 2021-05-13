@@ -1184,10 +1184,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@gitlab/eslint-plugin@8.3.0":
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-8.3.0.tgz#156a375c6ab9e578ba39080932bca27006413486"
-  integrity sha512-AuJ6ddKVbfjVUd9DLaNLhpflThZKULWatpUuI+0RhcqyRTmcb1KL5YPxxKDlE1K+faeefgiWaGB+vSNmyNNPQQ==
+"@gitlab/eslint-plugin@8.4.0":
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-8.4.0.tgz#094fa4d41676a71146f82e1b19257a7ceabefd88"
+  integrity sha512-VE/c1yIMrj2igJWAALQtAKpnXL8fN5wJ1uKteZfi8xYbWouoUK6hizXSPrrEUWiM2FqcBI4Igcpz2JlJzDlAnA==
   dependencies:
     babel-eslint "^10.0.3"
     eslint-config-airbnb-base "^14.2.1"
@@ -1198,6 +1198,7 @@
     eslint-plugin-jest "^23.8.2"
     eslint-plugin-promise "^4.2.1"
     eslint-plugin-vue "^7.5.0"
+    lodash "4.17.20"
     vue-eslint-parser "^7.0.0"
 
 "@gitlab/stylelint-config@2.3.0":
@@ -9971,6 +9972,11 @@ lodash.upperfirst@4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
   integrity sha1-E2Xt9DFIBIHvDRxolXpe2Z1J984=
+
+lodash@4.17.20:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.10:
   version "4.17.21"
