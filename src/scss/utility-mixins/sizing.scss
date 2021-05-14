@@ -235,6 +235,14 @@
   max-width: $gl-spacing-scale-15;
 }
 
+@mixin gl-max-w-none {
+  max-width: none;
+}
+
+@mixin gl-max-h-none {
+  max-height: none;
+}
+
 @mixin gl-max-w-full {
   max-width: 100%;
 }
