@@ -1,3 +1,10 @@
+# [29.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.25.0...v29.26.0) (2021-05-14)
+
+
+### Features
+
+* **css:** Add max width height none utilities ([2a677c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/2a677c20dc7715957bf9d6b96d093d72a14ee3e9))
+
 # [29.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.24.0...v29.25.0) (2021-05-12)
 
 
