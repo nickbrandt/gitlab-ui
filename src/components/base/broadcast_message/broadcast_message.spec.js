@@ -19,7 +19,7 @@ describe('Broadcast message component', () => {
   });
 
   it('clicking on dismiss button emits a dismiss event', () => {
-    findDismissButton().trigger('click');
+    findDismissButton().vm.$emit('click');
 
     expect(wrapper.emitted('dismiss')).toHaveLength(1);
   });

@@ -1,9 +1,11 @@
 <script>
 import { colorThemes } from '../../../utils/constants';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
+    CloseButton,
     GlIcon,
   },
   props: {
@@ -37,16 +39,11 @@ export default {
         <slot></slot>
       </div>
     </div>
-    <footer class="gl-broadcast-message-footer">
-      <button
-        ref="dismiss"
-        type="button"
-        class="gl-broadcast-message-dismiss"
-        @click="$emit('dismiss')"
-      >
-        <gl-icon class="gl-broadcast-message-dismiss-icon" name="close" />
-        <span class="gl-broadcast-message-dismiss-label">{{ dismissLabel }}</span>
-      </button>
-    </footer>
+    <close-button
+      ref="dismiss"
+      class="gl-close-btn-color-inherit gl-broadcast-message-dismiss"
+      :label="dismissLabel"
+      @click="$emit('dismiss')"
+    />
   </div>
 </template>

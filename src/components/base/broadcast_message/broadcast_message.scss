@@ -1,11 +1,13 @@
 .gl-broadcast-message {
   @include gl-text-white;
-  @include gl-relative;
   @include gl-display-flex;
-  @include gl-flex-direction-column;
+  @include gl-justify-content-space-between;
+  @include gl-align-items-flex-start;
   @include gl-font-base;
-  @include gl-line-height-normal;
-  @include gl-p-5;
+  @include gl-line-height-20;
+  @include gl-pl-5;
+  @include gl-pr-4;
+  @include gl-py-5;
   @include gl-inset-border-b-1-gray-900;
   @include gl-bg-theme-indigo-700;
 
@@ -45,12 +47,6 @@
     @include gl-bg-gray-300;
   }
 
-  @include media-breakpoint-up(sm) {
-    @include gl-py-3;
-    @include gl-pr-8;
-    @include gl-pl-5;
-  }
-
   &-content {
     @include gl-display-flex;
     @include gl-justify-content-center;
@@ -61,7 +57,7 @@
   }
 
   &-icon {
-    @include gl-mr-3;
+    @include gl-mr-5;
 
     > svg {
       @include gl-vertical-align-bottom;
@@ -69,38 +65,7 @@
   }
 
   &-dismiss {
-    @include gl-reset-color;
-    @include gl-bg-none;
-    @include gl-border-none;
-    @include gl-p-0;
-  }
-
-  &-footer {
-    @include gl-text-right;
-    @include gl-mt-5;
-
-    @include media-breakpoint-up(sm) {
-      @include gl-absolute;
-      @include gl-top-3;
-      @include gl-right-5;
-      @include gl-mt-0;
-    }
-  }
-
-  &-dismiss-icon {
-    @include gl-display-none;
-  }
-
-  &-dismiss-label {
-    @include gl-font-weight-bold;
-  }
-
-  @include media-breakpoint-up(sm) {
-    &-dismiss-icon {
-      @include gl-display-block;
-    }
-    &-dismiss-label {
-      @include gl-sr-only;
-    }
+    @include gl-my-n2;
+    @include gl-ml-5;
   }
 }
