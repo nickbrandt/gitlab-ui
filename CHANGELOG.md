@@ -1,3 +1,10 @@
+# [29.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.26.0...v29.27.0) (2021-05-17)
+
+
+### Features
+
+* **broadcast_message:** update to use GlButton ([db3e4ff](https://gitlab.com/gitlab-org/gitlab-ui/commit/db3e4ffc574d48ffc6dfe8c6563e48e2e9f89428))
+
 # [29.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.25.0...v29.26.0) (2021-05-14)
 
 
