@@ -38,7 +38,11 @@ export default {
   <span :class="['gl-token', variantClass]" v-on="$listeners">
     <span class="gl-token-content">
       <slot></slot>
-      <close-button v-if="!viewOnly" class="gl-token-close" label="close" @click="close" />
+      <close-button
+        v-if="!viewOnly"
+        class="gl-token-close gl-close-btn-color-inherit"
+        @click="close"
+      />
     </span>
   </span>
 </template>
