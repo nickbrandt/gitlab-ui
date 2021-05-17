@@ -40,5 +40,9 @@ export default {
       event: '@canceled',
       description: 'Emitted when clicked on modal-action-cancel',
     },
+    {
+      event: '@change',
+      description: 'Emitted when the modal visibility changes',
+    },
   ],
 };

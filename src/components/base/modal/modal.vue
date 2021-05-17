@@ -21,6 +21,10 @@ export default {
     CloseButton,
   },
   inheritAttrs: false,
+  model: {
+    prop: 'visible',
+    event: 'change',
+  },
   props: {
     modalId: {
       type: String,
@@ -69,6 +73,11 @@ export default {
       type: String,
       required: false,
       default: 'Close',
+    },
+    visible: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   methods: {
@@ -135,6 +144,7 @@ export default {
     ref="modal"
     :title-tag="titleTag"
     :size="size"
+    :visible="visible"
     v-bind="$attrs"
     lazy
     :modal-class="['gl-modal', modalClass]"
@@ -142,6 +152,7 @@ export default {
     @shown="setFocus"
     @ok="primary"
     @cancel="canceled"
+    @change="$emit('change', $event)"
   >
     <slot></slot>
     <template #modal-header>

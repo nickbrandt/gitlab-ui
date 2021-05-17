@@ -13,7 +13,7 @@ const directives = {
   GlModalDirective,
 };
 
-function generateTemplate({ props = { visible: false }, slots = {} } = {}) {
+function generateTemplate({ props = {}, slots = {} } = {}) {
   const extraProps = Object.entries(props)
     .map(([key, value]) => `:${key}="${value}"`)
     .join('\n        ');
@@ -36,6 +36,7 @@ function generateTemplate({ props = { visible: false }, slots = {} } = {}) {
         :action-primary="{text: 'Okay'}"
         :action-secondary="{text: 'Discard Changes'}"
         :action-cancel="{text: 'Cancel'}"
+        :visible="visible"
         :scrollable="scrollable"
         modal-id="test-modal-id"
         title="Example title"
@@ -56,6 +57,7 @@ function generateProps({
   variant = variantOptionsWithNoDefault.default,
   contentPagraphs = 1,
   scrollable = false,
+  visible = false,
 } = {}) {
   return {
     headerBgVariant: {
@@ -98,6 +100,10 @@ function generateProps({
       type: Boolean,
       default: boolean('scrollable', scrollable),
     },
+    visible: {
+      type: Boolean,
+      default: visible,
+    },
   };
 }
 
@@ -110,35 +116,32 @@ documentedStoriesOf('base/modal', readme)
     template: generateTemplate(),
   }))
   .add('opened modal', () => ({
-    props: generateProps(),
+    props: generateProps({ visible: true }),
     components,
     directives,
-    template: generateTemplate({ props: { visible: true } }),
+    template: generateTemplate(),
   }))
   .add('with scrolling content', () => ({
-    props: generateProps({ contentPagraphs: 100, scrollable: true }),
+    props: generateProps({ contentPagraphs: 100, scrollable: true, visible: true }),
     components,
     directives,
-    template: generateTemplate({
-      props: { visible: true },
-    }),
+    template: generateTemplate(),
   }))
   .add('with a header', () => ({
-    props: generateProps(),
+    props: generateProps({ visible: true }),
     components,
     directives,
     template: generateTemplate({
-      props: { visible: true },
       slots: {
         'modal-header': '<h4>A custom header</h4>',
       },
     }),
   }))
   .add('without a footer', () => ({
-    props: generateProps(),
+    props: generateProps({ visible: true }),
     components,
     directives,
     template: generateTemplate({
-      props: { visible: true, 'hide-footer': true },
+      props: { 'hide-footer': true },
     }),
   }));

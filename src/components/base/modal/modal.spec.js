@@ -35,7 +35,7 @@ describe('Modal component', () => {
 
   const expectCloseButton = () => expect(wrapper.findComponent(CloseButton).exists()).toBe(true);
 
-  const createComponent = ({ props = {}, slots = {} } = {}) => {
+  const createComponent = ({ props = {}, slots = {}, stubModal = true } = {}) => {
     wrapperListeners = {
       canceled: jest.fn(),
       close: jest.fn(),
@@ -53,7 +53,7 @@ describe('Modal component', () => {
       slots,
       listeners: wrapperListeners,
       stubs: {
-        'b-modal': BModalStub,
+        'b-modal': stubModal ? BModalStub : BModal,
       },
     });
   };
@@ -220,5 +220,31 @@ describe('Modal component', () => {
       expect(wrapperListeners.secondary).not.toHaveBeenCalled();
       expect(wrapperListeners.close).toHaveBeenCalledTimes(1);
     });
+  });
+
+  it('it binds visible property to the BModal visible property', async () => {
+    createComponent({ stubModal: false });
+
+    expect(wrapper.props().visible).toBe(false);
+    expect(wrapper.findComponent(BModal).props().visible).toBe(false);
+
+    await wrapper.setProps({ visible: true });
+
+    expect(wrapper.findComponent(BModal).props().visible).toBe(true);
+  });
+
+  it('sets visible property and change event as the component models', () => {
+    expect(Modal.model).toEqual({
+      prop: 'visible',
+      event: 'change',
+    });
+  });
+
+  it('emits change event when base modal component emits change event', () => {
+    createComponent();
+
+    findModal().vm.$emit('change');
+
+    expect(wrapper.emitted().change).toHaveLength(1);
   });
 });
