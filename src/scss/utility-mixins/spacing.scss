@@ -487,12 +487,6 @@
   margin-bottom: $gl-spacing-scale-8;
 }
 
-@mixin gl-md-mb-0 {
-  @media (min-width: $breakpoint-md) {
-    @include gl-mb-0;
-  }
-}
-
 @mixin gl-ml-auto {
   margin-left: auto;
 }
@@ -763,6 +757,12 @@
   }
 }
 
+@mixin gl-md-mb-0 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-mb-0;
+  }
+}
+
 @mixin gl-lg-mb-0 {
   @media (min-width: $breakpoint-lg) {
     @include gl-mb-0;
@@ -860,6 +860,12 @@
   }
 }
 
+@mixin gl-md-pr-0 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-pr-0;
+  }
+}
+
 @mixin gl-md-pr-1 {
   @media (min-width: $breakpoint-md) {
     @include gl-pr-1;
@@ -875,5 +881,11 @@
 @mixin gl-lg-pr-5 {
   @media (min-width: $breakpoint-lg) {
     @include gl-pr-5;
+  }
+}
+
+@mixin gl-md-pl-3 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-pl-3;
   }
 }
