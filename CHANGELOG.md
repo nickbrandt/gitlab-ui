@@ -1,3 +1,10 @@
+# [29.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.27.0...v29.28.0) (2021-05-20)
+
+
+### Features
+
+* **css:** Add gl-text-purple-600 ([dec5e36](https://gitlab.com/gitlab-org/gitlab-ui/commit/dec5e36664d6367bd7016592544158d3cddd3d59))
+
 # [29.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.26.0...v29.27.0) (2021-05-17)
 
 
