@@ -151,6 +151,7 @@ describe('Filtered search token segment', () => {
     wrapper.find('input').trigger('blur');
 
     expect(wrapper.emitted().deactivate).toHaveLength(1);
+    expect(wrapper.emitted('complete')).toBeUndefined();
   });
 
   it('resets value to previously selected if options are provided and input is invalid', async () => {
@@ -197,25 +198,41 @@ describe('Filtered search token segment', () => {
   });
 
   describe('when multi select', () => {
-    const token = 'gamma';
-
     beforeEach(() => {
       createComponent({
         active: true,
         multiSelect: true,
         value: 'beta',
       });
-
-      wrapper.vm.applySuggestion(token);
     });
 
-    it('selecting an item in the suggestions list emits input and select events', () => {
-      expect(wrapper.emitted('input')).toEqual([[token]]);
-      expect(wrapper.emitted('select')).toEqual([[token]]);
+    describe('when blurring the input field', () => {
+      it('completes selection', () => {
+        wrapper.find('input').trigger('blur');
+
+        expect(wrapper.emitted('complete')).toEqual([[]]);
+        expect(wrapper.emitted('deactivate')).toBeUndefined();
+      });
     });
 
-    it('selecting an item in the suggestions list does not emit complete event to keep the list open', () => {
-      expect(wrapper.emitted('complete')).toBeUndefined();
+    describe('when selecting suggestion from suggestions list', () => {
+      const token = 'gamma';
+
+      beforeEach(() => {
+        wrapper.vm.applySuggestion(token);
+      });
+
+      it('emits "select" event', () => {
+        expect(wrapper.emitted('select')).toEqual([[token]]);
+      });
+
+      it('does not emit "input" event, to prevent list from filtering', () => {
+        expect(wrapper.emitted('input')).toBeUndefined();
+      });
+
+      it('does not emit "complete" event, to keep the list open', () => {
+        expect(wrapper.emitted('complete')).toBeUndefined();
+      });
     });
   });
 });

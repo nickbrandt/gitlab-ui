@@ -182,6 +182,13 @@ export default {
       }
     },
 
+    activateDataSegment() {
+      if (this.config.multiSelect) {
+        this.$emit('input', { ...this.value, data: '' });
+      }
+      this.activateSegment(this.$options.segments.SEGMENT_DATA);
+    },
+
     handleComplete() {
       if (this.config.multiSelect) {
         this.$emit('input', { ...this.value, data: this.multiSelectValues.join(COMMA) });
@@ -262,7 +269,7 @@ export default {
       :multi-select="config.multiSelect"
       :options="config.options"
       option-text-field="title"
-      @activate="activateSegment($options.segments.SEGMENT_DATA)"
+      @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="handleComplete"
       @select="$emit('select', $event)"
