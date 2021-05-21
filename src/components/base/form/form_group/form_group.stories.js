@@ -12,6 +12,7 @@ function generateProps({
   id = 'group-1',
   label = 'Label Name',
   description = 'form group description',
+  labelDescription = 'form label description',
   horizontal = false,
 } = {}) {
   return {
@@ -30,6 +31,10 @@ function generateProps({
     description: {
       type: String,
       default: text('description', description),
+    },
+    labelDescription: {
+      type: String,
+      default: text('label-description', labelDescription),
     },
     horizontal: {
       type: Boolean,
@@ -75,6 +80,23 @@ documentedStoriesOf('base/form/form-group', readme)
     template: `
       <gl-form-group id="group-id-textarea2" label="Label Name" label-for="textarea2">
         <gl-form-textarea id="textarea2" placeholder="Enter something" />
+      </gl-form-group>
+    `,
+  }))
+  .add('with label description', () => ({
+    props: generateProps(),
+    components,
+    template: `
+      <gl-form-group
+        :id="id"
+        :label="label"
+        :label-size="labelSize"
+        :description="description"
+        :label-description="labelDescription"
+        :horizontal="horizontal"
+        label-for="label1"
+      >
+        <gl-form-input id="input1" />
       </gl-form-group>
     `,
   }))
