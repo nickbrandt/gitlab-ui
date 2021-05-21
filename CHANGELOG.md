@@ -1,3 +1,10 @@
+# [29.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.28.0...v29.29.0) (2021-05-21)
+
+
+### Features
+
+* **css:** Add gl-stroke-white ([3f3fb23](https://gitlab.com/gitlab-org/gitlab-ui/commit/3f3fb23227a2e7605c674778ac4036ad22644b9a))
+
 # [29.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.27.0...v29.28.0) (2021-05-20)
 
 
