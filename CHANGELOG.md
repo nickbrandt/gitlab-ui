@@ -1,3 +1,10 @@
+## [29.29.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.0...v29.29.1) (2021-05-21)
+
+
+### Bug Fixes
+
+* **GlIcon:** Give icons img role ([c40d82e](https://gitlab.com/gitlab-org/gitlab-ui/commit/c40d82ecca641709c999e391c793b241eef304e5))
+
 # [29.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.28.0...v29.29.0) (2021-05-21)
 
 
