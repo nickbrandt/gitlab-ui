@@ -26,6 +26,10 @@
   stop-color: $gray-200;
 }
 
+@mixin gl-stroke-white {
+  stroke: $white;
+}
+
 @mixin gl-stroke-gray-200 {
   stroke: $gray-200;
 }
