@@ -1,3 +1,10 @@
+## [29.29.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.1...v29.29.2) (2021-05-21)
+
+
+### Bug Fixes
+
+* **GlToken:** use CloseButton instead of GlIcon ([c849f7d](https://gitlab.com/gitlab-org/gitlab-ui/commit/c849f7d0e0356c6f0f756c3051619ff54f19f7e4))
+
 ## [29.29.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.0...v29.29.1) (2021-05-21)
 
 
