@@ -35,6 +35,12 @@ describe('Icon component', () => {
     }
   });
 
+  it('has role=img', () => {
+    createComponent();
+
+    expect(wrapper.attributes('role')).toBe('img');
+  });
+
   describe('when created', () => {
     beforeEach(() => {
       createComponent();
@@ -92,6 +98,20 @@ describe('Icon component', () => {
 
     it('passes with name that exists', () => {
       expect(validateName(TEST_NAME)).toBe(true);
+    });
+  });
+
+  describe('aria-hidden', () => {
+    it('is true when there is no aria-label', () => {
+      createComponent();
+
+      expect(wrapper.attributes('aria-hidden')).toBe('true');
+    });
+
+    it('does not exist there is an aria-label', () => {
+      createComponent({ 'aria-label': 'Icon label' });
+
+      expect(wrapper.attributes('aria-hidden')).toBeUndefined();
     });
   });
 });

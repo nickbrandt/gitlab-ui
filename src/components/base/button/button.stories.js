@@ -114,6 +114,7 @@ documentedStoriesOf('base/button', readme)
         :disabled="disabled"
         :loading="loading"
         icon="star-o"
+        aria-label="Star"
       />
     `,
   }))
@@ -139,6 +140,8 @@ documentedStoriesOf('base/button', readme)
     template: `
       <gl-dropdown
         icon="download"
+        text="Download"
+        :text-sr-only="true"
         :category="category"
         :variant="variant"
         :size="size"
@@ -150,11 +153,13 @@ documentedStoriesOf('base/button', readme)
     `,
   }))
   .add('dropdown icon only button', () => ({
-    props: generateProps(),
+    props: generateProps({ category: newButtonCategoryOptions.tertiary }),
     components,
     template: `
       <gl-dropdown
         icon="ellipsis_v"
+        text="More actions"
+        :text-sr-only="true"
         :category="category"
         :variant="variant"
         :size="size"
@@ -299,8 +304,11 @@ documentedStoriesOf('base/button', readme)
           <gl-button id="commit-sha-label" class="gl-font-monospace" label>
             b29cc44d
           </gl-button>
-          <gl-button aria-describedby="commit-sha-label" icon="duplicate" />
-          <gl-button icon="folder-open" />
+          <gl-button
+            aria-describedby="commit-sha-label"
+            icon="duplicate"
+            aria-label="Copy commit SHA" />
+          <gl-button icon="folder-open" aria-label="Open file" />
         </gl-button-group>
       </div>
     `,

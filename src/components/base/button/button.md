@@ -1,7 +1,3 @@
-# Button
-
-<!-- STORY -->
-
 Buttons execute an action, either in the background or foreground of an experience. Different button categories help guide users through certain actions. Buttons express what action will occur when the user clicks or touches it either by text, icon, or both. Additional meaning can be derived from the button variant.
 
 ## Button link
@@ -12,6 +8,15 @@ with the necessary classes added to make it look like a button, it shares the sa
 > Note: Setting a `target` attribute without a `href` attribute, will not create any side effects. Without the presence of a `href` attribute, this component will render a `<button>`.
 
 [`<gl-link>`]: ./?path=/story/base-link--default-link
+
+## Icon-only button
+
+Icon-only buttons must have an accessible name.
+You can provide one with the `aria-label` attribute, which is read out by screen readers.
+
+```html
+<gl-button icon="close" aria-label="Close" />
+```
 
 ## Label button
 
