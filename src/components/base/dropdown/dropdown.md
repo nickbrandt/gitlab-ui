@@ -3,15 +3,28 @@
 > Please use `GlDropdown` going forward. You can read more about the migration
 > [here](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/673).
 
-# Dropdown
-
-<!-- STORY -->
-
 ## Usage
 
 The dropdown component offers a user multiple items or actions to choose from which are initially collapsed behind a button.
 
-## Button Content
+### Icon-only dropdown
+
+Icon-only dropdowns must have an accessible name.
+You can provide this with the combination of `text` and `text-sr-only` props.
+
+Optionally, you can use `no-caret` to remove the caret and `category="tertiary"` to remove the border.
+
+```html
+<gl-dropdown
+  icon="ellipsis_v"
+  text="More actions"
+  :text-sr-only="true"
+  category="tertiary"
+  no-caret
+>
+```
+
+### Button Content
 
 There are 3 ways to set the dropdown button's content.
 

@@ -6,8 +6,12 @@
       <gl-button id="commit-sha-label-example" class="gl-font-monospace" label>
         b29cc44d
       </gl-button>
-      <gl-button aria-describedby="commit-sha-label-example" icon="duplicate" />
-      <gl-button icon="folder-open" />
+      <gl-button
+        aria-describedby="commit-sha-label-example"
+        icon="duplicate"
+        aria-label="Copy commit SHA"
+      />
+      <gl-button icon="folder-open" aria-label="Open file" />
     </gl-button-group>
   </div>
 </template>

@@ -402,7 +402,7 @@ documentedStoriesOf('base/dropdown', readme)
     },
   }))
   .add('icon only', () => ({
-    props: generateProps({ icon: 'ellipsis_v' }),
+    props: generateProps({ icon: 'ellipsis_v', text: 'More actions', textSrOnly: true }),
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>

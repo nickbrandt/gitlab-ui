@@ -75,6 +75,7 @@ export default {
     :key="spriteHref"
     :class="['gl-icon', iconSizeClass]"
     :data-testid="`${name}-icon`"
+    role="img"
     :aria-hidden="!ariaLabel"
     :aria-label="ariaLabel"
     v-on="$listeners"
