@@ -1,9 +1,8 @@
-import illustrationsSvgs from '@gitlab/svgs/dist/illustrations.json';
+import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.svg';
+import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
 import { GlBanner, GlButton } from '../../../../index';
 import { bannerVariants } from '../../../utils/constants';
 import readme from './banner.md';
-
-const illustrationsUrl = 'https://gitlab.com/gitlab-org/gitlab-svgs/raw/v1.152.0';
 
 const template = `
     <gl-banner
@@ -21,7 +20,7 @@ const generateProps = ({
   title = 'Upgrade your plan to activate Service Desk',
   buttonText = 'Upgrade your plan',
   buttonLink = 'https://gitlab.com',
-  svgPath = `${illustrationsUrl}/illustrations/service_desk_callout.svg`,
+  svgPath = serviceDeskCalloutSvg,
   variant = GlBanner.props.variant.default,
 } = {}) => ({
   title,
@@ -51,7 +50,7 @@ NoImage.parameters = {
 
 export const Introduction = Template.bind({});
 Introduction.args = generateProps({
-  svgPath: `${illustrationsUrl}/illustrations/cluster_popover.svg`,
+  svgPath: clusterPopoverSvg,
   variant: bannerVariants[1],
 });
 Introduction.parameters = {
@@ -78,7 +77,6 @@ export const WithActions = (args, { argTypes }) => ({
       </template>
     </gl-banner>`,
 });
-export const WithActions = WithActionsStory.bind({});
 WithActions.args = generateProps({
   title: 'Button with actions banner',
   buttonText: 'Primary Button',
@@ -107,19 +105,7 @@ export default {
       },
     },
     svgPath: {
-      control: {
-        type: 'select',
-        options: [
-          '',
-          ...illustrationsSvgs.illustrations.map((i) => `${illustrationsUrl}/${i.name}`),
-        ],
-        labels: Object.assign(
-          {},
-          ...illustrationsSvgs.illustrations.map((i) => ({
-            [`${illustrationsUrl}/${i.name}`]: i.name.replace('illustrations/', ''),
-          }))
-        ),
-      },
+      control: 'text',
     },
   },
 };
