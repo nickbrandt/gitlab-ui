@@ -66,17 +66,17 @@ const WithActionsStory = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <gl-banner
-        :title="title"
-        :button-text="buttonText"
-        :button-link="buttonLink"
-        :svg-path="svgPath"
-        :variant="variant"
+      :title="title"
+      :button-text="buttonText"
+      :button-link="buttonLink"
+      :svg-path="svgPath"
+      :variant="variant"
     >
       <p>There should be a primary button and a link button below this text.</p>
       <template #actions>
         <gl-button class="gl-ml-3" variant="link">Ask again later</gl-button>
       </template>
-      </gl-banner>`,
+    </gl-banner>`,
 });
 export const WithActions = WithActionsStory.bind({});
 WithActions.args = generateProps({
