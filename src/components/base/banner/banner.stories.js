@@ -58,7 +58,7 @@ Introduction.parameters = {
   storyshots: { disable: true },
 };
 
-const WithActionsStory = (args, { argTypes }) => ({
+export const WithActions = (args, { argTypes }) => ({
   components: {
     GlBanner,
     GlButton,
