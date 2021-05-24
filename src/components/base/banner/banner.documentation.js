@@ -1,8 +1,6 @@
-import * as description from './banner.md';
-import examples from './examples';
+import description from './banner.md';
 
 export default {
   followsDesignSystem: true,
-  examples,
   description,
 };
