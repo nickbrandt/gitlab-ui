@@ -44,18 +44,12 @@ export const NoImage = Template.bind({});
 NoImage.args = generateProps({
   svgPath: null,
 });
-NoImage.parameters = {
-  storyshots: { disable: true },
-};
 
 export const Introduction = Template.bind({});
 Introduction.args = generateProps({
   svgPath: clusterPopoverSvg,
   variant: bannerVariants[1],
 });
-Introduction.parameters = {
-  storyshots: { disable: true },
-};
 
 export const WithActions = (args, { argTypes }) => ({
   components: {
@@ -82,9 +76,6 @@ WithActions.args = generateProps({
   buttonText: 'Primary Button',
   svgPath: null,
 });
-WithActions.parameters = {
-  storyshots: { disable: true },
-};
 
 export default {
   title: 'base/banner',
