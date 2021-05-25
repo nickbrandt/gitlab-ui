@@ -1,7 +1,7 @@
 <script>
 import { labelColorOptions } from '../../../utils/constants';
 import { colorFromBackground } from '../../../utils/utils';
-import GlIcon from '../icon/icon.vue';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 
@@ -9,7 +9,7 @@ export default {
   components: {
     GlLink,
     GlTooltip,
-    GlIcon,
+    CloseButton,
   },
   props: {
     backgroundColor: {
@@ -116,16 +116,14 @@ export default {
         {{ scopedValue }}
       </span>
     </gl-link>
-    <button
+    <close-button
       v-if="showCloseButton"
-      type="button"
-      class="gl-label-close"
+      class="gl-label-close gl-p-0!"
+      label="Remove label"
+      variant="reset"
       :disabled="disabled"
       @click="$emit('close', $event)"
-    >
-      <gl-icon name="close" :size="closeIconSize" />
-      <span class="gl-sr-only">Remove label</span>
-    </button>
+    />
     <gl-tooltip
       v-if="description"
       :target="() => $refs.labelTitle"

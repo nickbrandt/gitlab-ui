@@ -79,7 +79,11 @@ export default {
     },
     buttonClasses() {
       const classes = ['gl-button'];
-      const nonCategoryVariants = [newButtonVariantOptions.dashed, newButtonVariantOptions.link];
+      const nonCategoryVariants = [
+        newButtonVariantOptions.dashed,
+        newButtonVariantOptions.link,
+        newButtonVariantOptions.reset,
+      ];
 
       if (
         !nonCategoryVariants.includes(this.variant) &&

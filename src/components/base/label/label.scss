@@ -1,4 +1,5 @@
 $label-max-width: 100%;
+$label-close-button: '.gl-label-close.gl-button';
 
 .gl-label {
   @include gl-align-items-center;
@@ -43,26 +44,29 @@ $label-max-width: 100%;
     @include str-truncated($label-max-width);
   }
 
-  > .gl-label-close {
+  > #{$label-close-button} {
     @include gl-border-0;
     @include gl-display-flex;
     @include gl-ml-n2;
     @include gl-mr-2;
     @include gl-p-0;
-    @include gl-reset-bg;
-    @include gl-reset-color;
     @include gl-rounded-full;
-
-    &:focus,
-    &:hover {
-      color: var(--label-background-color);
-    }
+    @include gl-shadow-none;
 
     &[disabled],
-    &[disabled]:hover {
+    &[disabled]:hover,
+    &[disabled]:focus {
       @include gl-opacity-5;
       @include gl-reset-bg;
-      @include gl-reset-color;
+      @include gl-shadow-none;
+      .gl-icon {
+        @include gl-fill-current-color;
+      }
+    }
+
+    &:focus,
+    &:active {
+      @include gl-focus;
     }
 
     .gl-icon {
@@ -74,10 +78,20 @@ $label-max-width: 100%;
 .gl-label-text-dark {
   @include gl-text-black-normal;
 
-  .gl-label-close {
+  #{$label-close-button} {
+    .gl-icon,
+    &[disabled] .gl-icon,
+    &[disabled]:hover .gl-icon,
+    &[disabled]:focus .gl-icon {
+      @include gl-text-black-normal;
+    }
+
     &:focus,
     &:hover {
       @include gl-bg-black;
+      .gl-icon {
+        color: var(--label-background-color);
+      }
     }
   }
 }
@@ -85,10 +99,20 @@ $label-max-width: 100%;
 .gl-label-text-light {
   @include gl-text-white;
 
-  .gl-label-close {
+  #{$label-close-button} {
+    .gl-icon,
+    &[disabled] .gl-icon,
+    &[disabled]:hover .gl-icon,
+    &[disabled]:focus .gl-icon {
+      @include gl-text-white;
+    }
+
     &:focus,
     &:hover {
       @include gl-bg-white;
+      .gl-icon {
+        color: var(--label-background-color);
+      }
     }
   }
 }
@@ -96,9 +120,34 @@ $label-max-width: 100%;
 .gl-label-scoped {
   &.gl-label-text-light {
     .gl-label-text-scoped,
-    .gl-label-close,
-    .gl-label-close[disabled]:hover {
+    #{$label-close-button} .gl-icon,
+    #{$label-close-button}[disabled]:hover .gl-icon {
       color: var(--label-background-color);
+    }
+
+    #{$label-close-button}:not(:disabled) {
+      &:focus,
+      &:hover {
+        background-color: var(--label-background-color);
+      }
+    }
+  }
+
+  &.gl-label-text-dark {
+    #{$label-close-button}:not(:disabled) {
+      &:focus,
+      &:hover {
+        @include gl-bg-black;
+      }
+    }
+  }
+
+  #{$label-close-button} {
+    &:focus,
+    &:hover {
+      .gl-icon {
+        @include gl-text-white;
+      }
     }
   }
 
@@ -111,14 +160,6 @@ $label-max-width: 100%;
     @include gl-pl-2;
     @include gl-pr-3;
   }
-
-  .gl-label-close {
-    &:focus,
-    &:hover {
-      @include gl-text-white;
-      background-color: var(--label-background-color);
-    }
-  }
 }
 
 .gl-label-sm {
@@ -127,7 +168,7 @@ $label-max-width: 100%;
     @include gl-py-0;
   }
 
-  .gl-label-close {
+  #{$label-close-button} {
     @include gl-mr-1;
   }
 }

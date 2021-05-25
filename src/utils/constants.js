@@ -96,6 +96,13 @@ export const newButtonVariantOptions = {
   danger: 'danger',
   dashed: 'dashed',
   link: 'link',
+  /**
+   * The "reset" variant can be used when customization of GlButton styles is required
+   * (e.g. for the "close" button in GlLabel).
+   * It should be used sparingly and only when other approaches fail.
+   * Prefer supported variants where ever possible.
+   */
+  reset: 'gl-reset',
 };
 
 export const newDropdownVariantOptions = {
