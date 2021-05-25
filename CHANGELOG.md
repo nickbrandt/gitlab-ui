@@ -1,3 +1,10 @@
+## [29.29.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.2...v29.29.3) (2021-05-25)
+
+
+### Bug Fixes
+
+* **GlFormSelect:** Remove valid state icon ([74f0bc4](https://gitlab.com/gitlab-org/gitlab-ui/commit/74f0bc4f96965fdf252957b4d9b11757a2dbbaa7))
+
 ## [29.29.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.1...v29.29.2) (2021-05-21)
 
 
