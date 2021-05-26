@@ -284,6 +284,14 @@ export default {
         this.$emit('input', value);
       }
     },
+    handlePrevious(event, value) {
+      this.handleClick(event, value);
+      this.$emit('previous');
+    },
+    handleNext(event, value) {
+      this.handleClick(event, value);
+      this.$emit('next');
+    },
   },
 };
 </script>
@@ -309,7 +317,7 @@ export default {
         :aria-disabled="prevPageIsDisabled"
         :aria-label="labelPrevPage || labelPage(value - 1)"
         :href="isLinkBased ? linkGen(value - 1) : '#'"
-        @click="handleClick($event, value - 1)"
+        @click="handlePrevious($event, value - 1)"
       >
         <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
           <gl-icon name="chevron-left" />
@@ -351,7 +359,7 @@ export default {
         :aria-disabled="nextPageIsDisabled"
         :aria-label="labelNextPage || labelPage(value + 1)"
         :href="isLinkBased ? linkGen(value + 1) : '#'"
-        @click="handleClick($event, value + 1)"
+        @click="handleNext($event, value + 1)"
       >
         <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
           <span>{{ nextText }}</span>
