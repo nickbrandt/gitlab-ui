@@ -121,6 +121,32 @@ describe('pagination component', () => {
     expect(wrapper.emitted('input')[0]).toEqual([2]);
   });
 
+  it('emits previous event when previous button is clicked', () => {
+    createComponent({
+      ...propsData,
+      value: 1,
+      totalItems: 75,
+    });
+
+    findButtons().at(0).trigger('click');
+
+    expect(wrapper.emitted('previous')).toEqual([[]]);
+  });
+
+  it('emits next event when next button is clicked', () => {
+    createComponent({
+      ...propsData,
+      value: 1,
+      totalItems: 75,
+    });
+
+    const buttons = findButtons();
+    const nextButton = buttons.at(buttons.length - 1);
+    nextButton.trigger('click');
+
+    expect(wrapper.emitted('next')).toEqual([[]]);
+  });
+
   it('does not prevent link events in link-based mode', () => {
     createComponent({
       ...propsData,

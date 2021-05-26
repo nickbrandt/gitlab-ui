@@ -69,6 +69,14 @@ export default {
         },
       ],
     },
+    {
+      event: 'next',
+      description: 'Emitted when the "next" button is clicked',
+    },
+    {
+      event: 'previous',
+      description: 'Emitted when the "previous" button is clicked',
+    },
   ],
   slots: [
     {
