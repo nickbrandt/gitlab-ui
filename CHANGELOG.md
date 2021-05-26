@@ -1,3 +1,10 @@
+# [29.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.3...v29.30.0) (2021-05-26)
+
+
+### Features
+
+* **GlPagination:** Add previous and next events ([811f123](https://gitlab.com/gitlab-org/gitlab-ui/commit/811f123d051ca50f780dffd1cba11d3e162f93ce))
+
 ## [29.29.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.2...v29.29.3) (2021-05-25)
 
 
