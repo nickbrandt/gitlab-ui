@@ -168,6 +168,10 @@
   flex: 2;
 }
 
+@mixin gl-flex-fill-4 {
+  flex: 4;
+}
+
 @mixin gl-md-flex-fill-1 {
   @media (min-width: $breakpoint-lg) {
     @include gl-flex-fill-1;
