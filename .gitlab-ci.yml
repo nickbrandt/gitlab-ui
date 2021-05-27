@@ -21,7 +21,6 @@ variables:
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
   SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
   DS_DEFAULT_ANALYZERS: 'retire.js, gemnasium'
-  CS_MAJOR_VERSION: 4 # remove from %14.0; https://gitlab.com/gitlab-org/gitlab/-/issues/327071
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -66,8 +65,7 @@ nodejs-scan-sast:
 secret_detection:
   <<: *secure-jobs-config
 
-# rename to container_scanning from %14.0; https://gitlab.com/gitlab-org/gitlab/-/issues/327071
-container_scanning_new:
+container_scanning:
   variables:
     CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/puppeteer
     CI_APPLICATION_TAG: $PUPPETEER_VERSION
