@@ -285,7 +285,7 @@ export default {
     return {
       tokens,
       value: [
-        { type: 'user', value: { data: 'beta', operator: '=' } },
+        { type: 'author', value: { data: 'beta', operator: '=' } },
         { type: 'label', value: { data: 'Bug', operator: '=' } },
         'raw text',
       ],
