@@ -1,3 +1,10 @@
+# [29.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.30.0...v29.31.0) (2021-05-27)
+
+
+### Features
+
+* add flex: 4 util class to flex.scss ([351e2af](https://gitlab.com/gitlab-org/gitlab-ui/commit/351e2afeb8f5a9bd9e146af02d04a9dc4a219b30))
+
 # [29.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.29.3...v29.30.0) (2021-05-26)
 
 
