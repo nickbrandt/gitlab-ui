@@ -9,21 +9,41 @@ export default {
     GlIcon,
   },
   props: {
+    /**
+     * The icon to show next to the text.
+     */
     iconName: {
       type: String,
       required: false,
       default: 'bullhorn',
     },
+    /**
+     * The dismiss button's label, it is visible in mobile viewports and used for the button's aria-label attribute.
+     */
     dismissLabel: {
       type: String,
       required: false,
       default: 'Dismiss',
     },
+    /**
+     * The theme's name to use, this should correspond to the user's selected theme in GitLab.
+     */
     theme: {
       type: String,
       required: false,
       default: Object.keys(colorThemes)[0],
       validator: (value) => Object.keys(colorThemes).includes(value),
+    },
+  },
+  methods: {
+    onDismiss() {
+      /**
+       * Emitted when the dismiss button is clicked.
+       *
+       * @event dismiss
+       * @type {object}
+       */
+      this.$emit('dismiss');
     },
   },
 };
@@ -36,6 +56,7 @@ export default {
         <gl-icon :name="iconName" />
       </div>
       <div class="gl-broadcast-message-text">
+        <!-- @slot The broadcast message's text -->
         <slot></slot>
       </div>
     </div>
@@ -43,7 +64,7 @@ export default {
       ref="dismiss"
       class="gl-close-btn-color-inherit gl-broadcast-message-dismiss"
       :label="dismissLabel"
-      @click="$emit('dismiss')"
+      @click="onDismiss"
     />
   </div>
 </template>

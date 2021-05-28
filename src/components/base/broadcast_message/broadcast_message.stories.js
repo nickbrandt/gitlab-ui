@@ -1,113 +1,93 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlBroadcastMessage } from '../../../../index';
 import { colorThemes } from '../../../utils/constants';
 import readme from './broadcast_message.md';
 
-const components = {
-  GlBroadcastMessage,
+const template = `
+    <div>
+      <gl-broadcast-message
+        :icon-name="iconName"
+        :dismiss-label="dismissLabel"
+        :theme="theme">
+        {{ text }}
+      </gl-broadcast-message>
+    </div>
+  `;
+
+const defaultValue = (prop) => GlBroadcastMessage.props[prop].default;
+
+const generateProps = ({
+  text = 'Tuesday June 12th, at 14:30 UTC we will perform database maintenance that will require up to 1 minute of downtime.',
+  iconName = defaultValue('iconName'),
+  dismissLabel = defaultValue('dismissLabel'),
+  theme = defaultValue('theme'),
+} = {}) => ({
+  text,
+  iconName,
+  dismissLabel,
+  theme,
+});
+
+const Template = (args, { argTypes }) => ({
+  component: {
+    GlBroadcastMessage,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+const StackedStory = (args, { argTypes }) => ({
+  component: {
+    GlBroadcastMessage,
+  },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <gl-broadcast-message
+        :icon-name="iconName"
+        :dismiss-label="dismissLabel"
+        :theme="theme">
+          {{ text }}
+      </gl-broadcast-message>
+      <gl-broadcast-message
+        :icon-name="iconName"
+        :dismiss-label="dismissLabel"
+        :theme="theme">
+          {{ text }}
+      </gl-broadcast-message>
+    </div>`,
+});
+export const Stacked = StackedStory.bind({});
+Stacked.args = generateProps();
+Stacked.parameters = {
+  storyshots: { disable: true },
 };
 
-const navbar = `
-<template v-if="showNavbar">
-  <div class="gl-h-8 gl-display-flex gl-text-white gl-justify-content-center gl-align-items-center gl-font-base" :class="navbarClass">
-    Navbar
-  </div>
-</template>
-`;
-
-const getThemedBroadcastMessage = (theme) => `
-<gl-broadcast-message
-  :icon-name="iconName"
-  :dismiss-label="dismissLabel"
-  theme="${theme}">
-  {{ text }}
-</gl-broadcast-message>
-`;
-
-const listThemedBroadcastMessages = () =>
-  Object.keys(colorThemes).reduce((res, theme) => res + getThemedBroadcastMessage(theme), '');
-
-const generateDefaultProps = () => ({
-  text: {
-    default: text(
-      'Text',
-      'Tuesday June 12th, at 14:30 UTC we will perform database maintenance that will require up to 1 minute of downtime.'
-    ),
+export default {
+  title: 'base/broadcast message',
+  component: GlBroadcastMessage,
+  parameters: {
+    knobs: { disabled: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
   },
-  iconName: {
-    default: select('Icon name', iconSpriteInfo.icons, GlBroadcastMessage.props.iconName.default),
+  argTypes: {
+    iconName: {
+      control: {
+        type: 'select',
+        options: iconSpriteInfo.icons,
+      },
+    },
+    theme: {
+      control: {
+        type: 'select',
+        options: Object.keys(colorThemes),
+      },
+    },
   },
-  dismissLabel: {
-    default: text('Dismiss button label', GlBroadcastMessage.props.dismissLabel.default),
-  },
-});
-
-const generateThemeProps = () => ({
-  theme: {
-    default: select('Theme', Object.keys(colorThemes), GlBroadcastMessage.props.theme.default),
-  },
-  showNavbar: {
-    default: boolean('Show a fake navbar?', false),
-  },
-});
-
-const generateComputedProps = () => ({
-  navbarClass() {
-    return `gl-bg-${colorThemes[this.theme]}`;
-  },
-});
-
-documentedStoriesOf('base/broadcast message', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: { ...generateDefaultProps(), ...generateThemeProps() },
-    computed: generateComputedProps(),
-    template: `
-    <div>
-      <gl-broadcast-message
-        :icon-name="iconName"
-        :dismiss-label="dismissLabel"
-        :theme="theme">
-        {{ text }}
-      </gl-broadcast-message>
-      ${navbar}
-    </div>
-    `,
-  }))
-  .add('stacked', () => ({
-    components,
-    props: { ...generateDefaultProps(), ...generateThemeProps() },
-    computed: generateComputedProps(),
-    template: `
-    <div>
-      <gl-broadcast-message
-        :icon-name="iconName"
-        :dismiss-label="dismissLabel"
-        :theme="theme">
-        {{ text }}
-      </gl-broadcast-message>
-      <gl-broadcast-message
-        :icon-name="iconName"
-        :dismiss-label="dismissLabel"
-        :theme="theme">
-        {{ text }}
-      </gl-broadcast-message>
-      ${navbar}
-    </div>
-    `,
-  }))
-  .add('themes', () => ({
-    components,
-    props: generateDefaultProps(),
-    computed: generateComputedProps(),
-    text:
-      'Tuesday June 12th, at 14:30 UTC we will perform database maintenance that will require up to 1 minute of downtime.',
-    template: `
-    <div>
-      ${listThemedBroadcastMessages()}
-    </div>
-    `,
-  }));
+};

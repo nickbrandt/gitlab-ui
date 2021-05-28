@@ -1,7 +1,3 @@
-# Broadcast message
-
-<!-- STORY -->
-
 Broadcast messages provide an efficient and prominent way to deliver critical messages at the
 instance level to all users. For example, a broadcast message can be used when an admin wants to
 announce that their platform will experience downtime during a specific period.
