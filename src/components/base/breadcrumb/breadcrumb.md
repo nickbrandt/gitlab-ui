@@ -1,6 +1,3 @@
-## Breadcrumb
-
-<!-- STORY -->
 ## Usage
 
 This component provides two `<slot>` elements for customization. The first is a `<slot #avatar>` so an avatar can appear before the first breadcrumb. The second is a `<slot #separator>` to

@@ -64,6 +64,7 @@ export const setupStorybookReadme = () =>
         'GlBadge',
         'GlOutsideDirective',
         'GlBanner',
+        'GlBreadcrumb',
         'GlBroadcastMessage',
       ],
       components: {

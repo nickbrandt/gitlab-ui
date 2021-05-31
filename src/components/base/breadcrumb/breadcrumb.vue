@@ -8,6 +8,9 @@ export default {
   },
   inheritAttrs: false,
   props: {
+    /**
+     * The breadcrumb items to be displayed as links.
+     */
     items: {
       type: Array,
       required: true,
@@ -25,6 +28,7 @@ export default {
 <template>
   <div class="gl-breadcrumbs">
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
+      <!-- @slot The avatar to display. -->
       <slot name="avatar"></slot>
       <template v-for="(item, index) in items">
         <b-breadcrumb-item
@@ -40,6 +44,7 @@ export default {
           class="gl-breadcrumb-separator"
           data-testid="separator"
         >
+          <!-- @slot The separator to display. -->
           <slot name="separator"></slot>
         </span>
       </template>
