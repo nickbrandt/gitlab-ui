@@ -1,3 +1,10 @@
+# [29.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.31.0...v29.32.0) (2021-06-01)
+
+
+### Features
+
+* **formgroup:** Add label description to form group ([e811c15](https://gitlab.com/gitlab-org/gitlab-ui/commit/e811c15836d5cc674b08de773d0a0eedb2a8ab5e))
+
 # [29.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.30.0...v29.31.0) (2021-05-27)
 
 
