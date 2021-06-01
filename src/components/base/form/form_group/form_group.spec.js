@@ -1,12 +1,17 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import { BFormGroup } from 'bootstrap-vue';
+import GlFormText from '../form_text/form_text.vue';
 import GlFormGroup from './form_group.vue';
 
 describe('Form group component', () => {
   let wrapper;
 
-  const createComponent = (options) => {
-    wrapper = shallowMount(GlFormGroup, {
+  const findDescription = () => {
+    return wrapper.find('[data-testid="label-description"]');
+  };
+
+  const createComponent = (options, mountFn = shallowMount) => {
+    wrapper = mountFn(GlFormGroup, {
       ...options,
     });
   };
@@ -29,4 +34,74 @@ describe('Form group component', () => {
       expect(wrapper.findComponent(BFormGroup).props('labelClass')).toEqual(expectedProp);
     }
   );
+
+  describe('description slot', () => {
+    it('renders text when label-description prop is defined', () => {
+      const labelDescription = 'description via props';
+
+      createComponent(
+        {
+          propsData: {
+            labelDescription,
+          },
+        },
+        mount
+      );
+
+      expect(findDescription().text()).toBe(labelDescription);
+    });
+
+    it('renders a user provided label-description slot', () => {
+      const labelDescription = 'description via slot';
+
+      createComponent(
+        {
+          slots: {
+            'label-description': 'description via slot',
+          },
+          stubs: {
+            GlFormText,
+          },
+        },
+        mount
+      );
+
+      expect(findDescription().text()).toBe(labelDescription);
+    });
+  });
+
+  describe('label slot', () => {
+    it('renders text when label prop is defined', () => {
+      const label = 'label via props';
+
+      createComponent(
+        {
+          propsData: {
+            label,
+          },
+        },
+        mount
+      );
+
+      expect(wrapper.text()).toBe(label);
+    });
+
+    it('renders a user provided label slot', () => {
+      const label = 'label via slot';
+
+      createComponent(
+        {
+          slots: {
+            label: 'label via slot',
+          },
+          stubs: {
+            GlFormText,
+          },
+        },
+        mount
+      );
+
+      expect(wrapper.text()).toBe(label);
+    });
+  });
 });
