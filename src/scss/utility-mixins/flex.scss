@@ -90,6 +90,12 @@
   flex-wrap: nowrap;
 }
 
+@mixin gl-md-flex-direction-column {
+  @media (max-width: $breakpoint-lg) {
+    @include gl-flex-direction-column;
+  }
+}
+
 @mixin gl-sm-flex-direction-column {
   @media (max-width: $breakpoint-md) {
     @include gl-flex-direction-column;
