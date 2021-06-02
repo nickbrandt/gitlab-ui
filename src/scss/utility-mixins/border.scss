@@ -48,6 +48,17 @@
 }
 
 /**
+* Responsive border style utilities.
+*
+* naming convention: gl-{breakpoint}-border-{position}-{style}
+*/
+@mixin gl-sm-border-l-none {
+  @media (max-width: $breakpoint-md) {
+    border-left-style: none;
+  }
+}
+
+/**
 * Border color utilities.
 *
 * naming convention: gl-border-{position}-{color-palette-variable}
