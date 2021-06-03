@@ -1,12 +1,14 @@
 // Variables
 $path-chevron-z-index: -1;
-$path-chevron-top: px-to-rem(4.5px);
-$path-chevron-right: px-to-rem(-11px);
-$path-chevron-dimension: px-to-rem(23px);
+$path-chevron-top: px-to-rem(4px);
+$path-chevron-right: px-to-rem(-12px);
+$path-chevron-dimension: px-to-rem(24px);
 $path-chevron-border-radius: px-to-rem(10px);
+$path-chevron-tip-border-radius: px-to-rem(2px);
 $path-button-right-padding: 1.25 * $grid-size;
 $path-chevron-drop-shadow: drop-shadow(0 0 px-to-rem(1px) $blue-500);
-$path-chevron-transformation: rotate(45deg) skew(18deg, 18deg);
+$path-chevron-transformation: rotate(45deg) skew(14deg, 14deg);
+$path-chevron-right-margin: px-to-rem(14px);
 
 // Mixins
 @mixin gl-path-active-item-color($color) {
@@ -30,6 +32,7 @@ $path-chevron-transformation: rotate(45deg) skew(18deg, 18deg);
   transform: $path-chevron-transformation;
   border-top-left-radius: $path-chevron-border-radius;
   border-bottom-right-radius: $path-chevron-border-radius;
+  border-top-right-radius: $path-chevron-tip-border-radius;
 }
 
 .gl-path-nav {
@@ -57,7 +60,6 @@ $path-chevron-transformation: rotate(45deg) skew(18deg, 18deg);
   .gl-path-button {
     @include gl-pl-5;
     @include gl-py-3;
-    @include gl-mr-4;
     @include gl-display-flex;
     @include gl-relative;
     @include gl-font-base;
@@ -70,6 +72,7 @@ $path-chevron-transformation: rotate(45deg) skew(18deg, 18deg);
     @include gl-rounded-bottom-left-base;
     background-color: var(--path-bg-color);
     padding-right: $path-button-right-padding;
+    margin-right: $path-chevron-right-margin;
 
     &::after {
       @include gl-path-chevron;
