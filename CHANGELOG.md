@@ -1,3 +1,10 @@
+## [29.32.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.32.0...v29.32.1) (2021-06-03)
+
+
+### Bug Fixes
+
+* **GlModal:** Define GlModal model ([3f9340a](https://gitlab.com/gitlab-org/gitlab-ui/commit/3f9340a3e007f449f5961271f053e1c256ec1edf))
+
 # [29.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.31.0...v29.32.0) (2021-06-01)
 
 
