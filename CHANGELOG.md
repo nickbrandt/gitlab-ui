@@ -1,3 +1,10 @@
+## [29.32.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.32.1...v29.32.2) (2021-06-03)
+
+
+### Bug Fixes
+
+* **GlPath:** fix active shape outline ([644f458](https://gitlab.com/gitlab-org/gitlab-ui/commit/644f45851adb4a105a9fb38980609143d89e45ff))
+
 ## [29.32.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.32.0...v29.32.1) (2021-06-03)
 
 
