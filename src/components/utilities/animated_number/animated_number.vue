@@ -22,6 +22,11 @@ export default {
       required: false,
       default: 0,
     },
+    animateOnMount: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -43,7 +48,11 @@ export default {
     },
   },
   mounted() {
-    window.requestAnimationFrame(this.count);
+    if (this.animateOnMount) {
+      window.requestAnimationFrame(this.count);
+    } else {
+      this.displayNumber = this.number;
+    }
   },
   methods: {
     count(timestamp) {
