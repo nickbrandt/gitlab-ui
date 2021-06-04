@@ -3,18 +3,24 @@ import readme from './animated_number.md';
 import GlAnimatedNumber from './animated_number.vue';
 
 const template = `
-  <gl-animated-number :number="number" :decimalPlaces="decimalPlaces" :duration="duration"/>`;
+  <div>
+    <gl-animated-number :number="updatedNumber" :decimalPlaces="decimalPlaces" :duration="duration" :animateOnMount="animateOnMount"/>
+    <button @click="updateNumber">Update number</button>
+  </div>
+`;
 
 const defaultValue = (prop) => GlAnimatedNumber.props[prop].default;
 
 const generateProps = ({
-  number = 100,
+  initialNumber = 100,
   decimalPlaces = defaultValue('decimalPlaces'),
   duration = 1000,
+  animateOnMount = defaultValue('animateOnMount'),
 } = {}) => ({
-  number,
+  initialNumber,
   decimalPlaces,
   duration,
+  animateOnMount,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -25,6 +31,7 @@ const Template = (args, { argTypes }) => ({
     return {
       isLoading: false,
       loadTimer: null,
+      updatedNumber: this.initialNumber,
     };
   },
   methods: {
@@ -35,10 +42,18 @@ const Template = (args, { argTypes }) => ({
         this.isLoading = false;
       }, 1500);
     },
+    updateNumber() {
+      this.updatedNumber = Math.floor(Math.random() * 100);
+    },
   },
   mounted() {
     this.loadView();
   },
+});
+
+export const InitialAnimate = Template.bind({});
+InitialAnimate.args = generateProps({
+  animateOnMount: true,
 });
 
 export const Default = Template.bind({});
