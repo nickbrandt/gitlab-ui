@@ -1,3 +1,10 @@
+# [29.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.32.2...v29.33.0) (2021-06-04)
+
+
+### Features
+
+* **AnimatedNumber:** Disable animation on mount ([f2d0bd5](https://gitlab.com/gitlab-org/gitlab-ui/commit/f2d0bd5dedb6992008f59070852c34ac293ea6ef))
+
 ## [29.32.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.32.1...v29.32.2) (2021-06-03)
 
 
