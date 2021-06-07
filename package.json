@@ -101,7 +101,7 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "babel-preset-vue": "^2.0.2",
     "bootstrap": "4.5.3",
-    "eslint": "7.27.0",
+    "eslint": "7.28.0",
     "eslint-import-resolver-jest": "3.0.0",
     "file-loader": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
