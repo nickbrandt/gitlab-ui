@@ -243,6 +243,14 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
+integration_tests:
+  image: cypress/browsers:node14.16.0-chrome90-ff88
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
+  script:
+    - yarn test:integration
+
 unit_tests:
   extends: [.node, .yarn_install]
   needs: []

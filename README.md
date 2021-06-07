@@ -118,6 +118,12 @@ environment, we consider a 1 pixel difference as a false negative that should no
 Under the hood, those variables are passed to
 [`jest-image-snapshot`](https://github.com/americanexpress/jest-image-snapshot)'s config
 
+### End to end tests
+
+Components’ end to end tests live in the `cypress/integration` folder. See our [end to end testing documentation](doc/contributing/end_to_end_test.md) for more details.
+
+`yarn run cypress open` runs Cypress locally to run end to end tests.
+
 ## Installation
 
 Install with Yarn:
