@@ -21,6 +21,7 @@ variables:
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
   SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
   DS_DEFAULT_ANALYZERS: 'retire.js, gemnasium'
+  CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -90,6 +91,7 @@ container_scanning:
 .cache-template: &cache-template
   paths:
     - node_modules/
+    - .cypress_cache/Cypress
   key:
     files:
       - .gitlab-ci.yml

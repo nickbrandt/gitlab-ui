@@ -3,3 +3,4 @@
 /dist/
 /public/
 /templates/
+.cypress_cache
