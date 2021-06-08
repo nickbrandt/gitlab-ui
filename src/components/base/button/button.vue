@@ -6,6 +6,7 @@ import {
   newButtonSizeOptions,
   newButtonSizeOptionsMap,
 } from '../../../utils/constants';
+import { logWarning } from '../../../utils/utils';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
@@ -107,6 +108,11 @@ export default {
     buttonSize() {
       return newButtonSizeOptionsMap[this.size];
     },
+  },
+  mounted() {
+    if (!this.$slots.default && !this.$attrs['aria-label'] && !this.$props.label) {
+      logWarning('[gl-button]: Accessible name missing. Please add inner text or aria-label.');
+    }
   },
 };
 </script>
