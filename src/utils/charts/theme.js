@@ -175,6 +175,7 @@ export default {
   dataZoom: {
     borderColor: 'transparent',
     filterMode: 'none',
+    brushSelect: false,
     dataBackground: {
       lineStyle: {
         color: gray100,
