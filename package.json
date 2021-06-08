@@ -106,7 +106,7 @@
     "cypress": "^6.6.0",
     "eslint": "7.28.0",
     "eslint-import-resolver-jest": "3.0.0",
-    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-cypress": "2.11.2",
     "file-loader": "^4.2.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer-select-directory": "^1.2.0",
