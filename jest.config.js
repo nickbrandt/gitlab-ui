@@ -6,7 +6,7 @@ module.exports = {
     '^@gitlab/ui$': '<rootDir>/index.js',
     '\\.(css|scss|less)$': 'identity-obj-proxy',
   },
-  modulePathIgnorePatterns: ['cypress/integration'],
+  modulePathIgnorePatterns: ['cypress/integration', '.cypress_cache'],
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.example.(vue)$': 'vue-jest',
