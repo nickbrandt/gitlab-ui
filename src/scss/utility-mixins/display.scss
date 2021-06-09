@@ -95,6 +95,12 @@
   display: inline;
 }
 
+@mixin gl-sm-display-inline {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-display-inline;
+  }
+}
+
 @mixin gl-display-inline-block {
   display: inline-block;
 }
