@@ -1,3 +1,10 @@
+# [29.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.33.0...v29.34.0) (2021-06-09)
+
+
+### Features
+
+* **css:** add gl-sm-display-inline as display utility ([cdbf2e5](https://gitlab.com/gitlab-org/gitlab-ui/commit/cdbf2e58afadf65bb99af957c7ab5b7016cf7bf4))
+
 # [29.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.32.2...v29.33.0) (2021-06-04)
 
 
