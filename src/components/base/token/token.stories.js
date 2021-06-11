@@ -1,42 +1,59 @@
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlToken } from '../../../../index';
 import { tokenVariants } from '../../../utils/constants';
 
 import readme from './token.md';
 
-const components = {
-  GlToken,
-};
+const defaultValue = (prop) => GlToken.props[prop].default;
 
-function generateProps() {
-  return {
-    viewOnly: {
-      type: Boolean,
-      default: boolean('View-only', false),
+const generateProps = ({
+  viewOnly = defaultValue('viewOnly'),
+  variant = defaultValue('variant'),
+} = {}) => ({
+  viewOnly,
+  variant,
+});
+
+const Template = (args, { argTypes }) => ({
+  components: { GlToken },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-display-flex">
+      <gl-token :variant="variant" :view-only="viewOnly">Token</gl-token>
+    </div>`,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const ViewOnly = Template.bind({});
+ViewOnly.args = generateProps({
+  viewOnly: true,
+});
+
+export const WithAvatar = () => ({
+  components: { GlToken },
+  template: `
+    <div class="gl-display-flex">
+    <gl-token><gl-avatar src="/img/avatar.png" :size="16" />Token</gl-token>
+    </div>`,
+});
+
+export default {
+  title: 'base/token',
+  component: GlToken,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
     },
+  },
+  argTypes: {
     variant: {
-      type: String,
-      default: select('Variant', tokenVariants, GlToken.props.variant.default),
+      control: {
+        type: 'select',
+        options: tokenVariants,
+      },
     },
-  };
-}
-
-documentedStoriesOf('base/token', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <div class="gl-display-flex"><gl-token :variant="variant" :view-only="viewOnly">Token</gl-token></div>`,
-  }))
-  .add('search-type', () => ({
-    components,
-    template: `
-      <div class="gl-display-flex"><gl-token variant="search-type">Token search type</gl-token></div>`,
-  }))
-  .add('search-value', () => ({
-    components,
-    template: `
-      <div class="gl-display-flex"><gl-token variant="search-value">Token search value</gl-token></div>`,
-  }));
+  },
+};
