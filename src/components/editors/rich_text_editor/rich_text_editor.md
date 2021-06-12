@@ -8,15 +8,6 @@ experience for[GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdow
 It also serves as the foundation for implementing Markdown-focused editors
 that target other engines, like static site generators.
 
-## Usage
-
-Use the following snippet to import the Rich Text Editor
-
-```javascript
-import { RichTextEditor } from '@gitlab/ui';
-```
-
-
 <!-- Provide technical information on how to use the component, add code examples if relevant. -->
 
 <!--
