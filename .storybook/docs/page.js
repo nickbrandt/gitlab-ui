@@ -8,11 +8,14 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { ImportInfo } from './blocks/ImportInfo';
+import { ImportInfo, LinkToSource } from './blocks';
 
 export const page = () => (
   <>
-    <Title />
+    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
+      <Title />
+      <LinkToSource />
+    </div>
     <Subtitle />
     <ImportInfo />
     <Description />
