@@ -12,6 +12,9 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Token visual variants: default, search-type, and search-value.
+     */
     variant: {
       type: String,
       required: false,
@@ -31,6 +34,11 @@ export default {
   },
   methods: {
     close($event) {
+      /**
+       * Emitted when x is clicked
+       *
+       * @event close
+       */
       this.$emit('close', $event);
     },
   },
