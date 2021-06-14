@@ -9,6 +9,7 @@ module.exports = (api) => {
   // storybook and visual regression tests
   if (api.env('storybook')) {
     babelPresetEnv[1] = { targets: { esmodules: true } };
+    config.presets.push('@babel/preset-react');
   }
 
   // jest tests
