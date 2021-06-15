@@ -4,7 +4,7 @@ import { Button } from '@storybook/components';
 
 const BASE_URL = 'https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main/src/components';
 
-export const LinkToSource = () => {
+export const LinkToSource = (props) => {
   const context = useContext(DocsContext);
   const { kind: directory } = context;
   if (!directory) {
@@ -13,7 +13,7 @@ export const LinkToSource = () => {
   const filename = directory.replace(/.*\/([^/]+)$/, '$1');
   const href = `${BASE_URL}/${directory}/${filename}.vue`;
   return (
-    <Button href={href} rel="noopener" target="_blank" isLink tertiary>
+    <Button href={href} rel="noopener" target="_blank" isLink small {...props}>
       View source
     </Button>
   );

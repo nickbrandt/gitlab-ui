@@ -12,9 +12,9 @@ import { ImportInfo, LinkToSource } from './blocks';
 
 export const page = () => (
   <>
-    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
+    <div className="gl-display-flex gl-align-items-center">
       <Title />
-      <LinkToSource />
+      <LinkToSource className="gl-ml-auto!" />
     </div>
     <Subtitle />
     <ImportInfo />
