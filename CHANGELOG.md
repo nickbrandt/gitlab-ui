@@ -1,3 +1,10 @@
+# [29.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.34.1...v29.35.0) (2021-06-15)
+
+
+### Features
+
+* **css:** Add CSS class for max-width: max-content ([e079017](https://gitlab.com/gitlab-org/gitlab-ui/commit/e079017d9df84a1d32cc98730a2a5000ed09cfa0))
+
 ## [29.34.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.34.0...v29.34.1) (2021-06-15)
 
 
