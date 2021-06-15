@@ -111,13 +111,16 @@
     @include gl-display-flex;
     @include gl-justify-content-space-between;
     @include gl-flex-grow-1;
-    @include gl-layout-w-limited;
     @include gl-mx-auto;
   }
 
   .gl-alert-content {
     @include gl-flex-grow-1;
   }
+}
+
+.gl-alert-layout-limited .gl-alert-container {
+  @include gl-layout-w-limited;
 }
 
 .gl-alert-danger {

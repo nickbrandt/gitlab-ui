@@ -171,7 +171,7 @@ export default {
   <div
     :class="[
       'gl-alert',
-      { 'gl-alert-max-content': contained },
+      { 'gl-alert-max-content gl-alert-layout-limited': contained },
       { 'gl-alert-sticky': sticky },
       { 'gl-alert-not-dismissible': !dismissible },
       variantClass,
