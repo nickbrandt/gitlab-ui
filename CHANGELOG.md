@@ -1,3 +1,10 @@
+## [29.34.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.34.0...v29.34.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* **css:** rename flex grow shorthand utility ([1cc14d3](https://gitlab.com/gitlab-org/gitlab-ui/commit/1cc14d3346a1614a97c840e2b5d417997894f55b))
+
 # [29.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.33.0...v29.34.0) (2021-06-09)
 
 
