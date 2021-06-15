@@ -150,37 +150,33 @@
   flex-grow: 0;
 }
 
+@mixin gl-flex-grow-1 {
+  flex-grow: 1;
+}
+
+@mixin gl-flex-grow-2 {
+  flex-grow: 2;
+}
+
+@mixin gl-flex-grow-4 {
+  flex-grow: 4;
+}
+
 @mixin gl-md-flex-grow-0 {
   @media (min-width: $breakpoint-md) {
     @include gl-flex-grow-0;
   }
 }
 
-@mixin gl-flex-grow-1 {
-  flex-grow: 1;
-}
-
-@mixin gl-flex-fill-1 {
-  flex: 1;
-}
-
-@mixin gl-flex-fill-2 {
-  flex: 2;
-}
-
-@mixin gl-flex-fill-4 {
-  flex: 4;
-}
-
-@mixin gl-md-flex-fill-1 {
+@mixin gl-md-flex-grow-1 {
   @media (min-width: $breakpoint-lg) {
-    @include gl-flex-fill-1;
+    @include gl-flex-grow-1;
   }
 }
 
-@mixin gl-lg-flex-fill-1 {
+@mixin gl-lg-flex-grow-1 {
   @media (min-width: $breakpoint-lg) {
-    @include gl-flex-fill-1;
+    @include gl-flex-grow-1;
   }
 }
 
