@@ -176,7 +176,7 @@
 
 .gl-actions-tabs-end {
   @include gl-display-none;
-  @include gl-flex-fill-1;
+  @include gl-flex-grow-1;
   @include gl-justify-content-end;
   @include gl-align-items-center;
   @include gl-flex-direction-row;
