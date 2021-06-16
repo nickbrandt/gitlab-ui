@@ -1,4 +1,4 @@
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import { range } from 'lodash';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlTabs, GlTab, GlScrollableTabs } from '../../../../../index';
@@ -43,6 +43,10 @@ const createBaseStory = () => ({
       type: String,
       default: select('theme', [...Object.keys(colorThemes), 'gl-dark'], 'indigo'),
     },
+    syncActiveTabWithQueryParams: {
+      type: Boolean,
+      default: boolean('sync-active-tab-with-query-params', false),
+    },
   },
 });
 
@@ -51,7 +55,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
   .add('default', () => ({
     ...createBaseStory(),
     template: `
-      <gl-tabs :theme="theme">
+      <gl-tabs :theme="theme" :sync-active-tab-with-query-params="syncActiveTabWithQueryParams">
         <gl-tab title="First">
           first tab content
         </gl-tab>
@@ -88,7 +92,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
         <gl-tab title="Twelfth">
           twelfth tab content
         </gl-tab>
-        <gl-tab title="Thirteenth">
+        <gl-tab title="Thirteenth" query-param-value="thirteenth">
           thirteenth tab content
         </gl-tab>
         <gl-tab title="Fourteenth">

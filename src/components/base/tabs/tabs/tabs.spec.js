@@ -1,7 +1,9 @@
 import { mount, shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { GlButton } from '../../../../../index';
 import { tabsButtonDefaults } from '../../../../utils/constants';
-import Tabs from './tabs.vue';
+import GlTab from '../tab/tab.vue';
+import GlTabs from './tabs.vue';
 
 const getActionButtonProp = ({ type, text = `${type} action!` }) => ({
   [`action${type}`]: {
@@ -12,10 +14,24 @@ const getActionButtonProp = ({ type, text = `${type} action!` }) => ({
 describe('tabs component', () => {
   let wrapper;
 
-  const buildTabs = (props = {}, mountFn = shallowMount, options = {}) => {
-    wrapper = mountFn(Tabs, {
+  const buildTabs = ({ props = {}, mountFn = mount, options = {} } = {}) => {
+    wrapper = mountFn(GlTabs, {
       propsData: {
         ...props,
+      },
+      components: { GlTab },
+      slots: {
+        default: `
+          <gl-tab title="First">
+            first tab content
+          </gl-tab>
+          <gl-tab title="Second">
+            second tab content
+          </gl-tab>
+          <gl-tab title="Third" query-param-value="third">
+            second tab content
+          </gl-tab>
+        `,
       },
       ...options,
     });
@@ -23,17 +39,20 @@ describe('tabs component', () => {
 
   const findNav = () => wrapper.find('.gl-tabs-nav');
   const findContent = () => wrapper.find('.gl-tab-content');
+  const findActiveTab = () => wrapper.find('[role="tab"][aria-selected="true"]');
+  const findTabByText = (text) =>
+    wrapper.findAll('[role="tab"]').wrappers.find((tabWrapper) => tabWrapper.text() === text);
 
   describe('default', () => {
     it('should have a default theme of indigo', () => {
-      buildTabs();
+      buildTabs({ mountFn: shallowMount });
       expect(wrapper.attributes('activenavitemclass')).toContain('gl-tab-nav-item-active-indigo');
     });
   });
 
   describe('nav', () => {
     it('should have class "gl-tabs-nav"', () => {
-      buildTabs({}, mount);
+      buildTabs();
       expect(findNav().exists()).toBe(true);
     });
 
@@ -43,7 +62,7 @@ describe('tabs component', () => {
       ${'array'}  | ${['my-nav-class', 'my-nav-class-2']}
       ${'object'} | ${{ 'my-nav-class': true, 'my-nav-class-2': true }}
     `('should have custom $type classes', ({ navClass }) => {
-      buildTabs({ navClass }, mount);
+      buildTabs({ props: { navClass } });
 
       expect(findNav().classes('my-nav-class')).toBe(true);
       expect(findNav().classes('my-nav-class-2')).toBe(true);
@@ -52,7 +71,7 @@ describe('tabs component', () => {
 
   describe('content', () => {
     it('should have class "gl-tab-content"', () => {
-      buildTabs({}, mount);
+      buildTabs();
       expect(findContent().exists()).toBe(true);
     });
 
@@ -62,7 +81,7 @@ describe('tabs component', () => {
       ${'array'}  | ${['my-class', 'my-class-2']}
       ${'object'} | ${{ 'my-class': true, 'my-class-2': true }}
     `('should have custom $type classes', ({ contentClass }) => {
-      buildTabs({ contentClass }, mount);
+      buildTabs({ props: { contentClass } });
 
       expect(findContent().classes('my-class')).toBe(true);
       expect(findContent().classes('my-class-2')).toBe(true);
@@ -72,17 +91,19 @@ describe('tabs component', () => {
   describe('actions buttons', () => {
     describe('when no actions are provided', () => {
       it('does not render the actions tabs', () => {
-        buildTabs({}, mount);
+        buildTabs();
 
         expect(wrapper.find('[data-testid="actions-tabs-start"').exists()).toBe(false);
         expect(wrapper.find('[data-testid="actions-tabs-end"').exists()).toBe(false);
       });
 
       it('renders BV tabs slots', async () => {
-        buildTabs({}, mount, {
-          slots: {
-            'tabs-start': `<div class="tabs-start-slot"></div>`,
-            'tabs-end': `<div class="tabs-end-slot"></div>`,
+        buildTabs({
+          options: {
+            slots: {
+              'tabs-start': `<div class="tabs-start-slot"></div>`,
+              'tabs-end': `<div class="tabs-end-slot"></div>`,
+            },
           },
         });
 
@@ -100,7 +121,7 @@ describe('tabs component', () => {
       `('renders the $buttonType action buttons', ({ buttonType }) => {
         beforeEach(() => {
           const props = getActionButtonProp({ type: buttonType });
-          buildTabs(props, mount);
+          buildTabs({ props });
         });
 
         it('renders two of a kind', () => {
@@ -118,8 +139,8 @@ describe('tabs component', () => {
       });
 
       it('correctly passes the props to the button', () => {
-        buildTabs(
-          {
+        buildTabs({
+          props: {
             actionPrimary: {
               text: 'A button!',
               attributes: {
@@ -128,8 +149,7 @@ describe('tabs component', () => {
               },
             },
           },
-          mount
-        );
+        });
 
         expect(wrapper.findComponent(GlButton).props()).toMatchObject({
           variant: 'success',
@@ -146,7 +166,7 @@ describe('tabs component', () => {
         const testId = `action-${buttonType.toLowerCase()}`;
         const props = getActionButtonProp({ type: buttonType });
 
-        buildTabs(props, mount);
+        buildTabs({ props });
         wrapper.find(`[data-testid="${testId}"]`).vm.$emit('click');
         await wrapper.vm.$nextTick();
 
@@ -154,23 +174,209 @@ describe('tabs component', () => {
       });
 
       it('only renders action buttons', () => {
-        buildTabs(
-          {
+        buildTabs({
+          props: {
             actionPrimary: {
               text: 'Primary action!',
             },
           },
-          mount,
-          {
+          options: {
             slots: {
               'tabs-start': `<div class="tabs-start-slot"></div>`,
               'tabs-end': `<div class="tabs-end-slot"></div>`,
             },
-          }
-        );
+          },
+        });
 
         expect(wrapper.find('.tabs-start-slot').exists()).toBe(false);
         expect(wrapper.find('.tabs-end-slot').exists()).toBe(false);
+      });
+    });
+  });
+
+  describe('`syncActiveTabWithQueryParams` prop', () => {
+    describe('when set to `true`', () => {
+      jest.spyOn(window.history, 'pushState');
+
+      beforeEach(() => {
+        delete window.location;
+        window.location = new URL('https://localhost');
+      });
+
+      afterEach(() => {
+        window.history.pushState.mockClear();
+      });
+
+      describe.each`
+        queryParamName | queryString           | expectedActiveTabText | expectedActiveTabIndex
+        ${undefined}   | ${'?tab=1'}           | ${'Second'}           | ${1}
+        ${undefined}   | ${'?tab=third'}       | ${'Third'}            | ${2}
+        ${undefined}   | ${'?tab=2'}           | ${'First'}            | ${0}
+        ${'activeTab'} | ${'?activeTab=third'} | ${'Third'}            | ${2}
+        ${undefined}   | ${''}                 | ${'First'}            | ${0}
+        ${undefined}   | ${'?activeTab=forth'} | ${'First'}            | ${0}
+      `(
+        'when `queryParamName` prop is $queryParamName and query string is $queryString',
+        ({ queryParamName, queryString, expectedActiveTabText, expectedActiveTabIndex }) => {
+          it('sets active tab based on query string when component is mounted', async () => {
+            window.location.search = queryString;
+
+            buildTabs({
+              props: { syncActiveTabWithQueryParams: true, queryParamName },
+            });
+
+            await nextTick();
+
+            expect(findActiveTab().text()).toBe(expectedActiveTabText);
+
+            // `input` event should only be fired if the active tab changes.
+            if (expectedActiveTabIndex > 0) {
+              expect(wrapper.emitted().input[1]).toEqual([expectedActiveTabIndex]);
+            } else {
+              expect(wrapper.emitted().input[1]).toBeUndefined();
+            }
+          });
+        }
+      );
+
+      describe('when active tab is changed', () => {
+        describe.each`
+          queryParamName | tabTitleToActivate | expectedQueryString
+          ${undefined}   | ${'Second'}        | ${'/?foo-bar=baz&tab=1'}
+          ${undefined}   | ${'Third'}         | ${'/?foo-bar=baz&tab=third'}
+          ${'activeTab'} | ${'Second'}        | ${'/?foo-bar=baz&activeTab=1'}
+        `(
+          'when `queryParamName` prop is $queryParamName and "$tabTitleToActivate" tab is activated',
+          ({ queryParamName, tabTitleToActivate, expectedQueryString }) => {
+            beforeEach(() => {
+              window.location.search = '?foo-bar=baz';
+            });
+
+            it(`sets query string to ${expectedQueryString}`, async () => {
+              buildTabs({
+                props: { syncActiveTabWithQueryParams: true, queryParamName },
+              });
+
+              await nextTick();
+              await findTabByText(tabTitleToActivate).trigger('click');
+
+              expect(window.history.pushState).toHaveBeenCalledWith({}, '', expectedQueryString);
+              expect(window.history.pushState).toHaveBeenCalledTimes(1);
+            });
+          }
+        );
+
+        describe('when tab is changed back to initial active tab', () => {
+          it('removes query string', async () => {
+            buildTabs({
+              props: { syncActiveTabWithQueryParams: true },
+            });
+
+            await nextTick();
+            await findTabByText('Second').trigger('click');
+
+            expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/?tab=1');
+
+            // Manually set `window.location.search` since
+            // `window.history.pushState` doesn't update the query string in JSDOM.
+            window.location.search = '?tab=1';
+
+            await findTabByText('First').trigger('click');
+
+            expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/?');
+          });
+        });
+      });
+
+      describe('when `popstate` event is fired', () => {
+        beforeEach(async () => {
+          buildTabs({
+            props: { syncActiveTabWithQueryParams: true },
+          });
+
+          await nextTick();
+
+          window.location.search = '?tab=1';
+          window.dispatchEvent(new PopStateEvent('popstate', {}));
+        });
+
+        it('updates active tab based on query string', () => {
+          expect(findActiveTab().text()).toBe('Second');
+        });
+
+        it('does not call `window.history.pushState`', () => {
+          expect(window.history.pushState).not.toHaveBeenCalled();
+        });
+      });
+
+      describe('when `value` prop is changed', () => {
+        it('updates active tab and query string', async () => {
+          buildTabs({
+            props: { syncActiveTabWithQueryParams: true, value: 0 },
+          });
+
+          await nextTick();
+
+          expect(findActiveTab().text()).toBe('First');
+
+          await wrapper.setProps({ value: 1 });
+
+          expect(findActiveTab().text()).toBe('Second');
+          expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/?tab=1');
+        });
+      });
+
+      describe('when component is mounted', () => {
+        it('emits `input` event', async () => {
+          window.location.search = '?tab=1';
+
+          buildTabs({
+            props: { syncActiveTabWithQueryParams: true },
+          });
+
+          await nextTick();
+
+          expect(wrapper.emitted().input[0]).toEqual([1]);
+          expect(wrapper.emitted().input[1]).toEqual([1]);
+        });
+      });
+    });
+
+    describe('when set to `false`', () => {
+      describe('when component is mounted', () => {
+        it('emits `input` event', async () => {
+          buildTabs();
+
+          await nextTick();
+
+          expect(wrapper.emitted().input[0]).toEqual([0]);
+        });
+      });
+
+      describe('when tab is changed', () => {
+        it('emits `input` event', async () => {
+          buildTabs();
+
+          await nextTick();
+          await findTabByText('Second').trigger('click');
+
+          expect(wrapper.emitted().input[1]).toEqual([1]);
+        });
+      });
+
+      describe('when `value` prop is changed', () => {
+        it('updates active tab', async () => {
+          buildTabs();
+
+          await nextTick();
+
+          expect(findActiveTab().text()).toBe('First');
+
+          await wrapper.setProps({ value: 1 });
+
+          expect(findActiveTab().text()).toBe('Second');
+          expect(window.history.pushState).not.toHaveBeenCalled();
+        });
       });
     });
   });
