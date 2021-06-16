@@ -1,3 +1,10 @@
+# [29.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.35.0...v29.36.0) (2021-06-16)
+
+
+### Features
+
+* add gl-sm-border-l-none util class ([36b5f17](https://gitlab.com/gitlab-org/gitlab-ui/commit/36b5f1760071c88ddf7caff3e535c5f9cf8cc278))
+
 # [29.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.34.1...v29.35.0) (2021-06-15)
 
 
