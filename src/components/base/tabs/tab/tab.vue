@@ -15,6 +15,11 @@ export default {
       required: false,
       default: '',
     },
+    queryParamValue: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     linkClass() {
@@ -32,7 +37,12 @@ export default {
 };
 </script>
 <template>
-  <b-tab :title-link-class="linkClass" v-bind="$attrs" v-on="$listeners">
+  <b-tab
+    :title-link-class="linkClass"
+    :query-param-value="queryParamValue"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
   </b-tab>
 </template>

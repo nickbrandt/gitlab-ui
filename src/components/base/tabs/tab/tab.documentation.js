@@ -6,4 +6,11 @@ export default {
   examples,
   bootstrapComponent: 'b-tab',
   followsDesignSystem: true,
+  propsInfo: {
+    queryParamValue: {
+      additionalInfo:
+        'Query string parameter value to use when `gl-tabs` `sync-active-tab-with-query-params` prop is set to `true`.',
+      type: String,
+    },
+  },
 };

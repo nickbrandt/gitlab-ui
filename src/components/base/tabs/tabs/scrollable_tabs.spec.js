@@ -112,9 +112,11 @@ describe('GlScrollableTabs', () => {
       });
     });
 
-    it('passes listeners through', () => {
-      // 0 because it's the first tab activated
-      expect(inputSpy).toHaveBeenCalledWith(0);
+    it('passes listeners through', async () => {
+      const secondTab = wrapper.findAll('[role="tab"]').wrappers[1];
+      await secondTab.trigger('click');
+
+      expect(inputSpy).toHaveBeenCalledWith(1);
     });
 
     it.each`

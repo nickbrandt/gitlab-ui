@@ -52,6 +52,26 @@ export default {
       required: false,
       default: false,
     },
+    syncActiveTabWithQueryParams: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    queryParamName: {
+      type: String,
+      required: false,
+      default: 'tab',
+    },
+    value: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+  },
+  data() {
+    return {
+      activeTabIndex: 0,
+    };
   },
   computed: {
     hasActions() {
@@ -60,6 +80,37 @@ export default {
     activeItemBorderClass() {
       return `gl-tab-nav-item-active-${this.theme}`;
     },
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.handleInput,
+      };
+    },
+  },
+  watch: {
+    value: {
+      handler(newValue) {
+        if (this.activeTabIndex !== newValue) {
+          this.activeTabIndex = newValue;
+        }
+      },
+      immediate: true,
+    },
+  },
+  mounted() {
+    if (this.syncActiveTabWithQueryParams) {
+      this.syncActiveTabFromQueryParams();
+      window.addEventListener('popstate', this.syncActiveTabFromQueryParams);
+    }
+
+    // Because we are manually binding `value` attribute to `b-tabs` the `input`
+    // event is no longer automatically fired when the component is mounted.
+    // To maintain parity with original `b-tabs` functionality
+    // we manually fire the `input` event when the component is mounted.
+    this.$emit('input', this.activeTabIndex);
+  },
+  destroyed() {
+    window.removeEventListener('popstate', this.syncActiveTabFromQueryParams);
   },
   methods: {
     buttonBinding(prop, name) {
@@ -77,21 +128,100 @@ export default {
     tertiary() {
       this.$emit('tertiary');
     },
+    /**
+     * When the query parameter is updated, update the active tab to match.
+     */
+    syncActiveTabFromQueryParams() {
+      const queryParamValue = this.getQueryParamValue();
+      const tabIndexToActivate = this.getTabs().findIndex(
+        (tab, tabIndex) => this.getTabQueryParamValue(tabIndex) === queryParamValue
+      );
+
+      this.activeTabIndex = tabIndexToActivate !== -1 ? tabIndexToActivate : 0;
+    },
+
+    /**
+     * Returns a list of all <b-tab> instances associated with this tab control.
+     */
+    getTabs() {
+      return this.$refs.bTabs.getTabs();
+    },
+
+    /**
+     * Get the value of the query param as defined by the `queryParamName` prop.
+     */
+    getQueryParamValue() {
+      const searchParams = new URLSearchParams(window.location.search);
+
+      return searchParams.get(this.queryParamName);
+    },
+
+    /**
+     * Set the value of the query param as defined by the `queryParamName` prop.
+     * This method does nothing if the query param is already up to date.
+     */
+    setQueryParamValueIfNecessary(tabIndex) {
+      const currentQueryParamValue = this.getQueryParamValue();
+      const newQueryParamValue = this.getTabQueryParamValue(tabIndex);
+
+      // If the current query parameter is already up-to-date,
+      // avoid creating a duplicate history entry.
+      if (
+        (tabIndex === 0 && !currentQueryParamValue) ||
+        (tabIndex !== 0 && currentQueryParamValue === newQueryParamValue)
+      ) {
+        return;
+      }
+
+      const searchParams = new URLSearchParams(window.location.search);
+
+      if (tabIndex === 0) {
+        searchParams.delete(this.queryParamName);
+      } else {
+        searchParams.set(this.queryParamName, newQueryParamValue);
+      }
+
+      window.history.pushState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
+    },
+
+    /**
+     * Returns the query param value for a tab.
+     * Defaults to the tab index unless the `query-param-value` attribute is set.
+     */
+    getTabQueryParamValue(tabIndex) {
+      const tab = this.getTabs()[tabIndex];
+
+      return tab?.$attrs['query-param-value'] || tabIndex.toString();
+    },
+
+    /**
+     * Event handler for `input` event.
+     */
+    handleInput(tabIndex) {
+      this.$emit('input', tabIndex);
+      this.activeTabIndex = tabIndex;
+
+      if (this.syncActiveTabWithQueryParams) {
+        this.setQueryParamValueIfNecessary(tabIndex);
+      }
+    },
   },
 };
 </script>
 
 <template>
   <b-tabs
+    ref="bTabs"
     :no-nav-style="true"
     :no-fade="true"
     :active-nav-item-class="`gl-tab-nav-item-active ${activeItemBorderClass}`"
     :content-class="[contentClass, 'gl-tab-content']"
     :nav-class="[navClass, 'gl-tabs-nav']"
     :justified="justified"
+    :value="activeTabIndex"
     class="gl-tabs"
     v-bind="$attrs"
-    v-on="$listeners"
+    v-on="listeners"
   >
     <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
 
