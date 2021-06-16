@@ -1,3 +1,10 @@
+# [29.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.36.0...v29.37.0) (2021-06-16)
+
+
+### Features
+
+* **GlTabs:** add support for syncing active tab with query params ([846e259](https://gitlab.com/gitlab-org/gitlab-ui/commit/846e259262bfc54986d80069632bc3ade951f3f7))
+
 # [29.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.35.0...v29.36.0) (2021-06-16)
 
 
