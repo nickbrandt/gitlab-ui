@@ -27,7 +27,8 @@ can be requested at any time for help, inputs, and feedback, but it isn't
 required. To request their help, assign issues
 and merge requests to them and don't hesitate to ping them on Slack if immediate attention is needed.
 
-For updating these guidelines for GitLab UI's documentation, make sure to request the assigned Technical Writer's review.
+For updating these guidelines for GitLab UI's documentation, make sure to request the assigned
+Technical Writer's review.
 
 ## Terminology
 

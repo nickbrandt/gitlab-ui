@@ -20,13 +20,15 @@ If you use a SCSS preprocessor, you may include the base SCSS file instead of `i
 @import '@gitlab/ui/src/scss/gitlab_ui';
 ```
 
-In addition to component styling and utility classes, this provides various functions, variables and mixins.
+In addition to component styling and utility classes, this provides various functions, variables
+and mixins.
 
 ### Overriding variables
 
 Variables are imported as part of the [base SCSS file](#Usage-with-a-SCSS-preprocessor).
 
-To use a variable without including GitLab UI components’ styles, import the variable file and its functions directly:
+To use a variable without including GitLab UI components’ styles, import the variable file and its
+functions directly:
 
 ```scss
 @import '@gitlab/ui/src/scss/functions';
@@ -41,7 +43,8 @@ To view a complete list of variables, see [variables.scss](/src/scss/variables.s
 
 ## Utilities
 
-GitLab utility classes and mixins are based on GitLab's [design system guidelines](https://design.gitlab.com/).
+GitLab utility classes and mixins are based on GitLab's
+[design system guidelines](https://design.gitlab.com/).
 
 ## Utility class specifity
 
@@ -52,7 +55,8 @@ of every utility class. Those alternatives are suffixed with `!`, for example:
 
 ### Utility classes CSS bundle
 
-To include all utility classes without including GitLab UI components’ styles, import the base `utilities.scss` file and its dependencies:
+To include all utility classes without including GitLab UI components’ styles, import the base
+`utilities.scss` file and its dependencies:
 
 ```scss
 @import '@gitlab/ui/src/scss/functions';
@@ -61,13 +65,15 @@ To include all utility classes without including GitLab UI components’ styles,
 @import '@gitlab/ui/src/scss/utilities';
 ```
 
-Note: This is a generated file that includes all utility mixins as classes. To see this file in a local copy of GitLab UI, first generate it with the `yarn generate-utilities` script.
+Note: This is a generated file that includes all utility mixins as classes. To see this file in a
+local copy of GitLab UI, first generate it with the `yarn generate-utilities` script.
 
 ### Utility mixins
 
 Utility mixins are included as part of the [base SCSS file](#usage-with-a-scss-preprocessor).
 
-To use a utility mixin without including GitLab UI components’ styles, import the mixin file and its dependencies directly:
+To use a utility mixin without including GitLab UI components’ styles, import the mixin file and its
+dependencies directly:
 
 ```scss
 @import '@gitlab/ui/src/scss/functions';
@@ -82,7 +88,8 @@ To use a utility mixin without including GitLab UI components’ styles, import 
 }
 ```
 
-See [utility-mixins/index.scss](/src/scss/utility-mixins/index.scss) for a complete list of utility mixins available.
+See [utility-mixins/index.scss](/src/scss/utility-mixins/index.scss) for a complete list of utility
+mixins available.
 
 You may include all mixins by using the following imports:
 
