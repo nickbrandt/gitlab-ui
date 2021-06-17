@@ -52,9 +52,9 @@
 *
 * naming convention: gl-{breakpoint}-border-{position}-{style}
 */
-@mixin gl-sm-border-l-none {
-  @media (max-width: $breakpoint-md) {
-    border-left-style: none;
+@mixin gl-md-border-l-solid {
+  @media (min-width: $breakpoint-md) {
+    border-left-style: solid;
   }
 }
 
