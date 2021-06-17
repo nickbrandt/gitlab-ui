@@ -1,3 +1,10 @@
+# [29.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.37.1...v29.38.0) (2021-06-17)
+
+
+### Features
+
+* add gl-pt-11 util class ([010dfa5](https://gitlab.com/gitlab-org/gitlab-ui/commit/010dfa5bbef7a27de6ecc866aac5b0a7655e26a7)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/62965#note_604208606](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/62965/issues/note_604208606)
+
 ## [29.37.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.37.0...v29.37.1) (2021-06-17)
 
 
