@@ -1,3 +1,11 @@
+## [29.37.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.37.0...v29.37.1) (2021-06-17)
+
+
+### Bug Fixes
+
+* **css:** replace gl-sm-border-l-none with gl-md-border-l-solid ([5ce26ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ce26baaf018b69d691d5bfec3a1c7ed714db244))
+* **GlFilteredSearch:** Improve multi-select UX ([6cfe25c](https://gitlab.com/gitlab-org/gitlab-ui/commit/6cfe25c9828630e02340363633f406a3379924e7))
+
 # [29.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.36.0...v29.37.0) (2021-06-16)
 
 
