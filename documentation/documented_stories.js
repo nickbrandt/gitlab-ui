@@ -58,6 +58,7 @@ export const setupStorybookReadme = () =>
     StoryPreview: {
       disableForComponents: [
         'GlAlert',
+        'GlSparklineChart',
         'GlSprintf',
         'GlLink',
         'GlChart',

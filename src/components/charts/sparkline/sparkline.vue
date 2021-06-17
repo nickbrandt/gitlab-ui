@@ -19,20 +19,32 @@ export default {
     resizeObserver,
   },
   props: {
+    /**
+     * The data that is used to plot the chart.
+     */
     data: {
       type: Array,
       required: true,
     },
+    /**
+     * Controls the label that is shown within the chart's tooltip. Use it to describe your data.
+     */
     tooltipLabel: {
       type: String,
       required: false,
       default: '',
     },
+    /**
+     * Sets the chart's height in pixel.
+     */
     height: {
       type: Number,
       required: false,
       default: 50,
     },
+    /**
+     * Changes the color-variant used to render the chart.
+     */
     variant: {
       type: String,
       required: false,
@@ -41,6 +53,9 @@ export default {
         return Object.keys(variants).includes(value);
       },
     },
+    /**
+     * If enabled will show the value of the latest "y" data-point on the side right of the chart.
+     */
     showLastYValue: {
       type: Boolean,
       required: false,
@@ -131,6 +146,12 @@ export default {
   methods: {
     onChartCreated(chartInstance) {
       this.chartInstance = chartInstance;
+      /**
+       * Emitted when the chart is created.
+       * The payload contains the echarts instance.
+       * @event chartCreated
+       * @type {object}
+       */
       this.$emit('chartCreated', chartInstance);
     },
     handleResize() {
