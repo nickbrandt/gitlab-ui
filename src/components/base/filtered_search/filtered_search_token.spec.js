@@ -86,9 +86,10 @@ describe('Filtered search token', () => {
   it('activates data segment when clicked', async () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-    await findOperatorSegment().vm.$emit('activate');
+    await findDataSegment().vm.$emit('activate');
 
-    expect(findOperatorSegment().props().active).toBe(true);
+    expect(findDataSegment().props().active).toBe(true);
+    expect(wrapper.emitted('input')).toBeUndefined();
   });
 
   it('activates title segment when title is clicked', async () => {
@@ -261,12 +262,18 @@ describe('Filtered search token', () => {
         multiSelectValues: ['alpha', 'beta'],
         value: { operator: '=', data: 'alpha' },
       });
-
-      findDataSegment().vm.$emit('complete');
     });
 
-    it('emits input event when complete event is received', () => {
+    it('emits input event when data segment is completed', () => {
+      findDataSegment().vm.$emit('complete');
+
       expect(wrapper.emitted('input')).toEqual([[{ data: 'alpha,beta', operator: '=' }]]);
+    });
+
+    it('emits empty input event when data segment is activated, so blank text input shows all suggestions', () => {
+      findDataSegment().vm.$emit('activate');
+
+      expect(wrapper.emitted('input')).toEqual([[{ data: '', operator: '=' }]]);
     });
   });
 });

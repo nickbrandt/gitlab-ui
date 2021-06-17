@@ -18,6 +18,9 @@ const UserToken = {
     };
   },
   computed: {
+    filteredUsers() {
+      return this.users.filter((user) => user.username.includes(this.value.data));
+    },
     selectedUsers() {
       return this.config.multiSelect
         ? this.users.filter((user) => this.selectedUsernames.includes(user.username))
@@ -79,7 +82,7 @@ const UserToken = {
       </template>
     </template>
     <template #suggestions>
-      <gl-filtered-search-suggestion :key="user.id" v-for="user in users" :value="user.username">
+      <gl-filtered-search-suggestion :key="user.id" v-for="user in filteredUsers" :value="user.username">
         <div class="gl-display-flex gl-align-items-center">
           <gl-icon
             v-if="config.multiSelect"

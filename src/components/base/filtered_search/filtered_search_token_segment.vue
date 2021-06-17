@@ -167,10 +167,10 @@ export default {
     applySuggestion(suggestedValue) {
       const formattedSuggestedValue = wrapTokenInQuotes(suggestedValue);
 
-      this.$emit('input', formattedSuggestedValue);
       this.$emit('select', formattedSuggestedValue);
 
       if (!this.multiSelect) {
+        this.$emit('input', formattedSuggestedValue);
         this.$emit('complete', formattedSuggestedValue);
       }
     },
@@ -225,7 +225,9 @@ export default {
     },
 
     handleBlur() {
-      if (this.active) {
+      if (this.multiSelect) {
+        this.$emit('complete');
+      } else if (this.active) {
         this.$emit('deactivate');
       }
     },

@@ -19,7 +19,8 @@ Prepare array of available token configurations with the following fields:
 - `operators`: (optional) an array of selectable operators.
   Each array item is an object that must contain `value` and `description`, and optionally `default`
   (e.g. `{ value: '=', description: 'is', default: 'true' }`)
-- `multiSelect`: (optional) when `true`, the suggestions list becomes multi-select instead of single-select
+- `multiSelect`: (optional) when `true`, the suggestions list becomes multi-select instead of single-select.
+  It is discouraged to use this together with `unique`, as `unique` is intended for single-select.
 - `options`: (optional) an array of options which the user can pick after the operator has been selected.
   The option object can have the following properties defined: `value`, `icon`, `text`, and `default` 
   all of which are expected be of type `string`. If the `default` is omitted, the `value` of the first 
