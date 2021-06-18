@@ -1,3 +1,10 @@
+## [29.38.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.38.0...v29.38.1) (2021-06-18)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** Add role img to empty state image ([53ad49f](https://gitlab.com/gitlab-org/gitlab-ui/commit/53ad49f85b949eeb3b94a6d85388011f64d4f5dd))
+
 # [29.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.37.1...v29.38.0) (2021-06-17)
 
 
