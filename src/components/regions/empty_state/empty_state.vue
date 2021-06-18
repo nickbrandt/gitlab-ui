@@ -72,7 +72,7 @@ export default {
   <section class="row" :class="{ 'empty-state text-center': !compact }">
     <div :class="{ 'col-3 d-none d-sm-block': compact, 'col-12': !compact }">
       <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
-        <img :src="svgPath" alt="" class="gl-max-w-full" :height="height" />
+        <img :src="svgPath" alt="" role="img" class="gl-max-w-full" :height="height" />
       </div>
     </div>
     <div :class="compact ? 'col-sm-9' : 'col-12'">
