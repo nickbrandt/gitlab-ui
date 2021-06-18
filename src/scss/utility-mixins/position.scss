@@ -76,6 +76,10 @@
   top: 50%;
 }
 
+@mixin gl-right-auto {
+  right: auto;
+}
+
 @mixin gl-right-0 {
   right: 0;
 }
@@ -138,6 +142,10 @@
 
 @mixin gl-bottom-7 {
   bottom: $gl-spacing-scale-7;
+}
+
+@mixin gl-left-auto {
+  left: auto;
 }
 
 @mixin gl-left-0 {

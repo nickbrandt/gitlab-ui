@@ -1,28 +1,69 @@
 /* eslint-disable import/no-default-export */
-import iconsPath from '@gitlab/svgs/dist/icons.svg';
-import Toasted from '@gitlab/vue-toasted';
+import { ToastPlugin } from 'bootstrap-vue';
+import { isFunction } from 'lodash';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 const DEFAULT_OPTIONS = {
-  action: {
-    text: null,
-    icon: () => {
-      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      const path = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      icon.appendChild(path);
-      icon.setAttribute('class', 'gl-icon s14');
-      path.setAttribute('href', `${iconsPath}#close`);
-      return icon;
-    },
-    class: 'toast-close',
-    onClick: (e, toastObject) => toastObject.goAway(0),
-  },
-  iconPack: 'callback',
-  position: 'bottom-left',
-  duration: 5000,
-  singleton: true,
-  className: 'gl-toast',
-  keepOnHover: true,
+  autoHideDelay: 5000,
+  toastClass: 'gl-toast',
+  noCloseButton: true,
+  toaster: 'b-toaster-bottom-left',
 };
+
+let toastsCount = 0;
+
+function renderTitle(h, toast, options) {
+  const nodes = [
+    h(CloseButton, {
+      class: ['gl-toast-close-button', 'gl-close-btn-color-inherit'],
+      on: {
+        click: toast.hide,
+      },
+    }),
+  ];
+  if (options.action) {
+    nodes.splice(
+      0,
+      0,
+      h(
+        'a',
+        {
+          role: 'button',
+          class: ['gl-toast-action'],
+          on: {
+            click: (e) => options.action.onClick(e, toast),
+          },
+        },
+        options.action.text
+      )
+    );
+  }
+  return nodes;
+}
+
+function showToast(message, options = {}) {
+  const id = `gl-toast-${toastsCount}`;
+  toastsCount += 1;
+  const hide = () => {
+    this.$bvToast.hide(id);
+  };
+  const toast = { id, hide };
+
+  if (isFunction(options.onComplete)) {
+    this.$root.$on('bv::toast:hidden', (e) => {
+      if (e.componentId === id) {
+        options.onComplete(e);
+      }
+    });
+  }
+
+  this.$bvToast.toast(message, {
+    ...DEFAULT_OPTIONS,
+    id,
+    title: renderTitle(this.$createElement, toast, options),
+  });
+  return toast;
+}
 
 /**
  * Note: This is not a typical Vue component and needs to be registered before instantiating a Vue app.
@@ -32,23 +73,15 @@ const DEFAULT_OPTIONS = {
  */
 export default {
   install(Vue) {
-    /* eslint-disable no-param-reassign */
-    Vue.use(Toasted, DEFAULT_OPTIONS);
+    Vue.use(ToastPlugin);
 
-    Vue.prototype.$toast = {
-      show: (message, options = {}) =>
-        Vue.toasted.show(`<span role="alert">${message}</span>`, this.generateOptions(options)),
-    };
-  },
-  generateOptions(options) {
-    const updatedOptions = { ...DEFAULT_OPTIONS, ...options };
-
-    // ensures only one extra action can be added
-    // ensures toasts always have a close/dismiss button
-    if (options.action) {
-      updatedOptions.action = [options.action, DEFAULT_OPTIONS.action];
-    }
-
-    return updatedOptions;
+    Vue.mixin({
+      beforeCreate() {
+        if (this.$toast) {
+          return;
+        }
+        this.$toast = { show: showToast.bind(this) };
+      },
+    });
   },
 };
