@@ -1,13 +1,5 @@
-$gl-avatar-identicon-red: #ffebee;
-$gl-avatar-identicon-purple: #f3e5f5;
-$gl-avatar-identicon-indigo: #e8eaf6;
-$gl-avatar-identicon-blue: #e3f2fd;
-$gl-avatar-identicon-teal: #e0f2f1;
-$gl-avatar-identicon-orange: #fbe9e7;
-
-$gl-avatar-identicon-bgs: $gl-avatar-identicon-red, $gl-avatar-identicon-purple,
-  $gl-avatar-identicon-indigo, $gl-avatar-identicon-blue, $gl-avatar-identicon-teal,
-  $gl-avatar-identicon-orange, $gray-200;
+$gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $green-50, $orange-50,
+  $gray-50;
 
 .gl-avatar {
   @include gl-border-1;
