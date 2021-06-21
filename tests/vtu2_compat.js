@@ -28,6 +28,23 @@ function normalizeMountArgs(args = {}) {
   };
 }
 
+function wrapResults(results) {
+  return {
+    wrappers: results,
+    at(i) {
+      return results[i];
+    },
+
+    trigger(...params) {
+      results.forEach((w) => w.trigger(...params));
+    },
+
+    exists() {
+      return results.length > 0 && results.every((x) => x.exists());
+    },
+  };
+}
+
 module.exports = () => {
   // requiring VTU is not side-effect free, so defer it to real installation
   // eslint-disable-next-line global-require
@@ -45,5 +62,15 @@ module.exports = () => {
   const originalShallowMount = VTU.shallowMount;
   VTU.shallowMount = function patchedMount(component, args = {}) {
     return originalShallowMount.call(this, component, normalizeMountArgs(args));
+  };
+
+  const originalVueFindAll = VTU.VueWrapper.prototype.findAll;
+  VTU.VueWrapper.prototype.findAll = function patchedVueFindAll(...args) {
+    return wrapResults(originalVueFindAll.call(this, ...args));
+  };
+
+  const originalVueFindAllComponents = VTU.VueWrapper.prototype.findAllComponents;
+  VTU.VueWrapper.prototype.findAllComponents = function patchedVueFindAllComponents(...args) {
+    return wrapResults(originalVueFindAllComponents.call(this, ...args));
   };
 };
