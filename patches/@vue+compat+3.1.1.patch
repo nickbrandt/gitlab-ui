@@ -1,0 +1,36 @@
+diff --git a/node_modules/@vue/compat/dist/vue.cjs.js b/node_modules/@vue/compat/dist/vue.cjs.js
+index 7e2ccd6..773f95e 100644
+--- a/node_modules/@vue/compat/dist/vue.cjs.js
++++ b/node_modules/@vue/compat/dist/vue.cjs.js
+@@ -8433,7 +8433,8 @@ function getCompatListeners(instance) {
+ const v3CompiledRenderFnRE = /^(?:function \w*)?\(_ctx, _cache/;
+ function convertLegacyRenderFn(instance) {
+     const Component = instance.type;
+-    const render = Component.render;
++    const compileTarget = Component.render ? Component : instance;
++    const render = compileTarget.render;
+     // v3 runtime compiled, or already checked / wrapped
+     if (!render || render._rc || render._compatChecked || render._compatWrapped) {
+         return;
+@@ -8445,7 +8446,7 @@ function convertLegacyRenderFn(instance) {
+     }
+     // v2 render function, try to provide compat
+     if (checkCompatEnabled("RENDER_FUNCTION" /* RENDER_FUNCTION */, instance)) {
+-        const wrapped = (Component.render = function compatRender() {
++        const wrapped = (compileTarget.render = function compatRender() {
+             // @ts-ignore
+             return render.call(this, compatH);
+         });
+@@ -10059,6 +10060,12 @@ function finishComponentSetup(instance, isSSR, skipOptions) {
+         resetTracking();
+         currentInstance = null;
+     }
++    {
++        convertLegacyRenderFn(instance);
++        if (Component.compatConfig) {
++            validateCompatConfig(Component.compatConfig);
++        }
++    }
+     // warn missing template/render
+     // the runtime compilation of template in SSR is done by server-render
+     if (!Component.render && instance.render === NOOP && !isSSR) {
