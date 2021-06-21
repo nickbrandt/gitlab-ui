@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { addParameters, addDecorator } from '@storybook/vue';
 import { addReadme } from 'storybook-readme/vue';
 import { setupStorybookReadme } from '../documentation/documented_stories';
@@ -15,7 +16,11 @@ function addSbClass(c, a) {
 }
 
 addDecorator(addSbClass);
-addDecorator(addReadme);
+if (process.env.STORYBOOK_VUE_VERSION !== '3') {
+  addDecorator(addReadme);
+} else {
+  console.warn('Skipping storybook-readme setup: not supported for Vue3');
+}
 
 export const parameters = {
   options: {
@@ -77,3 +82,5 @@ addParameters({
     },
   },
 });
+
+console.info('Using Vue version', Vue.version);

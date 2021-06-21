@@ -6,6 +6,10 @@ const sassLoaderOptions = {
   includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
 };
 
+const compatConfig = {
+  MODE: 2,
+};
+
 module.exports = ({ config }) => {
   config.module.rules = [
     {
@@ -89,6 +93,20 @@ module.exports = ({ config }) => {
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
 
   config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
+
+  if (process.env.STORYBOOK_VUE_VERSION === '3') {
+    config.resolve.alias['vue$'] = require.resolve('@vue/compat/dist/vue.esm-bundler.js');
+    config.resolve.alias['@storybook/vue'] = '@storybook/vue3';
+    config.module.rules.forEach((rule) => {
+      if (rule.loader === 'vue-loader') {
+        rule.loader = 'vue-loader-vue3';
+        rule.loader.options = {
+          ...(rule.loader.options || {}),
+          compatConfig,
+        };
+      }
+    });
+  }
 
   // disable HMR in test environment because this breaks puppeteer's networkidle0 setting
   // which is needed for storyshots to function

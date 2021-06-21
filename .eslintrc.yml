@@ -6,7 +6,7 @@ parserOptions:
 rules:
   filenames/match-regex:
   - error
-  - "^[a-z_]+(\\.stories|\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
+  - "^[a-z0-9_]+(\\.stories|\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
   import/no-extraneous-dependencies: off
   no-restricted-imports:
   - error
