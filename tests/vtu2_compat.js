@@ -80,4 +80,15 @@ module.exports = () => {
     this.vm.$emit(propEvent, value);
     return this.vm.$nextTick();
   };
+
+  const originalEmitted = VTU.VueWrapper.prototype.emitted;
+
+  // emitted should not include hook events
+  VTU.VueWrapper.prototype.emitted = function patchedEmitted(arg) {
+    const result = originalEmitted.call(this, arg);
+
+    return arg
+      ? result
+      : Object.fromEntries(Object.entries(result).filter(([k]) => !k.startsWith('hook:')));
+  };
 };
