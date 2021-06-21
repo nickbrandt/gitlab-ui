@@ -73,4 +73,11 @@ module.exports = () => {
   VTU.VueWrapper.prototype.findAllComponents = function patchedVueFindAllComponents(...args) {
     return wrapResults(originalVueFindAllComponents.call(this, ...args));
   };
+
+  // setValue should use old vue2 event (input) as default
+  VTU.VueWrapper.prototype.setValue = function setValue(value, prop) {
+    const propEvent = prop || this.vm.model?.event || 'input';
+    this.vm.$emit(propEvent, value);
+    return this.vm.$nextTick();
+  };
 };
