@@ -26,6 +26,9 @@ const generateProps = ({
 const Template = (args, { argTypes }) => ({
   components: { GlAnimatedNumber },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template,
   data() {
     return {

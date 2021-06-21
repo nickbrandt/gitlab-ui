@@ -33,6 +33,9 @@ const Template = (args, { argTypes }) => ({
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template,
 });
 export const Default = Template.bind({});
@@ -43,6 +46,9 @@ const StackedStory = (args, { argTypes }) => ({
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template: `
     <div>
       <gl-broadcast-message

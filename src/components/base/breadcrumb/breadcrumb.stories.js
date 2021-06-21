@@ -42,6 +42,9 @@ const Template = (args, { argTypes }) => ({
     GlBreadcrumb,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template,
 });
 export const Default = Template.bind({});

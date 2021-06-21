@@ -46,6 +46,9 @@ const generateProps = ({
 const Template = (args, { argTypes }) => ({
   components: { GlAlert },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template,
 });
 

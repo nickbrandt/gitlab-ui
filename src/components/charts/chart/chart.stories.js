@@ -9,6 +9,9 @@ const Template = (args, { argTypes = {} }) => ({
     GlTab,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   data() {
     return {
       options: {

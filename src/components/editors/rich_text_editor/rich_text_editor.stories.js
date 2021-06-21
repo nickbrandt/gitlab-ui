@@ -14,9 +14,12 @@ export default {
   argTypes: {},
 };
 
-const Template = (_, { argTypes }) => ({
+const Template = (args, { argTypes }) => ({
   components: { GlRichTextEditor },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template: `
     <gl-rich-text-editor />
   `,

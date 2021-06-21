@@ -31,6 +31,9 @@ const generateProps = ({
 const Template = (args, { argTypes }) => ({
   components: { GlBadge },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template,
 });
 
@@ -58,6 +61,9 @@ BadgeIcon.args = generateProps({
 const ButtonBadgeStory = (args, { argTypes }) => ({
   components: { GlBadge, GlButton },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template: `
     <gl-button category="primary" variant="info">
       To-Do

@@ -16,6 +16,9 @@ const generateProps = ({
 const Template = (args, { argTypes }) => ({
   components: { GlToken },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template: `
     <div class="gl-display-flex">
       <gl-token :variant="variant" :view-only="viewOnly">Token</gl-token>

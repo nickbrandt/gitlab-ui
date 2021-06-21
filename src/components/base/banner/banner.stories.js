@@ -35,6 +35,9 @@ const Template = (args, { argTypes }) => ({
     GlBanner,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template,
 });
 export const Default = Template.bind({});
@@ -57,6 +60,9 @@ export const WithActions = (args, { argTypes }) => ({
     GlButton,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   template: `
     <gl-banner
       :title="title"

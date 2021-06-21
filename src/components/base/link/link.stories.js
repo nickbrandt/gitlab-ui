@@ -14,6 +14,9 @@ const makeStory = (options) => (args, { argTypes }) => ({
     GlLink,
   },
   props: Object.keys(argTypes),
+  setup() {
+    return { ...args };
+  },
   ...options,
 });
 
