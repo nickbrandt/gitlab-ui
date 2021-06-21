@@ -51,12 +51,15 @@ export default {
       v-model="selectedExampleId"
       class="mb-3"
     >
-      <template v-for="exampleGroup in exampleGroups">
-        <optgroup :key="exampleGroup.title" :label="exampleGroup.name"></optgroup>
-        <template v-for="example in exampleGroup.items">
-          <option :key="example.id" :value="example.id">{{ example.name }}</option>
-        </template>
-      </template>
+      <optgroup
+        v-for="exampleGroup in exampleGroups"
+        :key="exampleGroup.title"
+        :label="exampleGroup.name"
+      >
+        <option v-for="example in exampleGroup.items" :key="example.id" :value="example.id">
+          {{ example.name }}
+        </option>
+      </optgroup>
     </gl-form-select>
     <gl-example-display v-if="selectedExampleId" :example-name="selectedExampleId" />
   </div>

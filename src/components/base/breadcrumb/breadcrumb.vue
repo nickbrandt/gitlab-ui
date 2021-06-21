@@ -31,16 +31,16 @@ export default {
       <!-- @slot The avatar to display. -->
       <slot name="avatar"></slot>
       <template v-for="(item, index) in items">
+        <!-- eslint-disable-next-line vue/valid-v-for -->
         <b-breadcrumb-item
-          :key="index"
           class="gl-breadcrumb-item"
           :text="item.text"
           :href="item.href"
           :to="item.to"
         />
+        <!-- eslint-disable-next-line vue/require-v-for-key -->
         <span
           v-if="index != items.length - 1"
-          :key="`index ${item.text}`"
           class="gl-breadcrumb-separator"
           data-testid="separator"
         >

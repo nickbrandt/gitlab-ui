@@ -261,32 +261,31 @@ export default {
     </template>
     <template #input>
       <div class="gl-filtered-search-scrollable">
-        <template v-for="(token, idx) in tokens">
-          <component
-            :is="getTokenComponent(token.type)"
-            ref="tokens"
-            :key="`${token.type}-${idx}`"
-            v-model="token.value"
-            :config="getTokenEntry(token.type)"
-            :active="activeTokenIdx === idx"
-            :available-tokens="currentAvailableTokens"
-            :current-value="tokens"
-            :index="idx"
-            :placeholder="termPlaceholder"
-            :show-friendly-text="showFriendlyText"
-            class="gl-filtered-search-item"
-            :class="{
-              'gl-filtered-search-last-item': isLastToken(idx),
-            }"
-            @activate="activate(idx)"
-            @deactivate="deactivate(token)"
-            @destroy="destroyToken(idx)"
-            @replace="replaceToken(idx, $event)"
-            @complete="completeToken"
-            @submit="submit"
-            @split="createTokens(idx, $event)"
-          />
-        </template>
+        <component
+          :is="getTokenComponent(token.type)"
+          v-for="(token, idx) in tokens"
+          :key="`${token.type}-${idx}`"
+          ref="tokens"
+          v-model="token.value"
+          :config="getTokenEntry(token.type)"
+          :active="activeTokenIdx === idx"
+          :available-tokens="currentAvailableTokens"
+          :current-value="tokens"
+          :index="idx"
+          :placeholder="termPlaceholder"
+          :show-friendly-text="showFriendlyText"
+          class="gl-filtered-search-item"
+          :class="{
+            'gl-filtered-search-last-item': isLastToken(idx),
+          }"
+          @activate="activate(idx)"
+          @deactivate="deactivate(token)"
+          @destroy="destroyToken(idx)"
+          @replace="replaceToken(idx, $event)"
+          @complete="completeToken"
+          @submit="submit"
+          @split="createTokens(idx, $event)"
+        />
       </div>
       <portal-target
         ref="menu"
