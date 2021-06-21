@@ -1,3 +1,5 @@
+const Vue = require('vue');
+
 function normalizeMountArgs(args = {}) {
   const {
     propsData: props,
@@ -56,11 +58,13 @@ module.exports = () => {
   // location of certain options changed for mount & shallowMount
   const originalMount = VTU.mount;
   VTU.mount = function patchedMount(component, args = {}) {
+    delete component.functional;
     return originalMount.call(this, component, normalizeMountArgs(args));
   };
 
   const originalShallowMount = VTU.shallowMount;
   VTU.shallowMount = function patchedMount(component, args = {}) {
+    delete component.functional;
     return originalShallowMount.call(this, component, normalizeMountArgs(args));
   };
 
@@ -90,5 +94,13 @@ module.exports = () => {
     return arg
       ? result
       : Object.fromEntries(Object.entries(result).filter(([k]) => !k.startsWith('hook:')));
+  };
+
+  const originalVueFindComponent = VTU.VueWrapper.prototype.findComponent;
+  VTU.VueWrapper.prototype.findComponent = function patchedVueFindComponent(selector) {
+    if (selector?.ref && this.vm?.$refs[selector.ref] instanceof HTMLElement) {
+      return new VTU.DOMWrapper(this.vm?.$refs[selector.ref]);
+    }
+    return originalVueFindComponent.call(this, selector);
   };
 };
