@@ -2,10 +2,12 @@ const { matcherHint, printReceived, printExpected } = require('jest-matcher-util
 const get = require('lodash/get');
 const isString = require('lodash/isString');
 const Vue = require('vue');
+const installVTU2Compat = require('./vtu2_compat');
 const compatConfig = require('./vue3_compat');
 
 if (Vue.version.startsWith('3')) {
   Vue.configureCompat(compatConfig);
+  installVTU2Compat();
 }
 
 // setConfigs triggers bootstrap-vue import, which requires correct
