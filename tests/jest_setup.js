@@ -1,6 +1,17 @@
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
 const get = require('lodash/get');
 const isString = require('lodash/isString');
+const Vue = require('vue');
+const compatConfig = require('./vue3_compat');
+
+if (Vue.version.startsWith('3')) {
+  Vue.configureCompat(compatConfig);
+}
+
+// setConfigs triggers bootstrap-vue import, which requires correct
+// @vue/compat already in place before we proceed
+
+// eslint-disable-next-line import/order
 const setConfigs = require('../config').default;
 
 setConfigs();
