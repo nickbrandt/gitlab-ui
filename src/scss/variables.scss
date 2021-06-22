@@ -284,6 +284,7 @@ $t-gray-a-08: rgba($black, 0.08);
 $t-gray-a-24: rgba($black, 0.24);
 
 // Text
+$gl-font-weight-light: 300;
 $gl-font-weight-normal: 400;
 $gl-font-weight-bold: 600;
 
@@ -403,7 +404,7 @@ $focus-ring-inset: inset 0 0 0 $gl-border-size-3 rgba($blue-500, 0.48),
 // Toasts
 $toast-max-width: px-to-rem(586px);
 $toast-padding-right: px-to-rem(42px);
-$toast-background-color: rgba(#303030, 0.95);
+$toast-background-color: #303030;
 
 // Chart tooltip
 $chart-tooltip-max-width: px-to-rem(512px);

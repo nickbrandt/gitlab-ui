@@ -120,6 +120,10 @@
   font-weight: 100;
 }
 
+@mixin gl-font-weight-300 {
+  font-weight: 300;
+}
+
 @mixin gl-font-weight-normal {
   font-weight: $gl-font-weight-normal;
 }

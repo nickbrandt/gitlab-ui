@@ -44,7 +44,7 @@ function generateLong() {
     methods: {
       showToast() {
         this.$toast.show(
-          'This is a toast with a long content, an action, and <a href="https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-toast--with-long-content">a link</a>. Notice how the text wraps to multiple lines when the max-width is reached.',
+          'This is a toast with a long content and an action. Notice how the text wraps to multiple lines when the max-width is reached.',
           {
             action: {
               text: 'Undo action',

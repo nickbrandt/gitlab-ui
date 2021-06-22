@@ -1,61 +1,58 @@
 /*
 * These styles are specific to the gl-toast component.
-* Documentation: https://design.gitlab.com/components/toasts
-* Note: Styles below are nested in order to override some of vue-toasted's default styling
+* Documentation: https://design.gitlab.com/components/toast
 */
-.toasted-container {
-  max-width: $toast-max-width;
+.b-toaster {
+  &.b-toaster-bottom-left {
+    .b-toaster-slot {
+      @include gl-bottom-6;
+      @include gl-left-6;
+      @include gl-right-auto;
+      @include gl-w-auto;
 
-  @include media-breakpoint-down(xs) {
-    @include gl-w-full;
-    padding-right: $toast-padding-right;
+      @include media-breakpoint-down(xs) {
+        @include gl-w-full;
+        @include gl-left-0;
+        @include gl-right-0;
+      }
+    }
   }
 
-  .toasted.gl-toast {
+  .gl-toast {
     @include gl-rounded-base;
     @include gl-font-base;
-    @include gl-py-3;
-    @include gl-pr-5;
-    @include gl-pl-6;
-    @include gl-mt-3;
+    @include gl-py-5;
+    @include gl-px-6;
     @include gl-line-height-normal;
-    background-color: $toast-background-color;
-
-    span {
-      @include gl-pr-3;
-
-      a {
-        @include gl-text-blue-300;
-        @include gl-font-weight-bold;
-      }
-    }
-
-    @include media-breakpoint-down(xs) {
-      .action:first-of-type {
-        // Ensures actions buttons are right aligned on mobile
-        @include gl-ml-auto;
-      }
-    }
-
-    .action {
-      @include gl-text-blue-300;
-      @include gl-m-0;
-      @include gl-ml-3;
-      @include gl-text-transform-none;
-      @include gl-font-base;
-      @include gl-white-space-nowrap;
-    }
-
-    .toast-close {
-      @include gl-font-icon-size;
-      @include gl-ml-3;
-      color: color-yiq($toast-background-color);
-    }
+    @include gl-text-white;
+    @include gl-display-flex;
+    @include gl-align-items-center;
+    @include gl-justify-content-space-between;
   }
-}
 
-// Overrides the default positioning of toasts
-body .toasted-container.bottom-left {
-  @include gl-bottom-6;
-  @include gl-left-6;
+  .toast-body {
+    @include gl-font-weight-300;
+    @include gl-pr-3;
+    order: 1;
+  }
+  .toast-header {
+    @include gl-display-flex;
+    order: 2;
+  }
+
+  .gl-toast-action {
+    @include gl-text-blue-300;
+    @include gl-p-3;
+    @include gl-m-0;
+    @include gl-ml-5;
+    @include gl-text-transform-none;
+    @include gl-font-base;
+    @include gl-white-space-nowrap;
+    @include gl-font-weight-bold;
+    @include gl-cursor-pointer;
+  }
+
+  .gl-toast-close-button {
+    @include gl-ml-5;
+  }
 }

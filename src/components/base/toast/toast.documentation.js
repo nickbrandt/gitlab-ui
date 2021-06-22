@@ -2,7 +2,7 @@ import examples from './examples';
 import description from './toast.md';
 
 export default {
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   description,
   examples,
 };
