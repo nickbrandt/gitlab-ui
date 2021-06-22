@@ -59,6 +59,7 @@ function showToast(message, options = {}) {
 
   this.$bvToast.toast(message, {
     ...DEFAULT_OPTIONS,
+    ...options,
     id,
     title: renderTitle(this.$createElement, toast, options),
   });

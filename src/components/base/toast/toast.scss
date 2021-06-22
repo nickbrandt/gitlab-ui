@@ -18,6 +18,31 @@
     }
   }
 
+  .b-toast-success,
+  .b-toast-info,
+  .b-toast-warning,
+  .b-toast-danger {
+    .toast-header {
+      @include gl-bg-none;
+    }
+  }
+
+  .b-toast-success .gl-toast {
+    background-color: $success;
+  }
+
+  .b-toast-info .gl-toast {
+    background-color: $info;
+  }
+
+  .b-toast-warning .gl-toast {
+    background-color: $warning;
+  }
+
+  .b-toast-danger .gl-toast {
+    background-color: $danger;
+  }
+
   .gl-toast {
     @include gl-rounded-base;
     @include gl-font-base;
@@ -35,6 +60,7 @@
     @include gl-pr-3;
     order: 1;
   }
+
   .toast-header {
     @include gl-display-flex;
     order: 2;
