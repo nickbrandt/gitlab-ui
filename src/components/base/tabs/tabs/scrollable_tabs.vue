@@ -107,7 +107,10 @@ export default {
     v-bind="passthroughAttrs"
     v-on="$listeners"
   >
-    <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
+    <template v-for="(_, slot) of $slots" #[slot]="scope">
+      <slot :name="slot" v-bind="scope"></slot>
+    </template>
+
     <template #tabs-start>
       <li v-show="displayScrollLeft" class="gl-tabs-fade gl-tabs-fade-left">
         <button

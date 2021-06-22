@@ -223,7 +223,9 @@ export default {
     v-bind="$attrs"
     v-on="listeners"
   >
-    <slot v-for="slot in Object.keys($slots)" :slot="slot" :name="slot"></slot>
+    <template v-for="(_, slot) of $slots" #[slot]="scope">
+      <slot :name="slot" v-bind="scope"></slot>
+    </template>
 
     <template v-if="hasActions" #tabs-start>
       <div data-testid="actions-tabs-start" class="gl-actions-tabs-start">
