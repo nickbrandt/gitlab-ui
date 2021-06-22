@@ -1,3 +1,51 @@
+# [30.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.38.1...v30.0.0) (2021-06-22)
+
+
+### Bug Fixes
+
+* **GlToast:** set background opacity to 1 ([46983f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/46983f5711ebc08d3ef423d1d3dd9fb8372cf04a))
+
+
+### Code Refactoring
+
+* **toast:** Replace vue-toasted with BootstrapVue's Toast plugin ([59e94f9](https://gitlab.com/gitlab-org/gitlab-ui/commit/59e94f9a5cedb135698f1db8ce7065d9859b205c))
+
+
+### BREAKING CHANGES
+
+* **toast:** This replaces the internal toasts library.
+
+BootstrapVue's built-in toasts are now used instead of `vue-toasted`.
+
+As a result, the following changes should be made when upgrading:
+
+* The following options have been renamed:
+    * `duration` now is `autoHideDelay`
+    * `className` now is `toasClass`.
+* The following options are not supported anymore:
+    * `fullWidth`
+    * `fitToScreen`
+    * `containerClass`
+    * `iconPack`
+    * `Icon`
+    * `theme`
+    * `closeOnSwipe`
+    * `keepOnHover`
+    * `singleton`
+    * `type` (note that while this option was previously supported, it
+      didn't have any effect visually and can thus be removed altogether)
+* It is not possible to render HTML in toasts' body anymore, make sure
+  to only pass plain text to the `.show()` method.
+* To adhere with the design system, the `position` option has also been
+  removed. Toasts should only appear in the bottom-left corner.
+* The callbacks have been backported:
+    * `onComplete` should work as usual.
+    * `onClick`'s second argument is an object with the following
+      properties:
+      * `id` is the BootstrapVue toast's ID.
+      * `hide` is a method that can be called to hide the toast. It
+        replaces `goAway(0)`.
+
 ## [29.38.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.38.0...v29.38.1) (2021-06-18)
 
 
