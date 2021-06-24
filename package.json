@@ -77,6 +77,9 @@
     "pikaday": "^1.8.0",
     "vue": "^2.6.10"
   },
+  "resolutions": {
+    "chokidar": "^3.5.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
