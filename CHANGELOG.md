@@ -1,3 +1,10 @@
+## [30.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.0.0...v30.0.1) (2021-06-28)
+
+
+### Bug Fixes
+
+* **GlSafeLinkDirective:** pass arguments to `update` hook ([3a4de98](https://gitlab.com/gitlab-org/gitlab-ui/commit/3a4de98fecfe8e7808e3e83cd84a0639c1e6f33b))
+
 # [30.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v29.38.1...v30.0.0) (2021-06-22)
 
 
