@@ -51,7 +51,7 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "prestylelint": "yarn generate-utilities",
     "stylelint:fix": "yarn stylelint --fix",
-    "markdownlint": "markdownlint ./README.md ./FAQ.md ./**/*.md",
+    "markdownlint": "markdownlint '**/*.md' --ignore node_modules --ignore CHANGELOG.md",
     "markdownlint:fix": "yarn markdownlint --fix",
     "lint": "run-p prettier eslint stylelint markdownlint",
     "lint:fix": "run-s prettier:fix eslint:fix stylelint:fix markdownlint:fix",

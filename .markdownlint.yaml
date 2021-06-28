@@ -2,3 +2,6 @@ default: true,
 line-length:
   line_length: 100
   headings: false
+first-line-heading: false
+no-inline-html: false
+no-space-in-code: false
