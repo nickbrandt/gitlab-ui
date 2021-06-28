@@ -54,6 +54,9 @@ documentedStoriesOf('base/table', readme)
         :fixed="fixed"
         :stacked="stacked"
         :foot-clone="footClone"
+        hover
+        selectable
+        selected-variant="primary"
       />
     `,
     fields: [
