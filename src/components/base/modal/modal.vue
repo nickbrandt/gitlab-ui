@@ -163,8 +163,11 @@ export default {
       </slot>
       <close-button ref="close-button" :label="dismissLabel" @click="close" />
     </template>
+    <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-ok" name="modal-ok"></slot>
+    <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-cancel" name="modal-cancel"></slot>
+    <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-footer" name="modal-footer">
       <gl-button
         v-if="actionCancel"

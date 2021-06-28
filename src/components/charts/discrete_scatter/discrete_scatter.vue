@@ -175,10 +175,12 @@ export default {
       :left="tooltipPosition.left"
     >
       <template v-if="formatTooltipText">
+        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
         <slot slot="title" name="tooltip-title"></slot>
         <slot name="tooltip-content"></slot>
       </template>
       <template v-else>
+        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
         <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
         <tooltip-default-format :tooltip-content="tooltipContent" />
       </template>

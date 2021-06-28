@@ -81,6 +81,7 @@ export default {
       This is why `triggers` is currently set to an empty string
     -->
     <gl-popover v-bind="$attrs" :target="containerId" :container="containerId" triggers="">
+      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
       <slot slot="title" name="title"></slot>
       <slot></slot>
     </gl-popover>

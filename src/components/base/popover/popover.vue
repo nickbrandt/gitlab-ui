@@ -39,6 +39,7 @@ export default {
     v-bind="$attrs"
     v-on="$listeners"
   >
+    <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <template slot="title">
       <slot name="title"></slot>
     </template>

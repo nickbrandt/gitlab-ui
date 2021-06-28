@@ -238,6 +238,7 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
+      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
       <div slot="title">{{ tooltipTitle }} ({{ yAxisTitle }})</div>
       <tooltip-default-format :tooltip-content="tooltipContent" />
     </chart-tooltip>
