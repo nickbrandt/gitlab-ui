@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DocsContext } from '@storybook/addon-docs/blocks';
+import { DocsContext } from '@storybook/addon-docs';
 import { SyntaxHighlighter } from '@storybook/components';
 
 export const ImportInfo = ({ children }) => {

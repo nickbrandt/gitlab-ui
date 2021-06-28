@@ -7,7 +7,7 @@ import {
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 import { ImportInfo } from './blocks/ImportInfo';
 
 export const page = () => (
