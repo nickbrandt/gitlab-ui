@@ -48,9 +48,9 @@ const transform = (el, { arg: { skipSanitization = false } = {} } = {}) => {
 
 export const SafeLinkDirective = {
   inserted: transform,
-  update: (el) => {
+  update: (...args) => {
     Vue.nextTick(() => {
-      transform(el);
+      transform(...args);
     });
   },
 };
