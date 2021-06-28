@@ -4,7 +4,8 @@ The filtered search component is responsible for managing search with possible f
 
 ## Usage
 
-Each filter option (named token) requires a separate Vue component. `GlFilteredSearchToken` is an example of such a token.
+Each filter option (named token) requires a separate Vue component. `GlFilteredSearchToken` is an
+example of such a token.
 
 Prepare array of available token configurations with the following fields:
 
@@ -22,14 +23,15 @@ Prepare array of available token configurations with the following fields:
 - `multiSelect`: (optional) when `true`, the suggestions list becomes multi-select instead of single-select.
   It is discouraged to use this together with `unique`, as `unique` is intended for single-select.
 - `options`: (optional) an array of options which the user can pick after the operator has been selected.
-  The option object can have the following properties defined: `value`, `icon`, `text`, and `default` 
-  all of which are expected be of type `string`. If the `default` is omitted, the `value` of the first 
+  The option object can have the following properties defined: `value`, `icon`, `text`, and `default`
+  all of which are expected be of type `string`. If the `default` is omitted, the `value` of the first
   option will be displayed as a suggestion
 - any additional fields required to configure your component
 
 Each token for filtered search is a Vue component with the following props:
 
-- `value`: an object with a `data` property containing the current value, and optionally an `operator` value containing the operator value
+- `value`: an object with a `data` property containing the current value, and optionally an
+`operator` value containing the operator value
 - `active`: indicates if the token is currently active. It's the token's responsibility
   to render proper control for editing (for example input).
 - `current-value`: current tokens of the filtered search.
@@ -56,7 +58,8 @@ const availableTokens = [
 ];
 ```
 
-Pass the list of tokens to the search component. Optionally, you can use `v-model` to receive realtime updates:
+Pass the list of tokens to the search component. Optionally, you can use `v-model` to receive
+realtime updates:
 
 ```js
  <gl-filtered-search :available-tokens="tokens" v-model="value" />

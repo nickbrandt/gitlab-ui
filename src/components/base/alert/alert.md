@@ -27,6 +27,9 @@ For example:
   ...
 </template>
 ```
+
 ## Sticky alerts
 
-Any alert can use `position: sticky`, however it should be limited to critical alerts where keeping the alert visually in context is necessary or when alerts are injected into a page and might otherwise go unnoticed.
+Any alert can use `position: sticky`, however it should be limited to critical alerts where keeping
+the alert visually in context is necessary or when alerts are injected into a page and might
+otherwise go unnoticed.

@@ -1,18 +1,22 @@
 ### Usage
 
-The `gl-table` component wraps BootstrapVue `b-table` component. `b-table` provides a variety of slots for custom data rendering. You can learn more about them in the [component documentation](https://bootstrap-vue.org/docs/components/table). When using the component, pass in the `fields` prop as part of the `$options`,
-and give each table data and table head its own styles if necessary.
+The `gl-table` component wraps BootstrapVue `b-table` component. `b-table` provides a variety of
+slots for custom data rendering. You can learn more about them in the
+[component documentation](https://bootstrap-vue.org/docs/components/table).
+When using the component, pass in the `fields` prop as part of the `$options`, and give each table
+data and table head its own styles if necessary.
 
 **Internationalization**
 
-To ensure we internationalize field labels, always pass an array of objects for the `fields` prop, like mentioned in the implementation example.
+To ensure we internationalize field labels, always pass an array of objects for the `fields` prop,
+like mentioned in the implementation example.
 
 _Full documentation for the
 `field` prop [here.](https://bootstrap-vue.org/docs/components/table#fields-column-definitions)_
 
 ### Implementation Example
 
-```js
+```html
 <script>
 export default {
   fields: [

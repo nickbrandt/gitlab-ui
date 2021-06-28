@@ -28,7 +28,7 @@ This is how a full implementation would look like with paginated results from Gi
 
 In the component's state, initialize a `pageInfo` object:
 
-```
+```js
 pageInfo: {
   currentPage: 0,
   nextPage: 0,
@@ -52,7 +52,7 @@ GitLab called `parseIntPagination` in `common/utils.js`_
 
 Every time `bottomReached` happens, update the state in your mutations:
 
-```
+```js
 state.searchResults = state.searchResults.concat(results.data);
 Vue.set(state.pageInfo, 'nextPage', parseInt(headers['X-Next-Page'],10));
 Vue.set(state.pageInfo, 'totalPages', parseInt(headers['X-Total-Pages'],10));
@@ -62,7 +62,7 @@ Use the state to fetch the next page in the actions. In this case, the `Projects
 API allows us to send in a `page` parameter to fetch a certain page from the
 list of results.
 
-```
+```js
 export const fetchNextPage = ({ state, dispatch }) => {
   if(state.pageInfo.currentPage < state.pageInfo.totalPages) {
     Api.projects(searchQuery, { page: state.pageInfo.nextPage })

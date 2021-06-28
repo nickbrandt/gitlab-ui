@@ -15,4 +15,5 @@ Questions? Head to our [FAQ](./FAQ.md) where you might find some answers.
 
 ## GitLab's contribution guidelines
 
-Please refer to [gitlab's CONTRIBUTING.md](https://gitlab.com/gitlab-org/gitlab/blob/master/CONTRIBUTING.md) for details on our guidelines.
+Please refer to [gitlab's CONTRIBUTING.md](https://gitlab.com/gitlab-org/gitlab/blob/master/CONTRIBUTING.md)
+for details on our guidelines.

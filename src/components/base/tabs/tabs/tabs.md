@@ -2,9 +2,12 @@
 
 <!-- STORY -->
 ## Usage
-Tabs are used to divide content into meaningful, related sections. Tabs allow users to focus on one specific view at a time while maintaining sight of all the relevant content options available. Each tab, when active, will reveal it’s own unique content.
 
-**Using the component Vue**
+Tabs are used to divide content into meaningful, related sections. Tabs allow users to focus on one
+specific view at a time while maintaining sight of all the relevant content options available. Each
+tab, when active, will reveal it’s own unique content.
+
+## Using the component Vue
 
 ~~~js
 <gl-tabs theme="indigo">
@@ -17,7 +20,7 @@ Tabs are used to divide content into meaningful, related sections. Tabs allow us
 </gl-tabs>
 ~~~
 
-**Using the component HTML**
+## Using the component HTML
 
 ~~~js
 <div class="tabs gl-tabs">
@@ -41,10 +44,12 @@ Tabs are used to divide content into meaningful, related sections. Tabs allow us
 </div>
 ~~~
 
-**Adding Action Buttons to the Tabs**
+## Adding Action Buttons to the Tabs
 
-Tabs start and end slot can be populated via props: `action-primary`, `action-secondary` and `action-tertiary`.
-These props allow you to handle how a primary, secondary and tertiary button will behave and look. The props receive an object as such:
+Tabs start and end slot can be populated via props: `action-primary`, `action-secondary` and
+`action-tertiary`. These props allow you to handle how a primary, secondary and tertiary button will
+behave and look. The props receive an object as such:
+
 ~~~js
 {
   text: 'Save Changes',
@@ -57,7 +62,7 @@ These props allow you to handle how a primary, secondary and tertiary button wil
 }
 ~~~
 
-**Scrollable tab buttons**
+## Scrollable tab buttons
 
 By default, `GlTab` will wrap tab buttons when they overflow the container. To
 enable horizontally scrolling for the tab buttons, use the `GlScrollableTabs`
@@ -66,7 +71,8 @@ component. This is a separate Vue component because of some limitations:
 - The action props (e.g., `action-primary`) are not respected in `GlScrollableTabs`. At the
   moment, BootstrapVue does not provide a reliable way for us to achieve this desired combination.
 
-`GlScrollableTabs` composes `GlTabs` and passes through every listener, slot, or prop (with the above exceptions).
+`GlScrollableTabs` composes `GlTabs` and passes through every listener, slot, or prop (with the above
+exceptions).
 
 ~~~html
 <gl-scrollable-tabs theme="indigo">

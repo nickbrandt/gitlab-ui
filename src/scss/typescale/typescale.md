@@ -62,19 +62,23 @@ Text size is determined by the following parameters:
 #### Variables
 
 Typescale variables are located in the `scss/variables.scss`. They follow the naming convention:
-`$gl-font-size-[content-type]-[font-family]-[element-type]-[breakpoint]`. Default typescale parameters are omitted from the variable name. For example:
+`$gl-font-size-[content-type]-[font-family]-[element-type]-[breakpoint]`. Default typescale
+parameters are omitted from the variable name. For example:
 
 ```sass
-$gl-font-size-h1: px-to-rem(23px); // content-type: UI, font-family: regular, element-type: h1, media breakpoint: default
+// content-type: UI, font-family: regular, element-type: h1, media breakpoint: default
+$gl-font-size-h1: px-to-rem(23px);
 
-$gl-font-size-markdown-h1-xl: px-to-rem(32px); // content-type: markdown, font-family: regular, element-type: h1, media-breakpoint: min-width: 1200px
+// content-type: markdown, font-family: regular, element-type: h1, media-breakpoint: min-width: 1200px
+$gl-font-size-markdown-h1-xl: px-to-rem(32px); 
 
-$gl-font-size-compact-markdown-lg: px-to-rem(15px); // content-type: compact markdown, font-family: regular, element-type: large paragraph / label
+// content-type: compact markdown, font-family: regular, element-type: large paragraph / label
+$gl-font-size-compact-markdown-lg: px-to-rem(15px); 
 ```
 
 ### Line-height
 
-The minimum line-height in Pajamas’ typescale specification is `16px`/`1rem`. Label text, which is any text
-that is neither paragraph nor a header, uses this line-height. Paragraphs have a line-height of
-`20px`/`1.25rem`. You can see the line-height for other typescale’s elements in the
+The minimum line-height in Pajamas’ typescale specification is `16px`/`1rem`. Label text, which is
+any text that is neither paragraph nor a header, uses this line-height. Paragraphs have a
+line-height of `20px`/`1.25rem`. You can see the line-height for other typescale’s elements in the
 [typescale sketch file](https://gitlab-org.gitlab.io/gitlab-design/hosted/pedro/%23168-responsive-type-spec-previews/).

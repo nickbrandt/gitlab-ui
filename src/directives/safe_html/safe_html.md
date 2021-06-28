@@ -53,7 +53,8 @@ const config = { ALLOWED_TAGS: [] };
 ```
 
 For advanced configuration options, please refer to [DOMPurify's documentation](https://github.com/cure53/DOMPurify#can-i-configure-dompurify).
+
 ### Notes
 
-1. `target` attribute is not allowed by default - See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1427.
-1.  To know more about other tips & caveats - See https://gitlab.com/groups/gitlab-org/-/epics/4273#caveats.
+1. `target` attribute is not allowed by default - See <https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1427>.
+1. To know more about other tips & caveats - See <https://gitlab.com/groups/gitlab-org/-/epics/4273#caveats>.

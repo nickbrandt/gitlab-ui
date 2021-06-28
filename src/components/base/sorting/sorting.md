@@ -4,17 +4,25 @@
 
 ## Usage
 
-The sorting component allows the user to select the field on which they would like to sort a list and whether to sort in ascending or descending order.
+The sorting component allows the user to select the field on which they would like to sort a list
+and whether to sort in ascending or descending order.
 
-The dropdown part of the sorting component is a standard `gl-dropdown` component, with the items exposed as a slot. Inside the `gl-sorting` component, you should add a list of `gl-sorting-item` components to construct your sorting options. The check icon will be displayed when a `gl-sorting-item` has its `active` prop set to `true`.
+The dropdown part of the sorting component is a standard `gl-dropdown` component, with the items
+exposed as a slot. Inside the `gl-sorting` component, you should add a list of `gl-sorting-item`
+components to construct your sorting options. The check icon will be displayed when a
+`gl-sorting-item` has its `active` prop set to `true`.
 
-The `gl-sorting` component expects its parent component to manage the `text` and `is-ascending` props. It does not track these using internal state.
+The `gl-sorting` component expects its parent component to manage the `text` and `is-ascending`
+props. It does not track these using internal state.
 
-A sort update should be triggered by clicking a `gl-sorting-item` component (and therefore should have a `@click` event bound or a `href` prop in the case of navigation) or by clicking the direction button. You should bind a function to the `sortDirectionChange` event to receive the new `is-ascending` value and re-order your data appropriately.
+A sort update should be triggered by clicking a `gl-sorting-item` component (and therefore should
+have a `@click` event bound or a `href` prop in the case of navigation) or by clicking the direction
+button. You should bind a function to the `sortDirectionChange` event to receive the new
+`is-ascending` value and re-order your data appropriately.
 
 A complete implementation example might look like:
 
-```javascript
+```html
 <template>
   <gl-sorting
     :text="dropdownText"

@@ -34,9 +34,7 @@ Here's a simple `options` tree for example:
 `GlFormCheckboxTree` exposes the selected options via a `v-model` which is being kept in sync with
 the `change` event.
 
-
 ## Dos and don'ts
-
 
 ### Don't
 

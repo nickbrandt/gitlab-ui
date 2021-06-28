@@ -1,10 +1,11 @@
 ## Usage
 
-This component provides two `<slot>` elements for customization. The first is a `<slot #avatar>` so an avatar can appear before the first breadcrumb. The second is a `<slot #separator>` to
-customize the icon that appears between each
-breadcrumb.
+This component provides two `<slot>` elements for customization. The first is a `<slot #avatar>`
+so an avatar can appear before the first breadcrumb. The second is a `<slot #separator>` to
+customize the icon that appears between each breadcrumb.
 
-**note:** the component supports passing the property `to` in the list items to enable navigation through `vue-router`
+**note:** the component supports passing the property `to` in the list items to enable navigation
+through `vue-router`
 
 ### Example
 
