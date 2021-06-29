@@ -1,3 +1,10 @@
+# [30.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.0.1...v30.1.0) (2021-06-29)
+
+
+### Features
+
+* add gl-mx-n5 mixin ([6d6d705](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d6d7055eee8e3b666b7e4cf18a21966d8684fbd))
+
 ## [30.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.0.0...v30.0.1) (2021-06-28)
 
 
