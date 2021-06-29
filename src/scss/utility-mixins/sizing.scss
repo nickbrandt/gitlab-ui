@@ -204,6 +204,12 @@
   }
 }
 
+@mixin gl-md-w-50p {
+  @media (min-width: $breakpoint-md) {
+    width: 50%;
+  }
+}
+
 /**
 * Minimum/Maximun dimension (width/height) utilities
 *
@@ -257,4 +263,19 @@
 
 @mixin gl-max-w-100vw {
   max-width: 100vw;
+}
+
+/**
+* Responsive Minimum/Maximun dimension (width/height) utilities
+*
+* naming convention: gl-{breakpoint}-{min|max}-{w|h}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+
+@mixin gl-md-max-w-30p {
+  @media (min-width: $breakpoint-md) {
+    max-width: 30%;
+  }
 }
