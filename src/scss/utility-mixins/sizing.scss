@@ -273,7 +273,6 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 
-
 @mixin gl-md-max-w-30p {
   @media (min-width: $breakpoint-md) {
     max-width: 30%;
