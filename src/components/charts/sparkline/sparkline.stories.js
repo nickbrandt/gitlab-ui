@@ -1,17 +1,8 @@
-import { withKnobs, object, select, text, number, boolean } from '@storybook/addon-knobs';
 import { GlSparklineChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { sparkline } from '../../../utils/charts/theme';
 import readme from './sparkline.md';
 
-// only show the storybook knob if there are more than one variants configured
-const shouldShowVariantsKnob = Object.keys(sparkline.variants).length > 1;
-
-const components = {
-  GlSparklineChart,
-};
-
-const data = [
+const chartData = [
   ['Mon', 10],
   ['Tue', 15],
   ['Wed', 9],
@@ -21,49 +12,55 @@ const data = [
   ['Sun', 18],
 ];
 
-const template = `
-  <div>
-    <gl-sparkline-chart
-      :data="data"
-      :variant="variant"
-      :height="height"
-      :tooltip-label="tooltipLabel"
-      :show-last-y-value="showLastYValue"
-    />
-  </div>
-`;
+const generateProps = ({
+  data = chartData,
+  variant = sparkline.defaultVariant,
+  height = 50,
+  tooltipLabel = 'tooltipLabel',
+  showLastYValue = true,
+} = {}) => ({
+  data,
+  variant,
+  height,
+  tooltipLabel,
+  showLastYValue,
+});
 
-function generateProps({ showLastYValue = true } = {}) {
-  return {
-    data: {
-      default: object('data', data),
+const Template = (args) => ({
+  components: { GlSparklineChart },
+  props: Object.keys(args),
+  template: `
+    <div>
+      <gl-sparkline-chart
+        :data="data"
+        :variant="variant"
+        :height="height"
+        :tooltip-label="tooltipLabel"
+        :show-last-y-value="showLastYValue"
+      />
+    </div>`,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'charts/sparkline-chart',
+  component: GlSparklineChart,
+  parameters: {
+    knobs: { disabled: true },
+    docs: {
+      description: {
+        component: readme,
+      },
     },
+  },
+  argTypes: {
     variant: {
-      default: shouldShowVariantsKnob
-        ? select('variant', Object.keys(sparkline.variants), sparkline.defaultVariant)
-        : sparkline.defaultVariant,
+      control: {
+        type: 'select',
+        options: Object.keys(sparkline.variants),
+      },
     },
-    height: {
-      default: number('height', 50, { range: true, min: 50, max: 300, step: 10 }),
-    },
-    tooltipLabel: {
-      default: text('tooltipLabel', 'label'),
-    },
-    showLastYValue: {
-      default: boolean('showLastYValue', showLastYValue),
-    },
-  };
-}
-
-documentedStoriesOf('charts/sparkline-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('without last y value', () => ({
-    props: generateProps({ showLastYValue: false }),
-    components,
-    template,
-  }));
+  },
+};
