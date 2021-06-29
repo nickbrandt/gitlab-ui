@@ -116,19 +116,19 @@ documentedStoriesOf('base/modal', readme)
     template: generateTemplate(),
   }))
   .add('opened modal', () => ({
-    props: generateProps({ visible: true }),
+    props: generateProps({ visible: false }),
     components,
     directives,
     template: generateTemplate(),
   }))
   .add('with scrolling content', () => ({
-    props: generateProps({ contentPagraphs: 100, scrollable: true, visible: true }),
+    props: generateProps({ contentPagraphs: 100, scrollable: true, visible: false }),
     components,
     directives,
     template: generateTemplate(),
   }))
   .add('with a header', () => ({
-    props: generateProps({ visible: true }),
+    props: generateProps({ visible: false }),
     components,
     directives,
     template: generateTemplate({
@@ -138,7 +138,7 @@ documentedStoriesOf('base/modal', readme)
     }),
   }))
   .add('without a footer', () => ({
-    props: generateProps({ visible: true }),
+    props: generateProps({ visible: false }),
     components,
     directives,
     template: generateTemplate({
