@@ -705,6 +705,11 @@
   margin-right: -#{$gl-spacing-scale-4};
 }
 
+@mixin gl-mx-n5 {
+  margin-left: -#{$gl-spacing-scale-5};
+  margin-right: -#{$gl-spacing-scale-5};
+}
+
 /**
 * Responsive margin utilities.
 *
