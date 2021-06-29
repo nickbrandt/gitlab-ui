@@ -1,7 +1,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 
+import { ChartTooltip } from '../../../../tests/stubs';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
 import SparklineChart from './sparkline.vue';
 import { sparkline } from '~/utils/charts/theme';
 import { waitForAnimationFrame } from '~/utils/test_utils';
@@ -46,6 +46,9 @@ describe('sparkline chart component', () => {
         variant: null,
       },
       scopedSlots: { latestSeriesEntry: jest.fn() },
+      stubs: {
+        ChartTooltip,
+      },
     };
 
     wrapper = shallowMount(SparklineChart, componentOptions);

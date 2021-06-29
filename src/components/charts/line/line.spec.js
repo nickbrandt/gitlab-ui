@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
+import { ChartTooltip } from '../../../../tests/stubs';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import LineChart from './line.vue';
@@ -26,6 +27,9 @@ describe('line component', () => {
   const createShallowWrapper = (props = {}) => {
     wrapper = shallowMount(LineChart, {
       propsData: { option, data: [], ...props },
+      stubs: {
+        ChartTooltip,
+      },
     });
     emitChartCreated();
   };

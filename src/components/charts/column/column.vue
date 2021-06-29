@@ -203,7 +203,9 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
+      <template #title>
+        <div>{{ tooltipTitle }} ({{ xAxisTitle }})</div>
+      </template>
       <tooltip-default-format :tooltip-content="tooltipContent" />
     </chart-tooltip>
   </div>

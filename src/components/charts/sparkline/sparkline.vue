@@ -205,8 +205,10 @@ export default {
         :style="{ pointerEvents: 'none' }"
         placement="top"
       >
-        <div slot="title" class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
-        <div slot="default" class="js-tooltip-content d-flex">
+        <template #title>
+          <div class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
+        </template>
+        <div class="js-tooltip-content d-flex">
           <span v-if="tooltipLabel" class="pr-4 mr-auto">{{ tooltipLabel }}</span>
           <strong>{{ tooltip.content }}</strong>
         </div>

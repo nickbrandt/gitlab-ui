@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
+import { ChartTooltip } from '../../../../tests/stubs';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import AreaChart from './area.vue';
@@ -24,7 +25,10 @@ describe('area component', () => {
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
   const createShallowWrapper = (props = {}) => {
-    wrapper = shallowMount(AreaChart, { propsData: { option, data: [], ...props } });
+    wrapper = shallowMount(AreaChart, {
+      propsData: { option, data: [], ...props },
+      stubs: { ChartTooltip },
+    });
     emitChartCreated();
   };
 

@@ -39,7 +39,7 @@ export default {
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <template slot="title">
+    <template v-if="$slots.title" #title>
       <slot name="title"></slot>
     </template>
     <slot></slot>

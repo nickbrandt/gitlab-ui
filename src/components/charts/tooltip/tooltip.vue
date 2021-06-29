@@ -81,7 +81,9 @@ export default {
       This is why `triggers` is currently set to an empty string
     -->
     <gl-popover v-bind="$attrs" :target="containerId" :container="containerId" triggers="">
-      <slot slot="title" name="title"></slot>
+      <template v-if="$slots.title" #title>
+        <slot name="title"></slot>
+      </template>
       <slot></slot>
     </gl-popover>
   </div>

@@ -29,7 +29,7 @@ export default {
 
 <template>
   <gl-table :items="$options.items" :fields="$options.fields">
-    <template slot="custom_markup" slot-scope="items">
+    <template #custom_markup="items">
       <div class="text-primary">
         {{ items.item.col_2 }}
       </div>

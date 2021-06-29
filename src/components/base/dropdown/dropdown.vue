@@ -200,13 +200,15 @@ export default {
         <slot name="footer"></slot>
       </div>
     </div>
-    <slot slot="button-content" name="button-content">
-      <gl-loading-icon v-if="loading" class="gl-mr-2" />
-      <gl-icon v-if="icon" class="dropdown-icon" :name="icon" />
-      <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
-        <slot name="button-text">{{ buttonText }}</slot>
-      </span>
-      <gl-icon v-if="renderCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
-    </slot>
+    <template #button-content>
+      <slot name="button-content">
+        <gl-loading-icon v-if="loading" class="gl-mr-2" />
+        <gl-icon v-if="icon" class="dropdown-icon" :name="icon" />
+        <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
+          <slot name="button-text">{{ buttonText }}</slot>
+        </span>
+        <gl-icon v-if="renderCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
+      </slot>
+    </template>
   </b-dropdown>
 </template>
