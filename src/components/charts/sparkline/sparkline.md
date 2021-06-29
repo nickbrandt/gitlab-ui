@@ -1,4 +1,3 @@
-### Sparkline Chart
 
 This is a basic sparkline chart.
 
