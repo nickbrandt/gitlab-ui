@@ -1,14 +1,15 @@
 ## Intersperse
 
 The intersperse component separates a list of elements
-by a given character (the default is `,`).
+by a given character (the default is `, `).
 
 It takes all direct descendants of its default slot and inserts
 the given separator between each item:
 
 `item 1, item 2, item 3`
 
-Optionally the character used for separating each item and the last separator can be set independently:
+Optionally the character used for separating each item and the last separator can be set
+independently:
 
 * `separator="/"`  renders `item 1/item 2/item 3`
 * `lastSeparator=" and "` will render `item 1, item 2, and item 3`
@@ -18,7 +19,8 @@ Optionally the character used for separating each item and the last separator ca
 
 The component provides an inline context since the result is wrapped in a `span`.
 
-Also, whitespace elements that are direct children of the default-slot get removed to ensure consistent formatting.
+Also, whitespace elements that are direct children of the default-slot get removed to ensure
+consistent formatting.
 
 ## Usage
 
