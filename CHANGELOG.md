@@ -1,3 +1,11 @@
+# [30.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.1.0...v30.2.0) (2021-06-30)
+
+
+### Features
+
+* add gl-md-max-w-30p and gl-md-w-50p classes ([73336c1](https://gitlab.com/gitlab-org/gitlab-ui/commit/73336c12b206389559f7cb7d89675939ead809ad))
+* remove gl-flex-grow-4 class ([60e0b5c](https://gitlab.com/gitlab-org/gitlab-ui/commit/60e0b5c1358ee898cbefd9d57cdb0c797979d772))
+
 # [30.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.0.1...v30.1.0) (2021-06-29)
 
 
