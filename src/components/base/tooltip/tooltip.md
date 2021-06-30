@@ -2,7 +2,7 @@
 
 Using the tooltip component is recommended if you have HTML content.
 It is also currently required if the tooltip content needs to change while it's visible
-(see [thisupstream issue]). In all other cases, please use the directive.
+(see [this upstream issue]). In all other cases, please use the directive.
 
 [this upstream issue]: https://github.com/bootstrap-vue/bootstrap-vue/issues/2142
 
