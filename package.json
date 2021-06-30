@@ -81,6 +81,7 @@
     "chokidar": "^3.5.2"
   },
   "devDependencies": {
+    "@arkweid/lefthook": "^0.7.6",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@gitlab/eslint-plugin": "8.4.0",
