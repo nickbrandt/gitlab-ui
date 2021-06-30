@@ -79,27 +79,18 @@ describe('drawer component', () => {
     });
   });
 
-  describe('header', () => {
-    it('renders nodes when added to the header slot', () => {
-      mountWithOpts({
-        slots: {
-          header: '<div class="test-header">Test</div>',
-        },
-      });
-
-      expect(wrapper.find('.gl-drawer-header').find('.test-header').exists()).toBe(true);
+  it.each`
+    slot         | parentSelector
+    ${'title'}   | ${'.gl-drawer-title'}
+    ${'header'}  | ${'.gl-drawer-header'}
+    ${'default'} | ${'.gl-drawer-body'}
+  `('renders nodes when added to the $slot slot', ({ slot, parentSelector }) => {
+    mountWithOpts({
+      slots: {
+        [slot]: `<div data-testid="${slot}" />`,
+      },
     });
-  });
 
-  describe('body', () => {
-    it('renders nodes when added to the body slot', () => {
-      mountWithOpts({
-        slots: {
-          default: '<li class="item-one">One</li>',
-        },
-      });
-
-      expect(wrapper.find('.gl-drawer-body').findAll('.item-one').length).toBe(1);
-    });
+    expect(wrapper.find(parentSelector).find(`[data-testid="${slot}"]`).exists()).toBe(true);
   });
 });
