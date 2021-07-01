@@ -5,7 +5,8 @@
 
 ## Usage
 
-The dropdown component offers a user multiple items or actions to choose from which are initially collapsed behind a button.
+The dropdown component offers a user multiple items or actions to choose from which are initially
+collapsed behind a button.
 
 ### Icon-only dropdown
 
@@ -28,13 +29,15 @@ Optionally, you can use `no-caret` to remove the caret and `category="tertiary"`
 
 There are 3 ways to set the dropdown button's content.
 
-1. Use the `text` attribute. This will display the text with the loading spinner (shown with the `loading` attribute), icon (if provided by the `icon` attribute), and dropdown caret:
+1. Use the `text` attribute. This will display the text with the loading spinner (shown with the
+`loading` attribute), icon (if provided by the `icon` attribute), and dropdown caret:
 
     ```html
     <gl-dropdown text="Button text">
     ```
 
-1. Use the `button-text` template. This allows custom content for the button's text, but keeps the loading spinner, icon, and dropdown caret:
+1. Use the `button-text` template. This allows custom content for the button's text, but keeps the
+loading spinner, icon, and dropdown caret:
 
     ```html
     <gl-dropdown>

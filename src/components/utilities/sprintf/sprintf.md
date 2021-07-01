@@ -226,10 +226,10 @@ them _unless_ you find `GlSprintf` isn't rendering what you'd expect.
   scoped slot.
 - For more examples and edge cases, please see the test suite for `GlSprintf`.
 - To be successfully used in `GlSprintf`, slot names should:
-  * start with a letter (`[A-Za-z]`)
-  * only contain alpha-numeric characters (`[A-Za-z0-9]`), underscore (`_`) and
+  - start with a letter (`[A-Za-z]`)
+  - only contain alpha-numeric characters (`[A-Za-z0-9]`), underscore (`_`) and
     dash (`-`),
-  * should not end with underscore (`_`) or dash (`-`) So for example:
+  - should not end with underscore (`_`) or dash (`-`) So for example:
     `%{author}`, `%{author_name}`, `%{authorName}` or `%{author-name-100}` are
     all valid placeholders.
 

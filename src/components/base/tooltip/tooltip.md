@@ -1,13 +1,14 @@
 ## Usage
 
 Using the tooltip component is recommended if you have HTML content.
-It is also currently required if the tooltip content needs to change while it's visible (see [this upstream issue]).
-In all other cases, please use the directive.
+It is also currently required if the tooltip content needs to change while it's visible
+(see [this upstream issue]). In all other cases, please use the directive.
 
 [this upstream issue]: https://github.com/bootstrap-vue/bootstrap-vue/issues/2142
 
 **Using the component**
-~~~js
+
+~~~html
 <gl-button ref="someButton">
   ...
 </gl-button>
@@ -21,7 +22,7 @@ In all other cases, please use the directive.
 
 You will need to import and register `GlTooltipDirective` before you can use it.
 
-~~~js
+~~~html
 <script>
 import { GlTooltipDirective } from '@gitlab/ui';
 
@@ -45,6 +46,7 @@ export default {
 `v-gl-tooltip` directive uses the same attributes as [`v-b-tooltip`].
 
 ## Under the hood
+
 Tooltip uses [`<b-tooltip>`] and [`v-b-tooltip`] internally.
 
 [`<b-tooltip>`]: https://bootstrap-vue.org/docs/components/tooltip

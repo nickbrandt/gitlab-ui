@@ -4,9 +4,10 @@
 
 ## Usage
 
-Toasts are used to display system messages. The messages are short and straightforward. It may contain a dismiss button, and an action button depending on the situation.
+Toasts are used to display system messages. The messages are short and straightforward. It may
+contain a dismiss button, and an action button depending on the situation.
 
-**Using the plugin**
+## Using the plugin
 
 In order to use the plugin, it needs to be included in your application with `Vue.use`.
 

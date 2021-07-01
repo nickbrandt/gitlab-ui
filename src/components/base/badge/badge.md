@@ -12,7 +12,8 @@ indicate an issue’s status, a member’s role, or if a branch is protected.
 
 ### Using icon-only badges
 
-When a badge only has an icon and no slot content, be sure to set the `aria-label` attribute of the badge for best accessibility.
+When a badge only has an icon and no slot content, be sure to set the `aria-label` attribute of the
+badge for best accessibility.
 
 ```html
 <!-- bad -->
@@ -28,9 +29,9 @@ While this component is based on
 [`BBadge`](https://bootstrap-vue.org/docs/components/badge) from
 `bootstrap-vue`, it is not a drop-in replacement. Specifically, this component:
 
- - Has a different set of valid `variant`s. See the examples or props
+- Has a different set of valid `variant`s. See the examples or props
    documentation for those values.
- - Always sets the `pill` prop of the underlying `BBadge` to `true`. Any passed
+- Always sets the `pill` prop of the underlying `BBadge` to `true`. Any passed
    in `pill` prop value is ignored.
- - Does _not_ scale itself to match the size of its immediate parent, like
+- Does _not_ scale itself to match the size of its immediate parent, like
    `BBadge` does.

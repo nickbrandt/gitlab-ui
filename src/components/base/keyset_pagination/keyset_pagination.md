@@ -53,4 +53,4 @@ GraphQL endpoints at GitLab.</small>
 
 ## Pajamas reference
 
-https://design.gitlab.com/components/pagination
+<https://design.gitlab.com/components/pagination>

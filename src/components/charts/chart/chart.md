@@ -13,4 +13,4 @@ This component emits the following events during the ECharts lifecycle:
 
 In all cases, the event payload is the echart instance.
 
-[echarts]: https://echarts.apache.org 
+[echarts]: https://echarts.apache.org
