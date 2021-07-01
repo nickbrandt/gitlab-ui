@@ -37,7 +37,7 @@ documentedStoriesOf('directives/safe-html-directive', readme)
         <tr>
           <td><strong>v-html</strong></td>
           <td><code v-html="$options.escape(unsafeHTML)"></code></td>
-          <td v-html="unsafeHTML"></td>
+          <td>N/A for security reasons</td>
         </tr>
         <tr>
           <td><strong>v-safe-html</strong></td>
