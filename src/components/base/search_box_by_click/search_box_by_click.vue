@@ -154,7 +154,7 @@ export default {
         category="secondary"
         :disabled="disabled"
       >
-        <template slot="button-content">
+        <template #button-content>
           <gl-icon name="history" class="gl-search-box-by-click-history-icon" />
           <gl-icon name="chevron-down" class="gl-search-box-by-click-history-icon-chevron" />
           <span class="gl-sr-only">Toggle history</span>

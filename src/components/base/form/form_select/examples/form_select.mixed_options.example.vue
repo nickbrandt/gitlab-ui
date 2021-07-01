@@ -14,7 +14,7 @@ export default {
 
 <template>
   <gl-form-select v-model="selected" :options="options">
-    <template slot="first">
+    <template #first>
       <option :value="null" disabled>Select a dish</option>
     </template>
   </gl-form-select>

@@ -339,6 +339,7 @@ export default {
       :left="annotationsTooltipPosition.left"
       placement="bottom"
     >
+      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
       <div slot="title">{{ annotationsTooltipTitle }}</div>
       <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
@@ -353,10 +354,12 @@ export default {
       :left="dataTooltipPosition.left"
     >
       <template v-if="formatTooltipText">
+        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
         <slot slot="title" name="tooltip-title"></slot>
         <slot name="tooltip-content"></slot>
       </template>
       <template v-else>
+        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
         <div slot="title">
           {{ dataTooltipTitle }}
           <template v-if="options.xAxis.name">({{ options.xAxis.name }})</template>
