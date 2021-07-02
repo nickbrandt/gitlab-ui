@@ -6,11 +6,13 @@ A Vue Directive to sanitize HTML to avoid any XSS vulnerabilities.
 
 ## Usage
 
-This directive can be used to sanitize HTML code which may contain user input, to prevent cross-site scripting (XSS) vulnerabilities.
+This directive can be used to sanitize HTML code which may contain user input, to prevent cross-site
+scripting (XSS) vulnerabilities.
 
 Under the hood, it uses [DOMPurify](https://github.com/cure53/DOMPurify) to sanitize the provided HTML.
 
-DOMPurify will strip out dangerous HTML and will keep the safe HTML. You can refer complete list of [tags][1] and [attributes][2] allowed by DOMPurify.
+DOMPurify will strip out dangerous HTML and will keep the safe HTML. You can refer complete list of
+[tags][1] and [attributes][2] allowed by DOMPurify.
 
 [1]: https://github.com/cure53/DOMPurify/blob/main/src/tags.js
 [2]: https://github.com/cure53/DOMPurify/blob/main/src/attrs.js

@@ -4,9 +4,10 @@ This should correspond to the short description in Pajamas' website: https://des
 -->
 
 The Rich Text Editor is a UI component that provides a WYSIWYG editing
-experience for[GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.md#gitlab-flavored-markdown-gfm) (GFM) in the GitLab application.
-It also serves as the foundation for implementing Markdown-focused editors
-that target other engines, like static site generators.
+experience for[GitLab Flavored Markdown](https://docs.gitlab.com/ee/user/markdown.md#gitlab-flavored-markdown-gfm)
+(GFM) in the GitLab application.
+It also serves as the foundation for implementing Markdown-focused editors that target other engines,
+like static site generators.
 
 <!-- Provide technical information on how to use the component, add code examples if relevant. -->
 
