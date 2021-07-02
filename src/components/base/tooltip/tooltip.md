@@ -6,7 +6,7 @@ It is also currently required if the tooltip content needs to change while it's 
 
 [this upstream issue]: https://github.com/bootstrap-vue/bootstrap-vue/issues/2142
 
-**Using the component**
+## Using the component
 
 ~~~html
 <gl-button ref="someButton">
@@ -18,7 +18,7 @@ It is also currently required if the tooltip content needs to change while it's 
 </gl-tooltip>
 ~~~
 
-**Using the directive**
+## Using the directive
 
 You will need to import and register `GlTooltipDirective` before you can use it.
 

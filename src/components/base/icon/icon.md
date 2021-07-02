@@ -9,7 +9,8 @@ The Icon component can be used to render any svg within the @gitlab/svgs icon sp
 If the icon is not decorative, add an `aria-label` attribute to `gl-icon` to give it an accessible name.
 This label is read out by screen readers.
 
-If the icon is clickable, use `gl-button` instead of `gl-icon` because a clickable element should semantically be a button.
+If the icon is clickable, use `gl-button` instead of `gl-icon` because a clickable element should
+semantically be a button.
 
 ```html
 <!-- icon, which is hidden from screen readers by default  -->
@@ -22,4 +23,5 @@ If the icon is clickable, use `gl-button` instead of `gl-icon` because a clickab
 <gl-button icon="close" category="tertiary" class="gl-p-0!" aria-label="Close" />
 ```
 
-For more information about icons within GitLab, visit the [GitLab accessibility guidelines](https://docs.gitlab.com/ee/development/fe_guide/accessibility#icons).
+For more information about icons within GitLab, visit the
+[GitLab accessibility guidelines](https://docs.gitlab.com/ee/development/fe_guide/accessibility#icons).

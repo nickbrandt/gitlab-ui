@@ -61,4 +61,5 @@ export default {
 
 ## Stacked
 
-By default, the GitLab Design guide mandates the `<gl-form-radio-group>` be `stacked` by default and is non-changeable at this time.
+By default, the GitLab Design guide mandates the `<gl-form-radio-group>` be `stacked` by default and
+is non-changeable at this time.

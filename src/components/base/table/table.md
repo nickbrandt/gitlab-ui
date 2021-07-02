@@ -1,4 +1,4 @@
-### Usage
+## Usage
 
 The `gl-table` component wraps BootstrapVue `b-table` component. `b-table` provides a variety of
 slots for custom data rendering. You can learn more about them in the
@@ -6,7 +6,7 @@ slots for custom data rendering. You can learn more about them in the
 When using the component, pass in the `fields` prop as part of the `$options`, and give each table
 data and table head its own styles if necessary.
 
-**Internationalization**
+## Internationalization
 
 To ensure we internationalize field labels, always pass an array of objects for the `fields` prop,
 like mentioned in the implementation example.
@@ -14,7 +14,7 @@ like mentioned in the implementation example.
 _Full documentation for the
 `field` prop [here.](https://bootstrap-vue.org/docs/components/table#fields-column-definitions)_
 
-### Implementation Example
+## Implementation Example
 
 ```html
 <script>
