@@ -24,15 +24,15 @@ documentedStoriesOf('base/carousel', readme).add('default carousel', () => ({
       <gl-carousel-slide
         caption="First slide"
         text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="/img/carousel_slide1.jpg"
+        img-src="./img/carousel_slide1.jpg"
       />
 
       <!-- Slides with custom text -->
-      <gl-carousel-slide img-src="/img/carousel_slide2.jpg">
+      <gl-carousel-slide img-src="./img/carousel_slide2.jpg">
         <h1>Hello world!</h1>
       </gl-carousel-slide>
 
       <!-- Slides with image only -->
-      <gl-carousel-slide img-src="/img/carousel_slide3.jpg"/>
+      <gl-carousel-slide img-src="./img/carousel_slide3.jpg"/>
     </gl-carousel>`,
 }));
