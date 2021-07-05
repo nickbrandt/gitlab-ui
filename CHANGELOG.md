@@ -1,3 +1,10 @@
+## [30.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.2.0...v30.2.1) (2021-07-05)
+
+
+### Bug Fixes
+
+* **GlTable:** update hover and selected primary background ([ac37040](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac37040065e43616a53ebdf04a92d552a85acdd9))
+
 # [30.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.1.0...v30.2.0) (2021-06-30)
 
 
