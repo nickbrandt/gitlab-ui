@@ -34,7 +34,7 @@ export const WithAvatar = () => ({
   components: { GlToken },
   template: `
     <div class="gl-display-flex">
-    <gl-token><gl-avatar src="/img/avatar.png" :size="16" />Token</gl-token>
+    <gl-token><gl-avatar src="./img/avatar.png" :size="16" />Token</gl-token>
     </div>`,
 });
 

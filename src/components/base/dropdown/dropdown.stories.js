@@ -262,7 +262,7 @@ documentedStoriesOf('base/dropdown', readme)
     components,
     template: wrap`
       <gl-dropdown-item
-        avatar-url="/img/avatar.png"
+        avatar-url="./img/avatar.png"
         secondary-text="@sytses"
       >
         Sid Sijbrandij

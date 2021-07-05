@@ -28,7 +28,7 @@ documentedStoriesOf('base/dropdown/dropdown-item', readme)
         is-checked
         is-check-item
         is-check-centered
-        avatar-url="/img/avatar.png"
+        avatar-url="./img/avatar.png"
         secondary-text="@sytses"
       >
         Sid Sijbrandij
