@@ -24,6 +24,13 @@ table.gl-table {
     }
   }
 
+  .table-primary,
+  .table-primary:hover {
+    > td {
+      @include gl-bg-blue-50;
+    }
+  }
+
   @mixin gl-tmp-stacked-override {
     tbody > tr {
       &::after {
