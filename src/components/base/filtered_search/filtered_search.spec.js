@@ -68,30 +68,33 @@ describe('Filtered search', () => {
       });
     });
 
-    it('passes clearable true when not empty', () => {
+    it('passes clearable true when not empty', async () => {
       createComponent({
         value: [{ type: 'faketoken', value: { data: '' } }],
       });
+      await wrapper.vm.$nextTick();
 
       expect(findSearchBox().props('clearable')).toBe(true);
     });
 
-    it('denormalizes strings if needed', () => {
+    it('denormalizes strings if needed', async () => {
       createComponent({
         value: ['one', 'two'],
       });
+      await wrapper.vm.$nextTick();
 
-      const inputEventArgs = wrapper.emitted().input[0][0];
+      const inputEventArgs = wrapper.emitted().input[1][0];
       expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
       expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
 
-    it('splits strings if needed', () => {
+    it('splits strings if needed', async () => {
       createComponent({
         value: ['one two'],
       });
+      await wrapper.vm.$nextTick();
 
-      const inputEventArgs = wrapper.emitted().input[0][0];
+      const inputEventArgs = wrapper.emitted().input[1][0];
       expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
       expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
@@ -112,122 +115,129 @@ describe('Filtered search', () => {
       expect(wrapper.emitted()[eventName][0]).toStrictEqual(payload);
     });
 
-    it('activates token when requested', () => {
+    it('activates token when requested', async () => {
       createComponent({
         value: [{ type: 'faketoken', value: '' }],
       });
+      await wrapper.vm.$nextTick();
+
       wrapper.find(FakeToken).vm.$emit('activate');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find(FakeToken).props('active')).toBe(true);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.find(FakeToken).props('active')).toBe(true);
     });
 
-    it('deactivates token when requested', () => {
+    it('deactivates token when requested', async () => {
       createComponent({
         value: [{ type: 'faketoken', value: '' }],
       });
+      await wrapper.vm.$nextTick();
+
       wrapper.find(FakeToken).vm.$emit('activate');
       wrapper.find(FakeToken).vm.$emit('deactivate');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(
-          wrapper.findAllComponents({ ref: 'tokens' }).filter((w) => w.props('active') === true)
-        ).toHaveLength(0);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(
+        wrapper.findAllComponents({ ref: 'tokens' }).filter((w) => w.props('active') === true)
+      ).toHaveLength(0);
     });
 
-    it('ignores deactivate requests from non-active tokens', () => {
+    it('ignores deactivate requests from non-active tokens', async () => {
       createComponent({
         value: [
           { type: 'faketoken', value: { data: '1' } },
           { type: 'faketoken', value: { data: '2' } },
         ],
       });
-      return wrapper.vm
-        .$nextTick()
-        .then(() => {
-          wrapper.find(FakeToken).vm.$emit('activate');
-          wrapper.findAllComponents(FakeToken).at(1).vm.$emit('deactivate');
-          return wrapper.vm.$nextTick();
-        })
-        .then(() => {
-          expect(wrapper.find(FakeToken).props('active')).toBe(true);
-        });
+      await wrapper.vm.$nextTick();
+
+      wrapper.find(FakeToken).vm.$emit('activate');
+      wrapper.findAllComponents(FakeToken).at(1).vm.$emit('deactivate');
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.find(FakeToken).props('active')).toBe(true);
     });
 
-    it('removes empty term tokens on deactivate', () => {
+    it('removes empty term tokens on deactivate', async () => {
       const findSecondTerm = () => wrapper.findAllComponents(GlFilteredSearchTerm).at(1);
       createComponent({
         value: [{ type: 'faketoken', value: { data: '' } }, 'one', 'two', 'three'],
       });
-      return wrapper.vm
-        .$nextTick()
-        .then(() => {
-          findSecondTerm().vm.$emit('activate');
-          findSecondTerm().vm.$emit('input', { data: '' });
-          return wrapper.vm.$nextTick();
-        })
-        .then(() => {
-          findSecondTerm().vm.$emit('deactivate');
-          return wrapper.vm.$nextTick();
-        })
-        .then(() => {
-          expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-            { type: 'faketoken', value: { data: '' } },
-            { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
-            { type: TERM_TOKEN_TYPE, value: { data: 'three' } },
-            { type: TERM_TOKEN_TYPE, value: { data: '' } },
-          ]);
-        });
+
+      await wrapper.vm.$nextTick();
+
+      findSecondTerm().vm.$emit('activate');
+      findSecondTerm().vm.$emit('input', { data: '' });
+
+      await wrapper.vm.$nextTick();
+
+      findSecondTerm().vm.$emit('deactivate');
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: 'faketoken', value: { data: '' } },
+        { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+        { type: TERM_TOKEN_TYPE, value: { data: 'three' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
-    it('destroys token if requested', () => {
+    it('destroys token if requested', async () => {
       createComponent({
         value: [{ type: 'faketoken', value: '' }, 'one'],
       });
+      await wrapper.vm.$nextTick();
 
       wrapper.find(FakeToken).vm.$emit('destroy');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
-          { type: TERM_TOKEN_TYPE, value: { data: '' } },
-        ]);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
-    it('brings focus to previous token if current is destroyed', () => {
+    it('brings focus to previous token if current is destroyed', async () => {
       createComponent({
         value: ['one', { type: 'faketoken', value: '' }, 'two'],
       });
+      await wrapper.vm.$nextTick();
 
       wrapper.find(FakeToken).vm.$emit('destroy');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find(GlFilteredSearchTerm).props('active')).toBe(true);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.find(GlFilteredSearchTerm).props('active')).toBe(true);
     });
 
-    it('does not destroy last token', () => {
+    it('does not destroy last token', async () => {
       createComponent();
       wrapper.find(GlFilteredSearchTerm).vm.$emit('destroy');
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: { data: '' } },
-        ]);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
-    it('replaces token when requested', () => {
+    it('replaces token when requested', async () => {
       createComponent();
       wrapper
         .find(GlFilteredSearchTerm)
         .vm.$emit('replace', { type: 'faketoken', value: { data: 'test' } });
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: 'faketoken', value: { data: 'test' } },
-          { type: TERM_TOKEN_TYPE, value: { data: '' } },
-        ]);
-      });
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: 'faketoken', value: { data: 'test' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
     it('replaces token after clear when requested', async () => {
@@ -251,49 +261,52 @@ describe('Filtered search', () => {
       ]);
     });
 
-    it('inserts single token when requested', () => {
+    it('inserts single token when requested', async () => {
       createComponent({ value: ['one'] });
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
       wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
-          { type: TERM_TOKEN_TYPE, value: { data: '' } },
-        ]);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
-    it('jumps to last token when insert of empty term requested', () => {
+    it('jumps to last token when insert of empty term requested', async () => {
       createComponent({ value: ['one', 'two'] });
+      await wrapper.vm.$nextTick();
+
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
       wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
-        expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-          { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
-          { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
-          { type: TERM_TOKEN_TYPE, value: { data: '' } },
-        ]);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+        { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
-    it('inserts multiple tokens when requested', () => {
+    it('inserts multiple tokens when requested', async () => {
       createComponent({ value: ['one'] });
       wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
-      return wrapper.vm
-        .$nextTick()
-        .then(() => {
-          wrapper.find(GlFilteredSearchTerm).vm.$emit('split', ['foo', 'bar']);
-          return wrapper.vm.$nextTick();
-        })
-        .then(() => {
-          expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
-            { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
-            { type: TERM_TOKEN_TYPE, value: { data: 'foo' } },
-            { type: TERM_TOKEN_TYPE, value: { data: 'bar' } },
-            { type: TERM_TOKEN_TYPE, value: { data: '' } },
-          ]);
-        });
+
+      await wrapper.vm.$nextTick();
+
+      wrapper.find(GlFilteredSearchTerm).vm.$emit('split', ['foo', 'bar']);
+
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+        { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
+        { type: TERM_TOKEN_TYPE, value: { data: 'foo' } },
+        { type: TERM_TOKEN_TYPE, value: { data: 'bar' } },
+        { type: TERM_TOKEN_TYPE, value: { data: '' } },
+      ]);
     });
 
     it('submits entire search when submit is requested', () => {
@@ -325,10 +338,12 @@ describe('Filtered search', () => {
     ]);
   });
 
-  it('passes required props to tokens', () => {
+  it('passes required props to tokens', async () => {
     createComponent({
       value: [{ type: 'faketoken', value: '' }],
     });
+    await wrapper.vm.$nextTick();
+
     const fakeTokenInstance = wrapper.find(FakeToken);
     expect(fakeTokenInstance.exists()).toBe(true);
     expect(Object.keys(fakeTokenInstance.attributes())).toEqual(
@@ -414,10 +429,10 @@ describe('Filtered search integration tests', () => {
   });
 
   describe('when first term is clicked', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       mountComponent();
       activate(0);
-      return wrapper.vm.$nextTick();
+      await wrapper.vm.$nextTick();
     });
 
     it('brings focus to term element input', () => {
@@ -434,118 +449,118 @@ describe('Filtered search integration tests', () => {
       );
     });
 
-    it('updates suggestions list as you type', () => {
+    it('updates suggestions list as you type', async () => {
       const input = findInput();
       input.setValue('sta'); // partial of "static"
-      return wrapper.vm.$nextTick().then(() => {
-        const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
-        expect(suggestions.exists()).toBe(true);
-        expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(1);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      expect(suggestions.exists()).toBe(true);
+      expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(1);
     });
 
-    it('resets suggestions list as you press Space', () => {
+    it('resets suggestions list as you press Space', async () => {
       const input = findInput();
       input.setValue('--wrong-- ');
-      return wrapper.vm.$nextTick().then(() => {
-        const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
-        expect(suggestions.exists()).toBe(true);
-        expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(3);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      expect(suggestions.exists()).toBe(true);
+      expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(3);
     });
 
-    it('does not render suggestions list if there are no suggestions available', () => {
+    it('does not render suggestions list if there are no suggestions available', async () => {
       const input = findInput();
       input.setValue('--wrong--');
-      return wrapper.vm.$nextTick().then(() => {
-        const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
-        expect(suggestions.exists()).toBe(false);
-      });
+
+      await wrapper.vm.$nextTick();
+
+      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      expect(suggestions.exists()).toBe(false);
     });
 
-    it('replaces term with token when suggestion is selected', () => {
+    it('replaces term with token when suggestion is selected', async () => {
       const input = findInput();
       input.trigger('keydown', { key: 'ArrowDown' });
-      return wrapper.vm
-        .$nextTick()
-        .then(() => {
-          input.trigger('keydown', { key: 'Enter' });
-          return wrapper.vm.$nextTick();
-        })
-        .then(() => {
-          const token = wrapper.find(GlFilteredSearchToken);
-          expect(token.exists()).toBe(true);
-        });
+
+      await wrapper.vm.$nextTick();
+
+      input.trigger('keydown', { key: 'Enter' });
+
+      await wrapper.vm.$nextTick();
+
+      const token = wrapper.find(GlFilteredSearchToken);
+      expect(token.exists()).toBe(true);
     });
 
-    it('calls alignSuggestion for new tokens', () => {
+    it('calls alignSuggestion for new tokens', async () => {
       const input = findInput();
       input.trigger('keydown', { key: 'ArrowDown' });
       const alignSuggestionsSpy = jest.spyOn(wrapper.vm, 'alignSuggestions');
-      return wrapper.vm
-        .$nextTick()
-        .then(() => {
-          input.trigger('keydown', { key: 'Enter' });
-          return wrapper.vm.$nextTick();
-        })
-        .then(() => {
-          expect(alignSuggestionsSpy).toHaveBeenCalled();
-        });
+
+      await wrapper.vm.$nextTick();
+
+      input.trigger('keydown', { key: 'Enter' });
+
+      await wrapper.vm.$nextTick();
+
+      expect(alignSuggestionsSpy).toHaveBeenCalled();
     });
   });
 
-  it('does not render unique token in suggestions list if it is already present', () => {
+  it('does not render unique token in suggestions list if it is already present', async () => {
     mountComponent({ value: ['token', { type: 'unique', value: { data: 'something' } }] });
     activate(0);
 
-    return wrapper.vm.$nextTick().then(() => {
-      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
-      expect(suggestions.exists()).toBe(true);
-      expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
-    });
+    await wrapper.vm.$nextTick();
+
+    const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+    expect(suggestions.exists()).toBe(true);
+    expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
   });
 
-  it('correctly handles switching from one token to another', () => {
+  it('correctly handles switching from one token to another', async () => {
     mountComponent({ value: ['one two'] });
     activate(0);
-    return wrapper.vm
-      .$nextTick()
-      .then(() => {
-        activate(1);
-        return wrapper.vm.$nextTick();
-      })
-      .then(() => {
-        expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(
-          true
-        );
-      });
-  });
 
-  it('correctly switches focus on token destroy', () => {
-    mountComponent({ value: ['one t three'] });
+    await wrapper.vm.$nextTick();
+
     activate(1);
-    return wrapper.vm
-      .$nextTick()
-      .then(() => {
-        // Unfortunately backspace is not working in JSDOM
-        wrapper.findAllComponents(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
-        return wrapper.vm.$nextTick();
-      })
-      .then(() => {
-        expect(document.activeElement).toBe(
-          wrapper.find(GlFilteredSearchTerm).find('input').element
-        );
-      });
+
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(true);
   });
 
-  it('clicking clear button clears component input', () => {
+  it('correctly switches focus on token destroy', async () => {
+    mountComponent({ value: ['one t three'] });
+    await wrapper.vm.$nextTick();
+
+    activate(1);
+
+    await wrapper.vm.$nextTick();
+
+    // Unfortunately backspace is not working in JSDOM
+    wrapper.findAllComponents(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
+
+    await wrapper.vm.$nextTick();
+
+    expect(document.activeElement).toBe(wrapper.find(GlFilteredSearchTerm).find('input').element);
+  });
+
+  it('clicking clear button clears component input', async () => {
     mountComponent({ value: ['one two three'] });
+    await wrapper.vm.$nextTick();
+
     wrapper
       .findAll('button')
       .filter((b) => b.attributes('name') === 'clear')
       .trigger('click');
-    return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(1);
-    });
+
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(1);
   });
 });
