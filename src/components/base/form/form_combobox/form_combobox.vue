@@ -21,6 +21,11 @@ export default {
       type: String,
       required: true,
     },
+    labelSrOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     tokenList: {
       type: Array,
       required: true,
@@ -135,7 +140,7 @@ export default {
     :aria-owns="suggestionsId"
     :aria-expanded="ariaExpanded"
   >
-    <gl-form-group :label="labelText" :label-for="inputId">
+    <gl-form-group :label="labelText" :label-for="inputId" :label-sr-only="labelSrOnly">
       <gl-form-input
         :id="inputId"
         :value="value"
