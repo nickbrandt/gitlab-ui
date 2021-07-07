@@ -33,6 +33,9 @@ $label-close-button: '.gl-label-close.gl-button';
     &:hover {
       @include gl-reset-color;
       @include gl-shadow-none;
+      .gl-label-text-scoped {
+        @include gl-text-decoration-underline;
+      }
     }
   }
 
