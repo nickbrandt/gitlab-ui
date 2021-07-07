@@ -1,3 +1,10 @@
+## [30.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.2.1...v30.2.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Stop component mutating `value` prop ([5ff7bdb](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ff7bdb35764686e7400e526a023c7d6b785b2b1))
+
 ## [30.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.2.0...v30.2.1) (2021-07-05)
 
 
