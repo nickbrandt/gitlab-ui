@@ -1,3 +1,10 @@
+# [30.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.2.2...v30.3.0) (2021-07-07)
+
+
+### Features
+
+* Add props to allow adding and hiding labels ([05eb875](https://gitlab.com/gitlab-org/gitlab-ui/commit/05eb875c23d8cf1423652aab54c787b1cffa3fb4))
+
 ## [30.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.2.1...v30.2.2) (2021-07-07)
 
 
