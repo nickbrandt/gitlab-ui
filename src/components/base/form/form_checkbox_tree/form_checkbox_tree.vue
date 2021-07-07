@@ -56,6 +56,16 @@ export default {
       required: false,
       default: 'Unselect all',
     },
+    label: {
+      type: String,
+      required: false,
+      default: 'Checkbox tree',
+    },
+    labelSrOnly: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -78,7 +88,7 @@ export default {
 </script>
 
 <template>
-  <gl-form-group>
+  <gl-form-group :label="label" :label-sr-only="labelSrOnly">
     <gl-form-checkbox
       v-if="!hideToggleAll"
       class="gl-form-checkbox-tree-toggle-all"

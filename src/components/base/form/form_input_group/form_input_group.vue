@@ -27,6 +27,11 @@ export default {
       default: () => [{ value: '', name: '' }],
       validator: (options) => options.every((opt) => Object.keys(opt).includes('name', 'value')),
     },
+    label: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   data() {
     return {
@@ -69,6 +74,7 @@ export default {
           ref="input"
           v-model="localValue"
           class="gl-form-input"
+          :aria-label="label"
           v-bind="$attrs"
           v-on="$listeners"
           @click="handleClick"
