@@ -1,3 +1,10 @@
+# [31.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.0.1...v31.1.0) (2021-07-08)
+
+
+### Features
+
+* **css:** Add gl-left-50p utility class ([65dd918](https://gitlab.com/gitlab-org/gitlab-ui/commit/65dd91843375957a77723036bcceb1132f9c04f4))
+
 ## [31.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.0.0...v31.0.1) (2021-07-08)
 
 
