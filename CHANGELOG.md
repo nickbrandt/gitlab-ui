@@ -1,3 +1,10 @@
+## [31.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.0.0...v31.0.1) (2021-07-08)
+
+
+### Bug Fixes
+
+* **GlLabel:** Fix visibility of underline on hover and focus state ([790aa16](https://gitlab.com/gitlab-org/gitlab-ui/commit/790aa16f4308d59bd2b44bffa604c38c335aad32))
+
 # [31.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.3.0...v31.0.0) (2021-07-08)
 
 
