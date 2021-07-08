@@ -1,3 +1,23 @@
+# [31.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.3.0...v31.0.0) (2021-07-08)
+
+
+### Bug Fixes
+
+* **GlDrawer:** align title and close icon ([df09bfb](https://gitlab.com/gitlab-org/gitlab-ui/commit/df09bfbcdaec756f2a19c866da3a4cff7b13d2fb))
+
+
+### BREAKING CHANGES
+
+* **GlDrawer:** the header slot has been split up into two distinct
+slots:
+
+* The title slot should only contain the drawer's title.
+* The header slot can be used to display additional content below the
+  title.
+
+Usages of GlDrawer need to be updated to move the contents to the
+correct slots.
+
 # [30.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v30.2.2...v30.3.0) (2021-07-07)
 
 
