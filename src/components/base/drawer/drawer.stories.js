@@ -9,71 +9,73 @@ const components = {
   GlButton,
 };
 
+const drawerContent = [
+  'One',
+  'Two',
+  'Three',
+  'Four',
+  'Five',
+  'Six',
+  'Seven',
+  'Eight',
+  'Nine',
+  'Ten',
+]
+  .map(
+    (str) => `
+    <div>
+      <label class="gl-font-weight-bold">${str}</label>
+      <span>None</span>
+    </div>
+    `
+  )
+  .join('');
+
+const getStory = (template) => ({
+  methods: {
+    toggle() {
+      this.open = !this.open;
+    },
+    close() {
+      this.open = false;
+    },
+  },
+  data() {
+    return {
+      open: true,
+    };
+  },
+  components,
+  template,
+});
+
 documentedStoriesOf('base/drawer', readme)
   .addDecorator(withKnobs)
-  .add('default', () => ({
-    methods: {
-      toggle() {
-        this.open = !this.open;
-      },
-      close() {
-        this.open = false;
-      },
-    },
-    data() {
-      return {
-        open: true,
-      };
-    },
-    components,
-    template: `
-      <div>
-        <gl-button @click="toggle">Toggle Drawer</gl-button>
-        <gl-drawer :open="open" @close="close">
-          <template #header>List Settings</template>
-          <template>
-            <div>
-              <label class="gl-font-weight-bold">One</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Two</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Three</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Four</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Five</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Six</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Seven</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Eight</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Nine</label>
-              <span>None</span>
-            </div>
-            <div>
-              <label class="gl-font-weight-bold">Ten</label>
-              <span>None</span>
-            </div>
-          </template>
-        </gl-drawer>
-    </div>
-    `,
-  }));
+  .add('default', () =>
+    getStory(`
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      <gl-drawer :open="open" @close="close">
+        <template #title>List Settings</template>
+        ${drawerContent}
+      </gl-drawer>
+    </div>`)
+  )
+  .add('with actions', () =>
+    getStory(`
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      <gl-drawer :open="open" @close="close">
+        <template #title>
+          <h3>custom-network-policy</h3>
+        </template>
+        <template #header>
+          <div class="gl-mt-5">
+            <gl-button variant="confirm">Save</gl-button>
+            <gl-button class="gl-ml-3" @click="toggle">Cancel</gl-button>
+          </div>
+        </template>
+        ${drawerContent}
+      </gl-drawer>
+    </div>`)
+  );

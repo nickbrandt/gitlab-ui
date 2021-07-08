@@ -70,17 +70,18 @@ export default {
   <transition name="gl-drawer">
     <aside v-if="open" :style="drawerStyles" class="gl-drawer">
       <div class="gl-drawer-header">
-        <span>
-          <slot name="header"></slot>
+        <span class="gl-drawer-title">
+          <slot name="title"></slot>
+          <gl-button
+            category="tertiary"
+            size="small"
+            icon="close"
+            class="gl-drawer-close-button"
+            aria-label="Close drawer"
+            @click="$emit('close')"
+          />
         </span>
-        <gl-button
-          category="tertiary"
-          size="small"
-          icon="close"
-          class="gl-drawer-close-button"
-          aria-label="Close drawer"
-          @click="$emit('close')"
-        />
+        <slot name="header"></slot>
       </div>
       <div class="gl-drawer-body">
         <slot></slot>
