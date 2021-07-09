@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { forbiddenDataAttrs } from './constants';
 import safeHtml from './safe_html';
 
 describe('safe html directive', () => {
@@ -47,6 +48,28 @@ describe('safe html directive', () => {
       });
 
       expect(wrapper.html()).toEqual('<div>hello world</div>');
+    });
+
+    describe('handles data attributes correctly', () => {
+      const acceptedDataAttrs = ['data-safe', 'data-random'];
+
+      it.each(forbiddenDataAttrs)('removes %s attributes', (attr) => {
+        createComponent({
+          html: `<a ${attr}="true"></a>`,
+        });
+
+        expect(wrapper.html()).toEqual('<div><a></a></div>');
+      });
+
+      it.each(acceptedDataAttrs)('does not remove %s attributes', (attr) => {
+        const attrWithValue = `${attr}="true"`;
+
+        createComponent({
+          html: `<a ${attrWithValue}="true"></a>`,
+        });
+
+        expect(wrapper.html()).toEqual(`<div><a ${attrWithValue}></a></div>`);
+      });
     });
   });
 
