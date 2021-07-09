@@ -44,17 +44,21 @@ export default {
   },
   watch: {
     number() {
-      window.requestAnimationFrame(this.count);
+      this.animate();
     },
   },
   mounted() {
     if (this.animateOnMount) {
-      window.requestAnimationFrame(this.count);
+      this.animate();
     } else {
       this.displayNumber = this.number;
     }
   },
   methods: {
+    animate() {
+      this.$emit('animating');
+      window.requestAnimationFrame(this.count);
+    },
     count(timestamp) {
       if (!this.startTime) {
         this.startTime = timestamp;
@@ -71,6 +75,7 @@ export default {
       } else {
         this.displayNumber = this.number; // Ensures that the final number is accurate.
         this.startTime = null;
+        this.$emit('animated');
       }
     },
   },

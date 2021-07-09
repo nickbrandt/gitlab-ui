@@ -28,7 +28,6 @@ describe('GlSingleStat', () => {
 
   afterEach(() => {
     wrapper.destroy();
-    wrapper = null;
   });
 
   describe('displays the correct default data', () => {
@@ -64,10 +63,26 @@ describe('GlSingleStat', () => {
       ({ propValue, shouldUseAnimatedComponent }) => {
         createWrapper({ value: propValue, shouldAnimate: true });
 
-        const el = wrapper.find(GlAnimatedNumber);
+        const el = wrapper.findComponent(GlAnimatedNumber);
         expect(el.exists()).toBe(shouldUseAnimatedComponent);
       }
     );
+
+    describe('units visibility', () => {
+      it.each`
+        display    | event          | expected
+        ${'hides'} | ${'animating'} | ${true}
+        ${'shows'} | ${'animated'}  | ${false}
+      `('$display the units when $event', async ({ event, expected }) => {
+        createWrapper({ unit, shouldAnimate: true });
+
+        wrapper.findComponent(GlAnimatedNumber).vm.$emit(event);
+
+        await wrapper.vm.$nextTick();
+
+        expect(findIemByTestId('unit').classes('gl-opacity-0!')).toBe(expected);
+      });
+    });
   });
 
   describe('optional data', () => {
