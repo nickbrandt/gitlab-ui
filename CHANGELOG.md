@@ -1,3 +1,10 @@
+# [31.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.1.0...v31.2.0) (2021-07-09)
+
+
+### Features
+
+* **GlSafeHtml:** sanitize potentially dangerous data attributes ([e3cc94e](https://gitlab.com/gitlab-org/gitlab-ui/commit/e3cc94eea5e136a8e768a47e19d65e5ed03aaedc))
+
 # [31.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.0.1...v31.1.0) (2021-07-08)
 
 
