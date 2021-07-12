@@ -1,3 +1,10 @@
+# [31.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.2.0...v31.3.0) (2021-07-12)
+
+
+### Features
+
+* **GlSingleStat:** Fade units after animation ([41531ac](https://gitlab.com/gitlab-org/gitlab-ui/commit/41531ac1d661d5df9a9212417b650f652a846e7e))
+
 # [31.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.1.0...v31.2.0) (2021-07-09)
 
 
