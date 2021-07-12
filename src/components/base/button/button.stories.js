@@ -36,7 +36,7 @@ const generateProps = ({
   }),
 });
 
-const wrapDropdownButton = (template) => `<div class="gl-h-11">${template}<div>`;
+const wrapDropdownButton = (template) => `<div class="gl-h-11">${template}</div>`;
 
 export const Default = (args, { argTypes = {} }) => ({
   components,
@@ -90,10 +90,11 @@ export const IconButton = (args, { argTypes }) => ({
           :loading="loading"
           :selected="selected"
           icon="star-o"
+          aria-label="Star icon button"
         />
         <div class="gl-mt-3">
-          <gl-button icon="star-o" />
-          <gl-button size="small" icon="star-o" />
+          <gl-button icon="star-o" aria-label="Star icon button" />
+          <gl-button size="small" icon="star-o" aria-label="Star icon small button" />
         </div>
         <div class="gl-mt-3">
           <gl-button icon="star-o">Icon text</gl-button>
@@ -162,7 +163,7 @@ export const DropdownIconTextButton = (args, { argTypes }) => ({
       </gl-dropdown>
     `),
 });
-DropdownIconButton.args = generateProps();
+DropdownIconTextButton.args = generateProps();
 
 export const DropdownIconOnlyButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -366,8 +367,8 @@ export const AllVariantsAndCategories = (args, { argTypes = {} }) => ({
   },
   template: `
       <div :style="$options.style">
-        <template v-for="variant in $options.variants" :key="variant">
-          <div v-for="category in $options.categories">
+        <template v-for="variant in $options.variants">
+          <div v-for="category in $options.categories" :key="variant + category">
             <gl-button :key="category" :category="category" :variant="variant">
               {{ category }} {{ variant }}
             </gl-button>
@@ -424,7 +425,7 @@ export const Ellipsis = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
   components,
   template: `
-    <gl-button icon="ellipsis_h" />
+    <gl-button icon="ellipsis_h" aria-label="Ellipsis button" />
   `,
 });
 Ellipsis.parameters = { controls: { disabled: true } };
