@@ -3,6 +3,8 @@ import GlAnimatedNumber from './animated_number.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 
 const duration = 2000;
+const ACTION_ANIMATED = 'animated';
+const ACTION_ANIMATING = 'animating';
 
 describe('GlAnimatedNumber', () => {
   let wrapper;
@@ -16,6 +18,18 @@ describe('GlAnimatedNumber', () => {
         animateOnMount,
       },
     });
+  };
+
+  const runOutAnimationTimer = async () => {
+    const {
+      vm: { startTime },
+    } = wrapper;
+
+    wrapper.setData({
+      startTime: startTime - duration,
+    });
+
+    await waitForAnimationFrame();
   };
 
   it('renders the component', () => {
@@ -51,19 +65,9 @@ describe('GlAnimatedNumber', () => {
         it('displays the correct number when updated', async () => {
           await waitForAnimationFrame();
 
-          const {
-            vm: { startTime },
-          } = wrapper;
-
           await wrapper.setProps({ number: updatedNumber });
 
-          await wrapper.vm.$nextTick();
-
-          wrapper.setData({
-            startTime: startTime - duration,
-          });
-
-          await waitForAnimationFrame();
+          await runOutAnimationTimer();
 
           expect(wrapper.text()).toBe(expectedInitialOnUpdate);
         });
@@ -86,20 +90,32 @@ describe('GlAnimatedNumber', () => {
       });
 
       it('displays the correct end number', async () => {
-        await waitForAnimationFrame();
-
-        const {
-          vm: { startTime },
-        } = wrapper;
-
-        wrapper.setData({
-          startTime: startTime - duration,
-        });
-
-        await waitForAnimationFrame();
+        await runOutAnimationTimer();
 
         expect(wrapper.text()).toBe(`${number}`);
       });
+    });
+  });
+
+  describe('animation event emissions', () => {
+    beforeEach(() => {
+      createComponent({ animateOnMount: true });
+    });
+
+    it(`emits ${ACTION_ANIMATING} when the animation starts`, () => {
+      expect(wrapper.emitted(ACTION_ANIMATING)).toHaveLength(1);
+    });
+
+    it(`emits ${ACTION_ANIMATED} when the animation completes`, async () => {
+      expect(wrapper.emitted(ACTION_ANIMATED)).toBeUndefined();
+
+      await waitForAnimationFrame();
+
+      expect(wrapper.emitted(ACTION_ANIMATED)).toBeUndefined();
+
+      await runOutAnimationTimer();
+
+      expect(wrapper.emitted(ACTION_ANIMATED)).toHaveLength(1);
     });
   });
 });
