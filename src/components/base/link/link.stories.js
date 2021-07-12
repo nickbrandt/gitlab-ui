@@ -2,9 +2,7 @@ import { GlLink } from '../../../../index';
 import { targetOptions } from '../../../utils/constants';
 import readme from './link.md';
 
-const defaultValue = (prop) => GlLink.props[prop].default;
-
-const generateProps = ({ href = '#', target = defaultValue('target') } = {}) => ({
+const generateProps = ({ href = '#', target = null } = {}) => ({
   href,
   target,
 });
