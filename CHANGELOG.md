@@ -1,3 +1,10 @@
+## [31.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.4.0...v31.4.1) (2021-07-13)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Revert "Stop component mutating `value` prop" ([b8940c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/b8940c934cabdca5ad8191fea1f0b04f5cd80dca))
+
 # [31.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.3.0...v31.4.0) (2021-07-13)
 
 
