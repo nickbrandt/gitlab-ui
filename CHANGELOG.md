@@ -1,3 +1,10 @@
+# [31.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.3.0...v31.4.0) (2021-07-13)
+
+
+### Features
+
+* **css:** Add gl-text-theme-indigo-900 mixin ([ef53398](https://gitlab.com/gitlab-org/gitlab-ui/commit/ef53398080927a0083a9006fec820c9666e352dc))
+
 # [31.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.2.0...v31.3.0) (2021-07-12)
 
 
