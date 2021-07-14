@@ -1,3 +1,10 @@
+# [31.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.4.1...v31.5.0) (2021-07-14)
+
+
+### Features
+
+* **css:** Add padding size to utility class ([c40101e](https://gitlab.com/gitlab-org/gitlab-ui/commit/c40101e692d13ce5f1885ca7c1c1098d943ae39d))
+
 ## [31.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.4.0...v31.4.1) (2021-07-13)
 
 
