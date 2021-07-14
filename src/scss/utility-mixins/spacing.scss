@@ -318,6 +318,11 @@
   padding-bottom: $gl-spacing-scale-7;
 }
 
+@mixin gl-py-13 {
+  padding-top: $gl-spacing-scale-13;
+  padding-bottom: $gl-spacing-scale-13;
+}
+
 /**
 * Margin utilities.
 *
