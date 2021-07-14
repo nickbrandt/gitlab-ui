@@ -5,9 +5,8 @@ import { configureReadme } from 'storybook-readme';
 
 import 'url-search-params-polyfill';
 
-import { GlExampleExplorer, GlComponentDocumentation } from '../documentation';
-
 import { componentValidator as isValidComponent } from './all_components';
+import { GlExampleExplorer, GlComponentDocumentation } from './index';
 
 /**
  * This functions returns the component's name from the current window location's search
